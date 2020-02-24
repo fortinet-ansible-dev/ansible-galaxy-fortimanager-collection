@@ -49,7 +49,7 @@ dependencies: {}
 repository: https://github.com/fortinet-ansible-dev/ansible-galaxy-fortimanager-collection
 
 # The URL to any online docs
-documentation: http://chillancezen.github.io
+documentation: https://ansible-galaxy-fortimanager-docs.readthedocs.io/en/galaxy-1.0.0
 
 # The URL to the homepage of the collection/project
 homepage: https://fortinet.com
