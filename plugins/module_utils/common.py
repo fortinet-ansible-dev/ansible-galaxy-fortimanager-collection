@@ -490,7 +490,7 @@ class FMGRCommon(object):
                 url_global_domain = _url
             else:
                 url_no_domain = _url
-        if 'adom' not in url_params:
+        if not url_params or 'adom' not in url_params:
             url_format = url_no_domain
         elif url_params['adom'] == 'global':
             url_format = url_global_domain
