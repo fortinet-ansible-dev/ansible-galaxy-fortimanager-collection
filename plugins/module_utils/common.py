@@ -484,7 +484,7 @@ class FMGRCommon(object):
         url_no_domain = None
         url_format = None
         for _url in jrpc_urls:
-            if '/adom/{adom}/' in _url:
+            if '/adom/{adom}/' in _url or _url.endswith('/adom/{adom}'):
                 url_custom_domain = _url
             elif '/global/' in _url:
                 url_global_domain = _url
