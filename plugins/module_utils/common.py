@@ -421,13 +421,12 @@ class FMGRCommon(object):
             else:
                 return
 
-        # if there are multiple urls, adom must be there in params.
-        if not raw_url_params or 'adom' not in raw_url_params:
-            raise FMGBaseException('the param \'adom\' is expected in url params')
         url_schema = list()
         url_params = dict()
+        adom_value = 'none'
+        if 'adom' in adom_value:
+            adom_value = raw_url_params['adom'].lower()
 
-        adom_value = raw_url_params['adom'].lower()
         if adom_value == 'none' or adom_value == 'global':
             for item in raw_url_schema:
                 if item['name'] == 'adom':
