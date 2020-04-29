@@ -362,7 +362,7 @@ class HttpApi(HttpApiBase):
             url = "/dvmdb/adom/root/workspace/commit"
         return self.send_request(FMGRMethods.EXEC, self._tools.format_request(FMGRMethods.EXEC, url))
 
-	def get_lock_info(self, adom=None):
+    def get_lock_info(self, adom=None):
         """
         Gets ADOM lock info so it can be displayed with the error messages. Or if determined to be locked by ansible
         for some reason, then unlock it.
