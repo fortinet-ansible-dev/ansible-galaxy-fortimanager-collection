@@ -59,6 +59,10 @@ class FortiManagerHandler(object):
         self._conn = conn
         self._module = module
         self._tools = FMGRCommon
+        self.process_workspace_lock()
+
+    def process_workspace_lock(self):
+        self._conn.process_workspace_locking(self._module.params)
 
     def process_request(self, url, datagram, method):
         """

@@ -33,6 +33,7 @@ version_added: "2.8"
 
 """
 
+import time
 import json
 import traceback
 from ansible.plugins.httpapi import HttpApiBase
@@ -59,12 +60,14 @@ class HttpApi(HttpApiBase):
         self._last_url = None
         self._last_response_raw = None
         self._locked_adom_list = list()
-        self._locked_adoms_by_user = list()
+        self._locked_adoms_by_user = dict()
         self._uses_workspace = False
         self._uses_adoms = False
         self._adom_list = list()
         self._logged_in_user = None
+        self._logged = False
         self._log = open("/tmp/fortimanager.ansible.log", "a")
+        self._prelocking_user_params = list()
 
     def log(self, msg):
         log_message = str(datetime.now())
@@ -106,7 +109,9 @@ class HttpApi(HttpApiBase):
         if "FortiManager object connected to FortiManager" in self.__str__():
             # If Login worked, then inspect the FortiManager for Workspace Mode, and it's system information.
             self.inspect_fmgr()
-            return
+            self._logged = True
+            for param in self._prelocking_user_params:
+                self.process_workspace_locking_internal(param)
         else:
             raise FMGBaseException(msg="Unknown error while logging in...connection was lost during login operation...."
                                        " Exiting")
@@ -137,10 +142,11 @@ class HttpApi(HttpApiBase):
         """
         This function will logout of the FortiManager.
         """
-        if self.sid is not None:
+        self.log("log out, user: %s sid: %s" % (self._logged_in_user, self.sid))
+        if self.sid:
             # IF WE WERE USING WORKSPACES, THEN CLEAN UP OUR LOCKS IF THEY STILL EXIST
             if self._uses_workspace:
-                self.get_lock_info()
+                #self.get_lock_info()
                 self.run_unlock()
             ret_code, response = self.send_request(FMGRMethods.EXEC,
                                                    self._tools.format_request(FMGRMethods.EXEC, "sys/logout"))
@@ -232,6 +238,51 @@ class HttpApi(HttpApiBase):
         status = self.send_request(FMGRMethods.GET, self._tools.format_request(FMGRMethods.GET, "sys/status"))
         return status
 
+    def process_workspace_locking_internal(self, param):
+        if not self._uses_workspace or not self.sid:
+            return
+        if 'worksapce_locking_adom' not in param or not param['worksapce_locking_adom']:
+            # The FortiManager is running in workspace mode, please `worksapce_locking_adom` in your playbook
+            # FIXME:by default, users have to know whether their fmg devices are running in worksapce mode and
+            # specify the paramters in plaubook, we will find a better way to notify the users of this error
+            return
+        adom_to_lock = param['worksapce_locking_adom']
+        adom_to_lock_timeout = param['worksapce_locking_timeout']
+        self.log('trying to acquire lock for adom: %s within %s seconds by user: %s' % (
+                 adom_to_lock,
+                 adom_to_lock_timeout,
+                 self._logged_in_user))
+        if adom_to_lock in self._locked_adoms_by_user and self._locked_adoms_by_user[adom_to_lock] == self._logged_in_user:
+            self.log('adom: %s has already been acquired by user: %s' % (adom_to_lock, self._logged_in_user))
+        elif adom_to_lock in self._locked_adoms_by_user and self._locked_adoms_by_user[adom_to_lock] != self._logged_in_user:
+            total_wait_time = 0
+            while total_wait_time < adom_to_lock_timeout:
+                code, _ = self.lock_adom(adom_to_lock)
+                self.log("waiting adom:%s lock to be released by %s, total time spent:%s seconds status:%s" %(
+                         adom_to_lock,
+                         self._locked_adoms_by_user[adom_to_lock],
+                         total_wait_time,
+                         "success" if code == 0 else "failure"))
+                if code == 0:
+                    self._locked_adoms_by_user[adom_to_lock] = self._logged_in_user
+                    break
+                time.sleep(5)
+                total_wait_time += 5
+        else:
+            code, _ = self.lock_adom(adom_to_lock)
+            self.log('adom:%s locked by user: %s status:%s' % (adom_to_lock, self._logged_in_user, "success" if code == 0 else "failure"))
+            if code == 0:
+                self._locked_adoms_by_user[adom_to_lock] = self._logged_in_user
+
+    def process_workspace_locking(self, param):
+        # XXX:defer the lock acquisition process after login is done
+        # it requires that the first task specify the workspace locking adom
+        # if it's really executed in lock context
+        if not self._logged:
+            self._prelocking_user_params.append(param)
+        else:
+            self.process_workspace_locking_internal(param)
+
     @property
     def debug(self):
         return self._debug
@@ -320,9 +371,11 @@ class HttpApi(HttpApiBase):
         """
         Checks for ADOM status, if locked, it will unlock
         """
+        self.log('unlock adom entry: %s ' %s (self._locked_adoms_by_user))
         for adom_locked in self._locked_adoms_by_user:
-            adom = adom_locked["adom"]
-            self.unlock_adom(adom)
+            self.log('unlock adom: %s begin' %s (adom_locked))
+            self.unlock_adom(adom_locked)
+            self.log('unlock adom: %s' %s (adom_locked))
 
 
     def lock_adom(self, adom=None, *args, **kwargs):
@@ -429,7 +482,7 @@ class HttpApi(HttpApiBase):
         """
         try:
             locked_list = list()
-            locked_by_user_list = list()
+            locked_by_user_list = dict()
             for adom in self._adom_list:
                 adom_lock_info = self.get_lock_info(adom=adom)
                 self.log('lockinfo for adom:%s' % (adom))
@@ -440,8 +493,7 @@ class HttpApi(HttpApiBase):
                 if 'data' not in adom_lock_info[1]:
                     continue
                 locked_list.append(to_text(adom))
-                locked_by_user_list.append({'adom': to_text(adom),
-                                            'user': to_text(adom_lock_info[1]['data'][0]['lock_user'])})
+                locked_by_user_list[to_text(adom)] = to_text(adom_lock_info[1]['data'][0]['lock_user'])
 
             self._locked_adom_list = locked_list
             self._locked_adoms_by_user = locked_by_user_list
