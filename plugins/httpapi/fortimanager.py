@@ -71,7 +71,7 @@ class HttpApi(HttpApiBase):
 
     def log(self, msg):
         log_message = str(datetime.now())
-        log_message += ":" + str(msg) + '\n'
+        log_message += ": " + str(msg) + '\n'
         self._log.write(log_message)
         self._log.flush()
 
@@ -142,7 +142,10 @@ class HttpApi(HttpApiBase):
         """
         This function will logout of the FortiManager.
         """
-        self.log("log out, user: %s sid: %s" % (self._logged_in_user, self.sid))
+        self.log("log out, using workspace:%s user: %s sid: %s" % (
+                 self._uses_workspace,
+                 self._logged_in_user,
+                 self.sid))
         if self.sid:
             # IF WE WERE USING WORKSPACES, THEN CLEAN UP OUR LOCKS IF THEY STILL EXIST
             if self._uses_workspace:
@@ -253,6 +256,9 @@ class HttpApi(HttpApiBase):
                  adom_to_lock_timeout,
                  self._logged_in_user))
         if adom_to_lock in self._locked_adoms_by_user and self._locked_adoms_by_user[adom_to_lock] == self._logged_in_user:
+            #XXX: here is a situation where user can still has no permission to access resources:
+            #indeed the worksapce lock is acquired by the user himself, but the lock is not
+            #associated with this session.
             self.log('adom: %s has already been acquired by user: %s' % (adom_to_lock, self._logged_in_user))
         elif adom_to_lock in self._locked_adoms_by_user and self._locked_adoms_by_user[adom_to_lock] != self._logged_in_user:
             total_wait_time = 0
@@ -371,11 +377,11 @@ class HttpApi(HttpApiBase):
         """
         Checks for ADOM status, if locked, it will unlock
         """
-        self.log('unlock adom entry: %s ' %s (self._locked_adoms_by_user))
         for adom_locked in self._locked_adoms_by_user:
-            self.log('unlock adom: %s begin' %s (adom_locked))
-            self.unlock_adom(adom_locked)
-            self.log('unlock adom: %s' %s (adom_locked))
+            locked_user = self._locked_adoms_by_user[adom_locked]
+            if locked_user == self._logged_in_user:
+                self.unlock_adom(adom_locked)
+                self.log('unlock adom: %s with session_id:%s' % (adom_locked, self.sid))
 
 
     def lock_adom(self, adom=None, *args, **kwargs):
