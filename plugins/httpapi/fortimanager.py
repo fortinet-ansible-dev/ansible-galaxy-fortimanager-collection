@@ -244,13 +244,13 @@ class HttpApi(HttpApiBase):
     def process_workspace_locking_internal(self, param):
         if not self._uses_workspace or not self.sid:
             return
-        if 'worksapce_locking_adom' not in param or not param['worksapce_locking_adom']:
-            # The FortiManager is running in workspace mode, please `worksapce_locking_adom` in your playbook
+        if 'workspace_locking_adom' not in param or not param['workspace_locking_adom']:
+            # The FortiManager is running in workspace mode, please `workspace_locking_adom` in your playbook
             # FIXME:by default, users have to know whether their fmg devices are running in worksapce mode and
             # specify the paramters in plaubook, we will find a better way to notify the users of this error
             return
-        adom_to_lock = param['worksapce_locking_adom']
-        adom_to_lock_timeout = param['worksapce_locking_timeout']
+        adom_to_lock = param['workspace_locking_adom']
+        adom_to_lock_timeout = param['workspace_locking_timeout']
         self.log('trying to acquire lock for adom: %s within %s seconds by user: %s' % (
                  adom_to_lock,
                  adom_to_lock_timeout,
