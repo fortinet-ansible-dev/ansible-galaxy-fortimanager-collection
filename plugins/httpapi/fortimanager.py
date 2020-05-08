@@ -44,6 +44,7 @@ from ansible_collections.fortinet.fortimanager.plugins.module_utils.common impor
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import FMGRMethods
 from datetime import datetime
 
+
 class HttpApi(HttpApiBase):
     def __init__(self, connection):
         super(HttpApi, self).__init__(connection)
@@ -135,7 +136,7 @@ class HttpApi(HttpApiBase):
                 self._connected_fmgr = status[1]
                 self._host = self._connected_fmgr['data']["Hostname"]
             except Exception as e:
-                self.log('inspect_fmgr exception: %s' %(e))
+                self.log('inspect_fmgr exception: %s' % (e))
                 self.log(traceback.format_exc())
 
     def logout(self):
@@ -149,7 +150,7 @@ class HttpApi(HttpApiBase):
         if self.sid:
             # IF WE WERE USING WORKSPACES, THEN CLEAN UP OUR LOCKS IF THEY STILL EXIST
             if self._uses_workspace:
-                #self.get_lock_info()
+                # self.get_lock_info()
                 self.run_unlock()
             ret_code, response = self.send_request(FMGRMethods.EXEC,
                                                    self._tools.format_request(FMGRMethods.EXEC, "sys/logout"))
@@ -256,15 +257,15 @@ class HttpApi(HttpApiBase):
                  adom_to_lock_timeout,
                  self._logged_in_user))
         if adom_to_lock in self._locked_adoms_by_user and self._locked_adoms_by_user[adom_to_lock] == self._logged_in_user:
-            #XXX: here is a situation where user can still has no permission to access resources:
-            #indeed the worksapce lock is acquired by the user himself, but the lock is not
-            #associated with this session.
+            # XXX: here is a situation where user can still has no permission to access resources:
+            # indeed the worksapce lock is acquired by the user himself, but the lock is not
+            # associated with this session.
             self.log('adom: %s has already been acquired by user: %s' % (adom_to_lock, self._logged_in_user))
         elif adom_to_lock in self._locked_adoms_by_user and self._locked_adoms_by_user[adom_to_lock] != self._logged_in_user:
             total_wait_time = 0
             while total_wait_time < adom_to_lock_timeout:
                 code, _ = self.lock_adom(adom_to_lock)
-                self.log("waiting adom:%s lock to be released by %s, total time spent:%s seconds status:%s" %(
+                self.log("waiting adom:%s lock to be released by %s, total time spent:%s seconds status:%s" % (
                          adom_to_lock,
                          self._locked_adoms_by_user[adom_to_lock],
                          total_wait_time,
@@ -382,7 +383,6 @@ class HttpApi(HttpApiBase):
             if locked_user == self._logged_in_user:
                 self.unlock_adom(adom_locked)
                 self.log('unlock adom: %s with session_id:%s' % (adom_locked, self.sid))
-
 
     def lock_adom(self, adom=None, *args, **kwargs):
         """
@@ -509,7 +509,7 @@ class HttpApi(HttpApiBase):
         except Exception as err:
             raise FMGBaseException(msg=("An error occurred while trying to get the locked adom list. Error: "
                                         + to_text(err)))
- 
+
     ################################
     # END DATABASE LOCK CONTEXT CODE
     ################################

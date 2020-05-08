@@ -284,7 +284,9 @@ class FMGRCommon(object):
                 return self._report_schema_violation(param, schema, 'unrecognized failure')
             for discrete_param_key in param:
                 discrete_param_value = param[discrete_param_key]
-                if discrete_param_key not in schema and (len(schema) != 1 or not list(schema.keys())[0].startswith('{') or not list(schema.keys())[0].endswith('}')):
+                if discrete_param_key not in schema and (len(schema) != 1 or
+                   not list(schema.keys())[0].startswith('{') or
+                   not list(schema.keys())[0].endswith('}')):
                     return self._report_schema_violation(discrete_param_key, schema, 'no available schema found')
                 per_param_schema = schema[list(schema.keys())[0]]
                 if discrete_param_key in schema:

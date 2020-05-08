@@ -633,7 +633,7 @@ def main():
     if module._socket_path:
         connection = Connection(module._socket_path)
         tools = FMGRCommon()
-        if loose_validation == False:
+        if loose_validation is False:
             tools.validate_module_params(module, body_schema)
         tools.validate_module_url_params(module, jrpc_urls, url_schema)
         full_url = tools.get_full_url_path(module, jrpc_urls)
