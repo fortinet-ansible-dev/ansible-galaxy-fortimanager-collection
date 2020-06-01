@@ -46,120 +46,44 @@ notes:
       a trivial transformation when we are filling the ansible playbook
 options:
     loose_validation:
-        description: Do parameter validation in a loose way
-        required: False
+        description:
+          - Do parameter validation in a loose way
         type: bool
-        default: false
+        required: false
     workspace_locking_adom:
-        description: the adom to lock in case FortiManager running in workspace mode
-        required: False
-        type: string
-        choices:
-          - global
-          - custom adom
+        description:
+          - the adom name to lock in case FortiManager running in workspace mode
+          - it can be global or any other custom adom names
+        required: false
+        type: str
     workspace_locking_timeout:
-        description: the maximum time in seconds to wait for other user to release the workspace lock
-        required: False
-        type: integer
+        description:
+          - the maximum time in seconds to wait for other user to release the workspace lock
+        required: false
+        type: int
         default: 300
+    method:
+        description:
+          - The method in request
+        required: true
+        type: str
+        choices:
+          - add
+          - get
+          - set
+          - update
+    params:
+        description:
+          - The parameters for each method
+          - See full parameters list in https://ansible-galaxy-fortimanager-docs.readthedocs.io/en/latest
+        type: list
+        required: false
     url_params:
-        description: the parameters in url path
-        required: True
+        description:
+          - The parameters for each API request URL
+          - Also see full URL parameters in https://ansible-galaxy-fortimanager-docs.readthedocs.io/en/latest
+        required: false
         type: dict
-        suboptions:
-            adom:
-                type: str
-                description: the domain prefix, the none and global are reserved
-                choices:
-                  - none
-                  - global
-                  - custom dom
-    schema_object0:
-        methods: [add, set, update]
-        description: 'Device group table.'
-        api_categories: [api_tag0]
-        api_tag0:
-            data:
-                -
-                    desc:
-                        type: str
-                    meta fields:
-                        type: str
-                    name:
-                        type: str
-                    os_type:
-                        type: str
-                        default: 'unknown'
-                        choices:
-                            - 'unknown'
-                            - 'fos'
-                            - 'fsw'
-                            - 'foc'
-                            - 'fml'
-                            - 'faz'
-                            - 'fwb'
-                            - 'fch'
-                            - 'fct'
-                            - 'log'
-                            - 'fmg'
-                            - 'fsa'
-                            - 'fdd'
-                            - 'fac'
-                            - 'fpx'
-                    type:
-                        type: str
-                        default: 'normal'
-                        choices:
-                            - 'normal'
-                            - 'default'
-                            - 'auto'
-    schema_object1:
-        methods: [get]
-        description: 'Device group table.'
-        api_categories: [api_tag0]
-        api_tag0:
-            expand member:
-                type: str
-                description: 'Fetch all or selected attributes of object members.'
-            fields:
-                -
-                    -
-                        type: str
-                        choices:
-                            - 'desc'
-                            - 'name'
-                            - 'os_type'
-                            - 'type'
-            filter:
-                -
-                    type: str
-            loadsub:
-                type: int
-                description: 'Enable or disable the return of any sub-objects. If not specified, the default is to return all sub-objects.'
-            meta fields:
-                -
-                    type: str
-            option:
-                type: str
-                description:
-                 - 'Set fetch option for the request. If no option is specified, by default the attributes of the objects will be returned.'
-                 - 'count - Return the number of matching entries instead of the actual entry data.'
-                 - 'object member - Return a list of object members along with other attributes.'
-                 - 'syntax - Return the attribute syntax of a table or an object, instead of the actual entry data. All filter parameters will be ignored.'
-                choices:
-                    - 'count'
-                    - 'object member'
-                    - 'syntax'
-            range:
-                -
-                    type: int
-            sortings:
-                -
-                    varidic.attr_name:
-                        type: int
-                        choices:
-                            - 1
-                            - -1
 
 '''
 
@@ -189,8 +113,8 @@ EXAMPLES = '''
                      desc: <value of string>
                      meta fields: <value of string>
                      name: <value of string>
-                     os_type: <value in [unknown, fos, fsw, ...] default: 'unknown'>
-                     type: <value in [normal, default, auto] default: 'normal'>
+                     os_type: <value in [unknown, fos, fsw, ...]>
+                     type: <value in [normal, default, auto]>
 
     - name: REQUESTING /DVMDB/GROUP
       fmgr_dvmdb_group:
@@ -221,51 +145,19 @@ EXAMPLES = '''
 '''
 
 RETURN = '''
-return_of_api_category_0:
-   description: items returned for method:[add, set, update]
-   returned: always
-   suboptions:
-      id:
-         type: int
-      result:
-         status:
-            code:
-               type: int
-            message:
-               type: str
-         url:
-            type: str
-            example: '/dvmdb/adom/{adom}/group'
-return_of_api_category_0:
-   description: items returned for method:[get]
-   returned: always
-   suboptions:
-      id:
-         type: int
-      result:
-         data:
-            type: array
-            suboptions:
-               desc:
-                  type: str
-               meta fields:
-                  type: str
-               name:
-                  type: str
-               os_type:
-                  type: str
-                  example: 'unknown'
-               type:
-                  type: str
-                  example: 'normal'
-         status:
-            code:
-               type: int
-            message:
-               type: str
-         url:
-            type: str
-            example: '/dvmdb/adom/{adom}/group'
+url:
+    description: The full url requested
+    returned: always
+    type: str
+    sample: /sys/login/user
+status:
+    description: The status of api request
+    returned: always
+    type: dict
+data:
+    description: The payload returned in the request
+    type: dict
+    returned: always
 
 '''
 from ansible.module_utils.basic import AnsibleModule

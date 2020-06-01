@@ -47,181 +47,45 @@ notes:
       a trivial transformation when we are filling the ansible playbook
 options:
     loose_validation:
-        description: Do parameter validation in a loose way
-        required: False
+        description:
+          - Do parameter validation in a loose way
         type: bool
-        default: false
+        required: false
     workspace_locking_adom:
-        description: the adom to lock in case FortiManager running in workspace mode
-        required: False
-        type: string
-        choices:
-          - global
-          - custom adom
+        description:
+          - the adom name to lock in case FortiManager running in workspace mode
+          - it can be global or any other custom adom names
+        required: false
+        type: str
     workspace_locking_timeout:
-        description: the maximum time in seconds to wait for other user to release the workspace lock
-        required: False
-        type: integer
+        description:
+          - the maximum time in seconds to wait for other user to release the workspace lock
+        required: false
+        type: int
         default: 300
+    method:
+        description:
+          - The method in request
+        required: true
+        type: str
+        choices:
+          - delete
+          - get
+          - set
+          - update
+          - add
+    params:
+        description:
+          - The parameters for each method
+          - See full parameters list in https://ansible-galaxy-fortimanager-docs.readthedocs.io/en/latest
+        type: list
+        required: false
     url_params:
-        description: the parameters in url path
-        required: True
+        description:
+          - The parameters for each API request URL
+          - Also see full URL parameters in https://ansible-galaxy-fortimanager-docs.readthedocs.io/en/latest
+        required: false
         type: dict
-        suboptions:
-            adom:
-                type: str
-                description: the domain prefix, the none and global are reserved
-                choices:
-                  - none
-                  - global
-                  - custom dom
-            script:
-                type: str
-    schema_object0:
-        methods: [delete]
-        description: 'Script table.'
-        api_categories: [api_tag0, api_tag1]
-        api_tag0:
-        api_tag1:
-            data:
-                -
-                    name:
-                        type: str
-                    vdom:
-                        type: str
-    schema_object1:
-        methods: [get]
-        description: 'Script table.'
-        api_categories: [api_tag0]
-        api_tag0:
-            option:
-                type: str
-                description:
-                 - 'Set fetch option for the request. If no option is specified, by default the attributes of the object will be returned.'
-                 - 'object member - Return a list of object members along with other attributes.'
-                 - 'chksum - Return the check-sum value instead of attributes.'
-                choices:
-                    - 'object member'
-                    - 'chksum'
-    schema_object2:
-        methods: [set, update]
-        description: 'Script table.'
-        api_categories: [api_tag0, api_tag1]
-        api_tag0:
-            data:
-                content:
-                    type: str
-                    description: 'The full content of the script result log.'
-                desc:
-                    type: str
-                filter_build:
-                    type: int
-                    description: 'The value will be ignored in add/set/update requests if filter_ostype is not set. It has no effect if target is "adom_data...'
-                filter_device:
-                    type: int
-                    description: 'Name or id of an existing device in the database. It has no effect if target is "adom_database".'
-                filter_hostname:
-                    type: str
-                    description: 'The value has no effect if target is "adom_database".'
-                filter_ostype:
-                    type: str
-                    default: 'unknown'
-                    description: 'The value has no effect if target is "adom_database".'
-                    choices:
-                        - 'unknown'
-                        - 'fos'
-                filter_osver:
-                    type: str
-                    default: 'unknown'
-                    description: 'The value will be ignored in add/set/update requests if filter_ostype is not set. It has no effect if target is "adom_data...'
-                    choices:
-                        - 'unknown'
-                        - '4.00'
-                        - '5.00'
-                filter_platform:
-                    type: str
-                    description: 'The value will be ignored in add/set/update requests if filter_ostype is not set. It has no effect if target is "adom_data...'
-                filter_serial:
-                    type: str
-                    description: 'The value has no effect if target is "adom_database".'
-                modification_time:
-                    type: str
-                    description: 'It is a read-only attribute indicating the time when the script was created or modified. The value will be ignored in add/...'
-                name:
-                    type: str
-                script_schedule:
-                    -
-                        datetime:
-                            type: str
-                            description:
-                             - 'Indicates the date and time of the schedule. It should follow the following format for each scheduling type:'
-                             - 'onetime: "YYYY-MM-DD hh:mm:ss"'
-                             - 'daily: "hh:mm"'
-                             - 'weekly: "hh:mm"'
-                             - 'monthly: "DD hh:mm"'
-                        day_of_week:
-                            type: str
-                            default: 'sun'
-                            choices:
-                                - 'unknown'
-                                - 'sun'
-                                - 'mon'
-                                - 'tue'
-                                - 'wed'
-                                - 'thu'
-                                - 'fri'
-                                - 'sat'
-                        device:
-                            type: int
-                            description: 'Name or id of an existing device in the database.'
-                        name:
-                            type: str
-                        run_on_db:
-                            type: str
-                            default: 'disable'
-                            description: 'Indicates if the scheduled script should be executed on device database. It should always be disable for tcl scripts.'
-                            choices:
-                                - 'disable'
-                                - 'enable'
-                        type:
-                            type: str
-                            choices:
-                                - 'auto'
-                                - 'onetime'
-                                - 'daily'
-                                - 'weekly'
-                                - 'monthly'
-                target:
-                    type: str
-                    default: 'device_database'
-                    choices:
-                        - 'device_database'
-                        - 'remote_device'
-                        - 'adom_database'
-                type:
-                    type: str
-                    choices:
-                        - 'cli'
-                        - 'tcl'
-                        - 'cligrp'
-        api_tag1:
-            data:
-                -
-                    name:
-                        type: str
-                    vdom:
-                        type: str
-    schema_object3:
-        methods: [add]
-        description: 'Script table.'
-        api_categories: [api_tag0]
-        api_tag0:
-            data:
-                -
-                    name:
-                        type: str
-                    vdom:
-                        type: str
 
 '''
 
@@ -282,8 +146,8 @@ EXAMPLES = '''
                   filter_build: <value of integer>
                   filter_device: <value of integer>
                   filter_hostname: <value of string>
-                  filter_ostype: <value in [unknown, fos] default: 'unknown'>
-                  filter_osver: <value in [unknown, 4.00, 5.00] default: 'unknown'>
+                  filter_ostype: <value in [unknown, fos]>
+                  filter_osver: <value in [unknown, 4.00, 5.00]>
                   filter_platform: <value of string>
                   filter_serial: <value of string>
                   modification_time: <value of string>
@@ -291,12 +155,12 @@ EXAMPLES = '''
                   script_schedule:
                     -
                         datetime: <value of string>
-                        day_of_week: <value in [unknown, sun, mon, ...] default: 'sun'>
+                        day_of_week: <value in [unknown, sun, mon, ...]>
                         device: <value of integer>
                         name: <value of string>
-                        run_on_db: <value in [disable, enable] default: 'disable'>
+                        run_on_db: <value in [disable, enable]>
                         type: <value in [auto, onetime, daily, ...]>
-                  target: <value in [device_database, remote_device, adom_database] default: 'device_database'>
+                  target: <value in [device_database, remote_device, adom_database]>
                   type: <value in [cli, tcl, cligrp]>
 
     - name: REQUESTING /DVMDB/SCRIPT/{SCRIPT}
@@ -334,130 +198,19 @@ EXAMPLES = '''
 '''
 
 RETURN = '''
-return_of_api_category_0:
-   description: items returned for method:[delete, set, update]
-   returned: always
-   suboptions:
-      id:
-         type: int
-      result:
-         status:
-            code:
-               type: int
-            message:
-               type: str
-         url:
-            type: str
-            example: '/dvmdb/adom/{adom}/script/{script}'
-return_of_api_category_1:
-   description: items returned for method:[delete, set, update]
-   returned: always
-   suboptions:
-      id:
-         type: int
-      result:
-         status:
-            code:
-               type: int
-            message:
-               type: str
-         url:
-            type: str
-            example: '/dvmdb/adom/{adom}/script/{script}'
-return_of_api_category_0:
-   description: items returned for method:[get]
-   returned: always
-   suboptions:
-      id:
-         type: int
-      result:
-         data:
-            content:
-               type: str
-               description: 'The full content of the script result log.'
-            desc:
-               type: str
-            filter_build:
-               type: int
-               description: 'The value will be ignored in add/set/update requests if filter_ostype is not set. It has no effect if target is "adom_database".'
-            filter_device:
-               type: int
-               description: 'Name or id of an existing device in the database. It has no effect if target is "adom_database".'
-            filter_hostname:
-               type: str
-               description: 'The value has no effect if target is "adom_database".'
-            filter_ostype:
-               type: str
-               description: 'The value has no effect if target is "adom_database".'
-               example: 'unknown'
-            filter_osver:
-               type: str
-               description: 'The value will be ignored in add/set/update requests if filter_ostype is not set. It has no effect if target is "adom_database".'
-               example: 'unknown'
-            filter_platform:
-               type: str
-               description: 'The value will be ignored in add/set/update requests if filter_ostype is not set. It has no effect if target is "adom_database".'
-            filter_serial:
-               type: str
-               description: 'The value has no effect if target is "adom_database".'
-            modification_time:
-               type: str
-               description: 'It is a read-only attribute indicating the time when the script was created or modified. The value will be ignored in add/set/u...'
-            name:
-               type: str
-            script_schedule:
-               type: array
-               suboptions:
-                  datetime:
-                     type: str
-                     description: |
-                        'Indicates the date and time of the schedule. It should follow the following format for each scheduling type:'
-                        'onetime: "YYYY-MM-DD hh:mm:ss"'
-                        'daily: "hh:mm"'
-                        'weekly: "hh:mm"'
-                        'monthly: "DD hh:mm"'
-                  day_of_week:
-                     type: str
-                     example: 'sun'
-                  device:
-                     type: int
-                     description: 'Name or id of an existing device in the database.'
-                  name:
-                     type: str
-                  run_on_db:
-                     type: str
-                     description: 'Indicates if the scheduled script should be executed on device database. It should always be disable for tcl scripts.'
-                     example: 'disable'
-                  type:
-                     type: str
-            target:
-               type: str
-               example: 'device_database'
-            type:
-               type: str
-         status:
-            code:
-               type: int
-            message:
-               type: str
-         url:
-            type: str
-            example: '/dvmdb/adom/{adom}/script/{script}'
-return_of_api_category_0:
-   description: items returned for method:[add]
-   returned: always
-   suboptions:
-      id:
-         type: int
-      result:
-         status:
-            code:
-               type: int
-            message:
-               type: str
-         url:
-            type: str
-            example: '/dvmdb/adom/{adom}/script/{script}'
+url:
+    description: The full url requested
+    returned: always
+    type: str
+    sample: /sys/login/user
+status:
+    description: The status of api request
+    returned: always
+    type: dict
+data:
+    description: The payload returned in the request
+    type: dict
+    returned: always
 
 '''
 from ansible.module_utils.basic import AnsibleModule

@@ -45,73 +45,41 @@ notes:
       a trivial transformation when we are filling the ansible playbook
 options:
     loose_validation:
-        description: Do parameter validation in a loose way
-        required: False
+        description:
+          - Do parameter validation in a loose way
         type: bool
-        default: false
+        required: false
     workspace_locking_adom:
-        description: the adom to lock in case FortiManager running in workspace mode
-        required: False
-        type: string
-        choices:
-          - global
-          - custom adom
+        description:
+          - the adom name to lock in case FortiManager running in workspace mode
+          - it can be global or any other custom adom names
+        required: false
+        type: str
     workspace_locking_timeout:
-        description: the maximum time in seconds to wait for other user to release the workspace lock
-        required: False
-        type: integer
+        description:
+          - the maximum time in seconds to wait for other user to release the workspace lock
+        required: false
+        type: int
         default: 300
-    schema_object0:
-        methods: [get]
-        description: 'Read-only table containing the 10000 most recent tasks of the system. This table can be used for tracking non-blocking tasks initiated...'
-        api_categories: [api_tag0]
-        api_tag0:
-            fields:
-                -
-                    -
-                        type: str
-                        choices:
-                            - 'adom'
-                            - 'end_tm'
-                            - 'flags'
-                            - 'id'
-                            - 'num_done'
-                            - 'num_err'
-                            - 'num_lines'
-                            - 'num_warn'
-                            - 'percent'
-                            - 'pid'
-                            - 'src'
-                            - 'start_tm'
-                            - 'state'
-                            - 'title'
-                            - 'tot_percent'
-                            - 'user'
-            filter:
-                -
-                    type: str
-            loadsub:
-                type: int
-                description: 'Enable or disable the return of any sub-objects. If not specified, the default is to return all sub-objects.'
-            option:
-                type: str
-                description:
-                 - 'Set fetch option for the request. If no option is specified, by default the attributes of the objects will be returned.'
-                 - 'count - Return the number of matching entries instead of the actual entry data.'
-                 - 'syntax - Return the attribute syntax of a table or an object, instead of the actual entry data. All filter parameters will be ignored.'
-                choices:
-                    - 'count'
-                    - 'syntax'
-            range:
-                -
-                    type: int
-            sortings:
-                -
-                    varidic.attr_name:
-                        type: int
-                        choices:
-                            - 1
-                            - -1
+    method:
+        description:
+          - The method in request
+        required: true
+        type: str
+        choices:
+          - get
+    params:
+        description:
+          - The parameters for each method
+          - See full parameters list in https://ansible-galaxy-fortimanager-docs.readthedocs.io/en/latest
+        type: list
+        required: false
+    url_params:
+        description:
+          - The parameters for each API request URL
+          - Also see full URL parameters in https://ansible-galaxy-fortimanager-docs.readthedocs.io/en/latest
+        required: false
+        type: dict
 
 '''
 
@@ -150,104 +118,19 @@ EXAMPLES = '''
 '''
 
 RETURN = '''
-return_of_api_category_0:
-   description: items returned for method:[get]
-   returned: always
-   suboptions:
-      id:
-         type: int
-      result:
-         data:
-            type: array
-            suboptions:
-               adom:
-                  type: int
-                  example: 0
-               end_tm:
-                  type: int
-                  example: 0
-               flags:
-                  type: int
-                  example: 0
-               history:
-                  type: array
-                  suboptions:
-                     detail:
-                        type: str
-                     name:
-                        type: str
-                     percent:
-                        type: int
-                        example: 0
-                     vdom:
-                        type: str
-               id:
-                  type: int
-               line:
-                  type: array
-                  suboptions:
-                     detail:
-                        type: str
-                     err:
-                        type: int
-                        example: 0
-                     ip:
-                        type: str
-                     name:
-                        type: str
-                     oid:
-                        type: int
-                        example: 0
-                     percent:
-                        type: int
-                        example: 0
-                     state:
-                        type: str
-                        example: 'pending'
-                     vdom:
-                        type: str
-               num_done:
-                  type: int
-                  example: 0
-               num_err:
-                  type: int
-                  example: 0
-               num_lines:
-                  type: int
-                  example: 0
-               num_warn:
-                  type: int
-                  example: 0
-               percent:
-                  type: int
-                  example: 0
-               pid:
-                  type: int
-                  example: 0
-               src:
-                  type: str
-                  example: 'device manager'
-               start_tm:
-                  type: int
-                  example: 0
-               state:
-                  type: str
-                  example: 'pending'
-               title:
-                  type: str
-               tot_percent:
-                  type: int
-                  example: 0
-               user:
-                  type: str
-         status:
-            code:
-               type: int
-            message:
-               type: str
-         url:
-            type: str
-            example: '/task/task'
+url:
+    description: The full url requested
+    returned: always
+    type: str
+    sample: /sys/login/user
+status:
+    description: The status of api request
+    returned: always
+    type: dict
+data:
+    description: The payload returned in the request
+    type: dict
+    returned: always
 
 '''
 from ansible.module_utils.basic import AnsibleModule

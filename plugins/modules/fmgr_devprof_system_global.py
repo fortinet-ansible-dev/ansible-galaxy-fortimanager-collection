@@ -45,126 +45,43 @@ notes:
       a trivial transformation when we are filling the ansible playbook
 options:
     loose_validation:
-        description: Do parameter validation in a loose way
-        required: False
+        description:
+          - Do parameter validation in a loose way
         type: bool
-        default: false
+        required: false
     workspace_locking_adom:
-        description: the adom to lock in case FortiManager running in workspace mode
-        required: False
-        type: string
-        choices:
-          - global
-          - custom adom
+        description:
+          - the adom name to lock in case FortiManager running in workspace mode
+          - it can be global or any other custom adom names
+        required: false
+        type: str
     workspace_locking_timeout:
-        description: the maximum time in seconds to wait for other user to release the workspace lock
-        required: False
-        type: integer
+        description:
+          - the maximum time in seconds to wait for other user to release the workspace lock
+        required: false
+        type: int
         default: 300
+    method:
+        description:
+          - The method in request
+        required: true
+        type: str
+        choices:
+          - get
+          - set
+          - update
+    params:
+        description:
+          - The parameters for each method
+          - See full parameters list in https://ansible-galaxy-fortimanager-docs.readthedocs.io/en/latest
+        type: list
+        required: false
     url_params:
-        description: the parameters in url path
-        required: True
+        description:
+          - The parameters for each API request URL
+          - Also see full URL parameters in https://ansible-galaxy-fortimanager-docs.readthedocs.io/en/latest
+        required: false
         type: dict
-        suboptions:
-            adom:
-                type: str
-                description: the domain prefix, the none and global are reserved
-                choices:
-                  - none
-                  - global
-                  - custom dom
-            devprof:
-                type: str
-    schema_object0:
-        methods: [get]
-        description: 'Configure global attributes.'
-        api_categories: [api_tag0]
-        api_tag0:
-            option:
-                type: str
-                description:
-                 - 'Set fetch option for the request. If no option is specified, by default the attributes of the object will be returned.'
-                 - 'object member - Return a list of object members along with other attributes.'
-                 - 'chksum - Return the check-sum value instead of attributes.'
-                choices:
-                    - 'object member'
-                    - 'chksum'
-                    - 'datasrc'
-    schema_object1:
-        methods: [set, update]
-        description: 'Configure global attributes.'
-        api_categories: [api_tag0]
-        api_tag0:
-            data:
-                admin-https-redirect:
-                    type: str
-                    description: 'Enable/disable redirection of HTTP administration access to HTTPS.'
-                    choices:
-                        - 'disable'
-                        - 'enable'
-                admin-port:
-                    type: int
-                    description: 'Administrative access port for HTTP. (1 - 65535, default = 80).'
-                admin-scp:
-                    type: str
-                    description: 'Enable/disable using SCP to download the system configuration. You can use SCP as an alternative method for backing up the...'
-                    choices:
-                        - 'disable'
-                        - 'enable'
-                admin-sport:
-                    type: int
-                    description: 'Administrative access port for HTTPS. (1 - 65535, default = 443).'
-                admin-ssh-port:
-                    type: int
-                    description: 'Administrative access port for SSH. (1 - 65535, default = 22).'
-                admin-ssh-v1:
-                    type: str
-                    description: 'Enable/disable SSH v1 compatibility.'
-                    choices:
-                        - 'disable'
-                        - 'enable'
-                admin-telnet-port:
-                    type: int
-                    description: 'Administrative access port for TELNET. (1 - 65535, default = 23).'
-                admintimeout:
-                    type: int
-                    description: 'Number of minutes before an idle administrator session times out (5 - 480 minutes (8 hours), default = 5). A shorter idle ...'
-                gui-ipv6:
-                    type: str
-                    description: 'Enable/disable IPv6 settings on the GUI.'
-                    choices:
-                        - 'disable'
-                        - 'enable'
-                gui-lines-per-page:
-                    type: int
-                    description: 'Number of lines to display per page for web administration.'
-                gui-theme:
-                    type: str
-                    description: 'Color scheme for the administration GUI.'
-                    choices:
-                        - 'blue'
-                        - 'green'
-                        - 'melongene'
-                        - 'red'
-                        - 'mariner'
-                language:
-                    type: str
-                    description: 'GUI display language.'
-                    choices:
-                        - 'english'
-                        - 'simch'
-                        - 'japanese'
-                        - 'korean'
-                        - 'spanish'
-                        - 'trach'
-                        - 'french'
-                        - 'portuguese'
-                switch-controller:
-                    type: str
-                    description: 'Enable/disable switch controller feature. Switch controller allows you to manage FortiSwitch from the FortiGate itself.'
-                    choices:
-                        - 'disable'
-                        - 'enable'
 
 '''
 
@@ -221,76 +138,19 @@ EXAMPLES = '''
 '''
 
 RETURN = '''
-return_of_api_category_0:
-   description: items returned for method:[get]
-   returned: always
-   suboptions:
-      id:
-         type: int
-      result:
-         data:
-            admin-https-redirect:
-               type: str
-               description: 'Enable/disable redirection of HTTP administration access to HTTPS.'
-            admin-port:
-               type: int
-               description: 'Administrative access port for HTTP. (1 - 65535, default = 80).'
-            admin-scp:
-               type: str
-               description: 'Enable/disable using SCP to download the system configuration. You can use SCP as an alternative method for backing up the conf...'
-            admin-sport:
-               type: int
-               description: 'Administrative access port for HTTPS. (1 - 65535, default = 443).'
-            admin-ssh-port:
-               type: int
-               description: 'Administrative access port for SSH. (1 - 65535, default = 22).'
-            admin-ssh-v1:
-               type: str
-               description: 'Enable/disable SSH v1 compatibility.'
-            admin-telnet-port:
-               type: int
-               description: 'Administrative access port for TELNET. (1 - 65535, default = 23).'
-            admintimeout:
-               type: int
-               description: 'Number of minutes before an idle administrator session times out (5 - 480 minutes (8 hours), default = 5). A shorter idle timeo...'
-            gui-ipv6:
-               type: str
-               description: 'Enable/disable IPv6 settings on the GUI.'
-            gui-lines-per-page:
-               type: int
-               description: 'Number of lines to display per page for web administration.'
-            gui-theme:
-               type: str
-               description: 'Color scheme for the administration GUI.'
-            language:
-               type: str
-               description: 'GUI display language.'
-            switch-controller:
-               type: str
-               description: 'Enable/disable switch controller feature. Switch controller allows you to manage FortiSwitch from the FortiGate itself.'
-         status:
-            code:
-               type: int
-            message:
-               type: str
-         url:
-            type: str
-            example: '/pm/config/adom/{adom}/devprof/{devprof}/system/global'
-return_of_api_category_0:
-   description: items returned for method:[set, update]
-   returned: always
-   suboptions:
-      id:
-         type: int
-      result:
-         status:
-            code:
-               type: int
-            message:
-               type: str
-         url:
-            type: str
-            example: '/pm/config/adom/{adom}/devprof/{devprof}/system/global'
+url:
+    description: The full url requested
+    returned: always
+    type: str
+    sample: /sys/login/user
+status:
+    description: The status of api request
+    returned: always
+    type: dict
+data:
+    description: The payload returned in the request
+    type: dict
+    returned: always
 
 '''
 from ansible.module_utils.basic import AnsibleModule

@@ -70,4 +70,3 @@
       fail:
         msg: 'see more -vvv'
       failed_when: execution_task.meta.status.code != 0 or taskinfo.meta.data.num_err != 0
-

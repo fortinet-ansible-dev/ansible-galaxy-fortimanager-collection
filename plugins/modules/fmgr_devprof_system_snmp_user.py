@@ -45,230 +45,44 @@ notes:
       a trivial transformation when we are filling the ansible playbook
 options:
     loose_validation:
-        description: Do parameter validation in a loose way
-        required: False
+        description:
+          - Do parameter validation in a loose way
         type: bool
-        default: false
+        required: false
     workspace_locking_adom:
-        description: the adom to lock in case FortiManager running in workspace mode
-        required: False
-        type: string
-        choices:
-          - global
-          - custom adom
+        description:
+          - the adom name to lock in case FortiManager running in workspace mode
+          - it can be global or any other custom adom names
+        required: false
+        type: str
     workspace_locking_timeout:
-        description: the maximum time in seconds to wait for other user to release the workspace lock
-        required: False
-        type: integer
+        description:
+          - the maximum time in seconds to wait for other user to release the workspace lock
+        required: false
+        type: int
         default: 300
+    method:
+        description:
+          - The method in request
+        required: true
+        type: str
+        choices:
+          - add
+          - get
+          - set
+          - update
+    params:
+        description:
+          - The parameters for each method
+          - See full parameters list in https://ansible-galaxy-fortimanager-docs.readthedocs.io/en/latest
+        type: list
+        required: false
     url_params:
-        description: the parameters in url path
-        required: True
+        description:
+          - The parameters for each API request URL
+          - Also see full URL parameters in https://ansible-galaxy-fortimanager-docs.readthedocs.io/en/latest
+        required: false
         type: dict
-        suboptions:
-            adom:
-                type: str
-                description: the domain prefix, the none and global are reserved
-                choices:
-                  - none
-                  - global
-                  - custom dom
-            devprof:
-                type: str
-    schema_object0:
-        methods: [add, set, update]
-        description: 'SNMP user configuration.'
-        api_categories: [api_tag0]
-        api_tag0:
-            data:
-                -
-                    auth-proto:
-                        type: str
-                        description: 'Authentication protocol.'
-                        choices:
-                            - 'md5'
-                            - 'sha'
-                    auth-pwd:
-                        -
-                            type: str
-                    events:
-                        -
-                            type: str
-                            choices:
-                                - 'cpu-high'
-                                - 'mem-low'
-                                - 'log-full'
-                                - 'intf-ip'
-                                - 'vpn-tun-up'
-                                - 'vpn-tun-down'
-                                - 'ha-switch'
-                                - 'fm-conf-change'
-                                - 'ips-signature'
-                                - 'ips-anomaly'
-                                - 'temperature-high'
-                                - 'voltage-alert'
-                                - 'av-virus'
-                                - 'av-oversize'
-                                - 'av-pattern'
-                                - 'av-fragmented'
-                                - 'ha-hb-failure'
-                                - 'fan-failure'
-                                - 'ha-member-up'
-                                - 'ha-member-down'
-                                - 'ent-conf-change'
-                                - 'av-conserve'
-                                - 'av-bypass'
-                                - 'av-oversize-passed'
-                                - 'av-oversize-blocked'
-                                - 'ips-pkg-update'
-                                - 'fm-if-change'
-                                - 'power-supply-failure'
-                                - 'amc-bypass'
-                                - 'faz-disconnect'
-                                - 'bgp-established'
-                                - 'bgp-backward-transition'
-                                - 'wc-ap-up'
-                                - 'wc-ap-down'
-                                - 'fswctl-session-up'
-                                - 'fswctl-session-down'
-                                - 'ips-fail-open'
-                                - 'load-balance-real-server-down'
-                                - 'device-new'
-                                - 'enter-intf-bypass'
-                                - 'exit-intf-bypass'
-                                - 'per-cpu-high'
-                                - 'power-blade-down'
-                                - 'confsync_failure'
-                    ha-direct:
-                        type: str
-                        description: 'Enable/disable direct management of HA cluster members.'
-                        choices:
-                            - 'disable'
-                            - 'enable'
-                    name:
-                        type: str
-                        description: 'SNMP user name.'
-                    notify-hosts:
-                        -
-                            type: str
-                    notify-hosts6:
-                        type: str
-                        description: 'IPv6 SNMP managers to send notifications (traps) to.'
-                    priv-proto:
-                        type: str
-                        description: 'Privacy (encryption) protocol.'
-                        choices:
-                            - 'aes'
-                            - 'des'
-                            - 'aes256'
-                            - 'aes256cisco'
-                    priv-pwd:
-                        -
-                            type: str
-                    queries:
-                        type: str
-                        description: 'Enable/disable SNMP queries for this user.'
-                        choices:
-                            - 'disable'
-                            - 'enable'
-                    query-port:
-                        type: int
-                        description: 'SNMPv3 query port (default = 161).'
-                    security-level:
-                        type: str
-                        description: 'Security level for message authentication and encryption.'
-                        choices:
-                            - 'no-auth-no-priv'
-                            - 'auth-no-priv'
-                            - 'auth-priv'
-                    source-ip:
-                        type: str
-                        description: 'Source IP for SNMP trap.'
-                    source-ipv6:
-                        type: str
-                        description: 'Source IPv6 for SNMP trap.'
-                    status:
-                        type: str
-                        description: 'Enable/disable this SNMP user.'
-                        choices:
-                            - 'disable'
-                            - 'enable'
-                    trap-lport:
-                        type: int
-                        description: 'SNMPv3 local trap port (default = 162).'
-                    trap-rport:
-                        type: int
-                        description: 'SNMPv3 trap remote port (default = 162).'
-                    trap-status:
-                        type: str
-                        description: 'Enable/disable traps for this SNMP user.'
-                        choices:
-                            - 'disable'
-                            - 'enable'
-    schema_object1:
-        methods: [get]
-        description: 'SNMP user configuration.'
-        api_categories: [api_tag0]
-        api_tag0:
-            attr:
-                type: str
-                description: 'The name of the attribute to retrieve its datasource. Only used with &lt;i&gt;datasrc&lt;/i&gt; option.'
-            fields:
-                -
-                    -
-                        type: str
-                        choices:
-                            - 'auth-proto'
-                            - 'auth-pwd'
-                            - 'events'
-                            - 'ha-direct'
-                            - 'name'
-                            - 'notify-hosts'
-                            - 'notify-hosts6'
-                            - 'priv-proto'
-                            - 'priv-pwd'
-                            - 'queries'
-                            - 'query-port'
-                            - 'security-level'
-                            - 'source-ip'
-                            - 'source-ipv6'
-                            - 'status'
-                            - 'trap-lport'
-                            - 'trap-rport'
-                            - 'trap-status'
-            filter:
-                -
-                    type: str
-            get used:
-                type: int
-            loadsub:
-                type: int
-                description: 'Enable or disable the return of any sub-objects. If not specified, the default is to return all sub-objects.'
-            option:
-                type: str
-                description:
-                 - 'Set fetch option for the request. If no option is specified, by default the attributes of the objects will be returned.'
-                 - 'count - Return the number of matching entries instead of the actual entry data.'
-                 - 'object member - Return a list of object members along with other attributes.'
-                 - 'datasrc - Return all objects that can be referenced by an attribute. Require <i>attr</i> parameter.'
-                 - 'get reserved - Also return reserved objects in the result.'
-                 - 'syntax - Return the attribute syntax of a table or an object, instead of the actual entry data. All filter parameters will be ignored.'
-                choices:
-                    - 'count'
-                    - 'object member'
-                    - 'datasrc'
-                    - 'get reserved'
-                    - 'syntax'
-            range:
-                -
-                    type: int
-            sortings:
-                -
-                    varidic.attr_name:
-                        type: int
-                        choices:
-                            - 1
-                            - -1
 
 '''
 
@@ -348,97 +162,19 @@ EXAMPLES = '''
 '''
 
 RETURN = '''
-return_of_api_category_0:
-   description: items returned for method:[add, set, update]
-   returned: always
-   suboptions:
-      id:
-         type: int
-      result:
-         status:
-            code:
-               type: int
-            message:
-               type: str
-         url:
-            type: str
-            example: '/pm/config/adom/{adom}/devprof/{devprof}/system/snmp/user'
-return_of_api_category_0:
-   description: items returned for method:[get]
-   returned: always
-   suboptions:
-      id:
-         type: int
-      result:
-         data:
-            type: array
-            suboptions:
-               auth-proto:
-                  type: str
-                  description: 'Authentication protocol.'
-               auth-pwd:
-                  type: array
-                  suboptions:
-                     type: str
-               events:
-                  type: array
-                  suboptions:
-                     type: str
-               ha-direct:
-                  type: str
-                  description: 'Enable/disable direct management of HA cluster members.'
-               name:
-                  type: str
-                  description: 'SNMP user name.'
-               notify-hosts:
-                  type: array
-                  suboptions:
-                     type: str
-               notify-hosts6:
-                  type: str
-                  description: 'IPv6 SNMP managers to send notifications (traps) to.'
-               priv-proto:
-                  type: str
-                  description: 'Privacy (encryption) protocol.'
-               priv-pwd:
-                  type: array
-                  suboptions:
-                     type: str
-               queries:
-                  type: str
-                  description: 'Enable/disable SNMP queries for this user.'
-               query-port:
-                  type: int
-                  description: 'SNMPv3 query port (default = 161).'
-               security-level:
-                  type: str
-                  description: 'Security level for message authentication and encryption.'
-               source-ip:
-                  type: str
-                  description: 'Source IP for SNMP trap.'
-               source-ipv6:
-                  type: str
-                  description: 'Source IPv6 for SNMP trap.'
-               status:
-                  type: str
-                  description: 'Enable/disable this SNMP user.'
-               trap-lport:
-                  type: int
-                  description: 'SNMPv3 local trap port (default = 162).'
-               trap-rport:
-                  type: int
-                  description: 'SNMPv3 trap remote port (default = 162).'
-               trap-status:
-                  type: str
-                  description: 'Enable/disable traps for this SNMP user.'
-         status:
-            code:
-               type: int
-            message:
-               type: str
-         url:
-            type: str
-            example: '/pm/config/adom/{adom}/devprof/{devprof}/system/snmp/user'
+url:
+    description: The full url requested
+    returned: always
+    type: str
+    sample: /sys/login/user
+status:
+    description: The status of api request
+    returned: always
+    type: dict
+data:
+    description: The payload returned in the request
+    type: dict
+    returned: always
 
 '''
 from ansible.module_utils.basic import AnsibleModule

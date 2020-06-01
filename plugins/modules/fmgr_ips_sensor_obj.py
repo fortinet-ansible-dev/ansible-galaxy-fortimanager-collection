@@ -46,312 +46,45 @@ notes:
       a trivial transformation when we are filling the ansible playbook
 options:
     loose_validation:
-        description: Do parameter validation in a loose way
-        required: False
+        description:
+          - Do parameter validation in a loose way
         type: bool
-        default: false
+        required: false
     workspace_locking_adom:
-        description: the adom to lock in case FortiManager running in workspace mode
-        required: False
-        type: string
-        choices:
-          - global
-          - custom adom
+        description:
+          - the adom name to lock in case FortiManager running in workspace mode
+          - it can be global or any other custom adom names
+        required: false
+        type: str
     workspace_locking_timeout:
-        description: the maximum time in seconds to wait for other user to release the workspace lock
-        required: False
-        type: integer
+        description:
+          - the maximum time in seconds to wait for other user to release the workspace lock
+        required: false
+        type: int
         default: 300
+    method:
+        description:
+          - The method in request
+        required: true
+        type: str
+        choices:
+          - clone
+          - delete
+          - get
+          - set
+          - update
+    params:
+        description:
+          - The parameters for each method
+          - See full parameters list in https://ansible-galaxy-fortimanager-docs.readthedocs.io/en/latest
+        type: list
+        required: false
     url_params:
-        description: the parameters in url path
-        required: True
+        description:
+          - The parameters for each API request URL
+          - Also see full URL parameters in https://ansible-galaxy-fortimanager-docs.readthedocs.io/en/latest
+        required: false
         type: dict
-        suboptions:
-            adom:
-                type: str
-                description: the domain prefix, the none and global are reserved
-                choices:
-                  - none
-                  - global
-                  - custom dom
-            sensor:
-                type: str
-    schema_object0:
-        methods: [clone, set, update]
-        description: 'Configure IPS sensor.'
-        api_categories: [api_tag0]
-        api_tag0:
-            data:
-                block-malicious-url:
-                    type: str
-                    description: 'Enable/disable malicious URL blocking.'
-                    choices:
-                        - 'disable'
-                        - 'enable'
-                comment:
-                    type: str
-                    description: 'Comment.'
-                entries:
-                    -
-                        action:
-                            type: str
-                            description: 'Action taken with traffic in which signatures are detected.'
-                            choices:
-                                - 'pass'
-                                - 'block'
-                                - 'reset'
-                                - 'default'
-                        application:
-                            -
-                                type: str
-                        exempt-ip:
-                            -
-                                dst-ip:
-                                    type: str
-                                    description: 'Destination IP address and netmask.'
-                                id:
-                                    type: int
-                                    description: 'Exempt IP ID.'
-                                src-ip:
-                                    type: str
-                                    description: 'Source IP address and netmask.'
-                        id:
-                            type: int
-                            description: 'Rule ID in IPS database (0 - 4294967295).'
-                        location:
-                            -
-                                type: str
-                        log:
-                            type: str
-                            description: 'Enable/disable logging of signatures included in filter.'
-                            choices:
-                                - 'disable'
-                                - 'enable'
-                        log-attack-context:
-                            type: str
-                            description: 'Enable/disable logging of attack context: URL buffer, header buffer, body buffer, packet buffer.'
-                            choices:
-                                - 'disable'
-                                - 'enable'
-                        log-packet:
-                            type: str
-                            description: 'Enable/disable packet logging. Enable to save the packet that triggers the filter. You can download the packets in...'
-                            choices:
-                                - 'disable'
-                                - 'enable'
-                        os:
-                            -
-                                type: str
-                        protocol:
-                            -
-                                type: str
-                        quarantine:
-                            type: str
-                            description: 'Quarantine method.'
-                            choices:
-                                - 'none'
-                                - 'attacker'
-                                - 'both'
-                                - 'interface'
-                        quarantine-expiry:
-                            type: str
-                            description: 'Duration of quarantine. (Format ###d##h##m, minimum 1m, maximum 364d23h59m, default = 5m). Requires quarantine set...'
-                        quarantine-log:
-                            type: str
-                            description: 'Enable/disable quarantine logging.'
-                            choices:
-                                - 'disable'
-                                - 'enable'
-                        rate-count:
-                            type: int
-                            description: 'Count of the rate.'
-                        rate-duration:
-                            type: int
-                            description: 'Duration (sec) of the rate.'
-                        rate-mode:
-                            type: str
-                            description: 'Rate limit mode.'
-                            choices:
-                                - 'periodical'
-                                - 'continuous'
-                        rate-track:
-                            type: str
-                            description: 'Track the packet protocol field.'
-                            choices:
-                                - 'none'
-                                - 'src-ip'
-                                - 'dest-ip'
-                                - 'dhcp-client-mac'
-                                - 'dns-domain'
-                        rule:
-                            type: str
-                            description: 'Identifies the predefined or custom IPS signatures to add to the sensor.'
-                        severity:
-                            -
-                                type: str
-                        status:
-                            type: str
-                            description: 'Status of the signatures included in filter. default enables the filter and only use filters with default status o...'
-                            choices:
-                                - 'disable'
-                                - 'enable'
-                                - 'default'
-                extended-log:
-                    type: str
-                    description: 'Enable/disable extended logging.'
-                    choices:
-                        - 'disable'
-                        - 'enable'
-                filter:
-                    -
-                        action:
-                            type: str
-                            description: 'Action of selected rules.'
-                            choices:
-                                - 'pass'
-                                - 'block'
-                                - 'default'
-                                - 'reset'
-                        application:
-                            -
-                                type: str
-                        location:
-                            -
-                                type: str
-                        log:
-                            type: str
-                            description: 'Enable/disable logging of selected rules.'
-                            choices:
-                                - 'disable'
-                                - 'enable'
-                                - 'default'
-                        log-packet:
-                            type: str
-                            description: 'Enable/disable packet logging of selected rules.'
-                            choices:
-                                - 'disable'
-                                - 'enable'
-                                - 'default'
-                        name:
-                            type: str
-                            description: 'Filter name.'
-                        os:
-                            -
-                                type: str
-                        protocol:
-                            -
-                                type: str
-                        quarantine:
-                            type: str
-                            description: 'Quarantine IP or interface.'
-                            choices:
-                                - 'none'
-                                - 'attacker'
-                                - 'both'
-                                - 'interface'
-                        quarantine-expiry:
-                            type: int
-                            description: 'Duration of quarantine in minute.'
-                        quarantine-log:
-                            type: str
-                            description: 'Enable/disable logging of selected quarantine.'
-                            choices:
-                                - 'disable'
-                                - 'enable'
-                        severity:
-                            -
-                                type: str
-                        status:
-                            type: str
-                            description: 'Selected rules status.'
-                            choices:
-                                - 'disable'
-                                - 'enable'
-                                - 'default'
-                name:
-                    type: str
-                    description: 'Sensor name.'
-                override:
-                    -
-                        action:
-                            type: str
-                            description: 'Action of override rule.'
-                            choices:
-                                - 'pass'
-                                - 'block'
-                                - 'reset'
-                        exempt-ip:
-                            -
-                                dst-ip:
-                                    type: str
-                                    description: 'Destination IP address and netmask.'
-                                id:
-                                    type: int
-                                    description: 'Exempt IP ID.'
-                                src-ip:
-                                    type: str
-                                    description: 'Source IP address and netmask.'
-                        log:
-                            type: str
-                            description: 'Enable/disable logging.'
-                            choices:
-                                - 'disable'
-                                - 'enable'
-                        log-packet:
-                            type: str
-                            description: 'Enable/disable packet logging.'
-                            choices:
-                                - 'disable'
-                                - 'enable'
-                        quarantine:
-                            type: str
-                            description: 'Quarantine IP or interface.'
-                            choices:
-                                - 'none'
-                                - 'attacker'
-                                - 'both'
-                                - 'interface'
-                        quarantine-expiry:
-                            type: int
-                            description: 'Duration of quarantine in minute.'
-                        quarantine-log:
-                            type: str
-                            description: 'Enable/disable logging of selected quarantine.'
-                            choices:
-                                - 'disable'
-                                - 'enable'
-                        rule-id:
-                            type: int
-                            description: 'Override rule ID.'
-                        status:
-                            type: str
-                            description: 'Enable/disable status of override rule.'
-                            choices:
-                                - 'disable'
-                                - 'enable'
-                replacemsg-group:
-                    type: str
-                    description: 'Replacement message group.'
-    schema_object1:
-        methods: [delete]
-        description: 'Configure IPS sensor.'
-        api_categories: [api_tag0]
-        api_tag0:
-    schema_object2:
-        methods: [get]
-        description: 'Configure IPS sensor.'
-        api_categories: [api_tag0]
-        api_tag0:
-            option:
-                type: str
-                description:
-                 - 'Set fetch option for the request. If no option is specified, by default the attributes of the object will be returned.'
-                 - 'object member - Return a list of object members along with other attributes.'
-                 - 'chksum - Return the check-sum value instead of attributes.'
-                choices:
-                    - 'object member'
-                    - 'chksum'
-                    - 'datasrc'
 
 '''
 
@@ -466,215 +199,19 @@ EXAMPLES = '''
 '''
 
 RETURN = '''
-return_of_api_category_0:
-   description: items returned for method:[clone, delete, set, update]
-   returned: always
-   suboptions:
-      id:
-         type: int
-      result:
-         status:
-            code:
-               type: int
-            message:
-               type: str
-         url:
-            type: str
-            example: '/pm/config/adom/{adom}/obj/ips/sensor/{sensor}'
-return_of_api_category_0:
-   description: items returned for method:[get]
-   returned: always
-   suboptions:
-      id:
-         type: int
-      result:
-         data:
-            block-malicious-url:
-               type: str
-               description: 'Enable/disable malicious URL blocking.'
-            comment:
-               type: str
-               description: 'Comment.'
-            entries:
-               type: array
-               suboptions:
-                  action:
-                     type: str
-                     description: 'Action taken with traffic in which signatures are detected.'
-                  application:
-                     type: array
-                     suboptions:
-                        type: str
-                  exempt-ip:
-                     type: array
-                     suboptions:
-                        dst-ip:
-                           type: str
-                           description: 'Destination IP address and netmask.'
-                        id:
-                           type: int
-                           description: 'Exempt IP ID.'
-                        src-ip:
-                           type: str
-                           description: 'Source IP address and netmask.'
-                  id:
-                     type: int
-                     description: 'Rule ID in IPS database (0 - 4294967295).'
-                  location:
-                     type: array
-                     suboptions:
-                        type: str
-                  log:
-                     type: str
-                     description: 'Enable/disable logging of signatures included in filter.'
-                  log-attack-context:
-                     type: str
-                     description: 'Enable/disable logging of attack context: URL buffer, header buffer, body buffer, packet buffer.'
-                  log-packet:
-                     type: str
-                     description: 'Enable/disable packet logging. Enable to save the packet that triggers the filter. You can download the packets in pcap f...'
-                  os:
-                     type: array
-                     suboptions:
-                        type: str
-                  protocol:
-                     type: array
-                     suboptions:
-                        type: str
-                  quarantine:
-                     type: str
-                     description: 'Quarantine method.'
-                  quarantine-expiry:
-                     type: str
-                     description: 'Duration of quarantine. (Format ###d##h##m, minimum 1m, maximum 364d23h59m, default = 5m). Requires quarantine set to att...'
-                  quarantine-log:
-                     type: str
-                     description: 'Enable/disable quarantine logging.'
-                  rate-count:
-                     type: int
-                     description: 'Count of the rate.'
-                  rate-duration:
-                     type: int
-                     description: 'Duration (sec) of the rate.'
-                  rate-mode:
-                     type: str
-                     description: 'Rate limit mode.'
-                  rate-track:
-                     type: str
-                     description: 'Track the packet protocol field.'
-                  rule:
-                     type: str
-                     description: 'Identifies the predefined or custom IPS signatures to add to the sensor.'
-                  severity:
-                     type: array
-                     suboptions:
-                        type: str
-                  status:
-                     type: str
-                     description: 'Status of the signatures included in filter. default enables the filter and only use filters with default status of enabl...'
-            extended-log:
-               type: str
-               description: 'Enable/disable extended logging.'
-            filter:
-               type: array
-               suboptions:
-                  action:
-                     type: str
-                     description: 'Action of selected rules.'
-                  application:
-                     type: array
-                     suboptions:
-                        type: str
-                  location:
-                     type: array
-                     suboptions:
-                        type: str
-                  log:
-                     type: str
-                     description: 'Enable/disable logging of selected rules.'
-                  log-packet:
-                     type: str
-                     description: 'Enable/disable packet logging of selected rules.'
-                  name:
-                     type: str
-                     description: 'Filter name.'
-                  os:
-                     type: array
-                     suboptions:
-                        type: str
-                  protocol:
-                     type: array
-                     suboptions:
-                        type: str
-                  quarantine:
-                     type: str
-                     description: 'Quarantine IP or interface.'
-                  quarantine-expiry:
-                     type: int
-                     description: 'Duration of quarantine in minute.'
-                  quarantine-log:
-                     type: str
-                     description: 'Enable/disable logging of selected quarantine.'
-                  severity:
-                     type: array
-                     suboptions:
-                        type: str
-                  status:
-                     type: str
-                     description: 'Selected rules status.'
-            name:
-               type: str
-               description: 'Sensor name.'
-            override:
-               type: array
-               suboptions:
-                  action:
-                     type: str
-                     description: 'Action of override rule.'
-                  exempt-ip:
-                     type: array
-                     suboptions:
-                        dst-ip:
-                           type: str
-                           description: 'Destination IP address and netmask.'
-                        id:
-                           type: int
-                           description: 'Exempt IP ID.'
-                        src-ip:
-                           type: str
-                           description: 'Source IP address and netmask.'
-                  log:
-                     type: str
-                     description: 'Enable/disable logging.'
-                  log-packet:
-                     type: str
-                     description: 'Enable/disable packet logging.'
-                  quarantine:
-                     type: str
-                     description: 'Quarantine IP or interface.'
-                  quarantine-expiry:
-                     type: int
-                     description: 'Duration of quarantine in minute.'
-                  quarantine-log:
-                     type: str
-                     description: 'Enable/disable logging of selected quarantine.'
-                  rule-id:
-                     type: int
-                     description: 'Override rule ID.'
-                  status:
-                     type: str
-                     description: 'Enable/disable status of override rule.'
-            replacemsg-group:
-               type: str
-               description: 'Replacement message group.'
-         status:
-            code:
-               type: int
-            message:
-               type: str
-         url:
-            type: str
-            example: '/pm/config/adom/{adom}/obj/ips/sensor/{sensor}'
+url:
+    description: The full url requested
+    returned: always
+    type: str
+    sample: /sys/login/user
+status:
+    description: The status of api request
+    returned: always
+    type: dict
+data:
+    description: The payload returned in the request
+    type: dict
+    returned: always
 
 '''
 from ansible.module_utils.basic import AnsibleModule

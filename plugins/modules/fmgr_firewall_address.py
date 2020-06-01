@@ -46,329 +46,44 @@ notes:
       a trivial transformation when we are filling the ansible playbook
 options:
     loose_validation:
-        description: Do parameter validation in a loose way
-        required: False
+        description:
+          - Do parameter validation in a loose way
         type: bool
-        default: false
+        required: false
     workspace_locking_adom:
-        description: the adom to lock in case FortiManager running in workspace mode
-        required: False
-        type: string
-        choices:
-          - global
-          - custom adom
+        description:
+          - the adom name to lock in case FortiManager running in workspace mode
+          - it can be global or any other custom adom names
+        required: false
+        type: str
     workspace_locking_timeout:
-        description: the maximum time in seconds to wait for other user to release the workspace lock
-        required: False
-        type: integer
+        description:
+          - the maximum time in seconds to wait for other user to release the workspace lock
+        required: false
+        type: int
         default: 300
+    method:
+        description:
+          - The method in request
+        required: true
+        type: str
+        choices:
+          - add
+          - get
+          - set
+          - update
+    params:
+        description:
+          - The parameters for each method
+          - See full parameters list in https://ansible-galaxy-fortimanager-docs.readthedocs.io/en/latest
+        type: list
+        required: false
     url_params:
-        description: the parameters in url path
-        required: True
+        description:
+          - The parameters for each API request URL
+          - Also see full URL parameters in https://ansible-galaxy-fortimanager-docs.readthedocs.io/en/latest
+        required: false
         type: dict
-        suboptions:
-            adom:
-                type: str
-                description: the domain prefix, the none and global are reserved
-                choices:
-                  - none
-                  - global
-                  - custom dom
-    schema_object0:
-        methods: [add, set, update]
-        description: 'Configure IPv4 addresses.'
-        api_categories: [api_tag0]
-        api_tag0:
-            data:
-                -
-                    allow-routing:
-                        type: str
-                        description: 'Enable/disable use of this address in the static route configuration.'
-                        choices:
-                            - 'disable'
-                            - 'enable'
-                    associated-interface:
-                        type: str
-                        description: 'Network interface associated with address.'
-                    cache-ttl:
-                        type: int
-                        description: 'Defines the minimal TTL of individual IP addresses in FQDN cache measured in seconds.'
-                    color:
-                        type: int
-                        description: 'Color of icon on the GUI.'
-                    comment:
-                        type: str
-                    country:
-                        type: str
-                        description: 'IP addresses associated to a specific country.'
-                    dynamic_mapping:
-                        -
-                            _scope:
-                                -
-                                    name:
-                                        type: str
-                                    vdom:
-                                        type: str
-                            allow-routing:
-                                type: str
-                                choices:
-                                    - 'disable'
-                                    - 'enable'
-                            associated-interface:
-                                type: str
-                            cache-ttl:
-                                type: int
-                            color:
-                                type: int
-                            comment:
-                                type: str
-                            country:
-                                type: str
-                            end-ip:
-                                type: str
-                            end-mac:
-                                type: str
-                            epg-name:
-                                type: str
-                            filter:
-                                type: str
-                            fqdn:
-                                type: str
-                            interface:
-                                type: str
-                            obj-id:
-                                type: str
-                            organization:
-                                type: str
-                            policy-group:
-                                type: str
-                            sdn:
-                                type: str
-                                choices:
-                                    - 'aci'
-                                    - 'aws'
-                                    - 'nsx'
-                                    - 'nuage'
-                                    - 'azure'
-                                    - 'gcp'
-                                    - 'oci'
-                                    - 'openstack'
-                            sdn-addr-type:
-                                type: str
-                                choices:
-                                    - 'private'
-                                    - 'public'
-                                    - 'all'
-                            sdn-tag:
-                                type: str
-                            start-ip:
-                                type: str
-                            start-mac:
-                                type: str
-                            subnet:
-                                type: str
-                            subnet-name:
-                                type: str
-                            tags:
-                                type: str
-                            tenant:
-                                type: str
-                            type:
-                                type: str
-                                choices:
-                                    - 'ipmask'
-                                    - 'iprange'
-                                    - 'fqdn'
-                                    - 'wildcard'
-                                    - 'geography'
-                                    - 'url'
-                                    - 'wildcard-fqdn'
-                                    - 'nsx'
-                                    - 'aws'
-                                    - 'dynamic'
-                                    - 'interface-subnet'
-                                    - 'mac'
-                            url:
-                                type: str
-                            uuid:
-                                type: str
-                            visibility:
-                                type: str
-                                choices:
-                                    - 'disable'
-                                    - 'enable'
-                            wildcard:
-                                type: str
-                            wildcard-fqdn:
-                                type: str
-                    end-ip:
-                        type: str
-                        description: 'Final IP address (inclusive) in the range for the address.'
-                    epg-name:
-                        type: str
-                        description: 'Endpoint group name.'
-                    filter:
-                        type: str
-                        description: 'Match criteria filter.'
-                    fqdn:
-                        type: str
-                        description: 'Fully Qualified Domain Name address.'
-                    list:
-                        -
-                            ip:
-                                type: str
-                                description: 'IP.'
-                    name:
-                        type: str
-                        description: 'Address name.'
-                    obj-id:
-                        type: str
-                        description: 'Object ID for NSX.'
-                    organization:
-                        type: str
-                        description: 'Organization domain name (Syntax: organization/domain).'
-                    policy-group:
-                        type: str
-                        description: 'Policy group name.'
-                    sdn:
-                        type: str
-                        description: 'SDN.'
-                        choices:
-                            - 'aci'
-                            - 'aws'
-                            - 'nsx'
-                            - 'nuage'
-                            - 'azure'
-                            - 'gcp'
-                            - 'oci'
-                            - 'openstack'
-                    sdn-tag:
-                        type: str
-                        description: 'SDN Tag.'
-                    start-ip:
-                        type: str
-                        description: 'First IP address (inclusive) in the range for the address.'
-                    subnet:
-                        type: str
-                        description: 'IP address and subnet mask of address.'
-                    subnet-name:
-                        type: str
-                        description: 'Subnet name.'
-                    tagging:
-                        -
-                            category:
-                                type: str
-                                description: 'Tag category.'
-                            name:
-                                type: str
-                                description: 'Tagging entry name.'
-                            tags:
-                                -
-                                    type: str
-                    tenant:
-                        type: str
-                        description: 'Tenant.'
-                    type:
-                        type: str
-                        description: 'Type of address.'
-                        choices:
-                            - 'ipmask'
-                            - 'iprange'
-                            - 'fqdn'
-                            - 'wildcard'
-                            - 'geography'
-                            - 'url'
-                            - 'wildcard-fqdn'
-                            - 'nsx'
-                            - 'aws'
-                            - 'dynamic'
-                            - 'interface-subnet'
-                            - 'mac'
-                    uuid:
-                        type: str
-                        description: 'Universally Unique Identifier (UUID; automatically assigned but can be manually reset).'
-                    visibility:
-                        type: str
-                        description: 'Enable/disable address visibility in the GUI.'
-                        choices:
-                            - 'disable'
-                            - 'enable'
-                    wildcard:
-                        type: str
-                        description: 'IP address and wildcard netmask.'
-                    wildcard-fqdn:
-                        type: str
-                        description: 'Fully Qualified Domain Name with wildcard characters.'
-    schema_object1:
-        methods: [get]
-        description: 'Configure IPv4 addresses.'
-        api_categories: [api_tag0]
-        api_tag0:
-            attr:
-                type: str
-                description: 'The name of the attribute to retrieve its datasource. Only used with &lt;i&gt;datasrc&lt;/i&gt; option.'
-            fields:
-                -
-                    -
-                        type: str
-                        choices:
-                            - 'allow-routing'
-                            - 'associated-interface'
-                            - 'cache-ttl'
-                            - 'color'
-                            - 'country'
-                            - 'end-ip'
-                            - 'epg-name'
-                            - 'filter'
-                            - 'fqdn'
-                            - 'name'
-                            - 'obj-id'
-                            - 'organization'
-                            - 'policy-group'
-                            - 'sdn'
-                            - 'sdn-tag'
-                            - 'start-ip'
-                            - 'subnet'
-                            - 'subnet-name'
-                            - 'tenant'
-                            - 'type'
-                            - 'uuid'
-                            - 'visibility'
-                            - 'wildcard'
-                            - 'wildcard-fqdn'
-            filter:
-                -
-                    type: str
-            get used:
-                type: int
-            loadsub:
-                type: int
-                description: 'Enable or disable the return of any sub-objects. If not specified, the default is to return all sub-objects.'
-            option:
-                type: str
-                description:
-                 - 'Set fetch option for the request. If no option is specified, by default the attributes of the objects will be returned.'
-                 - 'count - Return the number of matching entries instead of the actual entry data.'
-                 - 'object member - Return a list of object members along with other attributes.'
-                 - 'datasrc - Return all objects that can be referenced by an attribute. Require <i>attr</i> parameter.'
-                 - 'get reserved - Also return reserved objects in the result.'
-                 - 'syntax - Return the attribute syntax of a table or an object, instead of the actual entry data. All filter parameters will be ignored.'
-                choices:
-                    - 'count'
-                    - 'object member'
-                    - 'datasrc'
-                    - 'get reserved'
-                    - 'syntax'
-            range:
-                -
-                    type: int
-            sortings:
-                -
-                    varidic.attr_name:
-                        type: int
-                        choices:
-                            - 1
-                            - -1
 
 '''
 
@@ -494,202 +209,19 @@ EXAMPLES = '''
 '''
 
 RETURN = '''
-return_of_api_category_0:
-   description: items returned for method:[add, set, update]
-   returned: always
-   suboptions:
-      id:
-         type: int
-      result:
-         status:
-            code:
-               type: int
-            message:
-               type: str
-         url:
-            type: str
-            example: '/pm/config/adom/{adom}/obj/firewall/address'
-return_of_api_category_0:
-   description: items returned for method:[get]
-   returned: always
-   suboptions:
-      id:
-         type: int
-      result:
-         data:
-            type: array
-            suboptions:
-               allow-routing:
-                  type: str
-                  description: 'Enable/disable use of this address in the static route configuration.'
-               associated-interface:
-                  type: str
-                  description: 'Network interface associated with address.'
-               cache-ttl:
-                  type: int
-                  description: 'Defines the minimal TTL of individual IP addresses in FQDN cache measured in seconds.'
-               color:
-                  type: int
-                  description: 'Color of icon on the GUI.'
-               comment:
-                  type: str
-               country:
-                  type: str
-                  description: 'IP addresses associated to a specific country.'
-               dynamic_mapping:
-                  type: array
-                  suboptions:
-                     _scope:
-                        type: array
-                        suboptions:
-                           name:
-                              type: str
-                           vdom:
-                              type: str
-                     allow-routing:
-                        type: str
-                     associated-interface:
-                        type: str
-                     cache-ttl:
-                        type: int
-                     color:
-                        type: int
-                     comment:
-                        type: str
-                     country:
-                        type: str
-                     end-ip:
-                        type: str
-                     end-mac:
-                        type: str
-                     epg-name:
-                        type: str
-                     filter:
-                        type: str
-                     fqdn:
-                        type: str
-                     interface:
-                        type: str
-                     obj-id:
-                        type: str
-                     organization:
-                        type: str
-                     policy-group:
-                        type: str
-                     sdn:
-                        type: str
-                     sdn-addr-type:
-                        type: str
-                     sdn-tag:
-                        type: str
-                     start-ip:
-                        type: str
-                     start-mac:
-                        type: str
-                     subnet:
-                        type: str
-                     subnet-name:
-                        type: str
-                     tags:
-                        type: str
-                     tenant:
-                        type: str
-                     type:
-                        type: str
-                     url:
-                        type: str
-                     uuid:
-                        type: str
-                     visibility:
-                        type: str
-                     wildcard:
-                        type: str
-                     wildcard-fqdn:
-                        type: str
-               end-ip:
-                  type: str
-                  description: 'Final IP address (inclusive) in the range for the address.'
-               epg-name:
-                  type: str
-                  description: 'Endpoint group name.'
-               filter:
-                  type: str
-                  description: 'Match criteria filter.'
-               fqdn:
-                  type: str
-                  description: 'Fully Qualified Domain Name address.'
-               list:
-                  type: array
-                  suboptions:
-                     ip:
-                        type: str
-                        description: 'IP.'
-               name:
-                  type: str
-                  description: 'Address name.'
-               obj-id:
-                  type: str
-                  description: 'Object ID for NSX.'
-               organization:
-                  type: str
-                  description: 'Organization domain name (Syntax: organization/domain).'
-               policy-group:
-                  type: str
-                  description: 'Policy group name.'
-               sdn:
-                  type: str
-                  description: 'SDN.'
-               sdn-tag:
-                  type: str
-                  description: 'SDN Tag.'
-               start-ip:
-                  type: str
-                  description: 'First IP address (inclusive) in the range for the address.'
-               subnet:
-                  type: str
-                  description: 'IP address and subnet mask of address.'
-               subnet-name:
-                  type: str
-                  description: 'Subnet name.'
-               tagging:
-                  type: array
-                  suboptions:
-                     category:
-                        type: str
-                        description: 'Tag category.'
-                     name:
-                        type: str
-                        description: 'Tagging entry name.'
-                     tags:
-                        type: array
-                        suboptions:
-                           type: str
-               tenant:
-                  type: str
-                  description: 'Tenant.'
-               type:
-                  type: str
-                  description: 'Type of address.'
-               uuid:
-                  type: str
-                  description: 'Universally Unique Identifier (UUID; automatically assigned but can be manually reset).'
-               visibility:
-                  type: str
-                  description: 'Enable/disable address visibility in the GUI.'
-               wildcard:
-                  type: str
-                  description: 'IP address and wildcard netmask.'
-               wildcard-fqdn:
-                  type: str
-                  description: 'Fully Qualified Domain Name with wildcard characters.'
-         status:
-            code:
-               type: int
-            message:
-               type: str
-         url:
-            type: str
-            example: '/pm/config/adom/{adom}/obj/firewall/address'
+url:
+    description: The full url requested
+    returned: always
+    type: str
+    sample: /sys/login/user
+status:
+    description: The status of api request
+    returned: always
+    type: dict
+data:
+    description: The payload returned in the request
+    type: dict
+    returned: always
 
 '''
 from ansible.module_utils.basic import AnsibleModule

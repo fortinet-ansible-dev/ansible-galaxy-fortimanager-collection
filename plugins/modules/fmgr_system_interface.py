@@ -45,154 +45,44 @@ notes:
       a trivial transformation when we are filling the ansible playbook
 options:
     loose_validation:
-        description: Do parameter validation in a loose way
-        required: False
+        description:
+          - Do parameter validation in a loose way
         type: bool
-        default: false
+        required: false
     workspace_locking_adom:
-        description: the adom to lock in case FortiManager running in workspace mode
-        required: False
-        type: string
-        choices:
-          - global
-          - custom adom
+        description:
+          - the adom name to lock in case FortiManager running in workspace mode
+          - it can be global or any other custom adom names
+        required: false
+        type: str
     workspace_locking_timeout:
-        description: the maximum time in seconds to wait for other user to release the workspace lock
-        required: False
-        type: integer
+        description:
+          - the maximum time in seconds to wait for other user to release the workspace lock
+        required: false
+        type: int
         default: 300
-    schema_object0:
-        methods: [add, set, update]
-        description: 'Interface configuration.'
-        api_categories: [api_tag0]
-        api_tag0:
-            data:
-                -
-                    alias:
-                        type: str
-                        description: 'Alias.'
-                    allowaccess:
-                        -
-                            type: str
-                            choices:
-                                - 'ping'
-                                - 'https'
-                                - 'ssh'
-                                - 'snmp'
-                                - 'http'
-                                - 'webservice'
-                                - 'https-logging'
-                    description:
-                        type: str
-                        description: 'Description.'
-                    ip:
-                        type: str
-                        default: '0.0.0.0 0.0.0.0'
-                        description: 'IP address of interface.'
-                    ipv6:
-                        ip6-address:
-                            type: str
-                            default: '::/0'
-                            description: 'IPv6 address/prefix of interface.'
-                        ip6-allowaccess:
-                            -
-                                type: str
-                                choices:
-                                    - 'ping'
-                                    - 'https'
-                                    - 'ssh'
-                                    - 'snmp'
-                                    - 'http'
-                                    - 'webservice'
-                                    - 'https-logging'
-                        ip6-autoconf:
-                            type: str
-                            default: 'enable'
-                            description:
-                             - 'Enable/disable address auto config (SLAAC).'
-                             - 'disable - Disable setting.'
-                             - 'enable - Enable setting.'
-                            choices:
-                                - 'disable'
-                                - 'enable'
-                    mtu:
-                        type: int
-                        default: 1500
-                        description: 'Maximum transportation unit(68 - 9000).'
-                    name:
-                        type: str
-                        description: 'Interface name.'
-                    serviceaccess:
-                        -
-                            type: str
-                            choices:
-                                - 'fgtupdates'
-                                - 'fclupdates'
-                                - 'webfilter-antispam'
-                    speed:
-                        type: str
-                        default: 'auto'
-                        description:
-                         - 'Speed.'
-                         - 'auto - Auto adjust speed.'
-                         - '10full - 10M full-duplex.'
-                         - '10half - 10M half-duplex.'
-                         - '100full - 100M full-duplex.'
-                         - '100half - 100M half-duplex.'
-                         - '1000full - 1000M full-duplex.'
-                         - '10000full - 10000M full-duplex.'
-                        choices:
-                            - 'auto'
-                            - '10full'
-                            - '10half'
-                            - '100full'
-                            - '100half'
-                            - '1000full'
-                            - '10000full'
-                    status:
-                        type: str
-                        default: 'up'
-                        description:
-                         - 'Interface status.'
-                         - 'down - Interface down.'
-                         - 'up - Interface up.'
-                        choices:
-                            - 'down'
-                            - 'up'
-    schema_object1:
-        methods: [get]
-        description: 'Interface configuration.'
-        api_categories: [api_tag0]
-        api_tag0:
-            fields:
-                -
-                    -
-                        type: str
-                        choices:
-                            - 'alias'
-                            - 'allowaccess'
-                            - 'description'
-                            - 'ip'
-                            - 'mtu'
-                            - 'name'
-                            - 'serviceaccess'
-                            - 'speed'
-                            - 'status'
-            filter:
-                -
-                    type: str
-            loadsub:
-                type: int
-                description: 'Enable or disable the return of any sub-objects. If not specified, the default is to return all sub-objects.'
-            option:
-                type: str
-                description:
-                 - 'Set fetch option for the request. If no option is specified, by default the attributes of the objects will be returned.'
-                 - 'count - Return the number of matching entries instead of the actual entry data.'
-                 - 'syntax - Return the attribute syntax of a table or an object, instead of the actual entry data. All filter parameters will be ignored.'
-                choices:
-                    - 'count'
-                    - 'syntax'
+    method:
+        description:
+          - The method in request
+        required: true
+        type: str
+        choices:
+          - add
+          - get
+          - set
+          - update
+    params:
+        description:
+          - The parameters for each method
+          - See full parameters list in https://ansible-galaxy-fortimanager-docs.readthedocs.io/en/latest
+        type: list
+        required: false
+    url_params:
+        description:
+          - The parameters for each API request URL
+          - Also see full URL parameters in https://ansible-galaxy-fortimanager-docs.readthedocs.io/en/latest
+        required: false
+        type: dict
 
 '''
 
@@ -221,18 +111,18 @@ EXAMPLES = '''
                      allowaccess:
                        - <value in [ping, https, ssh, ...]>
                      description: <value of string>
-                     ip: <value of string default: '0.0.0.0 0.0.0.0'>
+                     ip: <value of string>
                      ipv6:
-                        ip6-address: <value of string default: '::/0'>
+                        ip6-address: <value of string>
                         ip6-allowaccess:
                           - <value in [ping, https, ssh, ...]>
-                        ip6-autoconf: <value in [disable, enable] default: 'enable'>
-                     mtu: <value of integer default: 1500>
+                        ip6-autoconf: <value in [disable, enable]>
+                     mtu: <value of integer>
                      name: <value of string>
                      serviceaccess:
                        - <value in [fgtupdates, fclupdates, webfilter-antispam]>
-                     speed: <value in [auto, 10full, 10half, ...] default: 'auto'>
-                     status: <value in [down, up] default: 'up'>
+                     speed: <value in [auto, 10full, 10half, ...]>
+                     status: <value in [down, up]>
 
     - name: REQUESTING /CLI/SYSTEM/INTERFACE
       fmgr_system_interface:
@@ -253,99 +143,19 @@ EXAMPLES = '''
 '''
 
 RETURN = '''
-return_of_api_category_0:
-   description: items returned for method:[add, set, update]
-   returned: always
-   suboptions:
-      id:
-         type: int
-      result:
-         status:
-            code:
-               type: int
-            message:
-               type: str
-         url:
-            type: str
-            example: '/cli/global/system/interface'
-return_of_api_category_0:
-   description: items returned for method:[get]
-   returned: always
-   suboptions:
-      id:
-         type: int
-      result:
-         data:
-            type: array
-            suboptions:
-               alias:
-                  type: str
-                  description: 'Alias.'
-               allowaccess:
-                  type: array
-                  suboptions:
-                     type: str
-               description:
-                  type: str
-                  description: 'Description.'
-               ip:
-                  type: str
-                  description: 'IP address of interface.'
-                  example: '0.0.0.0 0.0.0.0'
-               ipv6:
-                  ip6-address:
-                     type: str
-                     description: 'IPv6 address/prefix of interface.'
-                     example: '::/0'
-                  ip6-allowaccess:
-                     type: array
-                     suboptions:
-                        type: str
-                  ip6-autoconf:
-                     type: str
-                     description: |
-                        'Enable/disable address auto config (SLAAC).'
-                        'disable - Disable setting.'
-                        'enable - Enable setting.'
-                     example: 'enable'
-               mtu:
-                  type: int
-                  description: 'Maximum transportation unit(68 - 9000).'
-                  example: 1500
-               name:
-                  type: str
-                  description: 'Interface name.'
-               serviceaccess:
-                  type: array
-                  suboptions:
-                     type: str
-               speed:
-                  type: str
-                  description: |
-                     'Speed.'
-                     'auto - Auto adjust speed.'
-                     '10full - 10M full-duplex.'
-                     '10half - 10M half-duplex.'
-                     '100full - 100M full-duplex.'
-                     '100half - 100M half-duplex.'
-                     '1000full - 1000M full-duplex.'
-                     '10000full - 10000M full-duplex.'
-                  example: 'auto'
-               status:
-                  type: str
-                  description: |
-                     'Interface status.'
-                     'down - Interface down.'
-                     'up - Interface up.'
-                  example: 'up'
-         status:
-            code:
-               type: int
-            message:
-               type: str
-         url:
-            type: str
-            example: '/cli/global/system/interface'
+url:
+    description: The full url requested
+    returned: always
+    type: str
+    sample: /sys/login/user
+status:
+    description: The status of api request
+    returned: always
+    type: dict
+data:
+    description: The payload returned in the request
+    type: dict
+    returned: always
 
 '''
 from ansible.module_utils.basic import AnsibleModule

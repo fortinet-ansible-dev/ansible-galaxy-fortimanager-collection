@@ -46,147 +46,44 @@ notes:
       a trivial transformation when we are filling the ansible playbook
 options:
     loose_validation:
-        description: Do parameter validation in a loose way
-        required: False
+        description:
+          - Do parameter validation in a loose way
         type: bool
-        default: false
+        required: false
     workspace_locking_adom:
-        description: the adom to lock in case FortiManager running in workspace mode
-        required: False
-        type: string
-        choices:
-          - global
-          - custom adom
+        description:
+          - the adom name to lock in case FortiManager running in workspace mode
+          - it can be global or any other custom adom names
+        required: false
+        type: str
     workspace_locking_timeout:
-        description: the maximum time in seconds to wait for other user to release the workspace lock
-        required: False
-        type: integer
+        description:
+          - the maximum time in seconds to wait for other user to release the workspace lock
+        required: false
+        type: int
         default: 300
+    method:
+        description:
+          - The method in request
+        required: true
+        type: str
+        choices:
+          - add
+          - get
+          - set
+          - update
+    params:
+        description:
+          - The parameters for each method
+          - See full parameters list in https://ansible-galaxy-fortimanager-docs.readthedocs.io/en/latest
+        type: list
+        required: false
     url_params:
-        description: the parameters in url path
-        required: True
+        description:
+          - The parameters for each API request URL
+          - Also see full URL parameters in https://ansible-galaxy-fortimanager-docs.readthedocs.io/en/latest
+        required: false
         type: dict
-        suboptions:
-            adom:
-                type: str
-                description: the domain prefix, the none and global are reserved
-                choices:
-                  - none
-                  - global
-                  - custom dom
-    schema_object0:
-        methods: [add, set, update]
-        description: 'Configure profile groups.'
-        api_categories: [api_tag0]
-        api_tag0:
-            data:
-                -
-                    application-list:
-                        type: str
-                        description: 'Name of an existing Application list.'
-                    av-profile:
-                        type: str
-                        description: 'Name of an existing Antivirus profile.'
-                    dlp-sensor:
-                        type: str
-                        description: 'Name of an existing DLP sensor.'
-                    dnsfilter-profile:
-                        type: str
-                        description: 'Name of an existing DNS filter profile.'
-                    icap-profile:
-                        type: str
-                        description: 'Name of an existing ICAP profile.'
-                    ips-sensor:
-                        type: str
-                        description: 'Name of an existing IPS sensor.'
-                    mms-profile:
-                        type: str
-                        description: 'Name of an existing MMS profile.'
-                    name:
-                        type: str
-                        description: 'Profile group name.'
-                    profile-protocol-options:
-                        type: str
-                        description: 'Name of an existing Protocol options profile.'
-                    spamfilter-profile:
-                        type: str
-                        description: 'Name of an existing Spam filter profile.'
-                    ssh-filter-profile:
-                        type: str
-                        description: 'Name of an existing SSH filter profile.'
-                    ssl-ssh-profile:
-                        type: str
-                        description: 'Name of an existing SSL SSH profile.'
-                    voip-profile:
-                        type: str
-                        description: 'Name of an existing VoIP profile.'
-                    waf-profile:
-                        type: str
-                        description: 'Name of an existing Web application firewall profile.'
-                    webfilter-profile:
-                        type: str
-                        description: 'Name of an existing Web filter profile.'
-    schema_object1:
-        methods: [get]
-        description: 'Configure profile groups.'
-        api_categories: [api_tag0]
-        api_tag0:
-            attr:
-                type: str
-                description: 'The name of the attribute to retrieve its datasource. Only used with &lt;i&gt;datasrc&lt;/i&gt; option.'
-            fields:
-                -
-                    -
-                        type: str
-                        choices:
-                            - 'application-list'
-                            - 'av-profile'
-                            - 'dlp-sensor'
-                            - 'dnsfilter-profile'
-                            - 'icap-profile'
-                            - 'ips-sensor'
-                            - 'mms-profile'
-                            - 'name'
-                            - 'profile-protocol-options'
-                            - 'spamfilter-profile'
-                            - 'ssh-filter-profile'
-                            - 'ssl-ssh-profile'
-                            - 'voip-profile'
-                            - 'waf-profile'
-                            - 'webfilter-profile'
-            filter:
-                -
-                    type: str
-            get used:
-                type: int
-            loadsub:
-                type: int
-                description: 'Enable or disable the return of any sub-objects. If not specified, the default is to return all sub-objects.'
-            option:
-                type: str
-                description:
-                 - 'Set fetch option for the request. If no option is specified, by default the attributes of the objects will be returned.'
-                 - 'count - Return the number of matching entries instead of the actual entry data.'
-                 - 'object member - Return a list of object members along with other attributes.'
-                 - 'datasrc - Return all objects that can be referenced by an attribute. Require <i>attr</i> parameter.'
-                 - 'get reserved - Also return reserved objects in the result.'
-                 - 'syntax - Return the attribute syntax of a table or an object, instead of the actual entry data. All filter parameters will be ignored.'
-                choices:
-                    - 'count'
-                    - 'object member'
-                    - 'datasrc'
-                    - 'get reserved'
-                    - 'syntax'
-            range:
-                -
-                    type: int
-            sortings:
-                -
-                    varidic.attr_name:
-                        type: int
-                        choices:
-                            - 1
-                            - -1
 
 '''
 
@@ -257,84 +154,19 @@ EXAMPLES = '''
 '''
 
 RETURN = '''
-return_of_api_category_0:
-   description: items returned for method:[add, set, update]
-   returned: always
-   suboptions:
-      id:
-         type: int
-      result:
-         status:
-            code:
-               type: int
-            message:
-               type: str
-         url:
-            type: str
-            example: '/pm/config/adom/{adom}/obj/firewall/profile-group'
-return_of_api_category_0:
-   description: items returned for method:[get]
-   returned: always
-   suboptions:
-      id:
-         type: int
-      result:
-         data:
-            type: array
-            suboptions:
-               application-list:
-                  type: str
-                  description: 'Name of an existing Application list.'
-               av-profile:
-                  type: str
-                  description: 'Name of an existing Antivirus profile.'
-               dlp-sensor:
-                  type: str
-                  description: 'Name of an existing DLP sensor.'
-               dnsfilter-profile:
-                  type: str
-                  description: 'Name of an existing DNS filter profile.'
-               icap-profile:
-                  type: str
-                  description: 'Name of an existing ICAP profile.'
-               ips-sensor:
-                  type: str
-                  description: 'Name of an existing IPS sensor.'
-               mms-profile:
-                  type: str
-                  description: 'Name of an existing MMS profile.'
-               name:
-                  type: str
-                  description: 'Profile group name.'
-               profile-protocol-options:
-                  type: str
-                  description: 'Name of an existing Protocol options profile.'
-               spamfilter-profile:
-                  type: str
-                  description: 'Name of an existing Spam filter profile.'
-               ssh-filter-profile:
-                  type: str
-                  description: 'Name of an existing SSH filter profile.'
-               ssl-ssh-profile:
-                  type: str
-                  description: 'Name of an existing SSL SSH profile.'
-               voip-profile:
-                  type: str
-                  description: 'Name of an existing VoIP profile.'
-               waf-profile:
-                  type: str
-                  description: 'Name of an existing Web application firewall profile.'
-               webfilter-profile:
-                  type: str
-                  description: 'Name of an existing Web filter profile.'
-         status:
-            code:
-               type: int
-            message:
-               type: str
-         url:
-            type: str
-            example: '/pm/config/adom/{adom}/obj/firewall/profile-group'
+url:
+    description: The full url requested
+    returned: always
+    type: str
+    sample: /sys/login/user
+status:
+    description: The status of api request
+    returned: always
+    type: dict
+data:
+    description: The payload returned in the request
+    type: dict
+    returned: always
 
 '''
 from ansible.module_utils.basic import AnsibleModule

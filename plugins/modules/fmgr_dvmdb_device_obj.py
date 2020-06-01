@@ -46,331 +46,43 @@ notes:
       a trivial transformation when we are filling the ansible playbook
 options:
     loose_validation:
-        description: Do parameter validation in a loose way
-        required: False
+        description:
+          - Do parameter validation in a loose way
         type: bool
-        default: false
+        required: false
     workspace_locking_adom:
-        description: the adom to lock in case FortiManager running in workspace mode
-        required: False
-        type: string
-        choices:
-          - global
-          - custom adom
+        description:
+          - the adom name to lock in case FortiManager running in workspace mode
+          - it can be global or any other custom adom names
+        required: false
+        type: str
     workspace_locking_timeout:
-        description: the maximum time in seconds to wait for other user to release the workspace lock
-        required: False
-        type: integer
+        description:
+          - the maximum time in seconds to wait for other user to release the workspace lock
+        required: false
+        type: int
         default: 300
+    method:
+        description:
+          - The method in request
+        required: true
+        type: str
+        choices:
+          - get
+          - set
+          - update
+    params:
+        description:
+          - The parameters for each method
+          - See full parameters list in https://ansible-galaxy-fortimanager-docs.readthedocs.io/en/latest
+        type: list
+        required: false
     url_params:
-        description: the parameters in url path
-        required: True
+        description:
+          - The parameters for each API request URL
+          - Also see full URL parameters in https://ansible-galaxy-fortimanager-docs.readthedocs.io/en/latest
+        required: false
         type: dict
-        suboptions:
-            adom:
-                type: str
-                description: the domain prefix, the none and global are reserved
-                choices:
-                  - none
-                  - global
-                  - custom dom
-            device:
-                type: str
-    schema_object0:
-        methods: [get]
-        description: 'Device table, most attributes are read-only and can only be changed internally. Refer to Device Manager Command module for API to add,...'
-        api_categories: [api_tag0]
-        api_tag0:
-            option:
-                type: str
-                description:
-                 - 'Set fetch option for the request. If no option is specified, by default the attributes of the object will be returned.'
-                 - 'object member - Return a list of object members along with other attributes.'
-                 - 'chksum - Return the check-sum value instead of attributes.'
-                choices:
-                    - 'object member'
-                    - 'chksum'
-    schema_object1:
-        methods: [set, update]
-        description: 'Device table, most attributes are read-only and can only be changed internally. Refer to Device Manager Command module for API to add,...'
-        api_categories: [api_tag0]
-        api_tag0:
-            data:
-                adm_pass:
-                    -
-                        type: str
-                adm_usr:
-                    type: str
-                app_ver:
-                    type: str
-                av_ver:
-                    type: str
-                beta:
-                    type: int
-                branch_pt:
-                    type: int
-                build:
-                    type: int
-                checksum:
-                    type: str
-                conf_status:
-                    type: str
-                    default: 'unknown'
-                    choices:
-                        - 'unknown'
-                        - 'insync'
-                        - 'outofsync'
-                conn_mode:
-                    type: str
-                    default: 'passive'
-                    choices:
-                        - 'active'
-                        - 'passive'
-                conn_status:
-                    type: str
-                    default: 'UNKNOWN'
-                    choices:
-                        - 'UNKNOWN'
-                        - 'up'
-                        - 'down'
-                db_status:
-                    type: str
-                    default: 'unknown'
-                    choices:
-                        - 'unknown'
-                        - 'nomod'
-                        - 'mod'
-                desc:
-                    type: str
-                dev_status:
-                    type: str
-                    default: 'unknown'
-                    choices:
-                        - 'none'
-                        - 'unknown'
-                        - 'checkedin'
-                        - 'inprogress'
-                        - 'installed'
-                        - 'aborted'
-                        - 'sched'
-                        - 'retry'
-                        - 'canceled'
-                        - 'pending'
-                        - 'retrieved'
-                        - 'changed_conf'
-                        - 'sync_fail'
-                        - 'timeout'
-                        - 'rev_revert'
-                        - 'auto_updated'
-                fap_cnt:
-                    type: int
-                faz.full_act:
-                    type: int
-                faz.perm:
-                    type: int
-                faz.quota:
-                    type: int
-                faz.used:
-                    type: int
-                fex_cnt:
-                    type: int
-                flags:
-                    -
-                        type: str
-                        choices:
-                            - 'has_hdd'
-                            - 'vdom_enabled'
-                            - 'discover'
-                            - 'reload'
-                            - 'interim_build'
-                            - 'offline_mode'
-                            - 'is_model'
-                            - 'fips_mode'
-                            - 'linked_to_model'
-                            - 'ip-conflict'
-                            - 'faz-autosync'
-                foslic_cpu:
-                    type: int
-                    description: 'VM Meter vCPU count.'
-                foslic_dr_site:
-                    type: str
-                    default: 'disable'
-                    description: 'VM Meter DR Site status.'
-                    choices:
-                        - 'disable'
-                        - 'enable'
-                foslic_inst_time:
-                    type: int
-                    description: 'VM Meter first deployment time (in UNIX timestamp).'
-                foslic_last_sync:
-                    type: int
-                    description: 'VM Meter last synchronized time (in UNIX timestamp).'
-                foslic_ram:
-                    type: int
-                    description: 'VM Meter device RAM size (in MB).'
-                foslic_type:
-                    type: str
-                    default: 'temporary'
-                    description: 'VM Meter license type.'
-                    choices:
-                        - 'temporary'
-                        - 'trial'
-                        - 'regular'
-                        - 'trial_expired'
-                foslic_utm:
-                    -
-                        type: str
-                        choices:
-                            - 'fw'
-                            - 'av'
-                            - 'ips'
-                            - 'app'
-                            - 'url'
-                            - 'utm'
-                            - 'fwb'
-                fsw_cnt:
-                    type: int
-                ha_group_id:
-                    type: int
-                ha_group_name:
-                    type: str
-                ha_mode:
-                    type: str
-                    default: 'standalone'
-                    description: 'enabled - Value reserved for non-FOS HA devices.'
-                    choices:
-                        - 'standalone'
-                        - 'AP'
-                        - 'AA'
-                        - 'ELBC'
-                        - 'DUAL'
-                        - 'enabled'
-                        - 'unknown'
-                hdisk_size:
-                    type: int
-                hostname:
-                    type: str
-                hw_rev_major:
-                    type: int
-                hw_rev_minor:
-                    type: int
-                ip:
-                    type: str
-                ips_ext:
-                    type: int
-                ips_ver:
-                    type: str
-                last_checked:
-                    type: int
-                last_resync:
-                    type: int
-                latitude:
-                    type: str
-                lic_flags:
-                    type: int
-                lic_region:
-                    type: str
-                location_from:
-                    type: str
-                logdisk_size:
-                    type: int
-                longitude:
-                    type: str
-                maxvdom:
-                    type: int
-                    default: 10
-                meta fields:
-                    type: str
-                mgmt_id:
-                    type: int
-                mgmt_if:
-                    type: str
-                mgmt_mode:
-                    type: str
-                    default: 'unreg'
-                    choices:
-                        - 'unreg'
-                        - 'fmg'
-                        - 'faz'
-                        - 'fmgfaz'
-                mgt_vdom:
-                    type: str
-                mr:
-                    type: int
-                    default: -1
-                name:
-                    type: str
-                    description: 'Unique name for the device.'
-                os_type:
-                    type: str
-                    default: 'unknown'
-                    choices:
-                        - 'unknown'
-                        - 'fos'
-                        - 'fsw'
-                        - 'foc'
-                        - 'fml'
-                        - 'faz'
-                        - 'fwb'
-                        - 'fch'
-                        - 'fct'
-                        - 'log'
-                        - 'fmg'
-                        - 'fsa'
-                        - 'fdd'
-                        - 'fac'
-                        - 'fpx'
-                os_ver:
-                    type: str
-                    default: 'unknown'
-                    choices:
-                        - 'unknown'
-                        - '0.0'
-                        - '1.0'
-                        - '2.0'
-                        - '3.0'
-                        - '4.0'
-                        - '5.0'
-                        - '6.0'
-                patch:
-                    type: int
-                platform_str:
-                    type: str
-                psk:
-                    type: str
-                sn:
-                    type: str
-                    description: 'Unique value for each device.'
-                vdom:
-                    -
-                        comments:
-                            type: str
-                        name:
-                            type: str
-                        opmode:
-                            type: str
-                            default: 'nat'
-                            choices:
-                                - 'nat'
-                                - 'transparent'
-                        rtm_prof_id:
-                            type: int
-                        status:
-                            type: str
-                version:
-                    type: int
-                vm_cpu:
-                    type: int
-                vm_cpu_limit:
-                    type: int
-                vm_lic_expire:
-                    type: int
-                vm_mem:
-                    type: int
-                vm_mem_limit:
-                    type: int
-                vm_status:
-                    type: int
 
 '''
 
@@ -419,12 +131,12 @@ EXAMPLES = '''
                   branch_pt: <value of integer>
                   build: <value of integer>
                   checksum: <value of string>
-                  conf_status: <value in [unknown, insync, outofsync] default: 'unknown'>
-                  conn_mode: <value in [active, passive] default: 'passive'>
-                  conn_status: <value in [UNKNOWN, up, down] default: 'UNKNOWN'>
-                  db_status: <value in [unknown, nomod, mod] default: 'unknown'>
+                  conf_status: <value in [unknown, insync, outofsync]>
+                  conn_mode: <value in [active, passive]>
+                  conn_status: <value in [UNKNOWN, up, down]>
+                  db_status: <value in [unknown, nomod, mod]>
                   desc: <value of string>
-                  dev_status: <value in [none, unknown, checkedin, ...] default: 'unknown'>
+                  dev_status: <value in [none, unknown, checkedin, ...]>
                   fap_cnt: <value of integer>
                   faz.full_act: <value of integer>
                   faz.perm: <value of integer>
@@ -434,17 +146,17 @@ EXAMPLES = '''
                   flags:
                     - <value in [has_hdd, vdom_enabled, discover, ...]>
                   foslic_cpu: <value of integer>
-                  foslic_dr_site: <value in [disable, enable] default: 'disable'>
+                  foslic_dr_site: <value in [disable, enable]>
                   foslic_inst_time: <value of integer>
                   foslic_last_sync: <value of integer>
                   foslic_ram: <value of integer>
-                  foslic_type: <value in [temporary, trial, regular, ...] default: 'temporary'>
+                  foslic_type: <value in [temporary, trial, regular, ...]>
                   foslic_utm:
                     - <value in [fw, av, ips, ...]>
                   fsw_cnt: <value of integer>
                   ha_group_id: <value of integer>
                   ha_group_name: <value of string>
-                  ha_mode: <value in [standalone, AP, AA, ...] default: 'standalone'>
+                  ha_mode: <value in [standalone, AP, AA, ...]>
                   hdisk_size: <value of integer>
                   hostname: <value of string>
                   hw_rev_major: <value of integer>
@@ -460,16 +172,16 @@ EXAMPLES = '''
                   location_from: <value of string>
                   logdisk_size: <value of integer>
                   longitude: <value of string>
-                  maxvdom: <value of integer default: 10>
+                  maxvdom: <value of integer>
                   meta fields: <value of string>
                   mgmt_id: <value of integer>
                   mgmt_if: <value of string>
-                  mgmt_mode: <value in [unreg, fmg, faz, ...] default: 'unreg'>
+                  mgmt_mode: <value in [unreg, fmg, faz, ...]>
                   mgt_vdom: <value of string>
-                  mr: <value of integer default: -1>
+                  mr: <value of integer>
                   name: <value of string>
-                  os_type: <value in [unknown, fos, fsw, ...] default: 'unknown'>
-                  os_ver: <value in [unknown, 0.0, 1.0, ...] default: 'unknown'>
+                  os_type: <value in [unknown, fos, fsw, ...]>
+                  os_ver: <value in [unknown, 0.0, 1.0, ...]>
                   patch: <value of integer>
                   platform_str: <value of string>
                   psk: <value of string>
@@ -478,7 +190,7 @@ EXAMPLES = '''
                     -
                         comments: <value of string>
                         name: <value of string>
-                        opmode: <value in [nat, transparent] default: 'nat'>
+                        opmode: <value in [nat, transparent]>
                         rtm_prof_id: <value of integer>
                         status: <value of string>
                   version: <value of integer>
@@ -492,215 +204,19 @@ EXAMPLES = '''
 '''
 
 RETURN = '''
-return_of_api_category_0:
-   description: items returned for method:[get]
-   returned: always
-   suboptions:
-      id:
-         type: int
-      result:
-         data:
-            adm_pass:
-               type: array
-               suboptions:
-                  type: str
-            adm_usr:
-               type: str
-            app_ver:
-               type: str
-            av_ver:
-               type: str
-            beta:
-               type: int
-            branch_pt:
-               type: int
-            build:
-               type: int
-            checksum:
-               type: str
-            conf_status:
-               type: str
-               example: 'unknown'
-            conn_mode:
-               type: str
-               example: 'passive'
-            conn_status:
-               type: str
-               example: 'UNKNOWN'
-            db_status:
-               type: str
-               example: 'unknown'
-            desc:
-               type: str
-            dev_status:
-               type: str
-               example: 'unknown'
-            fap_cnt:
-               type: int
-            faz.full_act:
-               type: int
-            faz.perm:
-               type: int
-            faz.quota:
-               type: int
-            faz.used:
-               type: int
-            fex_cnt:
-               type: int
-            flags:
-               type: array
-               suboptions:
-                  type: str
-            foslic_cpu:
-               type: int
-               description: 'VM Meter vCPU count.'
-            foslic_dr_site:
-               type: str
-               description: 'VM Meter DR Site status.'
-               example: 'disable'
-            foslic_inst_time:
-               type: int
-               description: 'VM Meter first deployment time (in UNIX timestamp).'
-            foslic_last_sync:
-               type: int
-               description: 'VM Meter last synchronized time (in UNIX timestamp).'
-            foslic_ram:
-               type: int
-               description: 'VM Meter device RAM size (in MB).'
-            foslic_type:
-               type: str
-               description: 'VM Meter license type.'
-               example: 'temporary'
-            foslic_utm:
-               type: array
-               suboptions:
-                  type: str
-            fsw_cnt:
-               type: int
-            ha_group_id:
-               type: int
-            ha_group_name:
-               type: str
-            ha_mode:
-               type: str
-               description: 'enabled - Value reserved for non-FOS HA devices.'
-               example: 'standalone'
-            hdisk_size:
-               type: int
-            hostname:
-               type: str
-            hw_rev_major:
-               type: int
-            hw_rev_minor:
-               type: int
-            ip:
-               type: str
-            ips_ext:
-               type: int
-            ips_ver:
-               type: str
-            last_checked:
-               type: int
-            last_resync:
-               type: int
-            latitude:
-               type: str
-            lic_flags:
-               type: int
-            lic_region:
-               type: str
-            location_from:
-               type: str
-            logdisk_size:
-               type: int
-            longitude:
-               type: str
-            maxvdom:
-               type: int
-               example: 10
-            meta fields:
-               type: str
-            mgmt_id:
-               type: int
-            mgmt_if:
-               type: str
-            mgmt_mode:
-               type: str
-               example: 'unreg'
-            mgt_vdom:
-               type: str
-            mr:
-               type: int
-               example: -1
-            name:
-               type: str
-               description: 'Unique name for the device.'
-            os_type:
-               type: str
-               example: 'unknown'
-            os_ver:
-               type: str
-               example: 'unknown'
-            patch:
-               type: int
-            platform_str:
-               type: str
-            psk:
-               type: str
-            sn:
-               type: str
-               description: 'Unique value for each device.'
-            vdom:
-               type: array
-               suboptions:
-                  comments:
-                     type: str
-                  name:
-                     type: str
-                  opmode:
-                     type: str
-                     example: 'nat'
-                  rtm_prof_id:
-                     type: int
-                  status:
-                     type: str
-            version:
-               type: int
-            vm_cpu:
-               type: int
-            vm_cpu_limit:
-               type: int
-            vm_lic_expire:
-               type: int
-            vm_mem:
-               type: int
-            vm_mem_limit:
-               type: int
-            vm_status:
-               type: int
-         status:
-            code:
-               type: int
-            message:
-               type: str
-         url:
-            type: str
-            example: '/dvmdb/adom/{adom}/device/{device}'
-return_of_api_category_0:
-   description: items returned for method:[set, update]
-   returned: always
-   suboptions:
-      id:
-         type: int
-      result:
-         status:
-            code:
-               type: int
-            message:
-               type: str
-         url:
-            type: str
-            example: '/dvmdb/adom/{adom}/device/{device}'
+url:
+    description: The full url requested
+    returned: always
+    type: str
+    sample: /sys/login/user
+status:
+    description: The status of api request
+    returned: always
+    type: dict
+data:
+    description: The payload returned in the request
+    type: dict
+    returned: always
 
 '''
 from ansible.module_utils.basic import AnsibleModule

@@ -42,4 +42,3 @@
       fail:
         msg: 'the device is not installed correctly, see more in log'
       failed_when: taskinfo.meta.data.num_err != 0 or taskinfo.meta.data.state == 'error'
-

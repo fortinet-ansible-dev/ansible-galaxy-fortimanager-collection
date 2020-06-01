@@ -46,117 +46,45 @@ notes:
       a trivial transformation when we are filling the ansible playbook
 options:
     loose_validation:
-        description: Do parameter validation in a loose way
-        required: False
+        description:
+          - Do parameter validation in a loose way
         type: bool
-        default: false
+        required: false
     workspace_locking_adom:
-        description: the adom to lock in case FortiManager running in workspace mode
-        required: False
-        type: string
-        choices:
-          - global
-          - custom adom
+        description:
+          - the adom name to lock in case FortiManager running in workspace mode
+          - it can be global or any other custom adom names
+        required: false
+        type: str
     workspace_locking_timeout:
-        description: the maximum time in seconds to wait for other user to release the workspace lock
-        required: False
-        type: integer
+        description:
+          - the maximum time in seconds to wait for other user to release the workspace lock
+        required: false
+        type: int
         default: 300
+    method:
+        description:
+          - The method in request
+        required: true
+        type: str
+        choices:
+          - clone
+          - delete
+          - get
+          - set
+          - update
+    params:
+        description:
+          - The parameters for each method
+          - See full parameters list in https://ansible-galaxy-fortimanager-docs.readthedocs.io/en/latest
+        type: list
+        required: false
     url_params:
-        description: the parameters in url path
-        required: True
+        description:
+          - The parameters for each API request URL
+          - Also see full URL parameters in https://ansible-galaxy-fortimanager-docs.readthedocs.io/en/latest
+        required: false
         type: dict
-        suboptions:
-            adom:
-                type: str
-                description: the domain prefix, the none and global are reserved
-                choices:
-                  - none
-                  - global
-                  - custom dom
-            addrgrp6:
-                type: str
-    schema_object0:
-        methods: [clone, set, update]
-        description: 'Configure IPv6 address groups.'
-        api_categories: [api_tag0]
-        api_tag0:
-            data:
-                color:
-                    type: int
-                    description: 'Integer value to determine the color of the icon in the GUI (1 - 32, default = 0, which sets the value to 1).'
-                comment:
-                    type: str
-                    description: 'Comment.'
-                dynamic_mapping:
-                    -
-                        _scope:
-                            -
-                                name:
-                                    type: str
-                                vdom:
-                                    type: str
-                        color:
-                            type: int
-                        comment:
-                            type: str
-                        member:
-                            type: str
-                        tags:
-                            type: str
-                        uuid:
-                            type: str
-                        visibility:
-                            type: str
-                            choices:
-                                - 'disable'
-                                - 'enable'
-                member:
-                    type: str
-                    description: 'Address objects contained within the group.'
-                name:
-                    type: str
-                    description: 'IPv6 address group name.'
-                tagging:
-                    -
-                        category:
-                            type: str
-                            description: 'Tag category.'
-                        name:
-                            type: str
-                            description: 'Tagging entry name.'
-                        tags:
-                            -
-                                type: str
-                uuid:
-                    type: str
-                    description: 'Universally Unique Identifier (UUID; automatically assigned but can be manually reset).'
-                visibility:
-                    type: str
-                    description: 'Enable/disable address group6 visibility in the GUI.'
-                    choices:
-                        - 'disable'
-                        - 'enable'
-    schema_object1:
-        methods: [delete]
-        description: 'Configure IPv6 address groups.'
-        api_categories: [api_tag0]
-        api_tag0:
-    schema_object2:
-        methods: [get]
-        description: 'Configure IPv6 address groups.'
-        api_categories: [api_tag0]
-        api_tag0:
-            option:
-                type: str
-                description:
-                 - 'Set fetch option for the request. If no option is specified, by default the attributes of the object will be returned.'
-                 - 'object member - Return a list of object members along with other attributes.'
-                 - 'chksum - Return the check-sum value instead of attributes.'
-                choices:
-                    - 'object member'
-                    - 'chksum'
-                    - 'datasrc'
 
 '''
 
@@ -224,90 +152,19 @@ EXAMPLES = '''
 '''
 
 RETURN = '''
-return_of_api_category_0:
-   description: items returned for method:[clone, delete, set, update]
-   returned: always
-   suboptions:
-      id:
-         type: int
-      result:
-         status:
-            code:
-               type: int
-            message:
-               type: str
-         url:
-            type: str
-            example: '/pm/config/adom/{adom}/obj/firewall/addrgrp6/{addrgrp6}'
-return_of_api_category_0:
-   description: items returned for method:[get]
-   returned: always
-   suboptions:
-      id:
-         type: int
-      result:
-         data:
-            color:
-               type: int
-               description: 'Integer value to determine the color of the icon in the GUI (1 - 32, default = 0, which sets the value to 1).'
-            comment:
-               type: str
-               description: 'Comment.'
-            dynamic_mapping:
-               type: array
-               suboptions:
-                  _scope:
-                     type: array
-                     suboptions:
-                        name:
-                           type: str
-                        vdom:
-                           type: str
-                  color:
-                     type: int
-                  comment:
-                     type: str
-                  member:
-                     type: str
-                  tags:
-                     type: str
-                  uuid:
-                     type: str
-                  visibility:
-                     type: str
-            member:
-               type: str
-               description: 'Address objects contained within the group.'
-            name:
-               type: str
-               description: 'IPv6 address group name.'
-            tagging:
-               type: array
-               suboptions:
-                  category:
-                     type: str
-                     description: 'Tag category.'
-                  name:
-                     type: str
-                     description: 'Tagging entry name.'
-                  tags:
-                     type: array
-                     suboptions:
-                        type: str
-            uuid:
-               type: str
-               description: 'Universally Unique Identifier (UUID; automatically assigned but can be manually reset).'
-            visibility:
-               type: str
-               description: 'Enable/disable address group6 visibility in the GUI.'
-         status:
-            code:
-               type: int
-            message:
-               type: str
-         url:
-            type: str
-            example: '/pm/config/adom/{adom}/obj/firewall/addrgrp6/{addrgrp6}'
+url:
+    description: The full url requested
+    returned: always
+    type: str
+    sample: /sys/login/user
+status:
+    description: The status of api request
+    returned: always
+    type: dict
+data:
+    description: The payload returned in the request
+    type: dict
+    returned: always
 
 '''
 from ansible.module_utils.basic import AnsibleModule

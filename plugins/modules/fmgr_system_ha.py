@@ -45,92 +45,43 @@ notes:
       a trivial transformation when we are filling the ansible playbook
 options:
     loose_validation:
-        description: Do parameter validation in a loose way
-        required: False
+        description:
+          - Do parameter validation in a loose way
         type: bool
-        default: false
+        required: false
     workspace_locking_adom:
-        description: the adom to lock in case FortiManager running in workspace mode
-        required: False
-        type: string
-        choices:
-          - global
-          - custom adom
+        description:
+          - the adom name to lock in case FortiManager running in workspace mode
+          - it can be global or any other custom adom names
+        required: false
+        type: str
     workspace_locking_timeout:
-        description: the maximum time in seconds to wait for other user to release the workspace lock
-        required: False
-        type: integer
+        description:
+          - the maximum time in seconds to wait for other user to release the workspace lock
+        required: false
+        type: int
         default: 300
-    schema_object0:
-        methods: [get]
-        description: 'HA configuration.'
-        api_categories: [api_tag0]
-        api_tag0:
-    schema_object1:
-        methods: [set, update]
-        description: 'HA configuration.'
-        api_categories: [api_tag0]
-        api_tag0:
-            data:
-                clusterid:
-                    type: int
-                    default: 1
-                    description: 'Cluster ID range (1 - 64).'
-                file-quota:
-                    type: int
-                    default: 4096
-                    description: 'File quota in MB (2048 - 20480).'
-                hb-interval:
-                    type: int
-                    default: 5
-                    description: 'Heartbeat interval (1 - 255).'
-                hb-lost-threshold:
-                    type: int
-                    default: 3
-                    description: 'Heartbeat lost threshold (1 - 255).'
-                mode:
-                    type: str
-                    default: 'standalone'
-                    description:
-                     - 'Mode.'
-                     - 'standalone - Standalone.'
-                     - 'master - Master.'
-                     - 'slave - Slave.'
-                    choices:
-                        - 'standalone'
-                        - 'master'
-                        - 'slave'
-                password:
-                    -
-                        type: str
-                        default: 'ENC Njg3MTI2ODY4ODEyMzY2NtF8Bgn7rP641A/Sf8QzaQhOnUfyVTFTNoFxfoZ5gzjrvXiDpQmIecJchwHMf6cMUMYR/EPxGUXBEohaVdi4YNK74+fWHu9m1...'
-                peer:
-                    -
-                        id:
-                            type: int
-                            default: 0
-                            description: 'Id.'
-                        ip:
-                            type: str
-                            default: '0.0.0.0'
-                            description: 'IP address of peer.'
-                        ip6:
-                            type: str
-                            default: '::'
-                            description: 'IP address (V6) of peer.'
-                        serial-number:
-                            type: str
-                            description: 'Serial number of peer.'
-                        status:
-                            type: str
-                            default: 'enable'
-                            description:
-                             - 'Peer admin status.'
-                             - 'disable - Disable.'
-                             - 'enable - Enable.'
-                            choices:
-                                - 'disable'
-                                - 'enable'
+    method:
+        description:
+          - The method in request
+        required: true
+        type: str
+        choices:
+          - get
+          - set
+          - update
+    params:
+        description:
+          - The parameters for each method
+          - See full parameters list in https://ansible-galaxy-fortimanager-docs.readthedocs.io/en/latest
+        type: list
+        required: false
+    url_params:
+        description:
+          - The parameters for each API request URL
+          - Also see full URL parameters in https://ansible-galaxy-fortimanager-docs.readthedocs.io/en/latest
+        required: false
+        type: dict
 
 '''
 
@@ -154,109 +105,37 @@ EXAMPLES = '''
          params:
             -
                data:
-                  clusterid: <value of integer default: 1>
-                  file-quota: <value of integer default: 4096>
-                  hb-interval: <value of integer default: 5>
-                  hb-lost-threshold: <value of integer default: 3>
-                  mode: <value in [standalone, master, slave] default: 'standalone'>
+                  clusterid: <value of integer>
+                  file-quota: <value of integer>
+                  hb-interval: <value of integer>
+                  hb-lost-threshold: <value of integer>
+                  mode: <value in [standalone, master, slave]>
                   password:
-                    - <value of string default: 'ENC Njg3MTI2ODY4ODEyMzY2NtF8Bgn7rP641A/Sf8QzaQhOnUfyVTFTNoFxfoZ5gzjrvXiDpQmI...'>
+                    - <value of string>
                   peer:
                     -
-                        id: <value of integer default: 0>
-                        ip: <value of string default: '0.0.0.0'>
-                        ip6: <value of string default: '::'>
+                        id: <value of integer>
+                        ip: <value of string>
+                        ip6: <value of string>
                         serial-number: <value of string>
-                        status: <value in [disable, enable] default: 'enable'>
+                        status: <value in [disable, enable]>
 
 '''
 
 RETURN = '''
-return_of_api_category_0:
-   description: items returned for method:[get]
-   returned: always
-   suboptions:
-      id:
-         type: int
-      result:
-         data:
-            clusterid:
-               type: int
-               description: 'Cluster ID range (1 - 64).'
-               example: 1
-            file-quota:
-               type: int
-               description: 'File quota in MB (2048 - 20480).'
-               example: 4096
-            hb-interval:
-               type: int
-               description: 'Heartbeat interval (1 - 255).'
-               example: 5
-            hb-lost-threshold:
-               type: int
-               description: 'Heartbeat lost threshold (1 - 255).'
-               example: 3
-            mode:
-               type: str
-               description: |
-                  'Mode.'
-                  'standalone - Standalone.'
-                  'master - Master.'
-                  'slave - Slave.'
-               example: 'standalone'
-            password:
-               type: array
-               suboptions:
-                  type: str
-                  example: 'ENC Njg3MTI2ODY4ODEyMzY2NtF8Bgn7rP641A/Sf8QzaQhOnUfyVTFTNoFxfoZ5gzjrvXiDpQmI...'
-            peer:
-               type: array
-               suboptions:
-                  id:
-                     type: int
-                     description: 'Id.'
-                     example: 0
-                  ip:
-                     type: str
-                     description: 'IP address of peer.'
-                     example: '0.0.0.0'
-                  ip6:
-                     type: str
-                     description: 'IP address (V6) of peer.'
-                     example: '::'
-                  serial-number:
-                     type: str
-                     description: 'Serial number of peer.'
-                  status:
-                     type: str
-                     description: |
-                        'Peer admin status.'
-                        'disable - Disable.'
-                        'enable - Enable.'
-                     example: 'enable'
-         status:
-            code:
-               type: int
-            message:
-               type: str
-         url:
-            type: str
-            example: '/cli/global/system/ha'
-return_of_api_category_0:
-   description: items returned for method:[set, update]
-   returned: always
-   suboptions:
-      id:
-         type: int
-      result:
-         status:
-            code:
-               type: int
-            message:
-               type: str
-         url:
-            type: str
-            example: '/cli/global/system/ha'
+url:
+    description: The full url requested
+    returned: always
+    type: str
+    sample: /sys/login/user
+status:
+    description: The status of api request
+    returned: always
+    type: dict
+data:
+    description: The payload returned in the request
+    type: dict
+    returned: always
 
 '''
 from ansible.module_utils.basic import AnsibleModule

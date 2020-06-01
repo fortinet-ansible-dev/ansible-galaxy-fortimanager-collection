@@ -45,214 +45,45 @@ notes:
       a trivial transformation when we are filling the ansible playbook
 options:
     loose_validation:
-        description: Do parameter validation in a loose way
-        required: False
+        description:
+          - Do parameter validation in a loose way
         type: bool
-        default: false
+        required: false
     workspace_locking_adom:
-        description: the adom to lock in case FortiManager running in workspace mode
-        required: False
-        type: string
-        choices:
-          - global
-          - custom adom
+        description:
+          - the adom name to lock in case FortiManager running in workspace mode
+          - it can be global or any other custom adom names
+        required: false
+        type: str
     workspace_locking_timeout:
-        description: the maximum time in seconds to wait for other user to release the workspace lock
-        required: False
-        type: integer
+        description:
+          - the maximum time in seconds to wait for other user to release the workspace lock
+        required: false
+        type: int
         default: 300
+    method:
+        description:
+          - The method in request
+        required: true
+        type: str
+        choices:
+          - clone
+          - delete
+          - get
+          - set
+          - update
+    params:
+        description:
+          - The parameters for each method
+          - See full parameters list in https://ansible-galaxy-fortimanager-docs.readthedocs.io/en/latest
+        type: list
+        required: false
     url_params:
-        description: the parameters in url path
-        required: True
+        description:
+          - The parameters for each API request URL
+          - Also see full URL parameters in https://ansible-galaxy-fortimanager-docs.readthedocs.io/en/latest
+        required: false
         type: dict
-        suboptions:
-            adom:
-                type: str
-                description: the domain prefix, the none and global are reserved
-                choices:
-                  - none
-                  - global
-                  - custom dom
-            devprof:
-                type: str
-            community:
-                type: str
-    schema_object0:
-        methods: [clone, set, update]
-        description: 'SNMP community configuration.'
-        api_categories: [api_tag0]
-        api_tag0:
-            data:
-                events:
-                    -
-                        type: str
-                        choices:
-                            - 'cpu-high'
-                            - 'mem-low'
-                            - 'log-full'
-                            - 'intf-ip'
-                            - 'vpn-tun-up'
-                            - 'vpn-tun-down'
-                            - 'ha-switch'
-                            - 'ha-hb-failure'
-                            - 'ips-signature'
-                            - 'ips-anomaly'
-                            - 'av-virus'
-                            - 'av-oversize'
-                            - 'av-pattern'
-                            - 'av-fragmented'
-                            - 'fm-if-change'
-                            - 'fm-conf-change'
-                            - 'temperature-high'
-                            - 'voltage-alert'
-                            - 'ha-member-up'
-                            - 'ha-member-down'
-                            - 'ent-conf-change'
-                            - 'av-conserve'
-                            - 'av-bypass'
-                            - 'av-oversize-passed'
-                            - 'av-oversize-blocked'
-                            - 'ips-pkg-update'
-                            - 'power-supply-failure'
-                            - 'amc-bypass'
-                            - 'faz-disconnect'
-                            - 'fan-failure'
-                            - 'bgp-established'
-                            - 'bgp-backward-transition'
-                            - 'wc-ap-up'
-                            - 'wc-ap-down'
-                            - 'fswctl-session-up'
-                            - 'fswctl-session-down'
-                            - 'ips-fail-open'
-                            - 'load-balance-real-server-down'
-                            - 'device-new'
-                            - 'enter-intf-bypass'
-                            - 'exit-intf-bypass'
-                            - 'per-cpu-high'
-                            - 'power-blade-down'
-                            - 'confsync_failure'
-                hosts:
-                    -
-                        ha-direct:
-                            type: str
-                            description: 'Enable/disable direct management of HA cluster members.'
-                            choices:
-                                - 'disable'
-                                - 'enable'
-                        host-type:
-                            type: str
-                            description: 'Control whether the SNMP manager sends SNMP queries, receives SNMP traps, or both.'
-                            choices:
-                                - 'any'
-                                - 'query'
-                                - 'trap'
-                        id:
-                            type: int
-                            description: 'Host entry ID.'
-                        ip:
-                            type: str
-                            description: 'IPv4 address of the SNMP manager (host).'
-                        source-ip:
-                            type: str
-                            description: 'Source IPv4 address for SNMP traps.'
-                hosts6:
-                    -
-                        ha-direct:
-                            type: str
-                            description: 'Enable/disable direct management of HA cluster members.'
-                            choices:
-                                - 'disable'
-                                - 'enable'
-                        host-type:
-                            type: str
-                            description: 'Control whether the SNMP manager sends SNMP queries, receives SNMP traps, or both.'
-                            choices:
-                                - 'any'
-                                - 'query'
-                                - 'trap'
-                        id:
-                            type: int
-                            description: 'Host6 entry ID.'
-                        ipv6:
-                            type: str
-                            description: 'SNMP manager IPv6 address prefix.'
-                        source-ipv6:
-                            type: str
-                            description: 'Source IPv6 address for SNMP traps.'
-                id:
-                    type: int
-                    description: 'Community ID.'
-                name:
-                    type: str
-                    description: 'Community name.'
-                query-v1-port:
-                    type: int
-                    description: 'SNMP v1 query port (default = 161).'
-                query-v1-status:
-                    type: str
-                    description: 'Enable/disable SNMP v1 queries.'
-                    choices:
-                        - 'disable'
-                        - 'enable'
-                query-v2c-port:
-                    type: int
-                    description: 'SNMP v2c query port (default = 161).'
-                query-v2c-status:
-                    type: str
-                    description: 'Enable/disable SNMP v2c queries.'
-                    choices:
-                        - 'disable'
-                        - 'enable'
-                status:
-                    type: str
-                    description: 'Enable/disable this SNMP community.'
-                    choices:
-                        - 'disable'
-                        - 'enable'
-                trap-v1-lport:
-                    type: int
-                    description: 'SNMP v1 trap local port (default = 162).'
-                trap-v1-rport:
-                    type: int
-                    description: 'SNMP v1 trap remote port (default = 162).'
-                trap-v1-status:
-                    type: str
-                    description: 'Enable/disable SNMP v1 traps.'
-                    choices:
-                        - 'disable'
-                        - 'enable'
-                trap-v2c-lport:
-                    type: int
-                    description: 'SNMP v2c trap local port (default = 162).'
-                trap-v2c-rport:
-                    type: int
-                    description: 'SNMP v2c trap remote port (default = 162).'
-                trap-v2c-status:
-                    type: str
-                    description: 'Enable/disable SNMP v2c traps.'
-                    choices:
-                        - 'disable'
-                        - 'enable'
-    schema_object1:
-        methods: [delete]
-        description: 'SNMP community configuration.'
-        api_categories: [api_tag0]
-        api_tag0:
-    schema_object2:
-        methods: [get]
-        description: 'SNMP community configuration.'
-        api_categories: [api_tag0]
-        api_tag0:
-            option:
-                type: str
-                description:
-                 - 'Set fetch option for the request. If no option is specified, by default the attributes of the object will be returned.'
-                 - 'object member - Return a list of object members along with other attributes.'
-                 - 'chksum - Return the check-sum value instead of attributes.'
-                choices:
-                    - 'object member'
-                    - 'chksum'
-                    - 'datasrc'
 
 '''
 
@@ -327,135 +158,19 @@ EXAMPLES = '''
 '''
 
 RETURN = '''
-return_of_api_category_0:
-   description: items returned for method:[clone, set, update]
-   returned: always
-   suboptions:
-      id:
-         type: int
-      result:
-         data:
-            id:
-               type: int
-               description: 'Community ID.'
-         status:
-            code:
-               type: int
-            message:
-               type: str
-         url:
-            type: str
-            example: '/pm/config/adom/{adom}/devprof/{devprof}/system/snmp/community/{community}'
-return_of_api_category_0:
-   description: items returned for method:[delete]
-   returned: always
-   suboptions:
-      id:
-         type: int
-      result:
-         status:
-            code:
-               type: int
-            message:
-               type: str
-         url:
-            type: str
-            example: '/pm/config/adom/{adom}/devprof/{devprof}/system/snmp/community/{community}'
-return_of_api_category_0:
-   description: items returned for method:[get]
-   returned: always
-   suboptions:
-      id:
-         type: int
-      result:
-         data:
-            events:
-               type: array
-               suboptions:
-                  type: str
-            hosts:
-               type: array
-               suboptions:
-                  ha-direct:
-                     type: str
-                     description: 'Enable/disable direct management of HA cluster members.'
-                  host-type:
-                     type: str
-                     description: 'Control whether the SNMP manager sends SNMP queries, receives SNMP traps, or both.'
-                  id:
-                     type: int
-                     description: 'Host entry ID.'
-                  ip:
-                     type: str
-                     description: 'IPv4 address of the SNMP manager (host).'
-                  source-ip:
-                     type: str
-                     description: 'Source IPv4 address for SNMP traps.'
-            hosts6:
-               type: array
-               suboptions:
-                  ha-direct:
-                     type: str
-                     description: 'Enable/disable direct management of HA cluster members.'
-                  host-type:
-                     type: str
-                     description: 'Control whether the SNMP manager sends SNMP queries, receives SNMP traps, or both.'
-                  id:
-                     type: int
-                     description: 'Host6 entry ID.'
-                  ipv6:
-                     type: str
-                     description: 'SNMP manager IPv6 address prefix.'
-                  source-ipv6:
-                     type: str
-                     description: 'Source IPv6 address for SNMP traps.'
-            id:
-               type: int
-               description: 'Community ID.'
-            name:
-               type: str
-               description: 'Community name.'
-            query-v1-port:
-               type: int
-               description: 'SNMP v1 query port (default = 161).'
-            query-v1-status:
-               type: str
-               description: 'Enable/disable SNMP v1 queries.'
-            query-v2c-port:
-               type: int
-               description: 'SNMP v2c query port (default = 161).'
-            query-v2c-status:
-               type: str
-               description: 'Enable/disable SNMP v2c queries.'
-            status:
-               type: str
-               description: 'Enable/disable this SNMP community.'
-            trap-v1-lport:
-               type: int
-               description: 'SNMP v1 trap local port (default = 162).'
-            trap-v1-rport:
-               type: int
-               description: 'SNMP v1 trap remote port (default = 162).'
-            trap-v1-status:
-               type: str
-               description: 'Enable/disable SNMP v1 traps.'
-            trap-v2c-lport:
-               type: int
-               description: 'SNMP v2c trap local port (default = 162).'
-            trap-v2c-rport:
-               type: int
-               description: 'SNMP v2c trap remote port (default = 162).'
-            trap-v2c-status:
-               type: str
-               description: 'Enable/disable SNMP v2c traps.'
-         status:
-            code:
-               type: int
-            message:
-               type: str
-         url:
-            type: str
-            example: '/pm/config/adom/{adom}/devprof/{devprof}/system/snmp/community/{community}'
+url:
+    description: The full url requested
+    returned: always
+    type: str
+    sample: /sys/login/user
+status:
+    description: The status of api request
+    returned: always
+    type: dict
+data:
+    description: The payload returned in the request
+    type: dict
+    returned: always
 
 '''
 from ansible.module_utils.basic import AnsibleModule

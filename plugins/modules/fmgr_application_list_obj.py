@@ -46,242 +46,45 @@ notes:
       a trivial transformation when we are filling the ansible playbook
 options:
     loose_validation:
-        description: Do parameter validation in a loose way
-        required: False
+        description:
+          - Do parameter validation in a loose way
         type: bool
-        default: false
+        required: false
     workspace_locking_adom:
-        description: the adom to lock in case FortiManager running in workspace mode
-        required: False
-        type: string
-        choices:
-          - global
-          - custom adom
+        description:
+          - the adom name to lock in case FortiManager running in workspace mode
+          - it can be global or any other custom adom names
+        required: false
+        type: str
     workspace_locking_timeout:
-        description: the maximum time in seconds to wait for other user to release the workspace lock
-        required: False
-        type: integer
+        description:
+          - the maximum time in seconds to wait for other user to release the workspace lock
+        required: false
+        type: int
         default: 300
+    method:
+        description:
+          - The method in request
+        required: true
+        type: str
+        choices:
+          - clone
+          - delete
+          - get
+          - set
+          - update
+    params:
+        description:
+          - The parameters for each method
+          - See full parameters list in https://ansible-galaxy-fortimanager-docs.readthedocs.io/en/latest
+        type: list
+        required: false
     url_params:
-        description: the parameters in url path
-        required: True
+        description:
+          - The parameters for each API request URL
+          - Also see full URL parameters in https://ansible-galaxy-fortimanager-docs.readthedocs.io/en/latest
+        required: false
         type: dict
-        suboptions:
-            adom:
-                type: str
-                description: the domain prefix, the none and global are reserved
-                choices:
-                  - none
-                  - global
-                  - custom dom
-            list:
-                type: str
-    schema_object0:
-        methods: [clone, set, update]
-        description: 'Configure application control lists.'
-        api_categories: [api_tag0]
-        api_tag0:
-            data:
-                app-replacemsg:
-                    type: str
-                    description: 'Enable/disable replacement messages for blocked applications.'
-                    choices:
-                        - 'disable'
-                        - 'enable'
-                comment:
-                    type: str
-                    description: 'comments'
-                deep-app-inspection:
-                    type: str
-                    description: 'Enable/disable deep application inspection.'
-                    choices:
-                        - 'disable'
-                        - 'enable'
-                entries:
-                    -
-                        action:
-                            type: str
-                            description: 'Pass or block traffic, or reset connection for traffic from this application.'
-                            choices:
-                                - 'pass'
-                                - 'block'
-                                - 'reset'
-                        application:
-                            -
-                                type: int
-                        behavior:
-                            -
-                                type: str
-                        category:
-                            type: str
-                            description: 'Category ID list.'
-                        id:
-                            type: int
-                            description: 'Entry ID.'
-                        log:
-                            type: str
-                            description: 'Enable/disable logging for this application list.'
-                            choices:
-                                - 'disable'
-                                - 'enable'
-                        log-packet:
-                            type: str
-                            description: 'Enable/disable packet logging.'
-                            choices:
-                                - 'disable'
-                                - 'enable'
-                        parameters:
-                            -
-                                id:
-                                    type: int
-                                    description: 'Parameter ID.'
-                                value:
-                                    type: str
-                                    description: 'Parameter value.'
-                        per-ip-shaper:
-                            type: str
-                            description: 'Per-IP traffic shaper.'
-                        popularity:
-                            -
-                                type: str
-                                choices:
-                                    - '1'
-                                    - '2'
-                                    - '3'
-                                    - '4'
-                                    - '5'
-                        protocols:
-                            -
-                                type: str
-                        quarantine:
-                            type: str
-                            description: 'Quarantine method.'
-                            choices:
-                                - 'none'
-                                - 'attacker'
-                        quarantine-expiry:
-                            type: str
-                            description: 'Duration of quarantine. (Format ###d##h##m, minimum 1m, maximum 364d23h59m, default = 5m). Requires quarantine set...'
-                        quarantine-log:
-                            type: str
-                            description: 'Enable/disable quarantine logging.'
-                            choices:
-                                - 'disable'
-                                - 'enable'
-                        rate-count:
-                            type: int
-                            description: 'Count of the rate.'
-                        rate-duration:
-                            type: int
-                            description: 'Duration (sec) of the rate.'
-                        rate-mode:
-                            type: str
-                            description: 'Rate limit mode.'
-                            choices:
-                                - 'periodical'
-                                - 'continuous'
-                        rate-track:
-                            type: str
-                            description: 'Track the packet protocol field.'
-                            choices:
-                                - 'none'
-                                - 'src-ip'
-                                - 'dest-ip'
-                                - 'dhcp-client-mac'
-                                - 'dns-domain'
-                        risk:
-                            -
-                                type: int
-                        session-ttl:
-                            type: int
-                            description: 'Session TTL (0 = default).'
-                        shaper:
-                            type: str
-                            description: 'Traffic shaper.'
-                        shaper-reverse:
-                            type: str
-                            description: 'Reverse traffic shaper.'
-                        sub-category:
-                            -
-                                type: int
-                        technology:
-                            -
-                                type: str
-                        vendor:
-                            -
-                                type: str
-                extended-log:
-                    type: str
-                    description: 'Enable/disable extended logging.'
-                    choices:
-                        - 'disable'
-                        - 'enable'
-                name:
-                    type: str
-                    description: 'List name.'
-                options:
-                    -
-                        type: str
-                        choices:
-                            - 'allow-dns'
-                            - 'allow-icmp'
-                            - 'allow-http'
-                            - 'allow-ssl'
-                            - 'allow-quic'
-                other-application-action:
-                    type: str
-                    description: 'Action for other applications.'
-                    choices:
-                        - 'pass'
-                        - 'block'
-                other-application-log:
-                    type: str
-                    description: 'Enable/disable logging for other applications.'
-                    choices:
-                        - 'disable'
-                        - 'enable'
-                p2p-black-list:
-                    -
-                        type: str
-                        choices:
-                            - 'skype'
-                            - 'edonkey'
-                            - 'bittorrent'
-                replacemsg-group:
-                    type: str
-                    description: 'Replacement message group.'
-                unknown-application-action:
-                    type: str
-                    description: 'Pass or block traffic from unknown applications.'
-                    choices:
-                        - 'pass'
-                        - 'block'
-                unknown-application-log:
-                    type: str
-                    description: 'Enable/disable logging for unknown applications.'
-                    choices:
-                        - 'disable'
-                        - 'enable'
-    schema_object1:
-        methods: [delete]
-        description: 'Configure application control lists.'
-        api_categories: [api_tag0]
-        api_tag0:
-    schema_object2:
-        methods: [get]
-        description: 'Configure application control lists.'
-        api_categories: [api_tag0]
-        api_tag0:
-            option:
-                type: str
-                description:
-                 - 'Set fetch option for the request. If no option is specified, by default the attributes of the object will be returned.'
-                 - 'object member - Return a list of object members along with other attributes.'
-                 - 'chksum - Return the check-sum value instead of attributes.'
-                choices:
-                    - 'object member'
-                    - 'chksum'
-                    - 'datasrc'
 
 '''
 
@@ -377,167 +180,19 @@ EXAMPLES = '''
 '''
 
 RETURN = '''
-return_of_api_category_0:
-   description: items returned for method:[clone, delete, set, update]
-   returned: always
-   suboptions:
-      id:
-         type: int
-      result:
-         status:
-            code:
-               type: int
-            message:
-               type: str
-         url:
-            type: str
-            example: '/pm/config/adom/{adom}/obj/application/list/{list}'
-return_of_api_category_0:
-   description: items returned for method:[get]
-   returned: always
-   suboptions:
-      id:
-         type: int
-      result:
-         data:
-            app-replacemsg:
-               type: str
-               description: 'Enable/disable replacement messages for blocked applications.'
-            comment:
-               type: str
-               description: 'comments'
-            deep-app-inspection:
-               type: str
-               description: 'Enable/disable deep application inspection.'
-            entries:
-               type: array
-               suboptions:
-                  action:
-                     type: str
-                     description: 'Pass or block traffic, or reset connection for traffic from this application.'
-                  application:
-                     type: array
-                     suboptions:
-                        type: int
-                  behavior:
-                     type: array
-                     suboptions:
-                        type: str
-                  category:
-                     type: str
-                     description: 'Category ID list.'
-                  id:
-                     type: int
-                     description: 'Entry ID.'
-                  log:
-                     type: str
-                     description: 'Enable/disable logging for this application list.'
-                  log-packet:
-                     type: str
-                     description: 'Enable/disable packet logging.'
-                  parameters:
-                     type: array
-                     suboptions:
-                        id:
-                           type: int
-                           description: 'Parameter ID.'
-                        value:
-                           type: str
-                           description: 'Parameter value.'
-                  per-ip-shaper:
-                     type: str
-                     description: 'Per-IP traffic shaper.'
-                  popularity:
-                     type: array
-                     suboptions:
-                        type: str
-                  protocols:
-                     type: array
-                     suboptions:
-                        type: str
-                  quarantine:
-                     type: str
-                     description: 'Quarantine method.'
-                  quarantine-expiry:
-                     type: str
-                     description: 'Duration of quarantine. (Format ###d##h##m, minimum 1m, maximum 364d23h59m, default = 5m). Requires quarantine set to att...'
-                  quarantine-log:
-                     type: str
-                     description: 'Enable/disable quarantine logging.'
-                  rate-count:
-                     type: int
-                     description: 'Count of the rate.'
-                  rate-duration:
-                     type: int
-                     description: 'Duration (sec) of the rate.'
-                  rate-mode:
-                     type: str
-                     description: 'Rate limit mode.'
-                  rate-track:
-                     type: str
-                     description: 'Track the packet protocol field.'
-                  risk:
-                     type: array
-                     suboptions:
-                        type: int
-                  session-ttl:
-                     type: int
-                     description: 'Session TTL (0 = default).'
-                  shaper:
-                     type: str
-                     description: 'Traffic shaper.'
-                  shaper-reverse:
-                     type: str
-                     description: 'Reverse traffic shaper.'
-                  sub-category:
-                     type: array
-                     suboptions:
-                        type: int
-                  technology:
-                     type: array
-                     suboptions:
-                        type: str
-                  vendor:
-                     type: array
-                     suboptions:
-                        type: str
-            extended-log:
-               type: str
-               description: 'Enable/disable extended logging.'
-            name:
-               type: str
-               description: 'List name.'
-            options:
-               type: array
-               suboptions:
-                  type: str
-            other-application-action:
-               type: str
-               description: 'Action for other applications.'
-            other-application-log:
-               type: str
-               description: 'Enable/disable logging for other applications.'
-            p2p-black-list:
-               type: array
-               suboptions:
-                  type: str
-            replacemsg-group:
-               type: str
-               description: 'Replacement message group.'
-            unknown-application-action:
-               type: str
-               description: 'Pass or block traffic from unknown applications.'
-            unknown-application-log:
-               type: str
-               description: 'Enable/disable logging for unknown applications.'
-         status:
-            code:
-               type: int
-            message:
-               type: str
-         url:
-            type: str
-            example: '/pm/config/adom/{adom}/obj/application/list/{list}'
+url:
+    description: The full url requested
+    returned: always
+    type: str
+    sample: /sys/login/user
+status:
+    description: The status of api request
+    returned: always
+    type: dict
+data:
+    description: The payload returned in the request
+    type: dict
+    returned: always
 
 '''
 from ansible.module_utils.basic import AnsibleModule

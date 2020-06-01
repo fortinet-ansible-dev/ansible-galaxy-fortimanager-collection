@@ -45,65 +45,41 @@ notes:
       a trivial transformation when we are filling the ansible playbook
 options:
     loose_validation:
-        description: Do parameter validation in a loose way
-        required: False
+        description:
+          - Do parameter validation in a loose way
         type: bool
-        default: false
+        required: false
     workspace_locking_adom:
-        description: the adom to lock in case FortiManager running in workspace mode
-        required: False
-        type: string
-        choices:
-          - global
-          - custom adom
+        description:
+          - the adom name to lock in case FortiManager running in workspace mode
+          - it can be global or any other custom adom names
+        required: false
+        type: str
     workspace_locking_timeout:
-        description: the maximum time in seconds to wait for other user to release the workspace lock
-        required: False
-        type: integer
+        description:
+          - the maximum time in seconds to wait for other user to release the workspace lock
+        required: false
+        type: int
         default: 300
-    schema_object0:
-        methods: [exec]
-        description: 'Copy and install a policy package to devices.'
-        api_categories: [api_tag0]
-        api_tag0:
-            data:
-                adom:
-                    type: str
-                    description: 'Source ADOM name.'
-                adom_rev_comments:
-                    type: str
-                    description: 'If "generate_rev" flag is set, the comment for the new ADOM revision.'
-                adom_rev_name:
-                    type: str
-                    description: 'If "generate_rev" flag is set, the name for the new ADOM revision.'
-                dev_rev_comments:
-                    type: str
-                    description: 'Comments for the device configuration revision that will be generated during install.'
-                flags:
-                    -
-                        type: str
-                        choices:
-                            - 'none'
-                            - 'cp_all_objs'
-                            - 'preview'
-                            - 'generate_rev'
-                            - 'copy_assigned_pkg'
-                            - 'unassign'
-                            - 'ifpolicy_only'
-                            - 'no_ifpolicy'
-                            - 'objs_only'
-                            - 'auto_lock_ws'
-                            - 'check_pkg_st'
-                            - 'copy_only'
-                pkg:
-                    type: str
-                    description: 'Source package path and name.'
-                scope:
-                    -
-                        name:
-                            type: str
-                        vdom:
-                            type: str
+    method:
+        description:
+          - The method in request
+        required: true
+        type: str
+        choices:
+          - exec
+    params:
+        description:
+          - The parameters for each method
+          - See full parameters list in https://ansible-galaxy-fortimanager-docs.readthedocs.io/en/latest
+        type: list
+        required: false
+    url_params:
+        description:
+          - The parameters for each API request URL
+          - Also see full URL parameters in https://ansible-galaxy-fortimanager-docs.readthedocs.io/en/latest
+        required: false
+        type: dict
 
 '''
 
@@ -142,24 +118,19 @@ EXAMPLES = '''
 '''
 
 RETURN = '''
-return_of_api_category_0:
-   description: items returned for method:[exec]
-   returned: always
-   suboptions:
-      id:
-         type: int
-      result:
-         data:
-            task:
-               type: str
-         status:
-            code:
-               type: int
-            message:
-               type: str
-         url:
-            type: str
-            example: '/securityconsole/install/package'
+url:
+    description: The full url requested
+    returned: always
+    type: str
+    sample: /sys/login/user
+status:
+    description: The status of api request
+    returned: always
+    type: dict
+data:
+    description: The payload returned in the request
+    type: dict
+    returned: always
 
 '''
 from ansible.module_utils.basic import AnsibleModule

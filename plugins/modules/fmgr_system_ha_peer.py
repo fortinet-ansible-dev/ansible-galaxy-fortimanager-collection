@@ -45,84 +45,44 @@ notes:
       a trivial transformation when we are filling the ansible playbook
 options:
     loose_validation:
-        description: Do parameter validation in a loose way
-        required: False
+        description:
+          - Do parameter validation in a loose way
         type: bool
-        default: false
+        required: false
     workspace_locking_adom:
-        description: the adom to lock in case FortiManager running in workspace mode
-        required: False
-        type: string
-        choices:
-          - global
-          - custom adom
+        description:
+          - the adom name to lock in case FortiManager running in workspace mode
+          - it can be global or any other custom adom names
+        required: false
+        type: str
     workspace_locking_timeout:
-        description: the maximum time in seconds to wait for other user to release the workspace lock
-        required: False
-        type: integer
+        description:
+          - the maximum time in seconds to wait for other user to release the workspace lock
+        required: false
+        type: int
         default: 300
-    schema_object0:
-        methods: [add, set, update]
-        description: 'Peer.'
-        api_categories: [api_tag0]
-        api_tag0:
-            data:
-                -
-                    id:
-                        type: int
-                        default: 0
-                        description: 'Id.'
-                    ip:
-                        type: str
-                        default: '0.0.0.0'
-                        description: 'IP address of peer.'
-                    ip6:
-                        type: str
-                        default: '::'
-                        description: 'IP address (V6) of peer.'
-                    serial-number:
-                        type: str
-                        description: 'Serial number of peer.'
-                    status:
-                        type: str
-                        default: 'enable'
-                        description:
-                         - 'Peer admin status.'
-                         - 'disable - Disable.'
-                         - 'enable - Enable.'
-                        choices:
-                            - 'disable'
-                            - 'enable'
-    schema_object1:
-        methods: [get]
-        description: 'Peer.'
-        api_categories: [api_tag0]
-        api_tag0:
-            fields:
-                -
-                    -
-                        type: str
-                        choices:
-                            - 'id'
-                            - 'ip'
-                            - 'ip6'
-                            - 'serial-number'
-                            - 'status'
-            filter:
-                -
-                    type: str
-            loadsub:
-                type: int
-                description: 'Enable or disable the return of any sub-objects. If not specified, the default is to return all sub-objects.'
-            option:
-                type: str
-                description:
-                 - 'Set fetch option for the request. If no option is specified, by default the attributes of the objects will be returned.'
-                 - 'count - Return the number of matching entries instead of the actual entry data.'
-                 - 'syntax - Return the attribute syntax of a table or an object, instead of the actual entry data. All filter parameters will be ignored.'
-                choices:
-                    - 'count'
-                    - 'syntax'
+    method:
+        description:
+          - The method in request
+        required: true
+        type: str
+        choices:
+          - add
+          - get
+          - set
+          - update
+    params:
+        description:
+          - The parameters for each method
+          - See full parameters list in https://ansible-galaxy-fortimanager-docs.readthedocs.io/en/latest
+        type: list
+        required: false
+    url_params:
+        description:
+          - The parameters for each API request URL
+          - Also see full URL parameters in https://ansible-galaxy-fortimanager-docs.readthedocs.io/en/latest
+        required: false
+        type: dict
 
 '''
 
@@ -147,11 +107,11 @@ EXAMPLES = '''
             -
                data:
                  -
-                     id: <value of integer default: 0>
-                     ip: <value of string default: '0.0.0.0'>
-                     ip6: <value of string default: '::'>
+                     id: <value of integer>
+                     ip: <value of string>
+                     ip6: <value of string>
                      serial-number: <value of string>
-                     status: <value in [disable, enable] default: 'enable'>
+                     status: <value in [disable, enable]>
 
     - name: REQUESTING /CLI/SYSTEM/HA/PEER
       fmgr_system_ha_peer:
@@ -172,61 +132,19 @@ EXAMPLES = '''
 '''
 
 RETURN = '''
-return_of_api_category_0:
-   description: items returned for method:[add, set, update]
-   returned: always
-   suboptions:
-      id:
-         type: int
-      result:
-         status:
-            code:
-               type: int
-            message:
-               type: str
-         url:
-            type: str
-            example: '/cli/global/system/ha/peer'
-return_of_api_category_0:
-   description: items returned for method:[get]
-   returned: always
-   suboptions:
-      id:
-         type: int
-      result:
-         data:
-            type: array
-            suboptions:
-               id:
-                  type: int
-                  description: 'Id.'
-                  example: 0
-               ip:
-                  type: str
-                  description: 'IP address of peer.'
-                  example: '0.0.0.0'
-               ip6:
-                  type: str
-                  description: 'IP address (V6) of peer.'
-                  example: '::'
-               serial-number:
-                  type: str
-                  description: 'Serial number of peer.'
-               status:
-                  type: str
-                  description: |
-                     'Peer admin status.'
-                     'disable - Disable.'
-                     'enable - Enable.'
-                  example: 'enable'
-         status:
-            code:
-               type: int
-            message:
-               type: str
-         url:
-            type: str
-            example: '/cli/global/system/ha/peer'
+url:
+    description: The full url requested
+    returned: always
+    type: str
+    sample: /sys/login/user
+status:
+    description: The status of api request
+    returned: always
+    type: dict
+data:
+    description: The payload returned in the request
+    type: dict
+    returned: always
 
 '''
 from ansible.module_utils.basic import AnsibleModule
