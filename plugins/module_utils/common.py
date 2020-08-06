@@ -297,11 +297,16 @@ class FMGRCommon(object):
             return True, ''
 
         if schema['type'] == 'string':
+            param_value = str(param_value)
             if not isinstance(param_value, str):
                 return self._report_schema_violation(param, schema, 'type mismatch')
             if 'enum' in schema and param_value not in schema['enum']:
                 return self._report_schema_violation(param, schema, 'enum value mismatch')
         elif schema['type'] == 'integer':
+            try:
+                param_value = int(param_value)
+            except ValueError:
+                pass
             if not isinstance(param_value, int):
                 return self._report_schema_violation(param, schema, 'type mismatch')
             if 'enum' in schema and param_value not in schema['enum']:

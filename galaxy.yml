@@ -9,7 +9,7 @@ namespace: fortinet
 name: fortimanager
 
 # The version of the collection. Must be compatible with semantic versioning
-version: 1.0.3
+version: 1.0.4
 
 # The path to the Markdown (.md) readme file. This path is relative to the root of the collection
 readme: README.md
@@ -46,7 +46,7 @@ tags: [fortinet, fortimanager, ansible]
 dependencies: {}
 
 # The URL of the originating SCM repository
-repository: https://github.com/fortinet-ansible-dev/ansible-galaxy-fortimanager-collection/tree/galaxy/1.0.3
+repository: https://github.com/fortinet-ansible-dev/ansible-galaxy-fortimanager-collection/tree/galaxy/1.0.4
 
 # The URL to any online docs
 documentation: https://ansible-galaxy-fortimanager-docs.readthedocs.io/en/galaxy-1.0.3
