@@ -1,0 +1,275 @@
+ancestor: null
+releases:
+  1.0.5:
+    changes:
+      release_summary: 'This collection hosts modules for FortiManager v6.0.0
+
+'
+    fragments:
+    - summary.yml
+    modules:
+    - description: Configure AntiVirus profiles.
+      name: fmgr_antivirus_profile
+      namespace: ''
+    - description: Configure AntiVirus profiles.
+      name: fmgr_antivirus_profile_obj
+      namespace: ''
+    - description: Configure application control lists.
+      name: fmgr_application_list
+      namespace: ''
+    - description: Configure application control lists.
+      name: fmgr_application_list_obj
+      namespace: ''
+    - description: no description
+      name: fmgr_devprof_device_profile_fortianalyzer
+      namespace: ''
+    - description: no description
+      name: fmgr_devprof_device_profile_fortiguard
+      namespace: ''
+    - description: Filters for remote system server.
+      name: fmgr_devprof_log_syslogd_filter
+      namespace: ''
+    - description: Global settings for remote syslog server.
+      name: fmgr_devprof_log_syslogd_setting
+      namespace: ''
+    - description: Configure central management.
+      name: fmgr_devprof_system_centralmanagement
+      namespace: ''
+    - description: Configure DNS.
+      name: fmgr_devprof_system_dns
+      namespace: ''
+    - description: Configure the email server used by the FortiGate various things.
+        For example, for sending email messages to users to support user authen...
+      name: fmgr_devprof_system_emailserver
+      namespace: ''
+    - description: Configure global attributes.
+      name: fmgr_devprof_system_global
+      namespace: ''
+    - description: Configure system NTP information.
+      name: fmgr_devprof_system_ntp
+      namespace: ''
+    - description: SNMP community configuration.
+      name: fmgr_devprof_system_snmp_community
+      namespace: ''
+    - description: SNMP community configuration.
+      name: fmgr_devprof_system_snmp_community_obj
+      namespace: ''
+    - description: SNMP system info configuration.
+      name: fmgr_devprof_system_snmp_sysinfo
+      namespace: ''
+    - description: SNMP user configuration.
+      name: fmgr_devprof_system_snmp_user
+      namespace: ''
+    - description: SNMP user configuration.
+      name: fmgr_devprof_system_snmp_user_obj
+      namespace: ''
+    - description: Configure DNS domain filter profiles.
+      name: fmgr_dnsfilter_profile
+      namespace: ''
+    - description: Configure DNS domain filter profiles.
+      name: fmgr_dnsfilter_profile_obj
+      namespace: ''
+    - description: Add a device to the Device Manager database.
+      name: fmgr_dvm_cmd_add_device
+      namespace: ''
+    - description: Delete a device.
+      name: fmgr_dvm_cmd_del_device
+      namespace: ''
+    - description: Probe a remote device and retrieve its device information and system
+        status.
+      name: fmgr_dvm_cmd_discover_device
+      namespace: ''
+    - description: Refresh the FGFM connection and system information of a device.
+      name: fmgr_dvm_cmd_update_device
+      namespace: ''
+    - description: Device table, most attributes are read-only and can only be changed
+        internally. Refer to Device Manager Command module for API to add, d...
+      name: fmgr_dvmdb_device
+      namespace: ''
+    - description: Device table, most attributes are read-only and can only be changed
+        internally. Refer to Device Manager Command module for API to add, d...
+      name: fmgr_dvmdb_device_obj
+      namespace: ''
+    - description: Device group table.
+      name: fmgr_dvmdb_group
+      namespace: ''
+    - description: Device group table.
+      name: fmgr_dvmdb_group_obj
+      namespace: ''
+    - description: Script table.
+      name: fmgr_dvmdb_script
+      namespace: ''
+    - description: Run script.
+      name: fmgr_dvmdb_script_execute
+      namespace: ''
+    - description: Script table.
+      name: fmgr_dvmdb_script_obj
+      namespace: ''
+    - description: Configure IPv4 addresses.
+      name: fmgr_firewall_address
+      namespace: ''
+    - description: Configure IPv6 firewall addresses.
+      name: fmgr_firewall_address6
+      namespace: ''
+    - description: Configure IPv6 firewall addresses.
+      name: fmgr_firewall_address6_obj
+      namespace: ''
+    - description: Configure IPv4 addresses.
+      name: fmgr_firewall_address_obj
+      namespace: ''
+    - description: Configure IPv4 address groups.
+      name: fmgr_firewall_addrgrp
+      namespace: ''
+    - description: Configure IPv6 address groups.
+      name: fmgr_firewall_addrgrp6
+      namespace: ''
+    - description: Configure IPv6 address groups.
+      name: fmgr_firewall_addrgrp6_obj
+      namespace: ''
+    - description: Configure IPv4 address groups.
+      name: fmgr_firewall_addrgrp_obj
+      namespace: ''
+    - description: Configure IPv4 IP pools.
+      name: fmgr_firewall_ippool
+      namespace: ''
+    - description: Configure IPv6 IP pools.
+      name: fmgr_firewall_ippool6
+      namespace: ''
+    - description: Configure IPv6 IP pools.
+      name: fmgr_firewall_ippool6_obj
+      namespace: ''
+    - description: Configure IPv4 IP pools.
+      name: fmgr_firewall_ippool_obj
+      namespace: ''
+    - description: Configure multicast addresses.
+      name: fmgr_firewall_multicastaddress
+      namespace: ''
+    - description: Configure multicast addresses.
+      name: fmgr_firewall_multicastaddress_obj
+      namespace: ''
+    - description: Configure profile groups.
+      name: fmgr_firewall_profilegroup
+      namespace: ''
+    - description: Configure profile groups.
+      name: fmgr_firewall_profilegroup_obj
+      namespace: ''
+    - description: Configure service categories.
+      name: fmgr_firewall_service_category
+      namespace: ''
+    - description: Configure service categories.
+      name: fmgr_firewall_service_category_obj
+      namespace: ''
+    - description: Configure custom services.
+      name: fmgr_firewall_service_custom
+      namespace: ''
+    - description: Configure custom services.
+      name: fmgr_firewall_service_custom_obj
+      namespace: ''
+    - description: Configure service groups.
+      name: fmgr_firewall_service_group
+      namespace: ''
+    - description: Configure service groups.
+      name: fmgr_firewall_service_group_obj
+      namespace: ''
+    - description: Configure SSL/SSH protocol options.
+      name: fmgr_firewall_sslsshprofile
+      namespace: ''
+    - description: Configure SSL/SSH protocol options.
+      name: fmgr_firewall_sslsshprofile_obj
+      namespace: ''
+    - description: Configure virtual IP for IPv4.
+      name: fmgr_firewall_vip
+      namespace: ''
+    - description: Configure virtual IP for IPv4.
+      name: fmgr_firewall_vip_obj
+      namespace: ''
+    - description: Configure IPS sensor.
+      name: fmgr_ips_sensor
+      namespace: ''
+    - description: Configure IPS sensor.
+      name: fmgr_ips_sensor_obj
+      namespace: ''
+    - description: Configure IPv4 policies.
+      name: fmgr_pkg_firewall_policy
+      namespace: ''
+    - description: Configure IPv4 policies.
+      name: fmgr_pkg_firewall_policy_obj
+      namespace: ''
+    - description: no description
+      name: fmgr_pm_devprof_adom_obj
+      namespace: ''
+    - description: no description
+      name: fmgr_pm_devprof_obj
+      namespace: ''
+    - description: no description
+      name: fmgr_pm_pkg_adom_obj
+      namespace: ''
+    - description: no description
+      name: fmgr_pm_pkg_obj
+      namespace: ''
+    - description: no description
+      name: fmgr_securityconsole_install_device
+      namespace: ''
+    - description: Copy and install a policy package to devices.
+      name: fmgr_securityconsole_install_package
+      namespace: ''
+    - description: Configure AntiSpam profiles.
+      name: fmgr_spamfilter_profile
+      namespace: ''
+    - description: Configure AntiSpam profiles.
+      name: fmgr_spamfilter_profile_obj
+      namespace: ''
+    - description: Global range attributes.
+      name: fmgr_system_global
+      namespace: ''
+    - description: HA configuration.
+      name: fmgr_system_ha
+      namespace: ''
+    - description: Peer.
+      name: fmgr_system_ha_peer
+      namespace: ''
+    - description: Interface configuration.
+      name: fmgr_system_interface
+      namespace: ''
+    - description: Interface configuration.
+      name: fmgr_system_interface_obj
+      namespace: ''
+    - description: Read-only table containing the 10000 most recent tasks of the system.
+        This table can be used for tracking non-blocking tasks initiated b...
+      name: fmgr_task_task
+      namespace: ''
+    - description: Read-only table containing the 10000 most recent tasks of the system.
+        This table can be used for tracking non-blocking tasks initiated b...
+      name: fmgr_task_task_obj
+      namespace: ''
+    - description: Configure VoIP profiles.
+      name: fmgr_voip_profile
+      namespace: ''
+    - description: Configure VoIP profiles.
+      name: fmgr_voip_profile_obj
+      namespace: ''
+    - description: Web application firewall configuration.
+      name: fmgr_waf_profile
+      namespace: ''
+    - description: Web application firewall configuration.
+      name: fmgr_waf_profile_obj
+      namespace: ''
+    - description: Configure WAN optimization profiles.
+      name: fmgr_wanopt_profile
+      namespace: ''
+    - description: Configure WAN optimization profiles.
+      name: fmgr_wanopt_profile_obj
+      namespace: ''
+    - description: Configure Web filter profiles.
+      name: fmgr_webfilter_profile
+      namespace: ''
+    - description: Configure Web filter profiles.
+      name: fmgr_webfilter_profile_obj
+      namespace: ''
+    - description: Configure web proxy profiles.
+      name: fmgr_webproxy_profile
+      namespace: ''
+    - description: Configure web proxy profiles.
+      name: fmgr_webproxy_profile_obj
+      namespace: ''
+    release_date: '2020-08-28'
