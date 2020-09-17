@@ -26,62 +26,120 @@ DOCUMENTATION = '''
 module: fmgr_devprof_system_emailserver
 short_description: Configure the email server used by the FortiGate various things. For example, for sending email messages to users to support user authen...
 description:
-    - This module is able to configure a FortiManager device by allowing the
-      user to [ get set update ] the following apis.
-    - /pm/config/adom/{adom}/devprof/{devprof}/system/email-server
-    - Examples include all parameters and values need to be adjusted to data sources before usage.
+    - This module is able to configure a FortiManager device.
+    - Examples include all parameters and values which need to be adjusted to data sources before usage.
 
 version_added: "2.10"
 author:
+    - Link Zheng (@chillancezen)
+    - Jie Xue (@JieX19)
     - Frank Shen (@fshen01)
-    - Link Zheng (@zhengl)
+    - Hongbin Lu (@fgtdev-hblu)
 notes:
-    - There are only three top-level parameters where 'method' is always required
-      while other two 'params' and 'url_params' can be optional
-    - Due to the complexity of fortimanager api schema, the validation is done
-      out of Ansible native parameter validation procedure.
-    - The syntax of OPTIONS doen not comply with the standard Ansible argument
-      specification, but with the structure of fortimanager API schema, we need
-      a trivial transformation when we are filling the ansible playbook
+    - Running in workspace locking mode is supported in this FortiManager module, the top
+      level parameters workspace_locking_adom and workspace_locking_timeout help do the work.
+    - To create or update an object, use state present directive.
+    - To delete an object, use state absent directive.
+    - Normally, running one module can fail when a non-zero rc is returned. you can also override
+      the conditions to fail or succeed with parameters rc_failed and rc_succeeded
+
 options:
-    loose_validation:
-        description:
-          - Do parameter validation in a loose way
-        type: bool
+    bypass_validation:
+        description: only set to True when module schema diffs with FortiManager API structure, module continues to execute without validating parameters
         required: false
+        type: bool
+        default: false
     workspace_locking_adom:
-        description:
-          - the adom name to lock in case FortiManager running in workspace mode
-          - it can be global or any other custom adom names
+        description: the adom to lock for FortiManager running in workspace mode, the value can be global and others including root
         required: false
         type: str
     workspace_locking_timeout:
-        description:
-          - the maximum time in seconds to wait for other user to release the workspace lock
+        description: the maximum time in seconds to wait for other user to release the workspace lock
         required: false
         type: int
         default: 300
-    method:
-        description:
-          - The method in request
-        required: true
+    state:
+        description: the directive to create, update or delete an object
         type: str
+        required: true
         choices:
-          - get
-          - set
-          - update
-    params:
-        description:
-          - The parameters for each method
-          - See full parameters list in https://ansible-galaxy-fortimanager-docs.readthedocs.io/en/latest
+          - present
+          - absent
+    rc_succeeded:
+        description: the rc codes list with which the conditions to succeed will be overriden
         type: list
         required: false
-    url_params:
-        description:
-          - The parameters for each API request URL
-          - Also see full URL parameters in https://ansible-galaxy-fortimanager-docs.readthedocs.io/en/latest
+    rc_failed:
+        description: the rc codes list with which the conditions to fail will be overriden
+        type: list
+        required: false
+    adom:
+        description: the parameter (adom) in requested url
+        type: str
+        required: true
+    devprof:
+        description: the parameter (devprof) in requested url
+        type: str
+        required: true
+    devprof_system_emailserver:
+        description: the top level parameters set
         required: false
         type: dict
+        suboptions:
+            authenticate:
+                type: str
+                description: 'Enable/disable authentication.'
+                choices:
+                    - 'disable'
+                    - 'enable'
+            password:
+                description: no description
+                type: str
+            port:
+                type: int
+                description: 'SMTP server port.'
+            reply-to:
+                type: str
+                description: 'Reply-To email address.'
+            security:
+                type: str
+                description: 'Connection security used by the email server.'
+                choices:
+                    - 'none'
+                    - 'starttls'
+                    - 'smtps'
+            server:
+                type: str
+                description: 'SMTP server IP address or hostname.'
+            source-ip:
+                type: str
+                description: 'SMTP server IPv4 source IP.'
+            source-ip6:
+                type: str
+                description: 'SMTP server IPv6 source IP.'
+            ssl-min-proto-version:
+                type: str
+                description: 'Minimum supported protocol version for SSL/TLS connections (default is to follow system global setting).'
+                choices:
+                    - 'default'
+                    - 'TLSv1'
+                    - 'TLSv1-1'
+                    - 'TLSv1-2'
+                    - 'SSLv3'
+            type:
+                type: str
+                description: 'Use FortiGuard Message service or custom email server.'
+                choices:
+                    - 'custom'
+            username:
+                type: str
+                description: 'SMTP server user name for authentication.'
+            validate-server:
+                type: str
+                description: 'Enable/disable validation of server certificate.'
+                choices:
+                    - 'disable'
+                    - 'enable'
 
 '''
 
@@ -95,71 +153,54 @@ EXAMPLES = '''
       ansible_httpapi_validate_certs: False
       ansible_httpapi_port: 443
    tasks:
-
-    - name: REQUESTING /PM/CONFIG/DEVPROF/{DEVPROF}/SYSTEM/EMAIL-SERVER
+    - name: Configure the email server used by the FortiGate various things. For example, for sending email messages to users to support user authen...
       fmgr_devprof_system_emailserver:
-         loose_validation: False
-         workspace_locking_adom: <value in [global, custom adom]>
+         bypass_validation: False
+         workspace_locking_adom: <value in [global, custom adom including root]>
          workspace_locking_timeout: 300
-         method: <value in [get]>
-         url_params:
-            adom: <value in [none, global, custom dom]>
-            devprof: <value of string>
-         params:
-            -
-               option: <value in [object member, chksum, datasrc]>
-
-    - name: REQUESTING /PM/CONFIG/DEVPROF/{DEVPROF}/SYSTEM/EMAIL-SERVER
-      fmgr_devprof_system_emailserver:
-         loose_validation: False
-         workspace_locking_adom: <value in [global, custom adom]>
-         workspace_locking_timeout: 300
-         method: <value in [set, update]>
-         url_params:
-            adom: <value in [none, global, custom dom]>
-            devprof: <value of string>
-         params:
-            -
-               data:
-                  authenticate: <value in [disable, enable]>
-                  password:
-                    - <value of string>
-                  port: <value of integer>
-                  reply-to: <value of string>
-                  security: <value in [none, starttls, smtps]>
-                  server: <value of string>
-                  source-ip: <value of string>
-                  source-ip6: <value of string>
-                  ssl-min-proto-version: <value in [default, TLSv1, TLSv1-1, ...]>
-                  type: <value in [custom]>
-                  username: <value of string>
-                  validate-server: <value in [disable, enable]>
+         rc_succeeded: [0, -2, -3, ...]
+         rc_failed: [-2, -3, ...]
+         adom: <your own value>
+         devprof: <your own value>
+         devprof_system_emailserver:
+            authenticate: <value in [disable, enable]>
+            password: <value of string>
+            port: <value of integer>
+            reply-to: <value of string>
+            security: <value in [none, starttls, smtps]>
+            server: <value of string>
+            source-ip: <value of string>
+            source-ip6: <value of string>
+            ssl-min-proto-version: <value in [default, TLSv1, TLSv1-1, ...]>
+            type: <value in [custom]>
+            username: <value of string>
+            validate-server: <value in [disable, enable]>
 
 '''
 
 RETURN = '''
-url:
+request_url:
     description: The full url requested
     returned: always
     type: str
     sample: /sys/login/user
-status:
+response_code:
     description: The status of api request
     returned: always
-    type: dict
-data:
-    description: The payload returned in the request
-    type: dict
+    type: int
+    sample: 0
+response_message:
+    description: The descriptive message of the api response
+    type: str
     returned: always
+    sample: OK.
 
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import FAIL_SOCKET_MSG
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import DEFAULT_RESULT_OBJ
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import FMGRCommon
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import FMGBaseException
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.fortimanager import FortiManagerHandler
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.NAPI import NAPIManager
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.NAPI import check_galaxy_version
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.NAPI import check_parameter_bypass
 
 
 def main():
@@ -167,125 +208,14 @@ def main():
         '/pm/config/adom/{adom}/devprof/{devprof}/system/email-server'
     ]
 
-    url_schema = [
-        {
-            'name': 'adom',
-            'type': 'string'
-        },
-        {
-            'name': 'devprof',
-            'type': 'string'
-        }
+    perobject_jrpc_urls = [
+        '/pm/config/adom/{adom}/devprof/{devprof}/system/email-server/{email-server}'
     ]
 
-    body_schema = {
-        'schema_objects': {
-            'object0': [
-                {
-                    'name': 'option',
-                    'type': 'dict',
-                    'dict': {
-                        'type': 'string',
-                        'enum': [
-                            'object member',
-                            'chksum',
-                            'datasrc'
-                        ]
-                    },
-                    'api_tag': 0
-                },
-                {
-                    'type': 'string',
-                    'name': 'url',
-                    'api_tag': 0
-                }
-            ],
-            'object1': [
-                {
-                    'name': 'data',
-                    'type': 'dict',
-                    'dict': {
-                        'authenticate': {
-                            'type': 'string',
-                            'enum': [
-                                'disable',
-                                'enable'
-                            ]
-                        },
-                        'password': {
-                            'type': 'array',
-                            'items': {
-                                'type': 'string'
-                            }
-                        },
-                        'port': {
-                            'type': 'integer'
-                        },
-                        'reply-to': {
-                            'type': 'string'
-                        },
-                        'security': {
-                            'type': 'string',
-                            'enum': [
-                                'none',
-                                'starttls',
-                                'smtps'
-                            ]
-                        },
-                        'server': {
-                            'type': 'string'
-                        },
-                        'source-ip': {
-                            'type': 'string'
-                        },
-                        'source-ip6': {
-                            'type': 'string'
-                        },
-                        'ssl-min-proto-version': {
-                            'type': 'string',
-                            'enum': [
-                                'default',
-                                'TLSv1',
-                                'TLSv1-1',
-                                'TLSv1-2',
-                                'SSLv3'
-                            ]
-                        },
-                        'type': {
-                            'type': 'string',
-                            'enum': [
-                                'custom'
-                            ]
-                        },
-                        'username': {
-                            'type': 'string'
-                        },
-                        'validate-server': {
-                            'type': 'string',
-                            'enum': [
-                                'disable',
-                                'enable'
-                            ]
-                        }
-                    },
-                    'api_tag': 0
-                },
-                {
-                    'type': 'string',
-                    'name': 'url',
-                    'api_tag': 0
-                }
-            ]
-        },
-        'method_mapping': {
-            'get': 'object0',
-            'set': 'object1',
-            'update': 'object1'
-        }
-    }
-
+    url_params = ['adom', 'devprof']
+    module_primary_key = None
     module_arg_spec = {
-        'loose_validation': {
+        'bypass_validation': {
             'type': 'bool',
             'required': False,
             'default': False
@@ -299,55 +229,114 @@ def main():
             'required': False,
             'default': 300
         },
-        'params': {
-            'type': 'list',
-            'required': False
+        'rc_succeeded': {
+            'required': False,
+            'type': 'list'
         },
-        'method': {
-            'type': 'str',
+        'rc_failed': {
+            'required': False,
+            'type': 'list'
+        },
+        'adom': {
             'required': True,
-            'choices': [
-                'get',
-                'set',
-                'update'
-            ]
+            'type': 'str'
         },
-        'url_params': {
+        'devprof': {
+            'required': True,
+            'type': 'str'
+        },
+        'devprof_system_emailserver': {
+            'required': False,
             'type': 'dict',
-            'required': False
+            'options': {
+                'authenticate': {
+                    'required': False,
+                    'choices': [
+                        'disable',
+                        'enable'
+                    ],
+                    'type': 'str'
+                },
+                'password': {
+                    'required': False,
+                    'type': 'str'
+                },
+                'port': {
+                    'required': False,
+                    'type': 'int'
+                },
+                'reply-to': {
+                    'required': False,
+                    'type': 'str'
+                },
+                'security': {
+                    'required': False,
+                    'choices': [
+                        'none',
+                        'starttls',
+                        'smtps'
+                    ],
+                    'type': 'str'
+                },
+                'server': {
+                    'required': False,
+                    'type': 'str'
+                },
+                'source-ip': {
+                    'required': False,
+                    'type': 'str'
+                },
+                'source-ip6': {
+                    'required': False,
+                    'type': 'str'
+                },
+                'ssl-min-proto-version': {
+                    'required': False,
+                    'choices': [
+                        'default',
+                        'TLSv1',
+                        'TLSv1-1',
+                        'TLSv1-2',
+                        'SSLv3'
+                    ],
+                    'type': 'str'
+                },
+                'type': {
+                    'required': False,
+                    'choices': [
+                        'custom'
+                    ],
+                    'type': 'str'
+                },
+                'username': {
+                    'required': False,
+                    'type': 'str'
+                },
+                'validate-server': {
+                    'required': False,
+                    'choices': [
+                        'disable',
+                        'enable'
+                    ],
+                    'type': 'str'
+                }
+            }
+
         }
     }
-    module = AnsibleModule(argument_spec=module_arg_spec,
+
+    check_galaxy_version(module_arg_spec)
+    module = AnsibleModule(argument_spec=check_parameter_bypass(module_arg_spec, 'devprof_system_emailserver'),
                            supports_check_mode=False)
-    method = module.params['method']
-    loose_validation = module.params['loose_validation']
 
     fmgr = None
-    payload = None
-    response = DEFAULT_RESULT_OBJ
-
     if module._socket_path:
         connection = Connection(module._socket_path)
-        tools = FMGRCommon()
-        if loose_validation is False:
-            tools.validate_module_params(module, body_schema)
-        tools.validate_module_url_params(module, jrpc_urls, url_schema)
-        full_url = tools.get_full_url_path(module, jrpc_urls)
-        payload = tools.get_full_payload(module, full_url)
-        fmgr = FortiManagerHandler(connection, module)
-        fmgr.tools = tools
+        fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+        fmgr.process_partial_curd()
     else:
-        module.fail_json(**FAIL_SOCKET_MSG)
-
-    try:
-        response = fmgr._conn.send_request(method, payload)
-        fmgr.govern_response(module=module, results=response,
-                             msg='Operation Finished',
-                             ansible_facts=fmgr.construct_ansible_facts(response, module.params, module.params))
-    except Exception as e:
-        raise FMGBaseException(e)
-
-    module.exit_json(meta=response[1])
+        module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
+    module.exit_json(meta=module.params)
 
 
 if __name__ == '__main__':

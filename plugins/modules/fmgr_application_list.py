@@ -26,64 +26,246 @@ DOCUMENTATION = '''
 module: fmgr_application_list
 short_description: Configure application control lists.
 description:
-    - This module is able to configure a FortiManager device by allowing the
-      user to [ add get set update ] the following apis.
-    - /pm/config/adom/{adom}/obj/application/list
-    - /pm/config/global/obj/application/list
-    - Examples include all parameters and values need to be adjusted to data sources before usage.
+    - This module is able to configure a FortiManager device.
+    - Examples include all parameters and values which need to be adjusted to data sources before usage.
 
 version_added: "2.10"
 author:
+    - Link Zheng (@chillancezen)
+    - Jie Xue (@JieX19)
     - Frank Shen (@fshen01)
-    - Link Zheng (@zhengl)
+    - Hongbin Lu (@fgtdev-hblu)
 notes:
-    - There are only three top-level parameters where 'method' is always required
-      while other two 'params' and 'url_params' can be optional
-    - Due to the complexity of fortimanager api schema, the validation is done
-      out of Ansible native parameter validation procedure.
-    - The syntax of OPTIONS doen not comply with the standard Ansible argument
-      specification, but with the structure of fortimanager API schema, we need
-      a trivial transformation when we are filling the ansible playbook
+    - Running in workspace locking mode is supported in this FortiManager module, the top
+      level parameters workspace_locking_adom and workspace_locking_timeout help do the work.
+    - To create or update an object, use state present directive.
+    - To delete an object, use state absent directive.
+    - Normally, running one module can fail when a non-zero rc is returned. you can also override
+      the conditions to fail or succeed with parameters rc_failed and rc_succeeded
+
 options:
-    loose_validation:
-        description:
-          - Do parameter validation in a loose way
-        type: bool
+    bypass_validation:
+        description: only set to True when module schema diffs with FortiManager API structure, module continues to execute without validating parameters
         required: false
+        type: bool
+        default: false
     workspace_locking_adom:
-        description:
-          - the adom name to lock in case FortiManager running in workspace mode
-          - it can be global or any other custom adom names
+        description: the adom to lock for FortiManager running in workspace mode, the value can be global and others including root
         required: false
         type: str
     workspace_locking_timeout:
-        description:
-          - the maximum time in seconds to wait for other user to release the workspace lock
+        description: the maximum time in seconds to wait for other user to release the workspace lock
         required: false
         type: int
         default: 300
-    method:
-        description:
-          - The method in request
-        required: true
+    state:
+        description: the directive to create, update or delete an object
         type: str
+        required: true
         choices:
-          - add
-          - get
-          - set
-          - update
-    params:
-        description:
-          - The parameters for each method
-          - See full parameters list in https://ansible-galaxy-fortimanager-docs.readthedocs.io/en/latest
+          - present
+          - absent
+    rc_succeeded:
+        description: the rc codes list with which the conditions to succeed will be overriden
         type: list
         required: false
-    url_params:
-        description:
-          - The parameters for each API request URL
-          - Also see full URL parameters in https://ansible-galaxy-fortimanager-docs.readthedocs.io/en/latest
+    rc_failed:
+        description: the rc codes list with which the conditions to fail will be overriden
+        type: list
+        required: false
+    adom:
+        description: the parameter (adom) in requested url
+        type: str
+        required: true
+    application_list:
+        description: the top level parameters set
         required: false
         type: dict
+        suboptions:
+            app-replacemsg:
+                type: str
+                description: 'Enable/disable replacement messages for blocked applications.'
+                choices:
+                    - 'disable'
+                    - 'enable'
+            comment:
+                type: str
+                description: 'comments'
+            deep-app-inspection:
+                type: str
+                description: 'Enable/disable deep application inspection.'
+                choices:
+                    - 'disable'
+                    - 'enable'
+            entries:
+                description: no description
+                type: list
+                suboptions:
+                    action:
+                        type: str
+                        description: 'Pass or block traffic, or reset connection for traffic from this application.'
+                        choices:
+                            - 'pass'
+                            - 'block'
+                            - 'reset'
+                    application:
+                        description: no description
+                        type: int
+                    behavior:
+                        description: no description
+                        type: str
+                    category:
+                        type: str
+                        description: 'Category ID list.'
+                    id:
+                        type: int
+                        description: 'Entry ID.'
+                    log:
+                        type: str
+                        description: 'Enable/disable logging for this application list.'
+                        choices:
+                            - 'disable'
+                            - 'enable'
+                    log-packet:
+                        type: str
+                        description: 'Enable/disable packet logging.'
+                        choices:
+                            - 'disable'
+                            - 'enable'
+                    parameters:
+                        description: no description
+                        type: list
+                        suboptions:
+                            id:
+                                type: int
+                                description: 'Parameter ID.'
+                            value:
+                                type: str
+                                description: 'Parameter value.'
+                    per-ip-shaper:
+                        type: str
+                        description: 'Per-IP traffic shaper.'
+                    popularity:
+                        description: no description
+                        type: list
+                        choices:
+                         - 1
+                         - 2
+                         - 3
+                         - 4
+                         - 5
+                    protocols:
+                        description: no description
+                        type: str
+                    quarantine:
+                        type: str
+                        description: 'Quarantine method.'
+                        choices:
+                            - 'none'
+                            - 'attacker'
+                    quarantine-expiry:
+                        type: str
+                        description: 'Duration of quarantine. (Format ###d##h##m, minimum 1m, maximum 364d23h59m, default = 5m). Requires quarantine set to ...'
+                    quarantine-log:
+                        type: str
+                        description: 'Enable/disable quarantine logging.'
+                        choices:
+                            - 'disable'
+                            - 'enable'
+                    rate-count:
+                        type: int
+                        description: 'Count of the rate.'
+                    rate-duration:
+                        type: int
+                        description: 'Duration (sec) of the rate.'
+                    rate-mode:
+                        type: str
+                        description: 'Rate limit mode.'
+                        choices:
+                            - 'periodical'
+                            - 'continuous'
+                    rate-track:
+                        type: str
+                        description: 'Track the packet protocol field.'
+                        choices:
+                            - 'none'
+                            - 'src-ip'
+                            - 'dest-ip'
+                            - 'dhcp-client-mac'
+                            - 'dns-domain'
+                    risk:
+                        description: no description
+                        type: int
+                    session-ttl:
+                        type: int
+                        description: 'Session TTL (0 = default).'
+                    shaper:
+                        type: str
+                        description: 'Traffic shaper.'
+                    shaper-reverse:
+                        type: str
+                        description: 'Reverse traffic shaper.'
+                    sub-category:
+                        description: no description
+                        type: int
+                    technology:
+                        description: no description
+                        type: str
+                    vendor:
+                        description: no description
+                        type: str
+            extended-log:
+                type: str
+                description: 'Enable/disable extended logging.'
+                choices:
+                    - 'disable'
+                    - 'enable'
+            name:
+                type: str
+                description: 'List name.'
+            options:
+                description: no description
+                type: list
+                choices:
+                 - allow-dns
+                 - allow-icmp
+                 - allow-http
+                 - allow-ssl
+                 - allow-quic
+            other-application-action:
+                type: str
+                description: 'Action for other applications.'
+                choices:
+                    - 'pass'
+                    - 'block'
+            other-application-log:
+                type: str
+                description: 'Enable/disable logging for other applications.'
+                choices:
+                    - 'disable'
+                    - 'enable'
+            p2p-black-list:
+                description: no description
+                type: list
+                choices:
+                 - skype
+                 - edonkey
+                 - bittorrent
+            replacemsg-group:
+                type: str
+                description: 'Replacement message group.'
+            unknown-application-action:
+                type: str
+                description: 'Pass or block traffic from unknown applications.'
+                choices:
+                    - 'pass'
+                    - 'block'
+            unknown-application-log:
+                type: str
+                description: 'Enable/disable logging for unknown applications.'
+                choices:
+                    - 'disable'
+                    - 'enable'
 
 '''
 
@@ -97,122 +279,97 @@ EXAMPLES = '''
       ansible_httpapi_validate_certs: False
       ansible_httpapi_port: 443
    tasks:
-
-    - name: REQUESTING /PM/CONFIG/OBJ/APPLICATION/LIST
+    - name: Configure application control lists.
       fmgr_application_list:
-         loose_validation: False
-         workspace_locking_adom: <value in [global, custom adom]>
+         bypass_validation: False
+         workspace_locking_adom: <value in [global, custom adom including root]>
          workspace_locking_timeout: 300
-         method: <value in [add, set, update]>
-         url_params:
-            adom: <value in [none, global, custom dom]>
-         params:
-            -
-               data:
-                 -
-                     app-replacemsg: <value in [disable, enable]>
-                     comment: <value of string>
-                     deep-app-inspection: <value in [disable, enable]>
-                     entries:
-                       -
-                           action: <value in [pass, block, reset]>
-                           application:
-                             - <value of integer>
-                           behavior:
-                             - <value of string>
-                           category: <value of string>
-                           id: <value of integer>
-                           log: <value in [disable, enable]>
-                           log-packet: <value in [disable, enable]>
-                           parameters:
-                             -
-                                 id: <value of integer>
-                                 value: <value of string>
-                           per-ip-shaper: <value of string>
-                           popularity:
-                             - <value in [1, 2, 3, ...]>
-                           protocols:
-                             - <value of string>
-                           quarantine: <value in [none, attacker]>
-                           quarantine-expiry: <value of string>
-                           quarantine-log: <value in [disable, enable]>
-                           rate-count: <value of integer>
-                           rate-duration: <value of integer>
-                           rate-mode: <value in [periodical, continuous]>
-                           rate-track: <value in [none, src-ip, dest-ip, ...]>
-                           risk:
-                             - <value of integer>
-                           session-ttl: <value of integer>
-                           shaper: <value of string>
-                           shaper-reverse: <value of string>
-                           sub-category:
-                             - <value of integer>
-                           technology:
-                             - <value of string>
-                           vendor:
-                             - <value of string>
-                     extended-log: <value in [disable, enable]>
-                     name: <value of string>
-                     options:
-                       - <value in [allow-dns, allow-icmp, allow-http, ...]>
-                     other-application-action: <value in [pass, block]>
-                     other-application-log: <value in [disable, enable]>
-                     p2p-black-list:
-                       - <value in [skype, edonkey, bittorrent]>
-                     replacemsg-group: <value of string>
-                     unknown-application-action: <value in [pass, block]>
-                     unknown-application-log: <value in [disable, enable]>
-
-    - name: REQUESTING /PM/CONFIG/OBJ/APPLICATION/LIST
-      fmgr_application_list:
-         loose_validation: False
-         workspace_locking_adom: <value in [global, custom adom]>
-         workspace_locking_timeout: 300
-         method: <value in [get]>
-         url_params:
-            adom: <value in [none, global, custom dom]>
-         params:
-            -
-               attr: <value of string>
-               fields:
-                 -
-                    - <value in [app-replacemsg, comment, deep-app-inspection, ...]>
-               filter:
-                 - <value of string>
-               get used: <value of integer>
-               loadsub: <value of integer>
-               option: <value in [count, object member, datasrc, ...]>
-               range:
-                 - <value of integer>
-               sortings:
-                 -
-                     varidic.attr_name: <value in [1, -1]>
+         rc_succeeded: [0, -2, -3, ...]
+         rc_failed: [-2, -3, ...]
+         adom: <your own value>
+         state: <value in [present, absent]>
+         application_list:
+            app-replacemsg: <value in [disable, enable]>
+            comment: <value of string>
+            deep-app-inspection: <value in [disable, enable]>
+            entries:
+              -
+                  action: <value in [pass, block, reset]>
+                  application: <value of integer>
+                  behavior: <value of string>
+                  category: <value of string>
+                  id: <value of integer>
+                  log: <value in [disable, enable]>
+                  log-packet: <value in [disable, enable]>
+                  parameters:
+                    -
+                        id: <value of integer>
+                        value: <value of string>
+                  per-ip-shaper: <value of string>
+                  popularity:
+                    - 1
+                    - 2
+                    - 3
+                    - 4
+                    - 5
+                  protocols: <value of string>
+                  quarantine: <value in [none, attacker]>
+                  quarantine-expiry: <value of string>
+                  quarantine-log: <value in [disable, enable]>
+                  rate-count: <value of integer>
+                  rate-duration: <value of integer>
+                  rate-mode: <value in [periodical, continuous]>
+                  rate-track: <value in [none, src-ip, dest-ip, ...]>
+                  risk: <value of integer>
+                  session-ttl: <value of integer>
+                  shaper: <value of string>
+                  shaper-reverse: <value of string>
+                  sub-category: <value of integer>
+                  technology: <value of string>
+                  vendor: <value of string>
+            extended-log: <value in [disable, enable]>
+            name: <value of string>
+            options:
+              - allow-dns
+              - allow-icmp
+              - allow-http
+              - allow-ssl
+              - allow-quic
+            other-application-action: <value in [pass, block]>
+            other-application-log: <value in [disable, enable]>
+            p2p-black-list:
+              - skype
+              - edonkey
+              - bittorrent
+            replacemsg-group: <value of string>
+            unknown-application-action: <value in [pass, block]>
+            unknown-application-log: <value in [disable, enable]>
 
 '''
 
 RETURN = '''
-url:
+request_url:
     description: The full url requested
     returned: always
     type: str
     sample: /sys/login/user
-status:
+response_code:
     description: The status of api request
     returned: always
-    type: dict
-data:
-    description: The payload returned in the request
-    type: dict
+    type: int
+    sample: 0
+response_message:
+    description: The descriptive message of the api response
+    type: str
     returned: always
+    sample: OK.
 
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import FAIL_SOCKET_MSG
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import DEFAULT_RESULT_OBJ
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import FMGRCommon
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import FMGBaseException
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.fortimanager import FortiManagerHandler
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.NAPI import NAPIManager
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.NAPI import check_galaxy_version
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.NAPI import check_parameter_bypass
 
 
 def main():
@@ -221,383 +378,15 @@ def main():
         '/pm/config/global/obj/application/list'
     ]
 
-    url_schema = [
-        {
-            'name': 'adom',
-            'type': 'string'
-        }
+    perobject_jrpc_urls = [
+        '/pm/config/adom/{adom}/obj/application/list/{list}',
+        '/pm/config/global/obj/application/list/{list}'
     ]
 
-    body_schema = {
-        'schema_objects': {
-            'object0': [
-                {
-                    'name': 'data',
-                    'api_tag': 0,
-                    'type': 'array',
-                    'items': {
-                        'app-replacemsg': {
-                            'type': 'string',
-                            'enum': [
-                                'disable',
-                                'enable'
-                            ]
-                        },
-                        'comment': {
-                            'type': 'string'
-                        },
-                        'deep-app-inspection': {
-                            'type': 'string',
-                            'enum': [
-                                'disable',
-                                'enable'
-                            ]
-                        },
-                        'entries': {
-                            'type': 'array',
-                            'items': {
-                                'action': {
-                                    'type': 'string',
-                                    'enum': [
-                                        'pass',
-                                        'block',
-                                        'reset'
-                                    ]
-                                },
-                                'application': {
-                                    'type': 'array',
-                                    'items': {
-                                        'type': 'integer'
-                                    }
-                                },
-                                'behavior': {
-                                    'type': 'array',
-                                    'items': {
-                                        'type': 'string'
-                                    }
-                                },
-                                'category': {
-                                    'type': 'string'
-                                },
-                                'id': {
-                                    'type': 'integer'
-                                },
-                                'log': {
-                                    'type': 'string',
-                                    'enum': [
-                                        'disable',
-                                        'enable'
-                                    ]
-                                },
-                                'log-packet': {
-                                    'type': 'string',
-                                    'enum': [
-                                        'disable',
-                                        'enable'
-                                    ]
-                                },
-                                'parameters': {
-                                    'type': 'array',
-                                    'items': {
-                                        'id': {
-                                            'type': 'integer'
-                                        },
-                                        'value': {
-                                            'type': 'string'
-                                        }
-                                    }
-                                },
-                                'per-ip-shaper': {
-                                    'type': 'string'
-                                },
-                                'popularity': {
-                                    'type': 'array',
-                                    'items': {
-                                        'type': 'string',
-                                        'enum': [
-                                            '1',
-                                            '2',
-                                            '3',
-                                            '4',
-                                            '5'
-                                        ]
-                                    }
-                                },
-                                'protocols': {
-                                    'type': 'array',
-                                    'items': {
-                                        'type': 'string'
-                                    }
-                                },
-                                'quarantine': {
-                                    'type': 'string',
-                                    'enum': [
-                                        'none',
-                                        'attacker'
-                                    ]
-                                },
-                                'quarantine-expiry': {
-                                    'type': 'string'
-                                },
-                                'quarantine-log': {
-                                    'type': 'string',
-                                    'enum': [
-                                        'disable',
-                                        'enable'
-                                    ]
-                                },
-                                'rate-count': {
-                                    'type': 'integer'
-                                },
-                                'rate-duration': {
-                                    'type': 'integer'
-                                },
-                                'rate-mode': {
-                                    'type': 'string',
-                                    'enum': [
-                                        'periodical',
-                                        'continuous'
-                                    ]
-                                },
-                                'rate-track': {
-                                    'type': 'string',
-                                    'enum': [
-                                        'none',
-                                        'src-ip',
-                                        'dest-ip',
-                                        'dhcp-client-mac',
-                                        'dns-domain'
-                                    ]
-                                },
-                                'risk': {
-                                    'type': 'array',
-                                    'items': {
-                                        'type': 'integer'
-                                    }
-                                },
-                                'session-ttl': {
-                                    'type': 'integer'
-                                },
-                                'shaper': {
-                                    'type': 'string'
-                                },
-                                'shaper-reverse': {
-                                    'type': 'string'
-                                },
-                                'sub-category': {
-                                    'type': 'array',
-                                    'items': {
-                                        'type': 'integer'
-                                    }
-                                },
-                                'technology': {
-                                    'type': 'array',
-                                    'items': {
-                                        'type': 'string'
-                                    }
-                                },
-                                'vendor': {
-                                    'type': 'array',
-                                    'items': {
-                                        'type': 'string'
-                                    }
-                                }
-                            }
-                        },
-                        'extended-log': {
-                            'type': 'string',
-                            'enum': [
-                                'disable',
-                                'enable'
-                            ]
-                        },
-                        'name': {
-                            'type': 'string'
-                        },
-                        'options': {
-                            'type': 'array',
-                            'items': {
-                                'type': 'string',
-                                'enum': [
-                                    'allow-dns',
-                                    'allow-icmp',
-                                    'allow-http',
-                                    'allow-ssl',
-                                    'allow-quic'
-                                ]
-                            }
-                        },
-                        'other-application-action': {
-                            'type': 'string',
-                            'enum': [
-                                'pass',
-                                'block'
-                            ]
-                        },
-                        'other-application-log': {
-                            'type': 'string',
-                            'enum': [
-                                'disable',
-                                'enable'
-                            ]
-                        },
-                        'p2p-black-list': {
-                            'type': 'array',
-                            'items': {
-                                'type': 'string',
-                                'enum': [
-                                    'skype',
-                                    'edonkey',
-                                    'bittorrent'
-                                ]
-                            }
-                        },
-                        'replacemsg-group': {
-                            'type': 'string'
-                        },
-                        'unknown-application-action': {
-                            'type': 'string',
-                            'enum': [
-                                'pass',
-                                'block'
-                            ]
-                        },
-                        'unknown-application-log': {
-                            'type': 'string',
-                            'enum': [
-                                'disable',
-                                'enable'
-                            ]
-                        }
-                    }
-                },
-                {
-                    'type': 'string',
-                    'name': 'url',
-                    'api_tag': 0
-                }
-            ],
-            'object1': [
-                {
-                    'type': 'string',
-                    'name': 'attr',
-                    'api_tag': 0
-                },
-                {
-                    'name': 'fields',
-                    'api_tag': 0,
-                    'type': 'array',
-                    'items': {
-                        'type': 'array',
-                        'items': {
-                            'type': 'string',
-                            'enum': [
-                                'app-replacemsg',
-                                'comment',
-                                'deep-app-inspection',
-                                'extended-log',
-                                'name',
-                                'options',
-                                'other-application-action',
-                                'other-application-log',
-                                'p2p-black-list',
-                                'replacemsg-group',
-                                'unknown-application-action',
-                                'unknown-application-log'
-                            ]
-                        }
-                    }
-                },
-                {
-                    'name': 'filter',
-                    'type': 'dict',
-                    'dict': {
-                        'type': 'array',
-                        'items': {
-                            'type': 'string',
-                            'example': [
-                                '<attr>',
-                                '==',
-                                'test'
-                            ]
-                        }
-                    },
-                    'api_tag': 0
-                },
-                {
-                    'type': 'integer',
-                    'name': 'get used',
-                    'api_tag': 0
-                },
-                {
-                    'type': 'integer',
-                    'name': 'loadsub',
-                    'api_tag': 0
-                },
-                {
-                    'name': 'option',
-                    'type': 'dict',
-                    'dict': {
-                        'type': 'string',
-                        'enum': [
-                            'count',
-                            'object member',
-                            'datasrc',
-                            'get reserved',
-                            'syntax'
-                        ]
-                    },
-                    'api_tag': 0
-                },
-                {
-                    'name': 'range',
-                    'type': 'dict',
-                    'dict': {
-                        'type': 'array',
-                        'items': {
-                            'type': 'integer',
-                            'example': [
-                                2,
-                                5
-                            ]
-                        }
-                    },
-                    'api_tag': 0
-                },
-                {
-                    'name': 'sortings',
-                    'type': 'dict',
-                    'dict': {
-                        'type': 'array',
-                        'items': {
-                            '{attr_name}': {
-                                'type': 'integer',
-                                'enum': [
-                                    1,
-                                    -1
-                                ]
-                            }
-                        }
-                    },
-                    'api_tag': 0
-                },
-                {
-                    'type': 'string',
-                    'name': 'url',
-                    'api_tag': 0
-                }
-            ]
-        },
-        'method_mapping': {
-            'add': 'object0',
-            'get': 'object1',
-            'set': 'object0',
-            'update': 'object0'
-        }
-    }
-
+    url_params = ['adom']
+    module_primary_key = 'name'
     module_arg_spec = {
-        'loose_validation': {
+        'bypass_validation': {
             'type': 'bool',
             'required': False,
             'default': False
@@ -611,56 +400,290 @@ def main():
             'required': False,
             'default': 300
         },
-        'params': {
-            'type': 'list',
-            'required': False
+        'rc_succeeded': {
+            'required': False,
+            'type': 'list'
         },
-        'method': {
+        'rc_failed': {
+            'required': False,
+            'type': 'list'
+        },
+        'state': {
             'type': 'str',
             'required': True,
             'choices': [
-                'add',
-                'get',
-                'set',
-                'update'
+                'present',
+                'absent'
             ]
         },
-        'url_params': {
+        'adom': {
+            'required': True,
+            'type': 'str'
+        },
+        'application_list': {
+            'required': False,
             'type': 'dict',
-            'required': False
+            'options': {
+                'app-replacemsg': {
+                    'required': False,
+                    'choices': [
+                        'disable',
+                        'enable'
+                    ],
+                    'type': 'str'
+                },
+                'comment': {
+                    'required': False,
+                    'type': 'str'
+                },
+                'deep-app-inspection': {
+                    'required': False,
+                    'choices': [
+                        'disable',
+                        'enable'
+                    ],
+                    'type': 'str'
+                },
+                'entries': {
+                    'required': False,
+                    'type': 'list',
+                    'options': {
+                        'action': {
+                            'required': False,
+                            'choices': [
+                                'pass',
+                                'block',
+                                'reset'
+                            ],
+                            'type': 'str'
+                        },
+                        'application': {
+                            'required': False,
+                            'type': 'int'
+                        },
+                        'behavior': {
+                            'required': False,
+                            'type': 'str'
+                        },
+                        'category': {
+                            'required': False,
+                            'type': 'str'
+                        },
+                        'id': {
+                            'required': False,
+                            'type': 'int'
+                        },
+                        'log': {
+                            'required': False,
+                            'choices': [
+                                'disable',
+                                'enable'
+                            ],
+                            'type': 'str'
+                        },
+                        'log-packet': {
+                            'required': False,
+                            'choices': [
+                                'disable',
+                                'enable'
+                            ],
+                            'type': 'str'
+                        },
+                        'parameters': {
+                            'required': False,
+                            'type': 'list',
+                            'options': {
+                                'id': {
+                                    'required': False,
+                                    'type': 'int'
+                                },
+                                'value': {
+                                    'required': False,
+                                    'type': 'str'
+                                }
+                            }
+                        },
+                        'per-ip-shaper': {
+                            'required': False,
+                            'type': 'str'
+                        },
+                        'popularity': {
+                            'required': False,
+                            'type': 'list',
+                            'choices': [
+                                '1',
+                                '2',
+                                '3',
+                                '4',
+                                '5'
+                            ]
+                        },
+                        'protocols': {
+                            'required': False,
+                            'type': 'str'
+                        },
+                        'quarantine': {
+                            'required': False,
+                            'choices': [
+                                'none',
+                                'attacker'
+                            ],
+                            'type': 'str'
+                        },
+                        'quarantine-expiry': {
+                            'required': False,
+                            'type': 'str'
+                        },
+                        'quarantine-log': {
+                            'required': False,
+                            'choices': [
+                                'disable',
+                                'enable'
+                            ],
+                            'type': 'str'
+                        },
+                        'rate-count': {
+                            'required': False,
+                            'type': 'int'
+                        },
+                        'rate-duration': {
+                            'required': False,
+                            'type': 'int'
+                        },
+                        'rate-mode': {
+                            'required': False,
+                            'choices': [
+                                'periodical',
+                                'continuous'
+                            ],
+                            'type': 'str'
+                        },
+                        'rate-track': {
+                            'required': False,
+                            'choices': [
+                                'none',
+                                'src-ip',
+                                'dest-ip',
+                                'dhcp-client-mac',
+                                'dns-domain'
+                            ],
+                            'type': 'str'
+                        },
+                        'risk': {
+                            'required': False,
+                            'type': 'int'
+                        },
+                        'session-ttl': {
+                            'required': False,
+                            'type': 'int'
+                        },
+                        'shaper': {
+                            'required': False,
+                            'type': 'str'
+                        },
+                        'shaper-reverse': {
+                            'required': False,
+                            'type': 'str'
+                        },
+                        'sub-category': {
+                            'required': False,
+                            'type': 'int'
+                        },
+                        'technology': {
+                            'required': False,
+                            'type': 'str'
+                        },
+                        'vendor': {
+                            'required': False,
+                            'type': 'str'
+                        }
+                    }
+                },
+                'extended-log': {
+                    'required': False,
+                    'choices': [
+                        'disable',
+                        'enable'
+                    ],
+                    'type': 'str'
+                },
+                'name': {
+                    'required': True,
+                    'type': 'str'
+                },
+                'options': {
+                    'required': False,
+                    'type': 'list',
+                    'choices': [
+                        'allow-dns',
+                        'allow-icmp',
+                        'allow-http',
+                        'allow-ssl',
+                        'allow-quic'
+                    ]
+                },
+                'other-application-action': {
+                    'required': False,
+                    'choices': [
+                        'pass',
+                        'block'
+                    ],
+                    'type': 'str'
+                },
+                'other-application-log': {
+                    'required': False,
+                    'choices': [
+                        'disable',
+                        'enable'
+                    ],
+                    'type': 'str'
+                },
+                'p2p-black-list': {
+                    'required': False,
+                    'type': 'list',
+                    'choices': [
+                        'skype',
+                        'edonkey',
+                        'bittorrent'
+                    ]
+                },
+                'replacemsg-group': {
+                    'required': False,
+                    'type': 'str'
+                },
+                'unknown-application-action': {
+                    'required': False,
+                    'choices': [
+                        'pass',
+                        'block'
+                    ],
+                    'type': 'str'
+                },
+                'unknown-application-log': {
+                    'required': False,
+                    'choices': [
+                        'disable',
+                        'enable'
+                    ],
+                    'type': 'str'
+                }
+            }
+
         }
     }
-    module = AnsibleModule(argument_spec=module_arg_spec,
+
+    check_galaxy_version(module_arg_spec)
+    module = AnsibleModule(argument_spec=check_parameter_bypass(module_arg_spec, 'application_list'),
                            supports_check_mode=False)
-    method = module.params['method']
-    loose_validation = module.params['loose_validation']
 
     fmgr = None
-    payload = None
-    response = DEFAULT_RESULT_OBJ
-
     if module._socket_path:
         connection = Connection(module._socket_path)
-        tools = FMGRCommon()
-        if loose_validation is False:
-            tools.validate_module_params(module, body_schema)
-        tools.validate_module_url_params(module, jrpc_urls, url_schema)
-        full_url = tools.get_full_url_path(module, jrpc_urls)
-        payload = tools.get_full_payload(module, full_url)
-        fmgr = FortiManagerHandler(connection, module)
-        fmgr.tools = tools
+        fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+        fmgr.process_curd()
     else:
-        module.fail_json(**FAIL_SOCKET_MSG)
-
-    try:
-        response = fmgr._conn.send_request(method, payload)
-        fmgr.govern_response(module=module, results=response,
-                             msg='Operation Finished',
-                             ansible_facts=fmgr.construct_ansible_facts(response, module.params, module.params))
-    except Exception as e:
-        raise FMGBaseException(e)
-
-    module.exit_json(meta=response[1])
+        module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
+    module.exit_json(meta=module.params)
 
 
 if __name__ == '__main__':

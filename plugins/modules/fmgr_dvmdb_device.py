@@ -26,63 +26,404 @@ DOCUMENTATION = '''
 module: fmgr_dvmdb_device
 short_description: Device table, most attributes are read-only and can only be changed internally. Refer to Device Manager Command module for API to add, d...
 description:
-    - This module is able to configure a FortiManager device by allowing the
-      user to [ get set update ] the following apis.
-    - /dvmdb/adom/{adom}/device
-    - /dvmdb/device
-    - Examples include all parameters and values need to be adjusted to data sources before usage.
+    - This module is able to configure a FortiManager device.
+    - Examples include all parameters and values which need to be adjusted to data sources before usage.
 
 version_added: "2.10"
 author:
+    - Link Zheng (@chillancezen)
+    - Jie Xue (@JieX19)
     - Frank Shen (@fshen01)
-    - Link Zheng (@zhengl)
+    - Hongbin Lu (@fgtdev-hblu)
 notes:
-    - There are only three top-level parameters where 'method' is always required
-      while other two 'params' and 'url_params' can be optional
-    - Due to the complexity of fortimanager api schema, the validation is done
-      out of Ansible native parameter validation procedure.
-    - The syntax of OPTIONS doen not comply with the standard Ansible argument
-      specification, but with the structure of fortimanager API schema, we need
-      a trivial transformation when we are filling the ansible playbook
+    - Running in workspace locking mode is supported in this FortiManager module, the top
+      level parameters workspace_locking_adom and workspace_locking_timeout help do the work.
+    - To create or update an object, use state present directive.
+    - To delete an object, use state absent directive.
+    - Normally, running one module can fail when a non-zero rc is returned. you can also override
+      the conditions to fail or succeed with parameters rc_failed and rc_succeeded
+
 options:
-    loose_validation:
-        description:
-          - Do parameter validation in a loose way
-        type: bool
+    bypass_validation:
+        description: only set to True when module schema diffs with FortiManager API structure, module continues to execute without validating parameters
         required: false
+        type: bool
+        default: false
     workspace_locking_adom:
-        description:
-          - the adom name to lock in case FortiManager running in workspace mode
-          - it can be global or any other custom adom names
+        description: the adom to lock for FortiManager running in workspace mode, the value can be global and others including root
         required: false
         type: str
     workspace_locking_timeout:
-        description:
-          - the maximum time in seconds to wait for other user to release the workspace lock
+        description: the maximum time in seconds to wait for other user to release the workspace lock
         required: false
         type: int
         default: 300
-    method:
-        description:
-          - The method in request
-        required: true
+    state:
+        description: the directive to create, update or delete an object
         type: str
+        required: true
         choices:
-          - get
-          - set
-          - update
-    params:
-        description:
-          - The parameters for each method
-          - See full parameters list in https://ansible-galaxy-fortimanager-docs.readthedocs.io/en/latest
+          - present
+          - absent
+    rc_succeeded:
+        description: the rc codes list with which the conditions to succeed will be overriden
         type: list
         required: false
-    url_params:
-        description:
-          - The parameters for each API request URL
-          - Also see full URL parameters in https://ansible-galaxy-fortimanager-docs.readthedocs.io/en/latest
+    rc_failed:
+        description: the rc codes list with which the conditions to fail will be overriden
+        type: list
+        required: false
+    adom:
+        description: the parameter (adom) in requested url
+        type: str
+        required: true
+    device:
+        description: the parameter (device) in requested url
+        type: str
+        required: true
+    dvmdb_device:
+        description: the top level parameters set
         required: false
         type: dict
+        suboptions:
+            adm_pass:
+                description: no description
+                type: str
+            adm_usr:
+                type: str
+                description: no description
+            app_ver:
+                type: str
+                description: no description
+            av_ver:
+                type: str
+                description: no description
+            beta:
+                type: int
+                description: no description
+            branch_pt:
+                type: int
+                description: no description
+            build:
+                type: int
+                description: no description
+            checksum:
+                type: str
+                description: no description
+            conf_status:
+                type: str
+                default: 'unknown'
+                description: no description
+                choices:
+                    - 'unknown'
+                    - 'insync'
+                    - 'outofsync'
+            conn_mode:
+                type: str
+                default: 'passive'
+                description: no description
+                choices:
+                    - 'active'
+                    - 'passive'
+            conn_status:
+                type: str
+                default: 'UNKNOWN'
+                description: no description
+                choices:
+                    - 'UNKNOWN'
+                    - 'up'
+                    - 'down'
+            db_status:
+                type: str
+                default: 'unknown'
+                description: no description
+                choices:
+                    - 'unknown'
+                    - 'nomod'
+                    - 'mod'
+            desc:
+                type: str
+                description: no description
+            dev_status:
+                type: str
+                default: 'unknown'
+                description: no description
+                choices:
+                    - 'none'
+                    - 'unknown'
+                    - 'checkedin'
+                    - 'inprogress'
+                    - 'installed'
+                    - 'aborted'
+                    - 'sched'
+                    - 'retry'
+                    - 'canceled'
+                    - 'pending'
+                    - 'retrieved'
+                    - 'changed_conf'
+                    - 'sync_fail'
+                    - 'timeout'
+                    - 'rev_revert'
+                    - 'auto_updated'
+            fap_cnt:
+                type: int
+                description: no description
+            faz.full_act:
+                type: int
+                description: no description
+            faz.perm:
+                type: int
+                description: no description
+            faz.quota:
+                type: int
+                description: no description
+            faz.used:
+                type: int
+                description: no description
+            fex_cnt:
+                type: int
+                description: no description
+            flags:
+                description: no description
+                type: list
+                choices:
+                 - has_hdd
+                 - vdom_enabled
+                 - discover
+                 - reload
+                 - interim_build
+                 - offline_mode
+                 - is_model
+                 - fips_mode
+                 - linked_to_model
+                 - ip-conflict
+                 - faz-autosync
+            foslic_cpu:
+                type: int
+                description: 'VM Meter vCPU count.'
+            foslic_dr_site:
+                type: str
+                default: 'disable'
+                description: 'VM Meter DR Site status.'
+                choices:
+                    - 'disable'
+                    - 'enable'
+            foslic_inst_time:
+                type: int
+                description: 'VM Meter first deployment time (in UNIX timestamp).'
+            foslic_last_sync:
+                type: int
+                description: 'VM Meter last synchronized time (in UNIX timestamp).'
+            foslic_ram:
+                type: int
+                description: 'VM Meter device RAM size (in MB).'
+            foslic_type:
+                type: str
+                default: 'temporary'
+                description: 'VM Meter license type.'
+                choices:
+                    - 'temporary'
+                    - 'trial'
+                    - 'regular'
+                    - 'trial_expired'
+            foslic_utm:
+                description: no description
+                type: list
+                choices:
+                 - fw
+                 - av
+                 - ips
+                 - app
+                 - url
+                 - utm
+                 - fwb
+            fsw_cnt:
+                type: int
+                description: no description
+            ha_group_id:
+                type: int
+                description: no description
+            ha_group_name:
+                type: str
+                description: no description
+            ha_mode:
+                type: str
+                default: 'standalone'
+                description: 'enabled - Value reserved for non-FOS HA devices.'
+                choices:
+                    - 'standalone'
+                    - 'AP'
+                    - 'AA'
+                    - 'ELBC'
+                    - 'DUAL'
+                    - 'enabled'
+                    - 'unknown'
+            hdisk_size:
+                type: int
+                description: no description
+            hostname:
+                type: str
+                description: no description
+            hw_rev_major:
+                type: int
+                description: no description
+            hw_rev_minor:
+                type: int
+                description: no description
+            ip:
+                type: str
+                description: no description
+            ips_ext:
+                type: int
+                description: no description
+            ips_ver:
+                type: str
+                description: no description
+            last_checked:
+                type: int
+                description: no description
+            last_resync:
+                type: int
+                description: no description
+            latitude:
+                type: str
+                description: no description
+            lic_flags:
+                type: int
+                description: no description
+            lic_region:
+                type: str
+                description: no description
+            location_from:
+                type: str
+                description: no description
+            logdisk_size:
+                type: int
+                description: no description
+            longitude:
+                type: str
+                description: no description
+            maxvdom:
+                type: int
+                default: 10
+                description: no description
+            meta fields:
+                description: no description
+                type: dict
+            mgmt_id:
+                type: int
+                description: no description
+            mgmt_if:
+                type: str
+                description: no description
+            mgmt_mode:
+                type: str
+                default: 'unreg'
+                description: no description
+                choices:
+                    - 'unreg'
+                    - 'fmg'
+                    - 'faz'
+                    - 'fmgfaz'
+            mgt_vdom:
+                type: str
+                description: no description
+            mr:
+                type: int
+                default: -1
+                description: no description
+            name:
+                type: str
+                description: 'Unique name for the device.'
+            os_type:
+                type: str
+                default: 'unknown'
+                description: no description
+                choices:
+                    - 'unknown'
+                    - 'fos'
+                    - 'fsw'
+                    - 'foc'
+                    - 'fml'
+                    - 'faz'
+                    - 'fwb'
+                    - 'fch'
+                    - 'fct'
+                    - 'log'
+                    - 'fmg'
+                    - 'fsa'
+                    - 'fdd'
+                    - 'fac'
+                    - 'fpx'
+            os_ver:
+                type: str
+                default: 'unknown'
+                description: no description
+                choices:
+                    - 'unknown'
+                    - '0.0'
+                    - '1.0'
+                    - '2.0'
+                    - '3.0'
+                    - '4.0'
+                    - '5.0'
+                    - '6.0'
+            patch:
+                type: int
+                description: no description
+            platform_str:
+                type: str
+                description: no description
+            psk:
+                type: str
+                description: no description
+            sn:
+                type: str
+                description: 'Unique value for each device.'
+            vdom:
+                description: no description
+                type: list
+                suboptions:
+                    comments:
+                        type: str
+                        description: no description
+                    name:
+                        type: str
+                        description: no description
+                    opmode:
+                        type: str
+                        default: 'nat'
+                        description: no description
+                        choices:
+                            - 'nat'
+                            - 'transparent'
+                    rtm_prof_id:
+                        type: int
+                        description: no description
+                    status:
+                        type: str
+                        description: no description
+            version:
+                type: int
+                description: no description
+            vm_cpu:
+                type: int
+                description: no description
+            vm_cpu_limit:
+                type: int
+                description: no description
+            vm_lic_expire:
+                type: int
+                description: no description
+            vm_mem:
+                type: int
+                description: no description
+            vm_mem_limit:
+                type: int
+                description: no description
+            vm_status:
+                type: int
+                description: no description
 
 '''
 
@@ -96,708 +437,152 @@ EXAMPLES = '''
       ansible_httpapi_validate_certs: False
       ansible_httpapi_port: 443
    tasks:
-
-    - name: REQUESTING /DVMDB/DEVICE
+    - name: Device table, most attributes are read-only and can only be changed internally. Refer to Device Manager Command module for API to add, d...
       fmgr_dvmdb_device:
-         loose_validation: False
-         workspace_locking_adom: <value in [global, custom adom]>
+         bypass_validation: False
+         workspace_locking_adom: <value in [global, custom adom including root]>
          workspace_locking_timeout: 300
-         method: <value in [get]>
-         url_params:
-            adom: <value in [none, global, custom dom]>
-         params:
-            -
-               expand member: <value of string>
-               fields:
-                 -
-                    - <value in [adm_pass, adm_usr, app_ver, ...]>
-               filter:
-                 - <value of string>
-               loadsub: <value of integer>
-               meta fields:
-                 - <value of string>
-               option: <value in [count, object member, syntax]>
-               range:
-                 - <value of integer>
-               sortings:
-                 -
-                     varidic.attr_name: <value in [1, -1]>
-
-    - name: REQUESTING /DVMDB/DEVICE
-      fmgr_dvmdb_device:
-         loose_validation: False
-         workspace_locking_adom: <value in [global, custom adom]>
-         workspace_locking_timeout: 300
-         method: <value in [set, update]>
-         url_params:
-            adom: <value in [none, global, custom dom]>
-         params:
-            -
-               data:
-                 -
-                     adm_pass:
-                       - <value of string>
-                     adm_usr: <value of string>
-                     app_ver: <value of string>
-                     av_ver: <value of string>
-                     beta: <value of integer>
-                     branch_pt: <value of integer>
-                     build: <value of integer>
-                     checksum: <value of string>
-                     conf_status: <value in [unknown, insync, outofsync]>
-                     conn_mode: <value in [active, passive]>
-                     conn_status: <value in [UNKNOWN, up, down]>
-                     db_status: <value in [unknown, nomod, mod]>
-                     desc: <value of string>
-                     dev_status: <value in [none, unknown, checkedin, ...]>
-                     fap_cnt: <value of integer>
-                     faz.full_act: <value of integer>
-                     faz.perm: <value of integer>
-                     faz.quota: <value of integer>
-                     faz.used: <value of integer>
-                     fex_cnt: <value of integer>
-                     flags:
-                       - <value in [has_hdd, vdom_enabled, discover, ...]>
-                     foslic_cpu: <value of integer>
-                     foslic_dr_site: <value in [disable, enable]>
-                     foslic_inst_time: <value of integer>
-                     foslic_last_sync: <value of integer>
-                     foslic_ram: <value of integer>
-                     foslic_type: <value in [temporary, trial, regular, ...]>
-                     foslic_utm:
-                       - <value in [fw, av, ips, ...]>
-                     fsw_cnt: <value of integer>
-                     ha_group_id: <value of integer>
-                     ha_group_name: <value of string>
-                     ha_mode: <value in [standalone, AP, AA, ...]>
-                     hdisk_size: <value of integer>
-                     hostname: <value of string>
-                     hw_rev_major: <value of integer>
-                     hw_rev_minor: <value of integer>
-                     ip: <value of string>
-                     ips_ext: <value of integer>
-                     ips_ver: <value of string>
-                     last_checked: <value of integer>
-                     last_resync: <value of integer>
-                     latitude: <value of string>
-                     lic_flags: <value of integer>
-                     lic_region: <value of string>
-                     location_from: <value of string>
-                     logdisk_size: <value of integer>
-                     longitude: <value of string>
-                     maxvdom: <value of integer>
-                     meta fields: <value of string>
-                     mgmt_id: <value of integer>
-                     mgmt_if: <value of string>
-                     mgmt_mode: <value in [unreg, fmg, faz, ...]>
-                     mgt_vdom: <value of string>
-                     mr: <value of integer>
-                     name: <value of string>
-                     os_type: <value in [unknown, fos, fsw, ...]>
-                     os_ver: <value in [unknown, 0.0, 1.0, ...]>
-                     patch: <value of integer>
-                     platform_str: <value of string>
-                     psk: <value of string>
-                     sn: <value of string>
-                     vdom:
-                       -
-                           comments: <value of string>
-                           name: <value of string>
-                           opmode: <value in [nat, transparent]>
-                           rtm_prof_id: <value of integer>
-                           status: <value of string>
-                     version: <value of integer>
-                     vm_cpu: <value of integer>
-                     vm_cpu_limit: <value of integer>
-                     vm_lic_expire: <value of integer>
-                     vm_mem: <value of integer>
-                     vm_mem_limit: <value of integer>
-                     vm_status: <value of integer>
+         rc_succeeded: [0, -2, -3, ...]
+         rc_failed: [-2, -3, ...]
+         adom: <your own value>
+         device: <your own value>
+         dvmdb_device:
+            adm_pass: <value of string>
+            adm_usr: <value of string>
+            app_ver: <value of string>
+            av_ver: <value of string>
+            beta: <value of integer>
+            branch_pt: <value of integer>
+            build: <value of integer>
+            checksum: <value of string>
+            conf_status: <value in [unknown, insync, outofsync]>
+            conn_mode: <value in [active, passive]>
+            conn_status: <value in [UNKNOWN, up, down]>
+            db_status: <value in [unknown, nomod, mod]>
+            desc: <value of string>
+            dev_status: <value in [none, unknown, checkedin, ...]>
+            fap_cnt: <value of integer>
+            faz.full_act: <value of integer>
+            faz.perm: <value of integer>
+            faz.quota: <value of integer>
+            faz.used: <value of integer>
+            fex_cnt: <value of integer>
+            flags:
+              - has_hdd
+              - vdom_enabled
+              - discover
+              - reload
+              - interim_build
+              - offline_mode
+              - is_model
+              - fips_mode
+              - linked_to_model
+              - ip-conflict
+              - faz-autosync
+            foslic_cpu: <value of integer>
+            foslic_dr_site: <value in [disable, enable]>
+            foslic_inst_time: <value of integer>
+            foslic_last_sync: <value of integer>
+            foslic_ram: <value of integer>
+            foslic_type: <value in [temporary, trial, regular, ...]>
+            foslic_utm:
+              - fw
+              - av
+              - ips
+              - app
+              - url
+              - utm
+              - fwb
+            fsw_cnt: <value of integer>
+            ha_group_id: <value of integer>
+            ha_group_name: <value of string>
+            ha_mode: <value in [standalone, AP, AA, ...]>
+            hdisk_size: <value of integer>
+            hostname: <value of string>
+            hw_rev_major: <value of integer>
+            hw_rev_minor: <value of integer>
+            ip: <value of string>
+            ips_ext: <value of integer>
+            ips_ver: <value of string>
+            last_checked: <value of integer>
+            last_resync: <value of integer>
+            latitude: <value of string>
+            lic_flags: <value of integer>
+            lic_region: <value of string>
+            location_from: <value of string>
+            logdisk_size: <value of integer>
+            longitude: <value of string>
+            maxvdom: <value of integer>
+            meta fields: <value of dict>
+            mgmt_id: <value of integer>
+            mgmt_if: <value of string>
+            mgmt_mode: <value in [unreg, fmg, faz, ...]>
+            mgt_vdom: <value of string>
+            mr: <value of integer>
+            name: <value of string>
+            os_type: <value in [unknown, fos, fsw, ...]>
+            os_ver: <value in [unknown, 0.0, 1.0, ...]>
+            patch: <value of integer>
+            platform_str: <value of string>
+            psk: <value of string>
+            sn: <value of string>
+            vdom:
+              -
+                  comments: <value of string>
+                  name: <value of string>
+                  opmode: <value in [nat, transparent]>
+                  rtm_prof_id: <value of integer>
+                  status: <value of string>
+            version: <value of integer>
+            vm_cpu: <value of integer>
+            vm_cpu_limit: <value of integer>
+            vm_lic_expire: <value of integer>
+            vm_mem: <value of integer>
+            vm_mem_limit: <value of integer>
+            vm_status: <value of integer>
 
 '''
 
 RETURN = '''
-url:
+request_url:
     description: The full url requested
     returned: always
     type: str
     sample: /sys/login/user
-status:
+response_code:
     description: The status of api request
     returned: always
-    type: dict
-data:
-    description: The payload returned in the request
-    type: dict
+    type: int
+    sample: 0
+response_message:
+    description: The descriptive message of the api response
+    type: str
     returned: always
+    sample: OK.
 
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import FAIL_SOCKET_MSG
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import DEFAULT_RESULT_OBJ
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import FMGRCommon
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import FMGBaseException
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.fortimanager import FortiManagerHandler
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.NAPI import NAPIManager
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.NAPI import check_galaxy_version
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.NAPI import check_parameter_bypass
 
 
 def main():
     jrpc_urls = [
-        '/dvmdb/adom/{adom}/device',
-        '/dvmdb/device'
+        '/dvmdb/adom/{adom}/device/{device}',
+        '/dvmdb/device/{device}'
     ]
 
-    url_schema = [
-        {
-            'name': 'adom',
-            'type': 'string'
-        }
+    perobject_jrpc_urls = [
+        '/dvmdb/adom/{adom}/device/{device}/{{device}}',
+        '/dvmdb/device/{device}/{{device}}'
     ]
 
-    body_schema = {
-        'schema_objects': {
-            'object0': [
-                {
-                    'type': 'string',
-                    'name': 'expand member',
-                    'api_tag': 0
-                },
-                {
-                    'name': 'fields',
-                    'api_tag': 0,
-                    'type': 'array',
-                    'items': {
-                        'type': 'array',
-                        'items': {
-                            'type': 'string',
-                            'enum': [
-                                'adm_pass',
-                                'adm_usr',
-                                'app_ver',
-                                'av_ver',
-                                'beta',
-                                'branch_pt',
-                                'build',
-                                'checksum',
-                                'conf_status',
-                                'conn_mode',
-                                'conn_status',
-                                'db_status',
-                                'desc',
-                                'dev_status',
-                                'fap_cnt',
-                                'faz.full_act',
-                                'faz.perm',
-                                'faz.quota',
-                                'faz.used',
-                                'fex_cnt',
-                                'flags',
-                                'foslic_cpu',
-                                'foslic_dr_site',
-                                'foslic_inst_time',
-                                'foslic_last_sync',
-                                'foslic_ram',
-                                'foslic_type',
-                                'foslic_utm',
-                                'fsw_cnt',
-                                'ha_group_id',
-                                'ha_group_name',
-                                'ha_mode',
-                                'hdisk_size',
-                                'hostname',
-                                'hw_rev_major',
-                                'hw_rev_minor',
-                                'ip',
-                                'ips_ext',
-                                'ips_ver',
-                                'last_checked',
-                                'last_resync',
-                                'latitude',
-                                'lic_flags',
-                                'lic_region',
-                                'location_from',
-                                'logdisk_size',
-                                'longitude',
-                                'maxvdom',
-                                'mgmt_id',
-                                'mgmt_if',
-                                'mgmt_mode',
-                                'mgt_vdom',
-                                'mr',
-                                'name',
-                                'os_type',
-                                'os_ver',
-                                'patch',
-                                'platform_str',
-                                'psk',
-                                'sn',
-                                'version',
-                                'vm_cpu',
-                                'vm_cpu_limit',
-                                'vm_lic_expire',
-                                'vm_mem',
-                                'vm_mem_limit',
-                                'vm_status'
-                            ]
-                        }
-                    }
-                },
-                {
-                    'name': 'filter',
-                    'type': 'dict',
-                    'dict': {
-                        'type': 'array',
-                        'items': {
-                            'type': 'string',
-                            'example': [
-                                '<attr>',
-                                '==',
-                                'test'
-                            ]
-                        }
-                    },
-                    'api_tag': 0
-                },
-                {
-                    'type': 'integer',
-                    'name': 'loadsub',
-                    'api_tag': 0
-                },
-                {
-                    'name': 'meta fields',
-                    'api_tag': 0,
-                    'type': 'array',
-                    'items': {
-                        'type': 'string'
-                    }
-                },
-                {
-                    'name': 'option',
-                    'type': 'dict',
-                    'dict': {
-                        'type': 'string',
-                        'enum': [
-                            'count',
-                            'object member',
-                            'syntax'
-                        ]
-                    },
-                    'api_tag': 0
-                },
-                {
-                    'name': 'range',
-                    'type': 'dict',
-                    'dict': {
-                        'type': 'array',
-                        'items': {
-                            'type': 'integer',
-                            'example': [
-                                2,
-                                5
-                            ]
-                        }
-                    },
-                    'api_tag': 0
-                },
-                {
-                    'name': 'sortings',
-                    'type': 'dict',
-                    'dict': {
-                        'type': 'array',
-                        'items': {
-                            '{attr_name}': {
-                                'type': 'integer',
-                                'enum': [
-                                    1,
-                                    -1
-                                ]
-                            }
-                        }
-                    },
-                    'api_tag': 0
-                },
-                {
-                    'type': 'string',
-                    'name': 'url',
-                    'api_tag': 0
-                }
-            ],
-            'object1': [
-                {
-                    'name': 'data',
-                    'api_tag': 0,
-                    'type': 'array',
-                    'items': {
-                        'adm_pass': {
-                            'type': 'array',
-                            'items': {
-                                'type': 'string'
-                            }
-                        },
-                        'adm_usr': {
-                            'type': 'string'
-                        },
-                        'app_ver': {
-                            'type': 'string'
-                        },
-                        'av_ver': {
-                            'type': 'string'
-                        },
-                        'beta': {
-                            'type': 'integer'
-                        },
-                        'branch_pt': {
-                            'type': 'integer'
-                        },
-                        'build': {
-                            'type': 'integer'
-                        },
-                        'checksum': {
-                            'type': 'string'
-                        },
-                        'conf_status': {
-                            'type': 'string',
-                            'enum': [
-                                'unknown',
-                                'insync',
-                                'outofsync'
-                            ]
-                        },
-                        'conn_mode': {
-                            'type': 'string',
-                            'enum': [
-                                'active',
-                                'passive'
-                            ]
-                        },
-                        'conn_status': {
-                            'type': 'string',
-                            'enum': [
-                                'UNKNOWN',
-                                'up',
-                                'down'
-                            ]
-                        },
-                        'db_status': {
-                            'type': 'string',
-                            'enum': [
-                                'unknown',
-                                'nomod',
-                                'mod'
-                            ]
-                        },
-                        'desc': {
-                            'type': 'string'
-                        },
-                        'dev_status': {
-                            'type': 'string',
-                            'enum': [
-                                'none',
-                                'unknown',
-                                'checkedin',
-                                'inprogress',
-                                'installed',
-                                'aborted',
-                                'sched',
-                                'retry',
-                                'canceled',
-                                'pending',
-                                'retrieved',
-                                'changed_conf',
-                                'sync_fail',
-                                'timeout',
-                                'rev_revert',
-                                'auto_updated'
-                            ]
-                        },
-                        'fap_cnt': {
-                            'type': 'integer'
-                        },
-                        'faz.full_act': {
-                            'type': 'integer'
-                        },
-                        'faz.perm': {
-                            'type': 'integer'
-                        },
-                        'faz.quota': {
-                            'type': 'integer'
-                        },
-                        'faz.used': {
-                            'type': 'integer'
-                        },
-                        'fex_cnt': {
-                            'type': 'integer'
-                        },
-                        'flags': {
-                            'type': 'array',
-                            'items': {
-                                'type': 'string',
-                                'enum': [
-                                    'has_hdd',
-                                    'vdom_enabled',
-                                    'discover',
-                                    'reload',
-                                    'interim_build',
-                                    'offline_mode',
-                                    'is_model',
-                                    'fips_mode',
-                                    'linked_to_model',
-                                    'ip-conflict',
-                                    'faz-autosync'
-                                ]
-                            }
-                        },
-                        'foslic_cpu': {
-                            'type': 'integer'
-                        },
-                        'foslic_dr_site': {
-                            'type': 'string',
-                            'enum': [
-                                'disable',
-                                'enable'
-                            ]
-                        },
-                        'foslic_inst_time': {
-                            'type': 'integer'
-                        },
-                        'foslic_last_sync': {
-                            'type': 'integer'
-                        },
-                        'foslic_ram': {
-                            'type': 'integer'
-                        },
-                        'foslic_type': {
-                            'type': 'string',
-                            'enum': [
-                                'temporary',
-                                'trial',
-                                'regular',
-                                'trial_expired'
-                            ]
-                        },
-                        'foslic_utm': {
-                            'type': 'array',
-                            'items': {
-                                'type': 'string',
-                                'enum': [
-                                    'fw',
-                                    'av',
-                                    'ips',
-                                    'app',
-                                    'url',
-                                    'utm',
-                                    'fwb'
-                                ]
-                            }
-                        },
-                        'fsw_cnt': {
-                            'type': 'integer'
-                        },
-                        'ha_group_id': {
-                            'type': 'integer'
-                        },
-                        'ha_group_name': {
-                            'type': 'string'
-                        },
-                        'ha_mode': {
-                            'type': 'string',
-                            'enum': [
-                                'standalone',
-                                'AP',
-                                'AA',
-                                'ELBC',
-                                'DUAL',
-                                'enabled',
-                                'unknown'
-                            ]
-                        },
-                        'hdisk_size': {
-                            'type': 'integer'
-                        },
-                        'hostname': {
-                            'type': 'string'
-                        },
-                        'hw_rev_major': {
-                            'type': 'integer'
-                        },
-                        'hw_rev_minor': {
-                            'type': 'integer'
-                        },
-                        'ip': {
-                            'type': 'string'
-                        },
-                        'ips_ext': {
-                            'type': 'integer'
-                        },
-                        'ips_ver': {
-                            'type': 'string'
-                        },
-                        'last_checked': {
-                            'type': 'integer'
-                        },
-                        'last_resync': {
-                            'type': 'integer'
-                        },
-                        'latitude': {
-                            'type': 'string'
-                        },
-                        'lic_flags': {
-                            'type': 'integer'
-                        },
-                        'lic_region': {
-                            'type': 'string'
-                        },
-                        'location_from': {
-                            'type': 'string'
-                        },
-                        'logdisk_size': {
-                            'type': 'integer'
-                        },
-                        'longitude': {
-                            'type': 'string'
-                        },
-                        'maxvdom': {
-                            'type': 'integer',
-                            'default': 10,
-                            'example': 10
-                        },
-                        'meta fields': {
-                            'type': 'string'
-                        },
-                        'mgmt_id': {
-                            'type': 'integer'
-                        },
-                        'mgmt_if': {
-                            'type': 'string'
-                        },
-                        'mgmt_mode': {
-                            'type': 'string',
-                            'enum': [
-                                'unreg',
-                                'fmg',
-                                'faz',
-                                'fmgfaz'
-                            ]
-                        },
-                        'mgt_vdom': {
-                            'type': 'string'
-                        },
-                        'mr': {
-                            'type': 'integer',
-                            'default': -1,
-                            'example': -1
-                        },
-                        'name': {
-                            'type': 'string'
-                        },
-                        'os_type': {
-                            'type': 'string',
-                            'enum': [
-                                'unknown',
-                                'fos',
-                                'fsw',
-                                'foc',
-                                'fml',
-                                'faz',
-                                'fwb',
-                                'fch',
-                                'fct',
-                                'log',
-                                'fmg',
-                                'fsa',
-                                'fdd',
-                                'fac',
-                                'fpx'
-                            ]
-                        },
-                        'os_ver': {
-                            'type': 'string',
-                            'enum': [
-                                'unknown',
-                                '0.0',
-                                '1.0',
-                                '2.0',
-                                '3.0',
-                                '4.0',
-                                '5.0',
-                                '6.0'
-                            ]
-                        },
-                        'patch': {
-                            'type': 'integer'
-                        },
-                        'platform_str': {
-                            'type': 'string'
-                        },
-                        'psk': {
-                            'type': 'string'
-                        },
-                        'sn': {
-                            'type': 'string'
-                        },
-                        'vdom': {
-                            'type': 'array',
-                            'items': {
-                                'comments': {
-                                    'type': 'string'
-                                },
-                                'name': {
-                                    'type': 'string'
-                                },
-                                'opmode': {
-                                    'type': 'string',
-                                    'enum': [
-                                        'nat',
-                                        'transparent'
-                                    ]
-                                },
-                                'rtm_prof_id': {
-                                    'type': 'integer'
-                                },
-                                'status': {
-                                    'type': 'string'
-                                }
-                            }
-                        },
-                        'version': {
-                            'type': 'integer'
-                        },
-                        'vm_cpu': {
-                            'type': 'integer'
-                        },
-                        'vm_cpu_limit': {
-                            'type': 'integer'
-                        },
-                        'vm_lic_expire': {
-                            'type': 'integer'
-                        },
-                        'vm_mem': {
-                            'type': 'integer'
-                        },
-                        'vm_mem_limit': {
-                            'type': 'integer'
-                        },
-                        'vm_status': {
-                            'type': 'integer'
-                        }
-                    }
-                },
-                {
-                    'type': 'string',
-                    'name': 'url',
-                    'api_tag': 0
-                }
-            ]
-        },
-        'method_mapping': {
-            'get': 'object0',
-            'set': 'object1',
-            'update': 'object1'
-        }
-    }
-
+    url_params = ['adom', 'device']
+    module_primary_key = None
     module_arg_spec = {
-        'loose_validation': {
+        'bypass_validation': {
             'type': 'bool',
             'required': False,
             'default': False
@@ -811,55 +596,470 @@ def main():
             'required': False,
             'default': 300
         },
-        'params': {
-            'type': 'list',
-            'required': False
+        'rc_succeeded': {
+            'required': False,
+            'type': 'list'
         },
-        'method': {
-            'type': 'str',
+        'rc_failed': {
+            'required': False,
+            'type': 'list'
+        },
+        'adom': {
             'required': True,
-            'choices': [
-                'get',
-                'set',
-                'update'
-            ]
+            'type': 'str'
         },
-        'url_params': {
+        'device': {
+            'required': True,
+            'type': 'str'
+        },
+        'dvmdb_device': {
+            'required': False,
             'type': 'dict',
-            'required': False
+            'options': {
+                'adm_pass': {
+                    'required': False,
+                    'type': 'str'
+                },
+                'adm_usr': {
+                    'required': False,
+                    'type': 'str'
+                },
+                'app_ver': {
+                    'required': False,
+                    'type': 'str'
+                },
+                'av_ver': {
+                    'required': False,
+                    'type': 'str'
+                },
+                'beta': {
+                    'required': False,
+                    'type': 'int'
+                },
+                'branch_pt': {
+                    'required': False,
+                    'type': 'int'
+                },
+                'build': {
+                    'required': False,
+                    'type': 'int'
+                },
+                'checksum': {
+                    'required': False,
+                    'type': 'str'
+                },
+                'conf_status': {
+                    'required': False,
+                    'choices': [
+                        'unknown',
+                        'insync',
+                        'outofsync'
+                    ],
+                    'default': 'unknown',
+                    'type': 'str'
+                },
+                'conn_mode': {
+                    'required': False,
+                    'choices': [
+                        'active',
+                        'passive'
+                    ],
+                    'default': 'passive',
+                    'type': 'str'
+                },
+                'conn_status': {
+                    'required': False,
+                    'choices': [
+                        'UNKNOWN',
+                        'up',
+                        'down'
+                    ],
+                    'default': 'UNKNOWN',
+                    'type': 'str'
+                },
+                'db_status': {
+                    'required': False,
+                    'choices': [
+                        'unknown',
+                        'nomod',
+                        'mod'
+                    ],
+                    'default': 'unknown',
+                    'type': 'str'
+                },
+                'desc': {
+                    'required': False,
+                    'type': 'str'
+                },
+                'dev_status': {
+                    'required': False,
+                    'choices': [
+                        'none',
+                        'unknown',
+                        'checkedin',
+                        'inprogress',
+                        'installed',
+                        'aborted',
+                        'sched',
+                        'retry',
+                        'canceled',
+                        'pending',
+                        'retrieved',
+                        'changed_conf',
+                        'sync_fail',
+                        'timeout',
+                        'rev_revert',
+                        'auto_updated'
+                    ],
+                    'default': 'unknown',
+                    'type': 'str'
+                },
+                'fap_cnt': {
+                    'required': False,
+                    'type': 'int'
+                },
+                'faz.full_act': {
+                    'required': False,
+                    'type': 'int'
+                },
+                'faz.perm': {
+                    'required': False,
+                    'type': 'int'
+                },
+                'faz.quota': {
+                    'required': False,
+                    'type': 'int'
+                },
+                'faz.used': {
+                    'required': False,
+                    'type': 'int'
+                },
+                'fex_cnt': {
+                    'required': False,
+                    'type': 'int'
+                },
+                'flags': {
+                    'required': False,
+                    'type': 'list',
+                    'choices': [
+                        'has_hdd',
+                        'vdom_enabled',
+                        'discover',
+                        'reload',
+                        'interim_build',
+                        'offline_mode',
+                        'is_model',
+                        'fips_mode',
+                        'linked_to_model',
+                        'ip-conflict',
+                        'faz-autosync'
+                    ]
+                },
+                'foslic_cpu': {
+                    'required': False,
+                    'type': 'int'
+                },
+                'foslic_dr_site': {
+                    'required': False,
+                    'choices': [
+                        'disable',
+                        'enable'
+                    ],
+                    'default': 'disable',
+                    'type': 'str'
+                },
+                'foslic_inst_time': {
+                    'required': False,
+                    'type': 'int'
+                },
+                'foslic_last_sync': {
+                    'required': False,
+                    'type': 'int'
+                },
+                'foslic_ram': {
+                    'required': False,
+                    'type': 'int'
+                },
+                'foslic_type': {
+                    'required': False,
+                    'choices': [
+                        'temporary',
+                        'trial',
+                        'regular',
+                        'trial_expired'
+                    ],
+                    'default': 'temporary',
+                    'type': 'str'
+                },
+                'foslic_utm': {
+                    'required': False,
+                    'type': 'list',
+                    'choices': [
+                        'fw',
+                        'av',
+                        'ips',
+                        'app',
+                        'url',
+                        'utm',
+                        'fwb'
+                    ]
+                },
+                'fsw_cnt': {
+                    'required': False,
+                    'type': 'int'
+                },
+                'ha_group_id': {
+                    'required': False,
+                    'type': 'int'
+                },
+                'ha_group_name': {
+                    'required': False,
+                    'type': 'str'
+                },
+                'ha_mode': {
+                    'required': False,
+                    'choices': [
+                        'standalone',
+                        'AP',
+                        'AA',
+                        'ELBC',
+                        'DUAL',
+                        'enabled',
+                        'unknown'
+                    ],
+                    'default': 'standalone',
+                    'type': 'str'
+                },
+                'hdisk_size': {
+                    'required': False,
+                    'type': 'int'
+                },
+                'hostname': {
+                    'required': False,
+                    'type': 'str'
+                },
+                'hw_rev_major': {
+                    'required': False,
+                    'type': 'int'
+                },
+                'hw_rev_minor': {
+                    'required': False,
+                    'type': 'int'
+                },
+                'ip': {
+                    'required': False,
+                    'type': 'str'
+                },
+                'ips_ext': {
+                    'required': False,
+                    'type': 'int'
+                },
+                'ips_ver': {
+                    'required': False,
+                    'type': 'str'
+                },
+                'last_checked': {
+                    'required': False,
+                    'type': 'int'
+                },
+                'last_resync': {
+                    'required': False,
+                    'type': 'int'
+                },
+                'latitude': {
+                    'required': False,
+                    'type': 'str'
+                },
+                'lic_flags': {
+                    'required': False,
+                    'type': 'int'
+                },
+                'lic_region': {
+                    'required': False,
+                    'type': 'str'
+                },
+                'location_from': {
+                    'required': False,
+                    'type': 'str'
+                },
+                'logdisk_size': {
+                    'required': False,
+                    'type': 'int'
+                },
+                'longitude': {
+                    'required': False,
+                    'type': 'str'
+                },
+                'maxvdom': {
+                    'required': False,
+                    'default': 10,
+                    'type': 'int'
+                },
+                'meta fields': {
+                    'required': False,
+                    'type': 'dict'
+                },
+                'mgmt_id': {
+                    'required': False,
+                    'type': 'int'
+                },
+                'mgmt_if': {
+                    'required': False,
+                    'type': 'str'
+                },
+                'mgmt_mode': {
+                    'required': False,
+                    'choices': [
+                        'unreg',
+                        'fmg',
+                        'faz',
+                        'fmgfaz'
+                    ],
+                    'default': 'unreg',
+                    'type': 'str'
+                },
+                'mgt_vdom': {
+                    'required': False,
+                    'type': 'str'
+                },
+                'mr': {
+                    'required': False,
+                    'default': -1,
+                    'type': 'int'
+                },
+                'name': {
+                    'required': False,
+                    'type': 'str'
+                },
+                'os_type': {
+                    'required': False,
+                    'choices': [
+                        'unknown',
+                        'fos',
+                        'fsw',
+                        'foc',
+                        'fml',
+                        'faz',
+                        'fwb',
+                        'fch',
+                        'fct',
+                        'log',
+                        'fmg',
+                        'fsa',
+                        'fdd',
+                        'fac',
+                        'fpx'
+                    ],
+                    'default': 'unknown',
+                    'type': 'str'
+                },
+                'os_ver': {
+                    'required': False,
+                    'choices': [
+                        'unknown',
+                        '0.0',
+                        '1.0',
+                        '2.0',
+                        '3.0',
+                        '4.0',
+                        '5.0',
+                        '6.0'
+                    ],
+                    'default': 'unknown',
+                    'type': 'str'
+                },
+                'patch': {
+                    'required': False,
+                    'type': 'int'
+                },
+                'platform_str': {
+                    'required': False,
+                    'type': 'str'
+                },
+                'psk': {
+                    'required': False,
+                    'type': 'str'
+                },
+                'sn': {
+                    'required': False,
+                    'type': 'str'
+                },
+                'vdom': {
+                    'required': False,
+                    'type': 'list',
+                    'options': {
+                        'comments': {
+                            'required': False,
+                            'type': 'str'
+                        },
+                        'name': {
+                            'required': False,
+                            'type': 'str'
+                        },
+                        'opmode': {
+                            'required': False,
+                            'choices': [
+                                'nat',
+                                'transparent'
+                            ],
+                            'default': 'nat',
+                            'type': 'str'
+                        },
+                        'rtm_prof_id': {
+                            'required': False,
+                            'type': 'int'
+                        },
+                        'status': {
+                            'required': False,
+                            'type': 'str'
+                        }
+                    }
+                },
+                'version': {
+                    'required': False,
+                    'type': 'int'
+                },
+                'vm_cpu': {
+                    'required': False,
+                    'type': 'int'
+                },
+                'vm_cpu_limit': {
+                    'required': False,
+                    'type': 'int'
+                },
+                'vm_lic_expire': {
+                    'required': False,
+                    'type': 'int'
+                },
+                'vm_mem': {
+                    'required': False,
+                    'type': 'int'
+                },
+                'vm_mem_limit': {
+                    'required': False,
+                    'type': 'int'
+                },
+                'vm_status': {
+                    'required': False,
+                    'type': 'int'
+                }
+            }
+
         }
     }
-    module = AnsibleModule(argument_spec=module_arg_spec,
+
+    check_galaxy_version(module_arg_spec)
+    module = AnsibleModule(argument_spec=check_parameter_bypass(module_arg_spec, 'dvmdb_device'),
                            supports_check_mode=False)
-    method = module.params['method']
-    loose_validation = module.params['loose_validation']
 
     fmgr = None
-    payload = None
-    response = DEFAULT_RESULT_OBJ
-
     if module._socket_path:
         connection = Connection(module._socket_path)
-        tools = FMGRCommon()
-        if loose_validation is False:
-            tools.validate_module_params(module, body_schema)
-        tools.validate_module_url_params(module, jrpc_urls, url_schema)
-        full_url = tools.get_full_url_path(module, jrpc_urls)
-        payload = tools.get_full_payload(module, full_url)
-        fmgr = FortiManagerHandler(connection, module)
-        fmgr.tools = tools
+        fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+        fmgr.process_partial_curd()
     else:
-        module.fail_json(**FAIL_SOCKET_MSG)
-
-    try:
-        response = fmgr._conn.send_request(method, payload)
-        fmgr.govern_response(module=module, results=response,
-                             msg='Operation Finished',
-                             ansible_facts=fmgr.construct_ansible_facts(response, module.params, module.params))
-    except Exception as e:
-        raise FMGBaseException(e)
-
-    module.exit_json(meta=response[1])
+        module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
+    module.exit_json(meta=module.params)
 
 
 if __name__ == '__main__':

@@ -1,0 +1,577 @@
+#!/usr/bin/python
+from __future__ import absolute_import, division, print_function
+# Copyright 2019-2020 Fortinet, Inc.
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+__metaclass__ = type
+
+ANSIBLE_METADATA = {'status': ['preview'],
+                    'supported_by': 'community',
+                    'metadata_version': '1.1'}
+
+DOCUMENTATION = '''
+---
+module: fmgr_user_ldap_dynamicmapping
+short_description: no description
+description:
+    - This module is able to configure a FortiManager device.
+    - Examples include all parameters and values which need to be adjusted to data sources before usage.
+
+version_added: "2.10"
+author:
+    - Link Zheng (@chillancezen)
+    - Jie Xue (@JieX19)
+    - Frank Shen (@fshen01)
+    - Hongbin Lu (@fgtdev-hblu)
+notes:
+    - Running in workspace locking mode is supported in this FortiManager module, the top
+      level parameters workspace_locking_adom and workspace_locking_timeout help do the work.
+    - To create or update an object, use state present directive.
+    - To delete an object, use state absent directive.
+    - Normally, running one module can fail when a non-zero rc is returned. you can also override
+      the conditions to fail or succeed with parameters rc_failed and rc_succeeded
+
+options:
+    bypass_validation:
+        description: only set to True when module schema diffs with FortiManager API structure, module continues to execute without validating parameters
+        required: false
+        type: bool
+        default: false
+    workspace_locking_adom:
+        description: the adom to lock for FortiManager running in workspace mode, the value can be global and others including root
+        required: false
+        type: str
+    workspace_locking_timeout:
+        description: the maximum time in seconds to wait for other user to release the workspace lock
+        required: false
+        type: int
+        default: 300
+    state:
+        description: the directive to create, update or delete an object
+        type: str
+        required: true
+        choices:
+          - present
+          - absent
+    rc_succeeded:
+        description: the rc codes list with which the conditions to succeed will be overriden
+        type: list
+        required: false
+    rc_failed:
+        description: the rc codes list with which the conditions to fail will be overriden
+        type: list
+        required: false
+    adom:
+        description: the parameter (adom) in requested url
+        type: str
+        required: true
+    ldap:
+        description: the parameter (ldap) in requested url
+        type: str
+        required: true
+    user_ldap_dynamicmapping:
+        description: the top level parameters set
+        required: false
+        type: dict
+        suboptions:
+            _scope:
+                description: no description
+                type: list
+                suboptions:
+                    name:
+                        type: str
+                        description: no description
+                    vdom:
+                        type: str
+                        description: no description
+            account-key-filter:
+                type: str
+                description: no description
+            account-key-name:
+                type: str
+                description: no description
+            account-key-processing:
+                type: str
+                description: no description
+                choices:
+                    - 'same'
+                    - 'strip'
+            ca-cert:
+                type: str
+                description: no description
+            cnid:
+                type: str
+                description: no description
+            dn:
+                type: str
+                description: no description
+            filter:
+                type: str
+                description: no description
+            group:
+                type: str
+                description: no description
+            group-filter:
+                type: str
+                description: no description
+            group-member-check:
+                type: str
+                description: no description
+                choices:
+                    - 'user-attr'
+                    - 'group-object'
+                    - 'posix-group-object'
+            group-object-filter:
+                type: str
+                description: no description
+            group-object-search-base:
+                type: str
+                description: no description
+            group-search-base:
+                type: str
+                description: no description
+            member-attr:
+                type: str
+                description: no description
+            obtain-user-info:
+                type: str
+                description: no description
+                choices:
+                    - 'disable'
+                    - 'enable'
+            password:
+                description: no description
+                type: str
+            password-expiry-warning:
+                type: str
+                description: no description
+                choices:
+                    - 'disable'
+                    - 'enable'
+            password-renewal:
+                type: str
+                description: no description
+                choices:
+                    - 'disable'
+                    - 'enable'
+            port:
+                type: int
+                description: no description
+            retrieve-protection-profile:
+                type: str
+                description: no description
+            search-type:
+                description: no description
+                type: list
+                choices:
+                 - nested
+                 - recursive
+            secondary-server:
+                type: str
+                description: no description
+            secure:
+                type: str
+                description: no description
+                choices:
+                    - 'disable'
+                    - 'starttls'
+                    - 'ldaps'
+            server:
+                type: str
+                description: no description
+            server-identity-check:
+                type: str
+                description: no description
+                choices:
+                    - 'disable'
+                    - 'enable'
+            source-ip:
+                type: str
+                description: no description
+            ssl-min-proto-version:
+                type: str
+                description: no description
+                choices:
+                    - 'default'
+                    - 'TLSv1'
+                    - 'TLSv1-1'
+                    - 'TLSv1-2'
+                    - 'SSLv3'
+            tertiary-server:
+                type: str
+                description: no description
+            type:
+                type: str
+                description: no description
+                choices:
+                    - 'simple'
+                    - 'anonymous'
+                    - 'regular'
+            user-info-exchange-server:
+                type: str
+                description: no description
+            username:
+                type: str
+                description: no description
+
+'''
+
+EXAMPLES = '''
+ - hosts: fortimanager-inventory
+   collections:
+     - fortinet.fortimanager
+   connection: httpapi
+   vars:
+      ansible_httpapi_use_ssl: True
+      ansible_httpapi_validate_certs: False
+      ansible_httpapi_port: 443
+   tasks:
+    - name: no description
+      fmgr_user_ldap_dynamicmapping:
+         bypass_validation: False
+         workspace_locking_adom: <value in [global, custom adom including root]>
+         workspace_locking_timeout: 300
+         rc_succeeded: [0, -2, -3, ...]
+         rc_failed: [-2, -3, ...]
+         adom: <your own value>
+         ldap: <your own value>
+         state: <value in [present, absent]>
+         user_ldap_dynamicmapping:
+            _scope:
+              -
+                  name: <value of string>
+                  vdom: <value of string>
+            account-key-filter: <value of string>
+            account-key-name: <value of string>
+            account-key-processing: <value in [same, strip]>
+            ca-cert: <value of string>
+            cnid: <value of string>
+            dn: <value of string>
+            filter: <value of string>
+            group: <value of string>
+            group-filter: <value of string>
+            group-member-check: <value in [user-attr, group-object, posix-group-object]>
+            group-object-filter: <value of string>
+            group-object-search-base: <value of string>
+            group-search-base: <value of string>
+            member-attr: <value of string>
+            obtain-user-info: <value in [disable, enable]>
+            password: <value of string>
+            password-expiry-warning: <value in [disable, enable]>
+            password-renewal: <value in [disable, enable]>
+            port: <value of integer>
+            retrieve-protection-profile: <value of string>
+            search-type:
+              - nested
+              - recursive
+            secondary-server: <value of string>
+            secure: <value in [disable, starttls, ldaps]>
+            server: <value of string>
+            server-identity-check: <value in [disable, enable]>
+            source-ip: <value of string>
+            ssl-min-proto-version: <value in [default, TLSv1, TLSv1-1, ...]>
+            tertiary-server: <value of string>
+            type: <value in [simple, anonymous, regular]>
+            user-info-exchange-server: <value of string>
+            username: <value of string>
+
+'''
+
+RETURN = '''
+request_url:
+    description: The full url requested
+    returned: always
+    type: str
+    sample: /sys/login/user
+response_code:
+    description: The status of api request
+    returned: always
+    type: int
+    sample: 0
+response_message:
+    description: The descriptive message of the api response
+    type: str
+    returned: always
+    sample: OK.
+
+'''
+from ansible.module_utils.basic import AnsibleModule
+from ansible.module_utils.connection import Connection
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.NAPI import NAPIManager
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.NAPI import check_galaxy_version
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.NAPI import check_parameter_bypass
+
+
+def main():
+    jrpc_urls = [
+        '/pm/config/adom/{adom}/obj/user/ldap/{ldap}/dynamic_mapping',
+        '/pm/config/global/obj/user/ldap/{ldap}/dynamic_mapping'
+    ]
+
+    perobject_jrpc_urls = [
+        '/pm/config/adom/{adom}/obj/user/ldap/{ldap}/dynamic_mapping/{dynamic_mapping}',
+        '/pm/config/global/obj/user/ldap/{ldap}/dynamic_mapping/{dynamic_mapping}'
+    ]
+
+    url_params = ['adom', 'ldap']
+    module_primary_key = 'complex:{{module}}["_scope"][0]["name"]+"/"+{{module}}["_scope"][0]["vdom"]'
+    module_arg_spec = {
+        'bypass_validation': {
+            'type': 'bool',
+            'required': False,
+            'default': False
+        },
+        'workspace_locking_adom': {
+            'type': 'str',
+            'required': False
+        },
+        'workspace_locking_timeout': {
+            'type': 'int',
+            'required': False,
+            'default': 300
+        },
+        'rc_succeeded': {
+            'required': False,
+            'type': 'list'
+        },
+        'rc_failed': {
+            'required': False,
+            'type': 'list'
+        },
+        'state': {
+            'type': 'str',
+            'required': True,
+            'choices': [
+                'present',
+                'absent'
+            ]
+        },
+        'adom': {
+            'required': True,
+            'type': 'str'
+        },
+        'ldap': {
+            'required': True,
+            'type': 'str'
+        },
+        'user_ldap_dynamicmapping': {
+            'required': False,
+            'type': 'dict',
+            'options': {
+                '_scope': {
+                    'required': False,
+                    'type': 'list',
+                    'options': {
+                        'name': {
+                            'required': False,
+                            'type': 'str'
+                        },
+                        'vdom': {
+                            'required': False,
+                            'type': 'str'
+                        }
+                    }
+                },
+                'account-key-filter': {
+                    'required': False,
+                    'type': 'str'
+                },
+                'account-key-name': {
+                    'required': False,
+                    'type': 'str'
+                },
+                'account-key-processing': {
+                    'required': False,
+                    'choices': [
+                        'same',
+                        'strip'
+                    ],
+                    'type': 'str'
+                },
+                'ca-cert': {
+                    'required': False,
+                    'type': 'str'
+                },
+                'cnid': {
+                    'required': False,
+                    'type': 'str'
+                },
+                'dn': {
+                    'required': False,
+                    'type': 'str'
+                },
+                'filter': {
+                    'required': False,
+                    'type': 'str'
+                },
+                'group': {
+                    'required': False,
+                    'type': 'str'
+                },
+                'group-filter': {
+                    'required': False,
+                    'type': 'str'
+                },
+                'group-member-check': {
+                    'required': False,
+                    'choices': [
+                        'user-attr',
+                        'group-object',
+                        'posix-group-object'
+                    ],
+                    'type': 'str'
+                },
+                'group-object-filter': {
+                    'required': False,
+                    'type': 'str'
+                },
+                'group-object-search-base': {
+                    'required': False,
+                    'type': 'str'
+                },
+                'group-search-base': {
+                    'required': False,
+                    'type': 'str'
+                },
+                'member-attr': {
+                    'required': False,
+                    'type': 'str'
+                },
+                'obtain-user-info': {
+                    'required': False,
+                    'choices': [
+                        'disable',
+                        'enable'
+                    ],
+                    'type': 'str'
+                },
+                'password': {
+                    'required': False,
+                    'type': 'str'
+                },
+                'password-expiry-warning': {
+                    'required': False,
+                    'choices': [
+                        'disable',
+                        'enable'
+                    ],
+                    'type': 'str'
+                },
+                'password-renewal': {
+                    'required': False,
+                    'choices': [
+                        'disable',
+                        'enable'
+                    ],
+                    'type': 'str'
+                },
+                'port': {
+                    'required': False,
+                    'type': 'int'
+                },
+                'retrieve-protection-profile': {
+                    'required': False,
+                    'type': 'str'
+                },
+                'search-type': {
+                    'required': False,
+                    'type': 'list',
+                    'choices': [
+                        'nested',
+                        'recursive'
+                    ]
+                },
+                'secondary-server': {
+                    'required': False,
+                    'type': 'str'
+                },
+                'secure': {
+                    'required': False,
+                    'choices': [
+                        'disable',
+                        'starttls',
+                        'ldaps'
+                    ],
+                    'type': 'str'
+                },
+                'server': {
+                    'required': False,
+                    'type': 'str'
+                },
+                'server-identity-check': {
+                    'required': False,
+                    'choices': [
+                        'disable',
+                        'enable'
+                    ],
+                    'type': 'str'
+                },
+                'source-ip': {
+                    'required': False,
+                    'type': 'str'
+                },
+                'ssl-min-proto-version': {
+                    'required': False,
+                    'choices': [
+                        'default',
+                        'TLSv1',
+                        'TLSv1-1',
+                        'TLSv1-2',
+                        'SSLv3'
+                    ],
+                    'type': 'str'
+                },
+                'tertiary-server': {
+                    'required': False,
+                    'type': 'str'
+                },
+                'type': {
+                    'required': False,
+                    'choices': [
+                        'simple',
+                        'anonymous',
+                        'regular'
+                    ],
+                    'type': 'str'
+                },
+                'user-info-exchange-server': {
+                    'required': False,
+                    'type': 'str'
+                },
+                'username': {
+                    'required': False,
+                    'type': 'str'
+                }
+            }
+
+        }
+    }
+
+    check_galaxy_version(module_arg_spec)
+    module = AnsibleModule(argument_spec=check_parameter_bypass(module_arg_spec, 'user_ldap_dynamicmapping'),
+                           supports_check_mode=False)
+
+    fmgr = None
+    if module._socket_path:
+        connection = Connection(module._socket_path)
+        fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+        fmgr.process_curd()
+    else:
+        module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
+    module.exit_json(meta=module.params)
+
+
+if __name__ == '__main__':
+    main()

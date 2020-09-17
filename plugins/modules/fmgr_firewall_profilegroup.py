@@ -26,64 +26,107 @@ DOCUMENTATION = '''
 module: fmgr_firewall_profilegroup
 short_description: Configure profile groups.
 description:
-    - This module is able to configure a FortiManager device by allowing the
-      user to [ add get set update ] the following apis.
-    - /pm/config/adom/{adom}/obj/firewall/profile-group
-    - /pm/config/global/obj/firewall/profile-group
-    - Examples include all parameters and values need to be adjusted to data sources before usage.
+    - This module is able to configure a FortiManager device.
+    - Examples include all parameters and values which need to be adjusted to data sources before usage.
 
 version_added: "2.10"
 author:
+    - Link Zheng (@chillancezen)
+    - Jie Xue (@JieX19)
     - Frank Shen (@fshen01)
-    - Link Zheng (@zhengl)
+    - Hongbin Lu (@fgtdev-hblu)
 notes:
-    - There are only three top-level parameters where 'method' is always required
-      while other two 'params' and 'url_params' can be optional
-    - Due to the complexity of fortimanager api schema, the validation is done
-      out of Ansible native parameter validation procedure.
-    - The syntax of OPTIONS doen not comply with the standard Ansible argument
-      specification, but with the structure of fortimanager API schema, we need
-      a trivial transformation when we are filling the ansible playbook
+    - Running in workspace locking mode is supported in this FortiManager module, the top
+      level parameters workspace_locking_adom and workspace_locking_timeout help do the work.
+    - To create or update an object, use state present directive.
+    - To delete an object, use state absent directive.
+    - Normally, running one module can fail when a non-zero rc is returned. you can also override
+      the conditions to fail or succeed with parameters rc_failed and rc_succeeded
+
 options:
-    loose_validation:
-        description:
-          - Do parameter validation in a loose way
-        type: bool
+    bypass_validation:
+        description: only set to True when module schema diffs with FortiManager API structure, module continues to execute without validating parameters
         required: false
+        type: bool
+        default: false
     workspace_locking_adom:
-        description:
-          - the adom name to lock in case FortiManager running in workspace mode
-          - it can be global or any other custom adom names
+        description: the adom to lock for FortiManager running in workspace mode, the value can be global and others including root
         required: false
         type: str
     workspace_locking_timeout:
-        description:
-          - the maximum time in seconds to wait for other user to release the workspace lock
+        description: the maximum time in seconds to wait for other user to release the workspace lock
         required: false
         type: int
         default: 300
-    method:
-        description:
-          - The method in request
-        required: true
+    state:
+        description: the directive to create, update or delete an object
         type: str
+        required: true
         choices:
-          - add
-          - get
-          - set
-          - update
-    params:
-        description:
-          - The parameters for each method
-          - See full parameters list in https://ansible-galaxy-fortimanager-docs.readthedocs.io/en/latest
+          - present
+          - absent
+    rc_succeeded:
+        description: the rc codes list with which the conditions to succeed will be overriden
         type: list
         required: false
-    url_params:
-        description:
-          - The parameters for each API request URL
-          - Also see full URL parameters in https://ansible-galaxy-fortimanager-docs.readthedocs.io/en/latest
+    rc_failed:
+        description: the rc codes list with which the conditions to fail will be overriden
+        type: list
+        required: false
+    adom:
+        description: the parameter (adom) in requested url
+        type: str
+        required: true
+    firewall_profilegroup:
+        description: the top level parameters set
         required: false
         type: dict
+        suboptions:
+            application-list:
+                type: str
+                description: 'Name of an existing Application list.'
+            av-profile:
+                type: str
+                description: 'Name of an existing Antivirus profile.'
+            dlp-sensor:
+                type: str
+                description: 'Name of an existing DLP sensor.'
+            dnsfilter-profile:
+                type: str
+                description: 'Name of an existing DNS filter profile.'
+            icap-profile:
+                type: str
+                description: 'Name of an existing ICAP profile.'
+            ips-sensor:
+                type: str
+                description: 'Name of an existing IPS sensor.'
+            mms-profile:
+                type: str
+                description: 'Name of an existing MMS profile.'
+            name:
+                type: str
+                description: 'Profile group name.'
+            profile-protocol-options:
+                type: str
+                description: 'Name of an existing Protocol options profile.'
+            spamfilter-profile:
+                type: str
+                description: 'Name of an existing Spam filter profile.'
+            ssh-filter-profile:
+                type: str
+                description: 'Name of an existing SSH filter profile.'
+            ssl-ssh-profile:
+                type: str
+                description: 'Name of an existing SSL SSH profile.'
+            voip-profile:
+                type: str
+                description: 'Name of an existing VoIP profile.'
+            waf-profile:
+                type: str
+                description: 'Name of an existing Web application firewall profile.'
+            webfilter-profile:
+                type: str
+                description: 'Name of an existing Web filter profile.'
 
 '''
 
@@ -97,85 +140,57 @@ EXAMPLES = '''
       ansible_httpapi_validate_certs: False
       ansible_httpapi_port: 443
    tasks:
-
-    - name: REQUESTING /PM/CONFIG/OBJ/FIREWALL/PROFILE-GROUP
+    - name: Configure profile groups.
       fmgr_firewall_profilegroup:
-         loose_validation: False
-         workspace_locking_adom: <value in [global, custom adom]>
+         bypass_validation: False
+         workspace_locking_adom: <value in [global, custom adom including root]>
          workspace_locking_timeout: 300
-         method: <value in [add, set, update]>
-         url_params:
-            adom: <value in [none, global, custom dom]>
-         params:
-            -
-               data:
-                 -
-                     application-list: <value of string>
-                     av-profile: <value of string>
-                     dlp-sensor: <value of string>
-                     dnsfilter-profile: <value of string>
-                     icap-profile: <value of string>
-                     ips-sensor: <value of string>
-                     mms-profile: <value of string>
-                     name: <value of string>
-                     profile-protocol-options: <value of string>
-                     spamfilter-profile: <value of string>
-                     ssh-filter-profile: <value of string>
-                     ssl-ssh-profile: <value of string>
-                     voip-profile: <value of string>
-                     waf-profile: <value of string>
-                     webfilter-profile: <value of string>
-
-    - name: REQUESTING /PM/CONFIG/OBJ/FIREWALL/PROFILE-GROUP
-      fmgr_firewall_profilegroup:
-         loose_validation: False
-         workspace_locking_adom: <value in [global, custom adom]>
-         workspace_locking_timeout: 300
-         method: <value in [get]>
-         url_params:
-            adom: <value in [none, global, custom dom]>
-         params:
-            -
-               attr: <value of string>
-               fields:
-                 -
-                    - <value in [application-list, av-profile, dlp-sensor, ...]>
-               filter:
-                 - <value of string>
-               get used: <value of integer>
-               loadsub: <value of integer>
-               option: <value in [count, object member, datasrc, ...]>
-               range:
-                 - <value of integer>
-               sortings:
-                 -
-                     varidic.attr_name: <value in [1, -1]>
+         rc_succeeded: [0, -2, -3, ...]
+         rc_failed: [-2, -3, ...]
+         adom: <your own value>
+         state: <value in [present, absent]>
+         firewall_profilegroup:
+            application-list: <value of string>
+            av-profile: <value of string>
+            dlp-sensor: <value of string>
+            dnsfilter-profile: <value of string>
+            icap-profile: <value of string>
+            ips-sensor: <value of string>
+            mms-profile: <value of string>
+            name: <value of string>
+            profile-protocol-options: <value of string>
+            spamfilter-profile: <value of string>
+            ssh-filter-profile: <value of string>
+            ssl-ssh-profile: <value of string>
+            voip-profile: <value of string>
+            waf-profile: <value of string>
+            webfilter-profile: <value of string>
 
 '''
 
 RETURN = '''
-url:
+request_url:
     description: The full url requested
     returned: always
     type: str
     sample: /sys/login/user
-status:
+response_code:
     description: The status of api request
     returned: always
-    type: dict
-data:
-    description: The payload returned in the request
-    type: dict
+    type: int
+    sample: 0
+response_message:
+    description: The descriptive message of the api response
+    type: str
     returned: always
+    sample: OK.
 
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import FAIL_SOCKET_MSG
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import DEFAULT_RESULT_OBJ
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import FMGRCommon
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import FMGBaseException
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.fortimanager import FortiManagerHandler
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.NAPI import NAPIManager
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.NAPI import check_galaxy_version
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.NAPI import check_parameter_bypass
 
 
 def main():
@@ -184,198 +199,15 @@ def main():
         '/pm/config/global/obj/firewall/profile-group'
     ]
 
-    url_schema = [
-        {
-            'name': 'adom',
-            'type': 'string'
-        }
+    perobject_jrpc_urls = [
+        '/pm/config/adom/{adom}/obj/firewall/profile-group/{profile-group}',
+        '/pm/config/global/obj/firewall/profile-group/{profile-group}'
     ]
 
-    body_schema = {
-        'schema_objects': {
-            'object0': [
-                {
-                    'name': 'data',
-                    'api_tag': 0,
-                    'type': 'array',
-                    'items': {
-                        'application-list': {
-                            'type': 'string'
-                        },
-                        'av-profile': {
-                            'type': 'string'
-                        },
-                        'dlp-sensor': {
-                            'type': 'string'
-                        },
-                        'dnsfilter-profile': {
-                            'type': 'string'
-                        },
-                        'icap-profile': {
-                            'type': 'string'
-                        },
-                        'ips-sensor': {
-                            'type': 'string'
-                        },
-                        'mms-profile': {
-                            'type': 'string'
-                        },
-                        'name': {
-                            'type': 'string'
-                        },
-                        'profile-protocol-options': {
-                            'type': 'string'
-                        },
-                        'spamfilter-profile': {
-                            'type': 'string'
-                        },
-                        'ssh-filter-profile': {
-                            'type': 'string'
-                        },
-                        'ssl-ssh-profile': {
-                            'type': 'string'
-                        },
-                        'voip-profile': {
-                            'type': 'string'
-                        },
-                        'waf-profile': {
-                            'type': 'string'
-                        },
-                        'webfilter-profile': {
-                            'type': 'string'
-                        }
-                    }
-                },
-                {
-                    'type': 'string',
-                    'name': 'url',
-                    'api_tag': 0
-                }
-            ],
-            'object1': [
-                {
-                    'type': 'string',
-                    'name': 'attr',
-                    'api_tag': 0
-                },
-                {
-                    'name': 'fields',
-                    'api_tag': 0,
-                    'type': 'array',
-                    'items': {
-                        'type': 'array',
-                        'items': {
-                            'type': 'string',
-                            'enum': [
-                                'application-list',
-                                'av-profile',
-                                'dlp-sensor',
-                                'dnsfilter-profile',
-                                'icap-profile',
-                                'ips-sensor',
-                                'mms-profile',
-                                'name',
-                                'profile-protocol-options',
-                                'spamfilter-profile',
-                                'ssh-filter-profile',
-                                'ssl-ssh-profile',
-                                'voip-profile',
-                                'waf-profile',
-                                'webfilter-profile'
-                            ]
-                        }
-                    }
-                },
-                {
-                    'name': 'filter',
-                    'type': 'dict',
-                    'dict': {
-                        'type': 'array',
-                        'items': {
-                            'type': 'string',
-                            'example': [
-                                '<attr>',
-                                '==',
-                                'test'
-                            ]
-                        }
-                    },
-                    'api_tag': 0
-                },
-                {
-                    'type': 'integer',
-                    'name': 'get used',
-                    'api_tag': 0
-                },
-                {
-                    'type': 'integer',
-                    'name': 'loadsub',
-                    'api_tag': 0
-                },
-                {
-                    'name': 'option',
-                    'type': 'dict',
-                    'dict': {
-                        'type': 'string',
-                        'enum': [
-                            'count',
-                            'object member',
-                            'datasrc',
-                            'get reserved',
-                            'syntax'
-                        ]
-                    },
-                    'api_tag': 0
-                },
-                {
-                    'name': 'range',
-                    'type': 'dict',
-                    'dict': {
-                        'type': 'array',
-                        'items': {
-                            'type': 'integer',
-                            'example': [
-                                2,
-                                5
-                            ]
-                        }
-                    },
-                    'api_tag': 0
-                },
-                {
-                    'name': 'sortings',
-                    'type': 'dict',
-                    'dict': {
-                        'type': 'array',
-                        'items': {
-                            '{attr_name}': {
-                                'type': 'integer',
-                                'enum': [
-                                    1,
-                                    -1
-                                ]
-                            }
-                        }
-                    },
-                    'api_tag': 0
-                },
-                {
-                    'type': 'string',
-                    'name': 'url',
-                    'api_tag': 0
-                }
-            ]
-        },
-        'method_mapping': {
-            'add': 'object0',
-            'get': 'object1',
-            'set': 'object0',
-            'update': 'object0'
-        }
-    }
-
+    url_params = ['adom']
+    module_primary_key = 'name'
     module_arg_spec = {
-        'loose_validation': {
+        'bypass_validation': {
             'type': 'bool',
             'required': False,
             'default': False
@@ -389,56 +221,107 @@ def main():
             'required': False,
             'default': 300
         },
-        'params': {
-            'type': 'list',
-            'required': False
+        'rc_succeeded': {
+            'required': False,
+            'type': 'list'
         },
-        'method': {
+        'rc_failed': {
+            'required': False,
+            'type': 'list'
+        },
+        'state': {
             'type': 'str',
             'required': True,
             'choices': [
-                'add',
-                'get',
-                'set',
-                'update'
+                'present',
+                'absent'
             ]
         },
-        'url_params': {
+        'adom': {
+            'required': True,
+            'type': 'str'
+        },
+        'firewall_profilegroup': {
+            'required': False,
             'type': 'dict',
-            'required': False
+            'options': {
+                'application-list': {
+                    'required': False,
+                    'type': 'str'
+                },
+                'av-profile': {
+                    'required': False,
+                    'type': 'str'
+                },
+                'dlp-sensor': {
+                    'required': False,
+                    'type': 'str'
+                },
+                'dnsfilter-profile': {
+                    'required': False,
+                    'type': 'str'
+                },
+                'icap-profile': {
+                    'required': False,
+                    'type': 'str'
+                },
+                'ips-sensor': {
+                    'required': False,
+                    'type': 'str'
+                },
+                'mms-profile': {
+                    'required': False,
+                    'type': 'str'
+                },
+                'name': {
+                    'required': True,
+                    'type': 'str'
+                },
+                'profile-protocol-options': {
+                    'required': False,
+                    'type': 'str'
+                },
+                'spamfilter-profile': {
+                    'required': False,
+                    'type': 'str'
+                },
+                'ssh-filter-profile': {
+                    'required': False,
+                    'type': 'str'
+                },
+                'ssl-ssh-profile': {
+                    'required': False,
+                    'type': 'str'
+                },
+                'voip-profile': {
+                    'required': False,
+                    'type': 'str'
+                },
+                'waf-profile': {
+                    'required': False,
+                    'type': 'str'
+                },
+                'webfilter-profile': {
+                    'required': False,
+                    'type': 'str'
+                }
+            }
+
         }
     }
-    module = AnsibleModule(argument_spec=module_arg_spec,
+
+    check_galaxy_version(module_arg_spec)
+    module = AnsibleModule(argument_spec=check_parameter_bypass(module_arg_spec, 'firewall_profilegroup'),
                            supports_check_mode=False)
-    method = module.params['method']
-    loose_validation = module.params['loose_validation']
 
     fmgr = None
-    payload = None
-    response = DEFAULT_RESULT_OBJ
-
     if module._socket_path:
         connection = Connection(module._socket_path)
-        tools = FMGRCommon()
-        if loose_validation is False:
-            tools.validate_module_params(module, body_schema)
-        tools.validate_module_url_params(module, jrpc_urls, url_schema)
-        full_url = tools.get_full_url_path(module, jrpc_urls)
-        payload = tools.get_full_payload(module, full_url)
-        fmgr = FortiManagerHandler(connection, module)
-        fmgr.tools = tools
+        fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+        fmgr.process_curd()
     else:
-        module.fail_json(**FAIL_SOCKET_MSG)
-
-    try:
-        response = fmgr._conn.send_request(method, payload)
-        fmgr.govern_response(module=module, results=response,
-                             msg='Operation Finished',
-                             ansible_facts=fmgr.construct_ansible_facts(response, module.params, module.params))
-    except Exception as e:
-        raise FMGBaseException(e)
-
-    module.exit_json(meta=response[1])
+        module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
+    module.exit_json(meta=module.params)
 
 
 if __name__ == '__main__':

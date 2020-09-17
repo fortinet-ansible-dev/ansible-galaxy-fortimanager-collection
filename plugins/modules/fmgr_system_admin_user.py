@@ -1,0 +1,1388 @@
+#!/usr/bin/python
+from __future__ import absolute_import, division, print_function
+# Copyright 2019-2020 Fortinet, Inc.
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+__metaclass__ = type
+
+ANSIBLE_METADATA = {'status': ['preview'],
+                    'supported_by': 'community',
+                    'metadata_version': '1.1'}
+
+DOCUMENTATION = '''
+---
+module: fmgr_system_admin_user
+short_description: Admin user.
+description:
+    - This module is able to configure a FortiManager device.
+    - Examples include all parameters and values which need to be adjusted to data sources before usage.
+
+version_added: "2.10"
+author:
+    - Link Zheng (@chillancezen)
+    - Jie Xue (@JieX19)
+    - Frank Shen (@fshen01)
+    - Hongbin Lu (@fgtdev-hblu)
+notes:
+    - Running in workspace locking mode is supported in this FortiManager module, the top
+      level parameters workspace_locking_adom and workspace_locking_timeout help do the work.
+    - To create or update an object, use state present directive.
+    - To delete an object, use state absent directive.
+    - Normally, running one module can fail when a non-zero rc is returned. you can also override
+      the conditions to fail or succeed with parameters rc_failed and rc_succeeded
+
+options:
+    bypass_validation:
+        description: only set to True when module schema diffs with FortiManager API structure, module continues to execute without validating parameters
+        required: false
+        type: bool
+        default: false
+    workspace_locking_adom:
+        description: the adom to lock for FortiManager running in workspace mode, the value can be global and others including root
+        required: false
+        type: str
+    workspace_locking_timeout:
+        description: the maximum time in seconds to wait for other user to release the workspace lock
+        required: false
+        type: int
+        default: 300
+    state:
+        description: the directive to create, update or delete an object
+        type: str
+        required: true
+        choices:
+          - present
+          - absent
+    rc_succeeded:
+        description: the rc codes list with which the conditions to succeed will be overriden
+        type: list
+        required: false
+    rc_failed:
+        description: the rc codes list with which the conditions to fail will be overriden
+        type: list
+        required: false
+    system_admin_user:
+        description: the top level parameters set
+        required: false
+        type: dict
+        suboptions:
+            adom:
+                description: no description
+                type: list
+                suboptions:
+                    adom-name:
+                        type: str
+                        description: 'Admin domain names.'
+            adom-exclude:
+                description: no description
+                type: list
+                suboptions:
+                    adom-name:
+                        type: str
+                        description: 'Admin domain names.'
+            app-filter:
+                description: no description
+                type: list
+                suboptions:
+                    app-filter-name:
+                        type: str
+                        description: 'App filter name.'
+            avatar:
+                type: str
+                description: 'Image file for avatar (maximum 4K base64 encoded).'
+            ca:
+                type: str
+                description: 'PKI user certificate CA (CA name in local).'
+            change-password:
+                type: str
+                default: 'disable'
+                description:
+                 - 'Enable/disable restricted user to change self password.'
+                 - 'disable - Disable setting.'
+                 - 'enable - Enable setting.'
+                choices:
+                    - 'disable'
+                    - 'enable'
+            dashboard:
+                description: no description
+                type: list
+                suboptions:
+                    column:
+                        type: int
+                        default: 0
+                        description: 'Widgets column ID.'
+                    diskio-content-type:
+                        type: str
+                        default: 'util'
+                        description:
+                         - 'Disk I/O Monitor widgets chart type.'
+                         - 'util - bandwidth utilization.'
+                         - 'iops - the number of I/O requests.'
+                         - 'blks - the amount of data of I/O requests.'
+                        choices:
+                            - 'util'
+                            - 'iops'
+                            - 'blks'
+                    diskio-period:
+                        type: str
+                        default: '1hour'
+                        description:
+                         - 'Disk I/O Monitor widgets data period.'
+                         - '1hour - 1 hour.'
+                         - '8hour - 8 hour.'
+                         - '24hour - 24 hour.'
+                        choices:
+                            - '1hour'
+                            - '8hour'
+                            - '24hour'
+                    log-rate-period:
+                        type: str
+                        description:
+                         - 'Log receive monitor widgets data period.'
+                         - '2min  - 2 minutes.'
+                         - '1hour - 1 hour.'
+                         - '6hours - 6 hours.'
+                        choices:
+                            - '2min '
+                            - '1hour'
+                            - '6hours'
+                    log-rate-topn:
+                        type: str
+                        default: '5'
+                        description:
+                         - 'Log receive monitor widgets number of top items to display.'
+                         - '1 - Top 1.'
+                         - '2 - Top 2.'
+                         - '3 - Top 3.'
+                         - '4 - Top 4.'
+                         - '5 - Top 5.'
+                        choices:
+                            - '1'
+                            - '2'
+                            - '3'
+                            - '4'
+                            - '5'
+                    log-rate-type:
+                        type: str
+                        default: 'device'
+                        description:
+                         - 'Log receive monitor widgets statistics breakdown options.'
+                         - 'log - Show log rates for each log type.'
+                         - 'device - Show log rates for each device.'
+                        choices:
+                            - 'log'
+                            - 'device'
+                    moduleid:
+                        type: int
+                        default: 0
+                        description: 'Widget ID.'
+                    name:
+                        type: str
+                        description: 'Widget name.'
+                    num-entries:
+                        type: int
+                        default: 10
+                        description: 'Number of entries.'
+                    refresh-interval:
+                        type: int
+                        default: 300
+                        description: 'Widgets refresh interval.'
+                    res-cpu-display:
+                        type: str
+                        default: 'average '
+                        description:
+                         - 'Widgets CPU display type.'
+                         - 'average  - Average usage of CPU.'
+                         - 'each - Each usage of CPU.'
+                        choices:
+                            - 'average '
+                            - 'each'
+                    res-period:
+                        type: str
+                        default: '10min '
+                        description:
+                         - 'Widgets data period.'
+                         - '10min  - Last 10 minutes.'
+                         - 'hour - Last hour.'
+                         - 'day - Last day.'
+                        choices:
+                            - '10min '
+                            - 'hour'
+                            - 'day'
+                    res-view-type:
+                        type: str
+                        default: 'history'
+                        description:
+                         - 'Widgets data view type.'
+                         - 'real-time  - Real-time view.'
+                         - 'history - History view.'
+                        choices:
+                            - 'real-time '
+                            - 'history'
+                    status:
+                        type: str
+                        default: 'open'
+                        description:
+                         - 'Widgets opened/closed state.'
+                         - 'close - Widget closed.'
+                         - 'open - Widget opened.'
+                        choices:
+                            - 'close'
+                            - 'open'
+                    tabid:
+                        type: int
+                        default: 0
+                        description: 'ID of tab where widget is displayed.'
+                    time-period:
+                        type: str
+                        default: '1hour'
+                        description:
+                         - 'Log Database Monitor widgets data period.'
+                         - '1hour - 1 hour.'
+                         - '8hour - 8 hour.'
+                         - '24hour - 24 hour.'
+                        choices:
+                            - '1hour'
+                            - '8hour'
+                            - '24hour'
+                    widget-type:
+                        type: str
+                        description:
+                         - 'Widget type.'
+                         - 'top-lograte - Log Receive Monitor.'
+                         - 'sysres - System resources.'
+                         - 'sysinfo - System Information.'
+                         - 'licinfo - License Information.'
+                         - 'jsconsole - CLI Console.'
+                         - 'sysop - Unit Operation.'
+                         - 'alert - Alert Message Console.'
+                         - 'statistics - Statistics.'
+                         - 'rpteng - Report Engine.'
+                         - 'raid - Disk Monitor.'
+                         - 'logrecv - Logs/Data Received.'
+                         - 'devsummary - Device Summary.'
+                         - 'logdb-perf - Log Database Performance Monitor.'
+                         - 'logdb-lag - Log Database Lag Time.'
+                         - 'disk-io - Disk I/O.'
+                         - 'log-rcvd-fwd - Log receive and forwarding Monitor.'
+                        choices:
+                            - 'top-lograte'
+                            - 'sysres'
+                            - 'sysinfo'
+                            - 'licinfo'
+                            - 'jsconsole'
+                            - 'sysop'
+                            - 'alert'
+                            - 'statistics'
+                            - 'rpteng'
+                            - 'raid'
+                            - 'logrecv'
+                            - 'devsummary'
+                            - 'logdb-perf'
+                            - 'logdb-lag'
+                            - 'disk-io'
+                            - 'log-rcvd-fwd'
+            dashboard-tabs:
+                description: no description
+                type: list
+                suboptions:
+                    name:
+                        type: str
+                        description: 'Tab name.'
+                    tabid:
+                        type: int
+                        default: 0
+                        description: 'Tab ID.'
+            description:
+                type: str
+                description: 'Description.'
+            dev-group:
+                type: str
+                description: 'device group.'
+            email-address:
+                type: str
+                description: 'Email address.'
+            ext-auth-accprofile-override:
+                type: str
+                default: 'disable'
+                description:
+                 - 'Allow to use the access profile provided by the remote authentication server.'
+                 - 'disable - Disable access profile override.'
+                 - 'enable - Enable access profile override.'
+                choices:
+                    - 'disable'
+                    - 'enable'
+            ext-auth-adom-override:
+                type: str
+                default: 'disable'
+                description:
+                 - 'Allow to use the ADOM provided by the remote authentication server.'
+                 - 'disable - Disable ADOM override.'
+                 - 'enable - Enable ADOM override.'
+                choices:
+                    - 'disable'
+                    - 'enable'
+            ext-auth-group-match:
+                type: str
+                description: 'Only administrators belonging to this group can login.'
+            first-name:
+                type: str
+                description: 'First name.'
+            force-password-change:
+                type: str
+                default: 'disable'
+                description:
+                 - 'Enable/disable force password change on next login.'
+                 - 'disable - Disable setting.'
+                 - 'enable - Enable setting.'
+                choices:
+                    - 'disable'
+                    - 'enable'
+            group:
+                type: str
+                description: 'Group name.'
+            hidden:
+                type: int
+                default: 0
+                description: 'Hidden administrator.'
+            ips-filter:
+                description: no description
+                type: list
+                suboptions:
+                    ips-filter-name:
+                        type: str
+                        description: 'IPS filter name.'
+            ipv6_trusthost1:
+                type: str
+                default: '::/0'
+                description: 'Admin user trusted host IPv6, default ::/0 for all.'
+            ipv6_trusthost10:
+                type: str
+                default: 'ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff/128'
+                description: 'Admin user trusted host IPv6, default ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff/128 for none.'
+            ipv6_trusthost2:
+                type: str
+                default: 'ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff/128'
+                description: 'Admin user trusted host IPv6, default ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff/128 for none.'
+            ipv6_trusthost3:
+                type: str
+                default: 'ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff/128'
+                description: 'Admin user trusted host IPv6, default ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff/128 for none.'
+            ipv6_trusthost4:
+                type: str
+                default: 'ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff/128'
+                description: 'Admin user trusted host IPv6, default ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff/128 for none.'
+            ipv6_trusthost5:
+                type: str
+                default: 'ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff/128'
+                description: 'Admin user trusted host IPv6, default ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff/128 for none.'
+            ipv6_trusthost6:
+                type: str
+                default: 'ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff/128'
+                description: 'Admin user trusted host IPv6, default ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff/128 for none.'
+            ipv6_trusthost7:
+                type: str
+                default: 'ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff/128'
+                description: 'Admin user trusted host IPv6, default ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff/128 for none.'
+            ipv6_trusthost8:
+                type: str
+                default: 'ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff/128'
+                description: 'Admin user trusted host IPv6, default ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff/128 for none.'
+            ipv6_trusthost9:
+                type: str
+                default: 'ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff/128'
+                description: 'Admin user trusted host IPv6, default ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff/128 for none.'
+            last-name:
+                type: str
+                description: 'Last name.'
+            ldap-server:
+                type: str
+                description: 'LDAP server name.'
+            meta-data:
+                description: no description
+                type: list
+                suboptions:
+                    fieldlength:
+                        type: int
+                        default: 0
+                        description: 'Field length.'
+                    fieldname:
+                        type: str
+                        description: 'Field name.'
+                    fieldvalue:
+                        type: str
+                        description: 'Field value.'
+                    importance:
+                        type: str
+                        default: 'optional'
+                        description:
+                         - 'Importance.'
+                         - 'optional - This field is optional.'
+                         - 'required - This field is required.'
+                        choices:
+                            - 'optional'
+                            - 'required'
+                    status:
+                        type: str
+                        default: 'enabled'
+                        description:
+                         - 'Status.'
+                         - 'disabled - This field is disabled.'
+                         - 'enabled - This field is enabled.'
+                        choices:
+                            - 'disabled'
+                            - 'enabled'
+            mobile-number:
+                type: str
+                description: 'Mobile number.'
+            pager-number:
+                type: str
+                description: 'Pager number.'
+            password:
+                description: no description
+                type: str
+            password-expire:
+                description: no description
+                type: str
+            phone-number:
+                type: str
+                description: 'Phone number.'
+            policy-package:
+                description: no description
+                type: list
+                suboptions:
+                    policy-package-name:
+                        type: str
+                        description: 'Policy package names.'
+            profileid:
+                type: str
+                default: 'Restricted_User'
+                description: 'Profile ID.'
+            radius_server:
+                type: str
+                description: 'RADIUS server name.'
+            restrict-access:
+                type: str
+                default: 'disable'
+                description:
+                 - 'Enable/disable restricted access to development VDOM.'
+                 - 'disable - Disable setting.'
+                 - 'enable - Enable setting.'
+                choices:
+                    - 'disable'
+                    - 'enable'
+            restrict-dev-vdom:
+                description: no description
+                type: list
+                suboptions:
+                    dev-vdom:
+                        type: str
+                        description: 'Device or device VDOM.'
+            rpc-permit:
+                type: str
+                default: 'none'
+                description:
+                 - 'set none/read/read-write rpc-permission.'
+                 - 'read-write - Read-write permission.'
+                 - 'none - No permission.'
+                 - 'read - Read-only permission.'
+                choices:
+                    - 'read-write'
+                    - 'none'
+                    - 'read'
+            ssh-public-key1:
+                description: no description
+                type: str
+            ssh-public-key2:
+                description: no description
+                type: str
+            ssh-public-key3:
+                description: no description
+                type: str
+            subject:
+                type: str
+                description: 'PKI user certificate name constraints.'
+            tacacs-plus-server:
+                type: str
+                description: 'TACACS+ server name.'
+            trusthost1:
+                type: str
+                default: '0.0.0.0 0.0.0.0'
+                description: 'Admin user trusted host IP, default 0.0.0.0 0.0.0.0 for all.'
+            trusthost10:
+                type: str
+                default: '255.255.255.255 255.255.255.255'
+                description: 'Admin user trusted host IP, default 255.255.255.255 255.255.255.255 for none.'
+            trusthost2:
+                type: str
+                default: '255.255.255.255 255.255.255.255'
+                description: 'Admin user trusted host IP, default 255.255.255.255 255.255.255.255 for none.'
+            trusthost3:
+                type: str
+                default: '255.255.255.255 255.255.255.255'
+                description: 'Admin user trusted host IP, default 255.255.255.255 255.255.255.255 for none.'
+            trusthost4:
+                type: str
+                default: '255.255.255.255 255.255.255.255'
+                description: 'Admin user trusted host IP, default 255.255.255.255 255.255.255.255 for none.'
+            trusthost5:
+                type: str
+                default: '255.255.255.255 255.255.255.255'
+                description: 'Admin user trusted host IP, default 255.255.255.255 255.255.255.255 for none.'
+            trusthost6:
+                type: str
+                default: '255.255.255.255 255.255.255.255'
+                description: 'Admin user trusted host IP, default 255.255.255.255 255.255.255.255 for none.'
+            trusthost7:
+                type: str
+                default: '255.255.255.255 255.255.255.255'
+                description: 'Admin user trusted host IP, default 255.255.255.255 255.255.255.255 for none.'
+            trusthost8:
+                type: str
+                default: '255.255.255.255 255.255.255.255'
+                description: 'Admin user trusted host IP, default 255.255.255.255 255.255.255.255 for none.'
+            trusthost9:
+                type: str
+                default: '255.255.255.255 255.255.255.255'
+                description: 'Admin user trusted host IP, default 255.255.255.255 255.255.255.255 for none.'
+            two-factor-auth:
+                type: str
+                default: 'disable'
+                description:
+                 - 'Enable 2-factor authentication (certificate + password).'
+                 - 'disable - Disable 2-factor authentication.'
+                 - 'enable - Enable 2-factor authentication.'
+                choices:
+                    - 'disable'
+                    - 'enable'
+            user_type:
+                type: str
+                default: 'local'
+                description:
+                 - 'User type.'
+                 - 'local - Local user.'
+                 - 'radius - RADIUS user.'
+                 - 'ldap - LDAP user.'
+                 - 'tacacs-plus - TACACS+ user.'
+                 - 'pki-auth - PKI user.'
+                 - 'group - Group user.'
+                choices:
+                    - 'local'
+                    - 'radius'
+                    - 'ldap'
+                    - 'tacacs-plus'
+                    - 'pki-auth'
+                    - 'group'
+            userid:
+                type: str
+                description: 'User name.'
+            web-filter:
+                description: no description
+                type: list
+                suboptions:
+                    web-filter-name:
+                        type: str
+                        description: 'Web filter name.'
+            wildcard:
+                type: str
+                default: 'disable'
+                description:
+                 - 'Enable/disable wildcard remote authentication.'
+                 - 'disable - Disable username wildcard.'
+                 - 'enable - Enable username wildcard.'
+                choices:
+                    - 'disable'
+                    - 'enable'
+
+'''
+
+EXAMPLES = '''
+ - hosts: fortimanager-inventory
+   collections:
+     - fortinet.fortimanager
+   connection: httpapi
+   vars:
+      ansible_httpapi_use_ssl: True
+      ansible_httpapi_validate_certs: False
+      ansible_httpapi_port: 443
+   tasks:
+    - name: Admin user.
+      fmgr_system_admin_user:
+         bypass_validation: False
+         workspace_locking_adom: <value in [global, custom adom including root]>
+         workspace_locking_timeout: 300
+         rc_succeeded: [0, -2, -3, ...]
+         rc_failed: [-2, -3, ...]
+         state: <value in [present, absent]>
+         system_admin_user:
+            adom:
+              -
+                  adom-name: <value of string>
+            adom-exclude:
+              -
+                  adom-name: <value of string>
+            app-filter:
+              -
+                  app-filter-name: <value of string>
+            avatar: <value of string>
+            ca: <value of string>
+            change-password: <value in [disable, enable]>
+            dashboard:
+              -
+                  column: <value of integer>
+                  diskio-content-type: <value in [util, iops, blks]>
+                  diskio-period: <value in [1hour, 8hour, 24hour]>
+                  log-rate-period: <value in [2min , 1hour, 6hours]>
+                  log-rate-topn: <value in [1, 2, 3, ...]>
+                  log-rate-type: <value in [log, device]>
+                  moduleid: <value of integer>
+                  name: <value of string>
+                  num-entries: <value of integer>
+                  refresh-interval: <value of integer>
+                  res-cpu-display: <value in [average , each]>
+                  res-period: <value in [10min , hour, day]>
+                  res-view-type: <value in [real-time , history]>
+                  status: <value in [close, open]>
+                  tabid: <value of integer>
+                  time-period: <value in [1hour, 8hour, 24hour]>
+                  widget-type: <value in [top-lograte, sysres, sysinfo, ...]>
+            dashboard-tabs:
+              -
+                  name: <value of string>
+                  tabid: <value of integer>
+            description: <value of string>
+            dev-group: <value of string>
+            email-address: <value of string>
+            ext-auth-accprofile-override: <value in [disable, enable]>
+            ext-auth-adom-override: <value in [disable, enable]>
+            ext-auth-group-match: <value of string>
+            first-name: <value of string>
+            force-password-change: <value in [disable, enable]>
+            group: <value of string>
+            hidden: <value of integer>
+            ips-filter:
+              -
+                  ips-filter-name: <value of string>
+            ipv6_trusthost1: <value of string>
+            ipv6_trusthost10: <value of string>
+            ipv6_trusthost2: <value of string>
+            ipv6_trusthost3: <value of string>
+            ipv6_trusthost4: <value of string>
+            ipv6_trusthost5: <value of string>
+            ipv6_trusthost6: <value of string>
+            ipv6_trusthost7: <value of string>
+            ipv6_trusthost8: <value of string>
+            ipv6_trusthost9: <value of string>
+            last-name: <value of string>
+            ldap-server: <value of string>
+            meta-data:
+              -
+                  fieldlength: <value of integer>
+                  fieldname: <value of string>
+                  fieldvalue: <value of string>
+                  importance: <value in [optional, required]>
+                  status: <value in [disabled, enabled]>
+            mobile-number: <value of string>
+            pager-number: <value of string>
+            password: <value of string>
+            password-expire: <value of string>
+            phone-number: <value of string>
+            policy-package:
+              -
+                  policy-package-name: <value of string>
+            profileid: <value of string>
+            radius_server: <value of string>
+            restrict-access: <value in [disable, enable]>
+            restrict-dev-vdom:
+              -
+                  dev-vdom: <value of string>
+            rpc-permit: <value in [read-write, none, read]>
+            ssh-public-key1: <value of string>
+            ssh-public-key2: <value of string>
+            ssh-public-key3: <value of string>
+            subject: <value of string>
+            tacacs-plus-server: <value of string>
+            trusthost1: <value of string>
+            trusthost10: <value of string>
+            trusthost2: <value of string>
+            trusthost3: <value of string>
+            trusthost4: <value of string>
+            trusthost5: <value of string>
+            trusthost6: <value of string>
+            trusthost7: <value of string>
+            trusthost8: <value of string>
+            trusthost9: <value of string>
+            two-factor-auth: <value in [disable, enable]>
+            user_type: <value in [local, radius, ldap, ...]>
+            userid: <value of string>
+            web-filter:
+              -
+                  web-filter-name: <value of string>
+            wildcard: <value in [disable, enable]>
+
+'''
+
+RETURN = '''
+request_url:
+    description: The full url requested
+    returned: always
+    type: str
+    sample: /sys/login/user
+response_code:
+    description: The status of api request
+    returned: always
+    type: int
+    sample: 0
+response_message:
+    description: The descriptive message of the api response
+    type: str
+    returned: always
+    sample: OK.
+
+'''
+from ansible.module_utils.basic import AnsibleModule
+from ansible.module_utils.connection import Connection
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.NAPI import NAPIManager
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.NAPI import check_galaxy_version
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.NAPI import check_parameter_bypass
+
+
+def main():
+    jrpc_urls = [
+        '/cli/global/system/admin/user'
+    ]
+
+    perobject_jrpc_urls = [
+        '/cli/global/system/admin/user/{user}'
+    ]
+
+    url_params = []
+    module_primary_key = 'userid'
+    module_arg_spec = {
+        'bypass_validation': {
+            'type': 'bool',
+            'required': False,
+            'default': False
+        },
+        'workspace_locking_adom': {
+            'type': 'str',
+            'required': False
+        },
+        'workspace_locking_timeout': {
+            'type': 'int',
+            'required': False,
+            'default': 300
+        },
+        'rc_succeeded': {
+            'required': False,
+            'type': 'list'
+        },
+        'rc_failed': {
+            'required': False,
+            'type': 'list'
+        },
+        'state': {
+            'type': 'str',
+            'required': True,
+            'choices': [
+                'present',
+                'absent'
+            ]
+        },
+        'system_admin_user': {
+            'required': False,
+            'type': 'dict',
+            'options': {
+                'adom': {
+                    'required': False,
+                    'type': 'list',
+                    'options': {
+                        'adom-name': {
+                            'required': False,
+                            'type': 'str'
+                        }
+                    }
+                },
+                'adom-exclude': {
+                    'required': False,
+                    'type': 'list',
+                    'options': {
+                        'adom-name': {
+                            'required': False,
+                            'type': 'str'
+                        }
+                    }
+                },
+                'app-filter': {
+                    'required': False,
+                    'type': 'list',
+                    'options': {
+                        'app-filter-name': {
+                            'required': False,
+                            'type': 'str'
+                        }
+                    }
+                },
+                'avatar': {
+                    'required': False,
+                    'type': 'str'
+                },
+                'ca': {
+                    'required': False,
+                    'type': 'str'
+                },
+                'change-password': {
+                    'required': False,
+                    'choices': [
+                        'disable',
+                        'enable'
+                    ],
+                    'default': 'disable',
+                    'type': 'str'
+                },
+                'dashboard': {
+                    'required': False,
+                    'type': 'list',
+                    'options': {
+                        'column': {
+                            'required': False,
+                            'default': 0,
+                            'type': 'int'
+                        },
+                        'diskio-content-type': {
+                            'required': False,
+                            'choices': [
+                                'util',
+                                'iops',
+                                'blks'
+                            ],
+                            'default': 'util',
+                            'type': 'str'
+                        },
+                        'diskio-period': {
+                            'required': False,
+                            'choices': [
+                                '1hour',
+                                '8hour',
+                                '24hour'
+                            ],
+                            'default': '1hour',
+                            'type': 'str'
+                        },
+                        'log-rate-period': {
+                            'required': False,
+                            'choices': [
+                                '2min ',
+                                '1hour',
+                                '6hours'
+                            ],
+                            'type': 'str'
+                        },
+                        'log-rate-topn': {
+                            'required': False,
+                            'choices': [
+                                '1',
+                                '2',
+                                '3',
+                                '4',
+                                '5'
+                            ],
+                            'default': '5',
+                            'type': 'str'
+                        },
+                        'log-rate-type': {
+                            'required': False,
+                            'choices': [
+                                'log',
+                                'device'
+                            ],
+                            'default': 'device',
+                            'type': 'str'
+                        },
+                        'moduleid': {
+                            'required': False,
+                            'default': 0,
+                            'type': 'int'
+                        },
+                        'name': {
+                            'required': False,
+                            'type': 'str'
+                        },
+                        'num-entries': {
+                            'required': False,
+                            'default': 10,
+                            'type': 'int'
+                        },
+                        'refresh-interval': {
+                            'required': False,
+                            'default': 300,
+                            'type': 'int'
+                        },
+                        'res-cpu-display': {
+                            'required': False,
+                            'choices': [
+                                'average ',
+                                'each'
+                            ],
+                            'default': 'average ',
+                            'type': 'str'
+                        },
+                        'res-period': {
+                            'required': False,
+                            'choices': [
+                                '10min ',
+                                'hour',
+                                'day'
+                            ],
+                            'default': '10min ',
+                            'type': 'str'
+                        },
+                        'res-view-type': {
+                            'required': False,
+                            'choices': [
+                                'real-time ',
+                                'history'
+                            ],
+                            'default': 'history',
+                            'type': 'str'
+                        },
+                        'status': {
+                            'required': False,
+                            'choices': [
+                                'close',
+                                'open'
+                            ],
+                            'default': 'open',
+                            'type': 'str'
+                        },
+                        'tabid': {
+                            'required': False,
+                            'default': 0,
+                            'type': 'int'
+                        },
+                        'time-period': {
+                            'required': False,
+                            'choices': [
+                                '1hour',
+                                '8hour',
+                                '24hour'
+                            ],
+                            'default': '1hour',
+                            'type': 'str'
+                        },
+                        'widget-type': {
+                            'required': False,
+                            'choices': [
+                                'top-lograte',
+                                'sysres',
+                                'sysinfo',
+                                'licinfo',
+                                'jsconsole',
+                                'sysop',
+                                'alert',
+                                'statistics',
+                                'rpteng',
+                                'raid',
+                                'logrecv',
+                                'devsummary',
+                                'logdb-perf',
+                                'logdb-lag',
+                                'disk-io',
+                                'log-rcvd-fwd'
+                            ],
+                            'type': 'str'
+                        }
+                    }
+                },
+                'dashboard-tabs': {
+                    'required': False,
+                    'type': 'list',
+                    'options': {
+                        'name': {
+                            'required': False,
+                            'type': 'str'
+                        },
+                        'tabid': {
+                            'required': False,
+                            'default': 0,
+                            'type': 'int'
+                        }
+                    }
+                },
+                'description': {
+                    'required': False,
+                    'type': 'str'
+                },
+                'dev-group': {
+                    'required': False,
+                    'type': 'str'
+                },
+                'email-address': {
+                    'required': False,
+                    'type': 'str'
+                },
+                'ext-auth-accprofile-override': {
+                    'required': False,
+                    'choices': [
+                        'disable',
+                        'enable'
+                    ],
+                    'default': 'disable',
+                    'type': 'str'
+                },
+                'ext-auth-adom-override': {
+                    'required': False,
+                    'choices': [
+                        'disable',
+                        'enable'
+                    ],
+                    'default': 'disable',
+                    'type': 'str'
+                },
+                'ext-auth-group-match': {
+                    'required': False,
+                    'type': 'str'
+                },
+                'first-name': {
+                    'required': False,
+                    'type': 'str'
+                },
+                'force-password-change': {
+                    'required': False,
+                    'choices': [
+                        'disable',
+                        'enable'
+                    ],
+                    'default': 'disable',
+                    'type': 'str'
+                },
+                'group': {
+                    'required': False,
+                    'type': 'str'
+                },
+                'hidden': {
+                    'required': False,
+                    'default': 0,
+                    'type': 'int'
+                },
+                'ips-filter': {
+                    'required': False,
+                    'type': 'list',
+                    'options': {
+                        'ips-filter-name': {
+                            'required': False,
+                            'type': 'str'
+                        }
+                    }
+                },
+                'ipv6_trusthost1': {
+                    'required': False,
+                    'default': '::/0',
+                    'type': 'str'
+                },
+                'ipv6_trusthost10': {
+                    'required': False,
+                    'default': 'ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff/128',
+                    'type': 'str'
+                },
+                'ipv6_trusthost2': {
+                    'required': False,
+                    'default': 'ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff/128',
+                    'type': 'str'
+                },
+                'ipv6_trusthost3': {
+                    'required': False,
+                    'default': 'ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff/128',
+                    'type': 'str'
+                },
+                'ipv6_trusthost4': {
+                    'required': False,
+                    'default': 'ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff/128',
+                    'type': 'str'
+                },
+                'ipv6_trusthost5': {
+                    'required': False,
+                    'default': 'ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff/128',
+                    'type': 'str'
+                },
+                'ipv6_trusthost6': {
+                    'required': False,
+                    'default': 'ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff/128',
+                    'type': 'str'
+                },
+                'ipv6_trusthost7': {
+                    'required': False,
+                    'default': 'ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff/128',
+                    'type': 'str'
+                },
+                'ipv6_trusthost8': {
+                    'required': False,
+                    'default': 'ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff/128',
+                    'type': 'str'
+                },
+                'ipv6_trusthost9': {
+                    'required': False,
+                    'default': 'ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff/128',
+                    'type': 'str'
+                },
+                'last-name': {
+                    'required': False,
+                    'type': 'str'
+                },
+                'ldap-server': {
+                    'required': False,
+                    'type': 'str'
+                },
+                'meta-data': {
+                    'required': False,
+                    'type': 'list',
+                    'options': {
+                        'fieldlength': {
+                            'required': False,
+                            'default': 0,
+                            'type': 'int'
+                        },
+                        'fieldname': {
+                            'required': False,
+                            'type': 'str'
+                        },
+                        'fieldvalue': {
+                            'required': False,
+                            'type': 'str'
+                        },
+                        'importance': {
+                            'required': False,
+                            'choices': [
+                                'optional',
+                                'required'
+                            ],
+                            'default': 'optional',
+                            'type': 'str'
+                        },
+                        'status': {
+                            'required': False,
+                            'choices': [
+                                'disabled',
+                                'enabled'
+                            ],
+                            'default': 'enabled',
+                            'type': 'str'
+                        }
+                    }
+                },
+                'mobile-number': {
+                    'required': False,
+                    'type': 'str'
+                },
+                'pager-number': {
+                    'required': False,
+                    'type': 'str'
+                },
+                'password': {
+                    'required': False,
+                    'type': 'str'
+                },
+                'password-expire': {
+                    'required': False,
+                    'type': 'str'
+                },
+                'phone-number': {
+                    'required': False,
+                    'type': 'str'
+                },
+                'policy-package': {
+                    'required': False,
+                    'type': 'list',
+                    'options': {
+                        'policy-package-name': {
+                            'required': False,
+                            'type': 'str'
+                        }
+                    }
+                },
+                'profileid': {
+                    'required': False,
+                    'default': 'Restricted_User',
+                    'type': 'str'
+                },
+                'radius_server': {
+                    'required': False,
+                    'type': 'str'
+                },
+                'restrict-access': {
+                    'required': False,
+                    'choices': [
+                        'disable',
+                        'enable'
+                    ],
+                    'default': 'disable',
+                    'type': 'str'
+                },
+                'restrict-dev-vdom': {
+                    'required': False,
+                    'type': 'list',
+                    'options': {
+                        'dev-vdom': {
+                            'required': False,
+                            'type': 'str'
+                        }
+                    }
+                },
+                'rpc-permit': {
+                    'required': False,
+                    'choices': [
+                        'read-write',
+                        'none',
+                        'read'
+                    ],
+                    'default': 'none',
+                    'type': 'str'
+                },
+                'ssh-public-key1': {
+                    'required': False,
+                    'type': 'str'
+                },
+                'ssh-public-key2': {
+                    'required': False,
+                    'type': 'str'
+                },
+                'ssh-public-key3': {
+                    'required': False,
+                    'type': 'str'
+                },
+                'subject': {
+                    'required': False,
+                    'type': 'str'
+                },
+                'tacacs-plus-server': {
+                    'required': False,
+                    'type': 'str'
+                },
+                'trusthost1': {
+                    'required': False,
+                    'default': '0.0.0.0 0.0.0.0',
+                    'type': 'str'
+                },
+                'trusthost10': {
+                    'required': False,
+                    'default': '255.255.255.255 255.255.255.255',
+                    'type': 'str'
+                },
+                'trusthost2': {
+                    'required': False,
+                    'default': '255.255.255.255 255.255.255.255',
+                    'type': 'str'
+                },
+                'trusthost3': {
+                    'required': False,
+                    'default': '255.255.255.255 255.255.255.255',
+                    'type': 'str'
+                },
+                'trusthost4': {
+                    'required': False,
+                    'default': '255.255.255.255 255.255.255.255',
+                    'type': 'str'
+                },
+                'trusthost5': {
+                    'required': False,
+                    'default': '255.255.255.255 255.255.255.255',
+                    'type': 'str'
+                },
+                'trusthost6': {
+                    'required': False,
+                    'default': '255.255.255.255 255.255.255.255',
+                    'type': 'str'
+                },
+                'trusthost7': {
+                    'required': False,
+                    'default': '255.255.255.255 255.255.255.255',
+                    'type': 'str'
+                },
+                'trusthost8': {
+                    'required': False,
+                    'default': '255.255.255.255 255.255.255.255',
+                    'type': 'str'
+                },
+                'trusthost9': {
+                    'required': False,
+                    'default': '255.255.255.255 255.255.255.255',
+                    'type': 'str'
+                },
+                'two-factor-auth': {
+                    'required': False,
+                    'choices': [
+                        'disable',
+                        'enable'
+                    ],
+                    'default': 'disable',
+                    'type': 'str'
+                },
+                'user_type': {
+                    'required': False,
+                    'choices': [
+                        'local',
+                        'radius',
+                        'ldap',
+                        'tacacs-plus',
+                        'pki-auth',
+                        'group'
+                    ],
+                    'default': 'local',
+                    'type': 'str'
+                },
+                'userid': {
+                    'required': True,
+                    'type': 'str'
+                },
+                'web-filter': {
+                    'required': False,
+                    'type': 'list',
+                    'options': {
+                        'web-filter-name': {
+                            'required': False,
+                            'type': 'str'
+                        }
+                    }
+                },
+                'wildcard': {
+                    'required': False,
+                    'choices': [
+                        'disable',
+                        'enable'
+                    ],
+                    'default': 'disable',
+                    'type': 'str'
+                }
+            }
+
+        }
+    }
+
+    check_galaxy_version(module_arg_spec)
+    module = AnsibleModule(argument_spec=check_parameter_bypass(module_arg_spec, 'system_admin_user'),
+                           supports_check_mode=False)
+
+    fmgr = None
+    if module._socket_path:
+        connection = Connection(module._socket_path)
+        fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+        fmgr.process_curd()
+    else:
+        module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
+    module.exit_json(meta=module.params)
+
+
+if __name__ == '__main__':
+    main()

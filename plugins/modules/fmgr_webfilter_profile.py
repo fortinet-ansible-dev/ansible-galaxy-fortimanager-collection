@@ -26,64 +26,263 @@ DOCUMENTATION = '''
 module: fmgr_webfilter_profile
 short_description: Configure Web filter profiles.
 description:
-    - This module is able to configure a FortiManager device by allowing the
-      user to [ add get set update ] the following apis.
-    - /pm/config/adom/{adom}/obj/webfilter/profile
-    - /pm/config/global/obj/webfilter/profile
-    - Examples include all parameters and values need to be adjusted to data sources before usage.
+    - This module is able to configure a FortiManager device.
+    - Examples include all parameters and values which need to be adjusted to data sources before usage.
 
 version_added: "2.10"
 author:
+    - Link Zheng (@chillancezen)
+    - Jie Xue (@JieX19)
     - Frank Shen (@fshen01)
-    - Link Zheng (@zhengl)
+    - Hongbin Lu (@fgtdev-hblu)
 notes:
-    - There are only three top-level parameters where 'method' is always required
-      while other two 'params' and 'url_params' can be optional
-    - Due to the complexity of fortimanager api schema, the validation is done
-      out of Ansible native parameter validation procedure.
-    - The syntax of OPTIONS doen not comply with the standard Ansible argument
-      specification, but with the structure of fortimanager API schema, we need
-      a trivial transformation when we are filling the ansible playbook
+    - Running in workspace locking mode is supported in this FortiManager module, the top
+      level parameters workspace_locking_adom and workspace_locking_timeout help do the work.
+    - To create or update an object, use state present directive.
+    - To delete an object, use state absent directive.
+    - Normally, running one module can fail when a non-zero rc is returned. you can also override
+      the conditions to fail or succeed with parameters rc_failed and rc_succeeded
+
 options:
-    loose_validation:
-        description:
-          - Do parameter validation in a loose way
-        type: bool
+    bypass_validation:
+        description: only set to True when module schema diffs with FortiManager API structure, module continues to execute without validating parameters
         required: false
+        type: bool
+        default: false
     workspace_locking_adom:
-        description:
-          - the adom name to lock in case FortiManager running in workspace mode
-          - it can be global or any other custom adom names
+        description: the adom to lock for FortiManager running in workspace mode, the value can be global and others including root
         required: false
         type: str
     workspace_locking_timeout:
-        description:
-          - the maximum time in seconds to wait for other user to release the workspace lock
+        description: the maximum time in seconds to wait for other user to release the workspace lock
         required: false
         type: int
         default: 300
-    method:
-        description:
-          - The method in request
-        required: true
+    state:
+        description: the directive to create, update or delete an object
         type: str
+        required: true
         choices:
-          - add
-          - get
-          - set
-          - update
-    params:
-        description:
-          - The parameters for each method
-          - See full parameters list in https://ansible-galaxy-fortimanager-docs.readthedocs.io/en/latest
+          - present
+          - absent
+    rc_succeeded:
+        description: the rc codes list with which the conditions to succeed will be overriden
         type: list
         required: false
-    url_params:
-        description:
-          - The parameters for each API request URL
-          - Also see full URL parameters in https://ansible-galaxy-fortimanager-docs.readthedocs.io/en/latest
+    rc_failed:
+        description: the rc codes list with which the conditions to fail will be overriden
+        type: list
+        required: false
+    adom:
+        description: the parameter (adom) in requested url
+        type: str
+        required: true
+    webfilter_profile:
+        description: the top level parameters set
         required: false
         type: dict
+        suboptions:
+            comment:
+                type: str
+                description: 'Optional comments.'
+            extended-log:
+                type: str
+                description: 'Enable/disable extended logging for web filtering.'
+                choices:
+                    - 'disable'
+                    - 'enable'
+            https-replacemsg:
+                type: str
+                description: 'Enable replacement messages for HTTPS.'
+                choices:
+                    - 'disable'
+                    - 'enable'
+            inspection-mode:
+                type: str
+                description: 'Web filtering inspection mode.'
+                choices:
+                    - 'proxy'
+                    - 'flow-based'
+                    - 'dns'
+            log-all-url:
+                type: str
+                description: 'Enable/disable logging all URLs visited.'
+                choices:
+                    - 'disable'
+                    - 'enable'
+            name:
+                type: str
+                description: 'Profile name.'
+            options:
+                description: no description
+                type: list
+                choices:
+                 - block-invalid-url
+                 - jscript
+                 - js
+                 - vbs
+                 - unknown
+                 - wf-referer
+                 - https-scan
+                 - intrinsic
+                 - wf-cookie
+                 - per-user-bwl
+                 - activexfilter
+                 - cookiefilter
+                 - https-url-scan
+                 - javafilter
+                 - rangeblock
+                 - contenttype-check
+            ovrd-perm:
+                description: no description
+                type: list
+                choices:
+                 - bannedword-override
+                 - urlfilter-override
+                 - fortiguard-wf-override
+                 - contenttype-check-override
+            post-action:
+                type: str
+                description: 'Action taken for HTTP POST traffic.'
+                choices:
+                    - 'normal'
+                    - 'comfort'
+                    - 'block'
+            replacemsg-group:
+                type: str
+                description: 'Replacement message group.'
+            web-content-log:
+                type: str
+                description: 'Enable/disable logging logging blocked web content.'
+                choices:
+                    - 'disable'
+                    - 'enable'
+            web-extended-all-action-log:
+                type: str
+                description: 'Enable/disable extended any filter action logging for web filtering.'
+                choices:
+                    - 'disable'
+                    - 'enable'
+            web-filter-activex-log:
+                type: str
+                description: 'Enable/disable logging ActiveX.'
+                choices:
+                    - 'disable'
+                    - 'enable'
+            web-filter-applet-log:
+                type: str
+                description: 'Enable/disable logging Java applets.'
+                choices:
+                    - 'disable'
+                    - 'enable'
+            web-filter-command-block-log:
+                type: str
+                description: 'Enable/disable logging blocked commands.'
+                choices:
+                    - 'disable'
+                    - 'enable'
+            web-filter-cookie-log:
+                type: str
+                description: 'Enable/disable logging cookie filtering.'
+                choices:
+                    - 'disable'
+                    - 'enable'
+            web-filter-cookie-removal-log:
+                type: str
+                description: 'Enable/disable logging blocked cookies.'
+                choices:
+                    - 'disable'
+                    - 'enable'
+            web-filter-js-log:
+                type: str
+                description: 'Enable/disable logging Java scripts.'
+                choices:
+                    - 'disable'
+                    - 'enable'
+            web-filter-jscript-log:
+                type: str
+                description: 'Enable/disable logging JScripts.'
+                choices:
+                    - 'disable'
+                    - 'enable'
+            web-filter-referer-log:
+                type: str
+                description: 'Enable/disable logging referrers.'
+                choices:
+                    - 'disable'
+                    - 'enable'
+            web-filter-unknown-log:
+                type: str
+                description: 'Enable/disable logging unknown scripts.'
+                choices:
+                    - 'disable'
+                    - 'enable'
+            web-filter-vbs-log:
+                type: str
+                description: 'Enable/disable logging VBS scripts.'
+                choices:
+                    - 'disable'
+                    - 'enable'
+            web-ftgd-err-log:
+                type: str
+                description: 'Enable/disable logging rating errors.'
+                choices:
+                    - 'disable'
+                    - 'enable'
+            web-ftgd-quota-usage:
+                type: str
+                description: 'Enable/disable logging daily quota usage.'
+                choices:
+                    - 'disable'
+                    - 'enable'
+            web-invalid-domain-log:
+                type: str
+                description: 'Enable/disable logging invalid domain names.'
+                choices:
+                    - 'disable'
+                    - 'enable'
+            web-url-log:
+                type: str
+                description: 'Enable/disable logging URL filtering.'
+                choices:
+                    - 'disable'
+                    - 'enable'
+            wisp:
+                type: str
+                description: 'Enable/disable web proxy WISP.'
+                choices:
+                    - 'disable'
+                    - 'enable'
+            wisp-algorithm:
+                type: str
+                description: 'WISP server selection algorithm.'
+                choices:
+                    - 'auto-learning'
+                    - 'primary-secondary'
+                    - 'round-robin'
+            wisp-servers:
+                type: str
+                description: 'WISP servers.'
+            youtube-channel-filter:
+                description: no description
+                type: list
+                suboptions:
+                    channel-id:
+                        type: str
+                        description: 'YouTube channel ID to be filtered.'
+                    comment:
+                        type: str
+                        description: 'Comment.'
+                    id:
+                        type: int
+                        description: 'ID.'
+            youtube-channel-status:
+                type: str
+                description: 'YouTube channel filter status.'
+                choices:
+                    - 'disable'
+                    - 'blacklist'
+                    - 'whitelist'
 
 '''
 
@@ -97,107 +296,97 @@ EXAMPLES = '''
       ansible_httpapi_validate_certs: False
       ansible_httpapi_port: 443
    tasks:
-
-    - name: REQUESTING /PM/CONFIG/OBJ/WEBFILTER/PROFILE
+    - name: Configure Web filter profiles.
       fmgr_webfilter_profile:
-         loose_validation: False
-         workspace_locking_adom: <value in [global, custom adom]>
+         bypass_validation: False
+         workspace_locking_adom: <value in [global, custom adom including root]>
          workspace_locking_timeout: 300
-         method: <value in [add, set, update]>
-         url_params:
-            adom: <value in [none, global, custom dom]>
-         params:
-            -
-               data:
-                 -
-                     comment: <value of string>
-                     extended-log: <value in [disable, enable]>
-                     https-replacemsg: <value in [disable, enable]>
-                     inspection-mode: <value in [proxy, flow-based, dns]>
-                     log-all-url: <value in [disable, enable]>
-                     name: <value of string>
-                     options:
-                       - <value in [block-invalid-url, jscript, js, ...]>
-                     ovrd-perm:
-                       - <value in [bannedword-override, urlfilter-override, fortiguard-wf-override, ...]>
-                     post-action: <value in [normal, comfort, block]>
-                     replacemsg-group: <value of string>
-                     web-content-log: <value in [disable, enable]>
-                     web-extended-all-action-log: <value in [disable, enable]>
-                     web-filter-activex-log: <value in [disable, enable]>
-                     web-filter-applet-log: <value in [disable, enable]>
-                     web-filter-command-block-log: <value in [disable, enable]>
-                     web-filter-cookie-log: <value in [disable, enable]>
-                     web-filter-cookie-removal-log: <value in [disable, enable]>
-                     web-filter-js-log: <value in [disable, enable]>
-                     web-filter-jscript-log: <value in [disable, enable]>
-                     web-filter-referer-log: <value in [disable, enable]>
-                     web-filter-unknown-log: <value in [disable, enable]>
-                     web-filter-vbs-log: <value in [disable, enable]>
-                     web-ftgd-err-log: <value in [disable, enable]>
-                     web-ftgd-quota-usage: <value in [disable, enable]>
-                     web-invalid-domain-log: <value in [disable, enable]>
-                     web-url-log: <value in [disable, enable]>
-                     wisp: <value in [disable, enable]>
-                     wisp-algorithm: <value in [auto-learning, primary-secondary, round-robin]>
-                     wisp-servers: <value of string>
-                     youtube-channel-filter:
-                       -
-                           channel-id: <value of string>
-                           comment: <value of string>
-                           id: <value of integer>
-                     youtube-channel-status: <value in [disable, blacklist, whitelist]>
-
-    - name: REQUESTING /PM/CONFIG/OBJ/WEBFILTER/PROFILE
-      fmgr_webfilter_profile:
-         loose_validation: False
-         workspace_locking_adom: <value in [global, custom adom]>
-         workspace_locking_timeout: 300
-         method: <value in [get]>
-         url_params:
-            adom: <value in [none, global, custom dom]>
-         params:
-            -
-               attr: <value of string>
-               fields:
-                 -
-                    - <value in [comment, extended-log, https-replacemsg, ...]>
-               filter:
-                 - <value of string>
-               get used: <value of integer>
-               loadsub: <value of integer>
-               option: <value in [count, object member, datasrc, ...]>
-               range:
-                 - <value of integer>
-               sortings:
-                 -
-                     varidic.attr_name: <value in [1, -1]>
+         rc_succeeded: [0, -2, -3, ...]
+         rc_failed: [-2, -3, ...]
+         adom: <your own value>
+         state: <value in [present, absent]>
+         webfilter_profile:
+            comment: <value of string>
+            extended-log: <value in [disable, enable]>
+            https-replacemsg: <value in [disable, enable]>
+            inspection-mode: <value in [proxy, flow-based, dns]>
+            log-all-url: <value in [disable, enable]>
+            name: <value of string>
+            options:
+              - block-invalid-url
+              - jscript
+              - js
+              - vbs
+              - unknown
+              - wf-referer
+              - https-scan
+              - intrinsic
+              - wf-cookie
+              - per-user-bwl
+              - activexfilter
+              - cookiefilter
+              - https-url-scan
+              - javafilter
+              - rangeblock
+              - contenttype-check
+            ovrd-perm:
+              - bannedword-override
+              - urlfilter-override
+              - fortiguard-wf-override
+              - contenttype-check-override
+            post-action: <value in [normal, comfort, block]>
+            replacemsg-group: <value of string>
+            web-content-log: <value in [disable, enable]>
+            web-extended-all-action-log: <value in [disable, enable]>
+            web-filter-activex-log: <value in [disable, enable]>
+            web-filter-applet-log: <value in [disable, enable]>
+            web-filter-command-block-log: <value in [disable, enable]>
+            web-filter-cookie-log: <value in [disable, enable]>
+            web-filter-cookie-removal-log: <value in [disable, enable]>
+            web-filter-js-log: <value in [disable, enable]>
+            web-filter-jscript-log: <value in [disable, enable]>
+            web-filter-referer-log: <value in [disable, enable]>
+            web-filter-unknown-log: <value in [disable, enable]>
+            web-filter-vbs-log: <value in [disable, enable]>
+            web-ftgd-err-log: <value in [disable, enable]>
+            web-ftgd-quota-usage: <value in [disable, enable]>
+            web-invalid-domain-log: <value in [disable, enable]>
+            web-url-log: <value in [disable, enable]>
+            wisp: <value in [disable, enable]>
+            wisp-algorithm: <value in [auto-learning, primary-secondary, round-robin]>
+            wisp-servers: <value of string>
+            youtube-channel-filter:
+              -
+                  channel-id: <value of string>
+                  comment: <value of string>
+                  id: <value of integer>
+            youtube-channel-status: <value in [disable, blacklist, whitelist]>
 
 '''
 
 RETURN = '''
-url:
+request_url:
     description: The full url requested
     returned: always
     type: str
     sample: /sys/login/user
-status:
+response_code:
     description: The status of api request
     returned: always
-    type: dict
-data:
-    description: The payload returned in the request
-    type: dict
+    type: int
+    sample: 0
+response_message:
+    description: The descriptive message of the api response
+    type: str
     returned: always
+    sample: OK.
 
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import FAIL_SOCKET_MSG
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import DEFAULT_RESULT_OBJ
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import FMGRCommon
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import FMGBaseException
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.fortimanager import FortiManagerHandler
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.NAPI import NAPIManager
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.NAPI import check_galaxy_version
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.NAPI import check_parameter_bypass
 
 
 def main():
@@ -206,402 +395,15 @@ def main():
         '/pm/config/global/obj/webfilter/profile'
     ]
 
-    url_schema = [
-        {
-            'name': 'adom',
-            'type': 'string'
-        }
+    perobject_jrpc_urls = [
+        '/pm/config/adom/{adom}/obj/webfilter/profile/{profile}',
+        '/pm/config/global/obj/webfilter/profile/{profile}'
     ]
 
-    body_schema = {
-        'schema_objects': {
-            'object0': [
-                {
-                    'name': 'data',
-                    'api_tag': 0,
-                    'type': 'array',
-                    'items': {
-                        'comment': {
-                            'type': 'string'
-                        },
-                        'extended-log': {
-                            'type': 'string',
-                            'enum': [
-                                'disable',
-                                'enable'
-                            ]
-                        },
-                        'https-replacemsg': {
-                            'type': 'string',
-                            'enum': [
-                                'disable',
-                                'enable'
-                            ]
-                        },
-                        'inspection-mode': {
-                            'type': 'string',
-                            'enum': [
-                                'proxy',
-                                'flow-based',
-                                'dns'
-                            ]
-                        },
-                        'log-all-url': {
-                            'type': 'string',
-                            'enum': [
-                                'disable',
-                                'enable'
-                            ]
-                        },
-                        'name': {
-                            'type': 'string'
-                        },
-                        'options': {
-                            'type': 'array',
-                            'items': {
-                                'type': 'string',
-                                'enum': [
-                                    'block-invalid-url',
-                                    'jscript',
-                                    'js',
-                                    'vbs',
-                                    'unknown',
-                                    'wf-referer',
-                                    'https-scan',
-                                    'intrinsic',
-                                    'wf-cookie',
-                                    'per-user-bwl',
-                                    'activexfilter',
-                                    'cookiefilter',
-                                    'https-url-scan',
-                                    'javafilter',
-                                    'rangeblock',
-                                    'contenttype-check'
-                                ]
-                            }
-                        },
-                        'ovrd-perm': {
-                            'type': 'array',
-                            'items': {
-                                'type': 'string',
-                                'enum': [
-                                    'bannedword-override',
-                                    'urlfilter-override',
-                                    'fortiguard-wf-override',
-                                    'contenttype-check-override'
-                                ]
-                            }
-                        },
-                        'post-action': {
-                            'type': 'string',
-                            'enum': [
-                                'normal',
-                                'comfort',
-                                'block'
-                            ]
-                        },
-                        'replacemsg-group': {
-                            'type': 'string'
-                        },
-                        'web-content-log': {
-                            'type': 'string',
-                            'enum': [
-                                'disable',
-                                'enable'
-                            ]
-                        },
-                        'web-extended-all-action-log': {
-                            'type': 'string',
-                            'enum': [
-                                'disable',
-                                'enable'
-                            ]
-                        },
-                        'web-filter-activex-log': {
-                            'type': 'string',
-                            'enum': [
-                                'disable',
-                                'enable'
-                            ]
-                        },
-                        'web-filter-applet-log': {
-                            'type': 'string',
-                            'enum': [
-                                'disable',
-                                'enable'
-                            ]
-                        },
-                        'web-filter-command-block-log': {
-                            'type': 'string',
-                            'enum': [
-                                'disable',
-                                'enable'
-                            ]
-                        },
-                        'web-filter-cookie-log': {
-                            'type': 'string',
-                            'enum': [
-                                'disable',
-                                'enable'
-                            ]
-                        },
-                        'web-filter-cookie-removal-log': {
-                            'type': 'string',
-                            'enum': [
-                                'disable',
-                                'enable'
-                            ]
-                        },
-                        'web-filter-js-log': {
-                            'type': 'string',
-                            'enum': [
-                                'disable',
-                                'enable'
-                            ]
-                        },
-                        'web-filter-jscript-log': {
-                            'type': 'string',
-                            'enum': [
-                                'disable',
-                                'enable'
-                            ]
-                        },
-                        'web-filter-referer-log': {
-                            'type': 'string',
-                            'enum': [
-                                'disable',
-                                'enable'
-                            ]
-                        },
-                        'web-filter-unknown-log': {
-                            'type': 'string',
-                            'enum': [
-                                'disable',
-                                'enable'
-                            ]
-                        },
-                        'web-filter-vbs-log': {
-                            'type': 'string',
-                            'enum': [
-                                'disable',
-                                'enable'
-                            ]
-                        },
-                        'web-ftgd-err-log': {
-                            'type': 'string',
-                            'enum': [
-                                'disable',
-                                'enable'
-                            ]
-                        },
-                        'web-ftgd-quota-usage': {
-                            'type': 'string',
-                            'enum': [
-                                'disable',
-                                'enable'
-                            ]
-                        },
-                        'web-invalid-domain-log': {
-                            'type': 'string',
-                            'enum': [
-                                'disable',
-                                'enable'
-                            ]
-                        },
-                        'web-url-log': {
-                            'type': 'string',
-                            'enum': [
-                                'disable',
-                                'enable'
-                            ]
-                        },
-                        'wisp': {
-                            'type': 'string',
-                            'enum': [
-                                'disable',
-                                'enable'
-                            ]
-                        },
-                        'wisp-algorithm': {
-                            'type': 'string',
-                            'enum': [
-                                'auto-learning',
-                                'primary-secondary',
-                                'round-robin'
-                            ]
-                        },
-                        'wisp-servers': {
-                            'type': 'string'
-                        },
-                        'youtube-channel-filter': {
-                            'type': 'array',
-                            'items': {
-                                'channel-id': {
-                                    'type': 'string'
-                                },
-                                'comment': {
-                                    'type': 'string'
-                                },
-                                'id': {
-                                    'type': 'integer'
-                                }
-                            }
-                        },
-                        'youtube-channel-status': {
-                            'type': 'string',
-                            'enum': [
-                                'disable',
-                                'blacklist',
-                                'whitelist'
-                            ]
-                        }
-                    }
-                },
-                {
-                    'type': 'string',
-                    'name': 'url',
-                    'api_tag': 0
-                }
-            ],
-            'object1': [
-                {
-                    'type': 'string',
-                    'name': 'attr',
-                    'api_tag': 0
-                },
-                {
-                    'name': 'fields',
-                    'api_tag': 0,
-                    'type': 'array',
-                    'items': {
-                        'type': 'array',
-                        'items': {
-                            'type': 'string',
-                            'enum': [
-                                'comment',
-                                'extended-log',
-                                'https-replacemsg',
-                                'inspection-mode',
-                                'log-all-url',
-                                'name',
-                                'options',
-                                'ovrd-perm',
-                                'post-action',
-                                'replacemsg-group',
-                                'web-content-log',
-                                'web-extended-all-action-log',
-                                'web-filter-activex-log',
-                                'web-filter-applet-log',
-                                'web-filter-command-block-log',
-                                'web-filter-cookie-log',
-                                'web-filter-cookie-removal-log',
-                                'web-filter-js-log',
-                                'web-filter-jscript-log',
-                                'web-filter-referer-log',
-                                'web-filter-unknown-log',
-                                'web-filter-vbs-log',
-                                'web-ftgd-err-log',
-                                'web-ftgd-quota-usage',
-                                'web-invalid-domain-log',
-                                'web-url-log',
-                                'wisp',
-                                'wisp-algorithm',
-                                'wisp-servers',
-                                'youtube-channel-status'
-                            ]
-                        }
-                    }
-                },
-                {
-                    'name': 'filter',
-                    'type': 'dict',
-                    'dict': {
-                        'type': 'array',
-                        'items': {
-                            'type': 'string',
-                            'example': [
-                                '<attr>',
-                                '==',
-                                'test'
-                            ]
-                        }
-                    },
-                    'api_tag': 0
-                },
-                {
-                    'type': 'integer',
-                    'name': 'get used',
-                    'api_tag': 0
-                },
-                {
-                    'type': 'integer',
-                    'name': 'loadsub',
-                    'api_tag': 0
-                },
-                {
-                    'name': 'option',
-                    'type': 'dict',
-                    'dict': {
-                        'type': 'string',
-                        'enum': [
-                            'count',
-                            'object member',
-                            'datasrc',
-                            'get reserved',
-                            'syntax'
-                        ]
-                    },
-                    'api_tag': 0
-                },
-                {
-                    'name': 'range',
-                    'type': 'dict',
-                    'dict': {
-                        'type': 'array',
-                        'items': {
-                            'type': 'integer',
-                            'example': [
-                                2,
-                                5
-                            ]
-                        }
-                    },
-                    'api_tag': 0
-                },
-                {
-                    'name': 'sortings',
-                    'type': 'dict',
-                    'dict': {
-                        'type': 'array',
-                        'items': {
-                            '{attr_name}': {
-                                'type': 'integer',
-                                'enum': [
-                                    1,
-                                    -1
-                                ]
-                            }
-                        }
-                    },
-                    'api_tag': 0
-                },
-                {
-                    'type': 'string',
-                    'name': 'url',
-                    'api_tag': 0
-                }
-            ]
-        },
-        'method_mapping': {
-            'add': 'object0',
-            'get': 'object1',
-            'set': 'object0',
-            'update': 'object0'
-        }
-    }
-
+    url_params = ['adom']
+    module_primary_key = 'name'
     module_arg_spec = {
-        'loose_validation': {
+        'bypass_validation': {
             'type': 'bool',
             'required': False,
             'default': False
@@ -615,56 +417,309 @@ def main():
             'required': False,
             'default': 300
         },
-        'params': {
-            'type': 'list',
-            'required': False
+        'rc_succeeded': {
+            'required': False,
+            'type': 'list'
         },
-        'method': {
+        'rc_failed': {
+            'required': False,
+            'type': 'list'
+        },
+        'state': {
             'type': 'str',
             'required': True,
             'choices': [
-                'add',
-                'get',
-                'set',
-                'update'
+                'present',
+                'absent'
             ]
         },
-        'url_params': {
+        'adom': {
+            'required': True,
+            'type': 'str'
+        },
+        'webfilter_profile': {
+            'required': False,
             'type': 'dict',
-            'required': False
+            'options': {
+                'comment': {
+                    'required': False,
+                    'type': 'str'
+                },
+                'extended-log': {
+                    'required': False,
+                    'choices': [
+                        'disable',
+                        'enable'
+                    ],
+                    'type': 'str'
+                },
+                'https-replacemsg': {
+                    'required': False,
+                    'choices': [
+                        'disable',
+                        'enable'
+                    ],
+                    'type': 'str'
+                },
+                'inspection-mode': {
+                    'required': False,
+                    'choices': [
+                        'proxy',
+                        'flow-based',
+                        'dns'
+                    ],
+                    'type': 'str'
+                },
+                'log-all-url': {
+                    'required': False,
+                    'choices': [
+                        'disable',
+                        'enable'
+                    ],
+                    'type': 'str'
+                },
+                'name': {
+                    'required': True,
+                    'type': 'str'
+                },
+                'options': {
+                    'required': False,
+                    'type': 'list',
+                    'choices': [
+                        'block-invalid-url',
+                        'jscript',
+                        'js',
+                        'vbs',
+                        'unknown',
+                        'wf-referer',
+                        'https-scan',
+                        'intrinsic',
+                        'wf-cookie',
+                        'per-user-bwl',
+                        'activexfilter',
+                        'cookiefilter',
+                        'https-url-scan',
+                        'javafilter',
+                        'rangeblock',
+                        'contenttype-check'
+                    ]
+                },
+                'ovrd-perm': {
+                    'required': False,
+                    'type': 'list',
+                    'choices': [
+                        'bannedword-override',
+                        'urlfilter-override',
+                        'fortiguard-wf-override',
+                        'contenttype-check-override'
+                    ]
+                },
+                'post-action': {
+                    'required': False,
+                    'choices': [
+                        'normal',
+                        'comfort',
+                        'block'
+                    ],
+                    'type': 'str'
+                },
+                'replacemsg-group': {
+                    'required': False,
+                    'type': 'str'
+                },
+                'web-content-log': {
+                    'required': False,
+                    'choices': [
+                        'disable',
+                        'enable'
+                    ],
+                    'type': 'str'
+                },
+                'web-extended-all-action-log': {
+                    'required': False,
+                    'choices': [
+                        'disable',
+                        'enable'
+                    ],
+                    'type': 'str'
+                },
+                'web-filter-activex-log': {
+                    'required': False,
+                    'choices': [
+                        'disable',
+                        'enable'
+                    ],
+                    'type': 'str'
+                },
+                'web-filter-applet-log': {
+                    'required': False,
+                    'choices': [
+                        'disable',
+                        'enable'
+                    ],
+                    'type': 'str'
+                },
+                'web-filter-command-block-log': {
+                    'required': False,
+                    'choices': [
+                        'disable',
+                        'enable'
+                    ],
+                    'type': 'str'
+                },
+                'web-filter-cookie-log': {
+                    'required': False,
+                    'choices': [
+                        'disable',
+                        'enable'
+                    ],
+                    'type': 'str'
+                },
+                'web-filter-cookie-removal-log': {
+                    'required': False,
+                    'choices': [
+                        'disable',
+                        'enable'
+                    ],
+                    'type': 'str'
+                },
+                'web-filter-js-log': {
+                    'required': False,
+                    'choices': [
+                        'disable',
+                        'enable'
+                    ],
+                    'type': 'str'
+                },
+                'web-filter-jscript-log': {
+                    'required': False,
+                    'choices': [
+                        'disable',
+                        'enable'
+                    ],
+                    'type': 'str'
+                },
+                'web-filter-referer-log': {
+                    'required': False,
+                    'choices': [
+                        'disable',
+                        'enable'
+                    ],
+                    'type': 'str'
+                },
+                'web-filter-unknown-log': {
+                    'required': False,
+                    'choices': [
+                        'disable',
+                        'enable'
+                    ],
+                    'type': 'str'
+                },
+                'web-filter-vbs-log': {
+                    'required': False,
+                    'choices': [
+                        'disable',
+                        'enable'
+                    ],
+                    'type': 'str'
+                },
+                'web-ftgd-err-log': {
+                    'required': False,
+                    'choices': [
+                        'disable',
+                        'enable'
+                    ],
+                    'type': 'str'
+                },
+                'web-ftgd-quota-usage': {
+                    'required': False,
+                    'choices': [
+                        'disable',
+                        'enable'
+                    ],
+                    'type': 'str'
+                },
+                'web-invalid-domain-log': {
+                    'required': False,
+                    'choices': [
+                        'disable',
+                        'enable'
+                    ],
+                    'type': 'str'
+                },
+                'web-url-log': {
+                    'required': False,
+                    'choices': [
+                        'disable',
+                        'enable'
+                    ],
+                    'type': 'str'
+                },
+                'wisp': {
+                    'required': False,
+                    'choices': [
+                        'disable',
+                        'enable'
+                    ],
+                    'type': 'str'
+                },
+                'wisp-algorithm': {
+                    'required': False,
+                    'choices': [
+                        'auto-learning',
+                        'primary-secondary',
+                        'round-robin'
+                    ],
+                    'type': 'str'
+                },
+                'wisp-servers': {
+                    'required': False,
+                    'type': 'str'
+                },
+                'youtube-channel-filter': {
+                    'required': False,
+                    'type': 'list',
+                    'options': {
+                        'channel-id': {
+                            'required': False,
+                            'type': 'str'
+                        },
+                        'comment': {
+                            'required': False,
+                            'type': 'str'
+                        },
+                        'id': {
+                            'required': False,
+                            'type': 'int'
+                        }
+                    }
+                },
+                'youtube-channel-status': {
+                    'required': False,
+                    'choices': [
+                        'disable',
+                        'blacklist',
+                        'whitelist'
+                    ],
+                    'type': 'str'
+                }
+            }
+
         }
     }
-    module = AnsibleModule(argument_spec=module_arg_spec,
+
+    check_galaxy_version(module_arg_spec)
+    module = AnsibleModule(argument_spec=check_parameter_bypass(module_arg_spec, 'webfilter_profile'),
                            supports_check_mode=False)
-    method = module.params['method']
-    loose_validation = module.params['loose_validation']
 
     fmgr = None
-    payload = None
-    response = DEFAULT_RESULT_OBJ
-
     if module._socket_path:
         connection = Connection(module._socket_path)
-        tools = FMGRCommon()
-        if loose_validation is False:
-            tools.validate_module_params(module, body_schema)
-        tools.validate_module_url_params(module, jrpc_urls, url_schema)
-        full_url = tools.get_full_url_path(module, jrpc_urls)
-        payload = tools.get_full_payload(module, full_url)
-        fmgr = FortiManagerHandler(connection, module)
-        fmgr.tools = tools
+        fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+        fmgr.process_curd()
     else:
-        module.fail_json(**FAIL_SOCKET_MSG)
-
-    try:
-        response = fmgr._conn.send_request(method, payload)
-        fmgr.govern_response(module=module, results=response,
-                             msg='Operation Finished',
-                             ansible_facts=fmgr.construct_ansible_facts(response, module.params, module.params))
-    except Exception as e:
-        raise FMGBaseException(e)
-
-    module.exit_json(meta=response[1])
+        module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
+    module.exit_json(meta=module.params)
 
 
 if __name__ == '__main__':

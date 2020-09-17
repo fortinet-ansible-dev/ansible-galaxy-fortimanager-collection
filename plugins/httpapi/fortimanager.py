@@ -187,6 +187,7 @@ class HttpApi(HttpApiBase):
             "verbose": 1
         }
         data = json.dumps(json_request, ensure_ascii=False).replace('\\\\', '\\')
+        self.log('raw data: %s' % (data))
         try:
             # Sending URL and Data in Unicode, per Ansible Specifications for Connection Plugins
             response, response_data = self.connection.send(path=to_text(self._url), data=to_text(data),

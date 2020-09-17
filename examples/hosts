@@ -1,6 +1,0 @@
-[myfortimanagers]
-fortimanager01 ansible_host=192.168.190.102 ansible_user=APIUser ansible_password=Fortinet1!
-fortimanager02 ansible_host=192.168.190.103 ansible_user=APIUser ansible_password=Fortinet1!
-
-[myfortimanagers:vars]
-ansible_network_os=fortinet.fortimanager.fortimanager

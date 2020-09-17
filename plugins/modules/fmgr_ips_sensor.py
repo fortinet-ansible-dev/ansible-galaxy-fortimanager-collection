@@ -26,64 +26,322 @@ DOCUMENTATION = '''
 module: fmgr_ips_sensor
 short_description: Configure IPS sensor.
 description:
-    - This module is able to configure a FortiManager device by allowing the
-      user to [ add get set update ] the following apis.
-    - /pm/config/adom/{adom}/obj/ips/sensor
-    - /pm/config/global/obj/ips/sensor
-    - Examples include all parameters and values need to be adjusted to data sources before usage.
+    - This module is able to configure a FortiManager device.
+    - Examples include all parameters and values which need to be adjusted to data sources before usage.
 
 version_added: "2.10"
 author:
+    - Link Zheng (@chillancezen)
+    - Jie Xue (@JieX19)
     - Frank Shen (@fshen01)
-    - Link Zheng (@zhengl)
+    - Hongbin Lu (@fgtdev-hblu)
 notes:
-    - There are only three top-level parameters where 'method' is always required
-      while other two 'params' and 'url_params' can be optional
-    - Due to the complexity of fortimanager api schema, the validation is done
-      out of Ansible native parameter validation procedure.
-    - The syntax of OPTIONS doen not comply with the standard Ansible argument
-      specification, but with the structure of fortimanager API schema, we need
-      a trivial transformation when we are filling the ansible playbook
+    - Running in workspace locking mode is supported in this FortiManager module, the top
+      level parameters workspace_locking_adom and workspace_locking_timeout help do the work.
+    - To create or update an object, use state present directive.
+    - To delete an object, use state absent directive.
+    - Normally, running one module can fail when a non-zero rc is returned. you can also override
+      the conditions to fail or succeed with parameters rc_failed and rc_succeeded
+
 options:
-    loose_validation:
-        description:
-          - Do parameter validation in a loose way
-        type: bool
+    bypass_validation:
+        description: only set to True when module schema diffs with FortiManager API structure, module continues to execute without validating parameters
         required: false
+        type: bool
+        default: false
     workspace_locking_adom:
-        description:
-          - the adom name to lock in case FortiManager running in workspace mode
-          - it can be global or any other custom adom names
+        description: the adom to lock for FortiManager running in workspace mode, the value can be global and others including root
         required: false
         type: str
     workspace_locking_timeout:
-        description:
-          - the maximum time in seconds to wait for other user to release the workspace lock
+        description: the maximum time in seconds to wait for other user to release the workspace lock
         required: false
         type: int
         default: 300
-    method:
-        description:
-          - The method in request
-        required: true
+    state:
+        description: the directive to create, update or delete an object
         type: str
+        required: true
         choices:
-          - add
-          - get
-          - set
-          - update
-    params:
-        description:
-          - The parameters for each method
-          - See full parameters list in https://ansible-galaxy-fortimanager-docs.readthedocs.io/en/latest
+          - present
+          - absent
+    rc_succeeded:
+        description: the rc codes list with which the conditions to succeed will be overriden
         type: list
         required: false
-    url_params:
-        description:
-          - The parameters for each API request URL
-          - Also see full URL parameters in https://ansible-galaxy-fortimanager-docs.readthedocs.io/en/latest
+    rc_failed:
+        description: the rc codes list with which the conditions to fail will be overriden
+        type: list
+        required: false
+    adom:
+        description: the parameter (adom) in requested url
+        type: str
+        required: true
+    ips_sensor:
+        description: the top level parameters set
         required: false
         type: dict
+        suboptions:
+            block-malicious-url:
+                type: str
+                description: 'Enable/disable malicious URL blocking.'
+                choices:
+                    - 'disable'
+                    - 'enable'
+            comment:
+                type: str
+                description: 'Comment.'
+            entries:
+                description: no description
+                type: list
+                suboptions:
+                    action:
+                        type: str
+                        description: 'Action taken with traffic in which signatures are detected.'
+                        choices:
+                            - 'pass'
+                            - 'block'
+                            - 'reset'
+                            - 'default'
+                    application:
+                        description: no description
+                        type: str
+                    exempt-ip:
+                        description: no description
+                        type: list
+                        suboptions:
+                            dst-ip:
+                                type: str
+                                description: 'Destination IP address and netmask.'
+                            id:
+                                type: int
+                                description: 'Exempt IP ID.'
+                            src-ip:
+                                type: str
+                                description: 'Source IP address and netmask.'
+                    id:
+                        type: int
+                        description: 'Rule ID in IPS database (0 - 4294967295).'
+                    location:
+                        description: no description
+                        type: str
+                    log:
+                        type: str
+                        description: 'Enable/disable logging of signatures included in filter.'
+                        choices:
+                            - 'disable'
+                            - 'enable'
+                    log-attack-context:
+                        type: str
+                        description: 'Enable/disable logging of attack context: URL buffer, header buffer, body buffer, packet buffer.'
+                        choices:
+                            - 'disable'
+                            - 'enable'
+                    log-packet:
+                        type: str
+                        description: 'Enable/disable packet logging. Enable to save the packet that triggers the filter. You can download the packets in pca...'
+                        choices:
+                            - 'disable'
+                            - 'enable'
+                    os:
+                        description: no description
+                        type: str
+                    protocol:
+                        description: no description
+                        type: str
+                    quarantine:
+                        type: str
+                        description: 'Quarantine method.'
+                        choices:
+                            - 'none'
+                            - 'attacker'
+                            - 'both'
+                            - 'interface'
+                    quarantine-expiry:
+                        type: str
+                        description: 'Duration of quarantine. (Format ###d##h##m, minimum 1m, maximum 364d23h59m, default = 5m). Requires quarantine set to ...'
+                    quarantine-log:
+                        type: str
+                        description: 'Enable/disable quarantine logging.'
+                        choices:
+                            - 'disable'
+                            - 'enable'
+                    rate-count:
+                        type: int
+                        description: 'Count of the rate.'
+                    rate-duration:
+                        type: int
+                        description: 'Duration (sec) of the rate.'
+                    rate-mode:
+                        type: str
+                        description: 'Rate limit mode.'
+                        choices:
+                            - 'periodical'
+                            - 'continuous'
+                    rate-track:
+                        type: str
+                        description: 'Track the packet protocol field.'
+                        choices:
+                            - 'none'
+                            - 'src-ip'
+                            - 'dest-ip'
+                            - 'dhcp-client-mac'
+                            - 'dns-domain'
+                    rule:
+                        type: str
+                        description: 'Identifies the predefined or custom IPS signatures to add to the sensor.'
+                    severity:
+                        description: no description
+                        type: str
+                    status:
+                        type: str
+                        description: 'Status of the signatures included in filter. default enables the filter and only use filters with default status of en...'
+                        choices:
+                            - 'disable'
+                            - 'enable'
+                            - 'default'
+            extended-log:
+                type: str
+                description: 'Enable/disable extended logging.'
+                choices:
+                    - 'disable'
+                    - 'enable'
+            filter:
+                description: no description
+                type: list
+                suboptions:
+                    action:
+                        type: str
+                        description: 'Action of selected rules.'
+                        choices:
+                            - 'pass'
+                            - 'block'
+                            - 'default'
+                            - 'reset'
+                    application:
+                        description: no description
+                        type: str
+                    location:
+                        description: no description
+                        type: str
+                    log:
+                        type: str
+                        description: 'Enable/disable logging of selected rules.'
+                        choices:
+                            - 'disable'
+                            - 'enable'
+                            - 'default'
+                    log-packet:
+                        type: str
+                        description: 'Enable/disable packet logging of selected rules.'
+                        choices:
+                            - 'disable'
+                            - 'enable'
+                            - 'default'
+                    name:
+                        type: str
+                        description: 'Filter name.'
+                    os:
+                        description: no description
+                        type: str
+                    protocol:
+                        description: no description
+                        type: str
+                    quarantine:
+                        type: str
+                        description: 'Quarantine IP or interface.'
+                        choices:
+                            - 'none'
+                            - 'attacker'
+                            - 'both'
+                            - 'interface'
+                    quarantine-expiry:
+                        type: int
+                        description: 'Duration of quarantine in minute.'
+                    quarantine-log:
+                        type: str
+                        description: 'Enable/disable logging of selected quarantine.'
+                        choices:
+                            - 'disable'
+                            - 'enable'
+                    severity:
+                        description: no description
+                        type: str
+                    status:
+                        type: str
+                        description: 'Selected rules status.'
+                        choices:
+                            - 'disable'
+                            - 'enable'
+                            - 'default'
+            name:
+                type: str
+                description: 'Sensor name.'
+            override:
+                description: no description
+                type: list
+                suboptions:
+                    action:
+                        type: str
+                        description: 'Action of override rule.'
+                        choices:
+                            - 'pass'
+                            - 'block'
+                            - 'reset'
+                    exempt-ip:
+                        description: no description
+                        type: list
+                        suboptions:
+                            dst-ip:
+                                type: str
+                                description: 'Destination IP address and netmask.'
+                            id:
+                                type: int
+                                description: 'Exempt IP ID.'
+                            src-ip:
+                                type: str
+                                description: 'Source IP address and netmask.'
+                    log:
+                        type: str
+                        description: 'Enable/disable logging.'
+                        choices:
+                            - 'disable'
+                            - 'enable'
+                    log-packet:
+                        type: str
+                        description: 'Enable/disable packet logging.'
+                        choices:
+                            - 'disable'
+                            - 'enable'
+                    quarantine:
+                        type: str
+                        description: 'Quarantine IP or interface.'
+                        choices:
+                            - 'none'
+                            - 'attacker'
+                            - 'both'
+                            - 'interface'
+                    quarantine-expiry:
+                        type: int
+                        description: 'Duration of quarantine in minute.'
+                    quarantine-log:
+                        type: str
+                        description: 'Enable/disable logging of selected quarantine.'
+                        choices:
+                            - 'disable'
+                            - 'enable'
+                    rule-id:
+                        type: int
+                        description: 'Override rule ID.'
+                    status:
+                        type: str
+                        description: 'Enable/disable status of override rule.'
+                        choices:
+                            - 'disable'
+                            - 'enable'
+            replacemsg-group:
+                type: str
+                description: 'Replacement message group.'
 
 '''
 
@@ -97,141 +355,103 @@ EXAMPLES = '''
       ansible_httpapi_validate_certs: False
       ansible_httpapi_port: 443
    tasks:
-
-    - name: REQUESTING /PM/CONFIG/OBJ/IPS/SENSOR
+    - name: Configure IPS sensor.
       fmgr_ips_sensor:
-         loose_validation: False
-         workspace_locking_adom: <value in [global, custom adom]>
+         bypass_validation: False
+         workspace_locking_adom: <value in [global, custom adom including root]>
          workspace_locking_timeout: 300
-         method: <value in [add, set, update]>
-         url_params:
-            adom: <value in [none, global, custom dom]>
-         params:
-            -
-               data:
-                 -
-                     block-malicious-url: <value in [disable, enable]>
-                     comment: <value of string>
-                     entries:
-                       -
-                           action: <value in [pass, block, reset, ...]>
-                           application:
-                             - <value of string>
-                           exempt-ip:
-                             -
-                                 dst-ip: <value of string>
-                                 id: <value of integer>
-                                 src-ip: <value of string>
-                           id: <value of integer>
-                           location:
-                             - <value of string>
-                           log: <value in [disable, enable]>
-                           log-attack-context: <value in [disable, enable]>
-                           log-packet: <value in [disable, enable]>
-                           os:
-                             - <value of string>
-                           protocol:
-                             - <value of string>
-                           quarantine: <value in [none, attacker, both, ...]>
-                           quarantine-expiry: <value of string>
-                           quarantine-log: <value in [disable, enable]>
-                           rate-count: <value of integer>
-                           rate-duration: <value of integer>
-                           rate-mode: <value in [periodical, continuous]>
-                           rate-track: <value in [none, src-ip, dest-ip, ...]>
-                           rule: <value of string>
-                           severity:
-                             - <value of string>
-                           status: <value in [disable, enable, default]>
-                     extended-log: <value in [disable, enable]>
-                     filter:
-                       -
-                           action: <value in [pass, block, default, ...]>
-                           application:
-                             - <value of string>
-                           location:
-                             - <value of string>
-                           log: <value in [disable, enable, default]>
-                           log-packet: <value in [disable, enable, default]>
-                           name: <value of string>
-                           os:
-                             - <value of string>
-                           protocol:
-                             - <value of string>
-                           quarantine: <value in [none, attacker, both, ...]>
-                           quarantine-expiry: <value of integer>
-                           quarantine-log: <value in [disable, enable]>
-                           severity:
-                             - <value of string>
-                           status: <value in [disable, enable, default]>
-                     name: <value of string>
-                     override:
-                       -
-                           action: <value in [pass, block, reset]>
-                           exempt-ip:
-                             -
-                                 dst-ip: <value of string>
-                                 id: <value of integer>
-                                 src-ip: <value of string>
-                           log: <value in [disable, enable]>
-                           log-packet: <value in [disable, enable]>
-                           quarantine: <value in [none, attacker, both, ...]>
-                           quarantine-expiry: <value of integer>
-                           quarantine-log: <value in [disable, enable]>
-                           rule-id: <value of integer>
-                           status: <value in [disable, enable]>
-                     replacemsg-group: <value of string>
-
-    - name: REQUESTING /PM/CONFIG/OBJ/IPS/SENSOR
-      fmgr_ips_sensor:
-         loose_validation: False
-         workspace_locking_adom: <value in [global, custom adom]>
-         workspace_locking_timeout: 300
-         method: <value in [get]>
-         url_params:
-            adom: <value in [none, global, custom dom]>
-         params:
-            -
-               attr: <value of string>
-               fields:
-                 -
-                    - <value in [block-malicious-url, comment, extended-log, ...]>
-               filter:
-                 - <value of string>
-               get used: <value of integer>
-               loadsub: <value of integer>
-               option: <value in [count, object member, datasrc, ...]>
-               range:
-                 - <value of integer>
-               sortings:
-                 -
-                     varidic.attr_name: <value in [1, -1]>
+         rc_succeeded: [0, -2, -3, ...]
+         rc_failed: [-2, -3, ...]
+         adom: <your own value>
+         state: <value in [present, absent]>
+         ips_sensor:
+            block-malicious-url: <value in [disable, enable]>
+            comment: <value of string>
+            entries:
+              -
+                  action: <value in [pass, block, reset, ...]>
+                  application: <value of string>
+                  exempt-ip:
+                    -
+                        dst-ip: <value of string>
+                        id: <value of integer>
+                        src-ip: <value of string>
+                  id: <value of integer>
+                  location: <value of string>
+                  log: <value in [disable, enable]>
+                  log-attack-context: <value in [disable, enable]>
+                  log-packet: <value in [disable, enable]>
+                  os: <value of string>
+                  protocol: <value of string>
+                  quarantine: <value in [none, attacker, both, ...]>
+                  quarantine-expiry: <value of string>
+                  quarantine-log: <value in [disable, enable]>
+                  rate-count: <value of integer>
+                  rate-duration: <value of integer>
+                  rate-mode: <value in [periodical, continuous]>
+                  rate-track: <value in [none, src-ip, dest-ip, ...]>
+                  rule: <value of string>
+                  severity: <value of string>
+                  status: <value in [disable, enable, default]>
+            extended-log: <value in [disable, enable]>
+            filter:
+              -
+                  action: <value in [pass, block, default, ...]>
+                  application: <value of string>
+                  location: <value of string>
+                  log: <value in [disable, enable, default]>
+                  log-packet: <value in [disable, enable, default]>
+                  name: <value of string>
+                  os: <value of string>
+                  protocol: <value of string>
+                  quarantine: <value in [none, attacker, both, ...]>
+                  quarantine-expiry: <value of integer>
+                  quarantine-log: <value in [disable, enable]>
+                  severity: <value of string>
+                  status: <value in [disable, enable, default]>
+            name: <value of string>
+            override:
+              -
+                  action: <value in [pass, block, reset]>
+                  exempt-ip:
+                    -
+                        dst-ip: <value of string>
+                        id: <value of integer>
+                        src-ip: <value of string>
+                  log: <value in [disable, enable]>
+                  log-packet: <value in [disable, enable]>
+                  quarantine: <value in [none, attacker, both, ...]>
+                  quarantine-expiry: <value of integer>
+                  quarantine-log: <value in [disable, enable]>
+                  rule-id: <value of integer>
+                  status: <value in [disable, enable]>
+            replacemsg-group: <value of string>
 
 '''
 
 RETURN = '''
-url:
+request_url:
     description: The full url requested
     returned: always
     type: str
     sample: /sys/login/user
-status:
+response_code:
     description: The status of api request
     returned: always
-    type: dict
-data:
-    description: The payload returned in the request
-    type: dict
+    type: int
+    sample: 0
+response_message:
+    description: The descriptive message of the api response
+    type: str
     returned: always
+    sample: OK.
 
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import FAIL_SOCKET_MSG
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import DEFAULT_RESULT_OBJ
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import FMGRCommon
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import FMGBaseException
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.fortimanager import FortiManagerHandler
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.NAPI import NAPIManager
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.NAPI import check_galaxy_version
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.NAPI import check_parameter_bypass
 
 
 def main():
@@ -240,461 +460,15 @@ def main():
         '/pm/config/global/obj/ips/sensor'
     ]
 
-    url_schema = [
-        {
-            'name': 'adom',
-            'type': 'string'
-        }
+    perobject_jrpc_urls = [
+        '/pm/config/adom/{adom}/obj/ips/sensor/{sensor}',
+        '/pm/config/global/obj/ips/sensor/{sensor}'
     ]
 
-    body_schema = {
-        'schema_objects': {
-            'object0': [
-                {
-                    'name': 'data',
-                    'api_tag': 0,
-                    'type': 'array',
-                    'items': {
-                        'block-malicious-url': {
-                            'type': 'string',
-                            'enum': [
-                                'disable',
-                                'enable'
-                            ]
-                        },
-                        'comment': {
-                            'type': 'string'
-                        },
-                        'entries': {
-                            'type': 'array',
-                            'items': {
-                                'action': {
-                                    'type': 'string',
-                                    'enum': [
-                                        'pass',
-                                        'block',
-                                        'reset',
-                                        'default'
-                                    ]
-                                },
-                                'application': {
-                                    'type': 'array',
-                                    'items': {
-                                        'type': 'string'
-                                    }
-                                },
-                                'exempt-ip': {
-                                    'type': 'array',
-                                    'items': {
-                                        'dst-ip': {
-                                            'type': 'string'
-                                        },
-                                        'id': {
-                                            'type': 'integer'
-                                        },
-                                        'src-ip': {
-                                            'type': 'string'
-                                        }
-                                    }
-                                },
-                                'id': {
-                                    'type': 'integer'
-                                },
-                                'location': {
-                                    'type': 'array',
-                                    'items': {
-                                        'type': 'string'
-                                    }
-                                },
-                                'log': {
-                                    'type': 'string',
-                                    'enum': [
-                                        'disable',
-                                        'enable'
-                                    ]
-                                },
-                                'log-attack-context': {
-                                    'type': 'string',
-                                    'enum': [
-                                        'disable',
-                                        'enable'
-                                    ]
-                                },
-                                'log-packet': {
-                                    'type': 'string',
-                                    'enum': [
-                                        'disable',
-                                        'enable'
-                                    ]
-                                },
-                                'os': {
-                                    'type': 'array',
-                                    'items': {
-                                        'type': 'string'
-                                    }
-                                },
-                                'protocol': {
-                                    'type': 'array',
-                                    'items': {
-                                        'type': 'string'
-                                    }
-                                },
-                                'quarantine': {
-                                    'type': 'string',
-                                    'enum': [
-                                        'none',
-                                        'attacker',
-                                        'both',
-                                        'interface'
-                                    ]
-                                },
-                                'quarantine-expiry': {
-                                    'type': 'string'
-                                },
-                                'quarantine-log': {
-                                    'type': 'string',
-                                    'enum': [
-                                        'disable',
-                                        'enable'
-                                    ]
-                                },
-                                'rate-count': {
-                                    'type': 'integer'
-                                },
-                                'rate-duration': {
-                                    'type': 'integer'
-                                },
-                                'rate-mode': {
-                                    'type': 'string',
-                                    'enum': [
-                                        'periodical',
-                                        'continuous'
-                                    ]
-                                },
-                                'rate-track': {
-                                    'type': 'string',
-                                    'enum': [
-                                        'none',
-                                        'src-ip',
-                                        'dest-ip',
-                                        'dhcp-client-mac',
-                                        'dns-domain'
-                                    ]
-                                },
-                                'rule': {
-                                    'type': 'string'
-                                },
-                                'severity': {
-                                    'type': 'array',
-                                    'items': {
-                                        'type': 'string'
-                                    }
-                                },
-                                'status': {
-                                    'type': 'string',
-                                    'enum': [
-                                        'disable',
-                                        'enable',
-                                        'default'
-                                    ]
-                                }
-                            }
-                        },
-                        'extended-log': {
-                            'type': 'string',
-                            'enum': [
-                                'disable',
-                                'enable'
-                            ]
-                        },
-                        'filter': {
-                            'type': 'array',
-                            'items': {
-                                'action': {
-                                    'type': 'string',
-                                    'enum': [
-                                        'pass',
-                                        'block',
-                                        'default',
-                                        'reset'
-                                    ]
-                                },
-                                'application': {
-                                    'type': 'array',
-                                    'items': {
-                                        'type': 'string'
-                                    }
-                                },
-                                'location': {
-                                    'type': 'array',
-                                    'items': {
-                                        'type': 'string'
-                                    }
-                                },
-                                'log': {
-                                    'type': 'string',
-                                    'enum': [
-                                        'disable',
-                                        'enable',
-                                        'default'
-                                    ]
-                                },
-                                'log-packet': {
-                                    'type': 'string',
-                                    'enum': [
-                                        'disable',
-                                        'enable',
-                                        'default'
-                                    ]
-                                },
-                                'name': {
-                                    'type': 'string'
-                                },
-                                'os': {
-                                    'type': 'array',
-                                    'items': {
-                                        'type': 'string'
-                                    }
-                                },
-                                'protocol': {
-                                    'type': 'array',
-                                    'items': {
-                                        'type': 'string'
-                                    }
-                                },
-                                'quarantine': {
-                                    'type': 'string',
-                                    'enum': [
-                                        'none',
-                                        'attacker',
-                                        'both',
-                                        'interface'
-                                    ]
-                                },
-                                'quarantine-expiry': {
-                                    'type': 'integer'
-                                },
-                                'quarantine-log': {
-                                    'type': 'string',
-                                    'enum': [
-                                        'disable',
-                                        'enable'
-                                    ]
-                                },
-                                'severity': {
-                                    'type': 'array',
-                                    'items': {
-                                        'type': 'string'
-                                    }
-                                },
-                                'status': {
-                                    'type': 'string',
-                                    'enum': [
-                                        'disable',
-                                        'enable',
-                                        'default'
-                                    ]
-                                }
-                            }
-                        },
-                        'name': {
-                            'type': 'string'
-                        },
-                        'override': {
-                            'type': 'array',
-                            'items': {
-                                'action': {
-                                    'type': 'string',
-                                    'enum': [
-                                        'pass',
-                                        'block',
-                                        'reset'
-                                    ]
-                                },
-                                'exempt-ip': {
-                                    'type': 'array',
-                                    'items': {
-                                        'dst-ip': {
-                                            'type': 'string'
-                                        },
-                                        'id': {
-                                            'type': 'integer'
-                                        },
-                                        'src-ip': {
-                                            'type': 'string'
-                                        }
-                                    }
-                                },
-                                'log': {
-                                    'type': 'string',
-                                    'enum': [
-                                        'disable',
-                                        'enable'
-                                    ]
-                                },
-                                'log-packet': {
-                                    'type': 'string',
-                                    'enum': [
-                                        'disable',
-                                        'enable'
-                                    ]
-                                },
-                                'quarantine': {
-                                    'type': 'string',
-                                    'enum': [
-                                        'none',
-                                        'attacker',
-                                        'both',
-                                        'interface'
-                                    ]
-                                },
-                                'quarantine-expiry': {
-                                    'type': 'integer'
-                                },
-                                'quarantine-log': {
-                                    'type': 'string',
-                                    'enum': [
-                                        'disable',
-                                        'enable'
-                                    ]
-                                },
-                                'rule-id': {
-                                    'type': 'integer'
-                                },
-                                'status': {
-                                    'type': 'string',
-                                    'enum': [
-                                        'disable',
-                                        'enable'
-                                    ]
-                                }
-                            }
-                        },
-                        'replacemsg-group': {
-                            'type': 'string'
-                        }
-                    }
-                },
-                {
-                    'type': 'string',
-                    'name': 'url',
-                    'api_tag': 0
-                }
-            ],
-            'object1': [
-                {
-                    'type': 'string',
-                    'name': 'attr',
-                    'api_tag': 0
-                },
-                {
-                    'name': 'fields',
-                    'api_tag': 0,
-                    'type': 'array',
-                    'items': {
-                        'type': 'array',
-                        'items': {
-                            'type': 'string',
-                            'enum': [
-                                'block-malicious-url',
-                                'comment',
-                                'extended-log',
-                                'name',
-                                'replacemsg-group'
-                            ]
-                        }
-                    }
-                },
-                {
-                    'name': 'filter',
-                    'type': 'dict',
-                    'dict': {
-                        'type': 'array',
-                        'items': {
-                            'type': 'string',
-                            'example': [
-                                '<attr>',
-                                '==',
-                                'test'
-                            ]
-                        }
-                    },
-                    'api_tag': 0
-                },
-                {
-                    'type': 'integer',
-                    'name': 'get used',
-                    'api_tag': 0
-                },
-                {
-                    'type': 'integer',
-                    'name': 'loadsub',
-                    'api_tag': 0
-                },
-                {
-                    'name': 'option',
-                    'type': 'dict',
-                    'dict': {
-                        'type': 'string',
-                        'enum': [
-                            'count',
-                            'object member',
-                            'datasrc',
-                            'get reserved',
-                            'syntax'
-                        ]
-                    },
-                    'api_tag': 0
-                },
-                {
-                    'name': 'range',
-                    'type': 'dict',
-                    'dict': {
-                        'type': 'array',
-                        'items': {
-                            'type': 'integer',
-                            'example': [
-                                2,
-                                5
-                            ]
-                        }
-                    },
-                    'api_tag': 0
-                },
-                {
-                    'name': 'sortings',
-                    'type': 'dict',
-                    'dict': {
-                        'type': 'array',
-                        'items': {
-                            '{attr_name}': {
-                                'type': 'integer',
-                                'enum': [
-                                    1,
-                                    -1
-                                ]
-                            }
-                        }
-                    },
-                    'api_tag': 0
-                },
-                {
-                    'type': 'string',
-                    'name': 'url',
-                    'api_tag': 0
-                }
-            ]
-        },
-        'method_mapping': {
-            'add': 'object0',
-            'get': 'object1',
-            'set': 'object0',
-            'update': 'object0'
-        }
-    }
-
+    url_params = ['adom']
+    module_primary_key = 'name'
     module_arg_spec = {
-        'loose_validation': {
+        'bypass_validation': {
             'type': 'bool',
             'required': False,
             'default': False
@@ -708,56 +482,391 @@ def main():
             'required': False,
             'default': 300
         },
-        'params': {
-            'type': 'list',
-            'required': False
+        'rc_succeeded': {
+            'required': False,
+            'type': 'list'
         },
-        'method': {
+        'rc_failed': {
+            'required': False,
+            'type': 'list'
+        },
+        'state': {
             'type': 'str',
             'required': True,
             'choices': [
-                'add',
-                'get',
-                'set',
-                'update'
+                'present',
+                'absent'
             ]
         },
-        'url_params': {
+        'adom': {
+            'required': True,
+            'type': 'str'
+        },
+        'ips_sensor': {
+            'required': False,
             'type': 'dict',
-            'required': False
+            'options': {
+                'block-malicious-url': {
+                    'required': False,
+                    'choices': [
+                        'disable',
+                        'enable'
+                    ],
+                    'type': 'str'
+                },
+                'comment': {
+                    'required': False,
+                    'type': 'str'
+                },
+                'entries': {
+                    'required': False,
+                    'type': 'list',
+                    'options': {
+                        'action': {
+                            'required': False,
+                            'choices': [
+                                'pass',
+                                'block',
+                                'reset',
+                                'default'
+                            ],
+                            'type': 'str'
+                        },
+                        'application': {
+                            'required': False,
+                            'type': 'str'
+                        },
+                        'exempt-ip': {
+                            'required': False,
+                            'type': 'list',
+                            'options': {
+                                'dst-ip': {
+                                    'required': False,
+                                    'type': 'str'
+                                },
+                                'id': {
+                                    'required': False,
+                                    'type': 'int'
+                                },
+                                'src-ip': {
+                                    'required': False,
+                                    'type': 'str'
+                                }
+                            }
+                        },
+                        'id': {
+                            'required': False,
+                            'type': 'int'
+                        },
+                        'location': {
+                            'required': False,
+                            'type': 'str'
+                        },
+                        'log': {
+                            'required': False,
+                            'choices': [
+                                'disable',
+                                'enable'
+                            ],
+                            'type': 'str'
+                        },
+                        'log-attack-context': {
+                            'required': False,
+                            'choices': [
+                                'disable',
+                                'enable'
+                            ],
+                            'type': 'str'
+                        },
+                        'log-packet': {
+                            'required': False,
+                            'choices': [
+                                'disable',
+                                'enable'
+                            ],
+                            'type': 'str'
+                        },
+                        'os': {
+                            'required': False,
+                            'type': 'str'
+                        },
+                        'protocol': {
+                            'required': False,
+                            'type': 'str'
+                        },
+                        'quarantine': {
+                            'required': False,
+                            'choices': [
+                                'none',
+                                'attacker',
+                                'both',
+                                'interface'
+                            ],
+                            'type': 'str'
+                        },
+                        'quarantine-expiry': {
+                            'required': False,
+                            'type': 'str'
+                        },
+                        'quarantine-log': {
+                            'required': False,
+                            'choices': [
+                                'disable',
+                                'enable'
+                            ],
+                            'type': 'str'
+                        },
+                        'rate-count': {
+                            'required': False,
+                            'type': 'int'
+                        },
+                        'rate-duration': {
+                            'required': False,
+                            'type': 'int'
+                        },
+                        'rate-mode': {
+                            'required': False,
+                            'choices': [
+                                'periodical',
+                                'continuous'
+                            ],
+                            'type': 'str'
+                        },
+                        'rate-track': {
+                            'required': False,
+                            'choices': [
+                                'none',
+                                'src-ip',
+                                'dest-ip',
+                                'dhcp-client-mac',
+                                'dns-domain'
+                            ],
+                            'type': 'str'
+                        },
+                        'rule': {
+                            'required': False,
+                            'type': 'str'
+                        },
+                        'severity': {
+                            'required': False,
+                            'type': 'str'
+                        },
+                        'status': {
+                            'required': False,
+                            'choices': [
+                                'disable',
+                                'enable',
+                                'default'
+                            ],
+                            'type': 'str'
+                        }
+                    }
+                },
+                'extended-log': {
+                    'required': False,
+                    'choices': [
+                        'disable',
+                        'enable'
+                    ],
+                    'type': 'str'
+                },
+                'filter': {
+                    'required': False,
+                    'type': 'list',
+                    'options': {
+                        'action': {
+                            'required': False,
+                            'choices': [
+                                'pass',
+                                'block',
+                                'default',
+                                'reset'
+                            ],
+                            'type': 'str'
+                        },
+                        'application': {
+                            'required': False,
+                            'type': 'str'
+                        },
+                        'location': {
+                            'required': False,
+                            'type': 'str'
+                        },
+                        'log': {
+                            'required': False,
+                            'choices': [
+                                'disable',
+                                'enable',
+                                'default'
+                            ],
+                            'type': 'str'
+                        },
+                        'log-packet': {
+                            'required': False,
+                            'choices': [
+                                'disable',
+                                'enable',
+                                'default'
+                            ],
+                            'type': 'str'
+                        },
+                        'name': {
+                            'required': False,
+                            'type': 'str'
+                        },
+                        'os': {
+                            'required': False,
+                            'type': 'str'
+                        },
+                        'protocol': {
+                            'required': False,
+                            'type': 'str'
+                        },
+                        'quarantine': {
+                            'required': False,
+                            'choices': [
+                                'none',
+                                'attacker',
+                                'both',
+                                'interface'
+                            ],
+                            'type': 'str'
+                        },
+                        'quarantine-expiry': {
+                            'required': False,
+                            'type': 'int'
+                        },
+                        'quarantine-log': {
+                            'required': False,
+                            'choices': [
+                                'disable',
+                                'enable'
+                            ],
+                            'type': 'str'
+                        },
+                        'severity': {
+                            'required': False,
+                            'type': 'str'
+                        },
+                        'status': {
+                            'required': False,
+                            'choices': [
+                                'disable',
+                                'enable',
+                                'default'
+                            ],
+                            'type': 'str'
+                        }
+                    }
+                },
+                'name': {
+                    'required': True,
+                    'type': 'str'
+                },
+                'override': {
+                    'required': False,
+                    'type': 'list',
+                    'options': {
+                        'action': {
+                            'required': False,
+                            'choices': [
+                                'pass',
+                                'block',
+                                'reset'
+                            ],
+                            'type': 'str'
+                        },
+                        'exempt-ip': {
+                            'required': False,
+                            'type': 'list',
+                            'options': {
+                                'dst-ip': {
+                                    'required': False,
+                                    'type': 'str'
+                                },
+                                'id': {
+                                    'required': False,
+                                    'type': 'int'
+                                },
+                                'src-ip': {
+                                    'required': False,
+                                    'type': 'str'
+                                }
+                            }
+                        },
+                        'log': {
+                            'required': False,
+                            'choices': [
+                                'disable',
+                                'enable'
+                            ],
+                            'type': 'str'
+                        },
+                        'log-packet': {
+                            'required': False,
+                            'choices': [
+                                'disable',
+                                'enable'
+                            ],
+                            'type': 'str'
+                        },
+                        'quarantine': {
+                            'required': False,
+                            'choices': [
+                                'none',
+                                'attacker',
+                                'both',
+                                'interface'
+                            ],
+                            'type': 'str'
+                        },
+                        'quarantine-expiry': {
+                            'required': False,
+                            'type': 'int'
+                        },
+                        'quarantine-log': {
+                            'required': False,
+                            'choices': [
+                                'disable',
+                                'enable'
+                            ],
+                            'type': 'str'
+                        },
+                        'rule-id': {
+                            'required': False,
+                            'type': 'int'
+                        },
+                        'status': {
+                            'required': False,
+                            'choices': [
+                                'disable',
+                                'enable'
+                            ],
+                            'type': 'str'
+                        }
+                    }
+                },
+                'replacemsg-group': {
+                    'required': False,
+                    'type': 'str'
+                }
+            }
+
         }
     }
-    module = AnsibleModule(argument_spec=module_arg_spec,
+
+    check_galaxy_version(module_arg_spec)
+    module = AnsibleModule(argument_spec=check_parameter_bypass(module_arg_spec, 'ips_sensor'),
                            supports_check_mode=False)
-    method = module.params['method']
-    loose_validation = module.params['loose_validation']
 
     fmgr = None
-    payload = None
-    response = DEFAULT_RESULT_OBJ
-
     if module._socket_path:
         connection = Connection(module._socket_path)
-        tools = FMGRCommon()
-        if loose_validation is False:
-            tools.validate_module_params(module, body_schema)
-        tools.validate_module_url_params(module, jrpc_urls, url_schema)
-        full_url = tools.get_full_url_path(module, jrpc_urls)
-        payload = tools.get_full_payload(module, full_url)
-        fmgr = FortiManagerHandler(connection, module)
-        fmgr.tools = tools
+        fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+        fmgr.process_curd()
     else:
-        module.fail_json(**FAIL_SOCKET_MSG)
-
-    try:
-        response = fmgr._conn.send_request(method, payload)
-        fmgr.govern_response(module=module, results=response,
-                             msg='Operation Finished',
-                             ansible_facts=fmgr.construct_ansible_facts(response, module.params, module.params))
-    except Exception as e:
-        raise FMGBaseException(e)
-
-    module.exit_json(meta=response[1])
+        module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
+    module.exit_json(meta=module.params)
 
 
 if __name__ == '__main__':

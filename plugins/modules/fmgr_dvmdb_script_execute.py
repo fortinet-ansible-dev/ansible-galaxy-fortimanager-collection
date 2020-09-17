@@ -26,62 +26,74 @@ DOCUMENTATION = '''
 module: fmgr_dvmdb_script_execute
 short_description: Run script.
 description:
-    - This module is able to configure a FortiManager device by allowing the
-      user to [ exec ] the following apis.
-    - /dvmdb/adom/{adom}/script/execute
-    - /dvmdb/global/script/execute
-    - /dvmdb/script/execute
-    - Examples include all parameters and values need to be adjusted to data sources before usage.
+    - This module is able to configure a FortiManager device.
+    - Examples include all parameters and values which need to be adjusted to data sources before usage.
 
 version_added: "2.10"
 author:
+    - Link Zheng (@chillancezen)
+    - Jie Xue (@JieX19)
     - Frank Shen (@fshen01)
-    - Link Zheng (@zhengl)
+    - Hongbin Lu (@fgtdev-hblu)
 notes:
-    - There are only three top-level parameters where 'method' is always required
-      while other two 'params' and 'url_params' can be optional
-    - Due to the complexity of fortimanager api schema, the validation is done
-      out of Ansible native parameter validation procedure.
-    - The syntax of OPTIONS doen not comply with the standard Ansible argument
-      specification, but with the structure of fortimanager API schema, we need
-      a trivial transformation when we are filling the ansible playbook
+    - Running in workspace locking mode is supported in this FortiManager module, the top
+      level parameters workspace_locking_adom and workspace_locking_timeout help do the work.
+    - To create or update an object, use state present directive.
+    - To delete an object, use state absent directive.
+    - Normally, running one module can fail when a non-zero rc is returned. you can also override
+      the conditions to fail or succeed with parameters rc_failed and rc_succeeded
+
 options:
-    loose_validation:
-        description:
-          - Do parameter validation in a loose way
-        type: bool
+    bypass_validation:
+        description: only set to True when module schema diffs with FortiManager API structure, module continues to execute without validating parameters
         required: false
+        type: bool
+        default: false
     workspace_locking_adom:
-        description:
-          - the adom name to lock in case FortiManager running in workspace mode
-          - it can be global or any other custom adom names
+        description: the adom to lock for FortiManager running in workspace mode, the value can be global and others including root
         required: false
         type: str
     workspace_locking_timeout:
-        description:
-          - the maximum time in seconds to wait for other user to release the workspace lock
+        description: the maximum time in seconds to wait for other user to release the workspace lock
         required: false
         type: int
         default: 300
-    method:
-        description:
-          - The method in request
-        required: true
-        type: str
-        choices:
-          - exec
-    params:
-        description:
-          - The parameters for each method
-          - See full parameters list in https://ansible-galaxy-fortimanager-docs.readthedocs.io/en/latest
+    rc_succeeded:
+        description: the rc codes list with which the conditions to succeed will be overriden
         type: list
         required: false
-    url_params:
-        description:
-          - The parameters for each API request URL
-          - Also see full URL parameters in https://ansible-galaxy-fortimanager-docs.readthedocs.io/en/latest
+    rc_failed:
+        description: the rc codes list with which the conditions to fail will be overriden
+        type: list
+        required: false
+    adom:
+        description: the parameter (adom) in requested url
+        type: str
+        required: true
+    dvmdb_script_execute:
+        description: the top level parameters set
         required: false
         type: dict
+        suboptions:
+            adom:
+                type: str
+                description: no description
+            package:
+                type: str
+                description: no description
+            scope:
+                description: no description
+                type: list
+                suboptions:
+                    name:
+                        type: str
+                        description: no description
+                    vdom:
+                        type: str
+                        description: no description
+            script:
+                type: str
+                description: 'Script name.'
 
 '''
 
@@ -95,51 +107,48 @@ EXAMPLES = '''
       ansible_httpapi_validate_certs: False
       ansible_httpapi_port: 443
    tasks:
-
-    - name: REQUESTING /DVMDB/SCRIPT/EXECUTE
+    - name: Run script.
       fmgr_dvmdb_script_execute:
-         loose_validation: False
-         workspace_locking_adom: <value in [global, custom adom]>
+         bypass_validation: False
+         workspace_locking_adom: <value in [global, custom adom including root]>
          workspace_locking_timeout: 300
-         method: <value in [exec]>
-         url_params:
-            adom: <value in [none, global, custom dom]>
-         params:
-            -
-               workflow:
-                  adom: <value of string>
-                  package: <value of string>
-                  scope:
-                    -
-                        name: <value of string>
-                        vdom: <value of string>
-                  script: <value of string>
+         rc_succeeded: [0, -2, -3, ...]
+         rc_failed: [-2, -3, ...]
+         adom: <your own value>
+         dvmdb_script_execute:
+            adom: <value of string>
+            package: <value of string>
+            scope:
+              -
+                  name: <value of string>
+                  vdom: <value of string>
+            script: <value of string>
 
 '''
 
 RETURN = '''
-url:
+request_url:
     description: The full url requested
     returned: always
     type: str
     sample: /sys/login/user
-status:
+response_code:
     description: The status of api request
     returned: always
-    type: dict
-data:
-    description: The payload returned in the request
-    type: dict
+    type: int
+    sample: 0
+response_message:
+    description: The descriptive message of the api response
+    type: str
     returned: always
+    sample: OK.
 
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import FAIL_SOCKET_MSG
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import DEFAULT_RESULT_OBJ
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import FMGRCommon
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import FMGBaseException
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.fortimanager import FortiManagerHandler
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.NAPI import NAPIManager
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.NAPI import check_galaxy_version
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.NAPI import check_parameter_bypass
 
 
 def main():
@@ -149,57 +158,15 @@ def main():
         '/dvmdb/script/execute'
     ]
 
-    url_schema = [
-        {
-            'name': 'adom',
-            'type': 'string'
-        }
+    perobject_jrpc_urls = [
+        '/dvmdb/adom/{adom}/script/execute/{execute}',
+        '/dvmdb/global/script/execute/{execute}',
+        '/dvmdb/script/execute/{execute}'
     ]
 
-    body_schema = {
-        'schema_objects': {
-            'object0': [
-                {
-                    'type': 'string',
-                    'name': 'url',
-                    'api_tag': 0
-                },
-                {
-                    'name': 'workflow',
-                    'type': 'dict',
-                    'dict': {
-                        'adom': {
-                            'type': 'string'
-                        },
-                        'package': {
-                            'type': 'string'
-                        },
-                        'scope': {
-                            'type': 'array',
-                            'items': {
-                                'name': {
-                                    'type': 'string'
-                                },
-                                'vdom': {
-                                    'type': 'string'
-                                }
-                            }
-                        },
-                        'script': {
-                            'type': 'string'
-                        }
-                    },
-                    'api_tag': 0
-                }
-            ]
-        },
-        'method_mapping': {
-            'exec': 'object0'
-        }
-    }
-
+    url_params = ['adom']
     module_arg_spec = {
-        'loose_validation': {
+        'bypass_validation': {
             'type': 'bool',
             'required': False,
             'default': False
@@ -213,53 +180,65 @@ def main():
             'required': False,
             'default': 300
         },
-        'params': {
-            'type': 'list',
-            'required': False
+        'rc_succeeded': {
+            'required': False,
+            'type': 'list'
         },
-        'method': {
-            'type': 'str',
+        'rc_failed': {
+            'required': False,
+            'type': 'list'
+        },
+        'adom': {
             'required': True,
-            'choices': [
-                'exec'
-            ]
+            'type': 'str'
         },
-        'url_params': {
+        'dvmdb_script_execute': {
+            'required': False,
             'type': 'dict',
-            'required': False
+            'options': {
+                'adom': {
+                    'required': False,
+                    'type': 'str'
+                },
+                'package': {
+                    'required': False,
+                    'type': 'str'
+                },
+                'scope': {
+                    'required': False,
+                    'type': 'list',
+                    'options': {
+                        'name': {
+                            'required': False,
+                            'type': 'str'
+                        },
+                        'vdom': {
+                            'required': False,
+                            'type': 'str'
+                        }
+                    }
+                },
+                'script': {
+                    'required': False,
+                    'type': 'str'
+                }
+            }
+
         }
     }
-    module = AnsibleModule(argument_spec=module_arg_spec,
+
+    check_galaxy_version(module_arg_spec)
+    module = AnsibleModule(argument_spec=check_parameter_bypass(module_arg_spec, 'dvmdb_script_execute'),
                            supports_check_mode=False)
-    method = module.params['method']
-    loose_validation = module.params['loose_validation']
 
     fmgr = None
-    payload = None
-    response = DEFAULT_RESULT_OBJ
-
     if module._socket_path:
         connection = Connection(module._socket_path)
-        tools = FMGRCommon()
-        if loose_validation is False:
-            tools.validate_module_params(module, body_schema)
-        tools.validate_module_url_params(module, jrpc_urls, url_schema)
-        full_url = tools.get_full_url_path(module, jrpc_urls)
-        payload = tools.get_full_payload(module, full_url)
-        fmgr = FortiManagerHandler(connection, module)
-        fmgr.tools = tools
+        fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, None, url_params, module, connection, top_level_schema_name='data')
+        fmgr.process_exec()
     else:
-        module.fail_json(**FAIL_SOCKET_MSG)
-
-    try:
-        response = fmgr._conn.send_request(method, payload)
-        fmgr.govern_response(module=module, results=response,
-                             msg='Operation Finished',
-                             ansible_facts=fmgr.construct_ansible_facts(response, module.params, module.params))
-    except Exception as e:
-        raise FMGBaseException(e)
-
-    module.exit_json(meta=response[1])
+        module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
+    module.exit_json(meta=module.params)
 
 
 if __name__ == '__main__':

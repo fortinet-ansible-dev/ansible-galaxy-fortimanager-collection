@@ -26,65 +26,166 @@ DOCUMENTATION = '''
 module: fmgr_dvmdb_script
 short_description: Script table.
 description:
-    - This module is able to configure a FortiManager device by allowing the
-      user to [ add get set update ] the following apis.
-    - /dvmdb/adom/{adom}/script
-    - /dvmdb/global/script
-    - /dvmdb/script
-    - Examples include all parameters and values need to be adjusted to data sources before usage.
+    - This module is able to configure a FortiManager device.
+    - Examples include all parameters and values which need to be adjusted to data sources before usage.
 
 version_added: "2.10"
 author:
+    - Link Zheng (@chillancezen)
+    - Jie Xue (@JieX19)
     - Frank Shen (@fshen01)
-    - Link Zheng (@zhengl)
+    - Hongbin Lu (@fgtdev-hblu)
 notes:
-    - There are only three top-level parameters where 'method' is always required
-      while other two 'params' and 'url_params' can be optional
-    - Due to the complexity of fortimanager api schema, the validation is done
-      out of Ansible native parameter validation procedure.
-    - The syntax of OPTIONS doen not comply with the standard Ansible argument
-      specification, but with the structure of fortimanager API schema, we need
-      a trivial transformation when we are filling the ansible playbook
+    - Running in workspace locking mode is supported in this FortiManager module, the top
+      level parameters workspace_locking_adom and workspace_locking_timeout help do the work.
+    - To create or update an object, use state present directive.
+    - To delete an object, use state absent directive.
+    - Normally, running one module can fail when a non-zero rc is returned. you can also override
+      the conditions to fail or succeed with parameters rc_failed and rc_succeeded
+
 options:
-    loose_validation:
-        description:
-          - Do parameter validation in a loose way
-        type: bool
+    bypass_validation:
+        description: only set to True when module schema diffs with FortiManager API structure, module continues to execute without validating parameters
         required: false
+        type: bool
+        default: false
     workspace_locking_adom:
-        description:
-          - the adom name to lock in case FortiManager running in workspace mode
-          - it can be global or any other custom adom names
+        description: the adom to lock for FortiManager running in workspace mode, the value can be global and others including root
         required: false
         type: str
     workspace_locking_timeout:
-        description:
-          - the maximum time in seconds to wait for other user to release the workspace lock
+        description: the maximum time in seconds to wait for other user to release the workspace lock
         required: false
         type: int
         default: 300
-    method:
-        description:
-          - The method in request
-        required: true
+    state:
+        description: the directive to create, update or delete an object
         type: str
+        required: true
         choices:
-          - add
-          - get
-          - set
-          - update
-    params:
-        description:
-          - The parameters for each method
-          - See full parameters list in https://ansible-galaxy-fortimanager-docs.readthedocs.io/en/latest
+          - present
+          - absent
+    rc_succeeded:
+        description: the rc codes list with which the conditions to succeed will be overriden
         type: list
         required: false
-    url_params:
-        description:
-          - The parameters for each API request URL
-          - Also see full URL parameters in https://ansible-galaxy-fortimanager-docs.readthedocs.io/en/latest
+    rc_failed:
+        description: the rc codes list with which the conditions to fail will be overriden
+        type: list
+        required: false
+    adom:
+        description: the parameter (adom) in requested url
+        type: str
+        required: true
+    dvmdb_script:
+        description: the top level parameters set
         required: false
         type: dict
+        suboptions:
+            content:
+                type: str
+                description: 'The full content of the script result log.'
+            desc:
+                type: str
+                description: no description
+            filter_build:
+                type: int
+                description: 'The value will be ignored in add/set/update requests if filter_ostype is not set. It has no effect if target is "adom_database".'
+            filter_device:
+                type: int
+                description: 'Name or id of an existing device in the database. It has no effect if target is "adom_database".'
+            filter_hostname:
+                type: str
+                description: 'The value has no effect if target is "adom_database".'
+            filter_ostype:
+                type: str
+                default: 'unknown'
+                description: 'The value has no effect if target is "adom_database".'
+                choices:
+                    - 'unknown'
+                    - 'fos'
+            filter_osver:
+                type: str
+                default: 'unknown'
+                description: 'The value will be ignored in add/set/update requests if filter_ostype is not set. It has no effect if target is "adom_database".'
+                choices:
+                    - 'unknown'
+                    - '4.00'
+                    - '5.00'
+            filter_platform:
+                type: str
+                description: 'The value will be ignored in add/set/update requests if filter_ostype is not set. It has no effect if target is "adom_database".'
+            filter_serial:
+                type: str
+                description: 'The value has no effect if target is "adom_database".'
+            modification_time:
+                type: str
+                description: 'It is a read-only attribute indicating the time when the script was created or modified. The value will be ignored in add/set/...'
+            name:
+                type: str
+                description: no description
+            script_schedule:
+                description: no description
+                type: list
+                suboptions:
+                    datetime:
+                        type: str
+                        description:
+                         - 'Indicates the date and time of the schedule. It should follow the following format for each scheduling type:'
+                         - 'onetime: "YYYY-MM-DD hh:mm:ss"'
+                         - 'daily: "hh:mm"'
+                         - 'weekly: "hh:mm"'
+                         - 'monthly: "DD hh:mm"'
+                    day_of_week:
+                        type: str
+                        default: 'sun'
+                        description: no description
+                        choices:
+                            - 'unknown'
+                            - 'sun'
+                            - 'mon'
+                            - 'tue'
+                            - 'wed'
+                            - 'thu'
+                            - 'fri'
+                            - 'sat'
+                    device:
+                        type: int
+                        description: 'Name or id of an existing device in the database.'
+                    name:
+                        type: str
+                        description: no description
+                    run_on_db:
+                        type: str
+                        default: 'disable'
+                        description: 'Indicates if the scheduled script should be executed on device database. It should always be disable for tcl scripts.'
+                        choices:
+                            - 'disable'
+                            - 'enable'
+                    type:
+                        type: str
+                        description: no description
+                        choices:
+                            - 'auto'
+                            - 'onetime'
+                            - 'daily'
+                            - 'weekly'
+                            - 'monthly'
+            target:
+                type: str
+                default: 'device_database'
+                description: no description
+                choices:
+                    - 'device_database'
+                    - 'remote_device'
+                    - 'adom_database'
+            type:
+                type: str
+                description: no description
+                choices:
+                    - 'cli'
+                    - 'tcl'
+                    - 'cligrp'
 
 '''
 
@@ -98,90 +199,63 @@ EXAMPLES = '''
       ansible_httpapi_validate_certs: False
       ansible_httpapi_port: 443
    tasks:
-
-    - name: REQUESTING /DVMDB/SCRIPT
+    - name: Script table.
       fmgr_dvmdb_script:
-         loose_validation: False
-         workspace_locking_adom: <value in [global, custom adom]>
+         bypass_validation: False
+         workspace_locking_adom: <value in [global, custom adom including root]>
          workspace_locking_timeout: 300
-         method: <value in [add, set, update]>
-         url_params:
-            adom: <value in [none, global, custom dom]>
-         params:
-            -
-               data:
-                 -
-                     content: <value of string>
-                     desc: <value of string>
-                     filter_build: <value of integer>
-                     filter_device: <value of integer>
-                     filter_hostname: <value of string>
-                     filter_ostype: <value in [unknown, fos]>
-                     filter_osver: <value in [unknown, 4.00, 5.00]>
-                     filter_platform: <value of string>
-                     filter_serial: <value of string>
-                     modification_time: <value of string>
-                     name: <value of string>
-                     script_schedule:
-                       -
-                           datetime: <value of string>
-                           day_of_week: <value in [unknown, sun, mon, ...]>
-                           device: <value of integer>
-                           name: <value of string>
-                           run_on_db: <value in [disable, enable]>
-                           type: <value in [auto, onetime, daily, ...]>
-                     target: <value in [device_database, remote_device, adom_database]>
-                     type: <value in [cli, tcl, cligrp]>
-
-    - name: REQUESTING /DVMDB/SCRIPT
-      fmgr_dvmdb_script:
-         loose_validation: False
-         workspace_locking_adom: <value in [global, custom adom]>
-         workspace_locking_timeout: 300
-         method: <value in [get]>
-         url_params:
-            adom: <value in [none, global, custom dom]>
-         params:
-            -
-               expand member: <value of string>
-               fields:
-                 -
-                    - <value in [content, desc, filter_build, ...]>
-               filter:
-                 - <value of string>
-               loadsub: <value of integer>
-               option: <value in [count, object member, syntax]>
-               range:
-                 - <value of integer>
-               sortings:
-                 -
-                     varidic.attr_name: <value in [1, -1]>
+         rc_succeeded: [0, -2, -3, ...]
+         rc_failed: [-2, -3, ...]
+         adom: <your own value>
+         state: <value in [present, absent]>
+         dvmdb_script:
+            content: <value of string>
+            desc: <value of string>
+            filter_build: <value of integer>
+            filter_device: <value of integer>
+            filter_hostname: <value of string>
+            filter_ostype: <value in [unknown, fos]>
+            filter_osver: <value in [unknown, 4.00, 5.00]>
+            filter_platform: <value of string>
+            filter_serial: <value of string>
+            modification_time: <value of string>
+            name: <value of string>
+            script_schedule:
+              -
+                  datetime: <value of string>
+                  day_of_week: <value in [unknown, sun, mon, ...]>
+                  device: <value of integer>
+                  name: <value of string>
+                  run_on_db: <value in [disable, enable]>
+                  type: <value in [auto, onetime, daily, ...]>
+            target: <value in [device_database, remote_device, adom_database]>
+            type: <value in [cli, tcl, cligrp]>
 
 '''
 
 RETURN = '''
-url:
+request_url:
     description: The full url requested
     returned: always
     type: str
     sample: /sys/login/user
-status:
+response_code:
     description: The status of api request
     returned: always
-    type: dict
-data:
-    description: The payload returned in the request
-    type: dict
+    type: int
+    sample: 0
+response_message:
+    description: The descriptive message of the api response
+    type: str
     returned: always
+    sample: OK.
 
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import FAIL_SOCKET_MSG
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import DEFAULT_RESULT_OBJ
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import FMGRCommon
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import FMGBaseException
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.fortimanager import FortiManagerHandler
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.NAPI import NAPIManager
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.NAPI import check_galaxy_version
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.NAPI import check_parameter_bypass
 
 
 def main():
@@ -191,246 +265,16 @@ def main():
         '/dvmdb/script'
     ]
 
-    url_schema = [
-        {
-            'name': 'adom',
-            'type': 'string'
-        }
+    perobject_jrpc_urls = [
+        '/dvmdb/adom/{adom}/script/{script}',
+        '/dvmdb/global/script/{script}',
+        '/dvmdb/script/{script}'
     ]
 
-    body_schema = {
-        'schema_objects': {
-            'object0': [
-                {
-                    'name': 'data',
-                    'api_tag': 0,
-                    'type': 'array',
-                    'items': {
-                        'content': {
-                            'type': 'string'
-                        },
-                        'desc': {
-                            'type': 'string'
-                        },
-                        'filter_build': {
-                            'type': 'integer'
-                        },
-                        'filter_device': {
-                            'type': 'integer'
-                        },
-                        'filter_hostname': {
-                            'type': 'string'
-                        },
-                        'filter_ostype': {
-                            'type': 'string',
-                            'enum': [
-                                'unknown',
-                                'fos'
-                            ]
-                        },
-                        'filter_osver': {
-                            'type': 'string',
-                            'enum': [
-                                'unknown',
-                                '4.00',
-                                '5.00'
-                            ]
-                        },
-                        'filter_platform': {
-                            'type': 'string'
-                        },
-                        'filter_serial': {
-                            'type': 'string'
-                        },
-                        'modification_time': {
-                            'type': 'string'
-                        },
-                        'name': {
-                            'type': 'string'
-                        },
-                        'script_schedule': {
-                            'type': 'array',
-                            'items': {
-                                'datetime': {
-                                    'type': 'string'
-                                },
-                                'day_of_week': {
-                                    'type': 'string',
-                                    'enum': [
-                                        'unknown',
-                                        'sun',
-                                        'mon',
-                                        'tue',
-                                        'wed',
-                                        'thu',
-                                        'fri',
-                                        'sat'
-                                    ]
-                                },
-                                'device': {
-                                    'type': 'integer'
-                                },
-                                'name': {
-                                    'type': 'string'
-                                },
-                                'run_on_db': {
-                                    'type': 'string',
-                                    'enum': [
-                                        'disable',
-                                        'enable'
-                                    ]
-                                },
-                                'type': {
-                                    'type': 'string',
-                                    'enum': [
-                                        'auto',
-                                        'onetime',
-                                        'daily',
-                                        'weekly',
-                                        'monthly'
-                                    ]
-                                }
-                            }
-                        },
-                        'target': {
-                            'type': 'string',
-                            'enum': [
-                                'device_database',
-                                'remote_device',
-                                'adom_database'
-                            ]
-                        },
-                        'type': {
-                            'type': 'string',
-                            'enum': [
-                                'cli',
-                                'tcl',
-                                'cligrp'
-                            ]
-                        }
-                    }
-                },
-                {
-                    'type': 'string',
-                    'name': 'url',
-                    'api_tag': 0
-                }
-            ],
-            'object1': [
-                {
-                    'type': 'string',
-                    'name': 'expand member',
-                    'api_tag': 0
-                },
-                {
-                    'name': 'fields',
-                    'api_tag': 0,
-                    'type': 'array',
-                    'items': {
-                        'type': 'array',
-                        'items': {
-                            'type': 'string',
-                            'enum': [
-                                'content',
-                                'desc',
-                                'filter_build',
-                                'filter_device',
-                                'filter_hostname',
-                                'filter_ostype',
-                                'filter_osver',
-                                'filter_platform',
-                                'filter_serial',
-                                'modification_time',
-                                'name',
-                                'target',
-                                'type'
-                            ]
-                        }
-                    }
-                },
-                {
-                    'name': 'filter',
-                    'type': 'dict',
-                    'dict': {
-                        'type': 'array',
-                        'items': {
-                            'type': 'string',
-                            'example': [
-                                '<attr>',
-                                '==',
-                                'test'
-                            ]
-                        }
-                    },
-                    'api_tag': 0
-                },
-                {
-                    'type': 'integer',
-                    'name': 'loadsub',
-                    'api_tag': 0
-                },
-                {
-                    'name': 'option',
-                    'type': 'dict',
-                    'dict': {
-                        'type': 'string',
-                        'enum': [
-                            'count',
-                            'object member',
-                            'syntax'
-                        ]
-                    },
-                    'api_tag': 0
-                },
-                {
-                    'name': 'range',
-                    'type': 'dict',
-                    'dict': {
-                        'type': 'array',
-                        'items': {
-                            'type': 'integer',
-                            'example': [
-                                2,
-                                5
-                            ]
-                        }
-                    },
-                    'api_tag': 0
-                },
-                {
-                    'name': 'sortings',
-                    'type': 'dict',
-                    'dict': {
-                        'type': 'array',
-                        'items': {
-                            '{attr_name}': {
-                                'type': 'integer',
-                                'enum': [
-                                    1,
-                                    -1
-                                ]
-                            }
-                        }
-                    },
-                    'api_tag': 0
-                },
-                {
-                    'type': 'string',
-                    'name': 'url',
-                    'api_tag': 0
-                }
-            ]
-        },
-        'method_mapping': {
-            'add': 'object0',
-            'get': 'object1',
-            'set': 'object0',
-            'update': 'object0'
-        }
-    }
-
+    url_params = ['adom']
+    module_primary_key = 'name'
     module_arg_spec = {
-        'loose_validation': {
+        'bypass_validation': {
             'type': 'bool',
             'required': False,
             'default': False
@@ -444,56 +288,174 @@ def main():
             'required': False,
             'default': 300
         },
-        'params': {
-            'type': 'list',
-            'required': False
+        'rc_succeeded': {
+            'required': False,
+            'type': 'list'
         },
-        'method': {
+        'rc_failed': {
+            'required': False,
+            'type': 'list'
+        },
+        'state': {
             'type': 'str',
             'required': True,
             'choices': [
-                'add',
-                'get',
-                'set',
-                'update'
+                'present',
+                'absent'
             ]
         },
-        'url_params': {
+        'adom': {
+            'required': True,
+            'type': 'str'
+        },
+        'dvmdb_script': {
+            'required': False,
             'type': 'dict',
-            'required': False
+            'options': {
+                'content': {
+                    'required': False,
+                    'type': 'str'
+                },
+                'desc': {
+                    'required': False,
+                    'type': 'str'
+                },
+                'filter_build': {
+                    'required': False,
+                    'type': 'int'
+                },
+                'filter_device': {
+                    'required': False,
+                    'type': 'int'
+                },
+                'filter_hostname': {
+                    'required': False,
+                    'type': 'str'
+                },
+                'filter_ostype': {
+                    'required': False,
+                    'choices': [
+                        'unknown',
+                        'fos'
+                    ],
+                    'default': 'unknown',
+                    'type': 'str'
+                },
+                'filter_osver': {
+                    'required': False,
+                    'choices': [
+                        'unknown',
+                        '4.00',
+                        '5.00'
+                    ],
+                    'default': 'unknown',
+                    'type': 'str'
+                },
+                'filter_platform': {
+                    'required': False,
+                    'type': 'str'
+                },
+                'filter_serial': {
+                    'required': False,
+                    'type': 'str'
+                },
+                'modification_time': {
+                    'required': False,
+                    'type': 'str'
+                },
+                'name': {
+                    'required': True,
+                    'type': 'str'
+                },
+                'script_schedule': {
+                    'required': False,
+                    'type': 'list',
+                    'options': {
+                        'datetime': {
+                            'required': False,
+                            'type': 'str'
+                        },
+                        'day_of_week': {
+                            'required': False,
+                            'choices': [
+                                'unknown',
+                                'sun',
+                                'mon',
+                                'tue',
+                                'wed',
+                                'thu',
+                                'fri',
+                                'sat'
+                            ],
+                            'default': 'sun',
+                            'type': 'str'
+                        },
+                        'device': {
+                            'required': False,
+                            'type': 'int'
+                        },
+                        'name': {
+                            'required': False,
+                            'type': 'str'
+                        },
+                        'run_on_db': {
+                            'required': False,
+                            'choices': [
+                                'disable',
+                                'enable'
+                            ],
+                            'default': 'disable',
+                            'type': 'str'
+                        },
+                        'type': {
+                            'required': False,
+                            'choices': [
+                                'auto',
+                                'onetime',
+                                'daily',
+                                'weekly',
+                                'monthly'
+                            ],
+                            'type': 'str'
+                        }
+                    }
+                },
+                'target': {
+                    'required': False,
+                    'choices': [
+                        'device_database',
+                        'remote_device',
+                        'adom_database'
+                    ],
+                    'default': 'device_database',
+                    'type': 'str'
+                },
+                'type': {
+                    'required': False,
+                    'choices': [
+                        'cli',
+                        'tcl',
+                        'cligrp'
+                    ],
+                    'type': 'str'
+                }
+            }
+
         }
     }
-    module = AnsibleModule(argument_spec=module_arg_spec,
+
+    check_galaxy_version(module_arg_spec)
+    module = AnsibleModule(argument_spec=check_parameter_bypass(module_arg_spec, 'dvmdb_script'),
                            supports_check_mode=False)
-    method = module.params['method']
-    loose_validation = module.params['loose_validation']
 
     fmgr = None
-    payload = None
-    response = DEFAULT_RESULT_OBJ
-
     if module._socket_path:
         connection = Connection(module._socket_path)
-        tools = FMGRCommon()
-        if loose_validation is False:
-            tools.validate_module_params(module, body_schema)
-        tools.validate_module_url_params(module, jrpc_urls, url_schema)
-        full_url = tools.get_full_url_path(module, jrpc_urls)
-        payload = tools.get_full_payload(module, full_url)
-        fmgr = FortiManagerHandler(connection, module)
-        fmgr.tools = tools
+        fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+        fmgr.process_curd()
     else:
-        module.fail_json(**FAIL_SOCKET_MSG)
-
-    try:
-        response = fmgr._conn.send_request(method, payload)
-        fmgr.govern_response(module=module, results=response,
-                             msg='Operation Finished',
-                             ansible_facts=fmgr.construct_ansible_facts(response, module.params, module.params))
-    except Exception as e:
-        raise FMGBaseException(e)
-
-    module.exit_json(meta=response[1])
+        module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
+    module.exit_json(meta=module.params)
 
 
 if __name__ == '__main__':
