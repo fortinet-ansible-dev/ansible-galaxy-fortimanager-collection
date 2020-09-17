@@ -24,6 +24,7 @@ ANSIBLE_METADATA = {'status': ['preview'],
 DOCUMENTATION = '''
 ---
 module: fmgr_generic
+short_description: Build and send generic FortiManager API request.
 description:
     - This module is for generic fortimanager requests. it receives raw json-rpc
       data, and sends it to fortimanager, finally returns the response to users.
