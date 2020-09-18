@@ -109,12 +109,6 @@ options:
             comment:
                 type: str
                 description: 'Comment.'
-            extended-utm-log:
-                type: str
-                description: 'Enable/disable detailed UTM log messages.'
-                choices:
-                    - 'disable'
-                    - 'enable'
             mm1:
                 description: no description
                 type: list
@@ -403,7 +397,6 @@ EXAMPLES = '''
             carrier-endpoint-prefix-string: <value of string>
             carrierendpointbwltable: <value of string>
             comment: <value of string>
-            extended-utm-log: <value in [disable, enable]>
             mm1:
               - avmonitor
               - block
@@ -629,14 +622,6 @@ def main():
                 },
                 'comment': {
                     'required': False,
-                    'type': 'str'
-                },
-                'extended-utm-log': {
-                    'required': False,
-                    'choices': [
-                        'disable',
-                        'enable'
-                    ],
                     'type': 'str'
                 },
                 'mm1': {

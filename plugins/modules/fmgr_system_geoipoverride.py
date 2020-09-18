@@ -82,9 +82,6 @@ options:
         required: false
         type: dict
         suboptions:
-            country-id:
-                type: str
-                description: 'Two character Country ID code.'
             description:
                 type: str
                 description: 'Description.'
@@ -127,7 +124,6 @@ EXAMPLES = '''
          adom: <your own value>
          state: <value in [present, absent]>
          system_geoipoverride:
-            country-id: <value of string>
             description: <value of string>
             ip-range:
               -
@@ -215,10 +211,6 @@ def main():
             'required': False,
             'type': 'dict',
             'options': {
-                'country-id': {
-                    'required': False,
-                    'type': 'str'
-                },
                 'description': {
                     'required': False,
                     'type': 'str'

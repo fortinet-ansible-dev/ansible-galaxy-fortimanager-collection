@@ -93,16 +93,6 @@ options:
             serial-number:
                 type: str
                 description: 'Serial number of peer.'
-            status:
-                type: str
-                default: 'enable'
-                description:
-                 - 'Peer admin status.'
-                 - 'disable - Disable.'
-                 - 'enable - Enable.'
-                choices:
-                    - 'disable'
-                    - 'enable'
 
 '''
 
@@ -129,7 +119,6 @@ EXAMPLES = '''
             ip: <value of string>
             ip6: <value of string>
             serial-number: <value of string>
-            status: <value in [disable, enable]>
 
 '''
 
@@ -220,15 +209,6 @@ def main():
                 },
                 'serial-number': {
                     'required': False,
-                    'type': 'str'
-                },
-                'status': {
-                    'required': False,
-                    'choices': [
-                        'disable',
-                        'enable'
-                    ],
-                    'default': 'enable',
                     'type': 'str'
                 }
             }

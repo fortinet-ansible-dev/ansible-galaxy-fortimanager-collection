@@ -213,7 +213,7 @@ def main():
     ]
 
     url_params = ['adom']
-    module_primary_key = 'rule-id'
+    module_primary_key = 'tag'
     module_arg_spec = {
         'bypass_validation': {
             'type': 'bool',
@@ -298,7 +298,7 @@ def main():
                     'type': 'str'
                 },
                 'rule-id': {
-                    'required': True,
+                    'required': False,
                     'type': 'int'
                 },
                 'severity': {
@@ -322,7 +322,7 @@ def main():
                     'type': 'str'
                 },
                 'tag': {
-                    'required': False,
+                    'required': True,
                     'type': 'str'
                 }
             }

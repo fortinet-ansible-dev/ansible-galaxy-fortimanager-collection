@@ -2940,7 +2940,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/ips/custom/{custom}',
                 '/pm/config/global/obj/ips/custom/{custom}'
             ],
-            'mkey': 'rule-id'
+            'mkey': 'tag'
         },
         'ips_sensor': {
             'params': [
