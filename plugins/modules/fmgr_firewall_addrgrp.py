@@ -92,8 +92,8 @@ options:
                 type: int
                 description: 'Color of icon on the GUI.'
             comment:
+                type: str
                 description: no description
-                type: dict
             dynamic_mapping:
                 description: no description
                 type: list
@@ -118,8 +118,8 @@ options:
                         type: int
                         description: no description
                     comment:
+                        type: str
                         description: no description
-                        type: dict
                     exclude:
                         type: str
                         description: no description
@@ -197,7 +197,7 @@ EXAMPLES = '''
          firewall_addrgrp:
             allow-routing: <value in [disable, enable]>
             color: <value of integer>
-            comment: <value of dict>
+            comment: <value of string>
             dynamic_mapping:
               -
                   _scope:
@@ -206,7 +206,7 @@ EXAMPLES = '''
                         vdom: <value of string>
                   allow-routing: <value in [disable, enable]>
                   color: <value of integer>
-                  comment: <value of dict>
+                  comment: <value of string>
                   exclude: <value in [disable, enable]>
                   exclude-member: <value of string>
                   member: <value of list>
@@ -316,7 +316,7 @@ def main():
                 },
                 'comment': {
                     'required': False,
-                    'type': 'dict'
+                    'type': 'str'
                 },
                 'dynamic_mapping': {
                     'required': False,
@@ -350,7 +350,7 @@ def main():
                         },
                         'comment': {
                             'required': False,
-                            'type': 'dict'
+                            'type': 'str'
                         },
                         'exclude': {
                             'required': False,
