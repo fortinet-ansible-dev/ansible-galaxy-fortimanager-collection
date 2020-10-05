@@ -304,19 +304,28 @@ class NAPIManager(object):
                     if '/global/' in _url:
                         url = _url
                         break
-            else:
+            elif self.module.params['facts']['params']['adom'] != '' and self.module.params['facts']['params']['adom'] != None:
                 for _url in fact_urls:
                     if '/adom/{adom}/' in _url:
                         url = _url
                         # url = _url.replace('/adom/{adom}/', '/adom/%s/' % (self.module.params['facts']['params']['adom']))
+                        break
+            else:
+                # choose default URL which is for all domains
+                for _url in fact_urls:
+                    if '/global/' not in _url and '/adom/{adom}/' not in _url:
+                        url = _url
                         break
         else:
             url = fact_urls[0]
         if not url:
             self.module.fail_json(msg='can not find url in following sets:%s! please check params: adom' % (fact_urls))
         for _param in fact_params:
+            _the_param = self.module.params['facts']['params'][_param]
+            if self.module.params['facts']['params'][_param] == None:
+                _the_param = ''
             token_hint = '/%s/{%s}' % (_param, _param)
-            token = '/%s/%s' % (_param, self.module.params['facts']['params'][_param])
+            token = '/%s/%s' % (_param, _the_param)
             url = url.replace(token_hint, token)
 
         # Other Filters and Sorters
