@@ -2920,6 +2920,18 @@ def main():
         }
     }
 
+    params_validation_blob =  [
+        {
+            'attribute_path': [
+                'pkg_footer_policy',
+                'policyid'
+            ],
+            'lambda': 'int($) >= 1073741824',
+            'fail_action': 'warn',
+            'hint_message': 'policyid should be larger than 2^30, i.e. 1073741824, otherwise it will be ignored.'
+        }
+    ]
+
     check_galaxy_version(module_arg_spec)
     module = AnsibleModule(argument_spec=check_parameter_bypass(module_arg_spec, 'pkg_footer_policy'),
                            supports_check_mode=False)
@@ -2928,6 +2940,7 @@ def main():
     if module._socket_path:
         connection = Connection(module._socket_path)
         fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+        fmgr.validate_parameters(params_validation_blob)
         fmgr.process_curd()
     else:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')

@@ -308,6 +308,7 @@ def main():
         }
     }
 
+    params_validation_blob = []
     check_galaxy_version(module_arg_spec)
     module = AnsibleModule(argument_spec=check_parameter_bypass(module_arg_spec, 'devprof_system_ntp'),
                            supports_check_mode=False)
@@ -316,6 +317,7 @@ def main():
     if module._socket_path:
         connection = Connection(module._socket_path)
         fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+        fmgr.validate_parameters(params_validation_blob)
         fmgr.process_partial_curd()
     else:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')

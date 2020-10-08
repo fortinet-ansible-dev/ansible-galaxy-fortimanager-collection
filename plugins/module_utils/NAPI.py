@@ -414,6 +414,29 @@ class NAPIManager(object):
         response = self.conn.send_request('set', api_params)
         self.do_exit(response)
 
+    def validate_parameters(self, pvb):
+        for blob in pvb:
+            attribute_path = blob['attribute_path']
+            pointer = self.module.params
+            ignored = False
+            for attr in attribute_path:
+                if attr not in pointer:
+                    # If the parameter is not given, ignore that.
+                    ignored = True
+                    break
+                pointer = pointer[attr]
+            if ignored:
+                continue
+            lambda_expr = blob['lambda']
+            lambda_expr = lambda_expr.replace('$', str(pointer))
+            eval_result = eval(lambda_expr)
+            if not eval_result:
+                if 'fail_action' not in blob or blob['fail_action'] == 'warn':
+                    self.module.warn(blob['hint_message'])
+                else:
+                    # assert blob['fail_action'] == 'quit':
+                    self.module.fail_json(msg=blob['hint_message'])
+
     def _do_final_exit(self, rc, result):
         # XXX: as with https://github.com/fortinet/ansible-fortimanager-generic.
         # the failing conditions priority: failed_when > rc_failed > rc_succeeded.
