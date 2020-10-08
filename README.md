@@ -338,9 +338,6 @@ The collection provides the following modules:
 * `fmgr_ips_sensor`  Configure IPS sensor.
 * `fmgr_ips_sensor_entries`  IPS sensor filter.
 * `fmgr_ips_sensor_entries_exemptip`  Traffic from selected source or destination IP addresses is exempt from this signature.
-* `fmgr_ips_sensor_filter`  IPS sensor filter.
-* `fmgr_ips_sensor_override`  IPS override rule.
-* `fmgr_ips_sensor_override_exemptip`  Exempted IP.
 * `fmgr_log_customfield`  Configure custom log fields.
 * `fmgr_metafields_system_admin_user`  no description.
 * `fmgr_move`  Move fortimanager defined Object.
@@ -369,17 +366,11 @@ The collection provides the following modules:
 * `fmgr_pkg_firewall_proxypolicy`  Configure proxy policies.
 * `fmgr_pkg_firewall_proxypolicy_sectionvalue`  Configure proxy policies.
 * `fmgr_pkg_firewall_shapingpolicy`  Configure shaping policies.
-* `fmgr_pkg_footer_consolidated_policy`  no description.
 * `fmgr_pkg_footer_policy`  no description.
 * `fmgr_pkg_footer_policy6`  no description.
-* `fmgr_pkg_footer_policy6_identitybasedpolicy6`  no description.
-* `fmgr_pkg_footer_policy_identitybasedpolicy`  no description.
 * `fmgr_pkg_footer_shapingpolicy`  no description.
-* `fmgr_pkg_header_consolidated_policy`  no description.
 * `fmgr_pkg_header_policy`  no description.
 * `fmgr_pkg_header_policy6`  no description.
-* `fmgr_pkg_header_policy6_identitybasedpolicy6`  no description.
-* `fmgr_pkg_header_policy_identitybasedpolicy`  no description.
 * `fmgr_pkg_header_shapingpolicy`  no description.
 * `fmgr_pm_devprof_adom`  no description.
 * `fmgr_pm_devprof_pkg`  no description.
@@ -579,7 +570,6 @@ The collection provides the following modules:
 * `fmgr_system_route`  Routing table configuration.
 * `fmgr_system_route6`  Routing table configuration.
 * `fmgr_system_saml`  Global settings for SAML authentication.
-* `fmgr_system_saml_serviceproviders`  Authorized service providers.
 * `fmgr_system_sdnconnector`  Configure connection to SDN Connector.
 * `fmgr_system_sdnconnector_externalip`  Configure GCP external IP.
 * `fmgr_system_sdnconnector_nic`  Configure Azure network interface.
