@@ -285,9 +285,9 @@ response_message:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.NAPI import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.NAPI import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.NAPI import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
 
 
 def main():

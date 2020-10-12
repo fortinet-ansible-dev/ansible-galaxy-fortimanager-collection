@@ -111,7 +111,7 @@ response_message:
 
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.NAPI import NAPIManager
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
 
 
 def main():
