@@ -1725,7 +1725,7 @@ def main():
         }
     }
 
-    params_validation_blob =  [
+    params_validation_blob = [
         {
             'attribute_path': [
                 'pkg_footer_policy6',

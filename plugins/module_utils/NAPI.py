@@ -304,7 +304,7 @@ class NAPIManager(object):
                     if '/global/' in _url:
                         url = _url
                         break
-            elif self.module.params['facts']['params']['adom'] != '' and self.module.params['facts']['params']['adom'] != None:
+            elif self.module.params['facts']['params']['adom'] != '' and self.module.params['facts']['params']['adom'] is not None:
                 for _url in fact_urls:
                     if '/adom/{adom}/' in _url:
                         url = _url
@@ -322,7 +322,7 @@ class NAPIManager(object):
             self.module.fail_json(msg='can not find url in following sets:%s! please check params: adom' % (fact_urls))
         for _param in fact_params:
             _the_param = self.module.params['facts']['params'][_param]
-            if self.module.params['facts']['params'][_param] == None:
+            if self.module.params['facts']['params'][_param] is None:
                 _the_param = ''
             token_hint = '/%s/{%s}' % (_param, _param)
             token = '/%s/%s' % (_param, _the_param)
