@@ -84,11 +84,9 @@ options:
                 description: 'Override server ID (1 - 10).'
             ip:
                 type: str
-                default: '0.0.0.0'
                 description: 'IPv4 address of the override server.'
             ip6:
                 type: str
-                default: '::'
                 description: 'IPv6 address of the override server.'
             port:
                 type: int
@@ -209,12 +207,10 @@ def main():
                 },
                 'ip': {
                     'required': False,
-                    'default': '0.0.0.0',
                     'type': 'str'
                 },
                 'ip6': {
                     'required': False,
-                    'default': '::',
                     'type': 'str'
                 },
                 'port': {

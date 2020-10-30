@@ -80,7 +80,6 @@ options:
         suboptions:
             status:
                 type: str
-                default: 'enable'
                 description:
                  - 'Enable/disable public network (default = enable).'
                  - 'disable - Disable setting.'
@@ -182,7 +181,6 @@ def main():
                         'disable',
                         'enable'
                     ],
-                    'default': 'enable',
                     'type': 'str'
                 }
             }

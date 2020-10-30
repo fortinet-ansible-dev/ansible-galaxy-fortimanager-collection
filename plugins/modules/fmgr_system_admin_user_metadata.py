@@ -94,7 +94,6 @@ options:
                 description: 'Field value.'
             importance:
                 type: str
-                default: 'optional'
                 description:
                  - 'Importance.'
                  - 'optional - This field is optional.'
@@ -104,7 +103,6 @@ options:
                     - 'required'
             status:
                 type: str
-                default: 'enabled'
                 description:
                  - 'Status.'
                  - 'disabled - This field is disabled.'
@@ -237,7 +235,6 @@ def main():
                         'optional',
                         'required'
                     ],
-                    'default': 'optional',
                     'type': 'str'
                 },
                 'status': {
@@ -246,7 +243,6 @@ def main():
                         'disabled',
                         'enabled'
                     ],
-                    'default': 'enabled',
                     'type': 'str'
                 }
             }

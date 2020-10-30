@@ -80,7 +80,6 @@ options:
         suboptions:
             fieldlength:
                 type: str
-                default: '50'
                 description:
                  - 'Field length.'
                  - '20 - Field length of 20.'
@@ -95,7 +94,6 @@ options:
                 description: 'Field name.'
             importance:
                 type: str
-                default: 'required'
                 description:
                  - 'Field importance.'
                  - 'optional - This field is optional.'
@@ -105,7 +103,6 @@ options:
                     - 'required'
             status:
                 type: str
-                default: 'enabled'
                 description:
                  - 'Field status.'
                  - 'disabled - This field is disabled.'
@@ -220,7 +217,6 @@ def main():
                         '50',
                         '255'
                     ],
-                    'default': '50',
                     'type': 'str'
                 },
                 'fieldname': {
@@ -233,7 +229,6 @@ def main():
                         'optional',
                         'required'
                     ],
-                    'default': 'required',
                     'type': 'str'
                 },
                 'status': {
@@ -242,7 +237,6 @@ def main():
                         'disabled',
                         'enabled'
                     ],
-                    'default': 'enabled',
                     'type': 'str'
                 }
             }

@@ -108,7 +108,6 @@ options:
                 description: 'FGFM protocol keep alive interval (30 - 600 sec).'
             force-remote-diff:
                 type: str
-                default: 'disable'
                 description:
                  - 'Always use remote diff when installing.'
                  - 'disable - Disable.'
@@ -146,7 +145,6 @@ options:
                 description: 'Number of retries.'
             retry:
                 type: str
-                default: 'enable'
                 description:
                  - 'Enable/disable configuration install retry.'
                  - 'disable - Disable.'
@@ -160,7 +158,6 @@ options:
                 description: 'Retry interval.'
             rollback-allow-reboot:
                 type: str
-                default: 'disable'
                 description:
                  - 'Enable/disable FortiGate reboot to rollback when installing script/config.'
                  - 'disable - Disable.'
@@ -174,7 +171,6 @@ options:
                 description: 'Maximum script log size per device (1 - 10000K).'
             skip-scep-check:
                 type: str
-                default: 'disable'
                 description:
                  - 'Enable/disable installing scep related objects even if scep url is configured.'
                  - 'disable - Disable.'
@@ -184,7 +180,6 @@ options:
                     - 'enable'
             skip-tunnel-fcp-req:
                 type: str
-                default: 'enable'
                 description:
                  - 'Enable/disable skip the fcp request sent from fgfm tunnel'
                  - 'disable - Disable.'
@@ -194,7 +189,6 @@ options:
                     - 'enable'
             verify-install:
                 type: str
-                default: 'enable'
                 description:
                  - 'Verify install against remote configuration.'
                  - 'disable - Disable.'
@@ -354,7 +348,6 @@ def main():
                         'disable',
                         'enable'
                     ],
-                    'default': 'disable',
                     'type': 'str'
                 },
                 'fortiap-refresh-cnt': {
@@ -398,7 +391,6 @@ def main():
                         'disable',
                         'enable'
                     ],
-                    'default': 'enable',
                     'type': 'str'
                 },
                 'retry-intvl': {
@@ -412,7 +404,6 @@ def main():
                         'disable',
                         'enable'
                     ],
-                    'default': 'disable',
                     'type': 'str'
                 },
                 'script-logsize': {
@@ -426,7 +417,6 @@ def main():
                         'disable',
                         'enable'
                     ],
-                    'default': 'disable',
                     'type': 'str'
                 },
                 'skip-tunnel-fcp-req': {
@@ -435,7 +425,6 @@ def main():
                         'disable',
                         'enable'
                     ],
-                    'default': 'enable',
                     'type': 'str'
                 },
                 'verify-install': {
@@ -445,7 +434,6 @@ def main():
                         'optimal',
                         'enable'
                     ],
-                    'default': 'enable',
                     'type': 'str'
                 }
             }

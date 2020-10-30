@@ -94,7 +94,6 @@ options:
                 description: no description
             opmode:
                 type: str
-                default: 'nat'
                 description: no description
                 choices:
                     - 'nat'
@@ -232,7 +231,6 @@ def main():
                         'nat',
                         'transparent'
                     ],
-                    'default': 'nat',
                     'type': 'str'
                 },
                 'rtm_prof_id': {

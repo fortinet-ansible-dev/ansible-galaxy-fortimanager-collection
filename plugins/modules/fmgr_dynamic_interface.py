@@ -140,7 +140,6 @@ options:
                 description: no description
             single-intf:
                 type: str
-                default: 'enable'
                 description: no description
                 choices:
                     - 'disable'
@@ -348,7 +347,6 @@ def main():
                         'disable',
                         'enable'
                     ],
-                    'default': 'enable',
                     'type': 'str'
                 }
             }

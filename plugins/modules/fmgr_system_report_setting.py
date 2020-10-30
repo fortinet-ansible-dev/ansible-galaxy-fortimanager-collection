@@ -80,7 +80,6 @@ options:
         suboptions:
             aggregate-report:
                 type: str
-                default: 'disable'
                 description:
                  - 'Enable/disable including a group report along with the per-device reports.'
                  - 'disable - Exclude a group report along with the per-device reports.'
@@ -90,7 +89,6 @@ options:
                     - 'enable'
             hcache-lossless:
                 type: str
-                default: 'disable'
                 description:
                  - 'Usableness of ready-with-loss hcaches.'
                  - 'disable - Use ready-with-loss hcaches.'
@@ -108,7 +106,6 @@ options:
                 description: 'Maximum number of rows can be generated in a single table.'
             report-priority:
                 type: str
-                default: 'auto'
                 description:
                  - 'Priority of sql report.'
                  - 'high - High'
@@ -120,7 +117,6 @@ options:
                     - 'auto'
             template-auto-install:
                 type: str
-                default: 'default'
                 description:
                  - 'The language used for new ADOMs (default = default).'
                  - 'default - Default.'
@@ -130,7 +126,6 @@ options:
                     - 'english'
             week-start:
                 type: str
-                default: 'sun'
                 description:
                  - 'Day of the week on which the week starts.'
                  - 'sun - Sunday.'
@@ -238,7 +233,6 @@ def main():
                         'disable',
                         'enable'
                     ],
-                    'default': 'disable',
                     'type': 'str'
                 },
                 'hcache-lossless': {
@@ -247,7 +241,6 @@ def main():
                         'disable',
                         'enable'
                     ],
-                    'default': 'disable',
                     'type': 'str'
                 },
                 'ldap-cache-timeout': {
@@ -267,7 +260,6 @@ def main():
                         'low',
                         'auto'
                     ],
-                    'default': 'auto',
                     'type': 'str'
                 },
                 'template-auto-install': {
@@ -276,7 +268,6 @@ def main():
                         'default',
                         'english'
                     ],
-                    'default': 'default',
                     'type': 'str'
                 },
                 'week-start': {
@@ -285,7 +276,6 @@ def main():
                         'sun',
                         'mon'
                     ],
-                    'default': 'sun',
                     'type': 'str'
                 }
             }

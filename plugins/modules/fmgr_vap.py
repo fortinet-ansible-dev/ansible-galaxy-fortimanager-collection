@@ -84,7 +84,6 @@ options:
         suboptions:
             _centmgmt:
                 type: str
-                default: 'disable'
                 description: no description
                 choices:
                     - 'disable'
@@ -109,14 +108,12 @@ options:
                  - capwap
             _intf_device-identification:
                 type: str
-                default: 'disable'
                 description: no description
                 choices:
                     - 'disable'
                     - 'enable'
             _intf_device-netscan:
                 type: str
-                default: 'disable'
                 description: no description
                 choices:
                     - 'disable'
@@ -126,14 +123,12 @@ options:
                 type: str
             _intf_dhcp-relay-service:
                 type: str
-                default: 'disable'
                 description: no description
                 choices:
                     - 'disable'
                     - 'enable'
             _intf_dhcp-relay-type:
                 type: str
-                default: 'regular'
                 description: no description
                 choices:
                     - 'regular'
@@ -143,14 +138,12 @@ options:
                 description: no description
             _intf_dhcp6-relay-service:
                 type: str
-                default: 'disable'
                 description: no description
                 choices:
                     - 'disable'
                     - 'enable'
             _intf_dhcp6-relay-type:
                 type: str
-                default: 'regular'
                 description: no description
                 choices:
                     - 'regular'
@@ -175,7 +168,6 @@ options:
                  - capwap
             _intf_listen-forticlient-connection:
                 type: str
-                default: 'disable'
                 description: no description
                 choices:
                     - 'disable'
@@ -276,7 +268,6 @@ options:
                 suboptions:
                     _centmgmt:
                         type: str
-                        default: 'disable'
                         description: no description
                         choices:
                             - 'disable'
@@ -301,14 +292,12 @@ options:
                          - capwap
                     _intf_device-identification:
                         type: str
-                        default: 'disable'
                         description: no description
                         choices:
                             - 'disable'
                             - 'enable'
                     _intf_device-netscan:
                         type: str
-                        default: 'disable'
                         description: no description
                         choices:
                             - 'disable'
@@ -318,14 +307,12 @@ options:
                         type: str
                     _intf_dhcp-relay-service:
                         type: str
-                        default: 'disable'
                         description: no description
                         choices:
                             - 'disable'
                             - 'enable'
                     _intf_dhcp-relay-type:
                         type: str
-                        default: 'regular'
                         description: no description
                         choices:
                             - 'regular'
@@ -335,14 +322,12 @@ options:
                         description: no description
                     _intf_dhcp6-relay-service:
                         type: str
-                        default: 'disable'
                         description: no description
                         choices:
                             - 'disable'
                             - 'enable'
                     _intf_dhcp6-relay-type:
                         type: str
-                        default: 'regular'
                         description: no description
                         choices:
                             - 'regular'
@@ -367,7 +352,6 @@ options:
                          - capwap
                     _intf_listen-forticlient-connection:
                         type: str
-                        default: 'disable'
                         description: no description
                         choices:
                             - 'disable'
@@ -2322,7 +2306,6 @@ def main():
                         'disable',
                         'enable'
                     ],
-                    'default': 'disable',
                     'type': 'str'
                 },
                 '_dhcp_svr_id': {
@@ -2352,7 +2335,6 @@ def main():
                         'disable',
                         'enable'
                     ],
-                    'default': 'disable',
                     'type': 'str'
                 },
                 '_intf_device-netscan': {
@@ -2361,7 +2343,6 @@ def main():
                         'disable',
                         'enable'
                     ],
-                    'default': 'disable',
                     'type': 'str'
                 },
                 '_intf_dhcp-relay-ip': {
@@ -2374,7 +2355,6 @@ def main():
                         'disable',
                         'enable'
                     ],
-                    'default': 'disable',
                     'type': 'str'
                 },
                 '_intf_dhcp-relay-type': {
@@ -2383,7 +2363,6 @@ def main():
                         'regular',
                         'ipsec'
                     ],
-                    'default': 'regular',
                     'type': 'str'
                 },
                 '_intf_dhcp6-relay-ip': {
@@ -2396,7 +2375,6 @@ def main():
                         'disable',
                         'enable'
                     ],
-                    'default': 'disable',
                     'type': 'str'
                 },
                 '_intf_dhcp6-relay-type': {
@@ -2404,7 +2382,6 @@ def main():
                     'choices': [
                         'regular'
                     ],
-                    'default': 'regular',
                     'type': 'str'
                 },
                 '_intf_ip': {
@@ -2436,7 +2413,6 @@ def main():
                         'disable',
                         'enable'
                     ],
-                    'default': 'disable',
                     'type': 'str'
                 },
                 'acct-interim-interval': {
@@ -2562,7 +2538,6 @@ def main():
                                 'disable',
                                 'enable'
                             ],
-                            'default': 'disable',
                             'type': 'str'
                         },
                         '_dhcp_svr_id': {
@@ -2592,7 +2567,6 @@ def main():
                                 'disable',
                                 'enable'
                             ],
-                            'default': 'disable',
                             'type': 'str'
                         },
                         '_intf_device-netscan': {
@@ -2601,7 +2575,6 @@ def main():
                                 'disable',
                                 'enable'
                             ],
-                            'default': 'disable',
                             'type': 'str'
                         },
                         '_intf_dhcp-relay-ip': {
@@ -2614,7 +2587,6 @@ def main():
                                 'disable',
                                 'enable'
                             ],
-                            'default': 'disable',
                             'type': 'str'
                         },
                         '_intf_dhcp-relay-type': {
@@ -2623,7 +2595,6 @@ def main():
                                 'regular',
                                 'ipsec'
                             ],
-                            'default': 'regular',
                             'type': 'str'
                         },
                         '_intf_dhcp6-relay-ip': {
@@ -2636,7 +2607,6 @@ def main():
                                 'disable',
                                 'enable'
                             ],
-                            'default': 'disable',
                             'type': 'str'
                         },
                         '_intf_dhcp6-relay-type': {
@@ -2644,7 +2614,6 @@ def main():
                             'choices': [
                                 'regular'
                             ],
-                            'default': 'regular',
                             'type': 'str'
                         },
                         '_intf_ip': {
@@ -2676,7 +2645,6 @@ def main():
                                 'disable',
                                 'enable'
                             ],
-                            'default': 'disable',
                             'type': 'str'
                         },
                         '_scope': {

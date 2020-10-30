@@ -90,7 +90,6 @@ options:
                 description: 'Variable name.'
             var-type:
                 type: str
-                default: 'string'
                 description:
                  - 'Variable type.'
                  - 'integer - Integer.'
@@ -222,7 +221,6 @@ def main():
                         'enum',
                         'ip'
                     ],
-                    'default': 'string',
                     'type': 'str'
                 }
             }

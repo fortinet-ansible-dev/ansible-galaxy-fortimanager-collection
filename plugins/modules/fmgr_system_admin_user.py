@@ -107,7 +107,6 @@ options:
                 description: 'PKI user certificate CA (CA name in local).'
             change-password:
                 type: str
-                default: 'disable'
                 description:
                  - 'Enable/disable restricted user to change self password.'
                  - 'disable - Disable setting.'
@@ -125,7 +124,6 @@ options:
                         description: 'Widgets column ID.'
                     diskio-content-type:
                         type: str
-                        default: 'util'
                         description:
                          - 'Disk I/O Monitor widgets chart type.'
                          - 'util - bandwidth utilization.'
@@ -137,7 +135,6 @@ options:
                             - 'blks'
                     diskio-period:
                         type: str
-                        default: '1hour'
                         description:
                          - 'Disk I/O Monitor widgets data period.'
                          - '1hour - 1 hour.'
@@ -160,7 +157,6 @@ options:
                             - '6hours'
                     log-rate-topn:
                         type: str
-                        default: '5'
                         description:
                          - 'Log receive monitor widgets number of top items to display.'
                          - '1 - Top 1.'
@@ -176,7 +172,6 @@ options:
                             - '5'
                     log-rate-type:
                         type: str
-                        default: 'device'
                         description:
                          - 'Log receive monitor widgets statistics breakdown options.'
                          - 'log - Show log rates for each log type.'
@@ -201,7 +196,6 @@ options:
                         description: 'Widgets refresh interval.'
                     res-cpu-display:
                         type: str
-                        default: 'average '
                         description:
                          - 'Widgets CPU display type.'
                          - 'average  - Average usage of CPU.'
@@ -211,7 +205,6 @@ options:
                             - 'each'
                     res-period:
                         type: str
-                        default: '10min '
                         description:
                          - 'Widgets data period.'
                          - '10min  - Last 10 minutes.'
@@ -223,7 +216,6 @@ options:
                             - 'day'
                     res-view-type:
                         type: str
-                        default: 'history'
                         description:
                          - 'Widgets data view type.'
                          - 'real-time  - Real-time view.'
@@ -233,7 +225,6 @@ options:
                             - 'history'
                     status:
                         type: str
-                        default: 'open'
                         description:
                          - 'Widgets opened/closed state.'
                          - 'close - Widget closed.'
@@ -247,7 +238,6 @@ options:
                         description: 'ID of tab where widget is displayed.'
                     time-period:
                         type: str
-                        default: '1hour'
                         description:
                          - 'Log Database Monitor widgets data period.'
                          - '1hour - 1 hour.'
@@ -316,7 +306,6 @@ options:
                 description: 'Email address.'
             ext-auth-accprofile-override:
                 type: str
-                default: 'disable'
                 description:
                  - 'Allow to use the access profile provided by the remote authentication server.'
                  - 'disable - Disable access profile override.'
@@ -326,7 +315,6 @@ options:
                     - 'enable'
             ext-auth-adom-override:
                 type: str
-                default: 'disable'
                 description:
                  - 'Allow to use the ADOM provided by the remote authentication server.'
                  - 'disable - Disable ADOM override.'
@@ -342,7 +330,6 @@ options:
                 description: 'First name.'
             force-password-change:
                 type: str
-                default: 'disable'
                 description:
                  - 'Enable/disable force password change on next login.'
                  - 'disable - Disable setting.'
@@ -366,43 +353,33 @@ options:
                         description: 'IPS filter name.'
             ipv6_trusthost1:
                 type: str
-                default: '::/0'
                 description: 'Admin user trusted host IPv6, default ::/0 for all.'
             ipv6_trusthost10:
                 type: str
-                default: 'ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff/128'
                 description: 'Admin user trusted host IPv6, default ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff/128 for none.'
             ipv6_trusthost2:
                 type: str
-                default: 'ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff/128'
                 description: 'Admin user trusted host IPv6, default ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff/128 for none.'
             ipv6_trusthost3:
                 type: str
-                default: 'ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff/128'
                 description: 'Admin user trusted host IPv6, default ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff/128 for none.'
             ipv6_trusthost4:
                 type: str
-                default: 'ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff/128'
                 description: 'Admin user trusted host IPv6, default ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff/128 for none.'
             ipv6_trusthost5:
                 type: str
-                default: 'ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff/128'
                 description: 'Admin user trusted host IPv6, default ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff/128 for none.'
             ipv6_trusthost6:
                 type: str
-                default: 'ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff/128'
                 description: 'Admin user trusted host IPv6, default ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff/128 for none.'
             ipv6_trusthost7:
                 type: str
-                default: 'ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff/128'
                 description: 'Admin user trusted host IPv6, default ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff/128 for none.'
             ipv6_trusthost8:
                 type: str
-                default: 'ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff/128'
                 description: 'Admin user trusted host IPv6, default ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff/128 for none.'
             ipv6_trusthost9:
                 type: str
-                default: 'ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff/128'
                 description: 'Admin user trusted host IPv6, default ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff/128 for none.'
             last-name:
                 type: str
@@ -426,7 +403,6 @@ options:
                         description: 'Field value.'
                     importance:
                         type: str
-                        default: 'optional'
                         description:
                          - 'Importance.'
                          - 'optional - This field is optional.'
@@ -436,7 +412,6 @@ options:
                             - 'required'
                     status:
                         type: str
-                        default: 'enabled'
                         description:
                          - 'Status.'
                          - 'disabled - This field is disabled.'
@@ -468,14 +443,12 @@ options:
                         description: 'Policy package names.'
             profileid:
                 type: str
-                default: 'Restricted_User'
                 description: 'Profile ID.'
             radius_server:
                 type: str
                 description: 'RADIUS server name.'
             restrict-access:
                 type: str
-                default: 'disable'
                 description:
                  - 'Enable/disable restricted access to development VDOM.'
                  - 'disable - Disable setting.'
@@ -492,7 +465,6 @@ options:
                         description: 'Device or device VDOM.'
             rpc-permit:
                 type: str
-                default: 'none'
                 description:
                  - 'set none/read/read-write rpc-permission.'
                  - 'read-write - Read-write permission.'
@@ -519,47 +491,36 @@ options:
                 description: 'TACACS+ server name.'
             trusthost1:
                 type: str
-                default: '0.0.0.0 0.0.0.0'
                 description: 'Admin user trusted host IP, default 0.0.0.0 0.0.0.0 for all.'
             trusthost10:
                 type: str
-                default: '255.255.255.255 255.255.255.255'
                 description: 'Admin user trusted host IP, default 255.255.255.255 255.255.255.255 for none.'
             trusthost2:
                 type: str
-                default: '255.255.255.255 255.255.255.255'
                 description: 'Admin user trusted host IP, default 255.255.255.255 255.255.255.255 for none.'
             trusthost3:
                 type: str
-                default: '255.255.255.255 255.255.255.255'
                 description: 'Admin user trusted host IP, default 255.255.255.255 255.255.255.255 for none.'
             trusthost4:
                 type: str
-                default: '255.255.255.255 255.255.255.255'
                 description: 'Admin user trusted host IP, default 255.255.255.255 255.255.255.255 for none.'
             trusthost5:
                 type: str
-                default: '255.255.255.255 255.255.255.255'
                 description: 'Admin user trusted host IP, default 255.255.255.255 255.255.255.255 for none.'
             trusthost6:
                 type: str
-                default: '255.255.255.255 255.255.255.255'
                 description: 'Admin user trusted host IP, default 255.255.255.255 255.255.255.255 for none.'
             trusthost7:
                 type: str
-                default: '255.255.255.255 255.255.255.255'
                 description: 'Admin user trusted host IP, default 255.255.255.255 255.255.255.255 for none.'
             trusthost8:
                 type: str
-                default: '255.255.255.255 255.255.255.255'
                 description: 'Admin user trusted host IP, default 255.255.255.255 255.255.255.255 for none.'
             trusthost9:
                 type: str
-                default: '255.255.255.255 255.255.255.255'
                 description: 'Admin user trusted host IP, default 255.255.255.255 255.255.255.255 for none.'
             two-factor-auth:
                 type: str
-                default: 'disable'
                 description:
                  - 'Enable 2-factor authentication (certificate + password).'
                  - 'disable - Disable 2-factor authentication.'
@@ -569,7 +530,6 @@ options:
                     - 'enable'
             user_type:
                 type: str
-                default: 'local'
                 description:
                  - 'User type.'
                  - 'local - Local user.'
@@ -597,7 +557,6 @@ options:
                         description: 'Web filter name.'
             wildcard:
                 type: str
-                default: 'disable'
                 description:
                  - 'Enable/disable wildcard remote authentication.'
                  - 'disable - Disable username wildcard.'
@@ -849,7 +808,6 @@ def main():
                         'disable',
                         'enable'
                     ],
-                    'default': 'disable',
                     'type': 'str'
                 },
                 'dashboard': {
@@ -868,7 +826,6 @@ def main():
                                 'iops',
                                 'blks'
                             ],
-                            'default': 'util',
                             'type': 'str'
                         },
                         'diskio-period': {
@@ -878,7 +835,6 @@ def main():
                                 '8hour',
                                 '24hour'
                             ],
-                            'default': '1hour',
                             'type': 'str'
                         },
                         'log-rate-period': {
@@ -899,7 +855,6 @@ def main():
                                 '4',
                                 '5'
                             ],
-                            'default': '5',
                             'type': 'str'
                         },
                         'log-rate-type': {
@@ -908,7 +863,6 @@ def main():
                                 'log',
                                 'device'
                             ],
-                            'default': 'device',
                             'type': 'str'
                         },
                         'moduleid': {
@@ -936,7 +890,6 @@ def main():
                                 'average ',
                                 'each'
                             ],
-                            'default': 'average ',
                             'type': 'str'
                         },
                         'res-period': {
@@ -946,7 +899,6 @@ def main():
                                 'hour',
                                 'day'
                             ],
-                            'default': '10min ',
                             'type': 'str'
                         },
                         'res-view-type': {
@@ -955,7 +907,6 @@ def main():
                                 'real-time ',
                                 'history'
                             ],
-                            'default': 'history',
                             'type': 'str'
                         },
                         'status': {
@@ -964,7 +915,6 @@ def main():
                                 'close',
                                 'open'
                             ],
-                            'default': 'open',
                             'type': 'str'
                         },
                         'tabid': {
@@ -979,7 +929,6 @@ def main():
                                 '8hour',
                                 '24hour'
                             ],
-                            'default': '1hour',
                             'type': 'str'
                         },
                         'widget-type': {
@@ -1039,7 +988,6 @@ def main():
                         'disable',
                         'enable'
                     ],
-                    'default': 'disable',
                     'type': 'str'
                 },
                 'ext-auth-adom-override': {
@@ -1048,7 +996,6 @@ def main():
                         'disable',
                         'enable'
                     ],
-                    'default': 'disable',
                     'type': 'str'
                 },
                 'ext-auth-group-match': {
@@ -1065,7 +1012,6 @@ def main():
                         'disable',
                         'enable'
                     ],
-                    'default': 'disable',
                     'type': 'str'
                 },
                 'group': {
@@ -1089,52 +1035,42 @@ def main():
                 },
                 'ipv6_trusthost1': {
                     'required': False,
-                    'default': '::/0',
                     'type': 'str'
                 },
                 'ipv6_trusthost10': {
                     'required': False,
-                    'default': 'ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff/128',
                     'type': 'str'
                 },
                 'ipv6_trusthost2': {
                     'required': False,
-                    'default': 'ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff/128',
                     'type': 'str'
                 },
                 'ipv6_trusthost3': {
                     'required': False,
-                    'default': 'ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff/128',
                     'type': 'str'
                 },
                 'ipv6_trusthost4': {
                     'required': False,
-                    'default': 'ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff/128',
                     'type': 'str'
                 },
                 'ipv6_trusthost5': {
                     'required': False,
-                    'default': 'ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff/128',
                     'type': 'str'
                 },
                 'ipv6_trusthost6': {
                     'required': False,
-                    'default': 'ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff/128',
                     'type': 'str'
                 },
                 'ipv6_trusthost7': {
                     'required': False,
-                    'default': 'ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff/128',
                     'type': 'str'
                 },
                 'ipv6_trusthost8': {
                     'required': False,
-                    'default': 'ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff/128',
                     'type': 'str'
                 },
                 'ipv6_trusthost9': {
                     'required': False,
-                    'default': 'ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff/128',
                     'type': 'str'
                 },
                 'last-name': {
@@ -1168,7 +1104,6 @@ def main():
                                 'optional',
                                 'required'
                             ],
-                            'default': 'optional',
                             'type': 'str'
                         },
                         'status': {
@@ -1177,7 +1112,6 @@ def main():
                                 'disabled',
                                 'enabled'
                             ],
-                            'default': 'enabled',
                             'type': 'str'
                         }
                     }
@@ -1214,7 +1148,6 @@ def main():
                 },
                 'profileid': {
                     'required': False,
-                    'default': 'Restricted_User',
                     'type': 'str'
                 },
                 'radius_server': {
@@ -1227,7 +1160,6 @@ def main():
                         'disable',
                         'enable'
                     ],
-                    'default': 'disable',
                     'type': 'str'
                 },
                 'restrict-dev-vdom': {
@@ -1247,7 +1179,6 @@ def main():
                         'none',
                         'read'
                     ],
-                    'default': 'none',
                     'type': 'str'
                 },
                 'ssh-public-key1': {
@@ -1272,52 +1203,42 @@ def main():
                 },
                 'trusthost1': {
                     'required': False,
-                    'default': '0.0.0.0 0.0.0.0',
                     'type': 'str'
                 },
                 'trusthost10': {
                     'required': False,
-                    'default': '255.255.255.255 255.255.255.255',
                     'type': 'str'
                 },
                 'trusthost2': {
                     'required': False,
-                    'default': '255.255.255.255 255.255.255.255',
                     'type': 'str'
                 },
                 'trusthost3': {
                     'required': False,
-                    'default': '255.255.255.255 255.255.255.255',
                     'type': 'str'
                 },
                 'trusthost4': {
                     'required': False,
-                    'default': '255.255.255.255 255.255.255.255',
                     'type': 'str'
                 },
                 'trusthost5': {
                     'required': False,
-                    'default': '255.255.255.255 255.255.255.255',
                     'type': 'str'
                 },
                 'trusthost6': {
                     'required': False,
-                    'default': '255.255.255.255 255.255.255.255',
                     'type': 'str'
                 },
                 'trusthost7': {
                     'required': False,
-                    'default': '255.255.255.255 255.255.255.255',
                     'type': 'str'
                 },
                 'trusthost8': {
                     'required': False,
-                    'default': '255.255.255.255 255.255.255.255',
                     'type': 'str'
                 },
                 'trusthost9': {
                     'required': False,
-                    'default': '255.255.255.255 255.255.255.255',
                     'type': 'str'
                 },
                 'two-factor-auth': {
@@ -1326,7 +1247,6 @@ def main():
                         'disable',
                         'enable'
                     ],
-                    'default': 'disable',
                     'type': 'str'
                 },
                 'user_type': {
@@ -1339,7 +1259,6 @@ def main():
                         'pki-auth',
                         'group'
                     ],
-                    'default': 'local',
                     'type': 'str'
                 },
                 'userid': {
@@ -1362,7 +1281,6 @@ def main():
                         'disable',
                         'enable'
                     ],
-                    'default': 'disable',
                     'type': 'str'
                 }
             }

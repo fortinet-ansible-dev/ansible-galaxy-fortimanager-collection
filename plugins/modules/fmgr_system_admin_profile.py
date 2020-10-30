@@ -80,7 +80,6 @@ options:
         suboptions:
             adom-lock:
                 type: str
-                default: 'none'
                 description:
                  - 'ADOM locking'
                  - 'none - No permission.'
@@ -92,7 +91,6 @@ options:
                     - 'read-write'
             adom-policy-packages:
                 type: str
-                default: 'none'
                 description:
                  - 'ADOM policy packages.'
                  - 'none - No permission.'
@@ -104,7 +102,6 @@ options:
                     - 'read-write'
             adom-switch:
                 type: str
-                default: 'none'
                 description:
                  - 'Administrator domain.'
                  - 'none - No permission.'
@@ -116,7 +113,6 @@ options:
                     - 'read-write'
             app-filter:
                 type: str
-                default: 'disable'
                 description:
                  - 'App filter.'
                  - 'disable - Disable setting.'
@@ -126,7 +122,6 @@ options:
                     - 'enable'
             assignment:
                 type: str
-                default: 'none'
                 description:
                  - 'Assignment permission.'
                  - 'none - No permission.'
@@ -138,7 +133,6 @@ options:
                     - 'read-write'
             change-password:
                 type: str
-                default: 'disable'
                 description:
                  - 'Enable/disable restricted user to change self password.'
                  - 'disable - Disable setting.'
@@ -148,7 +142,6 @@ options:
                     - 'enable'
             config-retrieve:
                 type: str
-                default: 'none'
                 description:
                  - 'Configuration retrieve.'
                  - 'none - No permission.'
@@ -160,7 +153,6 @@ options:
                     - 'read-write'
             config-revert:
                 type: str
-                default: 'none'
                 description:
                  - 'Revert Configuration from Revision History'
                  - 'none - No permission.'
@@ -172,7 +164,6 @@ options:
                     - 'read-write'
             consistency-check:
                 type: str
-                default: 'none'
                 description:
                  - 'Consistency check.'
                  - 'none - No permission.'
@@ -184,7 +175,6 @@ options:
                     - 'read-write'
             datamask:
                 type: str
-                default: 'disable'
                 description:
                  - 'Enable/disable data masking.'
                  - 'disable - Disable data masking.'
@@ -210,7 +200,6 @@ options:
                         description: 'Field name.'
                     field-status:
                         type: str
-                        default: 'enable'
                         description:
                          - 'Field status.'
                          - 'disable - Disable field.'
@@ -220,7 +209,6 @@ options:
                             - 'enable'
                     field-type:
                         type: str
-                        default: 'string'
                         description:
                          - 'Field type.'
                          - 'string - String.'
@@ -236,7 +224,6 @@ options:
                             - 'unknown'
             datamask-custom-priority:
                 type: str
-                default: 'disable'
                 description:
                  - 'Prioritize custom fields.'
                  - 'disable - Disable custom field search priority.'
@@ -262,7 +249,6 @@ options:
                 type: str
             deploy-management:
                 type: str
-                default: 'none'
                 description:
                  - 'Install to devices.'
                  - 'none - No permission.'
@@ -277,7 +263,6 @@ options:
                 description: 'Description.'
             device-ap:
                 type: str
-                default: 'none'
                 description:
                  - 'Manage AP.'
                  - 'none - No permission.'
@@ -289,7 +274,6 @@ options:
                     - 'read-write'
             device-config:
                 type: str
-                default: 'none'
                 description:
                  - 'Manage device configurations.'
                  - 'none - No permission.'
@@ -301,7 +285,6 @@ options:
                     - 'read-write'
             device-forticlient:
                 type: str
-                default: 'none'
                 description:
                  - 'Manage FortiClient.'
                  - 'none - No permission.'
@@ -313,7 +296,6 @@ options:
                     - 'read-write'
             device-fortiswitch:
                 type: str
-                default: 'none'
                 description:
                  - 'Manage FortiSwitch.'
                  - 'none - No permission.'
@@ -325,7 +307,6 @@ options:
                     - 'read-write'
             device-manager:
                 type: str
-                default: 'none'
                 description:
                  - 'Device manager.'
                  - 'none - No permission.'
@@ -337,7 +318,6 @@ options:
                     - 'read-write'
             device-op:
                 type: str
-                default: 'none'
                 description:
                  - 'Device add/delete/edit.'
                  - 'none - No permission.'
@@ -349,7 +329,6 @@ options:
                     - 'read-write'
             device-policy-package-lock:
                 type: str
-                default: 'none'
                 description:
                  - 'Device/Policy Package locking'
                  - 'none - No permission.'
@@ -361,7 +340,6 @@ options:
                     - 'read-write'
             device-profile:
                 type: str
-                default: 'none'
                 description:
                  - 'Device profile permission.'
                  - 'none - No permission.'
@@ -373,7 +351,6 @@ options:
                     - 'read-write'
             device-revision-deletion:
                 type: str
-                default: 'none'
                 description:
                  - 'Delete device revision.'
                  - 'none - No permission.'
@@ -385,7 +362,6 @@ options:
                     - 'read-write'
             device-wan-link-load-balance:
                 type: str
-                default: 'none'
                 description:
                  - 'Manage WAN link load balance.'
                  - 'none - No permission.'
@@ -397,7 +373,6 @@ options:
                     - 'read-write'
             event-management:
                 type: str
-                default: 'none'
                 description:
                  - 'Event management.'
                  - 'none - No permission.'
@@ -409,7 +384,6 @@ options:
                     - 'read-write'
             fgd-center-advanced:
                 type: str
-                default: 'none'
                 description:
                  - 'FortiGuard Center Advanced.'
                  - 'none - No permission.'
@@ -421,7 +395,6 @@ options:
                     - 'read-write'
             fgd-center-fmw-mgmt:
                 type: str
-                default: 'none'
                 description:
                  - 'FortiGuard Center Firmware Management.'
                  - 'none - No permission.'
@@ -433,7 +406,6 @@ options:
                     - 'read-write'
             fgd-center-licensing:
                 type: str
-                default: 'none'
                 description:
                  - 'FortiGuard Center Licensing.'
                  - 'none - No permission.'
@@ -445,7 +417,6 @@ options:
                     - 'read-write'
             fgd_center:
                 type: str
-                default: 'none'
                 description:
                  - 'FortiGuard Center.'
                  - 'none - No permission.'
@@ -457,7 +428,6 @@ options:
                     - 'read-write'
             global-policy-packages:
                 type: str
-                default: 'none'
                 description:
                  - 'Global policy packages.'
                  - 'none - No permission.'
@@ -469,7 +439,6 @@ options:
                     - 'read-write'
             import-policy-packages:
                 type: str
-                default: 'none'
                 description:
                  - 'Import Policy Package.'
                  - 'none - No permission.'
@@ -481,7 +450,6 @@ options:
                     - 'read-write'
             intf-mapping:
                 type: str
-                default: 'none'
                 description:
                  - 'Interface Mapping'
                  - 'none - No permission.'
@@ -493,7 +461,6 @@ options:
                     - 'read-write'
             ips-filter:
                 type: str
-                default: 'disable'
                 description:
                  - 'IPS filter.'
                  - 'disable - Disable setting.'
@@ -503,7 +470,6 @@ options:
                     - 'enable'
             log-viewer:
                 type: str
-                default: 'none'
                 description:
                  - 'Log viewer.'
                  - 'none - No permission.'
@@ -515,7 +481,6 @@ options:
                     - 'read-write'
             policy-objects:
                 type: str
-                default: 'none'
                 description:
                  - 'Policy objects permission.'
                  - 'none - No permission.'
@@ -530,7 +495,6 @@ options:
                 description: 'Profile ID.'
             read-passwd:
                 type: str
-                default: 'none'
                 description:
                  - 'View password in clear text.'
                  - 'none - No permission.'
@@ -542,7 +506,6 @@ options:
                     - 'read-write'
             realtime-monitor:
                 type: str
-                default: 'none'
                 description:
                  - 'Realtime monitor.'
                  - 'none - No permission.'
@@ -554,7 +517,6 @@ options:
                     - 'read-write'
             report-viewer:
                 type: str
-                default: 'none'
                 description:
                  - 'Report viewer.'
                  - 'none - No permission.'
@@ -566,7 +528,6 @@ options:
                     - 'read-write'
             scope:
                 type: str
-                default: 'global'
                 description:
                  - 'Scope.'
                  - 'global - Global scope.'
@@ -576,7 +537,6 @@ options:
                     - 'adom'
             set-install-targets:
                 type: str
-                default: 'none'
                 description:
                  - 'Edit installation targets.'
                  - 'none - No permission.'
@@ -588,7 +548,6 @@ options:
                     - 'read-write'
             system-setting:
                 type: str
-                default: 'none'
                 description:
                  - 'System setting.'
                  - 'none - No permission.'
@@ -600,7 +559,6 @@ options:
                     - 'read-write'
             term-access:
                 type: str
-                default: 'none'
                 description:
                  - 'Terminal access.'
                  - 'none - No permission.'
@@ -612,7 +570,6 @@ options:
                     - 'read-write'
             type:
                 type: str
-                default: 'system'
                 description:
                  - 'profile type.'
                  - 'system - System admin.'
@@ -622,7 +579,6 @@ options:
                     - 'restricted'
             vpn-manager:
                 type: str
-                default: 'none'
                 description:
                  - 'VPN manager.'
                  - 'none - No permission.'
@@ -634,7 +590,6 @@ options:
                     - 'read-write'
             web-filter:
                 type: str
-                default: 'disable'
                 description:
                  - 'Web filter.'
                  - 'disable - Disable setting.'
@@ -812,7 +767,6 @@ def main():
                         'read',
                         'read-write'
                     ],
-                    'default': 'none',
                     'type': 'str'
                 },
                 'adom-policy-packages': {
@@ -822,7 +776,6 @@ def main():
                         'read',
                         'read-write'
                     ],
-                    'default': 'none',
                     'type': 'str'
                 },
                 'adom-switch': {
@@ -832,7 +785,6 @@ def main():
                         'read',
                         'read-write'
                     ],
-                    'default': 'none',
                     'type': 'str'
                 },
                 'app-filter': {
@@ -841,7 +793,6 @@ def main():
                         'disable',
                         'enable'
                     ],
-                    'default': 'disable',
                     'type': 'str'
                 },
                 'assignment': {
@@ -851,7 +802,6 @@ def main():
                         'read',
                         'read-write'
                     ],
-                    'default': 'none',
                     'type': 'str'
                 },
                 'change-password': {
@@ -860,7 +810,6 @@ def main():
                         'disable',
                         'enable'
                     ],
-                    'default': 'disable',
                     'type': 'str'
                 },
                 'config-retrieve': {
@@ -870,7 +819,6 @@ def main():
                         'read',
                         'read-write'
                     ],
-                    'default': 'none',
                     'type': 'str'
                 },
                 'config-revert': {
@@ -880,7 +828,6 @@ def main():
                         'read',
                         'read-write'
                     ],
-                    'default': 'none',
                     'type': 'str'
                 },
                 'consistency-check': {
@@ -890,7 +837,6 @@ def main():
                         'read',
                         'read-write'
                     ],
-                    'default': 'none',
                     'type': 'str'
                 },
                 'datamask': {
@@ -899,7 +845,6 @@ def main():
                         'disable',
                         'enable'
                     ],
-                    'default': 'disable',
                     'type': 'str'
                 },
                 'datamask-custom-fields': {
@@ -927,7 +872,6 @@ def main():
                                 'disable',
                                 'enable'
                             ],
-                            'default': 'enable',
                             'type': 'str'
                         },
                         'field-type': {
@@ -939,7 +883,6 @@ def main():
                                 'email',
                                 'unknown'
                             ],
-                            'default': 'string',
                             'type': 'str'
                         }
                     }
@@ -950,7 +893,6 @@ def main():
                         'disable',
                         'enable'
                     ],
-                    'default': 'disable',
                     'type': 'str'
                 },
                 'datamask-fields': {
@@ -979,7 +921,6 @@ def main():
                         'read',
                         'read-write'
                     ],
-                    'default': 'none',
                     'type': 'str'
                 },
                 'description': {
@@ -993,7 +934,6 @@ def main():
                         'read',
                         'read-write'
                     ],
-                    'default': 'none',
                     'type': 'str'
                 },
                 'device-config': {
@@ -1003,7 +943,6 @@ def main():
                         'read',
                         'read-write'
                     ],
-                    'default': 'none',
                     'type': 'str'
                 },
                 'device-forticlient': {
@@ -1013,7 +952,6 @@ def main():
                         'read',
                         'read-write'
                     ],
-                    'default': 'none',
                     'type': 'str'
                 },
                 'device-fortiswitch': {
@@ -1023,7 +961,6 @@ def main():
                         'read',
                         'read-write'
                     ],
-                    'default': 'none',
                     'type': 'str'
                 },
                 'device-manager': {
@@ -1033,7 +970,6 @@ def main():
                         'read',
                         'read-write'
                     ],
-                    'default': 'none',
                     'type': 'str'
                 },
                 'device-op': {
@@ -1043,7 +979,6 @@ def main():
                         'read',
                         'read-write'
                     ],
-                    'default': 'none',
                     'type': 'str'
                 },
                 'device-policy-package-lock': {
@@ -1053,7 +988,6 @@ def main():
                         'read',
                         'read-write'
                     ],
-                    'default': 'none',
                     'type': 'str'
                 },
                 'device-profile': {
@@ -1063,7 +997,6 @@ def main():
                         'read',
                         'read-write'
                     ],
-                    'default': 'none',
                     'type': 'str'
                 },
                 'device-revision-deletion': {
@@ -1073,7 +1006,6 @@ def main():
                         'read',
                         'read-write'
                     ],
-                    'default': 'none',
                     'type': 'str'
                 },
                 'device-wan-link-load-balance': {
@@ -1083,7 +1015,6 @@ def main():
                         'read',
                         'read-write'
                     ],
-                    'default': 'none',
                     'type': 'str'
                 },
                 'event-management': {
@@ -1093,7 +1024,6 @@ def main():
                         'read',
                         'read-write'
                     ],
-                    'default': 'none',
                     'type': 'str'
                 },
                 'fgd-center-advanced': {
@@ -1103,7 +1033,6 @@ def main():
                         'read',
                         'read-write'
                     ],
-                    'default': 'none',
                     'type': 'str'
                 },
                 'fgd-center-fmw-mgmt': {
@@ -1113,7 +1042,6 @@ def main():
                         'read',
                         'read-write'
                     ],
-                    'default': 'none',
                     'type': 'str'
                 },
                 'fgd-center-licensing': {
@@ -1123,7 +1051,6 @@ def main():
                         'read',
                         'read-write'
                     ],
-                    'default': 'none',
                     'type': 'str'
                 },
                 'fgd_center': {
@@ -1133,7 +1060,6 @@ def main():
                         'read',
                         'read-write'
                     ],
-                    'default': 'none',
                     'type': 'str'
                 },
                 'global-policy-packages': {
@@ -1143,7 +1069,6 @@ def main():
                         'read',
                         'read-write'
                     ],
-                    'default': 'none',
                     'type': 'str'
                 },
                 'import-policy-packages': {
@@ -1153,7 +1078,6 @@ def main():
                         'read',
                         'read-write'
                     ],
-                    'default': 'none',
                     'type': 'str'
                 },
                 'intf-mapping': {
@@ -1163,7 +1087,6 @@ def main():
                         'read',
                         'read-write'
                     ],
-                    'default': 'none',
                     'type': 'str'
                 },
                 'ips-filter': {
@@ -1172,7 +1095,6 @@ def main():
                         'disable',
                         'enable'
                     ],
-                    'default': 'disable',
                     'type': 'str'
                 },
                 'log-viewer': {
@@ -1182,7 +1104,6 @@ def main():
                         'read',
                         'read-write'
                     ],
-                    'default': 'none',
                     'type': 'str'
                 },
                 'policy-objects': {
@@ -1192,7 +1113,6 @@ def main():
                         'read',
                         'read-write'
                     ],
-                    'default': 'none',
                     'type': 'str'
                 },
                 'profileid': {
@@ -1206,7 +1126,6 @@ def main():
                         'read',
                         'read-write'
                     ],
-                    'default': 'none',
                     'type': 'str'
                 },
                 'realtime-monitor': {
@@ -1216,7 +1135,6 @@ def main():
                         'read',
                         'read-write'
                     ],
-                    'default': 'none',
                     'type': 'str'
                 },
                 'report-viewer': {
@@ -1226,7 +1144,6 @@ def main():
                         'read',
                         'read-write'
                     ],
-                    'default': 'none',
                     'type': 'str'
                 },
                 'scope': {
@@ -1235,7 +1152,6 @@ def main():
                         'global',
                         'adom'
                     ],
-                    'default': 'global',
                     'type': 'str'
                 },
                 'set-install-targets': {
@@ -1245,7 +1161,6 @@ def main():
                         'read',
                         'read-write'
                     ],
-                    'default': 'none',
                     'type': 'str'
                 },
                 'system-setting': {
@@ -1255,7 +1170,6 @@ def main():
                         'read',
                         'read-write'
                     ],
-                    'default': 'none',
                     'type': 'str'
                 },
                 'term-access': {
@@ -1265,7 +1179,6 @@ def main():
                         'read',
                         'read-write'
                     ],
-                    'default': 'none',
                     'type': 'str'
                 },
                 'type': {
@@ -1274,7 +1187,6 @@ def main():
                         'system',
                         'restricted'
                     ],
-                    'default': 'system',
                     'type': 'str'
                 },
                 'vpn-manager': {
@@ -1284,7 +1196,6 @@ def main():
                         'read',
                         'read-write'
                     ],
-                    'default': 'none',
                     'type': 'str'
                 },
                 'web-filter': {
@@ -1293,7 +1204,6 @@ def main():
                         'disable',
                         'enable'
                     ],
-                    'default': 'disable',
                     'type': 'str'
                 }
             }

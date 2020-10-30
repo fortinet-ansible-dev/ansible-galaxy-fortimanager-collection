@@ -91,7 +91,6 @@ options:
                 description: 'Log filter ID.'
             oper:
                 type: str
-                default: '='
                 description:
                  - 'Field filter operator.'
                  - '&lt; - =Less than or equal to'
@@ -238,7 +237,6 @@ def main():
                         'not-contain',
                         'match'
                     ],
-                    'default': '=',
                     'type': 'str'
                 },
                 'value': {

@@ -86,7 +86,6 @@ options:
                 description: 'OFTP certificate comment.'
             custom:
                 type: str
-                default: 'disable'
                 description:
                  - 'Enable/disable custom certificate.'
                  - 'disable - Disable setting.'
@@ -206,7 +205,6 @@ def main():
                         'disable',
                         'enable'
                     ],
-                    'default': 'disable',
                     'type': 'str'
                 },
                 'password': {

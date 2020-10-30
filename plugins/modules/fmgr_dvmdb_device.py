@@ -112,7 +112,6 @@ options:
                 description: no description
             conf_status:
                 type: str
-                default: 'unknown'
                 description: no description
                 choices:
                     - 'unknown'
@@ -120,14 +119,12 @@ options:
                     - 'outofsync'
             conn_mode:
                 type: str
-                default: 'passive'
                 description: no description
                 choices:
                     - 'active'
                     - 'passive'
             conn_status:
                 type: str
-                default: 'UNKNOWN'
                 description: no description
                 choices:
                     - 'UNKNOWN'
@@ -135,7 +132,6 @@ options:
                     - 'down'
             db_status:
                 type: str
-                default: 'unknown'
                 description: no description
                 choices:
                     - 'unknown'
@@ -146,7 +142,6 @@ options:
                 description: no description
             dev_status:
                 type: str
-                default: 'unknown'
                 description: no description
                 choices:
                     - 'none'
@@ -203,7 +198,6 @@ options:
                 description: 'VM Meter vCPU count.'
             foslic_dr_site:
                 type: str
-                default: 'disable'
                 description: 'VM Meter DR Site status.'
                 choices:
                     - 'disable'
@@ -219,7 +213,6 @@ options:
                 description: 'VM Meter device RAM size (in MB).'
             foslic_type:
                 type: str
-                default: 'temporary'
                 description: 'VM Meter license type.'
                 choices:
                     - 'temporary'
@@ -248,7 +241,6 @@ options:
                 description: no description
             ha_mode:
                 type: str
-                default: 'standalone'
                 description: 'enabled - Value reserved for non-FOS HA devices.'
                 choices:
                     - 'standalone'
@@ -318,7 +310,6 @@ options:
                 description: no description
             mgmt_mode:
                 type: str
-                default: 'unreg'
                 description: no description
                 choices:
                     - 'unreg'
@@ -337,7 +328,6 @@ options:
                 description: 'Unique name for the device.'
             os_type:
                 type: str
-                default: 'unknown'
                 description: no description
                 choices:
                     - 'unknown'
@@ -357,7 +347,6 @@ options:
                     - 'fpx'
             os_ver:
                 type: str
-                default: 'unknown'
                 description: no description
                 choices:
                     - 'unknown'
@@ -392,7 +381,6 @@ options:
                         description: no description
                     opmode:
                         type: str
-                        default: 'nat'
                         description: no description
                         choices:
                             - 'nat'
@@ -655,7 +643,6 @@ def main():
                         'insync',
                         'outofsync'
                     ],
-                    'default': 'unknown',
                     'type': 'str'
                 },
                 'conn_mode': {
@@ -664,7 +651,6 @@ def main():
                         'active',
                         'passive'
                     ],
-                    'default': 'passive',
                     'type': 'str'
                 },
                 'conn_status': {
@@ -674,7 +660,6 @@ def main():
                         'up',
                         'down'
                     ],
-                    'default': 'UNKNOWN',
                     'type': 'str'
                 },
                 'db_status': {
@@ -684,7 +669,6 @@ def main():
                         'nomod',
                         'mod'
                     ],
-                    'default': 'unknown',
                     'type': 'str'
                 },
                 'desc': {
@@ -711,7 +695,6 @@ def main():
                         'rev_revert',
                         'auto_updated'
                     ],
-                    'default': 'unknown',
                     'type': 'str'
                 },
                 'fap_cnt': {
@@ -765,7 +748,6 @@ def main():
                         'disable',
                         'enable'
                     ],
-                    'default': 'disable',
                     'type': 'str'
                 },
                 'foslic_inst_time': {
@@ -788,7 +770,6 @@ def main():
                         'regular',
                         'trial_expired'
                     ],
-                    'default': 'temporary',
                     'type': 'str'
                 },
                 'foslic_utm': {
@@ -827,7 +808,6 @@ def main():
                         'enabled',
                         'unknown'
                     ],
-                    'default': 'standalone',
                     'type': 'str'
                 },
                 'hdisk_size': {
@@ -915,7 +895,6 @@ def main():
                         'faz',
                         'fmgfaz'
                     ],
-                    'default': 'unreg',
                     'type': 'str'
                 },
                 'mgt_vdom': {
@@ -950,7 +929,6 @@ def main():
                         'fac',
                         'fpx'
                     ],
-                    'default': 'unknown',
                     'type': 'str'
                 },
                 'os_ver': {
@@ -965,7 +943,6 @@ def main():
                         '5.0',
                         '6.0'
                     ],
-                    'default': 'unknown',
                     'type': 'str'
                 },
                 'patch': {
@@ -1002,7 +979,6 @@ def main():
                                 'nat',
                                 'transparent'
                             ],
-                            'default': 'nat',
                             'type': 'str'
                         },
                         'rtm_prof_id': {

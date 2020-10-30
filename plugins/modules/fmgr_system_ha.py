@@ -96,7 +96,6 @@ options:
                 description: 'Heartbeat lost threshold (1 - 255).'
             mode:
                 type: str
-                default: 'standalone'
                 description:
                  - 'Mode.'
                  - 'standalone - Standalone.'
@@ -119,18 +118,15 @@ options:
                         description: 'Id.'
                     ip:
                         type: str
-                        default: '0.0.0.0'
                         description: 'IP address of peer.'
                     ip6:
                         type: str
-                        default: '::'
                         description: 'IP address (V6) of peer.'
                     serial-number:
                         type: str
                         description: 'Serial number of peer.'
                     status:
                         type: str
-                        default: 'enable'
                         description:
                          - 'Peer admin status.'
                          - 'disable - Disable.'
@@ -265,7 +261,6 @@ def main():
                         'master',
                         'slave'
                     ],
-                    'default': 'standalone',
                     'type': 'str'
                 },
                 'password': {
@@ -283,12 +278,10 @@ def main():
                         },
                         'ip': {
                             'required': False,
-                            'default': '0.0.0.0',
                             'type': 'str'
                         },
                         'ip6': {
                             'required': False,
-                            'default': '::',
                             'type': 'str'
                         },
                         'serial-number': {
@@ -301,7 +294,6 @@ def main():
                                 'disable',
                                 'enable'
                             ],
-                            'default': 'enable',
                             'type': 'str'
                         }
                     }

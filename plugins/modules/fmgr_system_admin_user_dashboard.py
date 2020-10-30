@@ -88,7 +88,6 @@ options:
                 description: 'Widgets column ID.'
             diskio-content-type:
                 type: str
-                default: 'util'
                 description:
                  - 'Disk I/O Monitor widgets chart type.'
                  - 'util - bandwidth utilization.'
@@ -100,7 +99,6 @@ options:
                     - 'blks'
             diskio-period:
                 type: str
-                default: '1hour'
                 description:
                  - 'Disk I/O Monitor widgets data period.'
                  - '1hour - 1 hour.'
@@ -123,7 +121,6 @@ options:
                     - '6hours'
             log-rate-topn:
                 type: str
-                default: '5'
                 description:
                  - 'Log receive monitor widgets number of top items to display.'
                  - '1 - Top 1.'
@@ -139,7 +136,6 @@ options:
                     - '5'
             log-rate-type:
                 type: str
-                default: 'device'
                 description:
                  - 'Log receive monitor widgets statistics breakdown options.'
                  - 'log - Show log rates for each log type.'
@@ -194,7 +190,6 @@ options:
                     - 'history'
             status:
                 type: str
-                default: 'open'
                 description:
                  - 'Widgets opened/closed state.'
                  - 'close - Widget closed.'
@@ -208,7 +203,6 @@ options:
                 description: 'ID of tab where widget is displayed.'
             time-period:
                 type: str
-                default: '1hour'
                 description:
                  - 'Log Database Monitor widgets data period.'
                  - '1hour - 1 hour.'
@@ -385,7 +379,6 @@ def main():
                         'iops',
                         'blks'
                     ],
-                    'default': 'util',
                     'type': 'str'
                 },
                 'diskio-period': {
@@ -395,7 +388,6 @@ def main():
                         '8hour',
                         '24hour'
                     ],
-                    'default': '1hour',
                     'type': 'str'
                 },
                 'log-rate-period': {
@@ -416,7 +408,6 @@ def main():
                         '4',
                         '5'
                     ],
-                    'default': '5',
                     'type': 'str'
                 },
                 'log-rate-type': {
@@ -425,7 +416,6 @@ def main():
                         'log',
                         'device'
                     ],
-                    'default': 'device',
                     'type': 'str'
                 },
                 'moduleid': {
@@ -478,7 +468,6 @@ def main():
                         'close',
                         'open'
                     ],
-                    'default': 'open',
                     'type': 'str'
                 },
                 'tabid': {
@@ -493,7 +482,6 @@ def main():
                         '8hour',
                         '24hour'
                     ],
-                    'default': '1hour',
                     'type': 'str'
                 },
                 'widget-type': {

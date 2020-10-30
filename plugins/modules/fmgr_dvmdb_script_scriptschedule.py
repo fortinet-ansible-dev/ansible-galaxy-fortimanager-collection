@@ -96,7 +96,6 @@ options:
                  - 'monthly: "DD hh:mm"'
             day_of_week:
                 type: str
-                default: 'sun'
                 description: no description
                 choices:
                     - 'unknown'
@@ -115,7 +114,6 @@ options:
                 description: no description
             run_on_db:
                 type: str
-                default: 'disable'
                 description: 'Indicates if the scheduled script should be executed on device database. It should always be disable for tcl scripts.'
                 choices:
                     - 'disable'
@@ -261,7 +259,6 @@ def main():
                         'fri',
                         'sat'
                     ],
-                    'default': 'sun',
                     'type': 'str'
                 },
                 'device': {
@@ -278,7 +275,6 @@ def main():
                         'disable',
                         'enable'
                     ],
-                    'default': 'disable',
                     'type': 'str'
                 },
                 'type': {

@@ -83,7 +83,6 @@ options:
                 description: 'Admin domain name.'
             case-insensitive:
                 type: str
-                default: 'enable'
                 description:
                  - 'Case insensitive.'
                  - 'disable - Disable the case insensitive match.'
@@ -113,7 +112,6 @@ options:
                         description: 'Variable name.'
                     var-type:
                         type: str
-                        default: 'string'
                         description:
                          - 'Variable type.'
                          - 'integer - Integer.'
@@ -251,7 +249,6 @@ def main():
                         'disable',
                         'enable'
                     ],
-                    'default': 'enable',
                     'type': 'str'
                 },
                 'chart-alternative': {
@@ -288,7 +285,6 @@ def main():
                                 'enum',
                                 'ip'
                             ],
-                            'default': 'string',
                             'type': 'str'
                         }
                     }

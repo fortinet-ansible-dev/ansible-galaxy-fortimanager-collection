@@ -84,7 +84,6 @@ options:
                 description: 'Read time threshold for each page view.'
             status:
                 type: str
-                default: 'enable'
                 description:
                  - 'Estimate browse time status.'
                  - 'disable - Disable estimating browse time.'
@@ -192,7 +191,6 @@ def main():
                         'disable',
                         'enable'
                     ],
-                    'default': 'enable',
                     'type': 'str'
                 }
             }

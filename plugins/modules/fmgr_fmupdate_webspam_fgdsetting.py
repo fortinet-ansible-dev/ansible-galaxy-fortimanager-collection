@@ -84,7 +84,6 @@ options:
                 description: 'Antispam service maximum memory usage in megabytes (Maximum = Physical memory-1024, 0: no limit, default = 300).'
             as-log:
                 type: str
-                default: 'nospam'
                 description:
                  - 'Antispam log setting (default = nospam).'
                  - 'disable - Disable spam log.'
@@ -96,7 +95,6 @@ options:
                     - 'all'
             as-preload:
                 type: str
-                default: 'disable'
                 description:
                  - 'Enable/disable preloading antispam database to memory (default = disable).'
                  - 'disable - Disable antispam database preload.'
@@ -110,7 +108,6 @@ options:
                 description: 'Antivirus service maximum memory usage, in megabytes (100 - 500, default = 300).'
             av-log:
                 type: str
-                default: 'novirus'
                 description:
                  - 'Antivirus log setting (default = novirus).'
                  - 'disable - Disable virus log.'
@@ -122,7 +119,6 @@ options:
                     - 'all'
             av-preload:
                 type: str
-                default: 'disable'
                 description:
                  - 'Enable/disable preloading antivirus database to memory (default = disable).'
                  - 'disable - Disable antivirus database preload.'
@@ -136,7 +132,6 @@ options:
                 description: 'Antispam service maximum memory usage in megabytes (Maximum = Physical memory-1024, 0: no limit, default = 800).'
             av2-log:
                 type: str
-                default: 'noav2'
                 description:
                  - 'Outbreak prevention log setting (default = noav2).'
                  - 'disable - Disable av2 log.'
@@ -148,7 +143,6 @@ options:
                     - 'all'
             av2-preload:
                 type: str
-                default: 'disable'
                 description:
                  - 'Enable/disable preloading outbreak prevention database to memory (default = disable).'
                  - 'disable - Disable outbreak prevention database preload.'
@@ -158,7 +152,6 @@ options:
                     - 'enable'
             eventlog-query:
                 type: str
-                default: 'disable'
                 description:
                  - 'Enable/disable record query to event-log besides fgd-log (default = disable).'
                  - 'disable - Record query to event-log besides fgd-log.'
@@ -176,7 +169,6 @@ options:
                 description: 'File query service maximum memory usage, in megabytes (100 - 500, default = 300).'
             fq-log:
                 type: str
-                default: 'nofilequery'
                 description:
                  - 'File query log setting (default = nofilequery).'
                  - 'disable - Disable file query log.'
@@ -188,7 +180,6 @@ options:
                     - 'all'
             fq-preload:
                 type: str
-                default: 'disable'
                 description:
                  - 'Enable/disable preloading file query database to memory (default = disable).'
                  - 'disable - Disable file query db preload.'
@@ -198,7 +189,6 @@ options:
                     - 'enable'
             linkd-log:
                 type: str
-                default: 'debug'
                 description:
                  - 'Linkd log setting (default = debug).'
                  - 'emergency - The unit is unusable.'
@@ -268,11 +258,9 @@ options:
                                 description: 'Override server ID (1 - 10).'
                             ip:
                                 type: str
-                                default: '0.0.0.0'
                                 description: 'IPv4 address of the override server.'
                             ip6:
                                 type: str
-                                default: '::'
                                 description: 'IPv6 address of the override server.'
                             port:
                                 type: int
@@ -287,7 +275,6 @@ options:
                                  - fsa
                     status:
                         type: str
-                        default: 'disable'
                         description:
                          - 'Override status.'
                          - 'disable - Disable setting.'
@@ -309,7 +296,6 @@ options:
                 description: 'FortiGuard database update wait time if not enough delta files, in hours (2 - 24, default = 6).'
             update-log:
                 type: str
-                default: 'enable'
                 description:
                  - 'Enable/disable update log setting (default = enable).'
                  - 'disable - Disable update log.'
@@ -331,7 +317,6 @@ options:
                 description: 'Maximum number of Web filter DN cache (0 = disable, default = 10000).'
             wf-log:
                 type: str
-                default: 'nourl'
                 description:
                  - 'Web filter log setting (default = nour1)'
                  - 'disable - Disable URL log.'
@@ -343,7 +328,6 @@ options:
                     - 'all'
             wf-preload:
                 type: str
-                default: 'enable'
                 description:
                  - 'Enable/disable preloading the web filter database into memory (default = disable).'
                  - 'disable - Disable web filter database preload.'
@@ -496,7 +480,6 @@ def main():
                         'nospam',
                         'all'
                     ],
-                    'default': 'nospam',
                     'type': 'str'
                 },
                 'as-preload': {
@@ -505,7 +488,6 @@ def main():
                         'disable',
                         'enable'
                     ],
-                    'default': 'disable',
                     'type': 'str'
                 },
                 'av-cache': {
@@ -520,7 +502,6 @@ def main():
                         'novirus',
                         'all'
                     ],
-                    'default': 'novirus',
                     'type': 'str'
                 },
                 'av-preload': {
@@ -529,7 +510,6 @@ def main():
                         'disable',
                         'enable'
                     ],
-                    'default': 'disable',
                     'type': 'str'
                 },
                 'av2-cache': {
@@ -544,7 +524,6 @@ def main():
                         'noav2',
                         'all'
                     ],
-                    'default': 'noav2',
                     'type': 'str'
                 },
                 'av2-preload': {
@@ -553,7 +532,6 @@ def main():
                         'disable',
                         'enable'
                     ],
-                    'default': 'disable',
                     'type': 'str'
                 },
                 'eventlog-query': {
@@ -562,7 +540,6 @@ def main():
                         'disable',
                         'enable'
                     ],
-                    'default': 'disable',
                     'type': 'str'
                 },
                 'fgd-pull-interval': {
@@ -582,7 +559,6 @@ def main():
                         'nofilequery',
                         'all'
                     ],
-                    'default': 'nofilequery',
                     'type': 'str'
                 },
                 'fq-preload': {
@@ -591,7 +567,6 @@ def main():
                         'disable',
                         'enable'
                     ],
-                    'default': 'disable',
                     'type': 'str'
                 },
                 'linkd-log': {
@@ -607,7 +582,6 @@ def main():
                         'debug',
                         'disable'
                     ],
-                    'default': 'debug',
                     'type': 'str'
                 },
                 'max-client-worker': {
@@ -668,12 +642,10 @@ def main():
                                 },
                                 'ip': {
                                     'required': False,
-                                    'default': '0.0.0.0',
                                     'type': 'str'
                                 },
                                 'ip6': {
                                     'required': False,
-                                    'default': '::',
                                     'type': 'str'
                                 },
                                 'port': {
@@ -698,7 +670,6 @@ def main():
                                 'disable',
                                 'enable'
                             ],
-                            'default': 'disable',
                             'type': 'str'
                         }
                     }
@@ -724,7 +695,6 @@ def main():
                         'disable',
                         'enable'
                     ],
-                    'default': 'enable',
                     'type': 'str'
                 },
                 'wf-cache': {
@@ -749,7 +719,6 @@ def main():
                         'nourl',
                         'all'
                     ],
-                    'default': 'nourl',
                     'type': 'str'
                 },
                 'wf-preload': {
@@ -758,7 +727,6 @@ def main():
                         'disable',
                         'enable'
                     ],
-                    'default': 'enable',
                     'type': 'str'
                 }
             }

@@ -91,7 +91,6 @@ options:
                     - 'signature'
             auto-zone-policy:
                 type: str
-                default: 'enable'
                 description: no description
                 choices:
                     - 'disable'
@@ -384,7 +383,6 @@ options:
                 description: no description
             npu-offload:
                 type: str
-                default: 'enable'
                 description: no description
                 choices:
                     - 'disable'
@@ -617,7 +615,6 @@ def main():
                         'disable',
                         'enable'
                     ],
-                    'default': 'enable',
                     'type': 'str'
                 },
                 'certificate': {
@@ -956,7 +953,6 @@ def main():
                         'disable',
                         'enable'
                     ],
-                    'default': 'enable',
                     'type': 'str'
                 },
                 'pfs': {

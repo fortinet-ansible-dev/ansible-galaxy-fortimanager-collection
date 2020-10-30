@@ -84,7 +84,6 @@ options:
                  - log_dev
             from:
                 type: str
-                default: 'json'
                 description: no description
                 choices:
                     - 'um'
@@ -232,7 +231,6 @@ def main():
                         'xml',
                         'json'
                     ],
-                    'default': 'json',
                     'type': 'str'
                 },
                 'reload-dev-member-list': {

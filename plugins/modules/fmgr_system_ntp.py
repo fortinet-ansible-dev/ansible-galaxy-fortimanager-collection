@@ -84,7 +84,6 @@ options:
                 suboptions:
                     authentication:
                         type: str
-                        default: 'disable'
                         description:
                          - 'Enable/disable MD5 authentication.'
                          - 'disable - Disable setting.'
@@ -105,7 +104,6 @@ options:
                         description: 'Key ID for authentication.'
                     ntpv3:
                         type: str
-                        default: 'disable'
                         description:
                          - 'Enable/disable NTPv3.'
                          - 'disable - Disable setting.'
@@ -118,7 +116,6 @@ options:
                         description: 'IP address/hostname of NTP Server.'
             status:
                 type: str
-                default: 'disable'
                 description:
                  - 'Enable/disable NTP.'
                  - 'disable - Disable setting.'
@@ -237,7 +234,6 @@ def main():
                                 'disable',
                                 'enable'
                             ],
-                            'default': 'disable',
                             'type': 'str'
                         },
                         'id': {
@@ -260,7 +256,6 @@ def main():
                                 'disable',
                                 'enable'
                             ],
-                            'default': 'disable',
                             'type': 'str'
                         },
                         'server': {
@@ -275,7 +270,6 @@ def main():
                         'disable',
                         'enable'
                     ],
-                    'default': 'disable',
                     'type': 'str'
                 },
                 'sync_interval': {

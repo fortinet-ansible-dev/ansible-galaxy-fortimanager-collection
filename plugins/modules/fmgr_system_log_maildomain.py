@@ -80,7 +80,6 @@ options:
         suboptions:
             devices:
                 type: str
-                default: 'All_FortiMail'
                 description: 'Devices for domain to vdom mapping'
             domain:
                 type: str
@@ -194,7 +193,6 @@ def main():
             'options': {
                 'devices': {
                     'required': False,
-                    'default': 'All_FortiMail',
                     'type': 'str'
                 },
                 'domain': {

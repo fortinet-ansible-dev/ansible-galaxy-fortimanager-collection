@@ -348,6 +348,16 @@ options:
                     - 'pap'
                     - 'chap'
                     - 'auto'
+            scope member:
+                description: no description
+                type: list
+                suboptions:
+                    name:
+                        type: str
+                        description: 'name of scope member'
+                    vdom:
+                        type: str
+                        description: 'vdom of scope member'
 
 '''
 
@@ -441,6 +451,10 @@ EXAMPLES = '''
             vpn-zone: <value of string>
             vpntable: <value of string>
             xauthtype: <value in [disable, client, pap, ...]>
+            scope member:
+              -
+                  name: <value of string>
+                  vdom: <value of string>
 
 '''
 
@@ -874,6 +888,20 @@ def main():
                         'auto'
                     ],
                     'type': 'str'
+                },
+                'scope member': {
+                    'required': False,
+                    'type': 'list',
+                    'options': {
+                        'name': {
+                            'required': False,
+                            'type': 'str'
+                        },
+                        'vdom': {
+                            'required': False,
+                            'type': 'str'
+                        }
+                    }
                 }
             }
 

@@ -80,7 +80,6 @@ options:
         suboptions:
             authen-type:
                 type: str
-                default: 'auto'
                 description:
                  - 'Authentication type.'
                  - 'auto - Use PAP, MSCHAP, and CHAP (in that order).'
@@ -96,7 +95,6 @@ options:
                     - 'mschap'
             authorization:
                 type: str
-                default: 'disable'
                 description:
                  - 'Enable/disable TACACS+ authorization.'
                  - 'disable - Disable TACACS+ authorization.'
@@ -244,7 +242,6 @@ def main():
                         'chap',
                         'mschap'
                     ],
-                    'default': 'auto',
                     'type': 'str'
                 },
                 'authorization': {
@@ -253,7 +250,6 @@ def main():
                         'disable',
                         'enable'
                     ],
-                    'default': 'disable',
                     'type': 'str'
                 },
                 'key': {

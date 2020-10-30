@@ -90,14 +90,12 @@ options:
                 description: 'Attribute used to retrieve adom'
             attributes:
                 type: str
-                default: 'member,uniquemember,memberuid'
                 description: 'Attributes used for group searching.'
             ca-cert:
                 type: str
                 description: 'CA certificate name.'
             cnid:
                 type: str
-                default: 'cn'
                 description: 'Common Name Identifier (default = CN).'
             connect-timeout:
                 type: int
@@ -108,7 +106,6 @@ options:
                 description: 'Distinguished Name.'
             filter:
                 type: str
-                default: '(objectclass=*)'
                 description: 'Filter used for group searching.'
             group:
                 type: str
@@ -134,7 +131,6 @@ options:
                 description: '{<name_str|ip_str>} secondary LDAP server domain name or IP.'
             secure:
                 type: str
-                default: 'disable'
                 description:
                  - 'SSL connection.'
                  - 'disable - No SSL.'
@@ -152,7 +148,6 @@ options:
                 description: '{<name_str|ip_str>} tertiary LDAP server domain name or IP.'
             type:
                 type: str
-                default: 'simple'
                 description:
                  - 'Type of LDAP binding.'
                  - 'simple - Simple password authentication without search.'
@@ -299,7 +294,6 @@ def main():
                 },
                 'attributes': {
                     'required': False,
-                    'default': 'member,uniquemember,memberuid',
                     'type': 'str'
                 },
                 'ca-cert': {
@@ -308,7 +302,6 @@ def main():
                 },
                 'cnid': {
                     'required': False,
-                    'default': 'cn',
                     'type': 'str'
                 },
                 'connect-timeout': {
@@ -322,7 +315,6 @@ def main():
                 },
                 'filter': {
                     'required': False,
-                    'default': '(objectclass=*)',
                     'type': 'str'
                 },
                 'group': {
@@ -361,7 +353,6 @@ def main():
                         'starttls',
                         'ldaps'
                     ],
-                    'default': 'disable',
                     'type': 'str'
                 },
                 'server': {
@@ -379,7 +370,6 @@ def main():
                         'anonymous',
                         'regular'
                     ],
-                    'default': 'simple',
                     'type': 'str'
                 },
                 'username': {

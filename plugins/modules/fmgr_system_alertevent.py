@@ -99,7 +99,6 @@ options:
                         description: 'Recipient email address to use in alert emails.'
                     type:
                         type: str
-                        default: 'mail'
                         description:
                          - 'Destination type.'
                          - 'mail - Send email alert.'
@@ -123,7 +122,6 @@ options:
                  - disable
             event-time-period:
                 type: str
-                default: '0.5'
                 description:
                  - 'Time period (hours).'
                  - '0.5 - 30 minutes.'
@@ -151,7 +149,6 @@ options:
                 description: 'Alert name.'
             num-events:
                 type: str
-                default: '1'
                 description:
                  - 'Minimum number of events required within time period.'
                  - '1 - 1 event.'
@@ -167,7 +164,6 @@ options:
                     - '100'
             severity-filter:
                 type: str
-                default: 'high'
                 description:
                  - 'Required log severity to trigger alert.'
                  - 'high - High level alert.'
@@ -359,7 +355,6 @@ def main():
                                 'snmp',
                                 'syslog'
                             ],
-                            'default': 'mail',
                             'type': 'str'
                         }
                     }
@@ -392,7 +387,6 @@ def main():
                         '72',
                         '168'
                     ],
-                    'default': '0.5',
                     'type': 'str'
                 },
                 'generic-text': {
@@ -412,7 +406,6 @@ def main():
                         '50',
                         '100'
                     ],
-                    'default': '1',
                     'type': 'str'
                 },
                 'severity-filter': {
@@ -424,7 +417,6 @@ def main():
                         'medium-low',
                         'low'
                     ],
-                    'default': 'high',
                     'type': 'str'
                 },
                 'severity-level-comp': {

@@ -127,57 +127,15 @@ def main():
                 '/pm/config/global/obj/dnsfilter/domain-filter/{domain-filter}/entries/{entries}'
             ]
         },
-        'dlp_filepattern_entries': {
+        'application_list_entries': {
             'params': [
                 'adom',
-                'filepattern',
+                'list',
                 'entries'
             ],
             'urls': [
-                '/pm/config/adom/{adom}/obj/dlp/filepattern/{filepattern}/entries/{entries}',
-                '/pm/config/global/obj/dlp/filepattern/{filepattern}/entries/{entries}'
-            ]
-        },
-        'dlp_sensor_filter': {
-            'params': [
-                'adom',
-                'sensor',
-                'filter'
-            ],
-            'urls': [
-                '/pm/config/adom/{adom}/obj/dlp/sensor/{sensor}/filter/{filter}',
-                '/pm/config/global/obj/dlp/sensor/{sensor}/filter/{filter}'
-            ]
-        },
-        'wanprof_system_virtualwanlink_members': {
-            'params': [
-                'adom',
-                'wanprof',
-                'members'
-            ],
-            'urls': [
-                '/pm/config/adom/{adom}/wanprof/{wanprof}/system/virtual-wan-link/members/{members}'
-            ]
-        },
-        'wanprof_system_virtualwanlink_service': {
-            'params': [
-                'adom',
-                'wanprof',
-                'service'
-            ],
-            'urls': [
-                '/pm/config/adom/{adom}/wanprof/{wanprof}/system/virtual-wan-link/service/{service}'
-            ]
-        },
-        'wanprof_system_virtualwanlink_service_sla': {
-            'params': [
-                'adom',
-                'wanprof',
-                'service',
-                'sla'
-            ],
-            'urls': [
-                '/pm/config/adom/{adom}/wanprof/{wanprof}/system/virtual-wan-link/service/{service}/sla/{sla}'
+                '/pm/config/adom/{adom}/obj/application/list/{list}/entries/{entries}',
+                '/pm/config/global/obj/application/list/{list}/entries/{entries}'
             ]
         },
         'vpnsslweb_portal_bookmarkgroup': {
@@ -212,177 +170,6 @@ def main():
             'urls': [
                 '/pm/config/adom/{adom}/obj/vpn/ssl/web/portal/{portal}/split-dns/{split-dns}',
                 '/pm/config/global/obj/vpn/ssl/web/portal/{portal}/split-dns/{split-dns}'
-            ]
-        },
-        'firewall_carrierendpointbwl_entries': {
-            'params': [
-                'adom',
-                'carrier-endpoint-bwl',
-                'entries'
-            ],
-            'urls': [
-                '/pm/config/adom/{adom}/obj/firewall/carrier-endpoint-bwl/{carrier-endpoint-bwl}/entries/{entries}',
-                '/pm/config/global/obj/firewall/carrier-endpoint-bwl/{carrier-endpoint-bwl}/entries/{entries}'
-            ]
-        },
-        'firewall_identitybasedroute': {
-            'params': [
-                'adom',
-                'identity-based-route'
-            ],
-            'urls': [
-                '/pm/config/adom/{adom}/obj/firewall/identity-based-route/{identity-based-route}',
-                '/pm/config/global/obj/firewall/identity-based-route/{identity-based-route}'
-            ]
-        },
-        'firewall_service_category': {
-            'params': [
-                'adom',
-                'category'
-            ],
-            'urls': [
-                '/pm/config/adom/{adom}/obj/firewall/service/category/{category}',
-                '/pm/config/global/obj/firewall/service/category/{category}'
-            ]
-        },
-        'firewall_service_custom': {
-            'params': [
-                'adom',
-                'custom'
-            ],
-            'urls': [
-                '/pm/config/adom/{adom}/obj/firewall/service/custom/{custom}',
-                '/pm/config/global/obj/firewall/service/custom/{custom}'
-            ]
-        },
-        'firewall_shapingprofile_shapingentries': {
-            'params': [
-                'adom',
-                'shaping-profile',
-                'shaping-entries'
-            ],
-            'urls': [
-                '/pm/config/adom/{adom}/obj/firewall/shaping-profile/{shaping-profile}/shaping-entries/{shaping-entries}',
-                '/pm/config/global/obj/firewall/shaping-profile/{shaping-profile}/shaping-entries/{shaping-entries}'
-            ]
-        },
-        'firewall_vip': {
-            'params': [
-                'adom',
-                'vip'
-            ],
-            'urls': [
-                '/pm/config/adom/{adom}/obj/firewall/vip/{vip}',
-                '/pm/config/global/obj/firewall/vip/{vip}'
-            ]
-        },
-        'webfilter_contentheader_entries': {
-            'params': [
-                'adom',
-                'content-header',
-                'entries'
-            ],
-            'urls': [
-                '/pm/config/adom/{adom}/obj/webfilter/content-header/{content-header}/entries/{entries}',
-                '/pm/config/global/obj/webfilter/content-header/{content-header}/entries/{entries}'
-            ]
-        },
-        'webfilter_urlfilter_entries': {
-            'params': [
-                'adom',
-                'urlfilter',
-                'entries'
-            ],
-            'urls': [
-                '/pm/config/adom/{adom}/obj/webfilter/urlfilter/{urlfilter}/entries/{entries}',
-                '/pm/config/global/obj/webfilter/urlfilter/{urlfilter}/entries/{entries}'
-            ]
-        },
-        'sshfilter_profile_shellcommands': {
-            'params': [
-                'adom',
-                'profile',
-                'shell-commands'
-            ],
-            'urls': [
-                '/pm/config/adom/{adom}/obj/ssh-filter/profile/{profile}/shell-commands/{shell-commands}',
-                '/pm/config/global/obj/ssh-filter/profile/{profile}/shell-commands/{shell-commands}'
-            ]
-        },
-        'spamfilter_bwl_entries': {
-            'params': [
-                'adom',
-                'bwl',
-                'entries'
-            ],
-            'urls': [
-                '/pm/config/adom/{adom}/obj/spamfilter/bwl/{bwl}/entries/{entries}',
-                '/pm/config/global/obj/spamfilter/bwl/{bwl}/entries/{entries}'
-            ]
-        },
-        'spamfilter_bword_entries': {
-            'params': [
-                'adom',
-                'bword',
-                'entries'
-            ],
-            'urls': [
-                '/pm/config/adom/{adom}/obj/spamfilter/bword/{bword}/entries/{entries}',
-                '/pm/config/global/obj/spamfilter/bword/{bword}/entries/{entries}'
-            ]
-        },
-        'pkg_central_dnat': {
-            'params': [
-                'adom',
-                'pkg',
-                'dnat'
-            ],
-            'urls': [
-                '/pm/config/adom/{adom}/pkg/{pkg}/central/dnat/{dnat}'
-            ]
-        },
-        'ips_sensor_entries': {
-            'params': [
-                'adom',
-                'sensor',
-                'entries'
-            ],
-            'urls': [
-                '/pm/config/adom/{adom}/obj/ips/sensor/{sensor}/entries/{entries}',
-                '/pm/config/global/obj/ips/sensor/{sensor}/entries/{entries}'
-            ]
-        },
-        'ips_sensor_filter': {
-            'params': [
-                'adom',
-                'sensor',
-                'filter'
-            ],
-            'urls': [
-                '/pm/config/adom/{adom}/obj/ips/sensor/{sensor}/filter/{filter}',
-                '/pm/config/global/obj/ips/sensor/{sensor}/filter/{filter}'
-            ]
-        },
-        'application_list_entries': {
-            'params': [
-                'adom',
-                'list',
-                'entries'
-            ],
-            'urls': [
-                '/pm/config/adom/{adom}/obj/application/list/{list}/entries/{entries}',
-                '/pm/config/global/obj/application/list/{list}/entries/{entries}'
-            ]
-        },
-        'bonjourprofile_policylist': {
-            'params': [
-                'adom',
-                'bonjour-profile',
-                'policy-list'
-            ],
-            'urls': [
-                '/pm/config/adom/{adom}/obj/wireless-controller/bonjour-profile/{bonjour-profile}/policy-list/{policy-list}',
-                '/pm/config/global/obj/wireless-controller/bonjour-profile/{bonjour-profile}/policy-list/{policy-list}'
             ]
         },
         'pkg_firewall_centralsnatmap': {
@@ -535,6 +322,144 @@ def main():
                 '/pm/config/adom/{adom}/pkg/{pkg}/firewall/shaping-policy/{shaping-policy}'
             ]
         },
+        'pkg_central_dnat': {
+            'params': [
+                'adom',
+                'pkg',
+                'dnat'
+            ],
+            'urls': [
+                '/pm/config/adom/{adom}/pkg/{pkg}/central/dnat/{dnat}'
+            ]
+        },
+        'webfilter_contentheader_entries': {
+            'params': [
+                'adom',
+                'content-header',
+                'entries'
+            ],
+            'urls': [
+                '/pm/config/adom/{adom}/obj/webfilter/content-header/{content-header}/entries/{entries}',
+                '/pm/config/global/obj/webfilter/content-header/{content-header}/entries/{entries}'
+            ]
+        },
+        'webfilter_urlfilter_entries': {
+            'params': [
+                'adom',
+                'urlfilter',
+                'entries'
+            ],
+            'urls': [
+                '/pm/config/adom/{adom}/obj/webfilter/urlfilter/{urlfilter}/entries/{entries}',
+                '/pm/config/global/obj/webfilter/urlfilter/{urlfilter}/entries/{entries}'
+            ]
+        },
+        'ips_sensor_entries': {
+            'params': [
+                'adom',
+                'sensor',
+                'entries'
+            ],
+            'urls': [
+                '/pm/config/adom/{adom}/obj/ips/sensor/{sensor}/entries/{entries}',
+                '/pm/config/global/obj/ips/sensor/{sensor}/entries/{entries}'
+            ]
+        },
+        'ips_sensor_filter': {
+            'params': [
+                'adom',
+                'sensor',
+                'filter'
+            ],
+            'urls': [
+                '/pm/config/adom/{adom}/obj/ips/sensor/{sensor}/filter/{filter}',
+                '/pm/config/global/obj/ips/sensor/{sensor}/filter/{filter}'
+            ]
+        },
+        'spamfilter_bwl_entries': {
+            'params': [
+                'adom',
+                'bwl',
+                'entries'
+            ],
+            'urls': [
+                '/pm/config/adom/{adom}/obj/spamfilter/bwl/{bwl}/entries/{entries}',
+                '/pm/config/global/obj/spamfilter/bwl/{bwl}/entries/{entries}'
+            ]
+        },
+        'spamfilter_bword_entries': {
+            'params': [
+                'adom',
+                'bword',
+                'entries'
+            ],
+            'urls': [
+                '/pm/config/adom/{adom}/obj/spamfilter/bword/{bword}/entries/{entries}',
+                '/pm/config/global/obj/spamfilter/bword/{bword}/entries/{entries}'
+            ]
+        },
+        'firewall_carrierendpointbwl_entries': {
+            'params': [
+                'adom',
+                'carrier-endpoint-bwl',
+                'entries'
+            ],
+            'urls': [
+                '/pm/config/adom/{adom}/obj/firewall/carrier-endpoint-bwl/{carrier-endpoint-bwl}/entries/{entries}',
+                '/pm/config/global/obj/firewall/carrier-endpoint-bwl/{carrier-endpoint-bwl}/entries/{entries}'
+            ]
+        },
+        'firewall_identitybasedroute': {
+            'params': [
+                'adom',
+                'identity-based-route'
+            ],
+            'urls': [
+                '/pm/config/adom/{adom}/obj/firewall/identity-based-route/{identity-based-route}',
+                '/pm/config/global/obj/firewall/identity-based-route/{identity-based-route}'
+            ]
+        },
+        'firewall_service_category': {
+            'params': [
+                'adom',
+                'category'
+            ],
+            'urls': [
+                '/pm/config/adom/{adom}/obj/firewall/service/category/{category}',
+                '/pm/config/global/obj/firewall/service/category/{category}'
+            ]
+        },
+        'firewall_service_custom': {
+            'params': [
+                'adom',
+                'custom'
+            ],
+            'urls': [
+                '/pm/config/adom/{adom}/obj/firewall/service/custom/{custom}',
+                '/pm/config/global/obj/firewall/service/custom/{custom}'
+            ]
+        },
+        'firewall_shapingprofile_shapingentries': {
+            'params': [
+                'adom',
+                'shaping-profile',
+                'shaping-entries'
+            ],
+            'urls': [
+                '/pm/config/adom/{adom}/obj/firewall/shaping-profile/{shaping-profile}/shaping-entries/{shaping-entries}',
+                '/pm/config/global/obj/firewall/shaping-profile/{shaping-profile}/shaping-entries/{shaping-entries}'
+            ]
+        },
+        'firewall_vip': {
+            'params': [
+                'adom',
+                'vip'
+            ],
+            'urls': [
+                '/pm/config/adom/{adom}/obj/firewall/vip/{vip}',
+                '/pm/config/global/obj/firewall/vip/{vip}'
+            ]
+        },
         'system_sdnconnector_externalip': {
             'params': [
                 'adom',
@@ -602,6 +527,81 @@ def main():
                 '/pm/config/adom/{adom}/obj/system/sdn-connector/{sdn-connector}/route/{route}',
                 '/pm/config/global/obj/system/sdn-connector/{sdn-connector}/route/{route}'
             ]
+        },
+        'wanprof_system_virtualwanlink_members': {
+            'params': [
+                'adom',
+                'wanprof',
+                'members'
+            ],
+            'urls': [
+                '/pm/config/adom/{adom}/wanprof/{wanprof}/system/virtual-wan-link/members/{members}'
+            ]
+        },
+        'wanprof_system_virtualwanlink_service': {
+            'params': [
+                'adom',
+                'wanprof',
+                'service'
+            ],
+            'urls': [
+                '/pm/config/adom/{adom}/wanprof/{wanprof}/system/virtual-wan-link/service/{service}'
+            ]
+        },
+        'wanprof_system_virtualwanlink_service_sla': {
+            'params': [
+                'adom',
+                'wanprof',
+                'service',
+                'sla'
+            ],
+            'urls': [
+                '/pm/config/adom/{adom}/wanprof/{wanprof}/system/virtual-wan-link/service/{service}/sla/{sla}'
+            ]
+        },
+        'sshfilter_profile_shellcommands': {
+            'params': [
+                'adom',
+                'profile',
+                'shell-commands'
+            ],
+            'urls': [
+                '/pm/config/adom/{adom}/obj/ssh-filter/profile/{profile}/shell-commands/{shell-commands}',
+                '/pm/config/global/obj/ssh-filter/profile/{profile}/shell-commands/{shell-commands}'
+            ]
+        },
+        'bonjourprofile_policylist': {
+            'params': [
+                'adom',
+                'bonjour-profile',
+                'policy-list'
+            ],
+            'urls': [
+                '/pm/config/adom/{adom}/obj/wireless-controller/bonjour-profile/{bonjour-profile}/policy-list/{policy-list}',
+                '/pm/config/global/obj/wireless-controller/bonjour-profile/{bonjour-profile}/policy-list/{policy-list}'
+            ]
+        },
+        'dlp_filepattern_entries': {
+            'params': [
+                'adom',
+                'filepattern',
+                'entries'
+            ],
+            'urls': [
+                '/pm/config/adom/{adom}/obj/dlp/filepattern/{filepattern}/entries/{entries}',
+                '/pm/config/global/obj/dlp/filepattern/{filepattern}/entries/{entries}'
+            ]
+        },
+        'dlp_sensor_filter': {
+            'params': [
+                'adom',
+                'sensor',
+                'filter'
+            ],
+            'urls': [
+                '/pm/config/adom/{adom}/obj/dlp/sensor/{sensor}/filter/{filter}',
+                '/pm/config/global/obj/dlp/sensor/{sensor}/filter/{filter}'
+            ]
         }
     }
 
@@ -632,30 +632,10 @@ def main():
                     'type': 'str',
                     'choices': [
                         'dnsfilter_domainfilter_entries',
-                        'dlp_filepattern_entries',
-                        'dlp_sensor_filter',
-                        'wanprof_system_virtualwanlink_members',
-                        'wanprof_system_virtualwanlink_service',
-                        'wanprof_system_virtualwanlink_service_sla',
+                        'application_list_entries',
                         'vpnsslweb_portal_bookmarkgroup',
                         'vpnsslweb_portal_bookmarkgroup_bookmarks',
                         'vpnsslweb_portal_splitdns',
-                        'firewall_carrierendpointbwl_entries',
-                        'firewall_identitybasedroute',
-                        'firewall_service_category',
-                        'firewall_service_custom',
-                        'firewall_shapingprofile_shapingentries',
-                        'firewall_vip',
-                        'webfilter_contentheader_entries',
-                        'webfilter_urlfilter_entries',
-                        'sshfilter_profile_shellcommands',
-                        'spamfilter_bwl_entries',
-                        'spamfilter_bword_entries',
-                        'pkg_central_dnat',
-                        'ips_sensor_entries',
-                        'ips_sensor_filter',
-                        'application_list_entries',
-                        'bonjourprofile_policylist',
                         'pkg_firewall_centralsnatmap',
                         'pkg_firewall_dospolicy',
                         'pkg_firewall_dospolicy6',
@@ -671,12 +651,32 @@ def main():
                         'pkg_firewall_policy64',
                         'pkg_firewall_proxypolicy',
                         'pkg_firewall_shapingpolicy',
+                        'pkg_central_dnat',
+                        'webfilter_contentheader_entries',
+                        'webfilter_urlfilter_entries',
+                        'ips_sensor_entries',
+                        'ips_sensor_filter',
+                        'spamfilter_bwl_entries',
+                        'spamfilter_bword_entries',
+                        'firewall_carrierendpointbwl_entries',
+                        'firewall_identitybasedroute',
+                        'firewall_service_category',
+                        'firewall_service_custom',
+                        'firewall_shapingprofile_shapingentries',
+                        'firewall_vip',
                         'system_sdnconnector_externalip',
                         'system_sdnconnector_nic',
                         'system_sdnconnector_nic_ip',
                         'system_sdnconnector_routetable',
                         'system_sdnconnector_routetable_route',
-                        'system_sdnconnector_route'
+                        'system_sdnconnector_route',
+                        'wanprof_system_virtualwanlink_members',
+                        'wanprof_system_virtualwanlink_service',
+                        'wanprof_system_virtualwanlink_service_sla',
+                        'sshfilter_profile_shellcommands',
+                        'bonjourprofile_policylist',
+                        'dlp_filepattern_entries',
+                        'dlp_sensor_filter'
                     ]
                 },
                 'self': {

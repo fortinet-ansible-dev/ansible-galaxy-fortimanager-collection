@@ -124,7 +124,6 @@ options:
                 description: no description
             mig_os_ver:
                 type: str
-                default: '6.0'
                 description: no description
                 choices:
                     - 'unknown'
@@ -137,7 +136,6 @@ options:
                     - '6.0'
             mode:
                 type: str
-                default: 'gms'
                 description:
                  - 'ems - (Value no longer used as of 4.3)'
                  - 'provider - Global database.'
@@ -154,7 +152,6 @@ options:
                 description: no description
             os_ver:
                 type: str
-                default: '6.0'
                 description: no description
                 choices:
                     - 'unknown'
@@ -394,7 +391,6 @@ def main():
                         '5.0',
                         '6.0'
                     ],
-                    'default': '6.0',
                     'type': 'str'
                 },
                 'mode': {
@@ -404,7 +400,6 @@ def main():
                         'gms',
                         'provider'
                     ],
-                    'default': 'gms',
                     'type': 'str'
                 },
                 'mr': {
@@ -428,7 +423,6 @@ def main():
                         '5.0',
                         '6.0'
                     ],
-                    'default': '6.0',
                     'type': 'str'
                 },
                 'restricted_prds': {

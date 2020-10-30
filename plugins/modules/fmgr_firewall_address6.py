@@ -155,7 +155,6 @@ options:
                         choices:
                             - 'ipprefix'
                             - 'iprange'
-                            - 'nsx'
                             - 'dynamic'
                             - 'fqdn'
                             - 'template'
@@ -245,7 +244,6 @@ options:
                 choices:
                     - 'ipprefix'
                     - 'iprange'
-                    - 'nsx'
                     - 'dynamic'
                     - 'fqdn'
                     - 'template'
@@ -303,7 +301,7 @@ EXAMPLES = '''
                   start-ip: <value of string>
                   tags: <value of string>
                   template: <value of string>
-                  type: <value in [ipprefix, iprange, nsx, ...]>
+                  type: <value in [ipprefix, iprange, dynamic, ...]>
                   uuid: <value of string>
                   visibility: <value in [disable, enable]>
             end-ip: <value of string>
@@ -329,7 +327,7 @@ EXAMPLES = '''
                   name: <value of string>
                   tags: <value of string>
             template: <value of string>
-            type: <value in [ipprefix, iprange, nsx, ...]>
+            type: <value in [ipprefix, iprange, dynamic, ...]>
             uuid: <value of string>
             visibility: <value in [disable, enable]>
 
@@ -506,7 +504,6 @@ def main():
                             'choices': [
                                 'ipprefix',
                                 'iprange',
-                                'nsx',
                                 'dynamic',
                                 'fqdn',
                                 'template'
@@ -629,7 +626,6 @@ def main():
                     'choices': [
                         'ipprefix',
                         'iprange',
-                        'nsx',
                         'dynamic',
                         'fqdn',
                         'template'

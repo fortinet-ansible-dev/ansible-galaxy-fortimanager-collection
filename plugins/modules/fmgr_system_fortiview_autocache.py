@@ -80,7 +80,6 @@ options:
         suboptions:
             aggressive-fortiview:
                 type: str
-                default: 'disable'
                 description:
                  - 'Enable/disable auto-cache on fortiview aggressively.'
                  - 'disable - Disable the aggressive fortiview auto-cache.'
@@ -94,7 +93,6 @@ options:
                 description: 'The time interval in hours for fortiview auto-cache.'
             status:
                 type: str
-                default: 'enable'
                 description:
                  - 'Enable/disable fortiview auto-cache.'
                  - 'disable - Disable the fortiview auto-cache.'
@@ -198,7 +196,6 @@ def main():
                         'disable',
                         'enable'
                     ],
-                    'default': 'disable',
                     'type': 'str'
                 },
                 'interval': {
@@ -212,7 +209,6 @@ def main():
                         'disable',
                         'enable'
                     ],
-                    'default': 'enable',
                     'type': 'str'
                 }
             }

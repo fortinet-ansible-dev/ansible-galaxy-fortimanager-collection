@@ -93,7 +93,6 @@ options:
                 description: no description
             os_type:
                 type: str
-                default: 'unknown'
                 description: no description
                 choices:
                     - 'unknown'
@@ -113,7 +112,6 @@ options:
                     - 'fpx'
             type:
                 type: str
-                default: 'normal'
                 description: no description
                 choices:
                     - 'normal'
@@ -258,7 +256,6 @@ def main():
                         'fac',
                         'fpx'
                     ],
-                    'default': 'unknown',
                     'type': 'str'
                 },
                 'type': {
@@ -268,7 +265,6 @@ def main():
                         'default',
                         'auto'
                     ],
-                    'default': 'normal',
                     'type': 'str'
                 }
             }

@@ -92,7 +92,6 @@ options:
                 description: 'System location.'
             status:
                 type: str
-                default: 'disable'
                 description:
                  - 'Enable/disable SNMP.'
                  - 'disable - Disable setting.'
@@ -229,7 +228,6 @@ def main():
                         'disable',
                         'enable'
                     ],
-                    'default': 'disable',
                     'type': 'str'
                 },
                 'trap-cpu-high-exclude-nice-threshold': {

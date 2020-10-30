@@ -83,7 +83,6 @@ options:
                 description: 'Log-fetch client sides adom name.'
             data-range:
                 type: str
-                default: 'custom'
                 description:
                  - 'Data-range for fetched logs.'
                  - 'custom - Specify some other date and time range.'
@@ -99,11 +98,9 @@ options:
                 suboptions:
                     adom:
                         type: str
-                        default: '*'
                         description: 'Adom name.'
                     device:
                         type: str
-                        default: '*'
                         description: 'Device name or Serial number.'
                     id:
                         type: int
@@ -111,7 +108,6 @@ options:
                         description: 'Add or edit a device filter.'
                     vdom:
                         type: str
-                        default: '*'
                         description: 'Vdom filters.'
             end-time:
                 description: no description
@@ -122,7 +118,6 @@ options:
                 description: 'Log-fetch client profile ID.'
             index-fetch-logs:
                 type: str
-                default: 'enable'
                 description:
                  - 'Enable/Disable indexing logs automatically after fetching logs.'
                  - 'disable - Disable attribute function.'
@@ -143,7 +138,6 @@ options:
                         description: 'Log filter ID.'
                     oper:
                         type: str
-                        default: '='
                         description:
                          - 'Field filter operator.'
                          - '&lt; - =Less than or equal to'
@@ -166,7 +160,6 @@ options:
                         description: 'Field filter operand or free-text matching expression.'
             log-filter-logic:
                 type: str
-                default: 'or'
                 description:
                  - 'And/Or logic for log-filters.'
                  - 'and - Logic And.'
@@ -176,7 +169,6 @@ options:
                     - 'or'
             log-filter-status:
                 type: str
-                default: 'disable'
                 description:
                  - 'Enable/Disable log-filter.'
                  - 'disable - Disable attribute function.'
@@ -192,7 +184,6 @@ options:
                 type: str
             secure-connection:
                 type: str
-                default: 'enable'
                 description:
                  - 'Enable/Disable protecting log-fetch connection with TLS/SSL.'
                  - 'disable - Disable attribute function.'
@@ -205,14 +196,12 @@ options:
                 description: 'Log-fetch server sides adom name.'
             server-ip:
                 type: str
-                default: '0.0.0.0'
                 description: 'Log-fetch server IP address.'
             start-time:
                 description: no description
                 type: str
             sync-adom-config:
                 type: str
-                default: 'disable'
                 description:
                  - 'Enable/Disable sync adom related config.'
                  - 'disable - Disable attribute function.'
@@ -356,7 +345,6 @@ def main():
                     'choices': [
                         'custom'
                     ],
-                    'default': 'custom',
                     'type': 'str'
                 },
                 'data-range-value': {
@@ -370,12 +358,10 @@ def main():
                     'options': {
                         'adom': {
                             'required': False,
-                            'default': '*',
                             'type': 'str'
                         },
                         'device': {
                             'required': False,
-                            'default': '*',
                             'type': 'str'
                         },
                         'id': {
@@ -385,7 +371,6 @@ def main():
                         },
                         'vdom': {
                             'required': False,
-                            'default': '*',
                             'type': 'str'
                         }
                     }
@@ -404,7 +389,6 @@ def main():
                         'disable',
                         'enable'
                     ],
-                    'default': 'enable',
                     'type': 'str'
                 },
                 'log-filter': {
@@ -433,7 +417,6 @@ def main():
                                 'not-contain',
                                 'match'
                             ],
-                            'default': '=',
                             'type': 'str'
                         },
                         'value': {
@@ -448,7 +431,6 @@ def main():
                         'and',
                         'or'
                     ],
-                    'default': 'or',
                     'type': 'str'
                 },
                 'log-filter-status': {
@@ -457,7 +439,6 @@ def main():
                         'disable',
                         'enable'
                     ],
-                    'default': 'disable',
                     'type': 'str'
                 },
                 'name': {
@@ -474,7 +455,6 @@ def main():
                         'disable',
                         'enable'
                     ],
-                    'default': 'enable',
                     'type': 'str'
                 },
                 'server-adom': {
@@ -483,7 +463,6 @@ def main():
                 },
                 'server-ip': {
                     'required': False,
-                    'default': '0.0.0.0',
                     'type': 'str'
                 },
                 'start-time': {
@@ -496,7 +475,6 @@ def main():
                         'disable',
                         'enable'
                     ],
-                    'default': 'disable',
                     'type': 'str'
                 },
                 'user': {

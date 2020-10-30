@@ -80,7 +80,6 @@ options:
         suboptions:
             aggressive-schedule:
                 type: str
-                default: 'disable'
                 description:
                  - 'Enable/disable auto-cache on schedule reports aggressively.'
                  - 'disable - Disable the aggressive schedule auto-cache.'
@@ -90,7 +89,6 @@ options:
                     - 'enable'
             order:
                 type: str
-                default: 'oldest-first'
                 description:
                  - 'The order of which SQL log table is processed first.'
                  - 'oldest-first - The oldest SQL log table is processed first.'
@@ -98,7 +96,6 @@ options:
                     - 'oldest-first'
             status:
                 type: str
-                default: 'enable'
                 description:
                  - 'Enable/disable sql report auto cache.'
                  - 'disable - Disable the sql report auto-cache.'
@@ -202,7 +199,6 @@ def main():
                         'disable',
                         'enable'
                     ],
-                    'default': 'disable',
                     'type': 'str'
                 },
                 'order': {
@@ -210,7 +206,6 @@ def main():
                     'choices': [
                         'oldest-first'
                     ],
-                    'default': 'oldest-first',
                     'type': 'str'
                 },
                 'status': {
@@ -219,7 +214,6 @@ def main():
                         'disable',
                         'enable'
                     ],
-                    'default': 'enable',
                     'type': 'str'
                 }
             }

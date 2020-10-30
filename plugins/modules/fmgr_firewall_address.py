@@ -98,8 +98,8 @@ options:
                 type: int
                 description: 'Color of icon on the GUI.'
             comment:
+                type: str
                 description: no description
-                type: dict
             country:
                 type: str
                 description: 'IP addresses associated to a specific country.'
@@ -133,8 +133,8 @@ options:
                         type: int
                         description: no description
                     comment:
+                        type: str
                         description: no description
-                        type: dict
                     country:
                         type: str
                         description: no description
@@ -214,13 +214,8 @@ options:
                             - 'fqdn'
                             - 'wildcard'
                             - 'geography'
-                            - 'url'
                             - 'wildcard-fqdn'
-                            - 'nsx'
-                            - 'aws'
                             - 'dynamic'
-                            - 'interface-subnet'
-                            - 'mac'
                     url:
                         type: str
                         description: no description
@@ -319,13 +314,8 @@ options:
                     - 'fqdn'
                     - 'wildcard'
                     - 'geography'
-                    - 'url'
                     - 'wildcard-fqdn'
-                    - 'nsx'
-                    - 'aws'
                     - 'dynamic'
-                    - 'interface-subnet'
-                    - 'mac'
             uuid:
                 type: str
                 description: 'Universally Unique Identifier (UUID; automatically assigned but can be manually reset).'
@@ -368,7 +358,7 @@ EXAMPLES = '''
             associated-interface: <value of string>
             cache-ttl: <value of integer>
             color: <value of integer>
-            comment: <value of dict>
+            comment: <value of string>
             country: <value of string>
             dynamic_mapping:
               -
@@ -380,7 +370,7 @@ EXAMPLES = '''
                   associated-interface: <value of string>
                   cache-ttl: <value of integer>
                   color: <value of integer>
-                  comment: <value of dict>
+                  comment: <value of string>
                   country: <value of string>
                   end-ip: <value of string>
                   end-mac: <value of string>
@@ -535,7 +525,7 @@ def main():
                 },
                 'comment': {
                     'required': False,
-                    'type': 'dict'
+                    'type': 'str'
                 },
                 'country': {
                     'required': False,
@@ -581,7 +571,7 @@ def main():
                         },
                         'comment': {
                             'required': False,
-                            'type': 'dict'
+                            'type': 'str'
                         },
                         'country': {
                             'required': False,
@@ -682,13 +672,8 @@ def main():
                                 'fqdn',
                                 'wildcard',
                                 'geography',
-                                'url',
                                 'wildcard-fqdn',
-                                'nsx',
-                                'aws',
-                                'dynamic',
-                                'interface-subnet',
-                                'mac'
+                                'dynamic'
                             ],
                             'type': 'str'
                         },
@@ -820,13 +805,8 @@ def main():
                         'fqdn',
                         'wildcard',
                         'geography',
-                        'url',
                         'wildcard-fqdn',
-                        'nsx',
-                        'aws',
-                        'dynamic',
-                        'interface-subnet',
-                        'mac'
+                        'dynamic'
                     ],
                     'type': 'str'
                 },

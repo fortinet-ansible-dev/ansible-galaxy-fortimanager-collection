@@ -88,7 +88,6 @@ options:
                         description: 'ID of the announce IP address (1 - 10).'
                     ip:
                         type: str
-                        default: '0.0.0.0'
                         description: 'Announce IPv4 address.'
                     port:
                         type: int
@@ -96,7 +95,6 @@ options:
                         description: 'Announce IP port (1 - 65535, default = 8890).'
             status:
                 type: str
-                default: 'disable'
                 description:
                  - 'Enable/disable push updates (default = disable).'
                  - 'disable - Disable setting.'
@@ -208,7 +206,6 @@ def main():
                         },
                         'ip': {
                             'required': False,
-                            'default': '0.0.0.0',
                             'type': 'str'
                         },
                         'port': {
@@ -224,7 +221,6 @@ def main():
                         'disable',
                         'enable'
                     ],
-                    'default': 'disable',
                     'type': 'str'
                 }
             }

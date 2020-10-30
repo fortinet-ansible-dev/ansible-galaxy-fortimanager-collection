@@ -80,7 +80,6 @@ options:
         suboptions:
             diskfull:
                 type: str
-                default: 'overwrite'
                 description:
                  - 'Action upon disk full.'
                  - 'overwrite - Overwrite oldest log when disk is full.'
@@ -90,7 +89,6 @@ options:
                     - 'nolog'
             severity:
                 type: str
-                default: 'notification'
                 description:
                  - 'Least severity level to log.'
                  - 'emergency - Emergency level.'
@@ -112,7 +110,6 @@ options:
                     - 'debug'
             status:
                 type: str
-                default: 'disable'
                 description:
                  - 'Enable/disable memory buffer log.'
                  - 'disable - Do not log to memory buffer.'
@@ -216,7 +213,6 @@ def main():
                         'overwrite',
                         'nolog'
                     ],
-                    'default': 'overwrite',
                     'type': 'str'
                 },
                 'severity': {
@@ -231,7 +227,6 @@ def main():
                         'information',
                         'debug'
                     ],
-                    'default': 'notification',
                     'type': 'str'
                 },
                 'status': {
@@ -240,7 +235,6 @@ def main():
                         'disable',
                         'enable'
                     ],
-                    'default': 'disable',
                     'type': 'str'
                 }
             }

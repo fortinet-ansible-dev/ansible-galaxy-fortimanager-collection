@@ -80,19 +80,15 @@ options:
         suboptions:
             ip6-primary:
                 type: str
-                default: '::'
                 description: 'IPv6 primary DNS IP.'
             ip6-secondary:
                 type: str
-                default: '::'
                 description: 'IPv6 secondary DNS IP.'
             primary:
                 type: str
-                default: '0.0.0.0'
                 description: 'Primary DNS IP.'
             secondary:
                 type: str
-                default: '0.0.0.0'
                 description: 'Secondary DNS IP.'
 
 '''
@@ -187,22 +183,18 @@ def main():
             'options': {
                 'ip6-primary': {
                     'required': False,
-                    'default': '::',
                     'type': 'str'
                 },
                 'ip6-secondary': {
                     'required': False,
-                    'default': '::',
                     'type': 'str'
                 },
                 'primary': {
                     'required': False,
-                    'default': '0.0.0.0',
                     'type': 'str'
                 },
                 'secondary': {
                     'required': False,
-                    'default': '0.0.0.0',
                     'type': 'str'
                 }
             }

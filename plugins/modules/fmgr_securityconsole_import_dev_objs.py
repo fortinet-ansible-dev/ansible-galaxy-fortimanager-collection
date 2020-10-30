@@ -73,7 +73,6 @@ options:
         suboptions:
             add_mappings:
                 type: str
-                default: 'disable'
                 description: 'Automatically add required dynamic mappings for the device during the search stages.<br/>When used in policy_search action, ad...'
                 choices:
                     - 'disable'
@@ -89,7 +88,6 @@ options:
                 description: 'Path to the folder for the target package. If the package is to be placed in root, leave this field blank.'
             if_all_objs:
                 type: str
-                default: 'none'
                 description: no description
                 choices:
                     - 'none'
@@ -97,14 +95,12 @@ options:
                     - 'filter'
             if_all_policy:
                 type: str
-                default: 'disable'
                 description: no description
                 choices:
                     - 'disable'
                     - 'enable'
             import_action:
                 type: str
-                default: 'do'
                 description:
                  - 'do - Perform the policy and object import.'
                  - 'policy_search - Preprocess and scan through device database to gather information about policies that need to be imported. Can automatic...'
@@ -118,7 +114,6 @@ options:
                 description: 'Source device name.'
             position:
                 type: str
-                default: 'top'
                 description: no description
                 choices:
                     - 'bottom'
@@ -228,7 +223,6 @@ def main():
                         'disable',
                         'enable'
                     ],
-                    'default': 'disable',
                     'type': 'str'
                 },
                 'adom': {
@@ -250,7 +244,6 @@ def main():
                         'all',
                         'filter'
                     ],
-                    'default': 'none',
                     'type': 'str'
                 },
                 'if_all_policy': {
@@ -259,7 +252,6 @@ def main():
                         'disable',
                         'enable'
                     ],
-                    'default': 'disable',
                     'type': 'str'
                 },
                 'import_action': {
@@ -269,7 +261,6 @@ def main():
                         'policy_search',
                         'obj_search'
                     ],
-                    'default': 'do',
                     'type': 'str'
                 },
                 'name': {
@@ -282,7 +273,6 @@ def main():
                         'bottom',
                         'top'
                     ],
-                    'default': 'top',
                     'type': 'str'
                 },
                 'vdom': {

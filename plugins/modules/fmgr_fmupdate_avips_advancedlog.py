@@ -80,7 +80,6 @@ options:
         suboptions:
             log-fortigate:
                 type: str
-                default: 'disable'
                 description:
                  - 'Enable/disable logging of FortiGuard antivirus and IPS service updates of FortiGate devices (default = disable).'
                  - 'disable - Disable setting.'
@@ -90,7 +89,6 @@ options:
                     - 'enable'
             log-server:
                 type: str
-                default: 'enable'
                 description:
                  - 'Enable/disable logging of update packages received by the build-in FortiGuard server (default = disable).'
                  - 'disable - Disable setting.'
@@ -193,7 +191,6 @@ def main():
                         'disable',
                         'enable'
                     ],
-                    'default': 'disable',
                     'type': 'str'
                 },
                 'log-server': {
@@ -202,7 +199,6 @@ def main():
                         'disable',
                         'enable'
                     ],
-                    'default': 'enable',
                     'type': 'str'
                 }
             }

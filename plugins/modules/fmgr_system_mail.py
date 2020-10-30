@@ -80,7 +80,6 @@ options:
         suboptions:
             auth:
                 type: str
-                default: 'disable'
                 description:
                  - 'Enable authentication.'
                  - 'disable - Disable authentication.'
@@ -100,7 +99,6 @@ options:
                 description: 'SMTP server port.'
             secure-option:
                 type: str
-                default: 'default'
                 description:
                  - 'Communication secure option.'
                  - 'default - Try STARTTLS, proceed as plain text communication otherwise.'
@@ -227,7 +225,6 @@ def main():
                         'disable',
                         'enable'
                     ],
-                    'default': 'disable',
                     'type': 'str'
                 },
                 'id': {
@@ -251,7 +248,6 @@ def main():
                         'smtps',
                         'starttls'
                     ],
-                    'default': 'default',
                     'type': 'str'
                 },
                 'server': {

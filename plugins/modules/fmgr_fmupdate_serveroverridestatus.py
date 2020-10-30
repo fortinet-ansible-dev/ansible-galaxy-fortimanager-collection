@@ -80,7 +80,6 @@ options:
         suboptions:
             mode:
                 type: str
-                default: 'loose'
                 description:
                  - 'Server override mode (default = loose).'
                  - 'strict - Access override server only.'
@@ -182,7 +181,6 @@ def main():
                         'strict',
                         'loose'
                     ],
-                    'default': 'loose',
                     'type': 'str'
                 }
             }

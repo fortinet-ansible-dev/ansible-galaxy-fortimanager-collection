@@ -80,7 +80,6 @@ options:
         suboptions:
             auth-proto:
                 type: str
-                default: 'sha'
                 description:
                  - 'Authentication protocol.'
                  - 'md5 - HMAC-MD5-96 authentication protocol.'
@@ -118,7 +117,6 @@ options:
                 description: 'IPv6 hosts to send notifications (traps) to.'
             priv-proto:
                 type: str
-                default: 'aes'
                 description:
                  - 'Privacy (encryption) protocol.'
                  - 'aes - CFB128-AES-128 symmetric encryption protocol.'
@@ -131,7 +129,6 @@ options:
                 type: str
             queries:
                 type: str
-                default: 'enable'
                 description:
                  - 'Enable/disable queries for this user.'
                  - 'disable - Disable setting.'
@@ -145,7 +142,6 @@ options:
                 description: 'SNMPv3 query port.'
             security-level:
                 type: str
-                default: 'no-auth-no-priv'
                 description:
                  - 'Security level for message authentication and encryption.'
                  - 'no-auth-no-priv - Message with no authentication and no privacy (encryption).'
@@ -280,7 +276,6 @@ def main():
                         'md5',
                         'sha'
                     ],
-                    'default': 'sha',
                     'type': 'str'
                 },
                 'auth-pwd': {
@@ -323,7 +318,6 @@ def main():
                         'aes',
                         'des'
                     ],
-                    'default': 'aes',
                     'type': 'str'
                 },
                 'priv-pwd': {
@@ -336,7 +330,6 @@ def main():
                         'disable',
                         'enable'
                     ],
-                    'default': 'enable',
                     'type': 'str'
                 },
                 'query-port': {
@@ -351,7 +344,6 @@ def main():
                         'auth-no-priv',
                         'auth-priv'
                     ],
-                    'default': 'no-auth-no-priv',
                     'type': 'str'
                 }
             }

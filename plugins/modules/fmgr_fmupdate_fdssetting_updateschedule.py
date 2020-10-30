@@ -80,7 +80,6 @@ options:
         suboptions:
             day:
                 type: str
-                default: 'Monday'
                 description:
                  - 'Configure the day the update will occur, if the freqnecy is weekly (Sunday - Saturday, default = Monday).'
                  - 'Sunday - Update every Sunday.'
@@ -100,7 +99,6 @@ options:
                     - 'Saturday'
             frequency:
                 type: str
-                default: 'every'
                 description:
                  - 'Configure update frequency: every - time interval, daily - once a day, weekly - once a week (default = every).'
                  - 'every - Time interval.'
@@ -112,7 +110,6 @@ options:
                     - 'weekly'
             status:
                 type: str
-                default: 'enable'
                 description:
                  - 'Enable/disable scheduled updates.'
                  - 'disable - Disable setting.'
@@ -225,7 +222,6 @@ def main():
                         'Friday',
                         'Saturday'
                     ],
-                    'default': 'Monday',
                     'type': 'str'
                 },
                 'frequency': {
@@ -235,7 +231,6 @@ def main():
                         'daily',
                         'weekly'
                     ],
-                    'default': 'every',
                     'type': 'str'
                 },
                 'status': {
@@ -244,7 +239,6 @@ def main():
                         'disable',
                         'enable'
                     ],
-                    'default': 'enable',
                     'type': 'str'
                 },
                 'time': {

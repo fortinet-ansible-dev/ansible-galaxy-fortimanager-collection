@@ -80,7 +80,6 @@ options:
         suboptions:
             access-banner:
                 type: str
-                default: 'disable'
                 description:
                  - 'Enable/disable access banner.'
                  - 'disable - Disable setting.'
@@ -90,7 +89,6 @@ options:
                     - 'enable'
             admin-https-redirect:
                 type: str
-                default: 'enable'
                 description:
                  - 'Enable/disable redirection of HTTP admin traffic to HTTPS.'
                  - 'disable - Disable setting.'
@@ -104,11 +102,9 @@ options:
                 description: 'Maximum number admin users logged in at one time (1 - 256).'
             admin_server_cert:
                 type: str
-                default: 'server.crt'
                 description: 'HTTPS & Web Service server certificate.'
             allow_register:
                 type: str
-                default: 'disable'
                 description:
                  - 'Enable/disable allowance of register an unregistered device.'
                  - 'disable - Disable setting.'
@@ -118,7 +114,6 @@ options:
                     - 'enable'
             auto-update:
                 type: str
-                default: 'enable'
                 description:
                  - 'Enable/disable FortiGate automatic update.'
                  - 'disable - Disable device automatic update.'
@@ -131,7 +126,6 @@ options:
                 description: 'Banner message.'
             chassis-mgmt:
                 type: str
-                default: 'disable'
                 description:
                  - 'Enable or disable chassis management.'
                  - 'disable - Disable setting.'
@@ -145,7 +139,6 @@ options:
                 description: 'Chassis background update interval (4 - 1440 mins).'
             device_sync_status:
                 type: str
-                default: 'enable'
                 description:
                  - 'Enable/disable device synchronization status indication.'
                  - 'disable - Disable setting.'
@@ -155,7 +148,6 @@ options:
                     - 'enable'
             gui-theme:
                 type: str
-                default: 'blue'
                 description:
                  - 'Color scheme to use for the administration GUI.'
                  - 'blue - Blueberry'
@@ -223,7 +215,6 @@ options:
                 description: 'Idle timeout (1 - 480 min).'
             install-ifpolicy-only:
                 type: str
-                default: 'disable'
                 description:
                  - 'Allow install interface policy only.'
                  - 'disable - Disable setting.'
@@ -239,7 +230,6 @@ options:
                 description: 'FQDN of FortiManager used by FGFM.'
             objects-force-deletion:
                 type: str
-                default: 'enable'
                 description:
                  - 'Enable/disable used objects force deletion.'
                  - 'disable - Disable setting.'
@@ -249,7 +239,6 @@ options:
                     - 'enable'
             offline_mode:
                 type: str
-                default: 'disable'
                 description:
                  - 'Enable/disable offline mode.'
                  - 'disable - Disable offline mode.'
@@ -262,7 +251,6 @@ options:
                 type: str
             sdwan-monitor-history:
                 type: str
-                default: 'disable'
                 description:
                  - 'Enable/disable hostname display in the GUI login page.'
                  - 'disable - Disable setting.'
@@ -272,7 +260,6 @@ options:
                     - 'enable'
             shell-access:
                 type: str
-                default: 'disable'
                 description:
                  - 'Enable/disable shell access.'
                  - 'disable - Disable setting.'
@@ -285,7 +272,6 @@ options:
                 type: str
             show-add-multiple:
                 type: str
-                default: 'disable'
                 description:
                  - 'Show add multiple button.'
                  - 'disable - Disable setting.'
@@ -295,7 +281,6 @@ options:
                     - 'enable'
             show-adom-devman:
                 type: str
-                default: 'enable'
                 description:
                  - 'Show ADOM device manager tools on GUI.'
                  - 'disable - Hide device manager tools on GUI.'
@@ -305,7 +290,6 @@ options:
                     - 'enable'
             show-checkbox-in-table:
                 type: str
-                default: 'disable'
                 description:
                  - 'Show checkboxs in tables on GUI.'
                  - 'disable - Disable setting.'
@@ -315,7 +299,6 @@ options:
                     - 'enable'
             show-device-import-export:
                 type: str
-                default: 'disable'
                 description:
                  - 'Enable/disable import/export of ADOM, device, and group lists.'
                  - 'disable - Disable setting.'
@@ -325,7 +308,6 @@ options:
                     - 'enable'
             show-hostname:
                 type: str
-                default: 'disable'
                 description:
                  - 'Enable/disable hostname display in the GUI login page.'
                  - 'disable - Disable setting.'
@@ -335,7 +317,6 @@ options:
                     - 'enable'
             show_automatic_script:
                 type: str
-                default: 'disable'
                 description:
                  - 'Enable/disable automatic script.'
                  - 'disable - Disable script option.'
@@ -345,7 +326,6 @@ options:
                     - 'enable'
             show_grouping_script:
                 type: str
-                default: 'enable'
                 description:
                  - 'Enable/disable grouping script.'
                  - 'disable - Disable script option.'
@@ -355,7 +335,6 @@ options:
                     - 'enable'
             show_schedule_script:
                 type: str
-                default: 'disable'
                 description:
                  - 'Enable or disable schedule script.'
                  - 'disable - Disable script option.'
@@ -365,7 +344,6 @@ options:
                     - 'enable'
             show_tcl_script:
                 type: str
-                default: 'disable'
                 description:
                  - 'Enable/disable TCL script.'
                  - 'disable - Disable script option.'
@@ -375,7 +353,6 @@ options:
                     - 'enable'
             unreg_dev_opt:
                 type: str
-                default: 'add_allow_service'
                 description:
                  - 'Action to take when unregistered device connects to FortiManager.'
                  - 'add_no_service - Add unregistered devices but deny service requests.'
@@ -387,7 +364,6 @@ options:
                     - 'add_allow_service'
             webadmin_language:
                 type: str
-                default: 'auto_detect'
                 description:
                  - 'Web admin language.'
                  - 'auto_detect - Automatically detect language.'
@@ -532,7 +508,6 @@ def main():
                         'disable',
                         'enable'
                     ],
-                    'default': 'disable',
                     'type': 'str'
                 },
                 'admin-https-redirect': {
@@ -541,7 +516,6 @@ def main():
                         'disable',
                         'enable'
                     ],
-                    'default': 'enable',
                     'type': 'str'
                 },
                 'admin-login-max': {
@@ -551,7 +525,6 @@ def main():
                 },
                 'admin_server_cert': {
                     'required': False,
-                    'default': 'server.crt',
                     'type': 'str'
                 },
                 'allow_register': {
@@ -560,7 +533,6 @@ def main():
                         'disable',
                         'enable'
                     ],
-                    'default': 'disable',
                     'type': 'str'
                 },
                 'auto-update': {
@@ -569,7 +541,6 @@ def main():
                         'disable',
                         'enable'
                     ],
-                    'default': 'enable',
                     'type': 'str'
                 },
                 'banner-message': {
@@ -582,7 +553,6 @@ def main():
                         'disable',
                         'enable'
                     ],
-                    'default': 'disable',
                     'type': 'str'
                 },
                 'chassis-update-interval': {
@@ -596,7 +566,6 @@ def main():
                         'disable',
                         'enable'
                     ],
-                    'default': 'enable',
                     'type': 'str'
                 },
                 'gui-theme': {
@@ -628,7 +597,6 @@ def main():
                         'parrot',
                         'cave'
                     ],
-                    'default': 'blue',
                     'type': 'str'
                 },
                 'http_port': {
@@ -652,7 +620,6 @@ def main():
                         'disable',
                         'enable'
                     ],
-                    'default': 'disable',
                     'type': 'str'
                 },
                 'mgmt-addr': {
@@ -669,7 +636,6 @@ def main():
                         'disable',
                         'enable'
                     ],
-                    'default': 'enable',
                     'type': 'str'
                 },
                 'offline_mode': {
@@ -678,7 +644,6 @@ def main():
                         'disable',
                         'enable'
                     ],
-                    'default': 'disable',
                     'type': 'str'
                 },
                 'register_passwd': {
@@ -691,7 +656,6 @@ def main():
                         'disable',
                         'enable'
                     ],
-                    'default': 'disable',
                     'type': 'str'
                 },
                 'shell-access': {
@@ -700,7 +664,6 @@ def main():
                         'disable',
                         'enable'
                     ],
-                    'default': 'disable',
                     'type': 'str'
                 },
                 'shell-password': {
@@ -713,7 +676,6 @@ def main():
                         'disable',
                         'enable'
                     ],
-                    'default': 'disable',
                     'type': 'str'
                 },
                 'show-adom-devman': {
@@ -722,7 +684,6 @@ def main():
                         'disable',
                         'enable'
                     ],
-                    'default': 'enable',
                     'type': 'str'
                 },
                 'show-checkbox-in-table': {
@@ -731,7 +692,6 @@ def main():
                         'disable',
                         'enable'
                     ],
-                    'default': 'disable',
                     'type': 'str'
                 },
                 'show-device-import-export': {
@@ -740,7 +700,6 @@ def main():
                         'disable',
                         'enable'
                     ],
-                    'default': 'disable',
                     'type': 'str'
                 },
                 'show-hostname': {
@@ -749,7 +708,6 @@ def main():
                         'disable',
                         'enable'
                     ],
-                    'default': 'disable',
                     'type': 'str'
                 },
                 'show_automatic_script': {
@@ -758,7 +716,6 @@ def main():
                         'disable',
                         'enable'
                     ],
-                    'default': 'disable',
                     'type': 'str'
                 },
                 'show_grouping_script': {
@@ -767,7 +724,6 @@ def main():
                         'disable',
                         'enable'
                     ],
-                    'default': 'enable',
                     'type': 'str'
                 },
                 'show_schedule_script': {
@@ -776,7 +732,6 @@ def main():
                         'disable',
                         'enable'
                     ],
-                    'default': 'disable',
                     'type': 'str'
                 },
                 'show_tcl_script': {
@@ -785,7 +740,6 @@ def main():
                         'disable',
                         'enable'
                     ],
-                    'default': 'disable',
                     'type': 'str'
                 },
                 'unreg_dev_opt': {
@@ -795,7 +749,6 @@ def main():
                         'ignore',
                         'add_allow_service'
                     ],
-                    'default': 'add_allow_service',
                     'type': 'str'
                 },
                 'webadmin_language': {
@@ -809,7 +762,6 @@ def main():
                         'korean',
                         'spanish'
                     ],
-                    'default': 'auto_detect',
                     'type': 'str'
                 }
             }

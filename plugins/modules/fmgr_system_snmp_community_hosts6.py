@@ -91,7 +91,6 @@ options:
                 description: 'Allow interface name.'
             ip:
                 type: str
-                default: '::/0'
                 description: 'Allow host IP address.'
 
 '''
@@ -207,7 +206,6 @@ def main():
                 },
                 'ip': {
                     'required': False,
-                    'default': '::/0',
                     'type': 'str'
                 }
             }

@@ -80,7 +80,6 @@ options:
         suboptions:
             reliable:
                 type: str
-                default: 'disable'
                 description:
                  - 'Enable/disable reliable realtime logging.'
                  - 'disable - Disable reliable realtime logging.'
@@ -90,7 +89,6 @@ options:
                     - 'enable'
             secure-connection:
                 type: str
-                default: 'disable'
                 description:
                  - 'Enable/disable connection secured by TLS/SSL.'
                  - 'disable - Disable SSL connection.'
@@ -100,11 +98,9 @@ options:
                     - 'enable'
             server-ip:
                 type: str
-                default: '0.0.0.0'
                 description: 'Remote FortiAnalyzer server IP address.'
             severity:
                 type: str
-                default: 'notification'
                 description:
                  - 'Least severity level to log.'
                  - 'emergency - Emergency level.'
@@ -126,7 +122,6 @@ options:
                     - 'debug'
             status:
                 type: str
-                default: 'disable'
                 description:
                  - 'Log to FortiAnalyzer status.'
                  - 'disable - Log to FortiAnalyzer disabled.'
@@ -238,7 +233,6 @@ def main():
                         'disable',
                         'enable'
                     ],
-                    'default': 'disable',
                     'type': 'str'
                 },
                 'secure-connection': {
@@ -247,12 +241,10 @@ def main():
                         'disable',
                         'enable'
                     ],
-                    'default': 'disable',
                     'type': 'str'
                 },
                 'server-ip': {
                     'required': False,
-                    'default': '0.0.0.0',
                     'type': 'str'
                 },
                 'severity': {
@@ -267,7 +259,6 @@ def main():
                         'information',
                         'debug'
                     ],
-                    'default': 'notification',
                     'type': 'str'
                 },
                 'status': {
@@ -277,7 +268,6 @@ def main():
                         'realtime',
                         'upload'
                     ],
-                    'default': 'disable',
                     'type': 'str'
                 },
                 'upload-time': {

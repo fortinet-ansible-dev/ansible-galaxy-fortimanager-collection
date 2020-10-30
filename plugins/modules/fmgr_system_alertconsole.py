@@ -80,7 +80,6 @@ options:
         suboptions:
             period:
                 type: str
-                default: '7'
                 description:
                  - 'Alert console keeps alerts for this period.'
                  - '1 - 1 day.'
@@ -218,7 +217,6 @@ def main():
                         '6',
                         '7'
                     ],
-                    'default': '7',
                     'type': 'str'
                 },
                 'severity-level': {

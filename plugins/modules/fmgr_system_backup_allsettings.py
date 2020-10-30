@@ -92,7 +92,6 @@ options:
                 type: str
             protocol:
                 type: str
-                default: 'sftp'
                 description:
                  - 'Protocol used to backup.'
                  - 'sftp - SFTP.'
@@ -107,7 +106,6 @@ options:
                 description: 'Backup server name/IP.'
             status:
                 type: str
-                default: 'disable'
                 description:
                  - 'Enable/disable schedule backup.'
                  - 'disable - Disable setting.'
@@ -259,7 +257,6 @@ def main():
                         'ftp',
                         'scp'
                     ],
-                    'default': 'sftp',
                     'type': 'str'
                 },
                 'server': {
@@ -272,7 +269,6 @@ def main():
                         'disable',
                         'enable'
                     ],
-                    'default': 'disable',
                     'type': 'str'
                 },
                 'time': {

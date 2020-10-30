@@ -80,7 +80,6 @@ options:
         suboptions:
             auth-type:
                 type: str
-                default: 'any'
                 description:
                  - 'Authentication protocol.'
                  - 'any - Use any supported authentication protocol.'
@@ -97,7 +96,6 @@ options:
                 description: 'Name.'
             nas-ip:
                 type: str
-                default: '0.0.0.0'
                 description: 'NAS IP address and called station ID.'
             port:
                 type: int
@@ -227,7 +225,6 @@ def main():
                         'chap',
                         'mschap2'
                     ],
-                    'default': 'any',
                     'type': 'str'
                 },
                 'name': {
@@ -236,7 +233,6 @@ def main():
                 },
                 'nas-ip': {
                     'required': False,
-                    'default': '0.0.0.0',
                     'type': 'str'
                 },
                 'port': {
