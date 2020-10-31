@@ -99,12 +99,14 @@ options:
                 description: 'The value has no effect if target is "adom_database".'
             filter_ostype:
                 type: str
+                default: 'unknown'
                 description: 'The value has no effect if target is "adom_database".'
                 choices:
                     - 'unknown'
                     - 'fos'
             filter_osver:
                 type: str
+                default: 'unknown'
                 description: 'The value will be ignored in add/set/update requests if filter_ostype is not set. It has no effect if target is "adom_database".'
                 choices:
                     - 'unknown'
@@ -136,6 +138,7 @@ options:
                          - 'monthly: "DD hh:mm"'
                     day_of_week:
                         type: str
+                        default: 'sun'
                         description: no description
                         choices:
                             - 'unknown'
@@ -154,6 +157,7 @@ options:
                         description: no description
                     run_on_db:
                         type: str
+                        default: 'disable'
                         description: 'Indicates if the scheduled script should be executed on device database. It should always be disable for tcl scripts.'
                         choices:
                             - 'disable'
@@ -169,6 +173,7 @@ options:
                             - 'monthly'
             target:
                 type: str
+                default: 'device_database'
                 description: no description
                 choices:
                     - 'device_database'

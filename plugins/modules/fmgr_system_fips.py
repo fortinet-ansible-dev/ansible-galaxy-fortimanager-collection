@@ -80,6 +80,7 @@ options:
         suboptions:
             entropy-token:
                 type: str
+                default: 'enable'
                 description:
                  - 'Enable/disable entropy token when switching to FIPS mode.'
                  - 'enable - Enable entropy token.'
@@ -95,6 +96,7 @@ options:
                 description: 'Kernel FIPS-compliant PRNG re-seed interval (0 to 1440 minutes)'
             status:
                 type: str
+                default: 'disable'
                 description:
                  - 'Enable/disable FIPS-CC mode.'
                  - 'disable - Disable FIPS-CC mode.'
@@ -203,7 +205,6 @@ def main():
                 },
                 're-seed-interval': {
                     'required': False,
-                    'default': 1440,
                     'type': 'int'
                 },
                 'status': {

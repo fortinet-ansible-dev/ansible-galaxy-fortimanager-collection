@@ -80,6 +80,7 @@ options:
         suboptions:
             status:
                 type: str
+                default: 'enable'
                 description:
                  - 'Enable/disable sending virus detection notification to FortiGuard (default = enable).'
                  - 'disable - Disable setting.'

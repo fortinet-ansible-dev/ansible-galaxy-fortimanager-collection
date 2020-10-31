@@ -83,9 +83,11 @@ options:
                 description: 'Gateway out interface.'
             dst:
                 type: str
+                default: '0.0.0.0 0.0.0.0'
                 description: 'Destination IP and mask for this route.'
             gateway:
                 type: str
+                default: '0.0.0.0'
                 description: 'Gateway IP for this route.'
             seq_num:
                 type: int

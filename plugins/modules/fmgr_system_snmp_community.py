@@ -107,6 +107,7 @@ options:
                         description: 'Allow interface name.'
                     ip:
                         type: str
+                        default: '0.0.0.0 0.0.0.0'
                         description: 'Allow host IP address.'
             hosts6:
                 description: no description
@@ -121,6 +122,7 @@ options:
                         description: 'Allow interface name.'
                     ip:
                         type: str
+                        default: '::/0'
                         description: 'Allow host IP address.'
             id:
                 type: int
@@ -135,6 +137,7 @@ options:
                 description: 'SNMP v1 query port.'
             query_v1_status:
                 type: str
+                default: 'enable'
                 description:
                  - 'Enable/disable SNMP v1 query.'
                  - 'disable - Disable setting.'
@@ -148,6 +151,7 @@ options:
                 description: 'SNMP v2c query port.'
             query_v2c_status:
                 type: str
+                default: 'enable'
                 description:
                  - 'Enable/disable SNMP v2c query.'
                  - 'disable - Disable setting.'
@@ -157,6 +161,7 @@ options:
                     - 'enable'
             status:
                 type: str
+                default: 'enable'
                 description:
                  - 'Enable/disable community.'
                  - 'disable - Disable setting.'
@@ -170,6 +175,7 @@ options:
                 description: 'SNMP v1 trap remote port.'
             trap_v1_status:
                 type: str
+                default: 'enable'
                 description:
                  - 'Enable/disable SNMP v1 trap.'
                  - 'disable - Disable setting.'
@@ -183,6 +189,7 @@ options:
                 description: 'SNMP v2c trap remote port.'
             trap_v2c_status:
                 type: str
+                default: 'enable'
                 description:
                  - 'Enable/disable SNMP v2c trap.'
                  - 'disable - Disable setting.'
@@ -344,7 +351,6 @@ def main():
                     'options': {
                         'id': {
                             'required': False,
-                            'default': 0,
                             'type': 'int'
                         },
                         'interface': {
@@ -363,7 +369,6 @@ def main():
                     'options': {
                         'id': {
                             'required': False,
-                            'default': 0,
                             'type': 'int'
                         },
                         'interface': {
@@ -386,7 +391,6 @@ def main():
                 },
                 'query_v1_port': {
                     'required': False,
-                    'default': 161,
                     'type': 'int'
                 },
                 'query_v1_status': {
@@ -399,7 +403,6 @@ def main():
                 },
                 'query_v2c_port': {
                     'required': False,
-                    'default': 161,
                     'type': 'int'
                 },
                 'query_v2c_status': {
@@ -420,7 +423,6 @@ def main():
                 },
                 'trap_v1_rport': {
                     'required': False,
-                    'default': 162,
                     'type': 'int'
                 },
                 'trap_v1_status': {
@@ -433,7 +435,6 @@ def main():
                 },
                 'trap_v2c_rport': {
                     'required': False,
-                    'default': 162,
                     'type': 'int'
                 },
                 'trap_v2c_status': {

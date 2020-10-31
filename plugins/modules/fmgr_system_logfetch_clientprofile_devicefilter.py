@@ -84,9 +84,11 @@ options:
         suboptions:
             adom:
                 type: str
+                default: '*'
                 description: 'Adom name.'
             device:
                 type: str
+                default: '*'
                 description: 'Device name or Serial number.'
             id:
                 type: int
@@ -94,6 +96,7 @@ options:
                 description: 'Add or edit a device filter.'
             vdom:
                 type: str
+                default: '*'
                 description: 'Vdom filters.'
 
 '''

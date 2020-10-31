@@ -96,6 +96,7 @@ options:
                 description: 'Heartbeat lost threshold (1 - 255).'
             mode:
                 type: str
+                default: 'standalone'
                 description:
                  - 'Mode.'
                  - 'standalone - Standalone.'
@@ -118,15 +119,18 @@ options:
                         description: 'Id.'
                     ip:
                         type: str
+                        default: '0.0.0.0'
                         description: 'IP address of peer.'
                     ip6:
                         type: str
+                        default: '::'
                         description: 'IP address (V6) of peer.'
                     serial-number:
                         type: str
                         description: 'Serial number of peer.'
                     status:
                         type: str
+                        default: 'enable'
                         description:
                          - 'Peer admin status.'
                          - 'disable - Disable.'
@@ -236,22 +240,18 @@ def main():
             'options': {
                 'clusterid': {
                     'required': False,
-                    'default': 1,
                     'type': 'int'
                 },
                 'file-quota': {
                     'required': False,
-                    'default': 4096,
                     'type': 'int'
                 },
                 'hb-interval': {
                     'required': False,
-                    'default': 5,
                     'type': 'int'
                 },
                 'hb-lost-threshold': {
                     'required': False,
-                    'default': 3,
                     'type': 'int'
                 },
                 'mode': {
@@ -273,7 +273,6 @@ def main():
                     'options': {
                         'id': {
                             'required': False,
-                            'default': 0,
                             'type': 'int'
                         },
                         'ip': {

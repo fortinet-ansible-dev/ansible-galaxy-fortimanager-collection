@@ -80,6 +80,7 @@ options:
         suboptions:
             background-rebuild:
                 type: str
+                default: 'enable'
                 description:
                  - 'Disable/Enable rebuild SQL database in the background.'
                  - 'disable - Rebuild SQL database not in the background.'
@@ -93,6 +94,7 @@ options:
                 suboptions:
                     case-sensitive:
                         type: str
+                        default: 'disable'
                         description:
                          - 'Disable/Enable case sensitive index.'
                          - 'disable - Build a case insensitive index.'
@@ -102,6 +104,7 @@ options:
                             - 'enable'
                     device-type:
                         type: str
+                        default: 'FortiGate'
                         description:
                          - 'Device type.'
                          - 'FortiGate - Device type to FortiGate.'
@@ -134,6 +137,7 @@ options:
                         description: 'Log field name to be indexed.'
                     log-type:
                         type: str
+                        default: 'traffic'
                         description:
                          - 'Log type.'
                          - 'none - none'
@@ -186,6 +190,7 @@ options:
                 description: 'Database name.'
             database-type:
                 type: str
+                default: 'postgres'
                 description:
                  - 'Database type.'
                  - 'mysql - MySQL database.'
@@ -195,6 +200,7 @@ options:
                     - 'postgres'
             device-count-high:
                 type: str
+                default: 'disable'
                 description:
                  - 'Must set to enable if the count of registered devices is greater than 8000.'
                  - 'disable - Set to disable if device count is less than 8000.'
@@ -241,6 +247,7 @@ options:
                 type: str
             prompt-sql-upgrade:
                 type: str
+                default: 'enable'
                 description:
                  - 'Prompt to convert log database into SQL database at start time on GUI.'
                  - 'disable - Do not prompt to upgrade log database to SQL database at start time on GUI.'
@@ -250,6 +257,7 @@ options:
                     - 'enable'
             rebuild-event:
                 type: str
+                default: 'enable'
                 description:
                  - 'Disable/Enable rebuild event during SQL database rebuilding.'
                  - 'disable - Do not rebuild event during SQL database rebuilding.'
@@ -268,6 +276,7 @@ options:
                 type: str
             status:
                 type: str
+                default: 'local'
                 description:
                  - 'SQL database status.'
                  - 'disable - Disable SQL database.'
@@ -277,6 +286,7 @@ options:
                     - 'local'
             text-search-index:
                 type: str
+                default: 'disable'
                 description:
                  - 'Disable/Enable text search index.'
                  - 'disable - Do not create text search index.'
@@ -481,7 +491,6 @@ def main():
                         },
                         'id': {
                             'required': False,
-                            'default': 0,
                             'type': 'int'
                         },
                         'index-field': {
@@ -540,12 +549,10 @@ def main():
                 },
                 'event-table-partition-time': {
                     'required': False,
-                    'default': 0,
                     'type': 'int'
                 },
                 'fct-table-partition-time': {
                     'required': False,
-                    'default': 240,
                     'type': 'int'
                 },
                 'logtype': {
@@ -626,7 +633,6 @@ def main():
                 },
                 'traffic-table-partition-time': {
                     'required': False,
-                    'default': 0,
                     'type': 'int'
                 },
                 'ts-index-field': {
@@ -649,7 +655,6 @@ def main():
                 },
                 'utm-table-partition-time': {
                     'required': False,
-                    'default': 0,
                     'type': 'int'
                 }
             }

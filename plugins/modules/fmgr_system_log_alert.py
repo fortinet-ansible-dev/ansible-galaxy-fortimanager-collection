@@ -172,7 +172,6 @@ def main():
             'options': {
                 'max-alert-count': {
                     'required': False,
-                    'default': 1000,
                     'type': 'int'
                 }
             }

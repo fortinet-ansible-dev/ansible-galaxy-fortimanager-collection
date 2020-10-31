@@ -97,6 +97,7 @@ options:
                 description: 'Description.'
             ip:
                 type: str
+                default: '0.0.0.0 0.0.0.0'
                 description: 'IP address of interface.'
             ipv6:
                 description: no description
@@ -105,6 +106,7 @@ options:
                 suboptions:
                     ip6-address:
                         type: str
+                        default: '::/0'
                         description: 'IPv6 address/prefix of interface.'
                     ip6-allowaccess:
                         description: no description
@@ -119,6 +121,7 @@ options:
                          - https-logging
                     ip6-autoconf:
                         type: str
+                        default: 'enable'
                         description:
                          - 'Enable/disable address auto config (SLAAC).'
                          - 'disable - Disable setting.'
@@ -142,6 +145,7 @@ options:
                  - webfilter-antispam
             speed:
                 type: str
+                default: 'auto'
                 description:
                  - 'Speed.'
                  - 'auto - Auto adjust speed.'
@@ -161,6 +165,7 @@ options:
                     - '10000full'
             status:
                 type: str
+                default: 'up'
                 description:
                  - 'Interface status.'
                  - 'down - Interface down.'
@@ -352,7 +357,6 @@ def main():
                 },
                 'mtu': {
                     'required': False,
-                    'default': 1500,
                     'type': 'int'
                 },
                 'name': {

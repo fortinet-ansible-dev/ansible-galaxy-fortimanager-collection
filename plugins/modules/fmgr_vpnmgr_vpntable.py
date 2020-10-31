@@ -91,6 +91,7 @@ options:
                     - 'signature'
             auto-zone-policy:
                 type: str
+                default: 'enable'
                 description: no description
                 choices:
                     - 'disable'
@@ -383,6 +384,7 @@ options:
                 description: no description
             npu-offload:
                 type: str
+                default: 'enable'
                 description: no description
                 choices:
                     - 'disable'
@@ -944,7 +946,6 @@ def main():
                 },
                 'negotiate-timeout': {
                     'required': False,
-                    'default': 30,
                     'type': 'int'
                 },
                 'npu-offload': {

@@ -198,7 +198,6 @@ def main():
                 },
                 'tabid': {
                     'required': False,
-                    'default': 0,
                     'type': 'int'
                 }
             }

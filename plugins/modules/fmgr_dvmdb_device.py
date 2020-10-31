@@ -112,6 +112,7 @@ options:
                 description: no description
             conf_status:
                 type: str
+                default: 'unknown'
                 description: no description
                 choices:
                     - 'unknown'
@@ -119,12 +120,14 @@ options:
                     - 'outofsync'
             conn_mode:
                 type: str
+                default: 'passive'
                 description: no description
                 choices:
                     - 'active'
                     - 'passive'
             conn_status:
                 type: str
+                default: 'UNKNOWN'
                 description: no description
                 choices:
                     - 'UNKNOWN'
@@ -132,6 +135,7 @@ options:
                     - 'down'
             db_status:
                 type: str
+                default: 'unknown'
                 description: no description
                 choices:
                     - 'unknown'
@@ -142,6 +146,7 @@ options:
                 description: no description
             dev_status:
                 type: str
+                default: 'unknown'
                 description: no description
                 choices:
                     - 'none'
@@ -198,6 +203,7 @@ options:
                 description: 'VM Meter vCPU count.'
             foslic_dr_site:
                 type: str
+                default: 'disable'
                 description: 'VM Meter DR Site status.'
                 choices:
                     - 'disable'
@@ -213,6 +219,7 @@ options:
                 description: 'VM Meter device RAM size (in MB).'
             foslic_type:
                 type: str
+                default: 'temporary'
                 description: 'VM Meter license type.'
                 choices:
                     - 'temporary'
@@ -241,6 +248,7 @@ options:
                 description: no description
             ha_mode:
                 type: str
+                default: 'standalone'
                 description: 'enabled - Value reserved for non-FOS HA devices.'
                 choices:
                     - 'standalone'
@@ -310,6 +318,7 @@ options:
                 description: no description
             mgmt_mode:
                 type: str
+                default: 'unreg'
                 description: no description
                 choices:
                     - 'unreg'
@@ -328,6 +337,7 @@ options:
                 description: 'Unique name for the device.'
             os_type:
                 type: str
+                default: 'unknown'
                 description: no description
                 choices:
                     - 'unknown'
@@ -347,6 +357,7 @@ options:
                     - 'fpx'
             os_ver:
                 type: str
+                default: 'unknown'
                 description: no description
                 choices:
                     - 'unknown'
@@ -381,6 +392,7 @@ options:
                         description: no description
                     opmode:
                         type: str
+                        default: 'nat'
                         description: no description
                         choices:
                             - 'nat'
@@ -872,7 +884,6 @@ def main():
                 },
                 'maxvdom': {
                     'required': False,
-                    'default': 10,
                     'type': 'int'
                 },
                 'meta fields': {
@@ -903,7 +914,6 @@ def main():
                 },
                 'mr': {
                     'required': False,
-                    'default': -1,
                     'type': 'int'
                 },
                 'name': {

@@ -182,17 +182,14 @@ def main():
             'options': {
                 'max-conn-per-session': {
                     'required': False,
-                    'default': 3,
                     'type': 'int'
                 },
                 'max-sessions': {
                     'required': False,
-                    'default': 1,
                     'type': 'int'
                 },
                 'session-timeout': {
                     'required': False,
-                    'default': 10,
                     'type': 'int'
                 }
             }

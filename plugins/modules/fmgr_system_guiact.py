@@ -221,12 +221,10 @@ def main():
                 },
                 'reboot': {
                     'required': False,
-                    'default': 0,
                     'type': 'int'
                 },
                 'reset2default': {
                     'required': False,
-                    'default': 0,
                     'type': 'int'
                 },
                 'restore_all': {

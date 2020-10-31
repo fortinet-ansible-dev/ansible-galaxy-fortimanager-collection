@@ -80,12 +80,15 @@ options:
         suboptions:
             ip:
                 type: str
+                default: '0.0.0.0'
                 description: 'IPv4 address of the web proxy.'
             ip6:
                 type: str
+                default: '::'
                 description: 'IPv6 address of the web proxy.'
             mode:
                 type: str
+                default: 'proxy'
                 description:
                  - 'Web proxy mode: proxy - http proxy, tunnel - http tunnel (default = proxy).'
                  - 'proxy - HTTP proxy.'
@@ -102,6 +105,7 @@ options:
                 description: 'The port number of the web proxy (1 - 65535, default = 80).'
             status:
                 type: str
+                default: 'disable'
                 description:
                  - 'Enable/disable connections through the web proxy (default = disable).'
                  - 'disable - Disable setting.'
@@ -228,7 +232,6 @@ def main():
                 },
                 'port': {
                     'required': False,
-                    'default': 80,
                     'type': 'int'
                 },
                 'status': {

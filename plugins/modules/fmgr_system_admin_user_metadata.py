@@ -94,6 +94,7 @@ options:
                 description: 'Field value.'
             importance:
                 type: str
+                default: 'optional'
                 description:
                  - 'Importance.'
                  - 'optional - This field is optional.'
@@ -103,6 +104,7 @@ options:
                     - 'required'
             status:
                 type: str
+                default: 'enabled'
                 description:
                  - 'Status.'
                  - 'disabled - This field is disabled.'
@@ -218,7 +220,6 @@ def main():
             'options': {
                 'fieldlength': {
                     'required': False,
-                    'default': 0,
                     'type': 'int'
                 },
                 'fieldname': {

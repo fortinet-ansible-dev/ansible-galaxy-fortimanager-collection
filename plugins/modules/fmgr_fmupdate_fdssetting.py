@@ -80,9 +80,11 @@ options:
         suboptions:
             User-Agent:
                 type: str
+                default: 'Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)'
                 description: 'Configure the user agent string.'
             fds-clt-ssl-protocol:
                 type: str
+                default: 'tlsv1.2'
                 description:
                  - 'The SSL protocols version for connecting fds server (default = tlsv1.2).'
                  - 'sslv3 - set SSLv3 as the client version.'
@@ -96,6 +98,7 @@ options:
                     - 'tlsv1.2'
             fds-ssl-protocol:
                 type: str
+                default: 'tlsv1.2'
                 description:
                  - 'The SSL protocols version for receiving fgt connection (default = tlsv1.2).'
                  - 'sslv3 - set SSLv3 as the lowest version.'
@@ -109,6 +112,7 @@ options:
                     - 'tlsv1.2'
             fmtr-log:
                 type: str
+                default: 'info'
                 description:
                  - 'fmtr log level'
                  - 'emergency - Log level - emergency'
@@ -132,6 +136,7 @@ options:
                     - 'disable'
             linkd-log:
                 type: str
+                default: 'info'
                 description:
                  - 'The linkd log level (default = info).'
                  - 'emergency - Log level - emergency'
@@ -168,6 +173,7 @@ options:
                 suboptions:
                     ip:
                         type: str
+                        default: '0.0.0.0'
                         description: 'External or virtual IP address of the NAT device that will forward push messages to the FortiManager unit.'
                     port:
                         type: int
@@ -175,6 +181,7 @@ options:
                         description: 'Receiving port number on the NAT device (1 - 65535, default = 9443).'
                     status:
                         type: str
+                        default: 'disable'
                         description:
                          - 'Enable/disable push updates for clients (default = disable).'
                          - 'disable - Disable setting.'
@@ -197,6 +204,7 @@ options:
                                 description: 'ID of the announce IP address (1 - 10).'
                             ip:
                                 type: str
+                                default: '0.0.0.0'
                                 description: 'Announce IPv4 address.'
                             port:
                                 type: int
@@ -204,6 +212,7 @@ options:
                                 description: 'Announce IP port (1 - 65535, default = 8890).'
                     status:
                         type: str
+                        default: 'disable'
                         description:
                          - 'Enable/disable push updates (default = disable).'
                          - 'disable - Disable setting.'
@@ -213,6 +222,7 @@ options:
                             - 'enable'
             send_report:
                 type: str
+                default: 'enable'
                 description:
                  - 'send report/fssi to fds server.'
                  - 'disable - Disable setting.'
@@ -222,6 +232,7 @@ options:
                     - 'enable'
             send_setup:
                 type: str
+                default: 'disable'
                 description:
                  - 'forward setup to fds server.'
                  - 'disable - Disable setting.'
@@ -244,9 +255,11 @@ options:
                                 description: 'Override server ID (1 - 10).'
                             ip:
                                 type: str
+                                default: '0.0.0.0'
                                 description: 'IPv4 address of the override server.'
                             ip6:
                                 type: str
+                                default: '::'
                                 description: 'IPv6 address of the override server.'
                             port:
                                 type: int
@@ -260,6 +273,7 @@ options:
                                  - fct
                     status:
                         type: str
+                        default: 'disable'
                         description:
                          - 'Override status.'
                          - 'disable - Disable setting.'
@@ -309,6 +323,7 @@ options:
                  - 6.2
             umsvc-log:
                 type: str
+                default: 'info'
                 description:
                  - 'The um_service log level (default = info).'
                  - 'emergency - Log level - emergency'
@@ -332,6 +347,7 @@ options:
                     - 'disable'
             unreg-dev-option:
                 type: str
+                default: 'add-service'
                 description:
                  - 'set the option for unregister devices'
                  - 'ignore - Ignore all unregistered devices.'
@@ -348,6 +364,7 @@ options:
                 suboptions:
                     day:
                         type: str
+                        default: 'Monday'
                         description:
                          - 'Configure the day the update will occur, if the freqnecy is weekly (Sunday - Saturday, default = Monday).'
                          - 'Sunday - Update every Sunday.'
@@ -367,6 +384,7 @@ options:
                             - 'Saturday'
                     frequency:
                         type: str
+                        default: 'every'
                         description:
                          - 'Configure update frequency: every - time interval, daily - once a day, weekly - once a week (default = every).'
                          - 'every - Time interval.'
@@ -378,6 +396,7 @@ options:
                             - 'weekly'
                     status:
                         type: str
+                        default: 'enable'
                         description:
                          - 'Enable/disable scheduled updates.'
                          - 'disable - Disable setting.'
@@ -390,6 +409,7 @@ options:
                         type: str
             wanip-query-mode:
                 type: str
+                default: 'disable'
                 description:
                  - 'public ip query mode'
                  - 'disable - Do not query public ip'
@@ -604,12 +624,10 @@ def main():
                 },
                 'max-av-ips-version': {
                     'required': False,
-                    'default': 20,
                     'type': 'int'
                 },
                 'max-work': {
                     'required': False,
-                    'default': 1,
                     'type': 'int'
                 },
                 'push-override': {
@@ -622,7 +640,6 @@ def main():
                         },
                         'port': {
                             'required': False,
-                            'default': 9443,
                             'type': 'int'
                         },
                         'status': {
@@ -645,7 +662,6 @@ def main():
                             'options': {
                                 'id': {
                                     'required': False,
-                                    'default': 0,
                                     'type': 'int'
                                 },
                                 'ip': {
@@ -654,7 +670,6 @@ def main():
                                 },
                                 'port': {
                                     'required': False,
-                                    'default': 8890,
                                     'type': 'int'
                                 }
                             }
@@ -695,7 +710,6 @@ def main():
                             'options': {
                                 'id': {
                                     'required': False,
-                                    'default': 0,
                                     'type': 'int'
                                 },
                                 'ip': {
@@ -708,7 +722,6 @@ def main():
                                 },
                                 'port': {
                                     'required': False,
-                                    'default': 443,
                                     'type': 'int'
                                 },
                                 'service-type': {

@@ -99,6 +99,7 @@ options:
                 description: 'Recipient email address to use in alert emails.'
             type:
                 type: str
+                default: 'mail'
                 description:
                  - 'Destination type.'
                  - 'mail - Send email alert.'

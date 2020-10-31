@@ -80,6 +80,7 @@ options:
         suboptions:
             case-sensitive:
                 type: str
+                default: 'disable'
                 description:
                  - 'Disable/Enable case sensitive index.'
                  - 'disable - Build a case insensitive index.'
@@ -89,6 +90,7 @@ options:
                     - 'enable'
             device-type:
                 type: str
+                default: 'FortiGate'
                 description:
                  - 'Device type.'
                  - 'FortiGate - Device type to FortiGate.'
@@ -121,6 +123,7 @@ options:
                 description: 'Log field name to be indexed.'
             log-type:
                 type: str
+                default: 'traffic'
                 description:
                  - 'Log type.'
                  - 'none - none'

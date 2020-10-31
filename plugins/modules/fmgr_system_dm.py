@@ -108,6 +108,7 @@ options:
                 description: 'FGFM protocol keep alive interval (30 - 600 sec).'
             force-remote-diff:
                 type: str
+                default: 'disable'
                 description:
                  - 'Always use remote diff when installing.'
                  - 'disable - Disable.'
@@ -145,6 +146,7 @@ options:
                 description: 'Number of retries.'
             retry:
                 type: str
+                default: 'enable'
                 description:
                  - 'Enable/disable configuration install retry.'
                  - 'disable - Disable.'
@@ -158,6 +160,7 @@ options:
                 description: 'Retry interval.'
             rollback-allow-reboot:
                 type: str
+                default: 'disable'
                 description:
                  - 'Enable/disable FortiGate reboot to rollback when installing script/config.'
                  - 'disable - Disable.'
@@ -171,6 +174,7 @@ options:
                 description: 'Maximum script log size per device (1 - 10000K).'
             skip-scep-check:
                 type: str
+                default: 'disable'
                 description:
                  - 'Enable/disable installing scep related objects even if scep url is configured.'
                  - 'disable - Disable.'
@@ -180,6 +184,7 @@ options:
                     - 'enable'
             skip-tunnel-fcp-req:
                 type: str
+                default: 'enable'
                 description:
                  - 'Enable/disable skip the fcp request sent from fgfm tunnel'
                  - 'disable - Disable.'
@@ -189,6 +194,7 @@ options:
                     - 'enable'
             verify-install:
                 type: str
+                default: 'enable'
                 description:
                  - 'Verify install against remote configuration.'
                  - 'disable - Disable.'
@@ -309,37 +315,30 @@ def main():
             'options': {
                 'concurrent-install-image-limit': {
                     'required': False,
-                    'default': 500,
                     'type': 'int'
                 },
                 'concurrent-install-limit': {
                     'required': False,
-                    'default': 480,
                     'type': 'int'
                 },
                 'concurrent-install-script-limit': {
                     'required': False,
-                    'default': 480,
                     'type': 'int'
                 },
                 'discover-timeout': {
                     'required': False,
-                    'default': 6,
                     'type': 'int'
                 },
                 'dpm-logsize': {
                     'required': False,
-                    'default': 10000,
                     'type': 'int'
                 },
                 'fgfm-sock-timeout': {
                     'required': False,
-                    'default': 360,
                     'type': 'int'
                 },
                 'fgfm_keepalive_itvl': {
                     'required': False,
-                    'default': 120,
                     'type': 'int'
                 },
                 'force-remote-diff': {
@@ -352,37 +351,30 @@ def main():
                 },
                 'fortiap-refresh-cnt': {
                     'required': False,
-                    'default': 500,
                     'type': 'int'
                 },
                 'fortiap-refresh-itvl': {
                     'required': False,
-                    'default': 10,
                     'type': 'int'
                 },
                 'fortiext-refresh-cnt': {
                     'required': False,
-                    'default': 50,
                     'type': 'int'
                 },
                 'install-image-timeout': {
                     'required': False,
-                    'default': 3600,
                     'type': 'int'
                 },
                 'install-tunnel-retry-itvl': {
                     'required': False,
-                    'default': 60,
                     'type': 'int'
                 },
                 'max-revs': {
                     'required': False,
-                    'default': 100,
                     'type': 'int'
                 },
                 'nr-retry': {
                     'required': False,
-                    'default': 1,
                     'type': 'int'
                 },
                 'retry': {
@@ -395,7 +387,6 @@ def main():
                 },
                 'retry-intvl': {
                     'required': False,
-                    'default': 15,
                     'type': 'int'
                 },
                 'rollback-allow-reboot': {
@@ -408,7 +399,6 @@ def main():
                 },
                 'script-logsize': {
                     'required': False,
-                    'default': 100,
                     'type': 'int'
                 },
                 'skip-scep-check': {

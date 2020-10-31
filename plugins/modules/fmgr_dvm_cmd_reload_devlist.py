@@ -84,6 +84,7 @@ options:
                  - log_dev
             from:
                 type: str
+                default: 'json'
                 description: no description
                 choices:
                     - 'um'

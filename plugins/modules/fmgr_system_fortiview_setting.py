@@ -80,6 +80,7 @@ options:
         suboptions:
             not-scanned-apps:
                 type: str
+                default: 'include'
                 description:
                  - 'Include/Exclude Not.Scanned applications in FortiView. Set as exclude if you want to filter out never scanned applications.'
                  - 'exclude - Exclude Not.Scanned applications in FortiView.'
@@ -89,6 +90,7 @@ options:
                     - 'include'
             resolve-ip:
                 type: str
+                default: 'disable'
                 description:
                  - 'Enable or disable resolving IP address to hostname in FortiView.'
                  - 'disable - Disable resolving IP address to hostname.'

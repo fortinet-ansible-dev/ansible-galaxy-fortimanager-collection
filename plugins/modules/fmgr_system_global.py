@@ -88,6 +88,7 @@ options:
                 description: 'Lockout threshold for administration.'
             adom-mode:
                 type: str
+                default: 'normal'
                 description:
                  - 'ADOM mode.'
                  - 'normal - Normal ADOM mode.'
@@ -97,6 +98,7 @@ options:
                     - 'advanced'
             adom-rev-auto-delete:
                 type: str
+                default: 'by-revisions'
                 description:
                  - 'Auto delete features for old ADOM revisions.'
                  - 'disable - Disable auto delete function for ADOM revision.'
@@ -120,6 +122,7 @@ options:
                 description: 'Maximum number of ADOM revisions to keep.'
             adom-select:
                 type: str
+                default: 'enable'
                 description:
                  - 'Enable/disable select ADOM after login.'
                  - 'disable - Disable select ADOM after login.'
@@ -129,6 +132,7 @@ options:
                     - 'enable'
             adom-status:
                 type: str
+                default: 'disable'
                 description:
                  - 'ADOM status.'
                  - 'disable - Disable ADOM mode.'
@@ -138,6 +142,7 @@ options:
                     - 'enable'
             clt-cert-req:
                 type: str
+                default: 'disable'
                 description:
                  - 'Require client certificate for GUI login.'
                  - 'disable - Disable setting.'
@@ -149,6 +154,7 @@ options:
                     - 'optional'
             console-output:
                 type: str
+                default: 'standard'
                 description:
                  - 'Console output mode.'
                  - 'standard - Standard output.'
@@ -158,6 +164,7 @@ options:
                     - 'more'
             country-flag:
                 type: str
+                default: 'enable'
                 description:
                  - 'Country flag Status.'
                  - 'disable - Disable country flag icon beside ip address.'
@@ -167,6 +174,7 @@ options:
                     - 'enable'
             create-revision:
                 type: str
+                default: 'disable'
                 description:
                  - 'Enable/disable create revision by default.'
                  - 'disable - Disable create revision by default.'
@@ -176,6 +184,7 @@ options:
                     - 'enable'
             daylightsavetime:
                 type: str
+                default: 'enable'
                 description:
                  - 'Enable/disable daylight saving time.'
                  - 'disable - Disable setting.'
@@ -189,6 +198,7 @@ options:
                 description: 'Default disk quota for registered device (MB).'
             detect-unregistered-log-device:
                 type: str
+                default: 'enable'
                 description:
                  - 'Detect unregistered logging device from log message.'
                  - 'disable - Disable attribute function.'
@@ -198,6 +208,7 @@ options:
                     - 'enable'
             device-view-mode:
                 type: str
+                default: 'regular'
                 description:
                  - 'Set devices/groups view mode.'
                  - 'regular - Regular view mode.'
@@ -207,6 +218,7 @@ options:
                     - 'tree'
             dh-params:
                 type: str
+                default: '2048'
                 description:
                  - 'Minimum size of Diffie-Hellman prime for SSH/HTTPS (bits).'
                  - '1024 - 1024 bits.'
@@ -231,6 +243,7 @@ options:
                  - fortiview-noc
             enc-algorithm:
                 type: str
+                default: 'high'
                 description:
                  - 'SSL communication encryption algorithms.'
                  - 'low - SSL communication using all available encryption algorithms.'
@@ -242,6 +255,7 @@ options:
                     - 'high'
             faz-status:
                 type: str
+                default: 'disable'
                 description:
                  - 'FAZ status.'
                  - 'disable - Disable FAZ feature.'
@@ -254,6 +268,7 @@ options:
                 description: 'set the fgfm local certificate.'
             fgfm-ssl-protocol:
                 type: str
+                default: 'tlsv1.2'
                 description:
                  - 'set the lowest SSL protocols for fgfmsd.'
                  - 'sslv3 - set SSLv3 as the lowest version.'
@@ -267,6 +282,7 @@ options:
                     - 'tlsv1.2'
             ha-member-auto-grouping:
                 type: str
+                default: 'enable'
                 description:
                  - 'Enable/disable automatically group HA members feature'
                  - 'disable - Disable automatically grouping HA members feature.'
@@ -284,9 +300,11 @@ options:
                 description: 'The interval for getting hit count from managed FortiGate devices, in seconds (60 - 86400, default = 300).'
             hostname:
                 type: str
+                default: 'FMG-VM64'
                 description: 'System hostname.'
             import-ignore-addr-cmt:
                 type: str
+                default: 'disable'
                 description:
                  - 'Enable/Disable import ignore of address comments.'
                  - 'disable - Disable import ignore of address comments.'
@@ -296,6 +314,7 @@ options:
                     - 'enable'
             language:
                 type: str
+                default: 'english'
                 description:
                  - 'System global language.'
                  - 'english - English'
@@ -324,6 +343,7 @@ options:
                 description: 'LDAP connection timeout (msec).'
             lock-preempt:
                 type: str
+                default: 'disable'
                 description:
                  - 'Enable/disable ADOM lock override.'
                  - 'disable - Disable lock preempt.'
@@ -333,6 +353,7 @@ options:
                     - 'enable'
             log-checksum:
                 type: str
+                default: 'none'
                 description:
                  - 'Record log file hash value, timestamp, and authentication code at transmission or rolling.'
                  - 'none - No record log file checksum.'
@@ -359,6 +380,7 @@ options:
                 description: 'Maximum number of reports generating at one time.'
             oftp-ssl-protocol:
                 type: str
+                default: 'tlsv1.2'
                 description:
                  - 'set the lowest SSL protocols for oftpd.'
                  - 'sslv3 - set SSLv3 as the lowest version.'
@@ -372,6 +394,7 @@ options:
                     - 'tlsv1.2'
             partial-install:
                 type: str
+                default: 'disable'
                 description:
                  - 'Enable/Disable partial install (install some objects).'
                  - 'disable - Disable partial install function.'
@@ -381,6 +404,7 @@ options:
                     - 'enable'
             partial-install-force:
                 type: str
+                default: 'disable'
                 description:
                  - 'Enable/Disable partial install when devdb is modified.'
                  - 'disable - Disable partial install when devdb is modified.'
@@ -390,6 +414,7 @@ options:
                     - 'enable'
             partial-install-rev:
                 type: str
+                default: 'disable'
                 description:
                  - 'Enable/Disable auto creating adom revision for partial install.'
                  - 'disable - Disable partial install revision.'
@@ -399,6 +424,7 @@ options:
                     - 'enable'
             perform-improve-by-ha:
                 type: str
+                default: 'disable'
                 description:
                  - 'Enable/Disable performance improvement by distributing tasks to HA slaves.'
                  - 'disable - Disable performance improvement by HA.'
@@ -408,6 +434,7 @@ options:
                     - 'enable'
             policy-hit-count:
                 type: str
+                default: 'disable'
                 description:
                  - 'show policy hit count.'
                  - 'disable - Disable policy hit count.'
@@ -417,6 +444,7 @@ options:
                     - 'enable'
             policy-object-in-dual-pane:
                 type: str
+                default: 'disable'
                 description:
                  - 'show policies and objects in dual pane.'
                  - 'disable - Disable polices and objects in dual pane.'
@@ -426,6 +454,7 @@ options:
                     - 'enable'
             pre-login-banner:
                 type: str
+                default: 'disable'
                 description:
                  - 'Enable/disable pre-login banner.'
                  - 'disable - Disable pre-login banner.'
@@ -442,6 +471,7 @@ options:
                 description: 'Remote authentication (RADIUS/LDAP) timeout (sec).'
             search-all-adoms:
                 type: str
+                default: 'disable'
                 description:
                  - 'Enable/Disable Search all ADOMs for where-used query.'
                  - 'disable - Disable search all ADOMs for where-used queries.'
@@ -451,6 +481,7 @@ options:
                     - 'enable'
             ssl-low-encryption:
                 type: str
+                default: 'disable'
                 description:
                  - 'SSL low-grade encryption.'
                  - 'disable - Disable SSL low-grade encryption.'
@@ -468,6 +499,7 @@ options:
                  - sslv3
             ssl-static-key-ciphers:
                 type: str
+                default: 'enable'
                 description:
                  - 'Enable/disable SSL static key ciphers.'
                  - 'disable - Disable setting.'
@@ -481,6 +513,7 @@ options:
                 description: 'Maximum number of completed tasks to keep.'
             tftp:
                 type: str
+                default: 'disable'
                 description:
                  - 'Enable/disable TFTP in `exec restore image` command (disabled by default in FIPS mode)'
                  - 'disable - Disable TFTP'
@@ -490,6 +523,7 @@ options:
                     - 'enable'
             timezone:
                 type: str
+                default: '04'
                 description:
                  - 'Time zone.'
                  - '00 - (GMT-12:00) Eniwetak, Kwajalein.'
@@ -679,6 +713,7 @@ options:
                 description: 'Maximum transportation unit(68 - 9000).'
             usg:
                 type: str
+                default: 'disable'
                 description:
                  - 'Enable/disable Fortiguard server restriction.'
                  - 'disable - Contact any Fortiguard server'
@@ -688,6 +723,7 @@ options:
                     - 'enable'
             vdom-mirror:
                 type: str
+                default: 'disable'
                 description:
                  - 'VDOM mirror.'
                  - 'disable - Disable VDOM mirror function.'
@@ -710,6 +746,7 @@ options:
                 description: 'Maximum number of workflow sessions per ADOM (minimum 100).'
             workspace-mode:
                 type: str
+                default: 'disabled'
                 description:
                  - 'Set workspace mode (ADOM Locking).'
                  - 'disabled - Workspace disabled.'
@@ -879,12 +916,10 @@ def main():
             'options': {
                 'admin-lockout-duration': {
                     'required': False,
-                    'default': 60,
                     'type': 'int'
                 },
                 'admin-lockout-threshold': {
                     'required': False,
-                    'default': 3,
                     'type': 'int'
                 },
                 'adom-mode': {
@@ -906,17 +941,14 @@ def main():
                 },
                 'adom-rev-max-backup-revisions': {
                     'required': False,
-                    'default': 5,
                     'type': 'int'
                 },
                 'adom-rev-max-days': {
                     'required': False,
-                    'default': 30,
                     'type': 'int'
                 },
                 'adom-rev-max-revisions': {
                     'required': False,
-                    'default': 120,
                     'type': 'int'
                 },
                 'adom-select': {
@@ -978,7 +1010,6 @@ def main():
                 },
                 'default-disk-quota': {
                     'required': False,
-                    'default': 1000,
                     'type': 'int'
                 },
                 'detect-unregistered-log-device': {
@@ -1058,12 +1089,10 @@ def main():
                 },
                 'hitcount_concurrent': {
                     'required': False,
-                    'default': 100,
                     'type': 'int'
                 },
                 'hitcount_interval': {
                     'required': False,
-                    'default': 300,
                     'type': 'int'
                 },
                 'hostname': {
@@ -1096,12 +1125,10 @@ def main():
                 },
                 'ldap-cache-timeout': {
                     'required': False,
-                    'default': 86400,
                     'type': 'int'
                 },
                 'ldapconntimeout': {
                     'required': False,
-                    'default': 60000,
                     'type': 'int'
                 },
                 'lock-preempt': {
@@ -1123,7 +1150,6 @@ def main():
                 },
                 'log-forward-cache-size': {
                     'required': False,
-                    'default': 0,
                     'type': 'int'
                 },
                 'longitude': {
@@ -1132,12 +1158,10 @@ def main():
                 },
                 'max-log-forward': {
                     'required': False,
-                    'default': 5,
                     'type': 'int'
                 },
                 'max-running-reports': {
                     'required': False,
-                    'default': 1,
                     'type': 'int'
                 },
                 'oftp-ssl-protocol': {
@@ -1212,7 +1236,6 @@ def main():
                 },
                 'remoteauthtimeout': {
                     'required': False,
-                    'default': 10,
                     'type': 'int'
                 },
                 'search-all-adoms': {
@@ -1251,7 +1274,6 @@ def main():
                 },
                 'task-list-size': {
                     'required': False,
-                    'default': 2000,
                     'type': 'int'
                 },
                 'tftp': {
@@ -1360,7 +1382,6 @@ def main():
                 },
                 'tunnel-mtu': {
                     'required': False,
-                    'default': 1500,
                     'type': 'int'
                 },
                 'usg': {
@@ -1392,7 +1413,6 @@ def main():
                 },
                 'workflow-max-sessions': {
                     'required': False,
-                    'default': 500,
                     'type': 'int'
                 },
                 'workspace-mode': {

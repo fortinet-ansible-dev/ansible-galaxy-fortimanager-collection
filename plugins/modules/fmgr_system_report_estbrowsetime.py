@@ -84,6 +84,7 @@ options:
                 description: 'Read time threshold for each page view.'
             status:
                 type: str
+                default: 'enable'
                 description:
                  - 'Estimate browse time status.'
                  - 'disable - Disable estimating browse time.'
@@ -182,7 +183,6 @@ def main():
             'options': {
                 'max-read-time': {
                     'required': False,
-                    'default': 180,
                     'type': 'int'
                 },
                 'status': {

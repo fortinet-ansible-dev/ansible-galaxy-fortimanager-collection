@@ -88,6 +88,7 @@ options:
                 description: 'Widgets column ID.'
             diskio-content-type:
                 type: str
+                default: 'util'
                 description:
                  - 'Disk I/O Monitor widgets chart type.'
                  - 'util - bandwidth utilization.'
@@ -99,6 +100,7 @@ options:
                     - 'blks'
             diskio-period:
                 type: str
+                default: '1hour'
                 description:
                  - 'Disk I/O Monitor widgets data period.'
                  - '1hour - 1 hour.'
@@ -121,6 +123,7 @@ options:
                     - '6hours'
             log-rate-topn:
                 type: str
+                default: '5'
                 description:
                  - 'Log receive monitor widgets number of top items to display.'
                  - '1 - Top 1.'
@@ -136,6 +139,7 @@ options:
                     - '5'
             log-rate-type:
                 type: str
+                default: 'device'
                 description:
                  - 'Log receive monitor widgets statistics breakdown options.'
                  - 'log - Show log rates for each log type.'
@@ -190,6 +194,7 @@ options:
                     - 'history'
             status:
                 type: str
+                default: 'open'
                 description:
                  - 'Widgets opened/closed state.'
                  - 'close - Widget closed.'
@@ -203,6 +208,7 @@ options:
                 description: 'ID of tab where widget is displayed.'
             time-period:
                 type: str
+                default: '1hour'
                 description:
                  - 'Log Database Monitor widgets data period.'
                  - '1hour - 1 hour.'
@@ -369,7 +375,6 @@ def main():
             'options': {
                 'column': {
                     'required': False,
-                    'default': 0,
                     'type': 'int'
                 },
                 'diskio-content-type': {
@@ -428,12 +433,10 @@ def main():
                 },
                 'num-entries': {
                     'required': False,
-                    'default': 10,
                     'type': 'int'
                 },
                 'refresh-interval': {
                     'required': False,
-                    'default': 300,
                     'type': 'int'
                 },
                 'res-cpu-display': {
@@ -442,7 +445,6 @@ def main():
                         'average',
                         'each'
                     ],
-                    'default': 'average',
                     'type': 'str'
                 },
                 'res-period': {
@@ -472,7 +474,6 @@ def main():
                 },
                 'tabid': {
                     'required': False,
-                    'default': 0,
                     'type': 'int'
                 },
                 'time-period': {

@@ -83,6 +83,7 @@ options:
                 description: 'Admin domain name.'
             case-insensitive:
                 type: str
+                default: 'enable'
                 description:
                  - 'Case insensitive.'
                  - 'disable - Disable the case insensitive match.'
@@ -112,6 +113,7 @@ options:
                         description: 'Variable name.'
                     var-type:
                         type: str
+                        default: 'string'
                         description:
                          - 'Variable type.'
                          - 'integer - Integer.'

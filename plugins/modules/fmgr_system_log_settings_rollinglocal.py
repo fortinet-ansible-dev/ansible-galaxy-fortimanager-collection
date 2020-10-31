@@ -91,6 +91,7 @@ options:
                  - sat
             del-files:
                 type: str
+                default: 'disable'
                 description:
                  - 'Enable/disable log file deletion after uploading.'
                  - 'disable - Disable log file deletion.'
@@ -107,6 +108,7 @@ options:
                 description: 'Roll log files when they reach this size (MB).'
             gzip-format:
                 type: str
+                default: 'disable'
                 description:
                  - 'Enable/disable compression of uploaded log files.'
                  - 'disable - Disable compression.'
@@ -120,15 +122,19 @@ options:
                 description: 'Log files rolling schedule (hour).'
             ip:
                 type: str
+                default: '0.0.0.0'
                 description: 'Upload server IP address.'
             ip2:
                 type: str
+                default: '0.0.0.0'
                 description: 'Upload server IP2 address.'
             ip3:
                 type: str
+                default: '0.0.0.0'
                 description: 'Upload server IP3 address.'
             log-format:
                 type: str
+                default: 'native'
                 description:
                  - 'Format of uploaded log files.'
                  - 'native - Native format (text or compact).'
@@ -153,6 +159,7 @@ options:
                 type: str
             server-type:
                 type: str
+                default: 'ftp'
                 description:
                  - 'Upload server type.'
                  - 'ftp - Upload via FTP.'
@@ -164,6 +171,7 @@ options:
                     - 'scp'
             upload:
                 type: str
+                default: 'disable'
                 description:
                  - 'Enable/disable log file uploads.'
                  - 'disable - Disable log files uploading.'
@@ -177,6 +185,7 @@ options:
                 description: 'Log files upload schedule (hour).'
             upload-mode:
                 type: str
+                default: 'backup'
                 description:
                  - 'Upload mode with multiple servers.'
                  - 'backup - Servers are attempted and used one after the other upon failure to connect.'
@@ -186,6 +195,7 @@ options:
                     - 'mirror'
             upload-trigger:
                 type: str
+                default: 'on-roll'
                 description:
                  - 'Event triggering log files upload.'
                  - 'on-roll - Upload log files after they are rolled.'
@@ -204,6 +214,7 @@ options:
                 description: 'Upload server login username3.'
             when:
                 type: str
+                default: 'none'
                 description:
                  - 'Roll log files periodically.'
                  - 'none - Do not roll log files periodically.'
@@ -357,7 +368,6 @@ def main():
                 },
                 'file-size': {
                     'required': False,
-                    'default': 200,
                     'type': 'int'
                 },
                 'gzip-format': {
@@ -370,7 +380,6 @@ def main():
                 },
                 'hour': {
                     'required': False,
-                    'default': 0,
                     'type': 'int'
                 },
                 'ip': {
@@ -396,7 +405,6 @@ def main():
                 },
                 'min': {
                     'required': False,
-                    'default': 0,
                     'type': 'int'
                 },
                 'password': {
@@ -430,7 +438,6 @@ def main():
                 },
                 'upload-hour': {
                     'required': False,
-                    'default': 0,
                     'type': 'int'
                 },
                 'upload-mode': {

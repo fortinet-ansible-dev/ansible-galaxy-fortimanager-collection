@@ -80,6 +80,7 @@ options:
         suboptions:
             reliable:
                 type: str
+                default: 'disable'
                 description:
                  - 'Enable/disable reliable realtime logging.'
                  - 'disable - Disable reliable realtime logging.'
@@ -89,6 +90,7 @@ options:
                     - 'enable'
             secure-connection:
                 type: str
+                default: 'disable'
                 description:
                  - 'Enable/disable connection secured by TLS/SSL.'
                  - 'disable - Disable SSL connection.'
@@ -98,9 +100,11 @@ options:
                     - 'enable'
             server-ip:
                 type: str
+                default: '0.0.0.0'
                 description: 'Remote FortiAnalyzer server IP address.'
             severity:
                 type: str
+                default: 'notification'
                 description:
                  - 'Least severity level to log.'
                  - 'emergency - Emergency level.'
@@ -122,6 +126,7 @@ options:
                     - 'debug'
             status:
                 type: str
+                default: 'disable'
                 description:
                  - 'Log to FortiAnalyzer status.'
                  - 'disable - Log to FortiAnalyzer disabled.'

@@ -80,6 +80,7 @@ options:
         suboptions:
             authentication:
                 type: str
+                default: 'disable'
                 description:
                  - 'Enable/disable MD5 authentication.'
                  - 'disable - Disable setting.'
@@ -100,6 +101,7 @@ options:
                 description: 'Key ID for authentication.'
             ntpv3:
                 type: str
+                default: 'disable'
                 description:
                  - 'Enable/disable NTPv3.'
                  - 'disable - Disable setting.'
@@ -230,7 +232,6 @@ def main():
                 },
                 'key-id': {
                     'required': False,
-                    'default': 0,
                     'type': 'int'
                 },
                 'ntpv3': {

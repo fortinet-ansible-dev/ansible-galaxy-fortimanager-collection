@@ -80,6 +80,7 @@ options:
         suboptions:
             csv:
                 type: str
+                default: 'disable'
                 description:
                  - 'CSV format.'
                  - 'disable - Disable CSV format.'
@@ -89,6 +90,7 @@ options:
                     - 'enable'
             facility:
                 type: str
+                default: 'local7'
                 description:
                  - 'Remote syslog facility.'
                  - 'kernel - Kernel messages.'
@@ -142,6 +144,7 @@ options:
                     - 'local7'
             severity:
                 type: str
+                default: 'notification'
                 description:
                  - 'Least severity level to log.'
                  - 'emergency - Emergency level.'
@@ -163,6 +166,7 @@ options:
                     - 'debug'
             status:
                 type: str
+                default: 'disable'
                 description:
                  - 'Remote syslog log.'
                  - 'disable - Do not log to remote syslog server.'

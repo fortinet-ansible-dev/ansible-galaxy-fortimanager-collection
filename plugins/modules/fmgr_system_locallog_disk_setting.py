@@ -80,6 +80,7 @@ options:
         suboptions:
             diskfull:
                 type: str
+                default: 'overwrite'
                 description:
                  - 'Policy to apply when disk is full.'
                  - 'overwrite - Overwrite oldest log when disk is full.'
@@ -108,6 +109,7 @@ options:
                  - saturday
             roll-schedule:
                 type: str
+                default: 'none'
                 description:
                  - 'Frequency to check log file for rolling.'
                  - 'none - Not scheduled.'
@@ -122,6 +124,7 @@ options:
                 type: str
             server-type:
                 type: str
+                default: 'FTP'
                 description:
                  - 'Server type.'
                  - 'FTP - Upload via FTP.'
@@ -133,6 +136,7 @@ options:
                     - 'SCP'
             severity:
                 type: str
+                default: 'information'
                 description:
                  - 'Least severity level to log.'
                  - 'emergency - Emergency level.'
@@ -154,6 +158,7 @@ options:
                     - 'debug'
             status:
                 type: str
+                default: 'enable'
                 description:
                  - 'Enable/disable local disk log.'
                  - 'disable - Do not log to local disk.'
@@ -163,6 +168,7 @@ options:
                     - 'enable'
             upload:
                 type: str
+                default: 'disable'
                 description:
                  - 'Upload log file when rolling.'
                  - 'disable - Disable uploading when rolling log file.'
@@ -172,6 +178,7 @@ options:
                     - 'enable'
             upload-delete-files:
                 type: str
+                default: 'enable'
                 description:
                  - 'Delete log files after uploading (default = enable).'
                  - 'disable - Do not delete log files after uploading.'
@@ -187,6 +194,7 @@ options:
                 description: 'Log file upload remote directory.'
             uploadip:
                 type: str
+                default: '0.0.0.0'
                 description: 'IP address of log uploading server.'
             uploadpass:
                 description: no description
@@ -197,6 +205,7 @@ options:
                 description: 'Server port (0 = default protocol port).'
             uploadsched:
                 type: str
+                default: 'disable'
                 description:
                  - 'Scheduled upload (disable = upload when rolling).'
                  - 'disable - Upload when rolling.'
@@ -214,6 +223,7 @@ options:
                 description: 'User account in upload server.'
             uploadzip:
                 type: str
+                default: 'disable'
                 description:
                  - 'Compress upload logs.'
                  - 'disable - Upload log files as plain text.'
@@ -346,12 +356,10 @@ def main():
                 },
                 'log-disk-full-percentage': {
                     'required': False,
-                    'default': 80,
                     'type': 'int'
                 },
                 'max-log-file-size': {
                     'required': False,
-                    'default': 100,
                     'type': 'int'
                 },
                 'roll-day': {
@@ -445,7 +453,6 @@ def main():
                 },
                 'uploadport': {
                     'required': False,
-                    'default': 0,
                     'type': 'int'
                 },
                 'uploadsched': {

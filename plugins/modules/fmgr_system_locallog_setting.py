@@ -182,17 +182,14 @@ def main():
             'options': {
                 'log-interval-dev-no-logging': {
                     'required': False,
-                    'default': 1440,
                     'type': 'int'
                 },
                 'log-interval-disk-full': {
                     'required': False,
-                    'default': 5,
                     'type': 'int'
                 },
                 'log-interval-gbday-exceeded': {
                     'required': False,
-                    'default': 1440,
                     'type': 'int'
                 }
             }

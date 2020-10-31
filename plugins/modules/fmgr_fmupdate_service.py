@@ -80,6 +80,7 @@ options:
         suboptions:
             avips:
                 type: str
+                default: 'enable'
                 description:
                  - 'Enable/disable the built-in FortiGuard to provide FortiGuard antivirus and IPS updates (default = enable).'
                  - 'disable - Disable setting.'
@@ -89,6 +90,7 @@ options:
                     - 'enable'
             query-antispam:
                 type: str
+                default: 'disable'
                 description:
                  - 'Enable/disable antispam service (default = disable).'
                  - 'disable - Disable setting.'
@@ -98,6 +100,7 @@ options:
                     - 'enable'
             query-antivirus:
                 type: str
+                default: 'disable'
                 description:
                  - 'Enable/disable antivirus query service (default = disable).'
                  - 'disable - Disable setting.'
@@ -107,6 +110,7 @@ options:
                     - 'enable'
             query-filequery:
                 type: str
+                default: 'disable'
                 description:
                  - 'Enable/disable file query service (default = disable).'
                  - 'disable - Disable setting.'
@@ -116,6 +120,7 @@ options:
                     - 'enable'
             query-geoip:
                 type: str
+                default: 'enable'
                 description:
                  - 'Enable/disable geoip service (default = enable).'
                  - 'disable - Disable setting.'
@@ -125,6 +130,7 @@ options:
                     - 'enable'
             query-outbreak-prevention:
                 type: str
+                default: 'disable'
                 description:
                  - 'Enable/disable  outbreak prevention query service (default = disable).'
                  - 'disable - Disable setting.'
@@ -134,6 +140,7 @@ options:
                     - 'enable'
             query-webfilter:
                 type: str
+                default: 'disable'
                 description:
                  - 'Enable/disable Web Filter service (default = disable).'
                  - 'disable - Disable setting.'
@@ -143,6 +150,7 @@ options:
                     - 'enable'
             webfilter-https-traversal:
                 type: str
+                default: 'disable'
                 description:
                  - 'Enable/disable Web Filter HTTPS traversal (default = disable).'
                  - 'disable - Disable setting.'

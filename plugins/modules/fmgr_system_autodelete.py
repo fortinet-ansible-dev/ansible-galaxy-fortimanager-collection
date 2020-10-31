@@ -85,6 +85,7 @@ options:
                 suboptions:
                     retention:
                         type: str
+                        default: 'days'
                         description:
                          - 'Automatic deletion in days, weeks, or months.'
                          - 'days - Auto-delete data older than <value> days.'
@@ -100,6 +101,7 @@ options:
                         description: 'Automatic deletion run at (0 - 23) oclock.'
                     status:
                         type: str
+                        default: 'disable'
                         description:
                          - 'Enable/disable automatic deletion.'
                          - 'disable - Disable automatic deletion.'
@@ -118,6 +120,7 @@ options:
                 suboptions:
                     retention:
                         type: str
+                        default: 'days'
                         description:
                          - 'Automatic deletion in days, weeks, or months.'
                          - 'days - Auto-delete data older than <value> days.'
@@ -133,6 +136,7 @@ options:
                         description: 'Automatic deletion run at (0 - 23) oclock.'
                     status:
                         type: str
+                        default: 'disable'
                         description:
                          - 'Enable/disable automatic deletion.'
                          - 'disable - Disable automatic deletion.'
@@ -151,6 +155,7 @@ options:
                 suboptions:
                     retention:
                         type: str
+                        default: 'days'
                         description:
                          - 'Automatic deletion in days, weeks, or months.'
                          - 'days - Auto-delete data older than <value> days.'
@@ -166,6 +171,7 @@ options:
                         description: 'Automatic deletion run at (0 - 23) oclock.'
                     status:
                         type: str
+                        default: 'disable'
                         description:
                          - 'Enable/disable automatic deletion.'
                          - 'disable - Disable automatic deletion.'
@@ -184,6 +190,7 @@ options:
                 suboptions:
                     retention:
                         type: str
+                        default: 'days'
                         description:
                          - 'Automatic deletion in days, weeks, or months.'
                          - 'days - Auto-delete data older than <value> days.'
@@ -199,6 +206,7 @@ options:
                         description: 'Automatic deletion run at (0 - 23) oclock.'
                     status:
                         type: str
+                        default: 'disable'
                         description:
                          - 'Enable/disable automatic deletion.'
                          - 'disable - Disable automatic deletion.'
@@ -336,7 +344,6 @@ def main():
                         },
                         'runat': {
                             'required': False,
-                            'default': 0,
                             'type': 'int'
                         },
                         'status': {
@@ -349,7 +356,6 @@ def main():
                         },
                         'value': {
                             'required': False,
-                            'default': 0,
                             'type': 'int'
                         }
                     }
@@ -369,7 +375,6 @@ def main():
                         },
                         'runat': {
                             'required': False,
-                            'default': 0,
                             'type': 'int'
                         },
                         'status': {
@@ -382,7 +387,6 @@ def main():
                         },
                         'value': {
                             'required': False,
-                            'default': 0,
                             'type': 'int'
                         }
                     }
@@ -402,7 +406,6 @@ def main():
                         },
                         'runat': {
                             'required': False,
-                            'default': 0,
                             'type': 'int'
                         },
                         'status': {
@@ -415,7 +418,6 @@ def main():
                         },
                         'value': {
                             'required': False,
-                            'default': 0,
                             'type': 'int'
                         }
                     }
@@ -435,7 +437,6 @@ def main():
                         },
                         'runat': {
                             'required': False,
-                            'default': 0,
                             'type': 'int'
                         },
                         'status': {
@@ -448,7 +449,6 @@ def main():
                         },
                         'value': {
                             'required': False,
-                            'default': 0,
                             'type': 'int'
                         }
                     }

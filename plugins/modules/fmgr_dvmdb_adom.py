@@ -124,6 +124,7 @@ options:
                 description: no description
             mig_os_ver:
                 type: str
+                default: '6.0'
                 description: no description
                 choices:
                     - 'unknown'
@@ -136,6 +137,7 @@ options:
                     - '6.0'
             mode:
                 type: str
+                default: 'gms'
                 description:
                  - 'ems - (Value no longer used as of 4.3)'
                  - 'provider - Global database.'
@@ -152,6 +154,7 @@ options:
                 description: no description
             os_ver:
                 type: str
+                default: '6.0'
                 description: no description
                 choices:
                     - 'unknown'
@@ -348,7 +351,6 @@ def main():
                 },
                 'log_db_retention_hours': {
                     'required': False,
-                    'default': 1440,
                     'type': 'int'
                 },
                 'log_disk_quota': {
@@ -357,17 +359,14 @@ def main():
                 },
                 'log_disk_quota_alert_thres': {
                     'required': False,
-                    'default': 90,
                     'type': 'int'
                 },
                 'log_disk_quota_split_ratio': {
                     'required': False,
-                    'default': 70,
                     'type': 'int'
                 },
                 'log_file_retention_hours': {
                     'required': False,
-                    'default': 8760,
                     'type': 'int'
                 },
                 'meta fields': {
@@ -376,7 +375,6 @@ def main():
                 },
                 'mig_mr': {
                     'required': False,
-                    'default': 2,
                     'type': 'int'
                 },
                 'mig_os_ver': {
@@ -404,7 +402,6 @@ def main():
                 },
                 'mr': {
                     'required': False,
-                    'default': 2,
                     'type': 'int'
                 },
                 'name': {
@@ -447,7 +444,6 @@ def main():
                 },
                 'state': {
                     'required': False,
-                    'default': 1,
                     'type': 'int'
                 },
                 'uuid': {

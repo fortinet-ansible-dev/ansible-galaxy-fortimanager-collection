@@ -91,6 +91,7 @@ options:
                 description: 'Allow interface name.'
             ip:
                 type: str
+                default: '0.0.0.0 0.0.0.0'
                 description: 'Allow host IP address.'
 
 '''

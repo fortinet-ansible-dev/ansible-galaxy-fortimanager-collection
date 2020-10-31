@@ -84,6 +84,7 @@ options:
                 description: 'ID of the announce IP address (1 - 10).'
             ip:
                 type: str
+                default: '0.0.0.0'
                 description: 'Announce IPv4 address.'
             port:
                 type: int
@@ -198,7 +199,6 @@ def main():
                 },
                 'port': {
                     'required': False,
-                    'default': 8890,
                     'type': 'int'
                 }
             }

@@ -215,7 +215,6 @@ def main():
                         },
                         'seq_num': {
                             'required': False,
-                            'default': 0,
                             'type': 'int'
                         }
                     }

@@ -187,22 +187,18 @@ def main():
             'options': {
                 'fsso-refresh-interval': {
                     'required': False,
-                    'default': 180,
                     'type': 'int'
                 },
                 'fsso-sess-timeout': {
                     'required': False,
-                    'default': 300,
                     'type': 'int'
                 },
                 'px-refresh-interval': {
                     'required': False,
-                    'default': 300,
                     'type': 'int'
                 },
                 'px-svr-timeout': {
                     'required': False,
-                    'default': 900,
                     'type': 'int'
                 }
             }

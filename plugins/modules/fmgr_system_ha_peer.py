@@ -84,9 +84,11 @@ options:
                 description: 'Id.'
             ip:
                 type: str
+                default: '0.0.0.0'
                 description: 'IP address of peer.'
             ip6:
                 type: str
+                default: '::'
                 description: 'IP address (V6) of peer.'
             serial-number:
                 type: str

@@ -80,6 +80,7 @@ options:
         suboptions:
             webspam-rating:
                 type: str
+                default: 'enable'
                 description:
                  - 'Enable/disable URL/Antispam rating service (default = enable).'
                  - 'disable - Disable setting.'

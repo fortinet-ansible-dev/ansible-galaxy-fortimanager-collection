@@ -117,6 +117,7 @@ options:
                 description: 'Maximum number of log files for each log browse attempt for each Adom.'
             dns-resolve-dstip:
                 type: str
+                default: 'disable'
                 description:
                  - 'Enable/Disable resolving destination IP by DNS.'
                  - 'disable - Disable resolving destination IP by DNS.'
@@ -130,6 +131,7 @@ options:
                 description: 'Maximum number of logs for each log download attempt.'
             ha-auto-migrate:
                 type: str
+                default: 'disable'
                 description:
                  - 'Enabled/Disable automatically merging HA members logs to HA cluster.'
                  - 'disable - Disable automatically merging HA members logs to HA cluster.'
@@ -143,6 +145,7 @@ options:
                 description: 'Maximum number of log files for each log import attempt.'
             log-file-archive-name:
                 type: str
+                default: 'basic'
                 description:
                  - 'Log file name format for archiving, such as backup, upload or download.'
                  - 'basic - Basic format for log archive file name, e.g. FGT20C0000000001.tlog.1417797247.log.'
@@ -168,6 +171,7 @@ options:
                          - sat
                     del-files:
                         type: str
+                        default: 'disable'
                         description:
                          - 'Enable/disable log file deletion after uploading.'
                          - 'disable - Disable log file deletion.'
@@ -184,6 +188,7 @@ options:
                         description: 'Roll log files when they reach this size (MB).'
                     gzip-format:
                         type: str
+                        default: 'disable'
                         description:
                          - 'Enable/disable compression of uploaded log files.'
                          - 'disable - Disable compression.'
@@ -197,15 +202,19 @@ options:
                         description: 'Log files rolling schedule (hour).'
                     ip:
                         type: str
+                        default: '0.0.0.0'
                         description: 'Upload server IP address.'
                     ip2:
                         type: str
+                        default: '0.0.0.0'
                         description: 'Upload server IP2 address.'
                     ip3:
                         type: str
+                        default: '0.0.0.0'
                         description: 'Upload server IP3 address.'
                     log-format:
                         type: str
+                        default: 'native'
                         description:
                          - 'Format of uploaded log files.'
                          - 'native - Native format (text or compact).'
@@ -230,6 +239,7 @@ options:
                         type: str
                     server-type:
                         type: str
+                        default: 'ftp'
                         description:
                          - 'Upload server type.'
                          - 'ftp - Upload via FTP.'
@@ -241,6 +251,7 @@ options:
                             - 'scp'
                     upload:
                         type: str
+                        default: 'disable'
                         description:
                          - 'Enable/disable log file uploads.'
                          - 'disable - Disable log files uploading.'
@@ -254,6 +265,7 @@ options:
                         description: 'Log files upload schedule (hour).'
                     upload-mode:
                         type: str
+                        default: 'backup'
                         description:
                          - 'Upload mode with multiple servers.'
                          - 'backup - Servers are attempted and used one after the other upon failure to connect.'
@@ -263,6 +275,7 @@ options:
                             - 'mirror'
                     upload-trigger:
                         type: str
+                        default: 'on-roll'
                         description:
                          - 'Event triggering log files upload.'
                          - 'on-roll - Upload log files after they are rolled.'
@@ -281,6 +294,7 @@ options:
                         description: 'Upload server login username3.'
                     when:
                         type: str
+                        default: 'none'
                         description:
                          - 'Roll log files periodically.'
                          - 'none - Do not roll log files periodically.'
@@ -308,6 +322,7 @@ options:
                          - sat
                     del-files:
                         type: str
+                        default: 'disable'
                         description:
                          - 'Enable/disable log file deletion after uploading.'
                          - 'disable - Disable log file deletion.'
@@ -324,6 +339,7 @@ options:
                         description: 'Roll log files when they reach this size (MB).'
                     gzip-format:
                         type: str
+                        default: 'disable'
                         description:
                          - 'Enable/disable compression of uploaded log files.'
                          - 'disable - Disable compression.'
@@ -337,15 +353,19 @@ options:
                         description: 'Log files rolling schedule (hour).'
                     ip:
                         type: str
+                        default: '0.0.0.0'
                         description: 'Upload server IP address.'
                     ip2:
                         type: str
+                        default: '0.0.0.0'
                         description: 'Upload server IP2 address.'
                     ip3:
                         type: str
+                        default: '0.0.0.0'
                         description: 'Upload server IP3 address.'
                     log-format:
                         type: str
+                        default: 'native'
                         description:
                          - 'Format of uploaded log files.'
                          - 'native - Native format (text or compact).'
@@ -370,6 +390,7 @@ options:
                         type: str
                     server-type:
                         type: str
+                        default: 'ftp'
                         description:
                          - 'Upload server type.'
                          - 'ftp - Upload via FTP.'
@@ -381,6 +402,7 @@ options:
                             - 'scp'
                     upload:
                         type: str
+                        default: 'disable'
                         description:
                          - 'Enable/disable log file uploads.'
                          - 'disable - Disable log files uploading.'
@@ -394,6 +416,7 @@ options:
                         description: 'Log files upload schedule (hour).'
                     upload-mode:
                         type: str
+                        default: 'backup'
                         description:
                          - 'Upload mode with multiple servers.'
                          - 'backup - Servers are attempted and used one after the other upon failure to connect.'
@@ -403,6 +426,7 @@ options:
                             - 'mirror'
                     upload-trigger:
                         type: str
+                        default: 'on-roll'
                         description:
                          - 'Event triggering log files upload.'
                          - 'on-roll - Upload log files after they are rolled.'
@@ -421,6 +445,7 @@ options:
                         description: 'Upload server login username3.'
                     when:
                         type: str
+                        default: 'none'
                         description:
                          - 'Roll log files periodically.'
                          - 'none - Do not roll log files periodically.'
@@ -448,6 +473,7 @@ options:
                          - sat
                     del-files:
                         type: str
+                        default: 'disable'
                         description:
                          - 'Enable/disable log file deletion after uploading.'
                          - 'disable - Disable log file deletion.'
@@ -464,6 +490,7 @@ options:
                         description: 'Roll log files when they reach this size (MB).'
                     gzip-format:
                         type: str
+                        default: 'disable'
                         description:
                          - 'Enable/disable compression of uploaded log files.'
                          - 'disable - Disable compression.'
@@ -477,15 +504,19 @@ options:
                         description: 'Log files rolling schedule (hour).'
                     ip:
                         type: str
+                        default: '0.0.0.0'
                         description: 'Upload server IP address.'
                     ip2:
                         type: str
+                        default: '0.0.0.0'
                         description: 'Upload server IP2 address.'
                     ip3:
                         type: str
+                        default: '0.0.0.0'
                         description: 'Upload server IP3 address.'
                     log-format:
                         type: str
+                        default: 'native'
                         description:
                          - 'Format of uploaded log files.'
                          - 'native - Native format (text or compact).'
@@ -510,6 +541,7 @@ options:
                         type: str
                     server-type:
                         type: str
+                        default: 'ftp'
                         description:
                          - 'Upload server type.'
                          - 'ftp - Upload via FTP.'
@@ -521,6 +553,7 @@ options:
                             - 'scp'
                     upload:
                         type: str
+                        default: 'disable'
                         description:
                          - 'Enable/disable log file uploads.'
                          - 'disable - Disable log files uploading.'
@@ -534,6 +567,7 @@ options:
                         description: 'Log files upload schedule (hour).'
                     upload-mode:
                         type: str
+                        default: 'backup'
                         description:
                          - 'Upload mode with multiple servers.'
                          - 'backup - Servers are attempted and used one after the other upon failure to connect.'
@@ -543,6 +577,7 @@ options:
                             - 'mirror'
                     upload-trigger:
                         type: str
+                        default: 'on-roll'
                         description:
                          - 'Event triggering log files upload.'
                          - 'on-roll - Upload log files after they are rolled.'
@@ -561,6 +596,7 @@ options:
                         description: 'Upload server login username3.'
                     when:
                         type: str
+                        default: 'none'
                         description:
                          - 'Roll log files periodically.'
                          - 'none - Do not roll log files periodically.'
@@ -818,7 +854,6 @@ def main():
                 },
                 'browse-max-logfiles': {
                     'required': False,
-                    'default': 10000,
                     'type': 'int'
                 },
                 'dns-resolve-dstip': {
@@ -831,7 +866,6 @@ def main():
                 },
                 'download-max-logs': {
                     'required': False,
-                    'default': 500000,
                     'type': 'int'
                 },
                 'ha-auto-migrate': {
@@ -844,7 +878,6 @@ def main():
                 },
                 'import-max-logfiles': {
                     'required': False,
-                    'default': 10000,
                     'type': 'int'
                 },
                 'log-file-archive-name': {
@@ -886,7 +919,6 @@ def main():
                         },
                         'file-size': {
                             'required': False,
-                            'default': 200,
                             'type': 'int'
                         },
                         'gzip-format': {
@@ -899,7 +931,6 @@ def main():
                         },
                         'hour': {
                             'required': False,
-                            'default': 0,
                             'type': 'int'
                         },
                         'ip': {
@@ -925,7 +956,6 @@ def main():
                         },
                         'min': {
                             'required': False,
-                            'default': 0,
                             'type': 'int'
                         },
                         'password': {
@@ -959,7 +989,6 @@ def main():
                         },
                         'upload-hour': {
                             'required': False,
-                            'default': 0,
                             'type': 'int'
                         },
                         'upload-mode': {
@@ -1032,7 +1061,6 @@ def main():
                         },
                         'file-size': {
                             'required': False,
-                            'default': 200,
                             'type': 'int'
                         },
                         'gzip-format': {
@@ -1045,7 +1073,6 @@ def main():
                         },
                         'hour': {
                             'required': False,
-                            'default': 0,
                             'type': 'int'
                         },
                         'ip': {
@@ -1071,7 +1098,6 @@ def main():
                         },
                         'min': {
                             'required': False,
-                            'default': 0,
                             'type': 'int'
                         },
                         'password': {
@@ -1105,7 +1131,6 @@ def main():
                         },
                         'upload-hour': {
                             'required': False,
-                            'default': 0,
                             'type': 'int'
                         },
                         'upload-mode': {
@@ -1178,7 +1203,6 @@ def main():
                         },
                         'file-size': {
                             'required': False,
-                            'default': 200,
                             'type': 'int'
                         },
                         'gzip-format': {
@@ -1191,7 +1215,6 @@ def main():
                         },
                         'hour': {
                             'required': False,
-                            'default': 0,
                             'type': 'int'
                         },
                         'ip': {
@@ -1217,7 +1240,6 @@ def main():
                         },
                         'min': {
                             'required': False,
-                            'default': 0,
                             'type': 'int'
                         },
                         'password': {
@@ -1251,7 +1273,6 @@ def main():
                         },
                         'upload-hour': {
                             'required': False,
-                            'default': 0,
                             'type': 'int'
                         },
                         'upload-mode': {
@@ -1295,7 +1316,6 @@ def main():
                 },
                 'sync-search-timeout': {
                     'required': False,
-                    'default': 60,
                     'type': 'int'
                 }
             }

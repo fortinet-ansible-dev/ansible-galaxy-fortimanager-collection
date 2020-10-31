@@ -84,6 +84,7 @@ options:
         suboptions:
             ip6-address:
                 type: str
+                default: '::/0'
                 description: 'IPv6 address/prefix of interface.'
             ip6-allowaccess:
                 description: no description
@@ -98,6 +99,7 @@ options:
                  - https-logging
             ip6-autoconf:
                 type: str
+                default: 'enable'
                 description:
                  - 'Enable/disable address auto config (SLAAC).'
                  - 'disable - Disable setting.'

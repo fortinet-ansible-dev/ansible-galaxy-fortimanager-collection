@@ -84,6 +84,7 @@ options:
                 description: 'Configure the port number on which the built-in FortiGuard should provide updates to FortiClient installations (1 - 65535, def...'
             status:
                 type: str
+                default: 'enable'
                 description:
                  - 'Enable/disable built-in FortiGuard service to FortiClient installations (default = enable).'
                  - 'disable - Disable setting.'
@@ -182,7 +183,6 @@ def main():
             'options': {
                 'port': {
                     'required': False,
-                    'default': 80,
                     'type': 'int'
                 },
                 'status': {

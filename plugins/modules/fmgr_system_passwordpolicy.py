@@ -80,6 +80,7 @@ options:
         suboptions:
             change-4-characters:
                 type: str
+                default: 'disable'
                 description:
                  - 'Enable/disable changing at least 4 characters for new password.'
                  - 'disable - Disable changing at least 4 characters for new password.'
@@ -105,6 +106,7 @@ options:
                  - non-alphanumeric
             status:
                 type: str
+                default: 'disable'
                 description:
                  - 'Enable/disable password policy.'
                  - 'disable - Disable password policy.'
@@ -218,12 +220,10 @@ def main():
                 },
                 'expire': {
                     'required': False,
-                    'default': 0,
                     'type': 'int'
                 },
                 'minimum-length': {
                     'required': False,
-                    'default': 8,
                     'type': 'int'
                 },
                 'must-contain': {

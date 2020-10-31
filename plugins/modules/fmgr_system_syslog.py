@@ -197,7 +197,6 @@ def main():
                 },
                 'port': {
                     'required': False,
-                    'default': 514,
                     'type': 'int'
                 }
             }

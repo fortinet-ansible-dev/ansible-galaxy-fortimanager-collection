@@ -80,6 +80,7 @@ options:
         suboptions:
             authentication:
                 type: str
+                default: 'enable'
                 description:
                  - 'Enable/disable authentication.'
                  - 'disable - Disable setting.'
@@ -222,7 +223,6 @@ def main():
                 },
                 'smtpport': {
                     'required': False,
-                    'default': 25,
                     'type': 'int'
                 },
                 'smtpserver': {

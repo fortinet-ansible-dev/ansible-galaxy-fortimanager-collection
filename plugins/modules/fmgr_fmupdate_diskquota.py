@@ -172,7 +172,6 @@ def main():
             'options': {
                 'value': {
                     'required': False,
-                    'default': 51200,
                     'type': 'int'
                 }
             }

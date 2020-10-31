@@ -90,6 +90,7 @@ options:
                 description: no description
             digest-type:
                 type: str
+                default: 'sha1'
                 description: no description
                 choices:
                     - 'sha1'
@@ -99,6 +100,7 @@ options:
                 description: no description
             id-type:
                 type: str
+                default: 'host-ip'
                 description: no description
                 choices:
                     - 'host-ip'
@@ -106,6 +108,7 @@ options:
                     - 'email'
             key-size:
                 type: str
+                default: '2048'
                 description: no description
                 choices:
                     - '512'
@@ -114,6 +117,7 @@ options:
                     - '2048'
             key-type:
                 type: str
+                default: 'rsa'
                 description: no description
                 choices:
                     - 'rsa'
@@ -140,6 +144,7 @@ options:
                 description: no description
             type:
                 type: str
+                default: 'external'
                 description: no description
                 choices:
                     - 'external'

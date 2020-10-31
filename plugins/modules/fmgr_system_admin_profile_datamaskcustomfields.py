@@ -96,6 +96,7 @@ options:
                 description: 'Field name.'
             field-status:
                 type: str
+                default: 'enable'
                 description:
                  - 'Field status.'
                  - 'disable - Disable field.'
@@ -105,6 +106,7 @@ options:
                     - 'enable'
             field-type:
                 type: str
+                default: 'string'
                 description:
                  - 'Field type.'
                  - 'string - String.'

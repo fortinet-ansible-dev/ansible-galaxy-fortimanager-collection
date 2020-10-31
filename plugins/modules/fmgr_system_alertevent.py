@@ -99,6 +99,7 @@ options:
                         description: 'Recipient email address to use in alert emails.'
                     type:
                         type: str
+                        default: 'mail'
                         description:
                          - 'Destination type.'
                          - 'mail - Send email alert.'
@@ -122,6 +123,7 @@ options:
                  - disable
             event-time-period:
                 type: str
+                default: '0.5'
                 description:
                  - 'Time period (hours).'
                  - '0.5 - 30 minutes.'
@@ -149,6 +151,7 @@ options:
                 description: 'Alert name.'
             num-events:
                 type: str
+                default: '1'
                 description:
                  - 'Minimum number of events required within time period.'
                  - '1 - 1 event.'
@@ -164,6 +167,7 @@ options:
                     - '100'
             severity-filter:
                 type: str
+                default: 'high'
                 description:
                  - 'Required log severity to trigger alert.'
                  - 'high - High level alert.'

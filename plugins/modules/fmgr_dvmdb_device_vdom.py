@@ -94,6 +94,7 @@ options:
                 description: no description
             opmode:
                 type: str
+                default: 'nat'
                 description: no description
                 choices:
                     - 'nat'

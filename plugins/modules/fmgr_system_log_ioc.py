@@ -80,6 +80,7 @@ options:
         suboptions:
             notification:
                 type: str
+                default: 'enable'
                 description:
                  - 'Disable/Enable IoC notification.'
                  - 'disable - Disable IoC feature.'
@@ -101,6 +102,7 @@ options:
                 description: 'When to run IoC rescan.'
             rescan-status:
                 type: str
+                default: 'enable'
                 description:
                  - 'Disable/Enable IoC rescan.'
                  - 'disable - Disable IoC feature.'
@@ -110,6 +112,7 @@ options:
                     - 'enable'
             status:
                 type: str
+                default: 'enable'
                 description:
                  - 'Disable/Enable IoC feature.'
                  - 'disable - Disable IoC feature.'
@@ -220,17 +223,14 @@ def main():
                 },
                 'notification-throttle': {
                     'required': False,
-                    'default': 1440,
                     'type': 'int'
                 },
                 'rescan-max-runner': {
                     'required': False,
-                    'default': 8,
                     'type': 'int'
                 },
                 'rescan-run-at': {
                     'required': False,
-                    'default': 24,
                     'type': 'int'
                 },
                 'rescan-status': {

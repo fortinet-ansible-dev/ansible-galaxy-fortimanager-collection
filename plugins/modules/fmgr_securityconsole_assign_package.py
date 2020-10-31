@@ -91,6 +91,7 @@ options:
                         description: 'Destination ADOM.'
                     excluded:
                         type: str
+                        default: 'disable'
                         description:
                          - 'disable - Only include the packages listed in the <i>pkg</i> list.'
                          - 'enable - Exclude the package listed in the <i>pkg</i> list, and assign to all other packages in the ADOM.'

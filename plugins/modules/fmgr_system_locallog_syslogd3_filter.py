@@ -80,6 +80,7 @@ options:
         suboptions:
             devcfg:
                 type: str
+                default: 'enable'
                 description:
                  - 'Log device configuration message.'
                  - 'disable - Disable setting.'
@@ -89,6 +90,7 @@ options:
                     - 'enable'
             devops:
                 type: str
+                default: 'enable'
                 description:
                  - 'Managered devices operations messages.'
                  - 'disable - Disable setting.'
@@ -98,6 +100,7 @@ options:
                     - 'enable'
             diskquota:
                 type: str
+                default: 'enable'
                 description:
                  - 'Log Fortianalyzer disk quota messages.'
                  - 'disable - Disable setting.'
@@ -107,6 +110,7 @@ options:
                     - 'enable'
             dm:
                 type: str
+                default: 'enable'
                 description:
                  - 'Log deployment manager message.'
                  - 'disable - Disable setting.'
@@ -116,6 +120,7 @@ options:
                     - 'enable'
             dvm:
                 type: str
+                default: 'enable'
                 description:
                  - 'Log device manager messages.'
                  - 'disable - Disable setting.'
@@ -125,6 +130,7 @@ options:
                     - 'enable'
             ediscovery:
                 type: str
+                default: 'enable'
                 description:
                  - 'Log Fortianalyzer ediscovery messages.'
                  - 'disable - Disable setting.'
@@ -134,6 +140,7 @@ options:
                     - 'enable'
             epmgr:
                 type: str
+                default: 'enable'
                 description:
                  - 'Log endpoint manager message.'
                  - 'disable - Disable setting.'
@@ -143,6 +150,7 @@ options:
                     - 'enable'
             event:
                 type: str
+                default: 'enable'
                 description:
                  - 'Log event messages.'
                  - 'disable - Disable setting.'
@@ -152,6 +160,7 @@ options:
                     - 'enable'
             eventmgmt:
                 type: str
+                default: 'enable'
                 description:
                  - 'Log Fortianalyzer event handler messages.'
                  - 'disable - Disable setting.'
@@ -161,6 +170,7 @@ options:
                     - 'enable'
             faz:
                 type: str
+                default: 'enable'
                 description:
                  - 'Log Fortianalyzer messages.'
                  - 'disable - Disable setting.'
@@ -170,6 +180,7 @@ options:
                     - 'enable'
             fazha:
                 type: str
+                default: 'enable'
                 description:
                  - 'Log Fortianalyzer HA messages.'
                  - 'disable - Disable setting.'
@@ -179,6 +190,7 @@ options:
                     - 'enable'
             fazsys:
                 type: str
+                default: 'enable'
                 description:
                  - 'Log Fortianalyzer system messages.'
                  - 'disable - Disable setting.'
@@ -188,6 +200,7 @@ options:
                     - 'enable'
             fgd:
                 type: str
+                default: 'enable'
                 description:
                  - 'Log FortiGuard service message.'
                  - 'disable - Disable setting.'
@@ -197,6 +210,7 @@ options:
                     - 'enable'
             fgfm:
                 type: str
+                default: 'enable'
                 description:
                  - 'Log FGFM protocol message.'
                  - 'disable - Disable setting.'
@@ -206,6 +220,7 @@ options:
                     - 'enable'
             fips:
                 type: str
+                default: 'enable'
                 description:
                  - 'Whether to log fips messages.'
                  - 'disable - Disable setting.'
@@ -215,6 +230,7 @@ options:
                     - 'enable'
             fmgws:
                 type: str
+                default: 'enable'
                 description:
                  - 'Log web service messages.'
                  - 'disable - Disable setting.'
@@ -224,6 +240,7 @@ options:
                     - 'enable'
             fmlmgr:
                 type: str
+                default: 'enable'
                 description:
                  - 'Log FortiMail manager message.'
                  - 'disable - Disable setting.'
@@ -233,6 +250,7 @@ options:
                     - 'enable'
             fmwmgr:
                 type: str
+                default: 'enable'
                 description:
                  - 'Log firmware manager message.'
                  - 'disable - Disable setting.'
@@ -242,6 +260,7 @@ options:
                     - 'enable'
             fortiview:
                 type: str
+                default: 'enable'
                 description:
                  - 'Log Fortianalyzer FortiView messages.'
                  - 'disable - Disable setting.'
@@ -251,6 +270,7 @@ options:
                     - 'enable'
             glbcfg:
                 type: str
+                default: 'enable'
                 description:
                  - 'Log global database message.'
                  - 'disable - Disable setting.'
@@ -260,6 +280,7 @@ options:
                     - 'enable'
             ha:
                 type: str
+                default: 'enable'
                 description:
                  - 'Log HA message.'
                  - 'disable - Disable setting.'
@@ -269,6 +290,7 @@ options:
                     - 'enable'
             hcache:
                 type: str
+                default: 'enable'
                 description:
                  - 'Log Fortianalyzer hcache messages.'
                  - 'disable - Disable setting.'
@@ -278,6 +300,7 @@ options:
                     - 'enable'
             iolog:
                 type: str
+                default: 'enable'
                 description:
                  - 'Log debug IO log message.'
                  - 'disable - Disable setting.'
@@ -287,6 +310,7 @@ options:
                     - 'enable'
             logd:
                 type: str
+                default: 'enable'
                 description:
                  - 'Log the status of log daemon.'
                  - 'disable - Disable setting.'
@@ -296,6 +320,7 @@ options:
                     - 'enable'
             logdb:
                 type: str
+                default: 'enable'
                 description:
                  - 'Log Fortianalyzer log DB messages.'
                  - 'disable - Disable setting.'
@@ -305,6 +330,7 @@ options:
                     - 'enable'
             logdev:
                 type: str
+                default: 'enable'
                 description:
                  - 'Log Fortianalyzer log device messages.'
                  - 'disable - Disable setting.'
@@ -323,6 +349,7 @@ options:
                     - 'disable'
             logging:
                 type: str
+                default: 'enable'
                 description:
                  - 'Log Fortianalyzer logging messages.'
                  - 'disable - Disable setting.'
@@ -332,6 +359,7 @@ options:
                     - 'enable'
             lrmgr:
                 type: str
+                default: 'enable'
                 description:
                  - 'Log log and report manager message.'
                  - 'disable - Disable setting.'
@@ -341,6 +369,7 @@ options:
                     - 'enable'
             objcfg:
                 type: str
+                default: 'enable'
                 description:
                  - 'Log object configuration change message.'
                  - 'disable - Disable setting.'
@@ -350,6 +379,7 @@ options:
                     - 'enable'
             report:
                 type: str
+                default: 'enable'
                 description:
                  - 'Log Fortianalyzer report messages.'
                  - 'disable - Disable setting.'
@@ -359,6 +389,7 @@ options:
                     - 'enable'
             rev:
                 type: str
+                default: 'enable'
                 description:
                  - 'Log revision history message.'
                  - 'disable - Disable setting.'
@@ -368,6 +399,7 @@ options:
                     - 'enable'
             rtmon:
                 type: str
+                default: 'enable'
                 description:
                  - 'Log real-time monitor message.'
                  - 'disable - Disable setting.'
@@ -377,6 +409,7 @@ options:
                     - 'enable'
             scfw:
                 type: str
+                default: 'enable'
                 description:
                  - 'Log firewall objects message.'
                  - 'disable - Disable setting.'
@@ -386,6 +419,7 @@ options:
                     - 'enable'
             scply:
                 type: str
+                default: 'enable'
                 description:
                  - 'Log policy console message.'
                  - 'disable - Disable setting.'
@@ -395,6 +429,7 @@ options:
                     - 'enable'
             scrmgr:
                 type: str
+                default: 'enable'
                 description:
                  - 'Log script manager message.'
                  - 'disable - Disable setting.'
@@ -404,6 +439,7 @@ options:
                     - 'enable'
             scvpn:
                 type: str
+                default: 'enable'
                 description:
                  - 'Log VPN console message.'
                  - 'disable - Disable setting.'
@@ -413,6 +449,7 @@ options:
                     - 'enable'
             system:
                 type: str
+                default: 'enable'
                 description:
                  - 'Log system manager message.'
                  - 'disable - Disable setting.'
@@ -422,6 +459,7 @@ options:
                     - 'enable'
             webport:
                 type: str
+                default: 'enable'
                 description:
                  - 'Log web portal message.'
                  - 'disable - Disable setting.'

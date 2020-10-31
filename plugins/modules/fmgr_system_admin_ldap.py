@@ -90,12 +90,14 @@ options:
                 description: 'Attribute used to retrieve adom'
             attributes:
                 type: str
+                default: 'member,uniquemember,memberuid'
                 description: 'Attributes used for group searching.'
             ca-cert:
                 type: str
                 description: 'CA certificate name.'
             cnid:
                 type: str
+                default: 'cn'
                 description: 'Common Name Identifier (default = CN).'
             connect-timeout:
                 type: int
@@ -106,6 +108,7 @@ options:
                 description: 'Distinguished Name.'
             filter:
                 type: str
+                default: '(objectclass=*)'
                 description: 'Filter used for group searching.'
             group:
                 type: str
@@ -131,6 +134,7 @@ options:
                 description: '{<name_str|ip_str>} secondary LDAP server domain name or IP.'
             secure:
                 type: str
+                default: 'disable'
                 description:
                  - 'SSL connection.'
                  - 'disable - No SSL.'
@@ -148,6 +152,7 @@ options:
                 description: '{<name_str|ip_str>} tertiary LDAP server domain name or IP.'
             type:
                 type: str
+                default: 'simple'
                 description:
                  - 'Type of LDAP binding.'
                  - 'simple - Simple password authentication without search.'
@@ -306,7 +311,6 @@ def main():
                 },
                 'connect-timeout': {
                     'required': False,
-                    'default': 500,
                     'type': 'int'
                 },
                 'dn': {
@@ -335,7 +339,6 @@ def main():
                 },
                 'port': {
                     'required': False,
-                    'default': 389,
                     'type': 'int'
                 },
                 'profile-attr': {

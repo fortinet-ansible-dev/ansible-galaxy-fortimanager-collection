@@ -80,6 +80,7 @@ options:
         suboptions:
             devices:
                 type: str
+                default: 'All_FortiMail'
                 description: 'Devices for domain to vdom mapping'
             domain:
                 type: str

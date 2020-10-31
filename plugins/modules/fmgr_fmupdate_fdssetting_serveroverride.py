@@ -88,9 +88,11 @@ options:
                         description: 'Override server ID (1 - 10).'
                     ip:
                         type: str
+                        default: '0.0.0.0'
                         description: 'IPv4 address of the override server.'
                     ip6:
                         type: str
+                        default: '::'
                         description: 'IPv6 address of the override server.'
                     port:
                         type: int
@@ -104,6 +106,7 @@ options:
                          - fct
             status:
                 type: str
+                default: 'disable'
                 description:
                  - 'Override status.'
                  - 'disable - Disable setting.'
@@ -214,7 +217,6 @@ def main():
                     'options': {
                         'id': {
                             'required': False,
-                            'default': 0,
                             'type': 'int'
                         },
                         'ip': {
@@ -227,7 +229,6 @@ def main():
                         },
                         'port': {
                             'required': False,
-                            'default': 443,
                             'type': 'int'
                         },
                         'service-type': {

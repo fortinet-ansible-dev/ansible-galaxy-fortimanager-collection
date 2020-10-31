@@ -80,6 +80,7 @@ options:
         suboptions:
             access-banner:
                 type: str
+                default: 'disable'
                 description:
                  - 'Enable/disable access banner.'
                  - 'disable - Disable setting.'
@@ -89,6 +90,7 @@ options:
                     - 'enable'
             admin-https-redirect:
                 type: str
+                default: 'enable'
                 description:
                  - 'Enable/disable redirection of HTTP admin traffic to HTTPS.'
                  - 'disable - Disable setting.'
@@ -102,9 +104,11 @@ options:
                 description: 'Maximum number admin users logged in at one time (1 - 256).'
             admin_server_cert:
                 type: str
+                default: 'server.crt'
                 description: 'HTTPS & Web Service server certificate.'
             allow_register:
                 type: str
+                default: 'disable'
                 description:
                  - 'Enable/disable allowance of register an unregistered device.'
                  - 'disable - Disable setting.'
@@ -114,6 +118,7 @@ options:
                     - 'enable'
             auto-update:
                 type: str
+                default: 'enable'
                 description:
                  - 'Enable/disable FortiGate automatic update.'
                  - 'disable - Disable device automatic update.'
@@ -126,6 +131,7 @@ options:
                 description: 'Banner message.'
             chassis-mgmt:
                 type: str
+                default: 'disable'
                 description:
                  - 'Enable or disable chassis management.'
                  - 'disable - Disable setting.'
@@ -139,6 +145,7 @@ options:
                 description: 'Chassis background update interval (4 - 1440 mins).'
             device_sync_status:
                 type: str
+                default: 'enable'
                 description:
                  - 'Enable/disable device synchronization status indication.'
                  - 'disable - Disable setting.'
@@ -148,6 +155,7 @@ options:
                     - 'enable'
             gui-theme:
                 type: str
+                default: 'blue'
                 description:
                  - 'Color scheme to use for the administration GUI.'
                  - 'blue - Blueberry'
@@ -215,6 +223,7 @@ options:
                 description: 'Idle timeout (1 - 480 min).'
             install-ifpolicy-only:
                 type: str
+                default: 'disable'
                 description:
                  - 'Allow install interface policy only.'
                  - 'disable - Disable setting.'
@@ -230,6 +239,7 @@ options:
                 description: 'FQDN of FortiManager used by FGFM.'
             objects-force-deletion:
                 type: str
+                default: 'enable'
                 description:
                  - 'Enable/disable used objects force deletion.'
                  - 'disable - Disable setting.'
@@ -239,6 +249,7 @@ options:
                     - 'enable'
             offline_mode:
                 type: str
+                default: 'disable'
                 description:
                  - 'Enable/disable offline mode.'
                  - 'disable - Disable offline mode.'
@@ -251,6 +262,7 @@ options:
                 type: str
             sdwan-monitor-history:
                 type: str
+                default: 'disable'
                 description:
                  - 'Enable/disable hostname display in the GUI login page.'
                  - 'disable - Disable setting.'
@@ -260,6 +272,7 @@ options:
                     - 'enable'
             shell-access:
                 type: str
+                default: 'disable'
                 description:
                  - 'Enable/disable shell access.'
                  - 'disable - Disable setting.'
@@ -272,6 +285,7 @@ options:
                 type: str
             show-add-multiple:
                 type: str
+                default: 'disable'
                 description:
                  - 'Show add multiple button.'
                  - 'disable - Disable setting.'
@@ -281,6 +295,7 @@ options:
                     - 'enable'
             show-adom-devman:
                 type: str
+                default: 'enable'
                 description:
                  - 'Show ADOM device manager tools on GUI.'
                  - 'disable - Hide device manager tools on GUI.'
@@ -290,6 +305,7 @@ options:
                     - 'enable'
             show-checkbox-in-table:
                 type: str
+                default: 'disable'
                 description:
                  - 'Show checkboxs in tables on GUI.'
                  - 'disable - Disable setting.'
@@ -299,6 +315,7 @@ options:
                     - 'enable'
             show-device-import-export:
                 type: str
+                default: 'disable'
                 description:
                  - 'Enable/disable import/export of ADOM, device, and group lists.'
                  - 'disable - Disable setting.'
@@ -308,6 +325,7 @@ options:
                     - 'enable'
             show-hostname:
                 type: str
+                default: 'disable'
                 description:
                  - 'Enable/disable hostname display in the GUI login page.'
                  - 'disable - Disable setting.'
@@ -317,6 +335,7 @@ options:
                     - 'enable'
             show_automatic_script:
                 type: str
+                default: 'disable'
                 description:
                  - 'Enable/disable automatic script.'
                  - 'disable - Disable script option.'
@@ -326,6 +345,7 @@ options:
                     - 'enable'
             show_grouping_script:
                 type: str
+                default: 'enable'
                 description:
                  - 'Enable/disable grouping script.'
                  - 'disable - Disable script option.'
@@ -335,6 +355,7 @@ options:
                     - 'enable'
             show_schedule_script:
                 type: str
+                default: 'disable'
                 description:
                  - 'Enable or disable schedule script.'
                  - 'disable - Disable script option.'
@@ -344,6 +365,7 @@ options:
                     - 'enable'
             show_tcl_script:
                 type: str
+                default: 'disable'
                 description:
                  - 'Enable/disable TCL script.'
                  - 'disable - Disable script option.'
@@ -353,6 +375,7 @@ options:
                     - 'enable'
             unreg_dev_opt:
                 type: str
+                default: 'add_allow_service'
                 description:
                  - 'Action to take when unregistered device connects to FortiManager.'
                  - 'add_no_service - Add unregistered devices but deny service requests.'
@@ -364,6 +387,7 @@ options:
                     - 'add_allow_service'
             webadmin_language:
                 type: str
+                default: 'auto_detect'
                 description:
                  - 'Web admin language.'
                  - 'auto_detect - Automatically detect language.'
@@ -520,7 +544,6 @@ def main():
                 },
                 'admin-login-max': {
                     'required': False,
-                    'default': 256,
                     'type': 'int'
                 },
                 'admin_server_cert': {
@@ -557,7 +580,6 @@ def main():
                 },
                 'chassis-update-interval': {
                     'required': False,
-                    'default': 15,
                     'type': 'int'
                 },
                 'device_sync_status': {
@@ -601,17 +623,14 @@ def main():
                 },
                 'http_port': {
                     'required': False,
-                    'default': 80,
                     'type': 'int'
                 },
                 'https_port': {
                     'required': False,
-                    'default': 443,
                     'type': 'int'
                 },
                 'idle_timeout': {
                     'required': False,
-                    'default': 15,
                     'type': 'int'
                 },
                 'install-ifpolicy-only': {
