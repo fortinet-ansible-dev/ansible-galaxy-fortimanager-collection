@@ -86,8 +86,8 @@ options:
                 type: str
                 description: no description
             member:
-                type: str
                 description: no description
+                type: list
             modification-time:
                 type: str
                 description: no description
@@ -118,7 +118,7 @@ EXAMPLES = '''
          state: <value in [present, absent]>
          templategroup:
             description: <value of string>
-            member: <value of string>
+            member: <value of list>
             modification-time: <value of string>
             name: <value of string>
 
@@ -207,7 +207,7 @@ def main():
                 },
                 'member': {
                     'required': False,
-                    'type': 'str'
+                    'type': 'list'
                 },
                 'modification-time': {
                     'required': False,
