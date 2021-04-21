@@ -38,7 +38,7 @@ def check_galaxy_version(schema):
         error_message = 'Legacy playbook detected, please revise the playbook or install latest legacy'
         error_message += ' fortimanager galaxy collection: #ansible-galaxy collection install -f fortinet.fortimanager:1.0.5'
         sys.stderr.write(error_message)
-        sys.exit(1)
+        # sys.exit(1)
 
 
 def check_parameter_bypass(schema, module_level2_name):
