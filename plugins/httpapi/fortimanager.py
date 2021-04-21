@@ -265,7 +265,7 @@ class HttpApi(HttpApiBase):
         elif adom_to_lock in self._locked_adoms_by_user and self._locked_adoms_by_user[adom_to_lock] != self._logged_in_user:
             total_wait_time = 0
             while total_wait_time < adom_to_lock_timeout:
-                code, _ = self.lock_adom(adom_to_lock)
+                code, dummy = self.lock_adom(adom_to_lock)
                 self.log("waiting adom:%s lock to be released by %s, total time spent:%s seconds status:%s" % (
                          adom_to_lock,
                          self._locked_adoms_by_user[adom_to_lock],
@@ -277,7 +277,7 @@ class HttpApi(HttpApiBase):
                 time.sleep(5)
                 total_wait_time += 5
         else:
-            code, _ = self.lock_adom(adom_to_lock)
+            code, dummy = self.lock_adom(adom_to_lock)
             self.log('adom:%s locked by user: %s status:%s' % (adom_to_lock, self._logged_in_user, "success" if code == 0 else "failure"))
             if code == 0:
                 self._locked_adoms_by_user[adom_to_lock] = self._logged_in_user

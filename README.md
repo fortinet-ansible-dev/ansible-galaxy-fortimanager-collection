@@ -1,6 +1,6 @@
 # Ansible Collection - fortinet.fortimanager
 
-[Documentation](https://ansible-galaxy-fortimanager-docs.readthedocs.io/en/galaxy-2.0.1) for the collection.
+[Documentation](https://ansible-galaxy-fortimanager-docs.readthedocs.io/en/galaxy-2.0.2) for the collection.
 
 ## Modules
 The collection provides the following modules:
