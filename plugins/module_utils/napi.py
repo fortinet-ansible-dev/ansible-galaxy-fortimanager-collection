@@ -48,10 +48,16 @@ def check_parameter_bypass(schema, module_level2_name):
         for key in schema:
             if key != module_level2_name:
                 top_level_schema[key] = schema[key]
-            else:
+            elif not params[module_level2_name] or type(params[module_level2_name]) is dict:
                 top_level_schema[module_level2_name] = dict()
                 top_level_schema[module_level2_name]['required'] = False
                 top_level_schema[module_level2_name]['type'] = 'dict'
+            elif type(params[module_level2_name]) is list:
+                top_level_schema[module_level2_name] = dict()
+                top_level_schema[module_level2_name]['required'] = False
+                top_level_schema[module_level2_name]['type'] = 'list'
+            else:
+                raise Exception('Value of %s must be a dict or list' % (module_level2_name))
         return top_level_schema
     return schema
 
