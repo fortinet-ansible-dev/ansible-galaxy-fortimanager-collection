@@ -326,14 +326,24 @@ class NAPIManager(object):
             url = fact_urls[0]
         if not url:
             self.module.fail_json(msg='can not find url in following sets:%s! please check params: adom' % (fact_urls))
+        _param_applied = list()
         for _param in fact_params:
             _the_param = self.module.params['facts']['params'][_param]
             if self.module.params['facts']['params'][_param] is None:
                 _the_param = ''
             token_hint = '/%s/{%s}' % (_param, _param)
             token = '/%s/%s' % (_param, _the_param)
+            if token_hint in url:
+                _param_applied.append(_param)
             url = url.replace(token_hint, token)
-
+        for _param in fact_params:
+            if _param in _param_applied:
+                continue
+            token_hint = '{%s}' % (_param)
+            if token_hint not in url:
+                raise Exception('parameter exception: %s' % (token_hint))
+            token = self.module.params['facts']['params'][_param] if self.module.params['facts']['params'][_param] else ''
+            url = url.replace(token_hint, token)
         # Other Filters and Sorters
         filters = self.module.params['facts']['filter']
         sortings = self.module.params['facts']['sortings']
