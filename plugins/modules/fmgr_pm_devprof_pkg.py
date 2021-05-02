@@ -145,6 +145,7 @@ EXAMPLES = '''
          rc_failed: [-2, -3, ...]
          adom: <your own value>
          pkg_path: <your own value>
+         state: <value in [present, absent]>
          pm_devprof_pkg:
             description: <value of string>
             enabled options:
@@ -198,11 +199,11 @@ def main():
     ]
 
     perobject_jrpc_urls = [
-        '/pm/devprof/adom/{adom}/{pkg_path}/{{pkg_path}}'
+        '/pm/devprof/adom/{adom}/{pkg_path}'
     ]
 
     url_params = ['adom', 'pkg_path']
-    module_primary_key = None
+    module_primary_key = 'name'
     module_arg_spec = {
         'bypass_validation': {
             'type': 'bool',
@@ -225,6 +226,14 @@ def main():
         'rc_failed': {
             'required': False,
             'type': 'list'
+        },
+        'state': {
+            'type': 'str',
+            'required': True,
+            'choices': [
+                'present',
+                'absent'
+            ]
         },
         'adom': {
             'required': True,
@@ -258,7 +267,7 @@ def main():
                     ]
                 },
                 'name': {
-                    'required': False,
+                    'required': True,
                     'type': 'str'
                 },
                 'oid': {
@@ -301,7 +310,7 @@ def main():
         connection = Connection(module._socket_path)
         fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
         fmgr.validate_parameters(params_validation_blob)
-        fmgr.process_partial_curd()
+        fmgr.process_curd()
     else:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     module.exit_json(meta=module.params)

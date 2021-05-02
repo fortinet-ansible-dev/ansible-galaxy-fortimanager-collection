@@ -170,7 +170,7 @@ def main():
     ]
 
     perobject_jrpc_urls = [
-        '/pm/wanprof/adom/{adom}/{{adom}}'
+        '/pm/wanprof/adom/{adom}'
     ]
 
     url_params = ['adom']

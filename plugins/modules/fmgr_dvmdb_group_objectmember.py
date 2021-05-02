@@ -153,8 +153,8 @@ def main():
     ]
 
     perobject_jrpc_urls = [
-        '/dvmdb/adom/{adom}/group/{group}/{{group}}/object member',
-        '/dvmdb/group/{group}/{{group}}/object member'
+        '/dvmdb/adom/{adom}/group/{group}/object member',
+        '/dvmdb/group/{group}/object member'
     ]
 
     url_params = ['adom', 'group']

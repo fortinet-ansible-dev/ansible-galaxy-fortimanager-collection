@@ -131,8 +131,8 @@ def main():
     ]
 
     perobject_jrpc_urls = [
-        '/dvmdb/adom/{adom}/workspace/commit/obj/{object_url_name}/{{object_url_name}}',
-        '/dvmdb/global/workspace/commit/obj/{object_url_name}/{{object_url_name}}'
+        '/dvmdb/adom/{adom}/workspace/commit/obj/{object_url_name}',
+        '/dvmdb/global/workspace/commit/obj/{object_url_name}'
     ]
 
     url_params = ['adom', 'object_url_name']

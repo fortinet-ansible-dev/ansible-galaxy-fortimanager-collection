@@ -154,9 +154,9 @@ def main():
     ]
 
     perobject_jrpc_urls = [
-        '/dvmdb/adom/{adom}/script/{script}/{{script}}/object member',
-        '/dvmdb/global/script/{script}/{{script}}/object member',
-        '/dvmdb/script/{script}/{{script}}/object member'
+        '/dvmdb/adom/{adom}/script/{script}/object member',
+        '/dvmdb/global/script/{script}/object member',
+        '/dvmdb/script/{script}/object member'
     ]
 
     url_params = ['adom', 'script']

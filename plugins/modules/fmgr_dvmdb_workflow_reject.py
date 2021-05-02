@@ -141,8 +141,8 @@ def main():
     ]
 
     perobject_jrpc_urls = [
-        '/dvmdb/adom/{adom}/workflow/reject/{session_id}/{{session_id}}',
-        '/dvmdb/global/workflow/reject/{session_id}/{{session_id}}'
+        '/dvmdb/adom/{adom}/workflow/reject/{session_id}',
+        '/dvmdb/global/workflow/reject/{session_id}'
     ]
 
     url_params = ['adom', 'session_id']

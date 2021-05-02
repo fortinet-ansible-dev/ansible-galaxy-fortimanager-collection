@@ -118,14 +118,26 @@ class NAPIManager(object):
             the_url = url_libs[0]
         if not the_url:
             raise AssertionError('the_url is not expected to be NULL')
+        _param_applied = list()
         for uparam in self.url_params:
             token_hint = '/%s/{%s}/' % (uparam, uparam)
             token = '/%s/%s/' % (uparam, self.module.params[uparam])
+            if token_hint in the_url:
+                _param_applied.append(uparam)
+            the_url = the_url.replace(token_hint, token)
+        for uparam in self.url_params:
+            if uparam in _param_applied:
+                continue
+            token_hint = '{%s}' % (uparam)
+            token = self.module.params[uparam]
             the_url = the_url.replace(token_hint, token)
         return the_url
 
     def _get_base_perobject_url(self, mvalue):
         url_getting = self._get_basic_url(True)
+        if not url_getting.endswith('}'):
+            # in case of non-regular per-object url.
+            return url_getting
         last_token = url_getting.split('/')[-1]
         second_last_token = url_getting.split('/')[-2]
         if last_token != '{' + second_last_token + '}':
@@ -340,8 +352,6 @@ class NAPIManager(object):
             if _param in _param_applied:
                 continue
             token_hint = '{%s}' % (_param)
-            if token_hint not in url:
-                raise Exception('parameter exception: %s' % (token_hint))
             token = self.module.params['facts']['params'][_param] if self.module.params['facts']['params'][_param] else ''
             url = url.replace(token_hint, token)
         # Other Filters and Sorters

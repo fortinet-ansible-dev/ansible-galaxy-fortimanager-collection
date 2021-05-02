@@ -130,7 +130,7 @@ def main():
     ]
 
     perobject_jrpc_urls = [
-        '/dvmdb/adom/{adom}/workspace/unlock/dev/{device_name}/{{device_name}}'
+        '/dvmdb/adom/{adom}/workspace/unlock/dev/{device_name}'
     ]
 
     url_params = ['adom', 'device_name']

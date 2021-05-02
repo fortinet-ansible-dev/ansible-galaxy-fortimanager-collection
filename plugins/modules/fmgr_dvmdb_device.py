@@ -575,8 +575,8 @@ def main():
     ]
 
     perobject_jrpc_urls = [
-        '/dvmdb/adom/{adom}/device/{device}/{{device}}',
-        '/dvmdb/device/{device}/{{device}}'
+        '/dvmdb/adom/{adom}/device/{device}',
+        '/dvmdb/device/{device}'
     ]
 
     url_params = ['adom', 'device']

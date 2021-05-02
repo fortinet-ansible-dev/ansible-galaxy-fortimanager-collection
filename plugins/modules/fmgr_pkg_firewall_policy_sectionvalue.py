@@ -145,7 +145,7 @@ def main():
     ]
 
     perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/pkg/{pkg}/firewall/policy/{policy}/{{policy}}/section value'
+        '/pm/config/adom/{adom}/pkg/{pkg}/firewall/policy/{policy}/section value'
     ]
 
     url_params = []

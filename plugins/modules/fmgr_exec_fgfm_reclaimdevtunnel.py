@@ -138,7 +138,7 @@ def main():
     ]
 
     perobject_jrpc_urls = [
-        '/cli/global/exec/fgfm/reclaim-dev-tunnel/{device_name}/{{device_name}}'
+        '/cli/global/exec/fgfm/reclaim-dev-tunnel/{device_name}'
     ]
 
     url_params = ['device_name']

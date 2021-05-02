@@ -131,8 +131,8 @@ def main():
     ]
 
     perobject_jrpc_urls = [
-        '/dvmdb/adom/{adom}/workspace/lock/pkg/{package_path_name}/{{package_path_name}}',
-        '/dvmdb/global/workspace/lock/pkg/{package_path_name}/{{package_path_name}}'
+        '/dvmdb/adom/{adom}/workspace/lock/pkg/{package_path_name}',
+        '/dvmdb/global/workspace/lock/pkg/{package_path_name}'
     ]
 
     url_params = ['adom', 'package_path_name']

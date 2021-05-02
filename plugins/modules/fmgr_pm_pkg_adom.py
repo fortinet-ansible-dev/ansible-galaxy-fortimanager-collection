@@ -223,7 +223,7 @@ def main():
     ]
 
     perobject_jrpc_urls = [
-        '/pm/pkg/adom/{adom}/{{adom}}'
+        '/pm/pkg/adom/{adom}'
     ]
 
     url_params = ['adom']

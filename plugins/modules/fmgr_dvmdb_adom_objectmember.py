@@ -147,7 +147,7 @@ def main():
     ]
 
     perobject_jrpc_urls = [
-        '/dvmdb/adom/{adom}/{{adom}}/object member'
+        '/dvmdb/adom/{adom}/object member'
     ]
 
     url_params = ['adom']
