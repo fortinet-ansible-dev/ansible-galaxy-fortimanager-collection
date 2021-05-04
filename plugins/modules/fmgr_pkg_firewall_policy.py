@@ -632,6 +632,9 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
+            object position:
+                description: no description
+                type: list
 
 '''
 
@@ -782,6 +785,7 @@ EXAMPLES = '''
             webcache-https: <value in [disable, ssl-server, any, ...]>
             webfilter-profile: <value of string>
             wsso: <value in [disable, enable]>
+            object position: <value of list>
 
 '''
 
@@ -1589,6 +1593,10 @@ def main():
                         'enable'
                     ],
                     'type': 'str'
+                },
+                'object position': {
+                    'required': False,
+                    'type': 'list'
                 }
             }
 
