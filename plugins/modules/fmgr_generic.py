@@ -1,6 +1,6 @@
 #!/usr/bin/python
 from __future__ import absolute_import, division, print_function
-# Copyright 2019-2020 Fortinet, Inc.
+# Copyright 2019-2021 Fortinet, Inc.
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -46,6 +46,11 @@ notes:
     - method and params should be specified by users if 'json' is not present
     - if all three parameters are provided, the 'json' is preferred.
 options:
+   enable_log:
+      description: Enable/Disable logging for task
+      required: false
+      type: bool
+      default: false
    method:
       description:
         - the method of the json-rpc
@@ -113,6 +118,11 @@ import json
 def main():
 
     module_arg_spec = {
+        'enable_log': {
+            'type': 'bool',
+            'required': False,
+            'default': False
+        },
         'workspace_locking_adom': {
             'type': 'str',
             'required': False
@@ -149,6 +159,7 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='Only Httpapi plugin is supported in this module.')
     connection = Connection(module._socket_path)
+    connection.set_option('enable_log', module.params['enable_log'] if 'enable_log' in module.params else False)
     fmgr = NAPIManager(None, None, None, None, module, connection)
     method = None
     params = None

@@ -1,6 +1,6 @@
 #!/usr/bin/python
 from __future__ import absolute_import, division, print_function
-# Copyright 2020 Fortinet, Inc.
+# Copyright 2020-2021 Fortinet, Inc.
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -41,6 +41,11 @@ notes:
     - Normally, running one module can fail when a non-zero rc is returned. you can also override
       the conditions to fail or succeed with parameters rc_failed and rc_succeeded
 options:
+    enable_log:
+        description: Enable/Disable logging for task
+        required: false
+        type: bool
+        default: false
     bypass_validation:
         description: only set to True when module schema diffs with FortiManager API structure, module continues to execute without validating parameters
         required: false
@@ -6992,6 +6997,11 @@ def main():
     }
 
     module_arg_spec = {
+        'enable_log': {
+            'type': 'bool',
+            'required': False,
+            'default': False
+        },
         'workspace_locking_adom': {
             'type': 'str',
             'required': False
@@ -7747,6 +7757,7 @@ def main():
     fmgr = None
     if module._socket_path:
         connection = Connection(module._socket_path)
+        connection.set_option('enable_log', module.params['enable_log'] if 'enable_log' in module.params else False)
         fmgr = NAPIManager(None, None, None, None, module, connection)
         fmgr.process_fact(facts_metadata)
     else:
