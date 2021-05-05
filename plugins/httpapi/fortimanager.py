@@ -1,4 +1,4 @@
-# Copyright (c) 2018-2020 Fortinet and/or its affiliates.
+# Copyright (c) 2018-2021 Fortinet and/or its affiliates.
 #
 # This file is part of Ansible
 #
@@ -22,6 +22,7 @@ __metaclass__ = type
 DOCUMENTATION = """
 ---
 author:
+    - Link Zheng (@chillancezen)
     - Luke Weighall (@lweighall)
     - Andrew Welsh (@Ghilli3)
     - Jim Huber (@p4r4n0y1ng)
@@ -67,10 +68,15 @@ class HttpApi(HttpApiBase):
         self._adom_list = list()
         self._logged_in_user = None
         self._logged = False
-        self._log = open("/tmp/fortimanager.ansible.log", "a")
+        self._log = None
         self._prelocking_user_params = list()
 
     def log(self, msg):
+        log_enabled = self.connection.get_option('enable_log')
+        if not log_enabled:
+            return
+        if not self._log:
+            self._log = open("/tmp/fortimanager.ansible.log", "a")
         log_message = str(datetime.now())
         log_message += ": " + str(msg) + '\n'
         self._log.write(log_message)
