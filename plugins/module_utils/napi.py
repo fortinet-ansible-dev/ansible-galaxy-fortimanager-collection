@@ -88,6 +88,11 @@ class NAPIManager(object):
     def process_workspace_lock(self):
         self.conn.process_workspace_locking(self.module.params)
 
+    def _propose_method(self, default_method):
+        if 'proposed_method' in self.module.params and self.module.params['proposed_method']:
+            return self.module.params['proposed_method']
+        return default_method
+
     def _get_basic_url(self, is_perobject):
         url_libs = None
         if is_perobject:
@@ -163,7 +168,7 @@ class NAPIManager(object):
         if not self.top_level_schema_name:
             raise AssertionError('top level schema name MUST NOT be NULL')
         params = [{'url': url_creating, self.top_level_schema_name: self.__tailor_attributes(self.module.params[self.module_level2_name])}]
-        return self.conn.send_request('set', params)
+        return self.conn.send_request(self._propose_method('set'), params)
 
     def delete_object(self, mvalue):
         url_deleting = self._get_base_perobject_url(mvalue)
@@ -456,7 +461,7 @@ class NAPIManager(object):
             if not self.top_level_schema_name:
                 raise AssertionError('top level schem name is not supposed to be empty')
             api_params[0][self.top_level_schema_name] = self.__tailor_attributes(self.module.params[self.module_level2_name])
-        response = self.conn.send_request('set', api_params)
+        response = self.conn.send_request(self._propose_method('set'), api_params)
         self.do_exit(response)
 
     def validate_parameters(self, pvb):

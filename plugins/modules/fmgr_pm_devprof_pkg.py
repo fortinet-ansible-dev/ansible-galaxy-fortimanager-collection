@@ -50,7 +50,7 @@ options:
         type: bool
         default: false
     proposed_method:
-        description: The overridden method of the underlying Json RPC request
+        description: The overridden method for the underlying Json RPC request
         required: false
         type: str
         choices:
