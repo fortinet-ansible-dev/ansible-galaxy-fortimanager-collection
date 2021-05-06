@@ -49,6 +49,14 @@ options:
         required: false
         type: bool
         default: false
+    proposed_method:
+        description: The overridden method of the underlying Json RPC request
+        required: false
+        type: str
+        choices:
+          - update
+          - set
+          - add
     bypass_validation:
         description: only set to True when module schema diffs with FortiManager API structure, module continues to execute without validating parameters
         required: false
@@ -474,6 +482,15 @@ def main():
             'type': 'bool',
             'required': False,
             'default': False
+        },
+        'proposed_method': {
+            'type': 'str',
+            'required': False,
+            'choices': [
+                'set',
+                'update',
+                'add'
+            ]
         },
         'bypass_validation': {
             'type': 'bool',
