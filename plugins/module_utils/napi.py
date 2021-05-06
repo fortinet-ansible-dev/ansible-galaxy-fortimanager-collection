@@ -4,7 +4,7 @@
 # still belong to the author of the module, and may assign their own license
 # to the complete work.
 #
-# (c) 2020 Fortinet, Inc
+# (c) 2020-2021 Fortinet, Inc
 # All rights reserved.
 #
 # Redistribution and use in source and binary forms, with or without modification,
@@ -249,10 +249,20 @@ class NAPIManager(object):
             url = clone_urls[0]
         if not url:
             self.module.fail_json(msg='can not find url in following sets:%s! please check params: adom' % (clone_urls))
+        _param_applied = list()
         for _param in clone_params_schema:
             token_hint = '/%s/{%s}' % (_param, _param)
             token = '/%s/%s' % (_param, self.module.params['clone']['self'][_param])
+            if token_hint in url:
+                _param_applied.append(_param)
             url = url.replace(token_hint, token)
+        for _param in clone_params_schema:
+            if _param in _param_applied:
+                continue
+            token_hint = '{%s}' % (_param)
+            token = self.module.params['clone']['self'][_param]
+            url = url.replace(token_hint, token)
+
         mkey = metadata[selector]['mkey']
         if mkey and mkey not in self.module.params['clone']['target']:
             self.module.fail_json(msg='Must give the primary key/value in target: %s!' % (mkey))
@@ -291,9 +301,18 @@ class NAPIManager(object):
             url = move_urls[0]
         if not url:
             self.module.fail_json(msg='can not find url in following sets:%s! please check params: adom' % (move_urls))
+        _param_applied = list()
         for _param in move_params:
             token_hint = '/%s/{%s}' % (_param, _param)
             token = '/%s/%s' % (_param, self.module.params['move']['self'][_param])
+            if token_hint in url:
+                _param_applied.append(_param)
+            url = url.replace(token_hint, token)
+        for _param in move_params:
+            if _param in _param_applied:
+                continue
+            token_hint = '{%s}' % (_param)
+            token = self.module.params['move']['self'][_param]
             url = url.replace(token_hint, token)
 
         api_params = [{'url': url,
