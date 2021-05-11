@@ -86,6 +86,18 @@ options:
         description: the rc codes list with which the conditions to fail will be overriden
         type: list
         required: false
+    adom:
+        description: the parameter (adom) in requested url
+        type: str
+        required: true
+    pkg:
+        description: the parameter (pkg) in requested url
+        type: str
+        required: true
+    interface-policy6:
+        description: the parameter (interface-policy6) in requested url
+        type: str
+        required: true
     pkg_firewall_interfacepolicy6_sectionvalue:
         description: the top level parameters set
         required: false
@@ -120,6 +132,9 @@ EXAMPLES = '''
          workspace_locking_timeout: 300
          rc_succeeded: [0, -2, -3, ...]
          rc_failed: [-2, -3, ...]
+         adom: <your own value>
+         pkg: <your own value>
+         interface-policy6: <your own value>
          state: <value in [present, absent]>
          pkg_firewall_interfacepolicy6_sectionvalue:
             attr: <value in [label, global-label]>
@@ -161,7 +176,7 @@ def main():
         '/pm/config/adom/{adom}/pkg/{pkg}/firewall/interface-policy6/{interface-policy6}/section value'
     ]
 
-    url_params = []
+    url_params = ['adom', 'pkg', 'interface-policy6']
     module_primary_key = 'name'
     module_arg_spec = {
         'enable_log': {
@@ -207,6 +222,18 @@ def main():
                 'present',
                 'absent'
             ]
+        },
+        'adom': {
+            'required': True,
+            'type': 'str'
+        },
+        'pkg': {
+            'required': True,
+            'type': 'str'
+        },
+        'interface-policy6': {
+            'required': True,
+            'type': 'str'
         },
         'pkg_firewall_interfacepolicy6_sectionvalue': {
             'required': False,
