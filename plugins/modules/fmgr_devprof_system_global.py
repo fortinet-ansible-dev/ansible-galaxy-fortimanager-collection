@@ -150,6 +150,13 @@ options:
                     - 'melongene'
                     - 'red'
                     - 'mariner'
+                    - 'neutrino'
+                    - 'jade'
+                    - 'graphite'
+                    - 'dark-matter'
+                    - 'onyx'
+                    - 'eclipse'
+                    - 'retro'
             language:
                 type: str
                 description: 'GUI display language.'
@@ -294,6 +301,16 @@ def main():
             'options': {
                 'admin-https-redirect': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': False,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -302,10 +319,30 @@ def main():
                 },
                 'admin-port': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': False,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'admin-scp': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': False,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -314,14 +351,44 @@ def main():
                 },
                 'admin-sport': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': False,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'admin-ssh-port': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': False,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'admin-ssh-v1': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': False,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -330,14 +397,44 @@ def main():
                 },
                 'admin-telnet-port': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': False,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'admintimeout': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': False,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'gui-ipv6': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': False,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -346,21 +443,58 @@ def main():
                 },
                 'gui-lines-per-page': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': False,
+                        '6.4.5': True,
+                        '7.0.0': False
+                    },
                     'type': 'int'
                 },
                 'gui-theme': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': False,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'blue',
                         'green',
                         'melongene',
                         'red',
-                        'mariner'
+                        'mariner',
+                        'neutrino',
+                        'jade',
+                        'graphite',
+                        'dark-matter',
+                        'onyx',
+                        'eclipse',
+                        'retro'
                     ],
                     'type': 'str'
                 },
                 'language': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': False,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'english',
                         'simch',
@@ -375,6 +509,16 @@ def main():
                 },
                 'switch-controller': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': False,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'

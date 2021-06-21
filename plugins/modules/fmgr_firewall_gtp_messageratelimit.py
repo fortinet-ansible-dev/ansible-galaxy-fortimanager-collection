@@ -446,234 +446,814 @@ def main():
             'options': {
                 'create-aa-pdp-request': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'create-aa-pdp-response': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'create-mbms-request': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'create-mbms-response': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'create-pdp-request': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'create-pdp-response': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'delete-aa-pdp-request': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'delete-aa-pdp-response': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'delete-mbms-request': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'delete-mbms-response': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'delete-pdp-request': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'delete-pdp-response': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'echo-reponse': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'echo-request': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'error-indication': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'failure-report-request': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'failure-report-response': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'fwd-reloc-complete-ack': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'fwd-relocation-complete': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'fwd-relocation-request': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'fwd-relocation-response': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'fwd-srns-context': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'fwd-srns-context-ack': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'g-pdu': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'identification-request': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'identification-response': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'mbms-de-reg-request': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'mbms-de-reg-response': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'mbms-notify-rej-request': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'mbms-notify-rej-response': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'mbms-notify-request': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'mbms-notify-response': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'mbms-reg-request': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'mbms-reg-response': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'mbms-ses-start-request': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'mbms-ses-start-response': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'mbms-ses-stop-request': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'mbms-ses-stop-response': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'note-ms-request': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'note-ms-response': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'pdu-notify-rej-request': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'pdu-notify-rej-response': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'pdu-notify-request': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'pdu-notify-response': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'ran-info': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'relocation-cancel-request': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'relocation-cancel-response': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'send-route-request': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'send-route-response': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'sgsn-context-ack': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'sgsn-context-request': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'sgsn-context-response': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'support-ext-hdr-notify': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'update-mbms-request': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'update-mbms-response': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'update-pdp-request': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'update-pdp-response': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'version-not-support': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 }
             }

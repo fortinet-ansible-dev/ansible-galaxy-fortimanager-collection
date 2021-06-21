@@ -148,6 +148,7 @@ options:
                     - 'http'
                     - 'twamp'
                     - 'ping6'
+                    - 'dns'
             recoverytime:
                 type: int
                 description: 'Number of successful responses received before server is considered recovered (1 - 3600, default = 5).'
@@ -213,6 +214,42 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
+            internet-service-id:
+                type: str
+                description: 'Internet service ID.'
+            probe-packets:
+                type: str
+                description: 'Enable/disable transmission of probe packets.'
+                choices:
+                    - 'disable'
+                    - 'enable'
+            sla-fail-log-period:
+                type: int
+                description: 'Time interval in seconds that SLA fail log messages will be generated (0 - 3600, default = 0).'
+            sla-pass-log-period:
+                type: int
+                description: 'Time interval in seconds that SLA pass log messages will be generated (0 - 3600, default = 0).'
+            ha-priority:
+                type: int
+                description: 'HA election priority (1 - 50).'
+            diffservcode:
+                type: str
+                description: 'Differentiated services code point (DSCP) in the IP header of the probe packet.'
+            probe-timeout:
+                type: int
+                description: 'Time to wait before a probe packet is considered lost (500 - 5000 msec, default = 500).'
+            dns-request-domain:
+                type: str
+                description: 'Fully qualified domain name to resolve for the DNS probe.'
+            probe-count:
+                type: int
+                description: 'Number of most recent probes that should be used to calculate latency and jitter (5 - 30, default = 30).'
+            system-dns:
+                type: str
+                description: 'Enable/disable system DNS as the probe server.'
+                choices:
+                    - 'disable'
+                    - 'enable'
 
 '''
 
@@ -271,6 +308,16 @@ EXAMPLES = '''
             threshold-warning-packetloss: <value of integer>
             update-cascade-interface: <value in [disable, enable]>
             update-static-route: <value in [disable, enable]>
+            internet-service-id: <value of string>
+            probe-packets: <value in [disable, enable]>
+            sla-fail-log-period: <value of integer>
+            sla-pass-log-period: <value of integer>
+            ha-priority: <value of integer>
+            diffservcode: <value of string>
+            probe-timeout: <value of integer>
+            dns-request-domain: <value of string>
+            probe-count: <value of integer>
+            system-dns: <value in [disable, enable]>
 
 '''
 
@@ -369,10 +416,30 @@ def main():
             'options': {
                 '_dynamic-server': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': False,
+                        '6.4.5': False,
+                        '7.0.0': False
+                    },
                     'type': 'str'
                 },
                 'addr-mode': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': False,
+                        '6.4.5': False,
+                        '7.0.0': False
+                    },
                     'choices': [
                         'ipv4',
                         'ipv6'
@@ -381,62 +448,193 @@ def main():
                 },
                 'failtime': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': False,
+                        '6.4.5': False,
+                        '7.0.0': False
+                    },
                     'type': 'int'
                 },
                 'http-agent': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': False,
+                        '6.4.5': False,
+                        '7.0.0': False
+                    },
                     'type': 'str'
                 },
                 'http-get': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': False,
+                        '6.4.5': False,
+                        '7.0.0': False
+                    },
                     'type': 'str'
                 },
                 'http-match': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': False,
+                        '6.4.5': False,
+                        '7.0.0': False
+                    },
                     'type': 'str'
                 },
                 'interval': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': False,
+                        '6.4.5': False,
+                        '7.0.0': False
+                    },
                     'type': 'int'
                 },
                 'members': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': False,
+                        '6.4.5': False,
+                        '7.0.0': False
+                    },
                     'type': 'str'
                 },
                 'name': {
                     'required': True,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': False,
+                        '6.4.5': False,
+                        '7.0.0': False
+                    },
                     'type': 'str'
                 },
                 'packet-size': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': False,
+                        '6.4.5': False,
+                        '7.0.0': False
+                    },
                     'type': 'int'
                 },
                 'password': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': False,
+                        '6.4.5': False,
+                        '7.0.0': False
+                    },
                     'type': 'str'
                 },
                 'port': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': False,
+                        '6.4.5': False,
+                        '7.0.0': False
+                    },
                     'type': 'int'
                 },
                 'protocol': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': False,
+                        '6.4.5': False,
+                        '7.0.0': False
+                    },
                     'choices': [
                         'ping',
                         'tcp-echo',
                         'udp-echo',
                         'http',
                         'twamp',
-                        'ping6'
+                        'ping6',
+                        'dns'
                     ],
                     'type': 'str'
                 },
                 'recoverytime': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': False,
+                        '6.4.5': False,
+                        '7.0.0': False
+                    },
                     'type': 'int'
                 },
                 'security-mode': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': False,
+                        '6.4.5': False,
+                        '7.0.0': False
+                    },
                     'choices': [
                         'none',
                         'authentication'
@@ -445,26 +643,86 @@ def main():
                 },
                 'server': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': False,
+                        '6.4.5': False,
+                        '7.0.0': False
+                    },
                     'type': 'str'
                 },
                 'sla': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': False,
+                        '6.4.5': False,
+                        '7.0.0': False
+                    },
                     'type': 'list',
                     'options': {
                         'id': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
                             'type': 'int'
                         },
                         'jitter-threshold': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
                             'type': 'int'
                         },
                         'latency-threshold': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
                             'type': 'int'
                         },
                         'link-cost-factor': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
                             'type': 'list',
                             'choices': [
                                 'latency',
@@ -474,36 +732,116 @@ def main():
                         },
                         'packetloss-threshold': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
                             'type': 'int'
                         }
                     }
                 },
                 'threshold-alert-jitter': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': False,
+                        '6.4.5': False,
+                        '7.0.0': False
+                    },
                     'type': 'int'
                 },
                 'threshold-alert-latency': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': False,
+                        '6.4.5': False,
+                        '7.0.0': False
+                    },
                     'type': 'int'
                 },
                 'threshold-alert-packetloss': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': False,
+                        '6.4.5': False,
+                        '7.0.0': False
+                    },
                     'type': 'int'
                 },
                 'threshold-warning-jitter': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': False,
+                        '6.4.5': False,
+                        '7.0.0': False
+                    },
                     'type': 'int'
                 },
                 'threshold-warning-latency': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': False,
+                        '6.4.5': False,
+                        '7.0.0': False
+                    },
                     'type': 'int'
                 },
                 'threshold-warning-packetloss': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': False,
+                        '6.4.5': False,
+                        '7.0.0': False
+                    },
                     'type': 'int'
                 },
                 'update-cascade-interface': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': False,
+                        '6.4.5': False,
+                        '7.0.0': False
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -512,6 +850,140 @@ def main():
                 },
                 'update-static-route': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': False,
+                        '6.4.5': False,
+                        '7.0.0': False
+                    },
+                    'choices': [
+                        'disable',
+                        'enable'
+                    ],
+                    'type': 'str'
+                },
+                'internet-service-id': {
+                    'required': False,
+                    'revision': {
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': False,
+                        '6.4.2': False,
+                        '6.4.5': False,
+                        '7.0.0': False
+                    },
+                    'type': 'str'
+                },
+                'probe-packets': {
+                    'required': False,
+                    'revision': {
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': False,
+                        '6.4.5': False,
+                        '7.0.0': False
+                    },
+                    'choices': [
+                        'disable',
+                        'enable'
+                    ],
+                    'type': 'str'
+                },
+                'sla-fail-log-period': {
+                    'required': False,
+                    'revision': {
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': False,
+                        '6.4.5': False,
+                        '7.0.0': False
+                    },
+                    'type': 'int'
+                },
+                'sla-pass-log-period': {
+                    'required': False,
+                    'revision': {
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': False,
+                        '6.4.5': False,
+                        '7.0.0': False
+                    },
+                    'type': 'int'
+                },
+                'ha-priority': {
+                    'required': False,
+                    'revision': {
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': False,
+                        '6.4.5': False,
+                        '7.0.0': False
+                    },
+                    'type': 'int'
+                },
+                'diffservcode': {
+                    'required': False,
+                    'revision': {
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': False,
+                        '6.4.5': False,
+                        '7.0.0': False
+                    },
+                    'type': 'str'
+                },
+                'probe-timeout': {
+                    'required': False,
+                    'revision': {
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': False,
+                        '6.4.5': False,
+                        '7.0.0': False
+                    },
+                    'type': 'int'
+                },
+                'dns-request-domain': {
+                    'required': False,
+                    'revision': {
+                        '6.4.0': True,
+                        '6.4.2': False,
+                        '6.4.5': False,
+                        '7.0.0': False
+                    },
+                    'type': 'str'
+                },
+                'probe-count': {
+                    'required': False,
+                    'revision': {
+                        '6.4.0': True,
+                        '6.4.2': False,
+                        '6.4.5': False,
+                        '7.0.0': False
+                    },
+                    'type': 'int'
+                },
+                'system-dns': {
+                    'required': False,
+                    'revision': {
+                        '6.4.0': True,
+                        '6.4.2': False,
+                        '6.4.5': False,
+                        '7.0.0': False
+                    },
                     'choices': [
                         'disable',
                         'enable'

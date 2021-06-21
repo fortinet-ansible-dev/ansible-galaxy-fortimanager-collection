@@ -146,6 +146,814 @@ options:
                  - javafilter
                  - rangeblock
                  - contenttype-check
+                 - block-invalid-url
+                 - jscript
+                 - js
+                 - vbs
+                 - unknown
+                 - wf-referer
+                 - https-scan
+                 - intrinsic
+                 - wf-cookie
+                 - per-user-bwl
+                 - activexfilter
+                 - cookiefilter
+                 - https-url-scan
+                 - javafilter
+                 - rangeblock
+                 - contenttype-check
+                 - per-user-bal
+                 - block-invalid-url
+                 - jscript
+                 - js
+                 - vbs
+                 - unknown
+                 - wf-referer
+                 - https-scan
+                 - intrinsic
+                 - wf-cookie
+                 - per-user-bwl
+                 - activexfilter
+                 - cookiefilter
+                 - https-url-scan
+                 - javafilter
+                 - rangeblock
+                 - contenttype-check
+                 - block-invalid-url
+                 - jscript
+                 - js
+                 - vbs
+                 - unknown
+                 - wf-referer
+                 - https-scan
+                 - intrinsic
+                 - wf-cookie
+                 - per-user-bwl
+                 - activexfilter
+                 - cookiefilter
+                 - https-url-scan
+                 - javafilter
+                 - rangeblock
+                 - contenttype-check
+                 - block-invalid-url
+                 - jscript
+                 - js
+                 - vbs
+                 - unknown
+                 - wf-referer
+                 - https-scan
+                 - intrinsic
+                 - wf-cookie
+                 - per-user-bwl
+                 - activexfilter
+                 - cookiefilter
+                 - https-url-scan
+                 - javafilter
+                 - rangeblock
+                 - contenttype-check
+                 - block-invalid-url
+                 - jscript
+                 - js
+                 - vbs
+                 - unknown
+                 - wf-referer
+                 - https-scan
+                 - intrinsic
+                 - wf-cookie
+                 - per-user-bwl
+                 - activexfilter
+                 - cookiefilter
+                 - https-url-scan
+                 - javafilter
+                 - rangeblock
+                 - contenttype-check
+                 - block-invalid-url
+                 - jscript
+                 - js
+                 - vbs
+                 - unknown
+                 - wf-referer
+                 - https-scan
+                 - intrinsic
+                 - wf-cookie
+                 - per-user-bwl
+                 - activexfilter
+                 - cookiefilter
+                 - https-url-scan
+                 - javafilter
+                 - rangeblock
+                 - contenttype-check
+                 - block-invalid-url
+                 - jscript
+                 - js
+                 - vbs
+                 - unknown
+                 - wf-referer
+                 - https-scan
+                 - intrinsic
+                 - wf-cookie
+                 - per-user-bwl
+                 - activexfilter
+                 - cookiefilter
+                 - https-url-scan
+                 - javafilter
+                 - rangeblock
+                 - contenttype-check
+                 - block-invalid-url
+                 - jscript
+                 - js
+                 - vbs
+                 - unknown
+                 - wf-referer
+                 - https-scan
+                 - intrinsic
+                 - wf-cookie
+                 - per-user-bwl
+                 - activexfilter
+                 - cookiefilter
+                 - https-url-scan
+                 - javafilter
+                 - rangeblock
+                 - contenttype-check
+                 - per-user-bal
+                 - block-invalid-url
+                 - jscript
+                 - js
+                 - vbs
+                 - unknown
+                 - wf-referer
+                 - https-scan
+                 - intrinsic
+                 - wf-cookie
+                 - per-user-bwl
+                 - activexfilter
+                 - cookiefilter
+                 - https-url-scan
+                 - javafilter
+                 - rangeblock
+                 - contenttype-check
+                 - block-invalid-url
+                 - jscript
+                 - js
+                 - vbs
+                 - unknown
+                 - wf-referer
+                 - https-scan
+                 - intrinsic
+                 - wf-cookie
+                 - per-user-bwl
+                 - activexfilter
+                 - cookiefilter
+                 - https-url-scan
+                 - javafilter
+                 - rangeblock
+                 - contenttype-check
+                 - block-invalid-url
+                 - jscript
+                 - js
+                 - vbs
+                 - unknown
+                 - wf-referer
+                 - https-scan
+                 - intrinsic
+                 - wf-cookie
+                 - per-user-bwl
+                 - activexfilter
+                 - cookiefilter
+                 - https-url-scan
+                 - javafilter
+                 - rangeblock
+                 - contenttype-check
+                 - block-invalid-url
+                 - jscript
+                 - js
+                 - vbs
+                 - unknown
+                 - wf-referer
+                 - https-scan
+                 - intrinsic
+                 - wf-cookie
+                 - per-user-bwl
+                 - activexfilter
+                 - cookiefilter
+                 - https-url-scan
+                 - javafilter
+                 - rangeblock
+                 - contenttype-check
+                 - block-invalid-url
+                 - jscript
+                 - js
+                 - vbs
+                 - unknown
+                 - wf-referer
+                 - https-scan
+                 - intrinsic
+                 - wf-cookie
+                 - per-user-bwl
+                 - activexfilter
+                 - cookiefilter
+                 - https-url-scan
+                 - javafilter
+                 - rangeblock
+                 - contenttype-check
+                 - block-invalid-url
+                 - jscript
+                 - js
+                 - vbs
+                 - unknown
+                 - wf-referer
+                 - https-scan
+                 - intrinsic
+                 - wf-cookie
+                 - per-user-bwl
+                 - activexfilter
+                 - cookiefilter
+                 - https-url-scan
+                 - javafilter
+                 - rangeblock
+                 - contenttype-check
+                 - block-invalid-url
+                 - jscript
+                 - js
+                 - vbs
+                 - unknown
+                 - wf-referer
+                 - https-scan
+                 - intrinsic
+                 - wf-cookie
+                 - per-user-bwl
+                 - activexfilter
+                 - cookiefilter
+                 - https-url-scan
+                 - javafilter
+                 - rangeblock
+                 - contenttype-check
+                 - per-user-bal
+                 - block-invalid-url
+                 - jscript
+                 - js
+                 - vbs
+                 - unknown
+                 - wf-referer
+                 - https-scan
+                 - intrinsic
+                 - wf-cookie
+                 - per-user-bwl
+                 - activexfilter
+                 - cookiefilter
+                 - https-url-scan
+                 - javafilter
+                 - rangeblock
+                 - contenttype-check
+                 - block-invalid-url
+                 - jscript
+                 - js
+                 - vbs
+                 - unknown
+                 - wf-referer
+                 - https-scan
+                 - intrinsic
+                 - wf-cookie
+                 - per-user-bwl
+                 - activexfilter
+                 - cookiefilter
+                 - https-url-scan
+                 - javafilter
+                 - rangeblock
+                 - contenttype-check
+                 - block-invalid-url
+                 - jscript
+                 - js
+                 - vbs
+                 - unknown
+                 - wf-referer
+                 - https-scan
+                 - intrinsic
+                 - wf-cookie
+                 - per-user-bwl
+                 - activexfilter
+                 - cookiefilter
+                 - https-url-scan
+                 - javafilter
+                 - rangeblock
+                 - contenttype-check
+                 - block-invalid-url
+                 - jscript
+                 - js
+                 - vbs
+                 - unknown
+                 - wf-referer
+                 - https-scan
+                 - intrinsic
+                 - wf-cookie
+                 - per-user-bwl
+                 - activexfilter
+                 - cookiefilter
+                 - https-url-scan
+                 - javafilter
+                 - rangeblock
+                 - contenttype-check
+                 - block-invalid-url
+                 - jscript
+                 - js
+                 - vbs
+                 - unknown
+                 - wf-referer
+                 - https-scan
+                 - intrinsic
+                 - wf-cookie
+                 - per-user-bwl
+                 - activexfilter
+                 - cookiefilter
+                 - https-url-scan
+                 - javafilter
+                 - rangeblock
+                 - contenttype-check
+                 - block-invalid-url
+                 - jscript
+                 - js
+                 - vbs
+                 - unknown
+                 - wf-referer
+                 - https-scan
+                 - intrinsic
+                 - wf-cookie
+                 - per-user-bwl
+                 - activexfilter
+                 - cookiefilter
+                 - https-url-scan
+                 - javafilter
+                 - rangeblock
+                 - contenttype-check
+                 - block-invalid-url
+                 - jscript
+                 - js
+                 - vbs
+                 - unknown
+                 - wf-referer
+                 - https-scan
+                 - intrinsic
+                 - wf-cookie
+                 - per-user-bwl
+                 - activexfilter
+                 - cookiefilter
+                 - https-url-scan
+                 - javafilter
+                 - rangeblock
+                 - contenttype-check
+                 - per-user-bal
+                 - block-invalid-url
+                 - jscript
+                 - js
+                 - vbs
+                 - unknown
+                 - wf-referer
+                 - https-scan
+                 - intrinsic
+                 - wf-cookie
+                 - per-user-bwl
+                 - activexfilter
+                 - cookiefilter
+                 - https-url-scan
+                 - javafilter
+                 - rangeblock
+                 - contenttype-check
+                 - block-invalid-url
+                 - jscript
+                 - js
+                 - vbs
+                 - unknown
+                 - wf-referer
+                 - https-scan
+                 - intrinsic
+                 - wf-cookie
+                 - per-user-bwl
+                 - activexfilter
+                 - cookiefilter
+                 - https-url-scan
+                 - javafilter
+                 - rangeblock
+                 - contenttype-check
+                 - block-invalid-url
+                 - jscript
+                 - js
+                 - vbs
+                 - unknown
+                 - wf-referer
+                 - https-scan
+                 - intrinsic
+                 - wf-cookie
+                 - per-user-bwl
+                 - activexfilter
+                 - cookiefilter
+                 - https-url-scan
+                 - javafilter
+                 - rangeblock
+                 - contenttype-check
+                 - block-invalid-url
+                 - jscript
+                 - js
+                 - vbs
+                 - unknown
+                 - wf-referer
+                 - https-scan
+                 - intrinsic
+                 - wf-cookie
+                 - per-user-bwl
+                 - activexfilter
+                 - cookiefilter
+                 - https-url-scan
+                 - javafilter
+                 - rangeblock
+                 - contenttype-check
+                 - block-invalid-url
+                 - jscript
+                 - js
+                 - vbs
+                 - unknown
+                 - wf-referer
+                 - https-scan
+                 - intrinsic
+                 - wf-cookie
+                 - per-user-bwl
+                 - activexfilter
+                 - cookiefilter
+                 - https-url-scan
+                 - javafilter
+                 - rangeblock
+                 - contenttype-check
+                 - block-invalid-url
+                 - jscript
+                 - js
+                 - vbs
+                 - unknown
+                 - wf-referer
+                 - https-scan
+                 - intrinsic
+                 - wf-cookie
+                 - per-user-bwl
+                 - activexfilter
+                 - cookiefilter
+                 - https-url-scan
+                 - javafilter
+                 - rangeblock
+                 - contenttype-check
+                 - block-invalid-url
+                 - jscript
+                 - js
+                 - vbs
+                 - unknown
+                 - wf-referer
+                 - https-scan
+                 - intrinsic
+                 - wf-cookie
+                 - per-user-bwl
+                 - activexfilter
+                 - cookiefilter
+                 - https-url-scan
+                 - javafilter
+                 - rangeblock
+                 - contenttype-check
+                 - per-user-bal
+                 - block-invalid-url
+                 - jscript
+                 - js
+                 - vbs
+                 - unknown
+                 - wf-referer
+                 - https-scan
+                 - intrinsic
+                 - wf-cookie
+                 - per-user-bwl
+                 - activexfilter
+                 - cookiefilter
+                 - https-url-scan
+                 - javafilter
+                 - rangeblock
+                 - contenttype-check
+                 - block-invalid-url
+                 - jscript
+                 - js
+                 - vbs
+                 - unknown
+                 - wf-referer
+                 - https-scan
+                 - intrinsic
+                 - wf-cookie
+                 - per-user-bwl
+                 - activexfilter
+                 - cookiefilter
+                 - https-url-scan
+                 - javafilter
+                 - rangeblock
+                 - contenttype-check
+                 - block-invalid-url
+                 - jscript
+                 - js
+                 - vbs
+                 - unknown
+                 - wf-referer
+                 - https-scan
+                 - intrinsic
+                 - wf-cookie
+                 - per-user-bwl
+                 - activexfilter
+                 - cookiefilter
+                 - https-url-scan
+                 - javafilter
+                 - rangeblock
+                 - contenttype-check
+                 - block-invalid-url
+                 - jscript
+                 - js
+                 - vbs
+                 - unknown
+                 - wf-referer
+                 - https-scan
+                 - intrinsic
+                 - wf-cookie
+                 - per-user-bwl
+                 - activexfilter
+                 - cookiefilter
+                 - https-url-scan
+                 - javafilter
+                 - rangeblock
+                 - contenttype-check
+                 - block-invalid-url
+                 - jscript
+                 - js
+                 - vbs
+                 - unknown
+                 - wf-referer
+                 - https-scan
+                 - intrinsic
+                 - wf-cookie
+                 - per-user-bwl
+                 - activexfilter
+                 - cookiefilter
+                 - https-url-scan
+                 - javafilter
+                 - rangeblock
+                 - contenttype-check
+                 - block-invalid-url
+                 - jscript
+                 - js
+                 - vbs
+                 - unknown
+                 - wf-referer
+                 - https-scan
+                 - intrinsic
+                 - wf-cookie
+                 - per-user-bwl
+                 - activexfilter
+                 - cookiefilter
+                 - https-url-scan
+                 - javafilter
+                 - rangeblock
+                 - contenttype-check
+                 - block-invalid-url
+                 - jscript
+                 - js
+                 - vbs
+                 - unknown
+                 - wf-referer
+                 - https-scan
+                 - intrinsic
+                 - wf-cookie
+                 - per-user-bwl
+                 - activexfilter
+                 - cookiefilter
+                 - https-url-scan
+                 - javafilter
+                 - rangeblock
+                 - contenttype-check
+                 - per-user-bal
+                 - block-invalid-url
+                 - jscript
+                 - js
+                 - vbs
+                 - unknown
+                 - wf-referer
+                 - https-scan
+                 - intrinsic
+                 - wf-cookie
+                 - per-user-bwl
+                 - activexfilter
+                 - cookiefilter
+                 - https-url-scan
+                 - javafilter
+                 - rangeblock
+                 - contenttype-check
+                 - block-invalid-url
+                 - jscript
+                 - js
+                 - vbs
+                 - unknown
+                 - wf-referer
+                 - https-scan
+                 - intrinsic
+                 - wf-cookie
+                 - per-user-bwl
+                 - activexfilter
+                 - cookiefilter
+                 - https-url-scan
+                 - javafilter
+                 - rangeblock
+                 - contenttype-check
+                 - block-invalid-url
+                 - jscript
+                 - js
+                 - vbs
+                 - unknown
+                 - wf-referer
+                 - https-scan
+                 - intrinsic
+                 - wf-cookie
+                 - per-user-bwl
+                 - activexfilter
+                 - cookiefilter
+                 - https-url-scan
+                 - javafilter
+                 - rangeblock
+                 - contenttype-check
+                 - block-invalid-url
+                 - jscript
+                 - js
+                 - vbs
+                 - unknown
+                 - wf-referer
+                 - https-scan
+                 - intrinsic
+                 - wf-cookie
+                 - per-user-bwl
+                 - activexfilter
+                 - cookiefilter
+                 - https-url-scan
+                 - javafilter
+                 - rangeblock
+                 - contenttype-check
+                 - block-invalid-url
+                 - jscript
+                 - js
+                 - vbs
+                 - unknown
+                 - wf-referer
+                 - https-scan
+                 - intrinsic
+                 - wf-cookie
+                 - per-user-bwl
+                 - activexfilter
+                 - cookiefilter
+                 - https-url-scan
+                 - javafilter
+                 - rangeblock
+                 - contenttype-check
+                 - block-invalid-url
+                 - jscript
+                 - js
+                 - vbs
+                 - unknown
+                 - wf-referer
+                 - https-scan
+                 - intrinsic
+                 - wf-cookie
+                 - per-user-bwl
+                 - activexfilter
+                 - cookiefilter
+                 - https-url-scan
+                 - javafilter
+                 - rangeblock
+                 - contenttype-check
+                 - block-invalid-url
+                 - jscript
+                 - js
+                 - vbs
+                 - unknown
+                 - wf-referer
+                 - https-scan
+                 - intrinsic
+                 - wf-cookie
+                 - per-user-bwl
+                 - activexfilter
+                 - cookiefilter
+                 - https-url-scan
+                 - javafilter
+                 - rangeblock
+                 - contenttype-check
+                 - per-user-bal
+                 - block-invalid-url
+                 - jscript
+                 - js
+                 - vbs
+                 - unknown
+                 - wf-referer
+                 - https-scan
+                 - intrinsic
+                 - wf-cookie
+                 - per-user-bwl
+                 - activexfilter
+                 - cookiefilter
+                 - https-url-scan
+                 - javafilter
+                 - rangeblock
+                 - contenttype-check
+                 - block-invalid-url
+                 - jscript
+                 - js
+                 - vbs
+                 - unknown
+                 - wf-referer
+                 - https-scan
+                 - intrinsic
+                 - wf-cookie
+                 - per-user-bwl
+                 - activexfilter
+                 - cookiefilter
+                 - https-url-scan
+                 - javafilter
+                 - rangeblock
+                 - contenttype-check
+                 - block-invalid-url
+                 - jscript
+                 - js
+                 - vbs
+                 - unknown
+                 - wf-referer
+                 - https-scan
+                 - intrinsic
+                 - wf-cookie
+                 - per-user-bwl
+                 - activexfilter
+                 - cookiefilter
+                 - https-url-scan
+                 - javafilter
+                 - rangeblock
+                 - contenttype-check
+                 - block-invalid-url
+                 - jscript
+                 - js
+                 - vbs
+                 - unknown
+                 - wf-referer
+                 - https-scan
+                 - intrinsic
+                 - wf-cookie
+                 - per-user-bwl
+                 - activexfilter
+                 - cookiefilter
+                 - https-url-scan
+                 - javafilter
+                 - rangeblock
+                 - contenttype-check
+                 - block-invalid-url
+                 - jscript
+                 - js
+                 - vbs
+                 - unknown
+                 - wf-referer
+                 - https-scan
+                 - intrinsic
+                 - wf-cookie
+                 - per-user-bwl
+                 - activexfilter
+                 - cookiefilter
+                 - https-url-scan
+                 - javafilter
+                 - rangeblock
+                 - contenttype-check
+                 - block-invalid-url
+                 - jscript
+                 - js
+                 - vbs
+                 - unknown
+                 - wf-referer
+                 - https-scan
+                 - intrinsic
+                 - wf-cookie
+                 - per-user-bwl
+                 - activexfilter
+                 - cookiefilter
+                 - https-url-scan
+                 - javafilter
+                 - rangeblock
+                 - contenttype-check
+                 - block-invalid-url
+                 - jscript
+                 - js
+                 - vbs
+                 - unknown
+                 - wf-referer
+                 - https-scan
+                 - intrinsic
+                 - wf-cookie
+                 - per-user-bwl
+                 - activexfilter
+                 - cookiefilter
+                 - https-url-scan
+                 - javafilter
+                 - rangeblock
+                 - contenttype-check
+                 - per-user-bal
             ovrd-perm:
                 description: no description
                 type: list
@@ -296,6 +1104,432 @@ options:
                     - 'disable'
                     - 'blacklist'
                     - 'whitelist'
+            feature-set:
+                type: str
+                description: 'Flow/proxy feature set.'
+                choices:
+                    - 'proxy'
+                    - 'flow'
+            web-antiphishing-log:
+                type: str
+                description: 'Enable/disable logging of AntiPhishing checks.'
+                choices:
+                    - 'disable'
+                    - 'enable'
+            antiphish:
+                description: no description
+                type: dict
+                required: false
+                suboptions:
+                    check-basic-auth:
+                        type: str
+                        description: 'Enable/disable checking of HTTP Basic Auth field for known credentials.'
+                        choices:
+                            - 'disable'
+                            - 'enable'
+                    check-uri:
+                        type: str
+                        description: 'Enable/disable checking of GET URI parameters for known credentials.'
+                        choices:
+                            - 'disable'
+                            - 'enable'
+                    check-username-only:
+                        type: str
+                        description: 'Enable/disable acting only on valid username credentials. Action will be taken for valid usernames regardless of passw...'
+                        choices:
+                            - 'disable'
+                            - 'enable'
+                    custom-patterns:
+                        description: no description
+                        type: list
+                        suboptions:
+                            category:
+                                type: str
+                                description: 'Category that the pattern matches.'
+                                choices:
+                                    - 'username'
+                                    - 'password'
+                            pattern:
+                                type: str
+                                description: 'Target pattern.'
+                            type:
+                                type: str
+                                description: 'Pattern will be treated either as a regex pattern or literal string.'
+                                choices:
+                                    - 'regex'
+                                    - 'literal'
+                    default-action:
+                        type: str
+                        description: 'Action to be taken when there is no matching rule.'
+                        choices:
+                            - 'log'
+                            - 'block'
+                            - 'exempt'
+                    domain-controller:
+                        type: str
+                        description: 'Domain for which to verify received credentials against.'
+                    inspection-entries:
+                        description: no description
+                        type: list
+                        suboptions:
+                            action:
+                                type: str
+                                description: 'Action to be taken upon an AntiPhishing match.'
+                                choices:
+                                    - 'log'
+                                    - 'block'
+                                    - 'exempt'
+                            fortiguard-category:
+                                description: no description
+                                type: str
+                            name:
+                                type: str
+                                description: 'Inspection target name.'
+                    max-body-len:
+                        type: int
+                        description: 'Maximum size of a POST body to check for credentials.'
+                    status:
+                        type: str
+                        description: 'Toggle AntiPhishing functionality.'
+                        choices:
+                            - 'disable'
+                            - 'enable'
+                    authentication:
+                        type: str
+                        description: 'Authentication methods.'
+                        choices:
+                            - 'domain-controller'
+                            - 'ldap'
+                    ldap:
+                        type: str
+                        description: 'LDAP server for which to verify received credentials against.'
+            ftgd-wf:
+                description: no description
+                type: dict
+                required: false
+                suboptions:
+                    exempt-quota:
+                        type: str
+                        description: 'Do not stop quota for these categories.'
+                    filters:
+                        description: no description
+                        type: list
+                        suboptions:
+                            action:
+                                type: str
+                                description: 'Action to take for matches.'
+                                choices:
+                                    - 'block'
+                                    - 'monitor'
+                                    - 'warning'
+                                    - 'authenticate'
+                            auth-usr-grp:
+                                type: str
+                                description: 'Groups with permission to authenticate.'
+                            category:
+                                type: str
+                                description: 'Categories and groups the filter examines.'
+                            id:
+                                type: int
+                                description: 'ID number.'
+                            log:
+                                type: str
+                                description: 'Enable/disable logging.'
+                                choices:
+                                    - 'disable'
+                                    - 'enable'
+                            override-replacemsg:
+                                type: str
+                                description: 'Override replacement message.'
+                            warn-duration:
+                                type: str
+                                description: 'Duration of warnings.'
+                            warning-duration-type:
+                                type: str
+                                description: 'Re-display warning after closing browser or after a timeout.'
+                                choices:
+                                    - 'session'
+                                    - 'timeout'
+                            warning-prompt:
+                                type: str
+                                description: 'Warning prompts in each category or each domain.'
+                                choices:
+                                    - 'per-domain'
+                                    - 'per-category'
+                    max-quota-timeout:
+                        type: int
+                        description: 'Maximum FortiGuard quota used by single page view in seconds (excludes streams).'
+                    options:
+                        description: no description
+                        type: list
+                        choices:
+                         - error-allow
+                         - http-err-detail
+                         - rate-image-urls
+                         - strict-blocking
+                         - rate-server-ip
+                         - redir-block
+                         - connect-request-bypass
+                         - log-all-url
+                         - ftgd-disable
+                    ovrd:
+                        type: str
+                        description: 'Allow web filter profile overrides.'
+                    quota:
+                        description: no description
+                        type: list
+                        suboptions:
+                            category:
+                                type: str
+                                description: 'FortiGuard categories to apply quota to (category action must be set to monitor).'
+                            duration:
+                                type: str
+                                description: 'Duration of quota.'
+                            id:
+                                type: int
+                                description: 'ID number.'
+                            override-replacemsg:
+                                type: str
+                                description: 'Override replacement message.'
+                            type:
+                                type: str
+                                description: 'Quota type.'
+                                choices:
+                                    - 'time'
+                                    - 'traffic'
+                            unit:
+                                type: str
+                                description: 'Traffic quota unit of measurement.'
+                                choices:
+                                    - 'B'
+                                    - 'KB'
+                                    - 'MB'
+                                    - 'GB'
+                            value:
+                                type: int
+                                description: 'Traffic quota value.'
+                    rate-crl-urls:
+                        type: str
+                        description: 'Enable/disable rating CRL by URL.'
+                        choices:
+                            - 'disable'
+                            - 'enable'
+                    rate-css-urls:
+                        type: str
+                        description: 'Enable/disable rating CSS by URL.'
+                        choices:
+                            - 'disable'
+                            - 'enable'
+                    rate-image-urls:
+                        type: str
+                        description: no description
+                        choices:
+                            - 'disable'
+                            - 'enable'
+                    rate-javascript-urls:
+                        type: str
+                        description: 'Enable/disable rating JavaScript by URL.'
+                        choices:
+                            - 'disable'
+                            - 'enable'
+            override:
+                description: no description
+                type: dict
+                required: false
+                suboptions:
+                    ovrd-cookie:
+                        type: str
+                        description: 'Allow/deny browser-based (cookie) overrides.'
+                        choices:
+                            - 'deny'
+                            - 'allow'
+                    ovrd-dur:
+                        type: str
+                        description: 'Override duration.'
+                    ovrd-dur-mode:
+                        type: str
+                        description: 'Override duration mode.'
+                        choices:
+                            - 'constant'
+                            - 'ask'
+                    ovrd-scope:
+                        type: str
+                        description: 'Override scope.'
+                        choices:
+                            - 'user'
+                            - 'user-group'
+                            - 'ip'
+                            - 'ask'
+                            - 'browser'
+                    ovrd-user-group:
+                        type: str
+                        description: 'User groups with permission to use the override.'
+                    profile:
+                        type: str
+                        description: 'Web filter profile with permission to create overrides.'
+                    profile-attribute:
+                        type: str
+                        description: 'Profile attribute to retrieve from the RADIUS server.'
+                        choices:
+                            - 'User-Name'
+                            - 'User-Password'
+                            - 'CHAP-Password'
+                            - 'NAS-IP-Address'
+                            - 'NAS-Port'
+                            - 'Service-Type'
+                            - 'Framed-Protocol'
+                            - 'Framed-IP-Address'
+                            - 'Framed-IP-Netmask'
+                            - 'Framed-Routing'
+                            - 'Filter-Id'
+                            - 'Framed-MTU'
+                            - 'Framed-Compression'
+                            - 'Login-IP-Host'
+                            - 'Login-Service'
+                            - 'Login-TCP-Port'
+                            - 'Reply-Message'
+                            - 'Callback-Number'
+                            - 'Callback-Id'
+                            - 'Framed-Route'
+                            - 'Framed-IPX-Network'
+                            - 'State'
+                            - 'Class'
+                            - 'Vendor-Specific'
+                            - 'Session-Timeout'
+                            - 'Idle-Timeout'
+                            - 'Termination-Action'
+                            - 'Called-Station-Id'
+                            - 'Calling-Station-Id'
+                            - 'NAS-Identifier'
+                            - 'Proxy-State'
+                            - 'Login-LAT-Service'
+                            - 'Login-LAT-Node'
+                            - 'Login-LAT-Group'
+                            - 'Framed-AppleTalk-Link'
+                            - 'Framed-AppleTalk-Network'
+                            - 'Framed-AppleTalk-Zone'
+                            - 'Acct-Status-Type'
+                            - 'Acct-Delay-Time'
+                            - 'Acct-Input-Octets'
+                            - 'Acct-Output-Octets'
+                            - 'Acct-Session-Id'
+                            - 'Acct-Authentic'
+                            - 'Acct-Session-Time'
+                            - 'Acct-Input-Packets'
+                            - 'Acct-Output-Packets'
+                            - 'Acct-Terminate-Cause'
+                            - 'Acct-Multi-Session-Id'
+                            - 'Acct-Link-Count'
+                            - 'CHAP-Challenge'
+                            - 'NAS-Port-Type'
+                            - 'Port-Limit'
+                            - 'Login-LAT-Port'
+                    profile-type:
+                        type: str
+                        description: 'Override profile type.'
+                        choices:
+                            - 'list'
+                            - 'radius'
+            url-extraction:
+                description: no description
+                type: dict
+                required: false
+                suboptions:
+                    redirect-header:
+                        type: str
+                        description: 'HTTP header name to use for client redirect on blocked requests'
+                    redirect-no-content:
+                        type: str
+                        description: 'Enable / Disable empty message-body entity in HTTP response'
+                        choices:
+                            - 'disable'
+                            - 'enable'
+                    redirect-url:
+                        type: str
+                        description: 'HTTP header value to use for client redirect on blocked requests'
+                    server-fqdn:
+                        type: str
+                        description: 'URL extraction server FQDN (fully qualified domain name)'
+                    status:
+                        type: str
+                        description: 'Enable URL Extraction'
+                        choices:
+                            - 'disable'
+                            - 'enable'
+            web:
+                description: no description
+                type: dict
+                required: false
+                suboptions:
+                    blacklist:
+                        type: str
+                        description: 'Enable/disable automatic addition of URLs detected by FortiSandbox to blacklist.'
+                        choices:
+                            - 'disable'
+                            - 'enable'
+                    bword-table:
+                        type: str
+                        description: 'Banned word table ID.'
+                    bword-threshold:
+                        type: int
+                        description: 'Banned word score threshold.'
+                    content-header-list:
+                        type: str
+                        description: 'Content header list.'
+                    keyword-match:
+                        description: no description
+                        type: str
+                    log-search:
+                        type: str
+                        description: 'Enable/disable logging all search phrases.'
+                        choices:
+                            - 'disable'
+                            - 'enable'
+                    safe-search:
+                        description: no description
+                        type: list
+                        choices:
+                         - google
+                         - yahoo
+                         - bing
+                         - url
+                         - header
+                    urlfilter-table:
+                        type: str
+                        description: 'URL filter table ID.'
+                    whitelist:
+                        description: no description
+                        type: list
+                        choices:
+                         - exempt-av
+                         - exempt-webcontent
+                         - exempt-activex-java-cookie
+                         - exempt-dlp
+                         - exempt-rangeblock
+                         - extended-log-others
+                    youtube-restrict:
+                        type: str
+                        description: 'YouTube EDU filter level.'
+                        choices:
+                            - 'strict'
+                            - 'none'
+                            - 'moderate'
+                    allowlist:
+                        description: no description
+                        type: list
+                        choices:
+                         - exempt-av
+                         - exempt-webcontent
+                         - exempt-activex-java-cookie
+                         - exempt-dlp
+                         - exempt-rangeblock
+                         - extended-log-others
+                    blocklist:
+                        type: str
+                        description: 'Enable/disable automatic addition of URLs detected by FortiSandbox to blocklist.'
+                        choices:
+                            - 'disable'
+                            - 'enable'
 
 '''
 
@@ -342,6 +1576,814 @@ EXAMPLES = '''
               - javafilter
               - rangeblock
               - contenttype-check
+              - block-invalid-url
+              - jscript
+              - js
+              - vbs
+              - unknown
+              - wf-referer
+              - https-scan
+              - intrinsic
+              - wf-cookie
+              - per-user-bwl
+              - activexfilter
+              - cookiefilter
+              - https-url-scan
+              - javafilter
+              - rangeblock
+              - contenttype-check
+              - per-user-bal
+              - block-invalid-url
+              - jscript
+              - js
+              - vbs
+              - unknown
+              - wf-referer
+              - https-scan
+              - intrinsic
+              - wf-cookie
+              - per-user-bwl
+              - activexfilter
+              - cookiefilter
+              - https-url-scan
+              - javafilter
+              - rangeblock
+              - contenttype-check
+              - block-invalid-url
+              - jscript
+              - js
+              - vbs
+              - unknown
+              - wf-referer
+              - https-scan
+              - intrinsic
+              - wf-cookie
+              - per-user-bwl
+              - activexfilter
+              - cookiefilter
+              - https-url-scan
+              - javafilter
+              - rangeblock
+              - contenttype-check
+              - block-invalid-url
+              - jscript
+              - js
+              - vbs
+              - unknown
+              - wf-referer
+              - https-scan
+              - intrinsic
+              - wf-cookie
+              - per-user-bwl
+              - activexfilter
+              - cookiefilter
+              - https-url-scan
+              - javafilter
+              - rangeblock
+              - contenttype-check
+              - block-invalid-url
+              - jscript
+              - js
+              - vbs
+              - unknown
+              - wf-referer
+              - https-scan
+              - intrinsic
+              - wf-cookie
+              - per-user-bwl
+              - activexfilter
+              - cookiefilter
+              - https-url-scan
+              - javafilter
+              - rangeblock
+              - contenttype-check
+              - block-invalid-url
+              - jscript
+              - js
+              - vbs
+              - unknown
+              - wf-referer
+              - https-scan
+              - intrinsic
+              - wf-cookie
+              - per-user-bwl
+              - activexfilter
+              - cookiefilter
+              - https-url-scan
+              - javafilter
+              - rangeblock
+              - contenttype-check
+              - block-invalid-url
+              - jscript
+              - js
+              - vbs
+              - unknown
+              - wf-referer
+              - https-scan
+              - intrinsic
+              - wf-cookie
+              - per-user-bwl
+              - activexfilter
+              - cookiefilter
+              - https-url-scan
+              - javafilter
+              - rangeblock
+              - contenttype-check
+              - block-invalid-url
+              - jscript
+              - js
+              - vbs
+              - unknown
+              - wf-referer
+              - https-scan
+              - intrinsic
+              - wf-cookie
+              - per-user-bwl
+              - activexfilter
+              - cookiefilter
+              - https-url-scan
+              - javafilter
+              - rangeblock
+              - contenttype-check
+              - per-user-bal
+              - block-invalid-url
+              - jscript
+              - js
+              - vbs
+              - unknown
+              - wf-referer
+              - https-scan
+              - intrinsic
+              - wf-cookie
+              - per-user-bwl
+              - activexfilter
+              - cookiefilter
+              - https-url-scan
+              - javafilter
+              - rangeblock
+              - contenttype-check
+              - block-invalid-url
+              - jscript
+              - js
+              - vbs
+              - unknown
+              - wf-referer
+              - https-scan
+              - intrinsic
+              - wf-cookie
+              - per-user-bwl
+              - activexfilter
+              - cookiefilter
+              - https-url-scan
+              - javafilter
+              - rangeblock
+              - contenttype-check
+              - block-invalid-url
+              - jscript
+              - js
+              - vbs
+              - unknown
+              - wf-referer
+              - https-scan
+              - intrinsic
+              - wf-cookie
+              - per-user-bwl
+              - activexfilter
+              - cookiefilter
+              - https-url-scan
+              - javafilter
+              - rangeblock
+              - contenttype-check
+              - block-invalid-url
+              - jscript
+              - js
+              - vbs
+              - unknown
+              - wf-referer
+              - https-scan
+              - intrinsic
+              - wf-cookie
+              - per-user-bwl
+              - activexfilter
+              - cookiefilter
+              - https-url-scan
+              - javafilter
+              - rangeblock
+              - contenttype-check
+              - block-invalid-url
+              - jscript
+              - js
+              - vbs
+              - unknown
+              - wf-referer
+              - https-scan
+              - intrinsic
+              - wf-cookie
+              - per-user-bwl
+              - activexfilter
+              - cookiefilter
+              - https-url-scan
+              - javafilter
+              - rangeblock
+              - contenttype-check
+              - block-invalid-url
+              - jscript
+              - js
+              - vbs
+              - unknown
+              - wf-referer
+              - https-scan
+              - intrinsic
+              - wf-cookie
+              - per-user-bwl
+              - activexfilter
+              - cookiefilter
+              - https-url-scan
+              - javafilter
+              - rangeblock
+              - contenttype-check
+              - block-invalid-url
+              - jscript
+              - js
+              - vbs
+              - unknown
+              - wf-referer
+              - https-scan
+              - intrinsic
+              - wf-cookie
+              - per-user-bwl
+              - activexfilter
+              - cookiefilter
+              - https-url-scan
+              - javafilter
+              - rangeblock
+              - contenttype-check
+              - per-user-bal
+              - block-invalid-url
+              - jscript
+              - js
+              - vbs
+              - unknown
+              - wf-referer
+              - https-scan
+              - intrinsic
+              - wf-cookie
+              - per-user-bwl
+              - activexfilter
+              - cookiefilter
+              - https-url-scan
+              - javafilter
+              - rangeblock
+              - contenttype-check
+              - block-invalid-url
+              - jscript
+              - js
+              - vbs
+              - unknown
+              - wf-referer
+              - https-scan
+              - intrinsic
+              - wf-cookie
+              - per-user-bwl
+              - activexfilter
+              - cookiefilter
+              - https-url-scan
+              - javafilter
+              - rangeblock
+              - contenttype-check
+              - block-invalid-url
+              - jscript
+              - js
+              - vbs
+              - unknown
+              - wf-referer
+              - https-scan
+              - intrinsic
+              - wf-cookie
+              - per-user-bwl
+              - activexfilter
+              - cookiefilter
+              - https-url-scan
+              - javafilter
+              - rangeblock
+              - contenttype-check
+              - block-invalid-url
+              - jscript
+              - js
+              - vbs
+              - unknown
+              - wf-referer
+              - https-scan
+              - intrinsic
+              - wf-cookie
+              - per-user-bwl
+              - activexfilter
+              - cookiefilter
+              - https-url-scan
+              - javafilter
+              - rangeblock
+              - contenttype-check
+              - block-invalid-url
+              - jscript
+              - js
+              - vbs
+              - unknown
+              - wf-referer
+              - https-scan
+              - intrinsic
+              - wf-cookie
+              - per-user-bwl
+              - activexfilter
+              - cookiefilter
+              - https-url-scan
+              - javafilter
+              - rangeblock
+              - contenttype-check
+              - block-invalid-url
+              - jscript
+              - js
+              - vbs
+              - unknown
+              - wf-referer
+              - https-scan
+              - intrinsic
+              - wf-cookie
+              - per-user-bwl
+              - activexfilter
+              - cookiefilter
+              - https-url-scan
+              - javafilter
+              - rangeblock
+              - contenttype-check
+              - block-invalid-url
+              - jscript
+              - js
+              - vbs
+              - unknown
+              - wf-referer
+              - https-scan
+              - intrinsic
+              - wf-cookie
+              - per-user-bwl
+              - activexfilter
+              - cookiefilter
+              - https-url-scan
+              - javafilter
+              - rangeblock
+              - contenttype-check
+              - per-user-bal
+              - block-invalid-url
+              - jscript
+              - js
+              - vbs
+              - unknown
+              - wf-referer
+              - https-scan
+              - intrinsic
+              - wf-cookie
+              - per-user-bwl
+              - activexfilter
+              - cookiefilter
+              - https-url-scan
+              - javafilter
+              - rangeblock
+              - contenttype-check
+              - block-invalid-url
+              - jscript
+              - js
+              - vbs
+              - unknown
+              - wf-referer
+              - https-scan
+              - intrinsic
+              - wf-cookie
+              - per-user-bwl
+              - activexfilter
+              - cookiefilter
+              - https-url-scan
+              - javafilter
+              - rangeblock
+              - contenttype-check
+              - block-invalid-url
+              - jscript
+              - js
+              - vbs
+              - unknown
+              - wf-referer
+              - https-scan
+              - intrinsic
+              - wf-cookie
+              - per-user-bwl
+              - activexfilter
+              - cookiefilter
+              - https-url-scan
+              - javafilter
+              - rangeblock
+              - contenttype-check
+              - block-invalid-url
+              - jscript
+              - js
+              - vbs
+              - unknown
+              - wf-referer
+              - https-scan
+              - intrinsic
+              - wf-cookie
+              - per-user-bwl
+              - activexfilter
+              - cookiefilter
+              - https-url-scan
+              - javafilter
+              - rangeblock
+              - contenttype-check
+              - block-invalid-url
+              - jscript
+              - js
+              - vbs
+              - unknown
+              - wf-referer
+              - https-scan
+              - intrinsic
+              - wf-cookie
+              - per-user-bwl
+              - activexfilter
+              - cookiefilter
+              - https-url-scan
+              - javafilter
+              - rangeblock
+              - contenttype-check
+              - block-invalid-url
+              - jscript
+              - js
+              - vbs
+              - unknown
+              - wf-referer
+              - https-scan
+              - intrinsic
+              - wf-cookie
+              - per-user-bwl
+              - activexfilter
+              - cookiefilter
+              - https-url-scan
+              - javafilter
+              - rangeblock
+              - contenttype-check
+              - block-invalid-url
+              - jscript
+              - js
+              - vbs
+              - unknown
+              - wf-referer
+              - https-scan
+              - intrinsic
+              - wf-cookie
+              - per-user-bwl
+              - activexfilter
+              - cookiefilter
+              - https-url-scan
+              - javafilter
+              - rangeblock
+              - contenttype-check
+              - per-user-bal
+              - block-invalid-url
+              - jscript
+              - js
+              - vbs
+              - unknown
+              - wf-referer
+              - https-scan
+              - intrinsic
+              - wf-cookie
+              - per-user-bwl
+              - activexfilter
+              - cookiefilter
+              - https-url-scan
+              - javafilter
+              - rangeblock
+              - contenttype-check
+              - block-invalid-url
+              - jscript
+              - js
+              - vbs
+              - unknown
+              - wf-referer
+              - https-scan
+              - intrinsic
+              - wf-cookie
+              - per-user-bwl
+              - activexfilter
+              - cookiefilter
+              - https-url-scan
+              - javafilter
+              - rangeblock
+              - contenttype-check
+              - block-invalid-url
+              - jscript
+              - js
+              - vbs
+              - unknown
+              - wf-referer
+              - https-scan
+              - intrinsic
+              - wf-cookie
+              - per-user-bwl
+              - activexfilter
+              - cookiefilter
+              - https-url-scan
+              - javafilter
+              - rangeblock
+              - contenttype-check
+              - block-invalid-url
+              - jscript
+              - js
+              - vbs
+              - unknown
+              - wf-referer
+              - https-scan
+              - intrinsic
+              - wf-cookie
+              - per-user-bwl
+              - activexfilter
+              - cookiefilter
+              - https-url-scan
+              - javafilter
+              - rangeblock
+              - contenttype-check
+              - block-invalid-url
+              - jscript
+              - js
+              - vbs
+              - unknown
+              - wf-referer
+              - https-scan
+              - intrinsic
+              - wf-cookie
+              - per-user-bwl
+              - activexfilter
+              - cookiefilter
+              - https-url-scan
+              - javafilter
+              - rangeblock
+              - contenttype-check
+              - block-invalid-url
+              - jscript
+              - js
+              - vbs
+              - unknown
+              - wf-referer
+              - https-scan
+              - intrinsic
+              - wf-cookie
+              - per-user-bwl
+              - activexfilter
+              - cookiefilter
+              - https-url-scan
+              - javafilter
+              - rangeblock
+              - contenttype-check
+              - block-invalid-url
+              - jscript
+              - js
+              - vbs
+              - unknown
+              - wf-referer
+              - https-scan
+              - intrinsic
+              - wf-cookie
+              - per-user-bwl
+              - activexfilter
+              - cookiefilter
+              - https-url-scan
+              - javafilter
+              - rangeblock
+              - contenttype-check
+              - per-user-bal
+              - block-invalid-url
+              - jscript
+              - js
+              - vbs
+              - unknown
+              - wf-referer
+              - https-scan
+              - intrinsic
+              - wf-cookie
+              - per-user-bwl
+              - activexfilter
+              - cookiefilter
+              - https-url-scan
+              - javafilter
+              - rangeblock
+              - contenttype-check
+              - block-invalid-url
+              - jscript
+              - js
+              - vbs
+              - unknown
+              - wf-referer
+              - https-scan
+              - intrinsic
+              - wf-cookie
+              - per-user-bwl
+              - activexfilter
+              - cookiefilter
+              - https-url-scan
+              - javafilter
+              - rangeblock
+              - contenttype-check
+              - block-invalid-url
+              - jscript
+              - js
+              - vbs
+              - unknown
+              - wf-referer
+              - https-scan
+              - intrinsic
+              - wf-cookie
+              - per-user-bwl
+              - activexfilter
+              - cookiefilter
+              - https-url-scan
+              - javafilter
+              - rangeblock
+              - contenttype-check
+              - block-invalid-url
+              - jscript
+              - js
+              - vbs
+              - unknown
+              - wf-referer
+              - https-scan
+              - intrinsic
+              - wf-cookie
+              - per-user-bwl
+              - activexfilter
+              - cookiefilter
+              - https-url-scan
+              - javafilter
+              - rangeblock
+              - contenttype-check
+              - block-invalid-url
+              - jscript
+              - js
+              - vbs
+              - unknown
+              - wf-referer
+              - https-scan
+              - intrinsic
+              - wf-cookie
+              - per-user-bwl
+              - activexfilter
+              - cookiefilter
+              - https-url-scan
+              - javafilter
+              - rangeblock
+              - contenttype-check
+              - block-invalid-url
+              - jscript
+              - js
+              - vbs
+              - unknown
+              - wf-referer
+              - https-scan
+              - intrinsic
+              - wf-cookie
+              - per-user-bwl
+              - activexfilter
+              - cookiefilter
+              - https-url-scan
+              - javafilter
+              - rangeblock
+              - contenttype-check
+              - block-invalid-url
+              - jscript
+              - js
+              - vbs
+              - unknown
+              - wf-referer
+              - https-scan
+              - intrinsic
+              - wf-cookie
+              - per-user-bwl
+              - activexfilter
+              - cookiefilter
+              - https-url-scan
+              - javafilter
+              - rangeblock
+              - contenttype-check
+              - per-user-bal
+              - block-invalid-url
+              - jscript
+              - js
+              - vbs
+              - unknown
+              - wf-referer
+              - https-scan
+              - intrinsic
+              - wf-cookie
+              - per-user-bwl
+              - activexfilter
+              - cookiefilter
+              - https-url-scan
+              - javafilter
+              - rangeblock
+              - contenttype-check
+              - block-invalid-url
+              - jscript
+              - js
+              - vbs
+              - unknown
+              - wf-referer
+              - https-scan
+              - intrinsic
+              - wf-cookie
+              - per-user-bwl
+              - activexfilter
+              - cookiefilter
+              - https-url-scan
+              - javafilter
+              - rangeblock
+              - contenttype-check
+              - block-invalid-url
+              - jscript
+              - js
+              - vbs
+              - unknown
+              - wf-referer
+              - https-scan
+              - intrinsic
+              - wf-cookie
+              - per-user-bwl
+              - activexfilter
+              - cookiefilter
+              - https-url-scan
+              - javafilter
+              - rangeblock
+              - contenttype-check
+              - block-invalid-url
+              - jscript
+              - js
+              - vbs
+              - unknown
+              - wf-referer
+              - https-scan
+              - intrinsic
+              - wf-cookie
+              - per-user-bwl
+              - activexfilter
+              - cookiefilter
+              - https-url-scan
+              - javafilter
+              - rangeblock
+              - contenttype-check
+              - block-invalid-url
+              - jscript
+              - js
+              - vbs
+              - unknown
+              - wf-referer
+              - https-scan
+              - intrinsic
+              - wf-cookie
+              - per-user-bwl
+              - activexfilter
+              - cookiefilter
+              - https-url-scan
+              - javafilter
+              - rangeblock
+              - contenttype-check
+              - block-invalid-url
+              - jscript
+              - js
+              - vbs
+              - unknown
+              - wf-referer
+              - https-scan
+              - intrinsic
+              - wf-cookie
+              - per-user-bwl
+              - activexfilter
+              - cookiefilter
+              - https-url-scan
+              - javafilter
+              - rangeblock
+              - contenttype-check
+              - block-invalid-url
+              - jscript
+              - js
+              - vbs
+              - unknown
+              - wf-referer
+              - https-scan
+              - intrinsic
+              - wf-cookie
+              - per-user-bwl
+              - activexfilter
+              - cookiefilter
+              - https-url-scan
+              - javafilter
+              - rangeblock
+              - contenttype-check
+              - per-user-bal
             ovrd-perm:
               - bannedword-override
               - urlfilter-override
@@ -374,6 +2416,111 @@ EXAMPLES = '''
                   comment: <value of string>
                   id: <value of integer>
             youtube-channel-status: <value in [disable, blacklist, whitelist]>
+            feature-set: <value in [proxy, flow]>
+            web-antiphishing-log: <value in [disable, enable]>
+            antiphish:
+               check-basic-auth: <value in [disable, enable]>
+               check-uri: <value in [disable, enable]>
+               check-username-only: <value in [disable, enable]>
+               custom-patterns:
+                 -
+                     category: <value in [username, password]>
+                     pattern: <value of string>
+                     type: <value in [regex, literal]>
+               default-action: <value in [log, block, exempt]>
+               domain-controller: <value of string>
+               inspection-entries:
+                 -
+                     action: <value in [log, block, exempt]>
+                     fortiguard-category: <value of string>
+                     name: <value of string>
+               max-body-len: <value of integer>
+               status: <value in [disable, enable]>
+               authentication: <value in [domain-controller, ldap]>
+               ldap: <value of string>
+            ftgd-wf:
+               exempt-quota: <value of string>
+               filters:
+                 -
+                     action: <value in [block, monitor, warning, ...]>
+                     auth-usr-grp: <value of string>
+                     category: <value of string>
+                     id: <value of integer>
+                     log: <value in [disable, enable]>
+                     override-replacemsg: <value of string>
+                     warn-duration: <value of string>
+                     warning-duration-type: <value in [session, timeout]>
+                     warning-prompt: <value in [per-domain, per-category]>
+               max-quota-timeout: <value of integer>
+               options:
+                 - error-allow
+                 - http-err-detail
+                 - rate-image-urls
+                 - strict-blocking
+                 - rate-server-ip
+                 - redir-block
+                 - connect-request-bypass
+                 - log-all-url
+                 - ftgd-disable
+               ovrd: <value of string>
+               quota:
+                 -
+                     category: <value of string>
+                     duration: <value of string>
+                     id: <value of integer>
+                     override-replacemsg: <value of string>
+                     type: <value in [time, traffic]>
+                     unit: <value in [B, KB, MB, ...]>
+                     value: <value of integer>
+               rate-crl-urls: <value in [disable, enable]>
+               rate-css-urls: <value in [disable, enable]>
+               rate-image-urls: <value in [disable, enable]>
+               rate-javascript-urls: <value in [disable, enable]>
+            override:
+               ovrd-cookie: <value in [deny, allow]>
+               ovrd-dur: <value of string>
+               ovrd-dur-mode: <value in [constant, ask]>
+               ovrd-scope: <value in [user, user-group, ip, ...]>
+               ovrd-user-group: <value of string>
+               profile: <value of string>
+               profile-attribute: <value in [User-Name, User-Password, CHAP-Password, ...]>
+               profile-type: <value in [list, radius]>
+            url-extraction:
+               redirect-header: <value of string>
+               redirect-no-content: <value in [disable, enable]>
+               redirect-url: <value of string>
+               server-fqdn: <value of string>
+               status: <value in [disable, enable]>
+            web:
+               blacklist: <value in [disable, enable]>
+               bword-table: <value of string>
+               bword-threshold: <value of integer>
+               content-header-list: <value of string>
+               keyword-match: <value of string>
+               log-search: <value in [disable, enable]>
+               safe-search:
+                 - google
+                 - yahoo
+                 - bing
+                 - url
+                 - header
+               urlfilter-table: <value of string>
+               whitelist:
+                 - exempt-av
+                 - exempt-webcontent
+                 - exempt-activex-java-cookie
+                 - exempt-dlp
+                 - exempt-rangeblock
+                 - extended-log-others
+               youtube-restrict: <value in [strict, none, moderate]>
+               allowlist:
+                 - exempt-av
+                 - exempt-webcontent
+                 - exempt-activex-java-cookie
+                 - exempt-dlp
+                 - exempt-rangeblock
+                 - extended-log-others
+               blocklist: <value in [disable, enable]>
 
 '''
 
@@ -470,10 +2617,30 @@ def main():
             'options': {
                 'comment': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'extended-log': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -482,6 +2649,16 @@ def main():
                 },
                 'https-replacemsg': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -490,6 +2667,16 @@ def main():
                 },
                 'inspection-mode': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': False,
+                        '6.2.3': False,
+                        '6.2.5': False,
+                        '6.4.0': False,
+                        '6.4.2': False,
+                        '6.4.5': False,
+                        '7.0.0': False
+                    },
                     'choices': [
                         'proxy',
                         'flow-based',
@@ -499,6 +2686,16 @@ def main():
                 },
                 'log-all-url': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -507,10 +2704,30 @@ def main():
                 },
                 'name': {
                     'required': True,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'options': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'list',
                     'choices': [
                         'block-invalid-url',
@@ -528,11 +2745,829 @@ def main():
                         'https-url-scan',
                         'javafilter',
                         'rangeblock',
-                        'contenttype-check'
+                        'contenttype-check',
+                        'block-invalid-url',
+                        'jscript',
+                        'js',
+                        'vbs',
+                        'unknown',
+                        'wf-referer',
+                        'https-scan',
+                        'intrinsic',
+                        'wf-cookie',
+                        'per-user-bwl',
+                        'activexfilter',
+                        'cookiefilter',
+                        'https-url-scan',
+                        'javafilter',
+                        'rangeblock',
+                        'contenttype-check',
+                        'per-user-bal',
+                        'block-invalid-url',
+                        'jscript',
+                        'js',
+                        'vbs',
+                        'unknown',
+                        'wf-referer',
+                        'https-scan',
+                        'intrinsic',
+                        'wf-cookie',
+                        'per-user-bwl',
+                        'activexfilter',
+                        'cookiefilter',
+                        'https-url-scan',
+                        'javafilter',
+                        'rangeblock',
+                        'contenttype-check',
+                        'block-invalid-url',
+                        'jscript',
+                        'js',
+                        'vbs',
+                        'unknown',
+                        'wf-referer',
+                        'https-scan',
+                        'intrinsic',
+                        'wf-cookie',
+                        'per-user-bwl',
+                        'activexfilter',
+                        'cookiefilter',
+                        'https-url-scan',
+                        'javafilter',
+                        'rangeblock',
+                        'contenttype-check',
+                        'block-invalid-url',
+                        'jscript',
+                        'js',
+                        'vbs',
+                        'unknown',
+                        'wf-referer',
+                        'https-scan',
+                        'intrinsic',
+                        'wf-cookie',
+                        'per-user-bwl',
+                        'activexfilter',
+                        'cookiefilter',
+                        'https-url-scan',
+                        'javafilter',
+                        'rangeblock',
+                        'contenttype-check',
+                        'block-invalid-url',
+                        'jscript',
+                        'js',
+                        'vbs',
+                        'unknown',
+                        'wf-referer',
+                        'https-scan',
+                        'intrinsic',
+                        'wf-cookie',
+                        'per-user-bwl',
+                        'activexfilter',
+                        'cookiefilter',
+                        'https-url-scan',
+                        'javafilter',
+                        'rangeblock',
+                        'contenttype-check',
+                        'block-invalid-url',
+                        'jscript',
+                        'js',
+                        'vbs',
+                        'unknown',
+                        'wf-referer',
+                        'https-scan',
+                        'intrinsic',
+                        'wf-cookie',
+                        'per-user-bwl',
+                        'activexfilter',
+                        'cookiefilter',
+                        'https-url-scan',
+                        'javafilter',
+                        'rangeblock',
+                        'contenttype-check',
+                        'block-invalid-url',
+                        'jscript',
+                        'js',
+                        'vbs',
+                        'unknown',
+                        'wf-referer',
+                        'https-scan',
+                        'intrinsic',
+                        'wf-cookie',
+                        'per-user-bwl',
+                        'activexfilter',
+                        'cookiefilter',
+                        'https-url-scan',
+                        'javafilter',
+                        'rangeblock',
+                        'contenttype-check',
+                        'block-invalid-url',
+                        'jscript',
+                        'js',
+                        'vbs',
+                        'unknown',
+                        'wf-referer',
+                        'https-scan',
+                        'intrinsic',
+                        'wf-cookie',
+                        'per-user-bwl',
+                        'activexfilter',
+                        'cookiefilter',
+                        'https-url-scan',
+                        'javafilter',
+                        'rangeblock',
+                        'contenttype-check',
+                        'per-user-bal',
+                        'block-invalid-url',
+                        'jscript',
+                        'js',
+                        'vbs',
+                        'unknown',
+                        'wf-referer',
+                        'https-scan',
+                        'intrinsic',
+                        'wf-cookie',
+                        'per-user-bwl',
+                        'activexfilter',
+                        'cookiefilter',
+                        'https-url-scan',
+                        'javafilter',
+                        'rangeblock',
+                        'contenttype-check',
+                        'block-invalid-url',
+                        'jscript',
+                        'js',
+                        'vbs',
+                        'unknown',
+                        'wf-referer',
+                        'https-scan',
+                        'intrinsic',
+                        'wf-cookie',
+                        'per-user-bwl',
+                        'activexfilter',
+                        'cookiefilter',
+                        'https-url-scan',
+                        'javafilter',
+                        'rangeblock',
+                        'contenttype-check',
+                        'block-invalid-url',
+                        'jscript',
+                        'js',
+                        'vbs',
+                        'unknown',
+                        'wf-referer',
+                        'https-scan',
+                        'intrinsic',
+                        'wf-cookie',
+                        'per-user-bwl',
+                        'activexfilter',
+                        'cookiefilter',
+                        'https-url-scan',
+                        'javafilter',
+                        'rangeblock',
+                        'contenttype-check',
+                        'block-invalid-url',
+                        'jscript',
+                        'js',
+                        'vbs',
+                        'unknown',
+                        'wf-referer',
+                        'https-scan',
+                        'intrinsic',
+                        'wf-cookie',
+                        'per-user-bwl',
+                        'activexfilter',
+                        'cookiefilter',
+                        'https-url-scan',
+                        'javafilter',
+                        'rangeblock',
+                        'contenttype-check',
+                        'block-invalid-url',
+                        'jscript',
+                        'js',
+                        'vbs',
+                        'unknown',
+                        'wf-referer',
+                        'https-scan',
+                        'intrinsic',
+                        'wf-cookie',
+                        'per-user-bwl',
+                        'activexfilter',
+                        'cookiefilter',
+                        'https-url-scan',
+                        'javafilter',
+                        'rangeblock',
+                        'contenttype-check',
+                        'block-invalid-url',
+                        'jscript',
+                        'js',
+                        'vbs',
+                        'unknown',
+                        'wf-referer',
+                        'https-scan',
+                        'intrinsic',
+                        'wf-cookie',
+                        'per-user-bwl',
+                        'activexfilter',
+                        'cookiefilter',
+                        'https-url-scan',
+                        'javafilter',
+                        'rangeblock',
+                        'contenttype-check',
+                        'block-invalid-url',
+                        'jscript',
+                        'js',
+                        'vbs',
+                        'unknown',
+                        'wf-referer',
+                        'https-scan',
+                        'intrinsic',
+                        'wf-cookie',
+                        'per-user-bwl',
+                        'activexfilter',
+                        'cookiefilter',
+                        'https-url-scan',
+                        'javafilter',
+                        'rangeblock',
+                        'contenttype-check',
+                        'per-user-bal',
+                        'block-invalid-url',
+                        'jscript',
+                        'js',
+                        'vbs',
+                        'unknown',
+                        'wf-referer',
+                        'https-scan',
+                        'intrinsic',
+                        'wf-cookie',
+                        'per-user-bwl',
+                        'activexfilter',
+                        'cookiefilter',
+                        'https-url-scan',
+                        'javafilter',
+                        'rangeblock',
+                        'contenttype-check',
+                        'block-invalid-url',
+                        'jscript',
+                        'js',
+                        'vbs',
+                        'unknown',
+                        'wf-referer',
+                        'https-scan',
+                        'intrinsic',
+                        'wf-cookie',
+                        'per-user-bwl',
+                        'activexfilter',
+                        'cookiefilter',
+                        'https-url-scan',
+                        'javafilter',
+                        'rangeblock',
+                        'contenttype-check',
+                        'block-invalid-url',
+                        'jscript',
+                        'js',
+                        'vbs',
+                        'unknown',
+                        'wf-referer',
+                        'https-scan',
+                        'intrinsic',
+                        'wf-cookie',
+                        'per-user-bwl',
+                        'activexfilter',
+                        'cookiefilter',
+                        'https-url-scan',
+                        'javafilter',
+                        'rangeblock',
+                        'contenttype-check',
+                        'block-invalid-url',
+                        'jscript',
+                        'js',
+                        'vbs',
+                        'unknown',
+                        'wf-referer',
+                        'https-scan',
+                        'intrinsic',
+                        'wf-cookie',
+                        'per-user-bwl',
+                        'activexfilter',
+                        'cookiefilter',
+                        'https-url-scan',
+                        'javafilter',
+                        'rangeblock',
+                        'contenttype-check',
+                        'block-invalid-url',
+                        'jscript',
+                        'js',
+                        'vbs',
+                        'unknown',
+                        'wf-referer',
+                        'https-scan',
+                        'intrinsic',
+                        'wf-cookie',
+                        'per-user-bwl',
+                        'activexfilter',
+                        'cookiefilter',
+                        'https-url-scan',
+                        'javafilter',
+                        'rangeblock',
+                        'contenttype-check',
+                        'block-invalid-url',
+                        'jscript',
+                        'js',
+                        'vbs',
+                        'unknown',
+                        'wf-referer',
+                        'https-scan',
+                        'intrinsic',
+                        'wf-cookie',
+                        'per-user-bwl',
+                        'activexfilter',
+                        'cookiefilter',
+                        'https-url-scan',
+                        'javafilter',
+                        'rangeblock',
+                        'contenttype-check',
+                        'block-invalid-url',
+                        'jscript',
+                        'js',
+                        'vbs',
+                        'unknown',
+                        'wf-referer',
+                        'https-scan',
+                        'intrinsic',
+                        'wf-cookie',
+                        'per-user-bwl',
+                        'activexfilter',
+                        'cookiefilter',
+                        'https-url-scan',
+                        'javafilter',
+                        'rangeblock',
+                        'contenttype-check',
+                        'per-user-bal',
+                        'block-invalid-url',
+                        'jscript',
+                        'js',
+                        'vbs',
+                        'unknown',
+                        'wf-referer',
+                        'https-scan',
+                        'intrinsic',
+                        'wf-cookie',
+                        'per-user-bwl',
+                        'activexfilter',
+                        'cookiefilter',
+                        'https-url-scan',
+                        'javafilter',
+                        'rangeblock',
+                        'contenttype-check',
+                        'block-invalid-url',
+                        'jscript',
+                        'js',
+                        'vbs',
+                        'unknown',
+                        'wf-referer',
+                        'https-scan',
+                        'intrinsic',
+                        'wf-cookie',
+                        'per-user-bwl',
+                        'activexfilter',
+                        'cookiefilter',
+                        'https-url-scan',
+                        'javafilter',
+                        'rangeblock',
+                        'contenttype-check',
+                        'block-invalid-url',
+                        'jscript',
+                        'js',
+                        'vbs',
+                        'unknown',
+                        'wf-referer',
+                        'https-scan',
+                        'intrinsic',
+                        'wf-cookie',
+                        'per-user-bwl',
+                        'activexfilter',
+                        'cookiefilter',
+                        'https-url-scan',
+                        'javafilter',
+                        'rangeblock',
+                        'contenttype-check',
+                        'block-invalid-url',
+                        'jscript',
+                        'js',
+                        'vbs',
+                        'unknown',
+                        'wf-referer',
+                        'https-scan',
+                        'intrinsic',
+                        'wf-cookie',
+                        'per-user-bwl',
+                        'activexfilter',
+                        'cookiefilter',
+                        'https-url-scan',
+                        'javafilter',
+                        'rangeblock',
+                        'contenttype-check',
+                        'block-invalid-url',
+                        'jscript',
+                        'js',
+                        'vbs',
+                        'unknown',
+                        'wf-referer',
+                        'https-scan',
+                        'intrinsic',
+                        'wf-cookie',
+                        'per-user-bwl',
+                        'activexfilter',
+                        'cookiefilter',
+                        'https-url-scan',
+                        'javafilter',
+                        'rangeblock',
+                        'contenttype-check',
+                        'block-invalid-url',
+                        'jscript',
+                        'js',
+                        'vbs',
+                        'unknown',
+                        'wf-referer',
+                        'https-scan',
+                        'intrinsic',
+                        'wf-cookie',
+                        'per-user-bwl',
+                        'activexfilter',
+                        'cookiefilter',
+                        'https-url-scan',
+                        'javafilter',
+                        'rangeblock',
+                        'contenttype-check',
+                        'block-invalid-url',
+                        'jscript',
+                        'js',
+                        'vbs',
+                        'unknown',
+                        'wf-referer',
+                        'https-scan',
+                        'intrinsic',
+                        'wf-cookie',
+                        'per-user-bwl',
+                        'activexfilter',
+                        'cookiefilter',
+                        'https-url-scan',
+                        'javafilter',
+                        'rangeblock',
+                        'contenttype-check',
+                        'per-user-bal',
+                        'block-invalid-url',
+                        'jscript',
+                        'js',
+                        'vbs',
+                        'unknown',
+                        'wf-referer',
+                        'https-scan',
+                        'intrinsic',
+                        'wf-cookie',
+                        'per-user-bwl',
+                        'activexfilter',
+                        'cookiefilter',
+                        'https-url-scan',
+                        'javafilter',
+                        'rangeblock',
+                        'contenttype-check',
+                        'block-invalid-url',
+                        'jscript',
+                        'js',
+                        'vbs',
+                        'unknown',
+                        'wf-referer',
+                        'https-scan',
+                        'intrinsic',
+                        'wf-cookie',
+                        'per-user-bwl',
+                        'activexfilter',
+                        'cookiefilter',
+                        'https-url-scan',
+                        'javafilter',
+                        'rangeblock',
+                        'contenttype-check',
+                        'block-invalid-url',
+                        'jscript',
+                        'js',
+                        'vbs',
+                        'unknown',
+                        'wf-referer',
+                        'https-scan',
+                        'intrinsic',
+                        'wf-cookie',
+                        'per-user-bwl',
+                        'activexfilter',
+                        'cookiefilter',
+                        'https-url-scan',
+                        'javafilter',
+                        'rangeblock',
+                        'contenttype-check',
+                        'block-invalid-url',
+                        'jscript',
+                        'js',
+                        'vbs',
+                        'unknown',
+                        'wf-referer',
+                        'https-scan',
+                        'intrinsic',
+                        'wf-cookie',
+                        'per-user-bwl',
+                        'activexfilter',
+                        'cookiefilter',
+                        'https-url-scan',
+                        'javafilter',
+                        'rangeblock',
+                        'contenttype-check',
+                        'block-invalid-url',
+                        'jscript',
+                        'js',
+                        'vbs',
+                        'unknown',
+                        'wf-referer',
+                        'https-scan',
+                        'intrinsic',
+                        'wf-cookie',
+                        'per-user-bwl',
+                        'activexfilter',
+                        'cookiefilter',
+                        'https-url-scan',
+                        'javafilter',
+                        'rangeblock',
+                        'contenttype-check',
+                        'block-invalid-url',
+                        'jscript',
+                        'js',
+                        'vbs',
+                        'unknown',
+                        'wf-referer',
+                        'https-scan',
+                        'intrinsic',
+                        'wf-cookie',
+                        'per-user-bwl',
+                        'activexfilter',
+                        'cookiefilter',
+                        'https-url-scan',
+                        'javafilter',
+                        'rangeblock',
+                        'contenttype-check',
+                        'block-invalid-url',
+                        'jscript',
+                        'js',
+                        'vbs',
+                        'unknown',
+                        'wf-referer',
+                        'https-scan',
+                        'intrinsic',
+                        'wf-cookie',
+                        'per-user-bwl',
+                        'activexfilter',
+                        'cookiefilter',
+                        'https-url-scan',
+                        'javafilter',
+                        'rangeblock',
+                        'contenttype-check',
+                        'per-user-bal',
+                        'block-invalid-url',
+                        'jscript',
+                        'js',
+                        'vbs',
+                        'unknown',
+                        'wf-referer',
+                        'https-scan',
+                        'intrinsic',
+                        'wf-cookie',
+                        'per-user-bwl',
+                        'activexfilter',
+                        'cookiefilter',
+                        'https-url-scan',
+                        'javafilter',
+                        'rangeblock',
+                        'contenttype-check',
+                        'block-invalid-url',
+                        'jscript',
+                        'js',
+                        'vbs',
+                        'unknown',
+                        'wf-referer',
+                        'https-scan',
+                        'intrinsic',
+                        'wf-cookie',
+                        'per-user-bwl',
+                        'activexfilter',
+                        'cookiefilter',
+                        'https-url-scan',
+                        'javafilter',
+                        'rangeblock',
+                        'contenttype-check',
+                        'block-invalid-url',
+                        'jscript',
+                        'js',
+                        'vbs',
+                        'unknown',
+                        'wf-referer',
+                        'https-scan',
+                        'intrinsic',
+                        'wf-cookie',
+                        'per-user-bwl',
+                        'activexfilter',
+                        'cookiefilter',
+                        'https-url-scan',
+                        'javafilter',
+                        'rangeblock',
+                        'contenttype-check',
+                        'block-invalid-url',
+                        'jscript',
+                        'js',
+                        'vbs',
+                        'unknown',
+                        'wf-referer',
+                        'https-scan',
+                        'intrinsic',
+                        'wf-cookie',
+                        'per-user-bwl',
+                        'activexfilter',
+                        'cookiefilter',
+                        'https-url-scan',
+                        'javafilter',
+                        'rangeblock',
+                        'contenttype-check',
+                        'block-invalid-url',
+                        'jscript',
+                        'js',
+                        'vbs',
+                        'unknown',
+                        'wf-referer',
+                        'https-scan',
+                        'intrinsic',
+                        'wf-cookie',
+                        'per-user-bwl',
+                        'activexfilter',
+                        'cookiefilter',
+                        'https-url-scan',
+                        'javafilter',
+                        'rangeblock',
+                        'contenttype-check',
+                        'block-invalid-url',
+                        'jscript',
+                        'js',
+                        'vbs',
+                        'unknown',
+                        'wf-referer',
+                        'https-scan',
+                        'intrinsic',
+                        'wf-cookie',
+                        'per-user-bwl',
+                        'activexfilter',
+                        'cookiefilter',
+                        'https-url-scan',
+                        'javafilter',
+                        'rangeblock',
+                        'contenttype-check',
+                        'block-invalid-url',
+                        'jscript',
+                        'js',
+                        'vbs',
+                        'unknown',
+                        'wf-referer',
+                        'https-scan',
+                        'intrinsic',
+                        'wf-cookie',
+                        'per-user-bwl',
+                        'activexfilter',
+                        'cookiefilter',
+                        'https-url-scan',
+                        'javafilter',
+                        'rangeblock',
+                        'contenttype-check',
+                        'per-user-bal',
+                        'block-invalid-url',
+                        'jscript',
+                        'js',
+                        'vbs',
+                        'unknown',
+                        'wf-referer',
+                        'https-scan',
+                        'intrinsic',
+                        'wf-cookie',
+                        'per-user-bwl',
+                        'activexfilter',
+                        'cookiefilter',
+                        'https-url-scan',
+                        'javafilter',
+                        'rangeblock',
+                        'contenttype-check',
+                        'block-invalid-url',
+                        'jscript',
+                        'js',
+                        'vbs',
+                        'unknown',
+                        'wf-referer',
+                        'https-scan',
+                        'intrinsic',
+                        'wf-cookie',
+                        'per-user-bwl',
+                        'activexfilter',
+                        'cookiefilter',
+                        'https-url-scan',
+                        'javafilter',
+                        'rangeblock',
+                        'contenttype-check',
+                        'block-invalid-url',
+                        'jscript',
+                        'js',
+                        'vbs',
+                        'unknown',
+                        'wf-referer',
+                        'https-scan',
+                        'intrinsic',
+                        'wf-cookie',
+                        'per-user-bwl',
+                        'activexfilter',
+                        'cookiefilter',
+                        'https-url-scan',
+                        'javafilter',
+                        'rangeblock',
+                        'contenttype-check',
+                        'block-invalid-url',
+                        'jscript',
+                        'js',
+                        'vbs',
+                        'unknown',
+                        'wf-referer',
+                        'https-scan',
+                        'intrinsic',
+                        'wf-cookie',
+                        'per-user-bwl',
+                        'activexfilter',
+                        'cookiefilter',
+                        'https-url-scan',
+                        'javafilter',
+                        'rangeblock',
+                        'contenttype-check',
+                        'block-invalid-url',
+                        'jscript',
+                        'js',
+                        'vbs',
+                        'unknown',
+                        'wf-referer',
+                        'https-scan',
+                        'intrinsic',
+                        'wf-cookie',
+                        'per-user-bwl',
+                        'activexfilter',
+                        'cookiefilter',
+                        'https-url-scan',
+                        'javafilter',
+                        'rangeblock',
+                        'contenttype-check',
+                        'block-invalid-url',
+                        'jscript',
+                        'js',
+                        'vbs',
+                        'unknown',
+                        'wf-referer',
+                        'https-scan',
+                        'intrinsic',
+                        'wf-cookie',
+                        'per-user-bwl',
+                        'activexfilter',
+                        'cookiefilter',
+                        'https-url-scan',
+                        'javafilter',
+                        'rangeblock',
+                        'contenttype-check',
+                        'block-invalid-url',
+                        'jscript',
+                        'js',
+                        'vbs',
+                        'unknown',
+                        'wf-referer',
+                        'https-scan',
+                        'intrinsic',
+                        'wf-cookie',
+                        'per-user-bwl',
+                        'activexfilter',
+                        'cookiefilter',
+                        'https-url-scan',
+                        'javafilter',
+                        'rangeblock',
+                        'contenttype-check',
+                        'per-user-bal'
                     ]
                 },
                 'ovrd-perm': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'list',
                     'choices': [
                         'bannedword-override',
@@ -543,6 +3578,16 @@ def main():
                 },
                 'post-action': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'normal',
                         'comfort',
@@ -552,10 +3597,30 @@ def main():
                 },
                 'replacemsg-group': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'web-content-log': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -564,6 +3629,16 @@ def main():
                 },
                 'web-extended-all-action-log': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -572,6 +3647,16 @@ def main():
                 },
                 'web-filter-activex-log': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -580,6 +3665,16 @@ def main():
                 },
                 'web-filter-applet-log': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -588,6 +3683,16 @@ def main():
                 },
                 'web-filter-command-block-log': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -596,6 +3701,16 @@ def main():
                 },
                 'web-filter-cookie-log': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -604,6 +3719,16 @@ def main():
                 },
                 'web-filter-cookie-removal-log': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -612,6 +3737,16 @@ def main():
                 },
                 'web-filter-js-log': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -620,6 +3755,16 @@ def main():
                 },
                 'web-filter-jscript-log': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -628,6 +3773,16 @@ def main():
                 },
                 'web-filter-referer-log': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -636,6 +3791,16 @@ def main():
                 },
                 'web-filter-unknown-log': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -644,6 +3809,16 @@ def main():
                 },
                 'web-filter-vbs-log': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -652,6 +3827,16 @@ def main():
                 },
                 'web-ftgd-err-log': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -660,6 +3845,16 @@ def main():
                 },
                 'web-ftgd-quota-usage': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -668,6 +3863,16 @@ def main():
                 },
                 'web-invalid-domain-log': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -676,6 +3881,16 @@ def main():
                 },
                 'web-url-log': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -684,6 +3899,16 @@ def main():
                 },
                 'wisp': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -692,6 +3917,16 @@ def main():
                 },
                 'wisp-algorithm': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'auto-learning',
                         'primary-secondary',
@@ -701,34 +3936,914 @@ def main():
                 },
                 'wisp-servers': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'youtube-channel-filter': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': False
+                    },
                     'type': 'list',
                     'options': {
                         'channel-id': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': False
+                            },
                             'type': 'str'
                         },
                         'comment': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': False
+                            },
                             'type': 'str'
                         },
                         'id': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': False
+                            },
                             'type': 'int'
                         }
                     }
                 },
                 'youtube-channel-status': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': False
+                    },
                     'choices': [
                         'disable',
                         'blacklist',
                         'whitelist'
                     ],
                     'type': 'str'
+                },
+                'feature-set': {
+                    'required': False,
+                    'revision': {
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'choices': [
+                        'proxy',
+                        'flow'
+                    ],
+                    'type': 'str'
+                },
+                'web-antiphishing-log': {
+                    'required': False,
+                    'revision': {
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'choices': [
+                        'disable',
+                        'enable'
+                    ],
+                    'type': 'str'
+                },
+                'antiphish': {
+                    'required': False,
+                    'type': 'dict',
+                    'options': {
+                        'check-basic-auth': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'disable',
+                                'enable'
+                            ],
+                            'type': 'str'
+                        },
+                        'check-uri': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'disable',
+                                'enable'
+                            ],
+                            'type': 'str'
+                        },
+                        'check-username-only': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'disable',
+                                'enable'
+                            ],
+                            'type': 'str'
+                        },
+                        'custom-patterns': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'list',
+                            'options': {
+                                'category': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'choices': [
+                                        'username',
+                                        'password'
+                                    ],
+                                    'type': 'str'
+                                },
+                                'pattern': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'type': 'str'
+                                },
+                                'type': {
+                                    'required': False,
+                                    'revision': {
+                                        '7.0.0': True
+                                    },
+                                    'choices': [
+                                        'regex',
+                                        'literal'
+                                    ],
+                                    'type': 'str'
+                                }
+                            }
+                        },
+                        'default-action': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'log',
+                                'block',
+                                'exempt'
+                            ],
+                            'type': 'str'
+                        },
+                        'domain-controller': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'str'
+                        },
+                        'inspection-entries': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'list',
+                            'options': {
+                                'action': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'choices': [
+                                        'log',
+                                        'block',
+                                        'exempt'
+                                    ],
+                                    'type': 'str'
+                                },
+                                'fortiguard-category': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'type': 'str'
+                                },
+                                'name': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'type': 'str'
+                                }
+                            }
+                        },
+                        'max-body-len': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'int'
+                        },
+                        'status': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'disable',
+                                'enable'
+                            ],
+                            'type': 'str'
+                        },
+                        'authentication': {
+                            'required': False,
+                            'revision': {
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'domain-controller',
+                                'ldap'
+                            ],
+                            'type': 'str'
+                        },
+                        'ldap': {
+                            'required': False,
+                            'revision': {
+                                '7.0.0': True
+                            },
+                            'type': 'str'
+                        }
+                    }
+                },
+                'ftgd-wf': {
+                    'required': False,
+                    'type': 'dict',
+                    'options': {
+                        'exempt-quota': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'str'
+                        },
+                        'filters': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'list',
+                            'options': {
+                                'action': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'choices': [
+                                        'block',
+                                        'monitor',
+                                        'warning',
+                                        'authenticate'
+                                    ],
+                                    'type': 'str'
+                                },
+                                'auth-usr-grp': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'type': 'str'
+                                },
+                                'category': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'type': 'str'
+                                },
+                                'id': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'type': 'int'
+                                },
+                                'log': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'choices': [
+                                        'disable',
+                                        'enable'
+                                    ],
+                                    'type': 'str'
+                                },
+                                'override-replacemsg': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'type': 'str'
+                                },
+                                'warn-duration': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'type': 'str'
+                                },
+                                'warning-duration-type': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'choices': [
+                                        'session',
+                                        'timeout'
+                                    ],
+                                    'type': 'str'
+                                },
+                                'warning-prompt': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'choices': [
+                                        'per-domain',
+                                        'per-category'
+                                    ],
+                                    'type': 'str'
+                                }
+                            }
+                        },
+                        'max-quota-timeout': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'int'
+                        },
+                        'options': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'list',
+                            'choices': [
+                                'error-allow',
+                                'http-err-detail',
+                                'rate-image-urls',
+                                'strict-blocking',
+                                'rate-server-ip',
+                                'redir-block',
+                                'connect-request-bypass',
+                                'log-all-url',
+                                'ftgd-disable'
+                            ]
+                        },
+                        'ovrd': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'str'
+                        },
+                        'quota': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'list',
+                            'options': {
+                                'category': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'type': 'str'
+                                },
+                                'duration': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'type': 'str'
+                                },
+                                'id': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'type': 'int'
+                                },
+                                'override-replacemsg': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'type': 'str'
+                                },
+                                'type': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'choices': [
+                                        'time',
+                                        'traffic'
+                                    ],
+                                    'type': 'str'
+                                },
+                                'unit': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'choices': [
+                                        'B',
+                                        'KB',
+                                        'MB',
+                                        'GB'
+                                    ],
+                                    'type': 'str'
+                                },
+                                'value': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'type': 'int'
+                                }
+                            }
+                        },
+                        'rate-crl-urls': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'disable',
+                                'enable'
+                            ],
+                            'type': 'str'
+                        },
+                        'rate-css-urls': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'disable',
+                                'enable'
+                            ],
+                            'type': 'str'
+                        },
+                        'rate-image-urls': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': False
+                            },
+                            'choices': [
+                                'disable',
+                                'enable'
+                            ],
+                            'type': 'str'
+                        },
+                        'rate-javascript-urls': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'disable',
+                                'enable'
+                            ],
+                            'type': 'str'
+                        }
+                    }
+                },
+                'override': {
+                    'required': False,
+                    'type': 'dict',
+                    'options': {
+                        'ovrd-cookie': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'deny',
+                                'allow'
+                            ],
+                            'type': 'str'
+                        },
+                        'ovrd-dur': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'str'
+                        },
+                        'ovrd-dur-mode': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'constant',
+                                'ask'
+                            ],
+                            'type': 'str'
+                        },
+                        'ovrd-scope': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'user',
+                                'user-group',
+                                'ip',
+                                'ask',
+                                'browser'
+                            ],
+                            'type': 'str'
+                        },
+                        'ovrd-user-group': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'str'
+                        },
+                        'profile': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'str'
+                        },
+                        'profile-attribute': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'User-Name',
+                                'User-Password',
+                                'CHAP-Password',
+                                'NAS-IP-Address',
+                                'NAS-Port',
+                                'Service-Type',
+                                'Framed-Protocol',
+                                'Framed-IP-Address',
+                                'Framed-IP-Netmask',
+                                'Framed-Routing',
+                                'Filter-Id',
+                                'Framed-MTU',
+                                'Framed-Compression',
+                                'Login-IP-Host',
+                                'Login-Service',
+                                'Login-TCP-Port',
+                                'Reply-Message',
+                                'Callback-Number',
+                                'Callback-Id',
+                                'Framed-Route',
+                                'Framed-IPX-Network',
+                                'State',
+                                'Class',
+                                'Vendor-Specific',
+                                'Session-Timeout',
+                                'Idle-Timeout',
+                                'Termination-Action',
+                                'Called-Station-Id',
+                                'Calling-Station-Id',
+                                'NAS-Identifier',
+                                'Proxy-State',
+                                'Login-LAT-Service',
+                                'Login-LAT-Node',
+                                'Login-LAT-Group',
+                                'Framed-AppleTalk-Link',
+                                'Framed-AppleTalk-Network',
+                                'Framed-AppleTalk-Zone',
+                                'Acct-Status-Type',
+                                'Acct-Delay-Time',
+                                'Acct-Input-Octets',
+                                'Acct-Output-Octets',
+                                'Acct-Session-Id',
+                                'Acct-Authentic',
+                                'Acct-Session-Time',
+                                'Acct-Input-Packets',
+                                'Acct-Output-Packets',
+                                'Acct-Terminate-Cause',
+                                'Acct-Multi-Session-Id',
+                                'Acct-Link-Count',
+                                'CHAP-Challenge',
+                                'NAS-Port-Type',
+                                'Port-Limit',
+                                'Login-LAT-Port'
+                            ],
+                            'type': 'str'
+                        },
+                        'profile-type': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'list',
+                                'radius'
+                            ],
+                            'type': 'str'
+                        }
+                    }
+                },
+                'url-extraction': {
+                    'required': False,
+                    'type': 'dict',
+                    'options': {
+                        'redirect-header': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'str'
+                        },
+                        'redirect-no-content': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'disable',
+                                'enable'
+                            ],
+                            'type': 'str'
+                        },
+                        'redirect-url': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'str'
+                        },
+                        'server-fqdn': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'str'
+                        },
+                        'status': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'disable',
+                                'enable'
+                            ],
+                            'type': 'str'
+                        }
+                    }
+                },
+                'web': {
+                    'required': False,
+                    'type': 'dict',
+                    'options': {
+                        'blacklist': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': False
+                            },
+                            'choices': [
+                                'disable',
+                                'enable'
+                            ],
+                            'type': 'str'
+                        },
+                        'bword-table': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'str'
+                        },
+                        'bword-threshold': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'int'
+                        },
+                        'content-header-list': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'str'
+                        },
+                        'keyword-match': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'str'
+                        },
+                        'log-search': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'disable',
+                                'enable'
+                            ],
+                            'type': 'str'
+                        },
+                        'safe-search': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'list',
+                            'choices': [
+                                'google',
+                                'yahoo',
+                                'bing',
+                                'url',
+                                'header'
+                            ]
+                        },
+                        'urlfilter-table': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'str'
+                        },
+                        'whitelist': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': False
+                            },
+                            'type': 'list',
+                            'choices': [
+                                'exempt-av',
+                                'exempt-webcontent',
+                                'exempt-activex-java-cookie',
+                                'exempt-dlp',
+                                'exempt-rangeblock',
+                                'extended-log-others'
+                            ]
+                        },
+                        'youtube-restrict': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': False
+                            },
+                            'choices': [
+                                'strict',
+                                'none',
+                                'moderate'
+                            ],
+                            'type': 'str'
+                        },
+                        'allowlist': {
+                            'required': False,
+                            'revision': {
+                                '7.0.0': True
+                            },
+                            'type': 'list',
+                            'choices': [
+                                'exempt-av',
+                                'exempt-webcontent',
+                                'exempt-activex-java-cookie',
+                                'exempt-dlp',
+                                'exempt-rangeblock',
+                                'extended-log-others'
+                            ]
+                        },
+                        'blocklist': {
+                            'required': False,
+                            'revision': {
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'disable',
+                                'enable'
+                            ],
+                            'type': 'str'
+                        }
+                    }
                 }
             }
 

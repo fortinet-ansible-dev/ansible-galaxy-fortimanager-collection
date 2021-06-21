@@ -136,6 +136,18 @@ options:
                         choices:
                             - 'disable'
                             - 'enable'
+                    _image-base64:
+                        type: str
+                        description: no description
+                    global-object:
+                        type: int
+                        description: no description
+                    fabric-object:
+                        type: str
+                        description: 'Security Fabric global object setting.'
+                        choices:
+                            - 'disable'
+                            - 'enable'
             member:
                 type: str
                 description: 'Address objects contained within the group.'
@@ -161,6 +173,18 @@ options:
             visibility:
                 type: str
                 description: 'Enable/disable address group6 visibility in the GUI.'
+                choices:
+                    - 'disable'
+                    - 'enable'
+            _image-base64:
+                type: str
+                description: no description
+            global-object:
+                type: int
+                description: 'Global Object.'
+            fabric-object:
+                type: str
+                description: 'Security Fabric global object setting.'
                 choices:
                     - 'disable'
                     - 'enable'
@@ -201,6 +225,9 @@ EXAMPLES = '''
                   tags: <value of string>
                   uuid: <value of string>
                   visibility: <value in [disable, enable]>
+                  _image-base64: <value of string>
+                  global-object: <value of integer>
+                  fabric-object: <value in [disable, enable]>
             member: <value of string>
             name: <value of string>
             tagging:
@@ -210,6 +237,9 @@ EXAMPLES = '''
                   tags: <value of string>
             uuid: <value of string>
             visibility: <value in [disable, enable]>
+            _image-base64: <value of string>
+            global-object: <value of integer>
+            fabric-object: <value in [disable, enable]>
 
 '''
 
@@ -306,52 +336,206 @@ def main():
             'options': {
                 'color': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'comment': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'dynamic_mapping': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'list',
                     'options': {
                         '_scope': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'list',
                             'options': {
                                 'name': {
                                     'required': False,
+                                    'revision': {
+                                        '6.0.0': True,
+                                        '6.2.1': True,
+                                        '6.2.3': True,
+                                        '6.2.5': True,
+                                        '6.4.0': True,
+                                        '6.4.2': True,
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
                                     'type': 'str'
                                 },
                                 'vdom': {
                                     'required': False,
+                                    'revision': {
+                                        '6.0.0': True,
+                                        '6.2.1': True,
+                                        '6.2.3': True,
+                                        '6.2.5': True,
+                                        '6.4.0': True,
+                                        '6.4.2': True,
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
                                     'type': 'str'
                                 }
                             }
                         },
                         'color': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'int'
                         },
                         'comment': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'str'
                         },
                         'member': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'str'
                         },
                         'tags': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'str'
                         },
                         'uuid': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'str'
                         },
                         'visibility': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'disable',
+                                'enable'
+                            ],
+                            'type': 'str'
+                        },
+                        '_image-base64': {
+                            'required': False,
+                            'revision': {
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'str'
+                        },
+                        'global-object': {
+                            'required': False,
+                            'revision': {
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'int'
+                        },
+                        'fabric-object': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'choices': [
                                 'disable',
                                 'enable'
@@ -362,36 +546,150 @@ def main():
                 },
                 'member': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'name': {
                     'required': True,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'tagging': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'list',
                     'options': {
                         'category': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'str'
                         },
                         'name': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'str'
                         },
                         'tags': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'str'
                         }
                     }
                 },
                 'uuid': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'visibility': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': False,
+                        '6.4.2': False,
+                        '6.4.5': False,
+                        '7.0.0': False
+                    },
+                    'choices': [
+                        'disable',
+                        'enable'
+                    ],
+                    'type': 'str'
+                },
+                '_image-base64': {
+                    'required': False,
+                    'revision': {
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'type': 'str'
+                },
+                'global-object': {
+                    'required': False,
+                    'revision': {
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': False
+                    },
+                    'type': 'int'
+                },
+                'fabric-object': {
+                    'required': False,
+                    'revision': {
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'

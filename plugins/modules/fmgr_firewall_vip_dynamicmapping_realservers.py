@@ -24,7 +24,7 @@ ANSIBLE_METADATA = {'status': ['preview'],
 DOCUMENTATION = '''
 ---
 module: fmgr_firewall_vip_dynamicmapping_realservers
-short_description: no description
+short_description: Select the real servers that this server load balancing VIP will distribute traffic to.
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
@@ -144,6 +144,18 @@ options:
             weight:
                 type: int
                 description: no description
+            address:
+                type: str
+                description: no description
+            id:
+                type: int
+                description: no description
+            type:
+                type: str
+                description: no description
+                choices:
+                    - 'ip'
+                    - 'address'
 
 '''
 
@@ -157,7 +169,7 @@ EXAMPLES = '''
       ansible_httpapi_validate_certs: False
       ansible_httpapi_port: 443
    tasks:
-    - name: no description
+    - name: Select the real servers that this server load balancing VIP will distribute traffic to.
       fmgr_firewall_vip_dynamicmapping_realservers:
          bypass_validation: False
          workspace_locking_adom: <value in [global, custom adom including root]>
@@ -180,6 +192,9 @@ EXAMPLES = '''
             seq: <value of integer>
             status: <value in [active, standby, disable]>
             weight: <value of integer>
+            address: <value of string>
+            id: <value of integer>
+            type: <value in [ip, address]>
 
 '''
 
@@ -284,10 +299,30 @@ def main():
             'options': {
                 'client-ip': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'healthcheck': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable',
@@ -297,34 +332,114 @@ def main():
                 },
                 'holddown-interval': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'http-host': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'ip': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'max-connections': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'monitor': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'port': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'seq': {
                     'required': True,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'status': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'active',
                         'standby',
@@ -334,7 +449,51 @@ def main():
                 },
                 'weight': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
+                },
+                'address': {
+                    'required': False,
+                    'revision': {
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'type': 'str'
+                },
+                'id': {
+                    'required': False,
+                    'revision': {
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'type': 'int'
+                },
+                'type': {
+                    'required': False,
+                    'revision': {
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'choices': [
+                        'ip',
+                        'address'
+                    ],
+                    'type': 'str'
                 }
             }
 

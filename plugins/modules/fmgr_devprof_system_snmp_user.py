@@ -105,6 +105,10 @@ options:
                 choices:
                     - 'md5'
                     - 'sha'
+                    - 'sha224'
+                    - 'sha256'
+                    - 'sha384'
+                    - 'sha512'
             auth-pwd:
                 description: no description
                 type: str
@@ -156,6 +160,1249 @@ options:
                  - per-cpu-high
                  - power-blade-down
                  - confsync_failure
+                 - cpu-high
+                 - mem-low
+                 - log-full
+                 - intf-ip
+                 - vpn-tun-up
+                 - vpn-tun-down
+                 - ha-switch
+                 - fm-conf-change
+                 - ips-signature
+                 - ips-anomaly
+                 - temperature-high
+                 - voltage-alert
+                 - av-virus
+                 - av-oversize
+                 - av-pattern
+                 - av-fragmented
+                 - ha-hb-failure
+                 - fan-failure
+                 - ha-member-up
+                 - ha-member-down
+                 - ent-conf-change
+                 - av-conserve
+                 - av-bypass
+                 - av-oversize-passed
+                 - av-oversize-blocked
+                 - ips-pkg-update
+                 - fm-if-change
+                 - power-supply-failure
+                 - amc-bypass
+                 - faz-disconnect
+                 - bgp-established
+                 - bgp-backward-transition
+                 - wc-ap-up
+                 - wc-ap-down
+                 - fswctl-session-up
+                 - fswctl-session-down
+                 - ips-fail-open
+                 - load-balance-real-server-down
+                 - device-new
+                 - enter-intf-bypass
+                 - exit-intf-bypass
+                 - per-cpu-high
+                 - power-blade-down
+                 - confsync_failure
+                 - dhcp
+                 - cpu-high
+                 - mem-low
+                 - log-full
+                 - intf-ip
+                 - vpn-tun-up
+                 - vpn-tun-down
+                 - ha-switch
+                 - fm-conf-change
+                 - ips-signature
+                 - ips-anomaly
+                 - temperature-high
+                 - voltage-alert
+                 - av-virus
+                 - av-oversize
+                 - av-pattern
+                 - av-fragmented
+                 - ha-hb-failure
+                 - fan-failure
+                 - ha-member-up
+                 - ha-member-down
+                 - ent-conf-change
+                 - av-conserve
+                 - av-bypass
+                 - av-oversize-passed
+                 - av-oversize-blocked
+                 - ips-pkg-update
+                 - fm-if-change
+                 - power-supply-failure
+                 - amc-bypass
+                 - faz-disconnect
+                 - bgp-established
+                 - bgp-backward-transition
+                 - wc-ap-up
+                 - wc-ap-down
+                 - fswctl-session-up
+                 - fswctl-session-down
+                 - ips-fail-open
+                 - load-balance-real-server-down
+                 - device-new
+                 - enter-intf-bypass
+                 - exit-intf-bypass
+                 - per-cpu-high
+                 - power-blade-down
+                 - confsync_failure
+                 - dhcp
+                 - pool-usage
+                 - power-redundancy-degrade
+                 - power-redundancy-failure
+                 - cpu-high
+                 - mem-low
+                 - log-full
+                 - intf-ip
+                 - vpn-tun-up
+                 - vpn-tun-down
+                 - ha-switch
+                 - fm-conf-change
+                 - ips-signature
+                 - ips-anomaly
+                 - temperature-high
+                 - voltage-alert
+                 - av-virus
+                 - av-oversize
+                 - av-pattern
+                 - av-fragmented
+                 - ha-hb-failure
+                 - fan-failure
+                 - ha-member-up
+                 - ha-member-down
+                 - ent-conf-change
+                 - av-conserve
+                 - av-bypass
+                 - av-oversize-passed
+                 - av-oversize-blocked
+                 - ips-pkg-update
+                 - fm-if-change
+                 - power-supply-failure
+                 - amc-bypass
+                 - faz-disconnect
+                 - bgp-established
+                 - bgp-backward-transition
+                 - wc-ap-up
+                 - wc-ap-down
+                 - fswctl-session-up
+                 - fswctl-session-down
+                 - ips-fail-open
+                 - load-balance-real-server-down
+                 - device-new
+                 - enter-intf-bypass
+                 - exit-intf-bypass
+                 - per-cpu-high
+                 - power-blade-down
+                 - confsync_failure
+                 - dhcp
+                 - pool-usage
+                 - power-redundancy-degrade
+                 - power-redundancy-failure
+                 - ospf-nbr-state-change
+                 - ospf-virtnbr-state-change
+                 - cpu-high
+                 - mem-low
+                 - log-full
+                 - intf-ip
+                 - vpn-tun-up
+                 - vpn-tun-down
+                 - ha-switch
+                 - fm-conf-change
+                 - ips-signature
+                 - ips-anomaly
+                 - temperature-high
+                 - voltage-alert
+                 - av-virus
+                 - av-oversize
+                 - av-pattern
+                 - av-fragmented
+                 - ha-hb-failure
+                 - fan-failure
+                 - ha-member-up
+                 - ha-member-down
+                 - ent-conf-change
+                 - av-conserve
+                 - av-bypass
+                 - av-oversize-passed
+                 - av-oversize-blocked
+                 - ips-pkg-update
+                 - fm-if-change
+                 - power-supply-failure
+                 - amc-bypass
+                 - faz-disconnect
+                 - bgp-established
+                 - bgp-backward-transition
+                 - wc-ap-up
+                 - wc-ap-down
+                 - fswctl-session-up
+                 - fswctl-session-down
+                 - ips-fail-open
+                 - load-balance-real-server-down
+                 - device-new
+                 - enter-intf-bypass
+                 - exit-intf-bypass
+                 - per-cpu-high
+                 - power-blade-down
+                 - confsync_failure
+                 - cpu-high
+                 - mem-low
+                 - log-full
+                 - intf-ip
+                 - vpn-tun-up
+                 - vpn-tun-down
+                 - ha-switch
+                 - fm-conf-change
+                 - ips-signature
+                 - ips-anomaly
+                 - temperature-high
+                 - voltage-alert
+                 - av-virus
+                 - av-oversize
+                 - av-pattern
+                 - av-fragmented
+                 - ha-hb-failure
+                 - fan-failure
+                 - ha-member-up
+                 - ha-member-down
+                 - ent-conf-change
+                 - av-conserve
+                 - av-bypass
+                 - av-oversize-passed
+                 - av-oversize-blocked
+                 - ips-pkg-update
+                 - fm-if-change
+                 - power-supply-failure
+                 - amc-bypass
+                 - faz-disconnect
+                 - bgp-established
+                 - bgp-backward-transition
+                 - wc-ap-up
+                 - wc-ap-down
+                 - fswctl-session-up
+                 - fswctl-session-down
+                 - ips-fail-open
+                 - load-balance-real-server-down
+                 - device-new
+                 - enter-intf-bypass
+                 - exit-intf-bypass
+                 - per-cpu-high
+                 - power-blade-down
+                 - confsync_failure
+                 - cpu-high
+                 - mem-low
+                 - log-full
+                 - intf-ip
+                 - vpn-tun-up
+                 - vpn-tun-down
+                 - ha-switch
+                 - fm-conf-change
+                 - ips-signature
+                 - ips-anomaly
+                 - temperature-high
+                 - voltage-alert
+                 - av-virus
+                 - av-oversize
+                 - av-pattern
+                 - av-fragmented
+                 - ha-hb-failure
+                 - fan-failure
+                 - ha-member-up
+                 - ha-member-down
+                 - ent-conf-change
+                 - av-conserve
+                 - av-bypass
+                 - av-oversize-passed
+                 - av-oversize-blocked
+                 - ips-pkg-update
+                 - fm-if-change
+                 - power-supply-failure
+                 - amc-bypass
+                 - faz-disconnect
+                 - bgp-established
+                 - bgp-backward-transition
+                 - wc-ap-up
+                 - wc-ap-down
+                 - fswctl-session-up
+                 - fswctl-session-down
+                 - ips-fail-open
+                 - load-balance-real-server-down
+                 - device-new
+                 - enter-intf-bypass
+                 - exit-intf-bypass
+                 - per-cpu-high
+                 - power-blade-down
+                 - confsync_failure
+                 - cpu-high
+                 - mem-low
+                 - log-full
+                 - intf-ip
+                 - vpn-tun-up
+                 - vpn-tun-down
+                 - ha-switch
+                 - fm-conf-change
+                 - ips-signature
+                 - ips-anomaly
+                 - temperature-high
+                 - voltage-alert
+                 - av-virus
+                 - av-oversize
+                 - av-pattern
+                 - av-fragmented
+                 - ha-hb-failure
+                 - fan-failure
+                 - ha-member-up
+                 - ha-member-down
+                 - ent-conf-change
+                 - av-conserve
+                 - av-bypass
+                 - av-oversize-passed
+                 - av-oversize-blocked
+                 - ips-pkg-update
+                 - fm-if-change
+                 - power-supply-failure
+                 - amc-bypass
+                 - faz-disconnect
+                 - bgp-established
+                 - bgp-backward-transition
+                 - wc-ap-up
+                 - wc-ap-down
+                 - fswctl-session-up
+                 - fswctl-session-down
+                 - ips-fail-open
+                 - load-balance-real-server-down
+                 - device-new
+                 - enter-intf-bypass
+                 - exit-intf-bypass
+                 - per-cpu-high
+                 - power-blade-down
+                 - confsync_failure
+                 - dhcp
+                 - cpu-high
+                 - mem-low
+                 - log-full
+                 - intf-ip
+                 - vpn-tun-up
+                 - vpn-tun-down
+                 - ha-switch
+                 - fm-conf-change
+                 - ips-signature
+                 - ips-anomaly
+                 - temperature-high
+                 - voltage-alert
+                 - av-virus
+                 - av-oversize
+                 - av-pattern
+                 - av-fragmented
+                 - ha-hb-failure
+                 - fan-failure
+                 - ha-member-up
+                 - ha-member-down
+                 - ent-conf-change
+                 - av-conserve
+                 - av-bypass
+                 - av-oversize-passed
+                 - av-oversize-blocked
+                 - ips-pkg-update
+                 - fm-if-change
+                 - power-supply-failure
+                 - amc-bypass
+                 - faz-disconnect
+                 - bgp-established
+                 - bgp-backward-transition
+                 - wc-ap-up
+                 - wc-ap-down
+                 - fswctl-session-up
+                 - fswctl-session-down
+                 - ips-fail-open
+                 - load-balance-real-server-down
+                 - device-new
+                 - enter-intf-bypass
+                 - exit-intf-bypass
+                 - per-cpu-high
+                 - power-blade-down
+                 - confsync_failure
+                 - dhcp
+                 - pool-usage
+                 - power-redundancy-degrade
+                 - power-redundancy-failure
+                 - cpu-high
+                 - mem-low
+                 - log-full
+                 - intf-ip
+                 - vpn-tun-up
+                 - vpn-tun-down
+                 - ha-switch
+                 - fm-conf-change
+                 - ips-signature
+                 - ips-anomaly
+                 - temperature-high
+                 - voltage-alert
+                 - av-virus
+                 - av-oversize
+                 - av-pattern
+                 - av-fragmented
+                 - ha-hb-failure
+                 - fan-failure
+                 - ha-member-up
+                 - ha-member-down
+                 - ent-conf-change
+                 - av-conserve
+                 - av-bypass
+                 - av-oversize-passed
+                 - av-oversize-blocked
+                 - ips-pkg-update
+                 - fm-if-change
+                 - power-supply-failure
+                 - amc-bypass
+                 - faz-disconnect
+                 - bgp-established
+                 - bgp-backward-transition
+                 - wc-ap-up
+                 - wc-ap-down
+                 - fswctl-session-up
+                 - fswctl-session-down
+                 - ips-fail-open
+                 - load-balance-real-server-down
+                 - device-new
+                 - enter-intf-bypass
+                 - exit-intf-bypass
+                 - per-cpu-high
+                 - power-blade-down
+                 - confsync_failure
+                 - dhcp
+                 - pool-usage
+                 - power-redundancy-degrade
+                 - power-redundancy-failure
+                 - ospf-nbr-state-change
+                 - ospf-virtnbr-state-change
+                 - cpu-high
+                 - mem-low
+                 - log-full
+                 - intf-ip
+                 - vpn-tun-up
+                 - vpn-tun-down
+                 - ha-switch
+                 - fm-conf-change
+                 - ips-signature
+                 - ips-anomaly
+                 - temperature-high
+                 - voltage-alert
+                 - av-virus
+                 - av-oversize
+                 - av-pattern
+                 - av-fragmented
+                 - ha-hb-failure
+                 - fan-failure
+                 - ha-member-up
+                 - ha-member-down
+                 - ent-conf-change
+                 - av-conserve
+                 - av-bypass
+                 - av-oversize-passed
+                 - av-oversize-blocked
+                 - ips-pkg-update
+                 - fm-if-change
+                 - power-supply-failure
+                 - amc-bypass
+                 - faz-disconnect
+                 - bgp-established
+                 - bgp-backward-transition
+                 - wc-ap-up
+                 - wc-ap-down
+                 - fswctl-session-up
+                 - fswctl-session-down
+                 - ips-fail-open
+                 - load-balance-real-server-down
+                 - device-new
+                 - enter-intf-bypass
+                 - exit-intf-bypass
+                 - per-cpu-high
+                 - power-blade-down
+                 - confsync_failure
+                 - cpu-high
+                 - mem-low
+                 - log-full
+                 - intf-ip
+                 - vpn-tun-up
+                 - vpn-tun-down
+                 - ha-switch
+                 - fm-conf-change
+                 - ips-signature
+                 - ips-anomaly
+                 - temperature-high
+                 - voltage-alert
+                 - av-virus
+                 - av-oversize
+                 - av-pattern
+                 - av-fragmented
+                 - ha-hb-failure
+                 - fan-failure
+                 - ha-member-up
+                 - ha-member-down
+                 - ent-conf-change
+                 - av-conserve
+                 - av-bypass
+                 - av-oversize-passed
+                 - av-oversize-blocked
+                 - ips-pkg-update
+                 - fm-if-change
+                 - power-supply-failure
+                 - amc-bypass
+                 - faz-disconnect
+                 - bgp-established
+                 - bgp-backward-transition
+                 - wc-ap-up
+                 - wc-ap-down
+                 - fswctl-session-up
+                 - fswctl-session-down
+                 - ips-fail-open
+                 - load-balance-real-server-down
+                 - device-new
+                 - enter-intf-bypass
+                 - exit-intf-bypass
+                 - per-cpu-high
+                 - power-blade-down
+                 - confsync_failure
+                 - cpu-high
+                 - mem-low
+                 - log-full
+                 - intf-ip
+                 - vpn-tun-up
+                 - vpn-tun-down
+                 - ha-switch
+                 - fm-conf-change
+                 - ips-signature
+                 - ips-anomaly
+                 - temperature-high
+                 - voltage-alert
+                 - av-virus
+                 - av-oversize
+                 - av-pattern
+                 - av-fragmented
+                 - ha-hb-failure
+                 - fan-failure
+                 - ha-member-up
+                 - ha-member-down
+                 - ent-conf-change
+                 - av-conserve
+                 - av-bypass
+                 - av-oversize-passed
+                 - av-oversize-blocked
+                 - ips-pkg-update
+                 - fm-if-change
+                 - power-supply-failure
+                 - amc-bypass
+                 - faz-disconnect
+                 - bgp-established
+                 - bgp-backward-transition
+                 - wc-ap-up
+                 - wc-ap-down
+                 - fswctl-session-up
+                 - fswctl-session-down
+                 - ips-fail-open
+                 - load-balance-real-server-down
+                 - device-new
+                 - enter-intf-bypass
+                 - exit-intf-bypass
+                 - per-cpu-high
+                 - power-blade-down
+                 - confsync_failure
+                 - cpu-high
+                 - mem-low
+                 - log-full
+                 - intf-ip
+                 - vpn-tun-up
+                 - vpn-tun-down
+                 - ha-switch
+                 - fm-conf-change
+                 - ips-signature
+                 - ips-anomaly
+                 - temperature-high
+                 - voltage-alert
+                 - av-virus
+                 - av-oversize
+                 - av-pattern
+                 - av-fragmented
+                 - ha-hb-failure
+                 - fan-failure
+                 - ha-member-up
+                 - ha-member-down
+                 - ent-conf-change
+                 - av-conserve
+                 - av-bypass
+                 - av-oversize-passed
+                 - av-oversize-blocked
+                 - ips-pkg-update
+                 - fm-if-change
+                 - power-supply-failure
+                 - amc-bypass
+                 - faz-disconnect
+                 - bgp-established
+                 - bgp-backward-transition
+                 - wc-ap-up
+                 - wc-ap-down
+                 - fswctl-session-up
+                 - fswctl-session-down
+                 - ips-fail-open
+                 - load-balance-real-server-down
+                 - device-new
+                 - enter-intf-bypass
+                 - exit-intf-bypass
+                 - per-cpu-high
+                 - power-blade-down
+                 - confsync_failure
+                 - dhcp
+                 - cpu-high
+                 - mem-low
+                 - log-full
+                 - intf-ip
+                 - vpn-tun-up
+                 - vpn-tun-down
+                 - ha-switch
+                 - fm-conf-change
+                 - ips-signature
+                 - ips-anomaly
+                 - temperature-high
+                 - voltage-alert
+                 - av-virus
+                 - av-oversize
+                 - av-pattern
+                 - av-fragmented
+                 - ha-hb-failure
+                 - fan-failure
+                 - ha-member-up
+                 - ha-member-down
+                 - ent-conf-change
+                 - av-conserve
+                 - av-bypass
+                 - av-oversize-passed
+                 - av-oversize-blocked
+                 - ips-pkg-update
+                 - fm-if-change
+                 - power-supply-failure
+                 - amc-bypass
+                 - faz-disconnect
+                 - bgp-established
+                 - bgp-backward-transition
+                 - wc-ap-up
+                 - wc-ap-down
+                 - fswctl-session-up
+                 - fswctl-session-down
+                 - ips-fail-open
+                 - load-balance-real-server-down
+                 - device-new
+                 - enter-intf-bypass
+                 - exit-intf-bypass
+                 - per-cpu-high
+                 - power-blade-down
+                 - confsync_failure
+                 - dhcp
+                 - pool-usage
+                 - power-redundancy-degrade
+                 - power-redundancy-failure
+                 - cpu-high
+                 - mem-low
+                 - log-full
+                 - intf-ip
+                 - vpn-tun-up
+                 - vpn-tun-down
+                 - ha-switch
+                 - fm-conf-change
+                 - ips-signature
+                 - ips-anomaly
+                 - temperature-high
+                 - voltage-alert
+                 - av-virus
+                 - av-oversize
+                 - av-pattern
+                 - av-fragmented
+                 - ha-hb-failure
+                 - fan-failure
+                 - ha-member-up
+                 - ha-member-down
+                 - ent-conf-change
+                 - av-conserve
+                 - av-bypass
+                 - av-oversize-passed
+                 - av-oversize-blocked
+                 - ips-pkg-update
+                 - fm-if-change
+                 - power-supply-failure
+                 - amc-bypass
+                 - faz-disconnect
+                 - bgp-established
+                 - bgp-backward-transition
+                 - wc-ap-up
+                 - wc-ap-down
+                 - fswctl-session-up
+                 - fswctl-session-down
+                 - ips-fail-open
+                 - load-balance-real-server-down
+                 - device-new
+                 - enter-intf-bypass
+                 - exit-intf-bypass
+                 - per-cpu-high
+                 - power-blade-down
+                 - confsync_failure
+                 - dhcp
+                 - pool-usage
+                 - power-redundancy-degrade
+                 - power-redundancy-failure
+                 - ospf-nbr-state-change
+                 - ospf-virtnbr-state-change
+                 - cpu-high
+                 - mem-low
+                 - log-full
+                 - intf-ip
+                 - vpn-tun-up
+                 - vpn-tun-down
+                 - ha-switch
+                 - fm-conf-change
+                 - ips-signature
+                 - ips-anomaly
+                 - temperature-high
+                 - voltage-alert
+                 - av-virus
+                 - av-oversize
+                 - av-pattern
+                 - av-fragmented
+                 - ha-hb-failure
+                 - fan-failure
+                 - ha-member-up
+                 - ha-member-down
+                 - ent-conf-change
+                 - av-conserve
+                 - av-bypass
+                 - av-oversize-passed
+                 - av-oversize-blocked
+                 - ips-pkg-update
+                 - fm-if-change
+                 - power-supply-failure
+                 - amc-bypass
+                 - faz-disconnect
+                 - bgp-established
+                 - bgp-backward-transition
+                 - wc-ap-up
+                 - wc-ap-down
+                 - fswctl-session-up
+                 - fswctl-session-down
+                 - ips-fail-open
+                 - load-balance-real-server-down
+                 - device-new
+                 - enter-intf-bypass
+                 - exit-intf-bypass
+                 - per-cpu-high
+                 - power-blade-down
+                 - confsync_failure
+                 - cpu-high
+                 - mem-low
+                 - log-full
+                 - intf-ip
+                 - vpn-tun-up
+                 - vpn-tun-down
+                 - ha-switch
+                 - fm-conf-change
+                 - ips-signature
+                 - ips-anomaly
+                 - temperature-high
+                 - voltage-alert
+                 - av-virus
+                 - av-oversize
+                 - av-pattern
+                 - av-fragmented
+                 - ha-hb-failure
+                 - fan-failure
+                 - ha-member-up
+                 - ha-member-down
+                 - ent-conf-change
+                 - av-conserve
+                 - av-bypass
+                 - av-oversize-passed
+                 - av-oversize-blocked
+                 - ips-pkg-update
+                 - fm-if-change
+                 - power-supply-failure
+                 - amc-bypass
+                 - faz-disconnect
+                 - bgp-established
+                 - bgp-backward-transition
+                 - wc-ap-up
+                 - wc-ap-down
+                 - fswctl-session-up
+                 - fswctl-session-down
+                 - ips-fail-open
+                 - load-balance-real-server-down
+                 - device-new
+                 - enter-intf-bypass
+                 - exit-intf-bypass
+                 - per-cpu-high
+                 - power-blade-down
+                 - confsync_failure
+                 - cpu-high
+                 - mem-low
+                 - log-full
+                 - intf-ip
+                 - vpn-tun-up
+                 - vpn-tun-down
+                 - ha-switch
+                 - fm-conf-change
+                 - ips-signature
+                 - ips-anomaly
+                 - temperature-high
+                 - voltage-alert
+                 - av-virus
+                 - av-oversize
+                 - av-pattern
+                 - av-fragmented
+                 - ha-hb-failure
+                 - fan-failure
+                 - ha-member-up
+                 - ha-member-down
+                 - ent-conf-change
+                 - av-conserve
+                 - av-bypass
+                 - av-oversize-passed
+                 - av-oversize-blocked
+                 - ips-pkg-update
+                 - fm-if-change
+                 - power-supply-failure
+                 - amc-bypass
+                 - faz-disconnect
+                 - bgp-established
+                 - bgp-backward-transition
+                 - wc-ap-up
+                 - wc-ap-down
+                 - fswctl-session-up
+                 - fswctl-session-down
+                 - ips-fail-open
+                 - load-balance-real-server-down
+                 - device-new
+                 - enter-intf-bypass
+                 - exit-intf-bypass
+                 - per-cpu-high
+                 - power-blade-down
+                 - confsync_failure
+                 - cpu-high
+                 - mem-low
+                 - log-full
+                 - intf-ip
+                 - vpn-tun-up
+                 - vpn-tun-down
+                 - ha-switch
+                 - fm-conf-change
+                 - ips-signature
+                 - ips-anomaly
+                 - temperature-high
+                 - voltage-alert
+                 - av-virus
+                 - av-oversize
+                 - av-pattern
+                 - av-fragmented
+                 - ha-hb-failure
+                 - fan-failure
+                 - ha-member-up
+                 - ha-member-down
+                 - ent-conf-change
+                 - av-conserve
+                 - av-bypass
+                 - av-oversize-passed
+                 - av-oversize-blocked
+                 - ips-pkg-update
+                 - fm-if-change
+                 - power-supply-failure
+                 - amc-bypass
+                 - faz-disconnect
+                 - bgp-established
+                 - bgp-backward-transition
+                 - wc-ap-up
+                 - wc-ap-down
+                 - fswctl-session-up
+                 - fswctl-session-down
+                 - ips-fail-open
+                 - load-balance-real-server-down
+                 - device-new
+                 - enter-intf-bypass
+                 - exit-intf-bypass
+                 - per-cpu-high
+                 - power-blade-down
+                 - confsync_failure
+                 - dhcp
+                 - cpu-high
+                 - mem-low
+                 - log-full
+                 - intf-ip
+                 - vpn-tun-up
+                 - vpn-tun-down
+                 - ha-switch
+                 - fm-conf-change
+                 - ips-signature
+                 - ips-anomaly
+                 - temperature-high
+                 - voltage-alert
+                 - av-virus
+                 - av-oversize
+                 - av-pattern
+                 - av-fragmented
+                 - ha-hb-failure
+                 - fan-failure
+                 - ha-member-up
+                 - ha-member-down
+                 - ent-conf-change
+                 - av-conserve
+                 - av-bypass
+                 - av-oversize-passed
+                 - av-oversize-blocked
+                 - ips-pkg-update
+                 - fm-if-change
+                 - power-supply-failure
+                 - amc-bypass
+                 - faz-disconnect
+                 - bgp-established
+                 - bgp-backward-transition
+                 - wc-ap-up
+                 - wc-ap-down
+                 - fswctl-session-up
+                 - fswctl-session-down
+                 - ips-fail-open
+                 - load-balance-real-server-down
+                 - device-new
+                 - enter-intf-bypass
+                 - exit-intf-bypass
+                 - per-cpu-high
+                 - power-blade-down
+                 - confsync_failure
+                 - dhcp
+                 - pool-usage
+                 - power-redundancy-degrade
+                 - power-redundancy-failure
+                 - cpu-high
+                 - mem-low
+                 - log-full
+                 - intf-ip
+                 - vpn-tun-up
+                 - vpn-tun-down
+                 - ha-switch
+                 - fm-conf-change
+                 - ips-signature
+                 - ips-anomaly
+                 - temperature-high
+                 - voltage-alert
+                 - av-virus
+                 - av-oversize
+                 - av-pattern
+                 - av-fragmented
+                 - ha-hb-failure
+                 - fan-failure
+                 - ha-member-up
+                 - ha-member-down
+                 - ent-conf-change
+                 - av-conserve
+                 - av-bypass
+                 - av-oversize-passed
+                 - av-oversize-blocked
+                 - ips-pkg-update
+                 - fm-if-change
+                 - power-supply-failure
+                 - amc-bypass
+                 - faz-disconnect
+                 - bgp-established
+                 - bgp-backward-transition
+                 - wc-ap-up
+                 - wc-ap-down
+                 - fswctl-session-up
+                 - fswctl-session-down
+                 - ips-fail-open
+                 - load-balance-real-server-down
+                 - device-new
+                 - enter-intf-bypass
+                 - exit-intf-bypass
+                 - per-cpu-high
+                 - power-blade-down
+                 - confsync_failure
+                 - dhcp
+                 - pool-usage
+                 - power-redundancy-degrade
+                 - power-redundancy-failure
+                 - ospf-nbr-state-change
+                 - ospf-virtnbr-state-change
+                 - cpu-high
+                 - mem-low
+                 - log-full
+                 - intf-ip
+                 - vpn-tun-up
+                 - vpn-tun-down
+                 - ha-switch
+                 - fm-conf-change
+                 - ips-signature
+                 - ips-anomaly
+                 - temperature-high
+                 - voltage-alert
+                 - av-virus
+                 - av-oversize
+                 - av-pattern
+                 - av-fragmented
+                 - ha-hb-failure
+                 - fan-failure
+                 - ha-member-up
+                 - ha-member-down
+                 - ent-conf-change
+                 - av-conserve
+                 - av-bypass
+                 - av-oversize-passed
+                 - av-oversize-blocked
+                 - ips-pkg-update
+                 - fm-if-change
+                 - power-supply-failure
+                 - amc-bypass
+                 - faz-disconnect
+                 - bgp-established
+                 - bgp-backward-transition
+                 - wc-ap-up
+                 - wc-ap-down
+                 - fswctl-session-up
+                 - fswctl-session-down
+                 - ips-fail-open
+                 - load-balance-real-server-down
+                 - device-new
+                 - enter-intf-bypass
+                 - exit-intf-bypass
+                 - per-cpu-high
+                 - power-blade-down
+                 - confsync_failure
+                 - cpu-high
+                 - mem-low
+                 - log-full
+                 - intf-ip
+                 - vpn-tun-up
+                 - vpn-tun-down
+                 - ha-switch
+                 - fm-conf-change
+                 - ips-signature
+                 - ips-anomaly
+                 - temperature-high
+                 - voltage-alert
+                 - av-virus
+                 - av-oversize
+                 - av-pattern
+                 - av-fragmented
+                 - ha-hb-failure
+                 - fan-failure
+                 - ha-member-up
+                 - ha-member-down
+                 - ent-conf-change
+                 - av-conserve
+                 - av-bypass
+                 - av-oversize-passed
+                 - av-oversize-blocked
+                 - ips-pkg-update
+                 - fm-if-change
+                 - power-supply-failure
+                 - amc-bypass
+                 - faz-disconnect
+                 - bgp-established
+                 - bgp-backward-transition
+                 - wc-ap-up
+                 - wc-ap-down
+                 - fswctl-session-up
+                 - fswctl-session-down
+                 - ips-fail-open
+                 - load-balance-real-server-down
+                 - device-new
+                 - enter-intf-bypass
+                 - exit-intf-bypass
+                 - per-cpu-high
+                 - power-blade-down
+                 - confsync_failure
+                 - cpu-high
+                 - mem-low
+                 - log-full
+                 - intf-ip
+                 - vpn-tun-up
+                 - vpn-tun-down
+                 - ha-switch
+                 - fm-conf-change
+                 - ips-signature
+                 - ips-anomaly
+                 - temperature-high
+                 - voltage-alert
+                 - av-virus
+                 - av-oversize
+                 - av-pattern
+                 - av-fragmented
+                 - ha-hb-failure
+                 - fan-failure
+                 - ha-member-up
+                 - ha-member-down
+                 - ent-conf-change
+                 - av-conserve
+                 - av-bypass
+                 - av-oversize-passed
+                 - av-oversize-blocked
+                 - ips-pkg-update
+                 - fm-if-change
+                 - power-supply-failure
+                 - amc-bypass
+                 - faz-disconnect
+                 - bgp-established
+                 - bgp-backward-transition
+                 - wc-ap-up
+                 - wc-ap-down
+                 - fswctl-session-up
+                 - fswctl-session-down
+                 - ips-fail-open
+                 - load-balance-real-server-down
+                 - device-new
+                 - enter-intf-bypass
+                 - exit-intf-bypass
+                 - per-cpu-high
+                 - power-blade-down
+                 - confsync_failure
+                 - cpu-high
+                 - mem-low
+                 - log-full
+                 - intf-ip
+                 - vpn-tun-up
+                 - vpn-tun-down
+                 - ha-switch
+                 - fm-conf-change
+                 - ips-signature
+                 - ips-anomaly
+                 - temperature-high
+                 - voltage-alert
+                 - av-virus
+                 - av-oversize
+                 - av-pattern
+                 - av-fragmented
+                 - ha-hb-failure
+                 - fan-failure
+                 - ha-member-up
+                 - ha-member-down
+                 - ent-conf-change
+                 - av-conserve
+                 - av-bypass
+                 - av-oversize-passed
+                 - av-oversize-blocked
+                 - ips-pkg-update
+                 - fm-if-change
+                 - power-supply-failure
+                 - amc-bypass
+                 - faz-disconnect
+                 - bgp-established
+                 - bgp-backward-transition
+                 - wc-ap-up
+                 - wc-ap-down
+                 - fswctl-session-up
+                 - fswctl-session-down
+                 - ips-fail-open
+                 - load-balance-real-server-down
+                 - device-new
+                 - enter-intf-bypass
+                 - exit-intf-bypass
+                 - per-cpu-high
+                 - power-blade-down
+                 - confsync_failure
+                 - dhcp
+                 - cpu-high
+                 - mem-low
+                 - log-full
+                 - intf-ip
+                 - vpn-tun-up
+                 - vpn-tun-down
+                 - ha-switch
+                 - fm-conf-change
+                 - ips-signature
+                 - ips-anomaly
+                 - temperature-high
+                 - voltage-alert
+                 - av-virus
+                 - av-oversize
+                 - av-pattern
+                 - av-fragmented
+                 - ha-hb-failure
+                 - fan-failure
+                 - ha-member-up
+                 - ha-member-down
+                 - ent-conf-change
+                 - av-conserve
+                 - av-bypass
+                 - av-oversize-passed
+                 - av-oversize-blocked
+                 - ips-pkg-update
+                 - fm-if-change
+                 - power-supply-failure
+                 - amc-bypass
+                 - faz-disconnect
+                 - bgp-established
+                 - bgp-backward-transition
+                 - wc-ap-up
+                 - wc-ap-down
+                 - fswctl-session-up
+                 - fswctl-session-down
+                 - ips-fail-open
+                 - load-balance-real-server-down
+                 - device-new
+                 - enter-intf-bypass
+                 - exit-intf-bypass
+                 - per-cpu-high
+                 - power-blade-down
+                 - confsync_failure
+                 - dhcp
+                 - pool-usage
+                 - power-redundancy-degrade
+                 - power-redundancy-failure
+                 - cpu-high
+                 - mem-low
+                 - log-full
+                 - intf-ip
+                 - vpn-tun-up
+                 - vpn-tun-down
+                 - ha-switch
+                 - fm-conf-change
+                 - ips-signature
+                 - ips-anomaly
+                 - temperature-high
+                 - voltage-alert
+                 - av-virus
+                 - av-oversize
+                 - av-pattern
+                 - av-fragmented
+                 - ha-hb-failure
+                 - fan-failure
+                 - ha-member-up
+                 - ha-member-down
+                 - ent-conf-change
+                 - av-conserve
+                 - av-bypass
+                 - av-oversize-passed
+                 - av-oversize-blocked
+                 - ips-pkg-update
+                 - fm-if-change
+                 - power-supply-failure
+                 - amc-bypass
+                 - faz-disconnect
+                 - bgp-established
+                 - bgp-backward-transition
+                 - wc-ap-up
+                 - wc-ap-down
+                 - fswctl-session-up
+                 - fswctl-session-down
+                 - ips-fail-open
+                 - load-balance-real-server-down
+                 - device-new
+                 - enter-intf-bypass
+                 - exit-intf-bypass
+                 - per-cpu-high
+                 - power-blade-down
+                 - confsync_failure
+                 - dhcp
+                 - pool-usage
+                 - power-redundancy-degrade
+                 - power-redundancy-failure
+                 - ospf-nbr-state-change
+                 - ospf-virtnbr-state-change
             ha-direct:
                 type: str
                 description: 'Enable/disable direct management of HA cluster members.'
@@ -246,7 +1493,7 @@ EXAMPLES = '''
          devprof: <your own value>
          state: <value in [present, absent]>
          devprof_system_snmp_user:
-            auth-proto: <value in [md5, sha]>
+            auth-proto: <value in [md5, sha, sha224, ...]>
             auth-pwd: <value of string>
             events:
               - cpu-high
@@ -293,6 +1540,1249 @@ EXAMPLES = '''
               - per-cpu-high
               - power-blade-down
               - confsync_failure
+              - cpu-high
+              - mem-low
+              - log-full
+              - intf-ip
+              - vpn-tun-up
+              - vpn-tun-down
+              - ha-switch
+              - fm-conf-change
+              - ips-signature
+              - ips-anomaly
+              - temperature-high
+              - voltage-alert
+              - av-virus
+              - av-oversize
+              - av-pattern
+              - av-fragmented
+              - ha-hb-failure
+              - fan-failure
+              - ha-member-up
+              - ha-member-down
+              - ent-conf-change
+              - av-conserve
+              - av-bypass
+              - av-oversize-passed
+              - av-oversize-blocked
+              - ips-pkg-update
+              - fm-if-change
+              - power-supply-failure
+              - amc-bypass
+              - faz-disconnect
+              - bgp-established
+              - bgp-backward-transition
+              - wc-ap-up
+              - wc-ap-down
+              - fswctl-session-up
+              - fswctl-session-down
+              - ips-fail-open
+              - load-balance-real-server-down
+              - device-new
+              - enter-intf-bypass
+              - exit-intf-bypass
+              - per-cpu-high
+              - power-blade-down
+              - confsync_failure
+              - dhcp
+              - cpu-high
+              - mem-low
+              - log-full
+              - intf-ip
+              - vpn-tun-up
+              - vpn-tun-down
+              - ha-switch
+              - fm-conf-change
+              - ips-signature
+              - ips-anomaly
+              - temperature-high
+              - voltage-alert
+              - av-virus
+              - av-oversize
+              - av-pattern
+              - av-fragmented
+              - ha-hb-failure
+              - fan-failure
+              - ha-member-up
+              - ha-member-down
+              - ent-conf-change
+              - av-conserve
+              - av-bypass
+              - av-oversize-passed
+              - av-oversize-blocked
+              - ips-pkg-update
+              - fm-if-change
+              - power-supply-failure
+              - amc-bypass
+              - faz-disconnect
+              - bgp-established
+              - bgp-backward-transition
+              - wc-ap-up
+              - wc-ap-down
+              - fswctl-session-up
+              - fswctl-session-down
+              - ips-fail-open
+              - load-balance-real-server-down
+              - device-new
+              - enter-intf-bypass
+              - exit-intf-bypass
+              - per-cpu-high
+              - power-blade-down
+              - confsync_failure
+              - dhcp
+              - pool-usage
+              - power-redundancy-degrade
+              - power-redundancy-failure
+              - cpu-high
+              - mem-low
+              - log-full
+              - intf-ip
+              - vpn-tun-up
+              - vpn-tun-down
+              - ha-switch
+              - fm-conf-change
+              - ips-signature
+              - ips-anomaly
+              - temperature-high
+              - voltage-alert
+              - av-virus
+              - av-oversize
+              - av-pattern
+              - av-fragmented
+              - ha-hb-failure
+              - fan-failure
+              - ha-member-up
+              - ha-member-down
+              - ent-conf-change
+              - av-conserve
+              - av-bypass
+              - av-oversize-passed
+              - av-oversize-blocked
+              - ips-pkg-update
+              - fm-if-change
+              - power-supply-failure
+              - amc-bypass
+              - faz-disconnect
+              - bgp-established
+              - bgp-backward-transition
+              - wc-ap-up
+              - wc-ap-down
+              - fswctl-session-up
+              - fswctl-session-down
+              - ips-fail-open
+              - load-balance-real-server-down
+              - device-new
+              - enter-intf-bypass
+              - exit-intf-bypass
+              - per-cpu-high
+              - power-blade-down
+              - confsync_failure
+              - dhcp
+              - pool-usage
+              - power-redundancy-degrade
+              - power-redundancy-failure
+              - ospf-nbr-state-change
+              - ospf-virtnbr-state-change
+              - cpu-high
+              - mem-low
+              - log-full
+              - intf-ip
+              - vpn-tun-up
+              - vpn-tun-down
+              - ha-switch
+              - fm-conf-change
+              - ips-signature
+              - ips-anomaly
+              - temperature-high
+              - voltage-alert
+              - av-virus
+              - av-oversize
+              - av-pattern
+              - av-fragmented
+              - ha-hb-failure
+              - fan-failure
+              - ha-member-up
+              - ha-member-down
+              - ent-conf-change
+              - av-conserve
+              - av-bypass
+              - av-oversize-passed
+              - av-oversize-blocked
+              - ips-pkg-update
+              - fm-if-change
+              - power-supply-failure
+              - amc-bypass
+              - faz-disconnect
+              - bgp-established
+              - bgp-backward-transition
+              - wc-ap-up
+              - wc-ap-down
+              - fswctl-session-up
+              - fswctl-session-down
+              - ips-fail-open
+              - load-balance-real-server-down
+              - device-new
+              - enter-intf-bypass
+              - exit-intf-bypass
+              - per-cpu-high
+              - power-blade-down
+              - confsync_failure
+              - cpu-high
+              - mem-low
+              - log-full
+              - intf-ip
+              - vpn-tun-up
+              - vpn-tun-down
+              - ha-switch
+              - fm-conf-change
+              - ips-signature
+              - ips-anomaly
+              - temperature-high
+              - voltage-alert
+              - av-virus
+              - av-oversize
+              - av-pattern
+              - av-fragmented
+              - ha-hb-failure
+              - fan-failure
+              - ha-member-up
+              - ha-member-down
+              - ent-conf-change
+              - av-conserve
+              - av-bypass
+              - av-oversize-passed
+              - av-oversize-blocked
+              - ips-pkg-update
+              - fm-if-change
+              - power-supply-failure
+              - amc-bypass
+              - faz-disconnect
+              - bgp-established
+              - bgp-backward-transition
+              - wc-ap-up
+              - wc-ap-down
+              - fswctl-session-up
+              - fswctl-session-down
+              - ips-fail-open
+              - load-balance-real-server-down
+              - device-new
+              - enter-intf-bypass
+              - exit-intf-bypass
+              - per-cpu-high
+              - power-blade-down
+              - confsync_failure
+              - cpu-high
+              - mem-low
+              - log-full
+              - intf-ip
+              - vpn-tun-up
+              - vpn-tun-down
+              - ha-switch
+              - fm-conf-change
+              - ips-signature
+              - ips-anomaly
+              - temperature-high
+              - voltage-alert
+              - av-virus
+              - av-oversize
+              - av-pattern
+              - av-fragmented
+              - ha-hb-failure
+              - fan-failure
+              - ha-member-up
+              - ha-member-down
+              - ent-conf-change
+              - av-conserve
+              - av-bypass
+              - av-oversize-passed
+              - av-oversize-blocked
+              - ips-pkg-update
+              - fm-if-change
+              - power-supply-failure
+              - amc-bypass
+              - faz-disconnect
+              - bgp-established
+              - bgp-backward-transition
+              - wc-ap-up
+              - wc-ap-down
+              - fswctl-session-up
+              - fswctl-session-down
+              - ips-fail-open
+              - load-balance-real-server-down
+              - device-new
+              - enter-intf-bypass
+              - exit-intf-bypass
+              - per-cpu-high
+              - power-blade-down
+              - confsync_failure
+              - cpu-high
+              - mem-low
+              - log-full
+              - intf-ip
+              - vpn-tun-up
+              - vpn-tun-down
+              - ha-switch
+              - fm-conf-change
+              - ips-signature
+              - ips-anomaly
+              - temperature-high
+              - voltage-alert
+              - av-virus
+              - av-oversize
+              - av-pattern
+              - av-fragmented
+              - ha-hb-failure
+              - fan-failure
+              - ha-member-up
+              - ha-member-down
+              - ent-conf-change
+              - av-conserve
+              - av-bypass
+              - av-oversize-passed
+              - av-oversize-blocked
+              - ips-pkg-update
+              - fm-if-change
+              - power-supply-failure
+              - amc-bypass
+              - faz-disconnect
+              - bgp-established
+              - bgp-backward-transition
+              - wc-ap-up
+              - wc-ap-down
+              - fswctl-session-up
+              - fswctl-session-down
+              - ips-fail-open
+              - load-balance-real-server-down
+              - device-new
+              - enter-intf-bypass
+              - exit-intf-bypass
+              - per-cpu-high
+              - power-blade-down
+              - confsync_failure
+              - dhcp
+              - cpu-high
+              - mem-low
+              - log-full
+              - intf-ip
+              - vpn-tun-up
+              - vpn-tun-down
+              - ha-switch
+              - fm-conf-change
+              - ips-signature
+              - ips-anomaly
+              - temperature-high
+              - voltage-alert
+              - av-virus
+              - av-oversize
+              - av-pattern
+              - av-fragmented
+              - ha-hb-failure
+              - fan-failure
+              - ha-member-up
+              - ha-member-down
+              - ent-conf-change
+              - av-conserve
+              - av-bypass
+              - av-oversize-passed
+              - av-oversize-blocked
+              - ips-pkg-update
+              - fm-if-change
+              - power-supply-failure
+              - amc-bypass
+              - faz-disconnect
+              - bgp-established
+              - bgp-backward-transition
+              - wc-ap-up
+              - wc-ap-down
+              - fswctl-session-up
+              - fswctl-session-down
+              - ips-fail-open
+              - load-balance-real-server-down
+              - device-new
+              - enter-intf-bypass
+              - exit-intf-bypass
+              - per-cpu-high
+              - power-blade-down
+              - confsync_failure
+              - dhcp
+              - pool-usage
+              - power-redundancy-degrade
+              - power-redundancy-failure
+              - cpu-high
+              - mem-low
+              - log-full
+              - intf-ip
+              - vpn-tun-up
+              - vpn-tun-down
+              - ha-switch
+              - fm-conf-change
+              - ips-signature
+              - ips-anomaly
+              - temperature-high
+              - voltage-alert
+              - av-virus
+              - av-oversize
+              - av-pattern
+              - av-fragmented
+              - ha-hb-failure
+              - fan-failure
+              - ha-member-up
+              - ha-member-down
+              - ent-conf-change
+              - av-conserve
+              - av-bypass
+              - av-oversize-passed
+              - av-oversize-blocked
+              - ips-pkg-update
+              - fm-if-change
+              - power-supply-failure
+              - amc-bypass
+              - faz-disconnect
+              - bgp-established
+              - bgp-backward-transition
+              - wc-ap-up
+              - wc-ap-down
+              - fswctl-session-up
+              - fswctl-session-down
+              - ips-fail-open
+              - load-balance-real-server-down
+              - device-new
+              - enter-intf-bypass
+              - exit-intf-bypass
+              - per-cpu-high
+              - power-blade-down
+              - confsync_failure
+              - dhcp
+              - pool-usage
+              - power-redundancy-degrade
+              - power-redundancy-failure
+              - ospf-nbr-state-change
+              - ospf-virtnbr-state-change
+              - cpu-high
+              - mem-low
+              - log-full
+              - intf-ip
+              - vpn-tun-up
+              - vpn-tun-down
+              - ha-switch
+              - fm-conf-change
+              - ips-signature
+              - ips-anomaly
+              - temperature-high
+              - voltage-alert
+              - av-virus
+              - av-oversize
+              - av-pattern
+              - av-fragmented
+              - ha-hb-failure
+              - fan-failure
+              - ha-member-up
+              - ha-member-down
+              - ent-conf-change
+              - av-conserve
+              - av-bypass
+              - av-oversize-passed
+              - av-oversize-blocked
+              - ips-pkg-update
+              - fm-if-change
+              - power-supply-failure
+              - amc-bypass
+              - faz-disconnect
+              - bgp-established
+              - bgp-backward-transition
+              - wc-ap-up
+              - wc-ap-down
+              - fswctl-session-up
+              - fswctl-session-down
+              - ips-fail-open
+              - load-balance-real-server-down
+              - device-new
+              - enter-intf-bypass
+              - exit-intf-bypass
+              - per-cpu-high
+              - power-blade-down
+              - confsync_failure
+              - cpu-high
+              - mem-low
+              - log-full
+              - intf-ip
+              - vpn-tun-up
+              - vpn-tun-down
+              - ha-switch
+              - fm-conf-change
+              - ips-signature
+              - ips-anomaly
+              - temperature-high
+              - voltage-alert
+              - av-virus
+              - av-oversize
+              - av-pattern
+              - av-fragmented
+              - ha-hb-failure
+              - fan-failure
+              - ha-member-up
+              - ha-member-down
+              - ent-conf-change
+              - av-conserve
+              - av-bypass
+              - av-oversize-passed
+              - av-oversize-blocked
+              - ips-pkg-update
+              - fm-if-change
+              - power-supply-failure
+              - amc-bypass
+              - faz-disconnect
+              - bgp-established
+              - bgp-backward-transition
+              - wc-ap-up
+              - wc-ap-down
+              - fswctl-session-up
+              - fswctl-session-down
+              - ips-fail-open
+              - load-balance-real-server-down
+              - device-new
+              - enter-intf-bypass
+              - exit-intf-bypass
+              - per-cpu-high
+              - power-blade-down
+              - confsync_failure
+              - cpu-high
+              - mem-low
+              - log-full
+              - intf-ip
+              - vpn-tun-up
+              - vpn-tun-down
+              - ha-switch
+              - fm-conf-change
+              - ips-signature
+              - ips-anomaly
+              - temperature-high
+              - voltage-alert
+              - av-virus
+              - av-oversize
+              - av-pattern
+              - av-fragmented
+              - ha-hb-failure
+              - fan-failure
+              - ha-member-up
+              - ha-member-down
+              - ent-conf-change
+              - av-conserve
+              - av-bypass
+              - av-oversize-passed
+              - av-oversize-blocked
+              - ips-pkg-update
+              - fm-if-change
+              - power-supply-failure
+              - amc-bypass
+              - faz-disconnect
+              - bgp-established
+              - bgp-backward-transition
+              - wc-ap-up
+              - wc-ap-down
+              - fswctl-session-up
+              - fswctl-session-down
+              - ips-fail-open
+              - load-balance-real-server-down
+              - device-new
+              - enter-intf-bypass
+              - exit-intf-bypass
+              - per-cpu-high
+              - power-blade-down
+              - confsync_failure
+              - cpu-high
+              - mem-low
+              - log-full
+              - intf-ip
+              - vpn-tun-up
+              - vpn-tun-down
+              - ha-switch
+              - fm-conf-change
+              - ips-signature
+              - ips-anomaly
+              - temperature-high
+              - voltage-alert
+              - av-virus
+              - av-oversize
+              - av-pattern
+              - av-fragmented
+              - ha-hb-failure
+              - fan-failure
+              - ha-member-up
+              - ha-member-down
+              - ent-conf-change
+              - av-conserve
+              - av-bypass
+              - av-oversize-passed
+              - av-oversize-blocked
+              - ips-pkg-update
+              - fm-if-change
+              - power-supply-failure
+              - amc-bypass
+              - faz-disconnect
+              - bgp-established
+              - bgp-backward-transition
+              - wc-ap-up
+              - wc-ap-down
+              - fswctl-session-up
+              - fswctl-session-down
+              - ips-fail-open
+              - load-balance-real-server-down
+              - device-new
+              - enter-intf-bypass
+              - exit-intf-bypass
+              - per-cpu-high
+              - power-blade-down
+              - confsync_failure
+              - dhcp
+              - cpu-high
+              - mem-low
+              - log-full
+              - intf-ip
+              - vpn-tun-up
+              - vpn-tun-down
+              - ha-switch
+              - fm-conf-change
+              - ips-signature
+              - ips-anomaly
+              - temperature-high
+              - voltage-alert
+              - av-virus
+              - av-oversize
+              - av-pattern
+              - av-fragmented
+              - ha-hb-failure
+              - fan-failure
+              - ha-member-up
+              - ha-member-down
+              - ent-conf-change
+              - av-conserve
+              - av-bypass
+              - av-oversize-passed
+              - av-oversize-blocked
+              - ips-pkg-update
+              - fm-if-change
+              - power-supply-failure
+              - amc-bypass
+              - faz-disconnect
+              - bgp-established
+              - bgp-backward-transition
+              - wc-ap-up
+              - wc-ap-down
+              - fswctl-session-up
+              - fswctl-session-down
+              - ips-fail-open
+              - load-balance-real-server-down
+              - device-new
+              - enter-intf-bypass
+              - exit-intf-bypass
+              - per-cpu-high
+              - power-blade-down
+              - confsync_failure
+              - dhcp
+              - pool-usage
+              - power-redundancy-degrade
+              - power-redundancy-failure
+              - cpu-high
+              - mem-low
+              - log-full
+              - intf-ip
+              - vpn-tun-up
+              - vpn-tun-down
+              - ha-switch
+              - fm-conf-change
+              - ips-signature
+              - ips-anomaly
+              - temperature-high
+              - voltage-alert
+              - av-virus
+              - av-oversize
+              - av-pattern
+              - av-fragmented
+              - ha-hb-failure
+              - fan-failure
+              - ha-member-up
+              - ha-member-down
+              - ent-conf-change
+              - av-conserve
+              - av-bypass
+              - av-oversize-passed
+              - av-oversize-blocked
+              - ips-pkg-update
+              - fm-if-change
+              - power-supply-failure
+              - amc-bypass
+              - faz-disconnect
+              - bgp-established
+              - bgp-backward-transition
+              - wc-ap-up
+              - wc-ap-down
+              - fswctl-session-up
+              - fswctl-session-down
+              - ips-fail-open
+              - load-balance-real-server-down
+              - device-new
+              - enter-intf-bypass
+              - exit-intf-bypass
+              - per-cpu-high
+              - power-blade-down
+              - confsync_failure
+              - dhcp
+              - pool-usage
+              - power-redundancy-degrade
+              - power-redundancy-failure
+              - ospf-nbr-state-change
+              - ospf-virtnbr-state-change
+              - cpu-high
+              - mem-low
+              - log-full
+              - intf-ip
+              - vpn-tun-up
+              - vpn-tun-down
+              - ha-switch
+              - fm-conf-change
+              - ips-signature
+              - ips-anomaly
+              - temperature-high
+              - voltage-alert
+              - av-virus
+              - av-oversize
+              - av-pattern
+              - av-fragmented
+              - ha-hb-failure
+              - fan-failure
+              - ha-member-up
+              - ha-member-down
+              - ent-conf-change
+              - av-conserve
+              - av-bypass
+              - av-oversize-passed
+              - av-oversize-blocked
+              - ips-pkg-update
+              - fm-if-change
+              - power-supply-failure
+              - amc-bypass
+              - faz-disconnect
+              - bgp-established
+              - bgp-backward-transition
+              - wc-ap-up
+              - wc-ap-down
+              - fswctl-session-up
+              - fswctl-session-down
+              - ips-fail-open
+              - load-balance-real-server-down
+              - device-new
+              - enter-intf-bypass
+              - exit-intf-bypass
+              - per-cpu-high
+              - power-blade-down
+              - confsync_failure
+              - cpu-high
+              - mem-low
+              - log-full
+              - intf-ip
+              - vpn-tun-up
+              - vpn-tun-down
+              - ha-switch
+              - fm-conf-change
+              - ips-signature
+              - ips-anomaly
+              - temperature-high
+              - voltage-alert
+              - av-virus
+              - av-oversize
+              - av-pattern
+              - av-fragmented
+              - ha-hb-failure
+              - fan-failure
+              - ha-member-up
+              - ha-member-down
+              - ent-conf-change
+              - av-conserve
+              - av-bypass
+              - av-oversize-passed
+              - av-oversize-blocked
+              - ips-pkg-update
+              - fm-if-change
+              - power-supply-failure
+              - amc-bypass
+              - faz-disconnect
+              - bgp-established
+              - bgp-backward-transition
+              - wc-ap-up
+              - wc-ap-down
+              - fswctl-session-up
+              - fswctl-session-down
+              - ips-fail-open
+              - load-balance-real-server-down
+              - device-new
+              - enter-intf-bypass
+              - exit-intf-bypass
+              - per-cpu-high
+              - power-blade-down
+              - confsync_failure
+              - cpu-high
+              - mem-low
+              - log-full
+              - intf-ip
+              - vpn-tun-up
+              - vpn-tun-down
+              - ha-switch
+              - fm-conf-change
+              - ips-signature
+              - ips-anomaly
+              - temperature-high
+              - voltage-alert
+              - av-virus
+              - av-oversize
+              - av-pattern
+              - av-fragmented
+              - ha-hb-failure
+              - fan-failure
+              - ha-member-up
+              - ha-member-down
+              - ent-conf-change
+              - av-conserve
+              - av-bypass
+              - av-oversize-passed
+              - av-oversize-blocked
+              - ips-pkg-update
+              - fm-if-change
+              - power-supply-failure
+              - amc-bypass
+              - faz-disconnect
+              - bgp-established
+              - bgp-backward-transition
+              - wc-ap-up
+              - wc-ap-down
+              - fswctl-session-up
+              - fswctl-session-down
+              - ips-fail-open
+              - load-balance-real-server-down
+              - device-new
+              - enter-intf-bypass
+              - exit-intf-bypass
+              - per-cpu-high
+              - power-blade-down
+              - confsync_failure
+              - cpu-high
+              - mem-low
+              - log-full
+              - intf-ip
+              - vpn-tun-up
+              - vpn-tun-down
+              - ha-switch
+              - fm-conf-change
+              - ips-signature
+              - ips-anomaly
+              - temperature-high
+              - voltage-alert
+              - av-virus
+              - av-oversize
+              - av-pattern
+              - av-fragmented
+              - ha-hb-failure
+              - fan-failure
+              - ha-member-up
+              - ha-member-down
+              - ent-conf-change
+              - av-conserve
+              - av-bypass
+              - av-oversize-passed
+              - av-oversize-blocked
+              - ips-pkg-update
+              - fm-if-change
+              - power-supply-failure
+              - amc-bypass
+              - faz-disconnect
+              - bgp-established
+              - bgp-backward-transition
+              - wc-ap-up
+              - wc-ap-down
+              - fswctl-session-up
+              - fswctl-session-down
+              - ips-fail-open
+              - load-balance-real-server-down
+              - device-new
+              - enter-intf-bypass
+              - exit-intf-bypass
+              - per-cpu-high
+              - power-blade-down
+              - confsync_failure
+              - dhcp
+              - cpu-high
+              - mem-low
+              - log-full
+              - intf-ip
+              - vpn-tun-up
+              - vpn-tun-down
+              - ha-switch
+              - fm-conf-change
+              - ips-signature
+              - ips-anomaly
+              - temperature-high
+              - voltage-alert
+              - av-virus
+              - av-oversize
+              - av-pattern
+              - av-fragmented
+              - ha-hb-failure
+              - fan-failure
+              - ha-member-up
+              - ha-member-down
+              - ent-conf-change
+              - av-conserve
+              - av-bypass
+              - av-oversize-passed
+              - av-oversize-blocked
+              - ips-pkg-update
+              - fm-if-change
+              - power-supply-failure
+              - amc-bypass
+              - faz-disconnect
+              - bgp-established
+              - bgp-backward-transition
+              - wc-ap-up
+              - wc-ap-down
+              - fswctl-session-up
+              - fswctl-session-down
+              - ips-fail-open
+              - load-balance-real-server-down
+              - device-new
+              - enter-intf-bypass
+              - exit-intf-bypass
+              - per-cpu-high
+              - power-blade-down
+              - confsync_failure
+              - dhcp
+              - pool-usage
+              - power-redundancy-degrade
+              - power-redundancy-failure
+              - cpu-high
+              - mem-low
+              - log-full
+              - intf-ip
+              - vpn-tun-up
+              - vpn-tun-down
+              - ha-switch
+              - fm-conf-change
+              - ips-signature
+              - ips-anomaly
+              - temperature-high
+              - voltage-alert
+              - av-virus
+              - av-oversize
+              - av-pattern
+              - av-fragmented
+              - ha-hb-failure
+              - fan-failure
+              - ha-member-up
+              - ha-member-down
+              - ent-conf-change
+              - av-conserve
+              - av-bypass
+              - av-oversize-passed
+              - av-oversize-blocked
+              - ips-pkg-update
+              - fm-if-change
+              - power-supply-failure
+              - amc-bypass
+              - faz-disconnect
+              - bgp-established
+              - bgp-backward-transition
+              - wc-ap-up
+              - wc-ap-down
+              - fswctl-session-up
+              - fswctl-session-down
+              - ips-fail-open
+              - load-balance-real-server-down
+              - device-new
+              - enter-intf-bypass
+              - exit-intf-bypass
+              - per-cpu-high
+              - power-blade-down
+              - confsync_failure
+              - dhcp
+              - pool-usage
+              - power-redundancy-degrade
+              - power-redundancy-failure
+              - ospf-nbr-state-change
+              - ospf-virtnbr-state-change
+              - cpu-high
+              - mem-low
+              - log-full
+              - intf-ip
+              - vpn-tun-up
+              - vpn-tun-down
+              - ha-switch
+              - fm-conf-change
+              - ips-signature
+              - ips-anomaly
+              - temperature-high
+              - voltage-alert
+              - av-virus
+              - av-oversize
+              - av-pattern
+              - av-fragmented
+              - ha-hb-failure
+              - fan-failure
+              - ha-member-up
+              - ha-member-down
+              - ent-conf-change
+              - av-conserve
+              - av-bypass
+              - av-oversize-passed
+              - av-oversize-blocked
+              - ips-pkg-update
+              - fm-if-change
+              - power-supply-failure
+              - amc-bypass
+              - faz-disconnect
+              - bgp-established
+              - bgp-backward-transition
+              - wc-ap-up
+              - wc-ap-down
+              - fswctl-session-up
+              - fswctl-session-down
+              - ips-fail-open
+              - load-balance-real-server-down
+              - device-new
+              - enter-intf-bypass
+              - exit-intf-bypass
+              - per-cpu-high
+              - power-blade-down
+              - confsync_failure
+              - cpu-high
+              - mem-low
+              - log-full
+              - intf-ip
+              - vpn-tun-up
+              - vpn-tun-down
+              - ha-switch
+              - fm-conf-change
+              - ips-signature
+              - ips-anomaly
+              - temperature-high
+              - voltage-alert
+              - av-virus
+              - av-oversize
+              - av-pattern
+              - av-fragmented
+              - ha-hb-failure
+              - fan-failure
+              - ha-member-up
+              - ha-member-down
+              - ent-conf-change
+              - av-conserve
+              - av-bypass
+              - av-oversize-passed
+              - av-oversize-blocked
+              - ips-pkg-update
+              - fm-if-change
+              - power-supply-failure
+              - amc-bypass
+              - faz-disconnect
+              - bgp-established
+              - bgp-backward-transition
+              - wc-ap-up
+              - wc-ap-down
+              - fswctl-session-up
+              - fswctl-session-down
+              - ips-fail-open
+              - load-balance-real-server-down
+              - device-new
+              - enter-intf-bypass
+              - exit-intf-bypass
+              - per-cpu-high
+              - power-blade-down
+              - confsync_failure
+              - cpu-high
+              - mem-low
+              - log-full
+              - intf-ip
+              - vpn-tun-up
+              - vpn-tun-down
+              - ha-switch
+              - fm-conf-change
+              - ips-signature
+              - ips-anomaly
+              - temperature-high
+              - voltage-alert
+              - av-virus
+              - av-oversize
+              - av-pattern
+              - av-fragmented
+              - ha-hb-failure
+              - fan-failure
+              - ha-member-up
+              - ha-member-down
+              - ent-conf-change
+              - av-conserve
+              - av-bypass
+              - av-oversize-passed
+              - av-oversize-blocked
+              - ips-pkg-update
+              - fm-if-change
+              - power-supply-failure
+              - amc-bypass
+              - faz-disconnect
+              - bgp-established
+              - bgp-backward-transition
+              - wc-ap-up
+              - wc-ap-down
+              - fswctl-session-up
+              - fswctl-session-down
+              - ips-fail-open
+              - load-balance-real-server-down
+              - device-new
+              - enter-intf-bypass
+              - exit-intf-bypass
+              - per-cpu-high
+              - power-blade-down
+              - confsync_failure
+              - cpu-high
+              - mem-low
+              - log-full
+              - intf-ip
+              - vpn-tun-up
+              - vpn-tun-down
+              - ha-switch
+              - fm-conf-change
+              - ips-signature
+              - ips-anomaly
+              - temperature-high
+              - voltage-alert
+              - av-virus
+              - av-oversize
+              - av-pattern
+              - av-fragmented
+              - ha-hb-failure
+              - fan-failure
+              - ha-member-up
+              - ha-member-down
+              - ent-conf-change
+              - av-conserve
+              - av-bypass
+              - av-oversize-passed
+              - av-oversize-blocked
+              - ips-pkg-update
+              - fm-if-change
+              - power-supply-failure
+              - amc-bypass
+              - faz-disconnect
+              - bgp-established
+              - bgp-backward-transition
+              - wc-ap-up
+              - wc-ap-down
+              - fswctl-session-up
+              - fswctl-session-down
+              - ips-fail-open
+              - load-balance-real-server-down
+              - device-new
+              - enter-intf-bypass
+              - exit-intf-bypass
+              - per-cpu-high
+              - power-blade-down
+              - confsync_failure
+              - dhcp
+              - cpu-high
+              - mem-low
+              - log-full
+              - intf-ip
+              - vpn-tun-up
+              - vpn-tun-down
+              - ha-switch
+              - fm-conf-change
+              - ips-signature
+              - ips-anomaly
+              - temperature-high
+              - voltage-alert
+              - av-virus
+              - av-oversize
+              - av-pattern
+              - av-fragmented
+              - ha-hb-failure
+              - fan-failure
+              - ha-member-up
+              - ha-member-down
+              - ent-conf-change
+              - av-conserve
+              - av-bypass
+              - av-oversize-passed
+              - av-oversize-blocked
+              - ips-pkg-update
+              - fm-if-change
+              - power-supply-failure
+              - amc-bypass
+              - faz-disconnect
+              - bgp-established
+              - bgp-backward-transition
+              - wc-ap-up
+              - wc-ap-down
+              - fswctl-session-up
+              - fswctl-session-down
+              - ips-fail-open
+              - load-balance-real-server-down
+              - device-new
+              - enter-intf-bypass
+              - exit-intf-bypass
+              - per-cpu-high
+              - power-blade-down
+              - confsync_failure
+              - dhcp
+              - pool-usage
+              - power-redundancy-degrade
+              - power-redundancy-failure
+              - cpu-high
+              - mem-low
+              - log-full
+              - intf-ip
+              - vpn-tun-up
+              - vpn-tun-down
+              - ha-switch
+              - fm-conf-change
+              - ips-signature
+              - ips-anomaly
+              - temperature-high
+              - voltage-alert
+              - av-virus
+              - av-oversize
+              - av-pattern
+              - av-fragmented
+              - ha-hb-failure
+              - fan-failure
+              - ha-member-up
+              - ha-member-down
+              - ent-conf-change
+              - av-conserve
+              - av-bypass
+              - av-oversize-passed
+              - av-oversize-blocked
+              - ips-pkg-update
+              - fm-if-change
+              - power-supply-failure
+              - amc-bypass
+              - faz-disconnect
+              - bgp-established
+              - bgp-backward-transition
+              - wc-ap-up
+              - wc-ap-down
+              - fswctl-session-up
+              - fswctl-session-down
+              - ips-fail-open
+              - load-balance-real-server-down
+              - device-new
+              - enter-intf-bypass
+              - exit-intf-bypass
+              - per-cpu-high
+              - power-blade-down
+              - confsync_failure
+              - dhcp
+              - pool-usage
+              - power-redundancy-degrade
+              - power-redundancy-failure
+              - ospf-nbr-state-change
+              - ospf-virtnbr-state-change
             ha-direct: <value in [disable, enable]>
             name: <value of string>
             notify-hosts: <value of string>
@@ -406,18 +2896,52 @@ def main():
             'options': {
                 'auth-proto': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': False,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'md5',
-                        'sha'
+                        'sha',
+                        'sha224',
+                        'sha256',
+                        'sha384',
+                        'sha512'
                     ],
                     'type': 'str'
                 },
                 'auth-pwd': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': False,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'events': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': False,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'list',
                     'choices': [
                         'cpu-high',
@@ -463,11 +2987,1264 @@ def main():
                         'exit-intf-bypass',
                         'per-cpu-high',
                         'power-blade-down',
-                        'confsync_failure'
+                        'confsync_failure',
+                        'cpu-high',
+                        'mem-low',
+                        'log-full',
+                        'intf-ip',
+                        'vpn-tun-up',
+                        'vpn-tun-down',
+                        'ha-switch',
+                        'fm-conf-change',
+                        'ips-signature',
+                        'ips-anomaly',
+                        'temperature-high',
+                        'voltage-alert',
+                        'av-virus',
+                        'av-oversize',
+                        'av-pattern',
+                        'av-fragmented',
+                        'ha-hb-failure',
+                        'fan-failure',
+                        'ha-member-up',
+                        'ha-member-down',
+                        'ent-conf-change',
+                        'av-conserve',
+                        'av-bypass',
+                        'av-oversize-passed',
+                        'av-oversize-blocked',
+                        'ips-pkg-update',
+                        'fm-if-change',
+                        'power-supply-failure',
+                        'amc-bypass',
+                        'faz-disconnect',
+                        'bgp-established',
+                        'bgp-backward-transition',
+                        'wc-ap-up',
+                        'wc-ap-down',
+                        'fswctl-session-up',
+                        'fswctl-session-down',
+                        'ips-fail-open',
+                        'load-balance-real-server-down',
+                        'device-new',
+                        'enter-intf-bypass',
+                        'exit-intf-bypass',
+                        'per-cpu-high',
+                        'power-blade-down',
+                        'confsync_failure',
+                        'dhcp',
+                        'cpu-high',
+                        'mem-low',
+                        'log-full',
+                        'intf-ip',
+                        'vpn-tun-up',
+                        'vpn-tun-down',
+                        'ha-switch',
+                        'fm-conf-change',
+                        'ips-signature',
+                        'ips-anomaly',
+                        'temperature-high',
+                        'voltage-alert',
+                        'av-virus',
+                        'av-oversize',
+                        'av-pattern',
+                        'av-fragmented',
+                        'ha-hb-failure',
+                        'fan-failure',
+                        'ha-member-up',
+                        'ha-member-down',
+                        'ent-conf-change',
+                        'av-conserve',
+                        'av-bypass',
+                        'av-oversize-passed',
+                        'av-oversize-blocked',
+                        'ips-pkg-update',
+                        'fm-if-change',
+                        'power-supply-failure',
+                        'amc-bypass',
+                        'faz-disconnect',
+                        'bgp-established',
+                        'bgp-backward-transition',
+                        'wc-ap-up',
+                        'wc-ap-down',
+                        'fswctl-session-up',
+                        'fswctl-session-down',
+                        'ips-fail-open',
+                        'load-balance-real-server-down',
+                        'device-new',
+                        'enter-intf-bypass',
+                        'exit-intf-bypass',
+                        'per-cpu-high',
+                        'power-blade-down',
+                        'confsync_failure',
+                        'dhcp',
+                        'pool-usage',
+                        'power-redundancy-degrade',
+                        'power-redundancy-failure',
+                        'cpu-high',
+                        'mem-low',
+                        'log-full',
+                        'intf-ip',
+                        'vpn-tun-up',
+                        'vpn-tun-down',
+                        'ha-switch',
+                        'fm-conf-change',
+                        'ips-signature',
+                        'ips-anomaly',
+                        'temperature-high',
+                        'voltage-alert',
+                        'av-virus',
+                        'av-oversize',
+                        'av-pattern',
+                        'av-fragmented',
+                        'ha-hb-failure',
+                        'fan-failure',
+                        'ha-member-up',
+                        'ha-member-down',
+                        'ent-conf-change',
+                        'av-conserve',
+                        'av-bypass',
+                        'av-oversize-passed',
+                        'av-oversize-blocked',
+                        'ips-pkg-update',
+                        'fm-if-change',
+                        'power-supply-failure',
+                        'amc-bypass',
+                        'faz-disconnect',
+                        'bgp-established',
+                        'bgp-backward-transition',
+                        'wc-ap-up',
+                        'wc-ap-down',
+                        'fswctl-session-up',
+                        'fswctl-session-down',
+                        'ips-fail-open',
+                        'load-balance-real-server-down',
+                        'device-new',
+                        'enter-intf-bypass',
+                        'exit-intf-bypass',
+                        'per-cpu-high',
+                        'power-blade-down',
+                        'confsync_failure',
+                        'dhcp',
+                        'pool-usage',
+                        'power-redundancy-degrade',
+                        'power-redundancy-failure',
+                        'ospf-nbr-state-change',
+                        'ospf-virtnbr-state-change',
+                        'cpu-high',
+                        'mem-low',
+                        'log-full',
+                        'intf-ip',
+                        'vpn-tun-up',
+                        'vpn-tun-down',
+                        'ha-switch',
+                        'fm-conf-change',
+                        'ips-signature',
+                        'ips-anomaly',
+                        'temperature-high',
+                        'voltage-alert',
+                        'av-virus',
+                        'av-oversize',
+                        'av-pattern',
+                        'av-fragmented',
+                        'ha-hb-failure',
+                        'fan-failure',
+                        'ha-member-up',
+                        'ha-member-down',
+                        'ent-conf-change',
+                        'av-conserve',
+                        'av-bypass',
+                        'av-oversize-passed',
+                        'av-oversize-blocked',
+                        'ips-pkg-update',
+                        'fm-if-change',
+                        'power-supply-failure',
+                        'amc-bypass',
+                        'faz-disconnect',
+                        'bgp-established',
+                        'bgp-backward-transition',
+                        'wc-ap-up',
+                        'wc-ap-down',
+                        'fswctl-session-up',
+                        'fswctl-session-down',
+                        'ips-fail-open',
+                        'load-balance-real-server-down',
+                        'device-new',
+                        'enter-intf-bypass',
+                        'exit-intf-bypass',
+                        'per-cpu-high',
+                        'power-blade-down',
+                        'confsync_failure',
+                        'cpu-high',
+                        'mem-low',
+                        'log-full',
+                        'intf-ip',
+                        'vpn-tun-up',
+                        'vpn-tun-down',
+                        'ha-switch',
+                        'fm-conf-change',
+                        'ips-signature',
+                        'ips-anomaly',
+                        'temperature-high',
+                        'voltage-alert',
+                        'av-virus',
+                        'av-oversize',
+                        'av-pattern',
+                        'av-fragmented',
+                        'ha-hb-failure',
+                        'fan-failure',
+                        'ha-member-up',
+                        'ha-member-down',
+                        'ent-conf-change',
+                        'av-conserve',
+                        'av-bypass',
+                        'av-oversize-passed',
+                        'av-oversize-blocked',
+                        'ips-pkg-update',
+                        'fm-if-change',
+                        'power-supply-failure',
+                        'amc-bypass',
+                        'faz-disconnect',
+                        'bgp-established',
+                        'bgp-backward-transition',
+                        'wc-ap-up',
+                        'wc-ap-down',
+                        'fswctl-session-up',
+                        'fswctl-session-down',
+                        'ips-fail-open',
+                        'load-balance-real-server-down',
+                        'device-new',
+                        'enter-intf-bypass',
+                        'exit-intf-bypass',
+                        'per-cpu-high',
+                        'power-blade-down',
+                        'confsync_failure',
+                        'cpu-high',
+                        'mem-low',
+                        'log-full',
+                        'intf-ip',
+                        'vpn-tun-up',
+                        'vpn-tun-down',
+                        'ha-switch',
+                        'fm-conf-change',
+                        'ips-signature',
+                        'ips-anomaly',
+                        'temperature-high',
+                        'voltage-alert',
+                        'av-virus',
+                        'av-oversize',
+                        'av-pattern',
+                        'av-fragmented',
+                        'ha-hb-failure',
+                        'fan-failure',
+                        'ha-member-up',
+                        'ha-member-down',
+                        'ent-conf-change',
+                        'av-conserve',
+                        'av-bypass',
+                        'av-oversize-passed',
+                        'av-oversize-blocked',
+                        'ips-pkg-update',
+                        'fm-if-change',
+                        'power-supply-failure',
+                        'amc-bypass',
+                        'faz-disconnect',
+                        'bgp-established',
+                        'bgp-backward-transition',
+                        'wc-ap-up',
+                        'wc-ap-down',
+                        'fswctl-session-up',
+                        'fswctl-session-down',
+                        'ips-fail-open',
+                        'load-balance-real-server-down',
+                        'device-new',
+                        'enter-intf-bypass',
+                        'exit-intf-bypass',
+                        'per-cpu-high',
+                        'power-blade-down',
+                        'confsync_failure',
+                        'cpu-high',
+                        'mem-low',
+                        'log-full',
+                        'intf-ip',
+                        'vpn-tun-up',
+                        'vpn-tun-down',
+                        'ha-switch',
+                        'fm-conf-change',
+                        'ips-signature',
+                        'ips-anomaly',
+                        'temperature-high',
+                        'voltage-alert',
+                        'av-virus',
+                        'av-oversize',
+                        'av-pattern',
+                        'av-fragmented',
+                        'ha-hb-failure',
+                        'fan-failure',
+                        'ha-member-up',
+                        'ha-member-down',
+                        'ent-conf-change',
+                        'av-conserve',
+                        'av-bypass',
+                        'av-oversize-passed',
+                        'av-oversize-blocked',
+                        'ips-pkg-update',
+                        'fm-if-change',
+                        'power-supply-failure',
+                        'amc-bypass',
+                        'faz-disconnect',
+                        'bgp-established',
+                        'bgp-backward-transition',
+                        'wc-ap-up',
+                        'wc-ap-down',
+                        'fswctl-session-up',
+                        'fswctl-session-down',
+                        'ips-fail-open',
+                        'load-balance-real-server-down',
+                        'device-new',
+                        'enter-intf-bypass',
+                        'exit-intf-bypass',
+                        'per-cpu-high',
+                        'power-blade-down',
+                        'confsync_failure',
+                        'dhcp',
+                        'cpu-high',
+                        'mem-low',
+                        'log-full',
+                        'intf-ip',
+                        'vpn-tun-up',
+                        'vpn-tun-down',
+                        'ha-switch',
+                        'fm-conf-change',
+                        'ips-signature',
+                        'ips-anomaly',
+                        'temperature-high',
+                        'voltage-alert',
+                        'av-virus',
+                        'av-oversize',
+                        'av-pattern',
+                        'av-fragmented',
+                        'ha-hb-failure',
+                        'fan-failure',
+                        'ha-member-up',
+                        'ha-member-down',
+                        'ent-conf-change',
+                        'av-conserve',
+                        'av-bypass',
+                        'av-oversize-passed',
+                        'av-oversize-blocked',
+                        'ips-pkg-update',
+                        'fm-if-change',
+                        'power-supply-failure',
+                        'amc-bypass',
+                        'faz-disconnect',
+                        'bgp-established',
+                        'bgp-backward-transition',
+                        'wc-ap-up',
+                        'wc-ap-down',
+                        'fswctl-session-up',
+                        'fswctl-session-down',
+                        'ips-fail-open',
+                        'load-balance-real-server-down',
+                        'device-new',
+                        'enter-intf-bypass',
+                        'exit-intf-bypass',
+                        'per-cpu-high',
+                        'power-blade-down',
+                        'confsync_failure',
+                        'dhcp',
+                        'pool-usage',
+                        'power-redundancy-degrade',
+                        'power-redundancy-failure',
+                        'cpu-high',
+                        'mem-low',
+                        'log-full',
+                        'intf-ip',
+                        'vpn-tun-up',
+                        'vpn-tun-down',
+                        'ha-switch',
+                        'fm-conf-change',
+                        'ips-signature',
+                        'ips-anomaly',
+                        'temperature-high',
+                        'voltage-alert',
+                        'av-virus',
+                        'av-oversize',
+                        'av-pattern',
+                        'av-fragmented',
+                        'ha-hb-failure',
+                        'fan-failure',
+                        'ha-member-up',
+                        'ha-member-down',
+                        'ent-conf-change',
+                        'av-conserve',
+                        'av-bypass',
+                        'av-oversize-passed',
+                        'av-oversize-blocked',
+                        'ips-pkg-update',
+                        'fm-if-change',
+                        'power-supply-failure',
+                        'amc-bypass',
+                        'faz-disconnect',
+                        'bgp-established',
+                        'bgp-backward-transition',
+                        'wc-ap-up',
+                        'wc-ap-down',
+                        'fswctl-session-up',
+                        'fswctl-session-down',
+                        'ips-fail-open',
+                        'load-balance-real-server-down',
+                        'device-new',
+                        'enter-intf-bypass',
+                        'exit-intf-bypass',
+                        'per-cpu-high',
+                        'power-blade-down',
+                        'confsync_failure',
+                        'dhcp',
+                        'pool-usage',
+                        'power-redundancy-degrade',
+                        'power-redundancy-failure',
+                        'ospf-nbr-state-change',
+                        'ospf-virtnbr-state-change',
+                        'cpu-high',
+                        'mem-low',
+                        'log-full',
+                        'intf-ip',
+                        'vpn-tun-up',
+                        'vpn-tun-down',
+                        'ha-switch',
+                        'fm-conf-change',
+                        'ips-signature',
+                        'ips-anomaly',
+                        'temperature-high',
+                        'voltage-alert',
+                        'av-virus',
+                        'av-oversize',
+                        'av-pattern',
+                        'av-fragmented',
+                        'ha-hb-failure',
+                        'fan-failure',
+                        'ha-member-up',
+                        'ha-member-down',
+                        'ent-conf-change',
+                        'av-conserve',
+                        'av-bypass',
+                        'av-oversize-passed',
+                        'av-oversize-blocked',
+                        'ips-pkg-update',
+                        'fm-if-change',
+                        'power-supply-failure',
+                        'amc-bypass',
+                        'faz-disconnect',
+                        'bgp-established',
+                        'bgp-backward-transition',
+                        'wc-ap-up',
+                        'wc-ap-down',
+                        'fswctl-session-up',
+                        'fswctl-session-down',
+                        'ips-fail-open',
+                        'load-balance-real-server-down',
+                        'device-new',
+                        'enter-intf-bypass',
+                        'exit-intf-bypass',
+                        'per-cpu-high',
+                        'power-blade-down',
+                        'confsync_failure',
+                        'cpu-high',
+                        'mem-low',
+                        'log-full',
+                        'intf-ip',
+                        'vpn-tun-up',
+                        'vpn-tun-down',
+                        'ha-switch',
+                        'fm-conf-change',
+                        'ips-signature',
+                        'ips-anomaly',
+                        'temperature-high',
+                        'voltage-alert',
+                        'av-virus',
+                        'av-oversize',
+                        'av-pattern',
+                        'av-fragmented',
+                        'ha-hb-failure',
+                        'fan-failure',
+                        'ha-member-up',
+                        'ha-member-down',
+                        'ent-conf-change',
+                        'av-conserve',
+                        'av-bypass',
+                        'av-oversize-passed',
+                        'av-oversize-blocked',
+                        'ips-pkg-update',
+                        'fm-if-change',
+                        'power-supply-failure',
+                        'amc-bypass',
+                        'faz-disconnect',
+                        'bgp-established',
+                        'bgp-backward-transition',
+                        'wc-ap-up',
+                        'wc-ap-down',
+                        'fswctl-session-up',
+                        'fswctl-session-down',
+                        'ips-fail-open',
+                        'load-balance-real-server-down',
+                        'device-new',
+                        'enter-intf-bypass',
+                        'exit-intf-bypass',
+                        'per-cpu-high',
+                        'power-blade-down',
+                        'confsync_failure',
+                        'cpu-high',
+                        'mem-low',
+                        'log-full',
+                        'intf-ip',
+                        'vpn-tun-up',
+                        'vpn-tun-down',
+                        'ha-switch',
+                        'fm-conf-change',
+                        'ips-signature',
+                        'ips-anomaly',
+                        'temperature-high',
+                        'voltage-alert',
+                        'av-virus',
+                        'av-oversize',
+                        'av-pattern',
+                        'av-fragmented',
+                        'ha-hb-failure',
+                        'fan-failure',
+                        'ha-member-up',
+                        'ha-member-down',
+                        'ent-conf-change',
+                        'av-conserve',
+                        'av-bypass',
+                        'av-oversize-passed',
+                        'av-oversize-blocked',
+                        'ips-pkg-update',
+                        'fm-if-change',
+                        'power-supply-failure',
+                        'amc-bypass',
+                        'faz-disconnect',
+                        'bgp-established',
+                        'bgp-backward-transition',
+                        'wc-ap-up',
+                        'wc-ap-down',
+                        'fswctl-session-up',
+                        'fswctl-session-down',
+                        'ips-fail-open',
+                        'load-balance-real-server-down',
+                        'device-new',
+                        'enter-intf-bypass',
+                        'exit-intf-bypass',
+                        'per-cpu-high',
+                        'power-blade-down',
+                        'confsync_failure',
+                        'cpu-high',
+                        'mem-low',
+                        'log-full',
+                        'intf-ip',
+                        'vpn-tun-up',
+                        'vpn-tun-down',
+                        'ha-switch',
+                        'fm-conf-change',
+                        'ips-signature',
+                        'ips-anomaly',
+                        'temperature-high',
+                        'voltage-alert',
+                        'av-virus',
+                        'av-oversize',
+                        'av-pattern',
+                        'av-fragmented',
+                        'ha-hb-failure',
+                        'fan-failure',
+                        'ha-member-up',
+                        'ha-member-down',
+                        'ent-conf-change',
+                        'av-conserve',
+                        'av-bypass',
+                        'av-oversize-passed',
+                        'av-oversize-blocked',
+                        'ips-pkg-update',
+                        'fm-if-change',
+                        'power-supply-failure',
+                        'amc-bypass',
+                        'faz-disconnect',
+                        'bgp-established',
+                        'bgp-backward-transition',
+                        'wc-ap-up',
+                        'wc-ap-down',
+                        'fswctl-session-up',
+                        'fswctl-session-down',
+                        'ips-fail-open',
+                        'load-balance-real-server-down',
+                        'device-new',
+                        'enter-intf-bypass',
+                        'exit-intf-bypass',
+                        'per-cpu-high',
+                        'power-blade-down',
+                        'confsync_failure',
+                        'dhcp',
+                        'cpu-high',
+                        'mem-low',
+                        'log-full',
+                        'intf-ip',
+                        'vpn-tun-up',
+                        'vpn-tun-down',
+                        'ha-switch',
+                        'fm-conf-change',
+                        'ips-signature',
+                        'ips-anomaly',
+                        'temperature-high',
+                        'voltage-alert',
+                        'av-virus',
+                        'av-oversize',
+                        'av-pattern',
+                        'av-fragmented',
+                        'ha-hb-failure',
+                        'fan-failure',
+                        'ha-member-up',
+                        'ha-member-down',
+                        'ent-conf-change',
+                        'av-conserve',
+                        'av-bypass',
+                        'av-oversize-passed',
+                        'av-oversize-blocked',
+                        'ips-pkg-update',
+                        'fm-if-change',
+                        'power-supply-failure',
+                        'amc-bypass',
+                        'faz-disconnect',
+                        'bgp-established',
+                        'bgp-backward-transition',
+                        'wc-ap-up',
+                        'wc-ap-down',
+                        'fswctl-session-up',
+                        'fswctl-session-down',
+                        'ips-fail-open',
+                        'load-balance-real-server-down',
+                        'device-new',
+                        'enter-intf-bypass',
+                        'exit-intf-bypass',
+                        'per-cpu-high',
+                        'power-blade-down',
+                        'confsync_failure',
+                        'dhcp',
+                        'pool-usage',
+                        'power-redundancy-degrade',
+                        'power-redundancy-failure',
+                        'cpu-high',
+                        'mem-low',
+                        'log-full',
+                        'intf-ip',
+                        'vpn-tun-up',
+                        'vpn-tun-down',
+                        'ha-switch',
+                        'fm-conf-change',
+                        'ips-signature',
+                        'ips-anomaly',
+                        'temperature-high',
+                        'voltage-alert',
+                        'av-virus',
+                        'av-oversize',
+                        'av-pattern',
+                        'av-fragmented',
+                        'ha-hb-failure',
+                        'fan-failure',
+                        'ha-member-up',
+                        'ha-member-down',
+                        'ent-conf-change',
+                        'av-conserve',
+                        'av-bypass',
+                        'av-oversize-passed',
+                        'av-oversize-blocked',
+                        'ips-pkg-update',
+                        'fm-if-change',
+                        'power-supply-failure',
+                        'amc-bypass',
+                        'faz-disconnect',
+                        'bgp-established',
+                        'bgp-backward-transition',
+                        'wc-ap-up',
+                        'wc-ap-down',
+                        'fswctl-session-up',
+                        'fswctl-session-down',
+                        'ips-fail-open',
+                        'load-balance-real-server-down',
+                        'device-new',
+                        'enter-intf-bypass',
+                        'exit-intf-bypass',
+                        'per-cpu-high',
+                        'power-blade-down',
+                        'confsync_failure',
+                        'dhcp',
+                        'pool-usage',
+                        'power-redundancy-degrade',
+                        'power-redundancy-failure',
+                        'ospf-nbr-state-change',
+                        'ospf-virtnbr-state-change',
+                        'cpu-high',
+                        'mem-low',
+                        'log-full',
+                        'intf-ip',
+                        'vpn-tun-up',
+                        'vpn-tun-down',
+                        'ha-switch',
+                        'fm-conf-change',
+                        'ips-signature',
+                        'ips-anomaly',
+                        'temperature-high',
+                        'voltage-alert',
+                        'av-virus',
+                        'av-oversize',
+                        'av-pattern',
+                        'av-fragmented',
+                        'ha-hb-failure',
+                        'fan-failure',
+                        'ha-member-up',
+                        'ha-member-down',
+                        'ent-conf-change',
+                        'av-conserve',
+                        'av-bypass',
+                        'av-oversize-passed',
+                        'av-oversize-blocked',
+                        'ips-pkg-update',
+                        'fm-if-change',
+                        'power-supply-failure',
+                        'amc-bypass',
+                        'faz-disconnect',
+                        'bgp-established',
+                        'bgp-backward-transition',
+                        'wc-ap-up',
+                        'wc-ap-down',
+                        'fswctl-session-up',
+                        'fswctl-session-down',
+                        'ips-fail-open',
+                        'load-balance-real-server-down',
+                        'device-new',
+                        'enter-intf-bypass',
+                        'exit-intf-bypass',
+                        'per-cpu-high',
+                        'power-blade-down',
+                        'confsync_failure',
+                        'cpu-high',
+                        'mem-low',
+                        'log-full',
+                        'intf-ip',
+                        'vpn-tun-up',
+                        'vpn-tun-down',
+                        'ha-switch',
+                        'fm-conf-change',
+                        'ips-signature',
+                        'ips-anomaly',
+                        'temperature-high',
+                        'voltage-alert',
+                        'av-virus',
+                        'av-oversize',
+                        'av-pattern',
+                        'av-fragmented',
+                        'ha-hb-failure',
+                        'fan-failure',
+                        'ha-member-up',
+                        'ha-member-down',
+                        'ent-conf-change',
+                        'av-conserve',
+                        'av-bypass',
+                        'av-oversize-passed',
+                        'av-oversize-blocked',
+                        'ips-pkg-update',
+                        'fm-if-change',
+                        'power-supply-failure',
+                        'amc-bypass',
+                        'faz-disconnect',
+                        'bgp-established',
+                        'bgp-backward-transition',
+                        'wc-ap-up',
+                        'wc-ap-down',
+                        'fswctl-session-up',
+                        'fswctl-session-down',
+                        'ips-fail-open',
+                        'load-balance-real-server-down',
+                        'device-new',
+                        'enter-intf-bypass',
+                        'exit-intf-bypass',
+                        'per-cpu-high',
+                        'power-blade-down',
+                        'confsync_failure',
+                        'cpu-high',
+                        'mem-low',
+                        'log-full',
+                        'intf-ip',
+                        'vpn-tun-up',
+                        'vpn-tun-down',
+                        'ha-switch',
+                        'fm-conf-change',
+                        'ips-signature',
+                        'ips-anomaly',
+                        'temperature-high',
+                        'voltage-alert',
+                        'av-virus',
+                        'av-oversize',
+                        'av-pattern',
+                        'av-fragmented',
+                        'ha-hb-failure',
+                        'fan-failure',
+                        'ha-member-up',
+                        'ha-member-down',
+                        'ent-conf-change',
+                        'av-conserve',
+                        'av-bypass',
+                        'av-oversize-passed',
+                        'av-oversize-blocked',
+                        'ips-pkg-update',
+                        'fm-if-change',
+                        'power-supply-failure',
+                        'amc-bypass',
+                        'faz-disconnect',
+                        'bgp-established',
+                        'bgp-backward-transition',
+                        'wc-ap-up',
+                        'wc-ap-down',
+                        'fswctl-session-up',
+                        'fswctl-session-down',
+                        'ips-fail-open',
+                        'load-balance-real-server-down',
+                        'device-new',
+                        'enter-intf-bypass',
+                        'exit-intf-bypass',
+                        'per-cpu-high',
+                        'power-blade-down',
+                        'confsync_failure',
+                        'cpu-high',
+                        'mem-low',
+                        'log-full',
+                        'intf-ip',
+                        'vpn-tun-up',
+                        'vpn-tun-down',
+                        'ha-switch',
+                        'fm-conf-change',
+                        'ips-signature',
+                        'ips-anomaly',
+                        'temperature-high',
+                        'voltage-alert',
+                        'av-virus',
+                        'av-oversize',
+                        'av-pattern',
+                        'av-fragmented',
+                        'ha-hb-failure',
+                        'fan-failure',
+                        'ha-member-up',
+                        'ha-member-down',
+                        'ent-conf-change',
+                        'av-conserve',
+                        'av-bypass',
+                        'av-oversize-passed',
+                        'av-oversize-blocked',
+                        'ips-pkg-update',
+                        'fm-if-change',
+                        'power-supply-failure',
+                        'amc-bypass',
+                        'faz-disconnect',
+                        'bgp-established',
+                        'bgp-backward-transition',
+                        'wc-ap-up',
+                        'wc-ap-down',
+                        'fswctl-session-up',
+                        'fswctl-session-down',
+                        'ips-fail-open',
+                        'load-balance-real-server-down',
+                        'device-new',
+                        'enter-intf-bypass',
+                        'exit-intf-bypass',
+                        'per-cpu-high',
+                        'power-blade-down',
+                        'confsync_failure',
+                        'dhcp',
+                        'cpu-high',
+                        'mem-low',
+                        'log-full',
+                        'intf-ip',
+                        'vpn-tun-up',
+                        'vpn-tun-down',
+                        'ha-switch',
+                        'fm-conf-change',
+                        'ips-signature',
+                        'ips-anomaly',
+                        'temperature-high',
+                        'voltage-alert',
+                        'av-virus',
+                        'av-oversize',
+                        'av-pattern',
+                        'av-fragmented',
+                        'ha-hb-failure',
+                        'fan-failure',
+                        'ha-member-up',
+                        'ha-member-down',
+                        'ent-conf-change',
+                        'av-conserve',
+                        'av-bypass',
+                        'av-oversize-passed',
+                        'av-oversize-blocked',
+                        'ips-pkg-update',
+                        'fm-if-change',
+                        'power-supply-failure',
+                        'amc-bypass',
+                        'faz-disconnect',
+                        'bgp-established',
+                        'bgp-backward-transition',
+                        'wc-ap-up',
+                        'wc-ap-down',
+                        'fswctl-session-up',
+                        'fswctl-session-down',
+                        'ips-fail-open',
+                        'load-balance-real-server-down',
+                        'device-new',
+                        'enter-intf-bypass',
+                        'exit-intf-bypass',
+                        'per-cpu-high',
+                        'power-blade-down',
+                        'confsync_failure',
+                        'dhcp',
+                        'pool-usage',
+                        'power-redundancy-degrade',
+                        'power-redundancy-failure',
+                        'cpu-high',
+                        'mem-low',
+                        'log-full',
+                        'intf-ip',
+                        'vpn-tun-up',
+                        'vpn-tun-down',
+                        'ha-switch',
+                        'fm-conf-change',
+                        'ips-signature',
+                        'ips-anomaly',
+                        'temperature-high',
+                        'voltage-alert',
+                        'av-virus',
+                        'av-oversize',
+                        'av-pattern',
+                        'av-fragmented',
+                        'ha-hb-failure',
+                        'fan-failure',
+                        'ha-member-up',
+                        'ha-member-down',
+                        'ent-conf-change',
+                        'av-conserve',
+                        'av-bypass',
+                        'av-oversize-passed',
+                        'av-oversize-blocked',
+                        'ips-pkg-update',
+                        'fm-if-change',
+                        'power-supply-failure',
+                        'amc-bypass',
+                        'faz-disconnect',
+                        'bgp-established',
+                        'bgp-backward-transition',
+                        'wc-ap-up',
+                        'wc-ap-down',
+                        'fswctl-session-up',
+                        'fswctl-session-down',
+                        'ips-fail-open',
+                        'load-balance-real-server-down',
+                        'device-new',
+                        'enter-intf-bypass',
+                        'exit-intf-bypass',
+                        'per-cpu-high',
+                        'power-blade-down',
+                        'confsync_failure',
+                        'dhcp',
+                        'pool-usage',
+                        'power-redundancy-degrade',
+                        'power-redundancy-failure',
+                        'ospf-nbr-state-change',
+                        'ospf-virtnbr-state-change',
+                        'cpu-high',
+                        'mem-low',
+                        'log-full',
+                        'intf-ip',
+                        'vpn-tun-up',
+                        'vpn-tun-down',
+                        'ha-switch',
+                        'fm-conf-change',
+                        'ips-signature',
+                        'ips-anomaly',
+                        'temperature-high',
+                        'voltage-alert',
+                        'av-virus',
+                        'av-oversize',
+                        'av-pattern',
+                        'av-fragmented',
+                        'ha-hb-failure',
+                        'fan-failure',
+                        'ha-member-up',
+                        'ha-member-down',
+                        'ent-conf-change',
+                        'av-conserve',
+                        'av-bypass',
+                        'av-oversize-passed',
+                        'av-oversize-blocked',
+                        'ips-pkg-update',
+                        'fm-if-change',
+                        'power-supply-failure',
+                        'amc-bypass',
+                        'faz-disconnect',
+                        'bgp-established',
+                        'bgp-backward-transition',
+                        'wc-ap-up',
+                        'wc-ap-down',
+                        'fswctl-session-up',
+                        'fswctl-session-down',
+                        'ips-fail-open',
+                        'load-balance-real-server-down',
+                        'device-new',
+                        'enter-intf-bypass',
+                        'exit-intf-bypass',
+                        'per-cpu-high',
+                        'power-blade-down',
+                        'confsync_failure',
+                        'cpu-high',
+                        'mem-low',
+                        'log-full',
+                        'intf-ip',
+                        'vpn-tun-up',
+                        'vpn-tun-down',
+                        'ha-switch',
+                        'fm-conf-change',
+                        'ips-signature',
+                        'ips-anomaly',
+                        'temperature-high',
+                        'voltage-alert',
+                        'av-virus',
+                        'av-oversize',
+                        'av-pattern',
+                        'av-fragmented',
+                        'ha-hb-failure',
+                        'fan-failure',
+                        'ha-member-up',
+                        'ha-member-down',
+                        'ent-conf-change',
+                        'av-conserve',
+                        'av-bypass',
+                        'av-oversize-passed',
+                        'av-oversize-blocked',
+                        'ips-pkg-update',
+                        'fm-if-change',
+                        'power-supply-failure',
+                        'amc-bypass',
+                        'faz-disconnect',
+                        'bgp-established',
+                        'bgp-backward-transition',
+                        'wc-ap-up',
+                        'wc-ap-down',
+                        'fswctl-session-up',
+                        'fswctl-session-down',
+                        'ips-fail-open',
+                        'load-balance-real-server-down',
+                        'device-new',
+                        'enter-intf-bypass',
+                        'exit-intf-bypass',
+                        'per-cpu-high',
+                        'power-blade-down',
+                        'confsync_failure',
+                        'cpu-high',
+                        'mem-low',
+                        'log-full',
+                        'intf-ip',
+                        'vpn-tun-up',
+                        'vpn-tun-down',
+                        'ha-switch',
+                        'fm-conf-change',
+                        'ips-signature',
+                        'ips-anomaly',
+                        'temperature-high',
+                        'voltage-alert',
+                        'av-virus',
+                        'av-oversize',
+                        'av-pattern',
+                        'av-fragmented',
+                        'ha-hb-failure',
+                        'fan-failure',
+                        'ha-member-up',
+                        'ha-member-down',
+                        'ent-conf-change',
+                        'av-conserve',
+                        'av-bypass',
+                        'av-oversize-passed',
+                        'av-oversize-blocked',
+                        'ips-pkg-update',
+                        'fm-if-change',
+                        'power-supply-failure',
+                        'amc-bypass',
+                        'faz-disconnect',
+                        'bgp-established',
+                        'bgp-backward-transition',
+                        'wc-ap-up',
+                        'wc-ap-down',
+                        'fswctl-session-up',
+                        'fswctl-session-down',
+                        'ips-fail-open',
+                        'load-balance-real-server-down',
+                        'device-new',
+                        'enter-intf-bypass',
+                        'exit-intf-bypass',
+                        'per-cpu-high',
+                        'power-blade-down',
+                        'confsync_failure',
+                        'cpu-high',
+                        'mem-low',
+                        'log-full',
+                        'intf-ip',
+                        'vpn-tun-up',
+                        'vpn-tun-down',
+                        'ha-switch',
+                        'fm-conf-change',
+                        'ips-signature',
+                        'ips-anomaly',
+                        'temperature-high',
+                        'voltage-alert',
+                        'av-virus',
+                        'av-oversize',
+                        'av-pattern',
+                        'av-fragmented',
+                        'ha-hb-failure',
+                        'fan-failure',
+                        'ha-member-up',
+                        'ha-member-down',
+                        'ent-conf-change',
+                        'av-conserve',
+                        'av-bypass',
+                        'av-oversize-passed',
+                        'av-oversize-blocked',
+                        'ips-pkg-update',
+                        'fm-if-change',
+                        'power-supply-failure',
+                        'amc-bypass',
+                        'faz-disconnect',
+                        'bgp-established',
+                        'bgp-backward-transition',
+                        'wc-ap-up',
+                        'wc-ap-down',
+                        'fswctl-session-up',
+                        'fswctl-session-down',
+                        'ips-fail-open',
+                        'load-balance-real-server-down',
+                        'device-new',
+                        'enter-intf-bypass',
+                        'exit-intf-bypass',
+                        'per-cpu-high',
+                        'power-blade-down',
+                        'confsync_failure',
+                        'dhcp',
+                        'cpu-high',
+                        'mem-low',
+                        'log-full',
+                        'intf-ip',
+                        'vpn-tun-up',
+                        'vpn-tun-down',
+                        'ha-switch',
+                        'fm-conf-change',
+                        'ips-signature',
+                        'ips-anomaly',
+                        'temperature-high',
+                        'voltage-alert',
+                        'av-virus',
+                        'av-oversize',
+                        'av-pattern',
+                        'av-fragmented',
+                        'ha-hb-failure',
+                        'fan-failure',
+                        'ha-member-up',
+                        'ha-member-down',
+                        'ent-conf-change',
+                        'av-conserve',
+                        'av-bypass',
+                        'av-oversize-passed',
+                        'av-oversize-blocked',
+                        'ips-pkg-update',
+                        'fm-if-change',
+                        'power-supply-failure',
+                        'amc-bypass',
+                        'faz-disconnect',
+                        'bgp-established',
+                        'bgp-backward-transition',
+                        'wc-ap-up',
+                        'wc-ap-down',
+                        'fswctl-session-up',
+                        'fswctl-session-down',
+                        'ips-fail-open',
+                        'load-balance-real-server-down',
+                        'device-new',
+                        'enter-intf-bypass',
+                        'exit-intf-bypass',
+                        'per-cpu-high',
+                        'power-blade-down',
+                        'confsync_failure',
+                        'dhcp',
+                        'pool-usage',
+                        'power-redundancy-degrade',
+                        'power-redundancy-failure',
+                        'cpu-high',
+                        'mem-low',
+                        'log-full',
+                        'intf-ip',
+                        'vpn-tun-up',
+                        'vpn-tun-down',
+                        'ha-switch',
+                        'fm-conf-change',
+                        'ips-signature',
+                        'ips-anomaly',
+                        'temperature-high',
+                        'voltage-alert',
+                        'av-virus',
+                        'av-oversize',
+                        'av-pattern',
+                        'av-fragmented',
+                        'ha-hb-failure',
+                        'fan-failure',
+                        'ha-member-up',
+                        'ha-member-down',
+                        'ent-conf-change',
+                        'av-conserve',
+                        'av-bypass',
+                        'av-oversize-passed',
+                        'av-oversize-blocked',
+                        'ips-pkg-update',
+                        'fm-if-change',
+                        'power-supply-failure',
+                        'amc-bypass',
+                        'faz-disconnect',
+                        'bgp-established',
+                        'bgp-backward-transition',
+                        'wc-ap-up',
+                        'wc-ap-down',
+                        'fswctl-session-up',
+                        'fswctl-session-down',
+                        'ips-fail-open',
+                        'load-balance-real-server-down',
+                        'device-new',
+                        'enter-intf-bypass',
+                        'exit-intf-bypass',
+                        'per-cpu-high',
+                        'power-blade-down',
+                        'confsync_failure',
+                        'dhcp',
+                        'pool-usage',
+                        'power-redundancy-degrade',
+                        'power-redundancy-failure',
+                        'ospf-nbr-state-change',
+                        'ospf-virtnbr-state-change'
                     ]
                 },
                 'ha-direct': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': False,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -476,18 +4253,58 @@ def main():
                 },
                 'name': {
                     'required': True,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': False,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'notify-hosts': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': False,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'notify-hosts6': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': False,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'priv-proto': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': False,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'aes',
                         'des',
@@ -498,10 +4315,30 @@ def main():
                 },
                 'priv-pwd': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': False,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'queries': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': False,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -510,10 +4347,30 @@ def main():
                 },
                 'query-port': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': False,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'security-level': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': False,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'no-auth-no-priv',
                         'auth-no-priv',
@@ -523,14 +4380,44 @@ def main():
                 },
                 'source-ip': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': False,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'source-ipv6': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': False,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'status': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': False,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -539,14 +4426,44 @@ def main():
                 },
                 'trap-lport': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': False,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'trap-rport': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': False,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'trap-status': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': False,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'

@@ -168,6 +168,737 @@ options:
                             - 'low'
                             - 'medium'
                             - 'high'
+            address-list:
+                description: no description
+                type: dict
+                required: false
+                suboptions:
+                    blocked-address:
+                        type: str
+                        description: 'Blocked address.'
+                    blocked-log:
+                        type: str
+                        description: 'Enable/disable logging on blocked addresses.'
+                        choices:
+                            - 'disable'
+                            - 'enable'
+                    severity:
+                        type: str
+                        description: 'Severity.'
+                        choices:
+                            - 'low'
+                            - 'medium'
+                            - 'high'
+                    status:
+                        type: str
+                        description: 'Status.'
+                        choices:
+                            - 'disable'
+                            - 'enable'
+                    trusted-address:
+                        type: str
+                        description: 'Trusted address.'
+            constraint:
+                description: no description
+                type: dict
+                required: false
+                suboptions:
+                    content-length:
+                        description: no description
+                        type: dict
+                        required: false
+                        suboptions:
+                            action:
+                                type: str
+                                description: 'Action.'
+                                choices:
+                                    - 'allow'
+                                    - 'block'
+                            length:
+                                type: int
+                                description: 'Length of HTTP content in bytes (0 to 2147483647).'
+                            log:
+                                type: str
+                                description: 'Enable/disable logging.'
+                                choices:
+                                    - 'disable'
+                                    - 'enable'
+                            severity:
+                                type: str
+                                description: 'Severity.'
+                                choices:
+                                    - 'low'
+                                    - 'medium'
+                                    - 'high'
+                            status:
+                                type: str
+                                description: 'Enable/disable the constraint.'
+                                choices:
+                                    - 'disable'
+                                    - 'enable'
+                    exception:
+                        description: no description
+                        type: list
+                        suboptions:
+                            address:
+                                type: str
+                                description: 'Host address.'
+                            content-length:
+                                type: str
+                                description: 'HTTP content length in request.'
+                                choices:
+                                    - 'disable'
+                                    - 'enable'
+                            header-length:
+                                type: str
+                                description: 'HTTP header length in request.'
+                                choices:
+                                    - 'disable'
+                                    - 'enable'
+                            hostname:
+                                type: str
+                                description: 'Enable/disable hostname check.'
+                                choices:
+                                    - 'disable'
+                                    - 'enable'
+                            id:
+                                type: int
+                                description: 'Exception ID.'
+                            line-length:
+                                type: str
+                                description: 'HTTP line length in request.'
+                                choices:
+                                    - 'disable'
+                                    - 'enable'
+                            malformed:
+                                type: str
+                                description: 'Enable/disable malformed HTTP request check.'
+                                choices:
+                                    - 'disable'
+                                    - 'enable'
+                            max-cookie:
+                                type: str
+                                description: 'Maximum number of cookies in HTTP request.'
+                                choices:
+                                    - 'disable'
+                                    - 'enable'
+                            max-header-line:
+                                type: str
+                                description: 'Maximum number of HTTP header line.'
+                                choices:
+                                    - 'disable'
+                                    - 'enable'
+                            max-range-segment:
+                                type: str
+                                description: 'Maximum number of range segments in HTTP range line.'
+                                choices:
+                                    - 'disable'
+                                    - 'enable'
+                            max-url-param:
+                                type: str
+                                description: 'Maximum number of parameters in URL.'
+                                choices:
+                                    - 'disable'
+                                    - 'enable'
+                            method:
+                                type: str
+                                description: 'Enable/disable HTTP method check.'
+                                choices:
+                                    - 'disable'
+                                    - 'enable'
+                            param-length:
+                                type: str
+                                description: 'Maximum length of parameter in URL, HTTP POST request or HTTP body.'
+                                choices:
+                                    - 'disable'
+                                    - 'enable'
+                            pattern:
+                                type: str
+                                description: 'URL pattern.'
+                            regex:
+                                type: str
+                                description: 'Enable/disable regular expression based pattern match.'
+                                choices:
+                                    - 'disable'
+                                    - 'enable'
+                            url-param-length:
+                                type: str
+                                description: 'Maximum length of parameter in URL.'
+                                choices:
+                                    - 'disable'
+                                    - 'enable'
+                            version:
+                                type: str
+                                description: 'Enable/disable HTTP version check.'
+                                choices:
+                                    - 'disable'
+                                    - 'enable'
+                    header-length:
+                        description: no description
+                        type: dict
+                        required: false
+                        suboptions:
+                            action:
+                                type: str
+                                description: 'Action.'
+                                choices:
+                                    - 'allow'
+                                    - 'block'
+                            length:
+                                type: int
+                                description: 'Length of HTTP header in bytes (0 to 2147483647).'
+                            log:
+                                type: str
+                                description: 'Enable/disable logging.'
+                                choices:
+                                    - 'disable'
+                                    - 'enable'
+                            severity:
+                                type: str
+                                description: 'Severity.'
+                                choices:
+                                    - 'low'
+                                    - 'medium'
+                                    - 'high'
+                            status:
+                                type: str
+                                description: 'Enable/disable the constraint.'
+                                choices:
+                                    - 'disable'
+                                    - 'enable'
+                    hostname:
+                        description: no description
+                        type: dict
+                        required: false
+                        suboptions:
+                            action:
+                                type: str
+                                description: 'Action.'
+                                choices:
+                                    - 'allow'
+                                    - 'block'
+                            log:
+                                type: str
+                                description: 'Enable/disable logging.'
+                                choices:
+                                    - 'disable'
+                                    - 'enable'
+                            severity:
+                                type: str
+                                description: 'Severity.'
+                                choices:
+                                    - 'low'
+                                    - 'medium'
+                                    - 'high'
+                            status:
+                                type: str
+                                description: 'Enable/disable the constraint.'
+                                choices:
+                                    - 'disable'
+                                    - 'enable'
+                    line-length:
+                        description: no description
+                        type: dict
+                        required: false
+                        suboptions:
+                            action:
+                                type: str
+                                description: 'Action.'
+                                choices:
+                                    - 'allow'
+                                    - 'block'
+                            length:
+                                type: int
+                                description: 'Length of HTTP line in bytes (0 to 2147483647).'
+                            log:
+                                type: str
+                                description: 'Enable/disable logging.'
+                                choices:
+                                    - 'disable'
+                                    - 'enable'
+                            severity:
+                                type: str
+                                description: 'Severity.'
+                                choices:
+                                    - 'low'
+                                    - 'medium'
+                                    - 'high'
+                            status:
+                                type: str
+                                description: 'Enable/disable the constraint.'
+                                choices:
+                                    - 'disable'
+                                    - 'enable'
+                    malformed:
+                        description: no description
+                        type: dict
+                        required: false
+                        suboptions:
+                            action:
+                                type: str
+                                description: 'Action.'
+                                choices:
+                                    - 'allow'
+                                    - 'block'
+                            log:
+                                type: str
+                                description: 'Enable/disable logging.'
+                                choices:
+                                    - 'disable'
+                                    - 'enable'
+                            severity:
+                                type: str
+                                description: 'Severity.'
+                                choices:
+                                    - 'low'
+                                    - 'medium'
+                                    - 'high'
+                            status:
+                                type: str
+                                description: 'Enable/disable the constraint.'
+                                choices:
+                                    - 'disable'
+                                    - 'enable'
+                    max-cookie:
+                        description: no description
+                        type: dict
+                        required: false
+                        suboptions:
+                            action:
+                                type: str
+                                description: 'Action.'
+                                choices:
+                                    - 'allow'
+                                    - 'block'
+                            log:
+                                type: str
+                                description: 'Enable/disable logging.'
+                                choices:
+                                    - 'disable'
+                                    - 'enable'
+                            max-cookie:
+                                type: int
+                                description: 'Maximum number of cookies in HTTP request (0 to 2147483647).'
+                            severity:
+                                type: str
+                                description: 'Severity.'
+                                choices:
+                                    - 'low'
+                                    - 'medium'
+                                    - 'high'
+                            status:
+                                type: str
+                                description: 'Enable/disable the constraint.'
+                                choices:
+                                    - 'disable'
+                                    - 'enable'
+                    max-header-line:
+                        description: no description
+                        type: dict
+                        required: false
+                        suboptions:
+                            action:
+                                type: str
+                                description: 'Action.'
+                                choices:
+                                    - 'allow'
+                                    - 'block'
+                            log:
+                                type: str
+                                description: 'Enable/disable logging.'
+                                choices:
+                                    - 'disable'
+                                    - 'enable'
+                            max-header-line:
+                                type: int
+                                description: 'Maximum number HTTP header lines (0 to 2147483647).'
+                            severity:
+                                type: str
+                                description: 'Severity.'
+                                choices:
+                                    - 'low'
+                                    - 'medium'
+                                    - 'high'
+                            status:
+                                type: str
+                                description: 'Enable/disable the constraint.'
+                                choices:
+                                    - 'disable'
+                                    - 'enable'
+                    max-range-segment:
+                        description: no description
+                        type: dict
+                        required: false
+                        suboptions:
+                            action:
+                                type: str
+                                description: 'Action.'
+                                choices:
+                                    - 'allow'
+                                    - 'block'
+                            log:
+                                type: str
+                                description: 'Enable/disable logging.'
+                                choices:
+                                    - 'disable'
+                                    - 'enable'
+                            max-range-segment:
+                                type: int
+                                description: 'Maximum number of range segments in HTTP range line (0 to 2147483647).'
+                            severity:
+                                type: str
+                                description: 'Severity.'
+                                choices:
+                                    - 'low'
+                                    - 'medium'
+                                    - 'high'
+                            status:
+                                type: str
+                                description: 'Enable/disable the constraint.'
+                                choices:
+                                    - 'disable'
+                                    - 'enable'
+                    max-url-param:
+                        description: no description
+                        type: dict
+                        required: false
+                        suboptions:
+                            action:
+                                type: str
+                                description: 'Action.'
+                                choices:
+                                    - 'allow'
+                                    - 'block'
+                            log:
+                                type: str
+                                description: 'Enable/disable logging.'
+                                choices:
+                                    - 'disable'
+                                    - 'enable'
+                            max-url-param:
+                                type: int
+                                description: 'Maximum number of parameters in URL (0 to 2147483647).'
+                            severity:
+                                type: str
+                                description: 'Severity.'
+                                choices:
+                                    - 'low'
+                                    - 'medium'
+                                    - 'high'
+                            status:
+                                type: str
+                                description: 'Enable/disable the constraint.'
+                                choices:
+                                    - 'disable'
+                                    - 'enable'
+                    method:
+                        description: no description
+                        type: dict
+                        required: false
+                        suboptions:
+                            action:
+                                type: str
+                                description: 'Action.'
+                                choices:
+                                    - 'allow'
+                                    - 'block'
+                            log:
+                                type: str
+                                description: 'Enable/disable logging.'
+                                choices:
+                                    - 'disable'
+                                    - 'enable'
+                            severity:
+                                type: str
+                                description: 'Severity.'
+                                choices:
+                                    - 'low'
+                                    - 'medium'
+                                    - 'high'
+                            status:
+                                type: str
+                                description: 'Enable/disable the constraint.'
+                                choices:
+                                    - 'disable'
+                                    - 'enable'
+                    param-length:
+                        description: no description
+                        type: dict
+                        required: false
+                        suboptions:
+                            action:
+                                type: str
+                                description: 'Action.'
+                                choices:
+                                    - 'allow'
+                                    - 'block'
+                            length:
+                                type: int
+                                description: 'Maximum length of parameter in URL, HTTP POST request or HTTP body in bytes (0 to 2147483647).'
+                            log:
+                                type: str
+                                description: 'Enable/disable logging.'
+                                choices:
+                                    - 'disable'
+                                    - 'enable'
+                            severity:
+                                type: str
+                                description: 'Severity.'
+                                choices:
+                                    - 'low'
+                                    - 'medium'
+                                    - 'high'
+                            status:
+                                type: str
+                                description: 'Enable/disable the constraint.'
+                                choices:
+                                    - 'disable'
+                                    - 'enable'
+                    url-param-length:
+                        description: no description
+                        type: dict
+                        required: false
+                        suboptions:
+                            action:
+                                type: str
+                                description: 'Action.'
+                                choices:
+                                    - 'allow'
+                                    - 'block'
+                            length:
+                                type: int
+                                description: 'Maximum length of URL parameter in bytes (0 to 2147483647).'
+                            log:
+                                type: str
+                                description: 'Enable/disable logging.'
+                                choices:
+                                    - 'disable'
+                                    - 'enable'
+                            severity:
+                                type: str
+                                description: 'Severity.'
+                                choices:
+                                    - 'low'
+                                    - 'medium'
+                                    - 'high'
+                            status:
+                                type: str
+                                description: 'Enable/disable the constraint.'
+                                choices:
+                                    - 'disable'
+                                    - 'enable'
+                    version:
+                        description: no description
+                        type: dict
+                        required: false
+                        suboptions:
+                            action:
+                                type: str
+                                description: 'Action.'
+                                choices:
+                                    - 'allow'
+                                    - 'block'
+                            log:
+                                type: str
+                                description: 'Enable/disable logging.'
+                                choices:
+                                    - 'disable'
+                                    - 'enable'
+                            severity:
+                                type: str
+                                description: 'Severity.'
+                                choices:
+                                    - 'low'
+                                    - 'medium'
+                                    - 'high'
+                            status:
+                                type: str
+                                description: 'Enable/disable the constraint.'
+                                choices:
+                                    - 'disable'
+                                    - 'enable'
+            method:
+                description: no description
+                type: dict
+                required: false
+                suboptions:
+                    default-allowed-methods:
+                        description: no description
+                        type: list
+                        choices:
+                         - delete
+                         - get
+                         - head
+                         - options
+                         - post
+                         - put
+                         - trace
+                         - others
+                         - connect
+                    log:
+                        type: str
+                        description: 'Enable/disable logging.'
+                        choices:
+                            - 'disable'
+                            - 'enable'
+                    method-policy:
+                        description: no description
+                        type: list
+                        suboptions:
+                            address:
+                                type: str
+                                description: 'Host address.'
+                            allowed-methods:
+                                description: no description
+                                type: list
+                                choices:
+                                 - delete
+                                 - get
+                                 - head
+                                 - options
+                                 - post
+                                 - put
+                                 - trace
+                                 - others
+                                 - connect
+                            id:
+                                type: int
+                                description: 'HTTP method policy ID.'
+                            pattern:
+                                type: str
+                                description: 'URL pattern.'
+                            regex:
+                                type: str
+                                description: 'Enable/disable regular expression based pattern match.'
+                                choices:
+                                    - 'disable'
+                                    - 'enable'
+                    severity:
+                        type: str
+                        description: 'Severity.'
+                        choices:
+                            - 'low'
+                            - 'medium'
+                            - 'high'
+                    status:
+                        type: str
+                        description: 'Status.'
+                        choices:
+                            - 'disable'
+                            - 'enable'
+            signature:
+                description: no description
+                type: dict
+                required: false
+                suboptions:
+                    credit-card-detection-threshold:
+                        type: int
+                        description: 'The minimum number of Credit cards to detect violation.'
+                    custom-signature:
+                        description: no description
+                        type: list
+                        suboptions:
+                            action:
+                                type: str
+                                description: 'Action.'
+                                choices:
+                                    - 'allow'
+                                    - 'block'
+                                    - 'erase'
+                            case-sensitivity:
+                                type: str
+                                description: 'Case sensitivity in pattern.'
+                                choices:
+                                    - 'disable'
+                                    - 'enable'
+                            direction:
+                                type: str
+                                description: 'Traffic direction.'
+                                choices:
+                                    - 'request'
+                                    - 'response'
+                            log:
+                                type: str
+                                description: 'Enable/disable logging.'
+                                choices:
+                                    - 'disable'
+                                    - 'enable'
+                            name:
+                                type: str
+                                description: 'Signature name.'
+                            pattern:
+                                type: str
+                                description: 'Match pattern.'
+                            severity:
+                                type: str
+                                description: 'Severity.'
+                                choices:
+                                    - 'low'
+                                    - 'medium'
+                                    - 'high'
+                            status:
+                                type: str
+                                description: 'Status.'
+                                choices:
+                                    - 'disable'
+                                    - 'enable'
+                            target:
+                                description: no description
+                                type: list
+                                choices:
+                                 - arg
+                                 - arg-name
+                                 - req-body
+                                 - req-cookie
+                                 - req-cookie-name
+                                 - req-filename
+                                 - req-header
+                                 - req-header-name
+                                 - req-raw-uri
+                                 - req-uri
+                                 - resp-body
+                                 - resp-hdr
+                                 - resp-status
+                    disabled-signature:
+                        type: str
+                        description: 'Disabled signatures'
+                    disabled-sub-class:
+                        type: str
+                        description: 'Disabled signature subclasses.'
+                    main-class:
+                        description: no description
+                        type: dict
+                        required: false
+                        suboptions:
+                            action:
+                                type: str
+                                description: 'Action.'
+                                choices:
+                                    - 'allow'
+                                    - 'block'
+                                    - 'erase'
+                            id:
+                                type: int
+                                description: 'Main signature class ID.'
+                            log:
+                                type: str
+                                description: 'Enable/disable logging.'
+                                choices:
+                                    - 'disable'
+                                    - 'enable'
+                            severity:
+                                type: str
+                                description: 'Severity.'
+                                choices:
+                                    - 'low'
+                                    - 'medium'
+                                    - 'high'
+                            status:
+                                type: str
+                                description: 'Status.'
+                                choices:
+                                    - 'disable'
+                                    - 'enable'
 
 '''
 
@@ -209,6 +940,170 @@ EXAMPLES = '''
                   id: <value of integer>
                   log: <value in [disable, enable]>
                   severity: <value in [low, medium, high]>
+            address-list:
+               blocked-address: <value of string>
+               blocked-log: <value in [disable, enable]>
+               severity: <value in [low, medium, high]>
+               status: <value in [disable, enable]>
+               trusted-address: <value of string>
+            constraint:
+               content-length:
+                  action: <value in [allow, block]>
+                  length: <value of integer>
+                  log: <value in [disable, enable]>
+                  severity: <value in [low, medium, high]>
+                  status: <value in [disable, enable]>
+               exception:
+                 -
+                     address: <value of string>
+                     content-length: <value in [disable, enable]>
+                     header-length: <value in [disable, enable]>
+                     hostname: <value in [disable, enable]>
+                     id: <value of integer>
+                     line-length: <value in [disable, enable]>
+                     malformed: <value in [disable, enable]>
+                     max-cookie: <value in [disable, enable]>
+                     max-header-line: <value in [disable, enable]>
+                     max-range-segment: <value in [disable, enable]>
+                     max-url-param: <value in [disable, enable]>
+                     method: <value in [disable, enable]>
+                     param-length: <value in [disable, enable]>
+                     pattern: <value of string>
+                     regex: <value in [disable, enable]>
+                     url-param-length: <value in [disable, enable]>
+                     version: <value in [disable, enable]>
+               header-length:
+                  action: <value in [allow, block]>
+                  length: <value of integer>
+                  log: <value in [disable, enable]>
+                  severity: <value in [low, medium, high]>
+                  status: <value in [disable, enable]>
+               hostname:
+                  action: <value in [allow, block]>
+                  log: <value in [disable, enable]>
+                  severity: <value in [low, medium, high]>
+                  status: <value in [disable, enable]>
+               line-length:
+                  action: <value in [allow, block]>
+                  length: <value of integer>
+                  log: <value in [disable, enable]>
+                  severity: <value in [low, medium, high]>
+                  status: <value in [disable, enable]>
+               malformed:
+                  action: <value in [allow, block]>
+                  log: <value in [disable, enable]>
+                  severity: <value in [low, medium, high]>
+                  status: <value in [disable, enable]>
+               max-cookie:
+                  action: <value in [allow, block]>
+                  log: <value in [disable, enable]>
+                  max-cookie: <value of integer>
+                  severity: <value in [low, medium, high]>
+                  status: <value in [disable, enable]>
+               max-header-line:
+                  action: <value in [allow, block]>
+                  log: <value in [disable, enable]>
+                  max-header-line: <value of integer>
+                  severity: <value in [low, medium, high]>
+                  status: <value in [disable, enable]>
+               max-range-segment:
+                  action: <value in [allow, block]>
+                  log: <value in [disable, enable]>
+                  max-range-segment: <value of integer>
+                  severity: <value in [low, medium, high]>
+                  status: <value in [disable, enable]>
+               max-url-param:
+                  action: <value in [allow, block]>
+                  log: <value in [disable, enable]>
+                  max-url-param: <value of integer>
+                  severity: <value in [low, medium, high]>
+                  status: <value in [disable, enable]>
+               method:
+                  action: <value in [allow, block]>
+                  log: <value in [disable, enable]>
+                  severity: <value in [low, medium, high]>
+                  status: <value in [disable, enable]>
+               param-length:
+                  action: <value in [allow, block]>
+                  length: <value of integer>
+                  log: <value in [disable, enable]>
+                  severity: <value in [low, medium, high]>
+                  status: <value in [disable, enable]>
+               url-param-length:
+                  action: <value in [allow, block]>
+                  length: <value of integer>
+                  log: <value in [disable, enable]>
+                  severity: <value in [low, medium, high]>
+                  status: <value in [disable, enable]>
+               version:
+                  action: <value in [allow, block]>
+                  log: <value in [disable, enable]>
+                  severity: <value in [low, medium, high]>
+                  status: <value in [disable, enable]>
+            method:
+               default-allowed-methods:
+                 - delete
+                 - get
+                 - head
+                 - options
+                 - post
+                 - put
+                 - trace
+                 - others
+                 - connect
+               log: <value in [disable, enable]>
+               method-policy:
+                 -
+                     address: <value of string>
+                     allowed-methods:
+                       - delete
+                       - get
+                       - head
+                       - options
+                       - post
+                       - put
+                       - trace
+                       - others
+                       - connect
+                     id: <value of integer>
+                     pattern: <value of string>
+                     regex: <value in [disable, enable]>
+               severity: <value in [low, medium, high]>
+               status: <value in [disable, enable]>
+            signature:
+               credit-card-detection-threshold: <value of integer>
+               custom-signature:
+                 -
+                     action: <value in [allow, block, erase]>
+                     case-sensitivity: <value in [disable, enable]>
+                     direction: <value in [request, response]>
+                     log: <value in [disable, enable]>
+                     name: <value of string>
+                     pattern: <value of string>
+                     severity: <value in [low, medium, high]>
+                     status: <value in [disable, enable]>
+                     target:
+                       - arg
+                       - arg-name
+                       - req-body
+                       - req-cookie
+                       - req-cookie-name
+                       - req-filename
+                       - req-header
+                       - req-header-name
+                       - req-raw-uri
+                       - req-uri
+                       - resp-body
+                       - resp-hdr
+                       - resp-status
+               disabled-signature: <value of string>
+               disabled-sub-class: <value of string>
+               main-class:
+                  action: <value in [allow, block, erase]>
+                  id: <value of integer>
+                  log: <value in [disable, enable]>
+                  severity: <value in [low, medium, high]>
+                  status: <value in [disable, enable]>
 
 '''
 
@@ -305,10 +1200,30 @@ def main():
             'options': {
                 'comment': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'extended-log': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -317,6 +1232,16 @@ def main():
                 },
                 'external': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -325,22 +1250,72 @@ def main():
                 },
                 'name': {
                     'required': True,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'url-access': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'list',
                     'options': {
                         'access-pattern': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'list',
                             'options': {
                                 'id': {
                                     'required': False,
+                                    'revision': {
+                                        '6.0.0': True,
+                                        '6.2.1': True,
+                                        '6.2.3': True,
+                                        '6.2.5': True,
+                                        '6.4.0': True,
+                                        '6.4.2': True,
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
                                     'type': 'int'
                                 },
                                 'negate': {
                                     'required': False,
+                                    'revision': {
+                                        '6.0.0': True,
+                                        '6.2.1': True,
+                                        '6.2.3': True,
+                                        '6.2.5': True,
+                                        '6.4.0': True,
+                                        '6.4.2': True,
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
                                     'choices': [
                                         'disable',
                                         'enable'
@@ -349,10 +1324,30 @@ def main():
                                 },
                                 'pattern': {
                                     'required': False,
+                                    'revision': {
+                                        '6.0.0': True,
+                                        '6.2.1': True,
+                                        '6.2.3': True,
+                                        '6.2.5': True,
+                                        '6.4.0': True,
+                                        '6.4.2': True,
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
                                     'type': 'str'
                                 },
                                 'regex': {
                                     'required': False,
+                                    'revision': {
+                                        '6.0.0': True,
+                                        '6.2.1': True,
+                                        '6.2.3': True,
+                                        '6.2.5': True,
+                                        '6.4.0': True,
+                                        '6.4.2': True,
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
                                     'choices': [
                                         'disable',
                                         'enable'
@@ -361,12 +1356,32 @@ def main():
                                 },
                                 'srcaddr': {
                                     'required': False,
+                                    'revision': {
+                                        '6.0.0': True,
+                                        '6.2.1': True,
+                                        '6.2.3': True,
+                                        '6.2.5': True,
+                                        '6.4.0': True,
+                                        '6.4.2': True,
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
                                     'type': 'str'
                                 }
                             }
                         },
                         'action': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'choices': [
                                 'bypass',
                                 'permit',
@@ -376,14 +1391,44 @@ def main():
                         },
                         'address': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'str'
                         },
                         'id': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'int'
                         },
                         'log': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'choices': [
                                 'disable',
                                 'enable'
@@ -392,12 +1437,1420 @@ def main():
                         },
                         'severity': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'choices': [
                                 'low',
                                 'medium',
                                 'high'
                             ],
                             'type': 'str'
+                        }
+                    }
+                },
+                'address-list': {
+                    'required': False,
+                    'type': 'dict',
+                    'options': {
+                        'blocked-address': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'str'
+                        },
+                        'blocked-log': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'disable',
+                                'enable'
+                            ],
+                            'type': 'str'
+                        },
+                        'severity': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'low',
+                                'medium',
+                                'high'
+                            ],
+                            'type': 'str'
+                        },
+                        'status': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'disable',
+                                'enable'
+                            ],
+                            'type': 'str'
+                        },
+                        'trusted-address': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'str'
+                        }
+                    }
+                },
+                'constraint': {
+                    'required': False,
+                    'type': 'dict',
+                    'options': {
+                        'content-length': {
+                            'required': False,
+                            'type': 'dict',
+                            'options': {
+                                'action': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'choices': [
+                                        'allow',
+                                        'block'
+                                    ],
+                                    'type': 'str'
+                                },
+                                'length': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'type': 'int'
+                                },
+                                'log': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'choices': [
+                                        'disable',
+                                        'enable'
+                                    ],
+                                    'type': 'str'
+                                },
+                                'severity': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'choices': [
+                                        'low',
+                                        'medium',
+                                        'high'
+                                    ],
+                                    'type': 'str'
+                                },
+                                'status': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'choices': [
+                                        'disable',
+                                        'enable'
+                                    ],
+                                    'type': 'str'
+                                }
+                            }
+                        },
+                        'exception': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'list',
+                            'options': {
+                                'address': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'type': 'str'
+                                },
+                                'content-length': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'choices': [
+                                        'disable',
+                                        'enable'
+                                    ],
+                                    'type': 'str'
+                                },
+                                'header-length': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'choices': [
+                                        'disable',
+                                        'enable'
+                                    ],
+                                    'type': 'str'
+                                },
+                                'hostname': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'choices': [
+                                        'disable',
+                                        'enable'
+                                    ],
+                                    'type': 'str'
+                                },
+                                'id': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'type': 'int'
+                                },
+                                'line-length': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'choices': [
+                                        'disable',
+                                        'enable'
+                                    ],
+                                    'type': 'str'
+                                },
+                                'malformed': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'choices': [
+                                        'disable',
+                                        'enable'
+                                    ],
+                                    'type': 'str'
+                                },
+                                'max-cookie': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'choices': [
+                                        'disable',
+                                        'enable'
+                                    ],
+                                    'type': 'str'
+                                },
+                                'max-header-line': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'choices': [
+                                        'disable',
+                                        'enable'
+                                    ],
+                                    'type': 'str'
+                                },
+                                'max-range-segment': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'choices': [
+                                        'disable',
+                                        'enable'
+                                    ],
+                                    'type': 'str'
+                                },
+                                'max-url-param': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'choices': [
+                                        'disable',
+                                        'enable'
+                                    ],
+                                    'type': 'str'
+                                },
+                                'method': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'choices': [
+                                        'disable',
+                                        'enable'
+                                    ],
+                                    'type': 'str'
+                                },
+                                'param-length': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'choices': [
+                                        'disable',
+                                        'enable'
+                                    ],
+                                    'type': 'str'
+                                },
+                                'pattern': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'type': 'str'
+                                },
+                                'regex': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'choices': [
+                                        'disable',
+                                        'enable'
+                                    ],
+                                    'type': 'str'
+                                },
+                                'url-param-length': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'choices': [
+                                        'disable',
+                                        'enable'
+                                    ],
+                                    'type': 'str'
+                                },
+                                'version': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'choices': [
+                                        'disable',
+                                        'enable'
+                                    ],
+                                    'type': 'str'
+                                }
+                            }
+                        },
+                        'header-length': {
+                            'required': False,
+                            'type': 'dict',
+                            'options': {
+                                'action': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'choices': [
+                                        'allow',
+                                        'block'
+                                    ],
+                                    'type': 'str'
+                                },
+                                'length': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'type': 'int'
+                                },
+                                'log': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'choices': [
+                                        'disable',
+                                        'enable'
+                                    ],
+                                    'type': 'str'
+                                },
+                                'severity': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'choices': [
+                                        'low',
+                                        'medium',
+                                        'high'
+                                    ],
+                                    'type': 'str'
+                                },
+                                'status': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'choices': [
+                                        'disable',
+                                        'enable'
+                                    ],
+                                    'type': 'str'
+                                }
+                            }
+                        },
+                        'hostname': {
+                            'required': False,
+                            'type': 'dict',
+                            'options': {
+                                'action': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'choices': [
+                                        'allow',
+                                        'block'
+                                    ],
+                                    'type': 'str'
+                                },
+                                'log': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'choices': [
+                                        'disable',
+                                        'enable'
+                                    ],
+                                    'type': 'str'
+                                },
+                                'severity': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'choices': [
+                                        'low',
+                                        'medium',
+                                        'high'
+                                    ],
+                                    'type': 'str'
+                                },
+                                'status': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'choices': [
+                                        'disable',
+                                        'enable'
+                                    ],
+                                    'type': 'str'
+                                }
+                            }
+                        },
+                        'line-length': {
+                            'required': False,
+                            'type': 'dict',
+                            'options': {
+                                'action': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'choices': [
+                                        'allow',
+                                        'block'
+                                    ],
+                                    'type': 'str'
+                                },
+                                'length': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'type': 'int'
+                                },
+                                'log': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'choices': [
+                                        'disable',
+                                        'enable'
+                                    ],
+                                    'type': 'str'
+                                },
+                                'severity': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'choices': [
+                                        'low',
+                                        'medium',
+                                        'high'
+                                    ],
+                                    'type': 'str'
+                                },
+                                'status': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'choices': [
+                                        'disable',
+                                        'enable'
+                                    ],
+                                    'type': 'str'
+                                }
+                            }
+                        },
+                        'malformed': {
+                            'required': False,
+                            'type': 'dict',
+                            'options': {
+                                'action': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'choices': [
+                                        'allow',
+                                        'block'
+                                    ],
+                                    'type': 'str'
+                                },
+                                'log': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'choices': [
+                                        'disable',
+                                        'enable'
+                                    ],
+                                    'type': 'str'
+                                },
+                                'severity': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'choices': [
+                                        'low',
+                                        'medium',
+                                        'high'
+                                    ],
+                                    'type': 'str'
+                                },
+                                'status': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'choices': [
+                                        'disable',
+                                        'enable'
+                                    ],
+                                    'type': 'str'
+                                }
+                            }
+                        },
+                        'max-cookie': {
+                            'required': False,
+                            'type': 'dict',
+                            'options': {
+                                'action': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'choices': [
+                                        'allow',
+                                        'block'
+                                    ],
+                                    'type': 'str'
+                                },
+                                'log': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'choices': [
+                                        'disable',
+                                        'enable'
+                                    ],
+                                    'type': 'str'
+                                },
+                                'max-cookie': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'type': 'int'
+                                },
+                                'severity': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'choices': [
+                                        'low',
+                                        'medium',
+                                        'high'
+                                    ],
+                                    'type': 'str'
+                                },
+                                'status': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'choices': [
+                                        'disable',
+                                        'enable'
+                                    ],
+                                    'type': 'str'
+                                }
+                            }
+                        },
+                        'max-header-line': {
+                            'required': False,
+                            'type': 'dict',
+                            'options': {
+                                'action': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'choices': [
+                                        'allow',
+                                        'block'
+                                    ],
+                                    'type': 'str'
+                                },
+                                'log': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'choices': [
+                                        'disable',
+                                        'enable'
+                                    ],
+                                    'type': 'str'
+                                },
+                                'max-header-line': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'type': 'int'
+                                },
+                                'severity': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'choices': [
+                                        'low',
+                                        'medium',
+                                        'high'
+                                    ],
+                                    'type': 'str'
+                                },
+                                'status': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'choices': [
+                                        'disable',
+                                        'enable'
+                                    ],
+                                    'type': 'str'
+                                }
+                            }
+                        },
+                        'max-range-segment': {
+                            'required': False,
+                            'type': 'dict',
+                            'options': {
+                                'action': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'choices': [
+                                        'allow',
+                                        'block'
+                                    ],
+                                    'type': 'str'
+                                },
+                                'log': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'choices': [
+                                        'disable',
+                                        'enable'
+                                    ],
+                                    'type': 'str'
+                                },
+                                'max-range-segment': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'type': 'int'
+                                },
+                                'severity': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'choices': [
+                                        'low',
+                                        'medium',
+                                        'high'
+                                    ],
+                                    'type': 'str'
+                                },
+                                'status': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'choices': [
+                                        'disable',
+                                        'enable'
+                                    ],
+                                    'type': 'str'
+                                }
+                            }
+                        },
+                        'max-url-param': {
+                            'required': False,
+                            'type': 'dict',
+                            'options': {
+                                'action': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'choices': [
+                                        'allow',
+                                        'block'
+                                    ],
+                                    'type': 'str'
+                                },
+                                'log': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'choices': [
+                                        'disable',
+                                        'enable'
+                                    ],
+                                    'type': 'str'
+                                },
+                                'max-url-param': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'type': 'int'
+                                },
+                                'severity': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'choices': [
+                                        'low',
+                                        'medium',
+                                        'high'
+                                    ],
+                                    'type': 'str'
+                                },
+                                'status': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'choices': [
+                                        'disable',
+                                        'enable'
+                                    ],
+                                    'type': 'str'
+                                }
+                            }
+                        },
+                        'method': {
+                            'required': False,
+                            'type': 'dict',
+                            'options': {
+                                'action': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'choices': [
+                                        'allow',
+                                        'block'
+                                    ],
+                                    'type': 'str'
+                                },
+                                'log': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'choices': [
+                                        'disable',
+                                        'enable'
+                                    ],
+                                    'type': 'str'
+                                },
+                                'severity': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'choices': [
+                                        'low',
+                                        'medium',
+                                        'high'
+                                    ],
+                                    'type': 'str'
+                                },
+                                'status': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'choices': [
+                                        'disable',
+                                        'enable'
+                                    ],
+                                    'type': 'str'
+                                }
+                            }
+                        },
+                        'param-length': {
+                            'required': False,
+                            'type': 'dict',
+                            'options': {
+                                'action': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'choices': [
+                                        'allow',
+                                        'block'
+                                    ],
+                                    'type': 'str'
+                                },
+                                'length': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'type': 'int'
+                                },
+                                'log': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'choices': [
+                                        'disable',
+                                        'enable'
+                                    ],
+                                    'type': 'str'
+                                },
+                                'severity': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'choices': [
+                                        'low',
+                                        'medium',
+                                        'high'
+                                    ],
+                                    'type': 'str'
+                                },
+                                'status': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'choices': [
+                                        'disable',
+                                        'enable'
+                                    ],
+                                    'type': 'str'
+                                }
+                            }
+                        },
+                        'url-param-length': {
+                            'required': False,
+                            'type': 'dict',
+                            'options': {
+                                'action': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'choices': [
+                                        'allow',
+                                        'block'
+                                    ],
+                                    'type': 'str'
+                                },
+                                'length': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'type': 'int'
+                                },
+                                'log': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'choices': [
+                                        'disable',
+                                        'enable'
+                                    ],
+                                    'type': 'str'
+                                },
+                                'severity': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'choices': [
+                                        'low',
+                                        'medium',
+                                        'high'
+                                    ],
+                                    'type': 'str'
+                                },
+                                'status': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'choices': [
+                                        'disable',
+                                        'enable'
+                                    ],
+                                    'type': 'str'
+                                }
+                            }
+                        },
+                        'version': {
+                            'required': False,
+                            'type': 'dict',
+                            'options': {
+                                'action': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'choices': [
+                                        'allow',
+                                        'block'
+                                    ],
+                                    'type': 'str'
+                                },
+                                'log': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'choices': [
+                                        'disable',
+                                        'enable'
+                                    ],
+                                    'type': 'str'
+                                },
+                                'severity': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'choices': [
+                                        'low',
+                                        'medium',
+                                        'high'
+                                    ],
+                                    'type': 'str'
+                                },
+                                'status': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'choices': [
+                                        'disable',
+                                        'enable'
+                                    ],
+                                    'type': 'str'
+                                }
+                            }
+                        }
+                    }
+                },
+                'method': {
+                    'required': False,
+                    'type': 'dict',
+                    'options': {
+                        'default-allowed-methods': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'list',
+                            'choices': [
+                                'delete',
+                                'get',
+                                'head',
+                                'options',
+                                'post',
+                                'put',
+                                'trace',
+                                'others',
+                                'connect'
+                            ]
+                        },
+                        'log': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'disable',
+                                'enable'
+                            ],
+                            'type': 'str'
+                        },
+                        'method-policy': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'list',
+                            'options': {
+                                'address': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'type': 'str'
+                                },
+                                'allowed-methods': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'type': 'list',
+                                    'choices': [
+                                        'delete',
+                                        'get',
+                                        'head',
+                                        'options',
+                                        'post',
+                                        'put',
+                                        'trace',
+                                        'others',
+                                        'connect'
+                                    ]
+                                },
+                                'id': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'type': 'int'
+                                },
+                                'pattern': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'type': 'str'
+                                },
+                                'regex': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'choices': [
+                                        'disable',
+                                        'enable'
+                                    ],
+                                    'type': 'str'
+                                }
+                            }
+                        },
+                        'severity': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'low',
+                                'medium',
+                                'high'
+                            ],
+                            'type': 'str'
+                        },
+                        'status': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'disable',
+                                'enable'
+                            ],
+                            'type': 'str'
+                        }
+                    }
+                },
+                'signature': {
+                    'required': False,
+                    'type': 'dict',
+                    'options': {
+                        'credit-card-detection-threshold': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'int'
+                        },
+                        'custom-signature': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'list',
+                            'options': {
+                                'action': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'choices': [
+                                        'allow',
+                                        'block',
+                                        'erase'
+                                    ],
+                                    'type': 'str'
+                                },
+                                'case-sensitivity': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'choices': [
+                                        'disable',
+                                        'enable'
+                                    ],
+                                    'type': 'str'
+                                },
+                                'direction': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'choices': [
+                                        'request',
+                                        'response'
+                                    ],
+                                    'type': 'str'
+                                },
+                                'log': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'choices': [
+                                        'disable',
+                                        'enable'
+                                    ],
+                                    'type': 'str'
+                                },
+                                'name': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'type': 'str'
+                                },
+                                'pattern': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'type': 'str'
+                                },
+                                'severity': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'choices': [
+                                        'low',
+                                        'medium',
+                                        'high'
+                                    ],
+                                    'type': 'str'
+                                },
+                                'status': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'choices': [
+                                        'disable',
+                                        'enable'
+                                    ],
+                                    'type': 'str'
+                                },
+                                'target': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'type': 'list',
+                                    'choices': [
+                                        'arg',
+                                        'arg-name',
+                                        'req-body',
+                                        'req-cookie',
+                                        'req-cookie-name',
+                                        'req-filename',
+                                        'req-header',
+                                        'req-header-name',
+                                        'req-raw-uri',
+                                        'req-uri',
+                                        'resp-body',
+                                        'resp-hdr',
+                                        'resp-status'
+                                    ]
+                                }
+                            }
+                        },
+                        'disabled-signature': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'str'
+                        },
+                        'disabled-sub-class': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'str'
+                        },
+                        'main-class': {
+                            'required': False,
+                            'type': 'dict',
+                            'options': {
+                                'action': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'choices': [
+                                        'allow',
+                                        'block',
+                                        'erase'
+                                    ],
+                                    'type': 'str'
+                                },
+                                'id': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'type': 'int'
+                                },
+                                'log': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'choices': [
+                                        'disable',
+                                        'enable'
+                                    ],
+                                    'type': 'str'
+                                },
+                                'severity': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'choices': [
+                                        'low',
+                                        'medium',
+                                        'high'
+                                    ],
+                                    'type': 'str'
+                                },
+                                'status': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'choices': [
+                                        'disable',
+                                        'enable'
+                                    ],
+                                    'type': 'str'
+                                }
+                            }
                         }
                     }
                 }

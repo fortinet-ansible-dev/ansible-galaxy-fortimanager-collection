@@ -198,6 +198,17 @@ options:
             port8-ssid:
                 type: str
                 description: 'Bridge LAN port 8 to SSID.'
+            port-esl-mode:
+                type: str
+                description: 'ESL port mode.'
+                choices:
+                    - 'offline'
+                    - 'bridge-to-wan'
+                    - 'bridge-to-ssid'
+                    - 'nat-to-wan'
+            port-esl-ssid:
+                type: str
+                description: 'Bridge ESL port to SSID.'
 
 '''
 
@@ -239,6 +250,8 @@ EXAMPLES = '''
             port7-ssid: <value of string>
             port8-mode: <value in [offline, bridge-to-wan, bridge-to-ssid, ...]>
             port8-ssid: <value of string>
+            port-esl-mode: <value in [offline, bridge-to-wan, bridge-to-ssid, ...]>
+            port-esl-ssid: <value of string>
 
 '''
 
@@ -331,6 +344,16 @@ def main():
             'options': {
                 'port-mode': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'offline',
                         'bridge-to-wan',
@@ -341,10 +364,30 @@ def main():
                 },
                 'port-ssid': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'port1-mode': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'offline',
                         'bridge-to-wan',
@@ -355,10 +398,30 @@ def main():
                 },
                 'port1-ssid': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'port2-mode': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'offline',
                         'bridge-to-wan',
@@ -369,10 +432,30 @@ def main():
                 },
                 'port2-ssid': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'port3-mode': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'offline',
                         'bridge-to-wan',
@@ -383,10 +466,30 @@ def main():
                 },
                 'port3-ssid': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'port4-mode': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'offline',
                         'bridge-to-wan',
@@ -397,10 +500,30 @@ def main():
                 },
                 'port4-ssid': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'port5-mode': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'offline',
                         'bridge-to-wan',
@@ -411,10 +534,30 @@ def main():
                 },
                 'port5-ssid': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'port6-mode': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'offline',
                         'bridge-to-wan',
@@ -425,10 +568,30 @@ def main():
                 },
                 'port6-ssid': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'port7-mode': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'offline',
                         'bridge-to-wan',
@@ -439,10 +602,30 @@ def main():
                 },
                 'port7-ssid': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'port8-mode': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'offline',
                         'bridge-to-wan',
@@ -453,6 +636,40 @@ def main():
                 },
                 'port8-ssid': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'type': 'str'
+                },
+                'port-esl-mode': {
+                    'required': False,
+                    'revision': {
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'choices': [
+                        'offline',
+                        'bridge-to-wan',
+                        'bridge-to-ssid',
+                        'nat-to-wan'
+                    ],
+                    'type': 'str'
+                },
+                'port-esl-ssid': {
+                    'required': False,
+                    'revision': {
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 }
             }

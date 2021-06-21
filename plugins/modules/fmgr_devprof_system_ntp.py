@@ -127,6 +127,16 @@ options:
                     server:
                         type: str
                         description: 'IP address or hostname of the NTP Server.'
+                    interface:
+                        type: str
+                        description: 'Specify outgoing interface to reach server.'
+                    interface-select-method:
+                        type: str
+                        description: 'Specify how to select outgoing interface to reach server.'
+                        choices:
+                            - 'auto'
+                            - 'sdwan'
+                            - 'specify'
             ntpsync:
                 type: str
                 description: 'Enable/disable setting the FortiGate system time by synchronizing with an NTP Server.'
@@ -145,6 +155,24 @@ options:
                 choices:
                     - 'fortiguard'
                     - 'custom'
+            authentication:
+                type: str
+                description: 'Enable/disable authentication.'
+                choices:
+                    - 'disable'
+                    - 'enable'
+            key:
+                description: no description
+                type: str
+            key-id:
+                type: int
+                description: 'Key ID for authentication.'
+            key-type:
+                type: str
+                description: 'Key type for authentication (MD5, SHA1).'
+                choices:
+                    - 'MD5'
+                    - 'SHA1'
 
 '''
 
@@ -176,10 +204,16 @@ EXAMPLES = '''
                   key-id: <value of integer>
                   ntpv3: <value in [disable, enable]>
                   server: <value of string>
+                  interface: <value of string>
+                  interface-select-method: <value in [auto, sdwan, specify]>
             ntpsync: <value in [disable, enable]>
             source-ip6: <value of string>
             syncinterval: <value of integer>
             type: <value in [fortiguard, custom]>
+            authentication: <value in [disable, enable]>
+            key: <value of string>
+            key-id: <value of integer>
+            key-type: <value in [MD5, SHA1]>
 
 '''
 
@@ -270,10 +304,30 @@ def main():
             'options': {
                 'ntpserver': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': False,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'list',
                     'options': {
                         'authentication': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': False,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'choices': [
                                 'disable',
                                 'enable'
@@ -282,18 +336,58 @@ def main():
                         },
                         'id': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': False,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'int'
                         },
                         'key': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': False,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'str'
                         },
                         'key-id': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': False,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'int'
                         },
                         'ntpv3': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': False,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'choices': [
                                 'disable',
                                 'enable'
@@ -302,12 +396,53 @@ def main():
                         },
                         'server': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': False,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'str'
+                        },
+                        'interface': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'str'
+                        },
+                        'interface-select-method': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'auto',
+                                'sdwan',
+                                'specify'
+                            ],
                             'type': 'str'
                         }
                     }
                 },
                 'ntpsync': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': False,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -316,17 +451,107 @@ def main():
                 },
                 'source-ip6': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': False,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'syncinterval': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': False,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'type': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': False,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'fortiguard',
                         'custom'
+                    ],
+                    'type': 'str'
+                },
+                'authentication': {
+                    'required': False,
+                    'revision': {
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': False,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'choices': [
+                        'disable',
+                        'enable'
+                    ],
+                    'type': 'str'
+                },
+                'key': {
+                    'required': False,
+                    'revision': {
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': False,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'type': 'str'
+                },
+                'key-id': {
+                    'required': False,
+                    'revision': {
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': False,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'type': 'int'
+                },
+                'key-type': {
+                    'required': False,
+                    'revision': {
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': False,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'choices': [
+                        'MD5',
+                        'SHA1'
                     ],
                     'type': 'str'
                 }

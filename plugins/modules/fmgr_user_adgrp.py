@@ -101,6 +101,12 @@ options:
             server-name:
                 type: str
                 description: 'FSSO agent name.'
+            id:
+                type: int
+                description: no description
+            connector-source:
+                type: str
+                description: 'FSSO connector source.'
 
 '''
 
@@ -126,6 +132,8 @@ EXAMPLES = '''
          user_adgrp:
             name: <value of string>
             server-name: <value of string>
+            id: <value of integer>
+            connector-source: <value of string>
 
 '''
 
@@ -166,7 +174,7 @@ def main():
     ]
 
     url_params = ['adom']
-    module_primary_key = 'name'
+    module_primary_key = 'id'
     module_arg_spec = {
         'enable_log': {
             'type': 'bool',
@@ -221,11 +229,54 @@ def main():
             'type': 'dict',
             'options': {
                 'name': {
-                    'required': True,
+                    'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'server-name': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'type': 'str'
+                },
+                'id': {
+                    'required': True,
+                    'revision': {
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'type': 'int'
+                },
+                'connector-source': {
+                    'required': False,
+                    'revision': {
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 }
             }

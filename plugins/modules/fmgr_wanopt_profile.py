@@ -110,6 +110,252 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
+            cifs:
+                description: no description
+                type: dict
+                required: false
+                suboptions:
+                    byte-caching:
+                        type: str
+                        description: 'Enable/disable byte-caching. Byte caching reduces the amount of traffic by caching file data sent across the WAN and i...'
+                        choices:
+                            - 'disable'
+                            - 'enable'
+                    log-traffic:
+                        type: str
+                        description: 'Enable/disable logging.'
+                        choices:
+                            - 'disable'
+                            - 'enable'
+                    prefer-chunking:
+                        type: str
+                        description: 'Select dynamic or fixed-size data chunking for WAN Optimization.'
+                        choices:
+                            - 'dynamic'
+                            - 'fix'
+                    protocol-opt:
+                        type: str
+                        description: 'Select Protocol specific optimitation or generic TCP optimization.'
+                        choices:
+                            - 'protocol'
+                            - 'tcp'
+                    secure-tunnel:
+                        type: str
+                        description: 'Enable/disable securing the WAN Opt tunnel using SSL. Secure and non-secure tunnels use the same TCP port (7810).'
+                        choices:
+                            - 'disable'
+                            - 'enable'
+                    status:
+                        type: str
+                        description: 'Enable/disable WAN Optimization.'
+                        choices:
+                            - 'disable'
+                            - 'enable'
+                    tunnel-sharing:
+                        type: str
+                        description: 'Tunnel sharing mode for aggressive/non-aggressive and/or interactive/non-interactive protocols.'
+                        choices:
+                            - 'private'
+                            - 'shared'
+                            - 'express-shared'
+            ftp:
+                description: no description
+                type: dict
+                required: false
+                suboptions:
+                    byte-caching:
+                        type: str
+                        description: 'Enable/disable byte-caching. Byte caching reduces the amount of traffic by caching file data sent across the WAN and i...'
+                        choices:
+                            - 'disable'
+                            - 'enable'
+                    log-traffic:
+                        type: str
+                        description: 'Enable/disable logging.'
+                        choices:
+                            - 'disable'
+                            - 'enable'
+                    prefer-chunking:
+                        type: str
+                        description: 'Select dynamic or fixed-size data chunking for WAN Optimization.'
+                        choices:
+                            - 'dynamic'
+                            - 'fix'
+                    protocol-opt:
+                        type: str
+                        description: 'Select Protocol specific optimitation or generic TCP optimization.'
+                        choices:
+                            - 'protocol'
+                            - 'tcp'
+                    secure-tunnel:
+                        type: str
+                        description: 'Enable/disable securing the WAN Opt tunnel using SSL. Secure and non-secure tunnels use the same TCP port (7810).'
+                        choices:
+                            - 'disable'
+                            - 'enable'
+                    ssl:
+                        type: str
+                        description: 'Enable/disable SSL/TLS offloading (hardware acceleration) for traffic in this tunnel.'
+                        choices:
+                            - 'disable'
+                            - 'enable'
+                    status:
+                        type: str
+                        description: 'Enable/disable WAN Optimization.'
+                        choices:
+                            - 'disable'
+                            - 'enable'
+                    tunnel-sharing:
+                        type: str
+                        description: 'Tunnel sharing mode for aggressive/non-aggressive and/or interactive/non-interactive protocols.'
+                        choices:
+                            - 'private'
+                            - 'shared'
+                            - 'express-shared'
+            http:
+                description: no description
+                type: dict
+                required: false
+                suboptions:
+                    byte-caching:
+                        type: str
+                        description: 'Enable/disable byte-caching. Byte caching reduces the amount of traffic by caching file data sent across the WAN and i...'
+                        choices:
+                            - 'disable'
+                            - 'enable'
+                    log-traffic:
+                        type: str
+                        description: 'Enable/disable logging.'
+                        choices:
+                            - 'disable'
+                            - 'enable'
+                    prefer-chunking:
+                        type: str
+                        description: 'Select dynamic or fixed-size data chunking for WAN Optimization.'
+                        choices:
+                            - 'dynamic'
+                            - 'fix'
+                    protocol-opt:
+                        type: str
+                        description: 'Select Protocol specific optimitation or generic TCP optimization.'
+                        choices:
+                            - 'protocol'
+                            - 'tcp'
+                    secure-tunnel:
+                        type: str
+                        description: 'Enable/disable securing the WAN Opt tunnel using SSL. Secure and non-secure tunnels use the same TCP port (7810).'
+                        choices:
+                            - 'disable'
+                            - 'enable'
+                    ssl:
+                        type: str
+                        description: 'Enable/disable SSL/TLS offloading (hardware acceleration) for traffic in this tunnel.'
+                        choices:
+                            - 'disable'
+                            - 'enable'
+                    status:
+                        type: str
+                        description: 'Enable/disable WAN Optimization.'
+                        choices:
+                            - 'disable'
+                            - 'enable'
+                    tunnel-sharing:
+                        type: str
+                        description: 'Tunnel sharing mode for aggressive/non-aggressive and/or interactive/non-interactive protocols.'
+                        choices:
+                            - 'private'
+                            - 'shared'
+                            - 'express-shared'
+            mapi:
+                description: no description
+                type: dict
+                required: false
+                suboptions:
+                    byte-caching:
+                        type: str
+                        description: 'Enable/disable byte-caching. Byte caching reduces the amount of traffic by caching file data sent across the WAN and i...'
+                        choices:
+                            - 'disable'
+                            - 'enable'
+                    log-traffic:
+                        type: str
+                        description: 'Enable/disable logging.'
+                        choices:
+                            - 'disable'
+                            - 'enable'
+                    secure-tunnel:
+                        type: str
+                        description: 'Enable/disable securing the WAN Opt tunnel using SSL. Secure and non-secure tunnels use the same TCP port (7810).'
+                        choices:
+                            - 'disable'
+                            - 'enable'
+                    status:
+                        type: str
+                        description: 'Enable/disable WAN Optimization.'
+                        choices:
+                            - 'disable'
+                            - 'enable'
+                    tunnel-sharing:
+                        type: str
+                        description: 'Tunnel sharing mode for aggressive/non-aggressive and/or interactive/non-interactive protocols.'
+                        choices:
+                            - 'private'
+                            - 'shared'
+                            - 'express-shared'
+            tcp:
+                description: no description
+                type: dict
+                required: false
+                suboptions:
+                    byte-caching:
+                        type: str
+                        description: 'Enable/disable byte-caching. Byte caching reduces the amount of traffic by caching file data sent across the WAN and i...'
+                        choices:
+                            - 'disable'
+                            - 'enable'
+                    byte-caching-opt:
+                        type: str
+                        description: 'Select whether TCP byte-caching uses system memory only or both memory and disk space.'
+                        choices:
+                            - 'mem-only'
+                            - 'mem-disk'
+                    log-traffic:
+                        type: str
+                        description: 'Enable/disable logging.'
+                        choices:
+                            - 'disable'
+                            - 'enable'
+                    port:
+                        type: str
+                        description: 'Port numbers or port number ranges for TCP. Only packets with a destination port number that matches this port number ...'
+                    secure-tunnel:
+                        type: str
+                        description: 'Enable/disable securing the WAN Opt tunnel using SSL. Secure and non-secure tunnels use the same TCP port (7810).'
+                        choices:
+                            - 'disable'
+                            - 'enable'
+                    ssl:
+                        type: str
+                        description: 'Enable/disable SSL/TLS offloading (hardware acceleration) for traffic in this tunnel.'
+                        choices:
+                            - 'disable'
+                            - 'enable'
+                    ssl-port:
+                        description: no description
+                        type: int
+                    status:
+                        type: str
+                        description: 'Enable/disable WAN Optimization.'
+                        choices:
+                            - 'disable'
+                            - 'enable'
+                    tunnel-sharing:
+                        type: str
+                        description: 'Tunnel sharing mode for aggressive/non-aggressive and/or interactive/non-interactive protocols.'
+                        choices:
+                            - 'private'
+                            - 'shared'
+                            - 'express-shared'
 
 '''
 
@@ -137,6 +383,48 @@ EXAMPLES = '''
             comments: <value of string>
             name: <value of string>
             transparent: <value in [disable, enable]>
+            cifs:
+               byte-caching: <value in [disable, enable]>
+               log-traffic: <value in [disable, enable]>
+               prefer-chunking: <value in [dynamic, fix]>
+               protocol-opt: <value in [protocol, tcp]>
+               secure-tunnel: <value in [disable, enable]>
+               status: <value in [disable, enable]>
+               tunnel-sharing: <value in [private, shared, express-shared]>
+            ftp:
+               byte-caching: <value in [disable, enable]>
+               log-traffic: <value in [disable, enable]>
+               prefer-chunking: <value in [dynamic, fix]>
+               protocol-opt: <value in [protocol, tcp]>
+               secure-tunnel: <value in [disable, enable]>
+               ssl: <value in [disable, enable]>
+               status: <value in [disable, enable]>
+               tunnel-sharing: <value in [private, shared, express-shared]>
+            http:
+               byte-caching: <value in [disable, enable]>
+               log-traffic: <value in [disable, enable]>
+               prefer-chunking: <value in [dynamic, fix]>
+               protocol-opt: <value in [protocol, tcp]>
+               secure-tunnel: <value in [disable, enable]>
+               ssl: <value in [disable, enable]>
+               status: <value in [disable, enable]>
+               tunnel-sharing: <value in [private, shared, express-shared]>
+            mapi:
+               byte-caching: <value in [disable, enable]>
+               log-traffic: <value in [disable, enable]>
+               secure-tunnel: <value in [disable, enable]>
+               status: <value in [disable, enable]>
+               tunnel-sharing: <value in [private, shared, express-shared]>
+            tcp:
+               byte-caching: <value in [disable, enable]>
+               byte-caching-opt: <value in [mem-only, mem-disk]>
+               log-traffic: <value in [disable, enable]>
+               port: <value of string>
+               secure-tunnel: <value in [disable, enable]>
+               ssl: <value in [disable, enable]>
+               ssl-port: <value of integer>
+               status: <value in [disable, enable]>
+               tunnel-sharing: <value in [private, shared, express-shared]>
 
 '''
 
@@ -233,23 +521,534 @@ def main():
             'options': {
                 'auth-group': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'comments': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'name': {
                     'required': True,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'transparent': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
                     ],
                     'type': 'str'
+                },
+                'cifs': {
+                    'required': False,
+                    'type': 'dict',
+                    'options': {
+                        'byte-caching': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'disable',
+                                'enable'
+                            ],
+                            'type': 'str'
+                        },
+                        'log-traffic': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'disable',
+                                'enable'
+                            ],
+                            'type': 'str'
+                        },
+                        'prefer-chunking': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'dynamic',
+                                'fix'
+                            ],
+                            'type': 'str'
+                        },
+                        'protocol-opt': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'protocol',
+                                'tcp'
+                            ],
+                            'type': 'str'
+                        },
+                        'secure-tunnel': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'disable',
+                                'enable'
+                            ],
+                            'type': 'str'
+                        },
+                        'status': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'disable',
+                                'enable'
+                            ],
+                            'type': 'str'
+                        },
+                        'tunnel-sharing': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'private',
+                                'shared',
+                                'express-shared'
+                            ],
+                            'type': 'str'
+                        }
+                    }
+                },
+                'ftp': {
+                    'required': False,
+                    'type': 'dict',
+                    'options': {
+                        'byte-caching': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'disable',
+                                'enable'
+                            ],
+                            'type': 'str'
+                        },
+                        'log-traffic': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'disable',
+                                'enable'
+                            ],
+                            'type': 'str'
+                        },
+                        'prefer-chunking': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'dynamic',
+                                'fix'
+                            ],
+                            'type': 'str'
+                        },
+                        'protocol-opt': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'protocol',
+                                'tcp'
+                            ],
+                            'type': 'str'
+                        },
+                        'secure-tunnel': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'disable',
+                                'enable'
+                            ],
+                            'type': 'str'
+                        },
+                        'ssl': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'disable',
+                                'enable'
+                            ],
+                            'type': 'str'
+                        },
+                        'status': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'disable',
+                                'enable'
+                            ],
+                            'type': 'str'
+                        },
+                        'tunnel-sharing': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'private',
+                                'shared',
+                                'express-shared'
+                            ],
+                            'type': 'str'
+                        }
+                    }
+                },
+                'http': {
+                    'required': False,
+                    'type': 'dict',
+                    'options': {
+                        'byte-caching': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'disable',
+                                'enable'
+                            ],
+                            'type': 'str'
+                        },
+                        'log-traffic': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'disable',
+                                'enable'
+                            ],
+                            'type': 'str'
+                        },
+                        'prefer-chunking': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'dynamic',
+                                'fix'
+                            ],
+                            'type': 'str'
+                        },
+                        'protocol-opt': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'protocol',
+                                'tcp'
+                            ],
+                            'type': 'str'
+                        },
+                        'secure-tunnel': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'disable',
+                                'enable'
+                            ],
+                            'type': 'str'
+                        },
+                        'ssl': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'disable',
+                                'enable'
+                            ],
+                            'type': 'str'
+                        },
+                        'status': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'disable',
+                                'enable'
+                            ],
+                            'type': 'str'
+                        },
+                        'tunnel-sharing': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'private',
+                                'shared',
+                                'express-shared'
+                            ],
+                            'type': 'str'
+                        }
+                    }
+                },
+                'mapi': {
+                    'required': False,
+                    'type': 'dict',
+                    'options': {
+                        'byte-caching': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'disable',
+                                'enable'
+                            ],
+                            'type': 'str'
+                        },
+                        'log-traffic': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'disable',
+                                'enable'
+                            ],
+                            'type': 'str'
+                        },
+                        'secure-tunnel': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'disable',
+                                'enable'
+                            ],
+                            'type': 'str'
+                        },
+                        'status': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'disable',
+                                'enable'
+                            ],
+                            'type': 'str'
+                        },
+                        'tunnel-sharing': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'private',
+                                'shared',
+                                'express-shared'
+                            ],
+                            'type': 'str'
+                        }
+                    }
+                },
+                'tcp': {
+                    'required': False,
+                    'type': 'dict',
+                    'options': {
+                        'byte-caching': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'disable',
+                                'enable'
+                            ],
+                            'type': 'str'
+                        },
+                        'byte-caching-opt': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'mem-only',
+                                'mem-disk'
+                            ],
+                            'type': 'str'
+                        },
+                        'log-traffic': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'disable',
+                                'enable'
+                            ],
+                            'type': 'str'
+                        },
+                        'port': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'str'
+                        },
+                        'secure-tunnel': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'disable',
+                                'enable'
+                            ],
+                            'type': 'str'
+                        },
+                        'ssl': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'disable',
+                                'enable'
+                            ],
+                            'type': 'str'
+                        },
+                        'ssl-port': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'int'
+                        },
+                        'status': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'disable',
+                                'enable'
+                            ],
+                            'type': 'str'
+                        },
+                        'tunnel-sharing': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'private',
+                                'shared',
+                                'express-shared'
+                            ],
+                            'type': 'str'
+                        }
+                    }
                 }
             }
 

@@ -126,6 +126,35 @@ options:
             secondary:
                 type: str
                 description: 'Secondary DNS server IP address.'
+            dns-over-tls:
+                type: str
+                description: 'Enable/disable/enforce DNS over TLS.'
+                choices:
+                    - 'disable'
+                    - 'enable'
+                    - 'enforce'
+            retry:
+                type: int
+                description: 'Number of times to retry (0 - 5).'
+            server-hostname:
+                description: no description
+                type: str
+            ssl-certificate:
+                type: str
+                description: 'Name of local certificate for SSL connections.'
+            timeout:
+                type: int
+                description: 'DNS query timeout interval in seconds (1 - 10).'
+            interface:
+                type: str
+                description: 'Specify outgoing interface to reach server.'
+            interface-select-method:
+                type: str
+                description: 'Specify how to select outgoing interface to reach server.'
+                choices:
+                    - 'auto'
+                    - 'sdwan'
+                    - 'specify'
 
 '''
 
@@ -157,6 +186,13 @@ EXAMPLES = '''
             ip6-secondary: <value of string>
             primary: <value of string>
             secondary: <value of string>
+            dns-over-tls: <value in [disable, enable, enforce]>
+            retry: <value of integer>
+            server-hostname: <value of string>
+            ssl-certificate: <value of string>
+            timeout: <value of integer>
+            interface: <value of string>
+            interface-select-method: <value in [auto, sdwan, specify]>
 
 '''
 
@@ -247,6 +283,16 @@ def main():
             'options': {
                 'cache-notfound-responses': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': False,
+                        '6.4.5': False,
+                        '7.0.0': False
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -255,30 +301,197 @@ def main():
                 },
                 'dns-cache-limit': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': False,
+                        '6.4.5': False,
+                        '7.0.0': False
+                    },
                     'type': 'int'
                 },
                 'dns-cache-ttl': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': False,
+                        '6.4.5': False,
+                        '7.0.0': False
+                    },
                     'type': 'int'
                 },
                 'domain': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': False,
+                        '6.4.5': False,
+                        '7.0.0': False
+                    },
                     'type': 'str'
                 },
                 'ip6-primary': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': False,
+                        '6.4.5': False,
+                        '7.0.0': False
+                    },
                     'type': 'str'
                 },
                 'ip6-secondary': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': False,
+                        '6.4.5': False,
+                        '7.0.0': False
+                    },
                     'type': 'str'
                 },
                 'primary': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': False,
+                        '6.4.5': False,
+                        '7.0.0': False
+                    },
                     'type': 'str'
                 },
                 'secondary': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': False,
+                        '6.4.5': False,
+                        '7.0.0': False
+                    },
+                    'type': 'str'
+                },
+                'dns-over-tls': {
+                    'required': False,
+                    'revision': {
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': False,
+                        '6.4.5': False,
+                        '7.0.0': False
+                    },
+                    'choices': [
+                        'disable',
+                        'enable',
+                        'enforce'
+                    ],
+                    'type': 'str'
+                },
+                'retry': {
+                    'required': False,
+                    'revision': {
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': False,
+                        '6.4.5': False,
+                        '7.0.0': False
+                    },
+                    'type': 'int'
+                },
+                'server-hostname': {
+                    'required': False,
+                    'revision': {
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': False,
+                        '6.4.5': False,
+                        '7.0.0': False
+                    },
+                    'type': 'str'
+                },
+                'ssl-certificate': {
+                    'required': False,
+                    'revision': {
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': False,
+                        '6.4.5': False,
+                        '7.0.0': False
+                    },
+                    'type': 'str'
+                },
+                'timeout': {
+                    'required': False,
+                    'revision': {
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': False,
+                        '6.4.5': False,
+                        '7.0.0': False
+                    },
+                    'type': 'int'
+                },
+                'interface': {
+                    'required': False,
+                    'revision': {
+                        '6.2.5': True,
+                        '6.4.0': False,
+                        '6.4.2': False,
+                        '6.4.5': False,
+                        '7.0.0': False
+                    },
+                    'type': 'str'
+                },
+                'interface-select-method': {
+                    'required': False,
+                    'revision': {
+                        '6.2.5': True,
+                        '6.4.0': False,
+                        '6.4.2': False,
+                        '6.4.5': False,
+                        '7.0.0': False
+                    },
+                    'choices': [
+                        'auto',
+                        'sdwan',
+                        'specify'
+                    ],
                     'type': 'str'
                 }
             }

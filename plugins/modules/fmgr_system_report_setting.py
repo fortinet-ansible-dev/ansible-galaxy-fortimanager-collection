@@ -151,6 +151,25 @@ options:
                 choices:
                     - 'sun'
                     - 'mon'
+            capwap-port:
+                type: int
+                default: 5246
+                description: 'Exclude capwap traffic by port.'
+            capwap-service:
+                type: str
+                description: 'Exclude capwap traffic by service.'
+            exclude-capwap:
+                type: str
+                default: 'by-port'
+                description:
+                 - 'Exclude capwap traffic.'
+                 - 'disable - Disable.'
+                 - 'by-port - By port.'
+                 - 'by-service - By service.'
+                choices:
+                    - 'disable'
+                    - 'by-port'
+                    - 'by-service'
 
 '''
 
@@ -179,6 +198,9 @@ EXAMPLES = '''
             report-priority: <value in [high, low, auto]>
             template-auto-install: <value in [default, english]>
             week-start: <value in [sun, mon]>
+            capwap-port: <value of integer>
+            capwap-service: <value of string>
+            exclude-capwap: <value in [disable, by-port, by-service]>
 
 '''
 
@@ -261,6 +283,16 @@ def main():
             'options': {
                 'aggregate-report': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -269,6 +301,16 @@ def main():
                 },
                 'hcache-lossless': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -277,14 +319,44 @@ def main():
                 },
                 'ldap-cache-timeout': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'max-table-rows': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'report-priority': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'high',
                         'low',
@@ -294,6 +366,16 @@ def main():
                 },
                 'template-auto-install': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'default',
                         'english'
@@ -302,9 +384,60 @@ def main():
                 },
                 'week-start': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'sun',
                         'mon'
+                    ],
+                    'type': 'str'
+                },
+                'capwap-port': {
+                    'required': False,
+                    'revision': {
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'type': 'int'
+                },
+                'capwap-service': {
+                    'required': False,
+                    'revision': {
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'type': 'str'
+                },
+                'exclude-capwap': {
+                    'required': False,
+                    'revision': {
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'choices': [
+                        'disable',
+                        'by-port',
+                        'by-service'
                     ],
                     'type': 'str'
                 }

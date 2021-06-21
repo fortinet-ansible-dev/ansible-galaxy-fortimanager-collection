@@ -954,6 +954,30 @@ options:
                     msg-type:
                         type: str
                         description: 'Message type.'
+            automation:
+                description: no description
+                type: list
+                suboptions:
+                    buffer:
+                        type: str
+                        description: 'Message string.'
+                    format:
+                        type: str
+                        description: 'Format flag.'
+                        choices:
+                            - 'none'
+                            - 'text'
+                            - 'html'
+                    header:
+                        type: str
+                        description: 'Header flag.'
+                        choices:
+                            - 'none'
+                            - 'http'
+                            - '8bit'
+                    msg-type:
+                        type: str
+                        description: 'Message type.'
 
 '''
 
@@ -1163,6 +1187,12 @@ EXAMPLES = '''
                   format: <value in [none, text, html, ...]>
                   header: <value in [none, http, 8bit]>
                   msg-type: <value of string>
+            automation:
+              -
+                  buffer: <value of string>
+                  format: <value in [none, text, html]>
+                  header: <value in [none, http, 8bit]>
+                  msg-type: <value of string>
 
 '''
 
@@ -1259,14 +1289,44 @@ def main():
             'options': {
                 'admin': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'list',
                     'options': {
                         'buffer': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'str'
                         },
                         'format': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'choices': [
                                 'none',
                                 'text',
@@ -1277,6 +1337,16 @@ def main():
                         },
                         'header': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'choices': [
                                 'none',
                                 'http',
@@ -1286,20 +1356,60 @@ def main():
                         },
                         'msg-type': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'str'
                         }
                     }
                 },
                 'alertmail': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'list',
                     'options': {
                         'buffer': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'str'
                         },
                         'format': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'choices': [
                                 'none',
                                 'text',
@@ -1310,6 +1420,16 @@ def main():
                         },
                         'header': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'choices': [
                                 'none',
                                 'http',
@@ -1319,20 +1439,60 @@ def main():
                         },
                         'msg-type': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'str'
                         }
                     }
                 },
                 'auth': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'list',
                     'options': {
                         'buffer': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'str'
                         },
                         'format': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'choices': [
                                 'none',
                                 'text',
@@ -1343,6 +1503,16 @@ def main():
                         },
                         'header': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'choices': [
                                 'none',
                                 'http',
@@ -1352,24 +1522,74 @@ def main():
                         },
                         'msg-type': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'str'
                         }
                     }
                 },
                 'comment': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'custom-message': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'list',
                     'options': {
                         'buffer': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'str'
                         },
                         'format': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'choices': [
                                 'none',
                                 'text',
@@ -1380,6 +1600,16 @@ def main():
                         },
                         'header': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'choices': [
                                 'none',
                                 'http',
@@ -1389,20 +1619,60 @@ def main():
                         },
                         'msg-type': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'str'
                         }
                     }
                 },
                 'device-detection-portal': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': False
+                    },
                     'type': 'list',
                     'options': {
                         'buffer': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': False
+                            },
                             'type': 'str'
                         },
                         'format': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': False
+                            },
                             'choices': [
                                 'none',
                                 'text',
@@ -1413,6 +1683,16 @@ def main():
                         },
                         'header': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': False
+                            },
                             'choices': [
                                 'none',
                                 'http',
@@ -1422,20 +1702,60 @@ def main():
                         },
                         'msg-type': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': False
+                            },
                             'type': 'str'
                         }
                     }
                 },
                 'ec': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': False,
+                        '6.2.3': False,
+                        '6.2.5': False,
+                        '6.4.0': False,
+                        '6.4.2': False,
+                        '6.4.5': False,
+                        '7.0.0': False
+                    },
                     'type': 'list',
                     'options': {
                         'buffer': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': False,
+                                '6.2.3': False,
+                                '6.2.5': False,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
                             'type': 'str'
                         },
                         'format': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': False,
+                                '6.2.3': False,
+                                '6.2.5': False,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
                             'choices': [
                                 'none',
                                 'text',
@@ -1446,6 +1766,16 @@ def main():
                         },
                         'header': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': False,
+                                '6.2.3': False,
+                                '6.2.5': False,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
                             'choices': [
                                 'none',
                                 'http',
@@ -1455,20 +1785,60 @@ def main():
                         },
                         'msg-type': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': False,
+                                '6.2.3': False,
+                                '6.2.5': False,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
                             'type': 'str'
                         }
                     }
                 },
                 'fortiguard-wf': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'list',
                     'options': {
                         'buffer': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'str'
                         },
                         'format': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'choices': [
                                 'none',
                                 'text',
@@ -1479,6 +1849,16 @@ def main():
                         },
                         'header': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'choices': [
                                 'none',
                                 'http',
@@ -1488,20 +1868,60 @@ def main():
                         },
                         'msg-type': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'str'
                         }
                     }
                 },
                 'ftp': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'list',
                     'options': {
                         'buffer': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'str'
                         },
                         'format': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'choices': [
                                 'none',
                                 'text',
@@ -1512,6 +1932,16 @@ def main():
                         },
                         'header': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'choices': [
                                 'none',
                                 'http',
@@ -1521,12 +1951,32 @@ def main():
                         },
                         'msg-type': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'str'
                         }
                     }
                 },
                 'group-type': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'default',
                         'utm',
@@ -1538,14 +1988,44 @@ def main():
                 },
                 'http': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'list',
                     'options': {
                         'buffer': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'str'
                         },
                         'format': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'choices': [
                                 'none',
                                 'text',
@@ -1556,6 +2036,16 @@ def main():
                         },
                         'header': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'choices': [
                                 'none',
                                 'http',
@@ -1565,20 +2055,60 @@ def main():
                         },
                         'msg-type': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'str'
                         }
                     }
                 },
                 'icap': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'list',
                     'options': {
                         'buffer': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'str'
                         },
                         'format': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'choices': [
                                 'none',
                                 'text',
@@ -1589,6 +2119,16 @@ def main():
                         },
                         'header': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'choices': [
                                 'none',
                                 'http',
@@ -1598,20 +2138,60 @@ def main():
                         },
                         'msg-type': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'str'
                         }
                     }
                 },
                 'mail': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'list',
                     'options': {
                         'buffer': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'str'
                         },
                         'format': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'choices': [
                                 'none',
                                 'text',
@@ -1622,6 +2202,16 @@ def main():
                         },
                         'header': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'choices': [
                                 'none',
                                 'http',
@@ -1631,16 +2221,46 @@ def main():
                         },
                         'msg-type': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'str'
                         }
                     }
                 },
                 'mm1': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': False,
+                        '6.4.2': False,
+                        '6.4.5': False,
+                        '7.0.0': False
+                    },
                     'type': 'list',
                     'options': {
                         'add-smil': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
                             'choices': [
                                 'disable',
                                 'enable'
@@ -1649,6 +2269,16 @@ def main():
                         },
                         'charset': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
                             'choices': [
                                 'us-ascii',
                                 'utf-8'
@@ -1657,6 +2287,16 @@ def main():
                         },
                         'class': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
                             'choices': [
                                 'personal',
                                 'advertisement',
@@ -1668,6 +2308,16 @@ def main():
                         },
                         'format': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
                             'choices': [
                                 'none',
                                 'text',
@@ -1678,10 +2328,30 @@ def main():
                         },
                         'from': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
                             'type': 'str'
                         },
                         'from-sender': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
                             'choices': [
                                 'disable',
                                 'enable'
@@ -1690,6 +2360,16 @@ def main():
                         },
                         'header': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
                             'choices': [
                                 'none',
                                 'http',
@@ -1699,18 +2379,58 @@ def main():
                         },
                         'image': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
                             'type': 'str'
                         },
                         'message': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
                             'type': 'str'
                         },
                         'msg-type': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
                             'type': 'str'
                         },
                         'priority': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
                             'choices': [
                                 'low',
                                 'normal',
@@ -1721,6 +2441,16 @@ def main():
                         },
                         'rsp-status': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
                             'choices': [
                                 'ok',
                                 'err-unspecified',
@@ -1736,10 +2466,30 @@ def main():
                         },
                         'rsp-text': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
                             'type': 'str'
                         },
                         'sender-visibility': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
                             'choices': [
                                 'hide',
                                 'show',
@@ -1749,20 +2499,60 @@ def main():
                         },
                         'smil-part': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
                             'type': 'str'
                         },
                         'subject': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
                             'type': 'str'
                         }
                     }
                 },
                 'mm3': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': False,
+                        '6.4.2': False,
+                        '6.4.5': False,
+                        '7.0.0': False
+                    },
                     'type': 'list',
                     'options': {
                         'add-html': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
                             'choices': [
                                 'disable',
                                 'enable'
@@ -1771,6 +2561,16 @@ def main():
                         },
                         'charset': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
                             'choices': [
                                 'us-ascii',
                                 'utf-8'
@@ -1779,6 +2579,16 @@ def main():
                         },
                         'format': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
                             'choices': [
                                 'none',
                                 'text',
@@ -1789,10 +2599,30 @@ def main():
                         },
                         'from': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
                             'type': 'str'
                         },
                         'from-sender': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
                             'choices': [
                                 'disable',
                                 'enable'
@@ -1801,6 +2631,16 @@ def main():
                         },
                         'header': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
                             'choices': [
                                 'none',
                                 'http',
@@ -1810,22 +2650,72 @@ def main():
                         },
                         'html-part': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
                             'type': 'str'
                         },
                         'image': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
                             'type': 'str'
                         },
                         'message': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
                             'type': 'str'
                         },
                         'msg-type': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
                             'type': 'str'
                         },
                         'priority': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
                             'choices': [
                                 'low',
                                 'normal',
@@ -1836,16 +2726,46 @@ def main():
                         },
                         'subject': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
                             'type': 'str'
                         }
                     }
                 },
                 'mm4': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': False,
+                        '6.4.2': False,
+                        '6.4.5': False,
+                        '7.0.0': False
+                    },
                     'type': 'list',
                     'options': {
                         'add-smil': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
                             'choices': [
                                 'disable',
                                 'enable'
@@ -1854,6 +2774,16 @@ def main():
                         },
                         'charset': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
                             'choices': [
                                 'us-ascii',
                                 'utf-8'
@@ -1862,6 +2792,16 @@ def main():
                         },
                         'class': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
                             'choices': [
                                 'personal',
                                 'advertisement',
@@ -1873,10 +2813,30 @@ def main():
                         },
                         'domain': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
                             'type': 'str'
                         },
                         'format': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
                             'choices': [
                                 'none',
                                 'text',
@@ -1887,10 +2847,30 @@ def main():
                         },
                         'from': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
                             'type': 'str'
                         },
                         'from-sender': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
                             'choices': [
                                 'disable',
                                 'enable'
@@ -1899,6 +2879,16 @@ def main():
                         },
                         'header': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
                             'choices': [
                                 'none',
                                 'http',
@@ -1908,18 +2898,58 @@ def main():
                         },
                         'image': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
                             'type': 'str'
                         },
                         'message': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
                             'type': 'str'
                         },
                         'msg-type': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
                             'type': 'str'
                         },
                         'priority': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
                             'choices': [
                                 'low',
                                 'normal',
@@ -1930,6 +2960,16 @@ def main():
                         },
                         'rsp-status': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
                             'choices': [
                                 'ok',
                                 'err-unspecified',
@@ -1944,20 +2984,60 @@ def main():
                         },
                         'smil-part': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
                             'type': 'str'
                         },
                         'subject': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
                             'type': 'str'
                         }
                     }
                 },
                 'mm7': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': False,
+                        '6.4.2': False,
+                        '6.4.5': False,
+                        '7.0.0': False
+                    },
                     'type': 'list',
                     'options': {
                         'add-smil': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
                             'choices': [
                                 'disable',
                                 'enable'
@@ -1966,6 +3046,16 @@ def main():
                         },
                         'addr-type': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
                             'choices': [
                                 'rfc2822-addr',
                                 'number',
@@ -1975,6 +3065,16 @@ def main():
                         },
                         'allow-content-adaptation': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
                             'choices': [
                                 'disable',
                                 'enable'
@@ -1983,6 +3083,16 @@ def main():
                         },
                         'charset': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
                             'choices': [
                                 'us-ascii',
                                 'utf-8'
@@ -1991,6 +3101,16 @@ def main():
                         },
                         'class': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
                             'choices': [
                                 'personal',
                                 'advertisement',
@@ -2002,6 +3122,16 @@ def main():
                         },
                         'format': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
                             'choices': [
                                 'none',
                                 'text',
@@ -2012,10 +3142,30 @@ def main():
                         },
                         'from': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
                             'type': 'str'
                         },
                         'from-sender': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
                             'choices': [
                                 'disable',
                                 'enable'
@@ -2024,6 +3174,16 @@ def main():
                         },
                         'header': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
                             'choices': [
                                 'none',
                                 'http',
@@ -2033,18 +3193,58 @@ def main():
                         },
                         'image': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
                             'type': 'str'
                         },
                         'message': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
                             'type': 'str'
                         },
                         'msg-type': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
                             'type': 'str'
                         },
                         'priority': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
                             'choices': [
                                 'low',
                                 'normal',
@@ -2055,6 +3255,16 @@ def main():
                         },
                         'rsp-status': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
                             'choices': [
                                 'success',
                                 'partial-success',
@@ -2087,24 +3297,74 @@ def main():
                         },
                         'smil-part': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
                             'type': 'str'
                         },
                         'subject': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
                             'type': 'str'
                         }
                     }
                 },
                 'mms': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': False,
+                        '6.4.2': False,
+                        '6.4.5': False,
+                        '7.0.0': False
+                    },
                     'type': 'list',
                     'options': {
                         'buffer': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
                             'type': 'str'
                         },
                         'charset': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
                             'choices': [
                                 'us-ascii',
                                 'utf-8'
@@ -2113,6 +3373,16 @@ def main():
                         },
                         'format': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
                             'choices': [
                                 'none',
                                 'text',
@@ -2123,6 +3393,16 @@ def main():
                         },
                         'header': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
                             'choices': [
                                 'none',
                                 'http',
@@ -2132,24 +3412,74 @@ def main():
                         },
                         'image': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
                             'type': 'str'
                         },
                         'msg-type': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
                             'type': 'str'
                         }
                     }
                 },
                 'nac-quar': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'list',
                     'options': {
                         'buffer': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'str'
                         },
                         'format': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'choices': [
                                 'none',
                                 'text',
@@ -2160,6 +3490,16 @@ def main():
                         },
                         'header': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'choices': [
                                 'none',
                                 'http',
@@ -2169,24 +3509,74 @@ def main():
                         },
                         'msg-type': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'str'
                         }
                     }
                 },
                 'name': {
                     'required': True,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'nntp': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': False
+                    },
                     'type': 'list',
                     'options': {
                         'buffer': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': False
+                            },
                             'type': 'str'
                         },
                         'format': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': False
+                            },
                             'choices': [
                                 'none',
                                 'text',
@@ -2197,6 +3587,16 @@ def main():
                         },
                         'header': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': False
+                            },
                             'choices': [
                                 'none',
                                 'http',
@@ -2206,20 +3606,60 @@ def main():
                         },
                         'msg-type': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': False
+                            },
                             'type': 'str'
                         }
                     }
                 },
                 'spam': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'list',
                     'options': {
                         'buffer': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'str'
                         },
                         'format': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'choices': [
                                 'none',
                                 'text',
@@ -2230,6 +3670,16 @@ def main():
                         },
                         'header': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'choices': [
                                 'none',
                                 'http',
@@ -2239,20 +3689,60 @@ def main():
                         },
                         'msg-type': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'str'
                         }
                     }
                 },
                 'sslvpn': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'list',
                     'options': {
                         'buffer': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'str'
                         },
                         'format': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'choices': [
                                 'none',
                                 'text',
@@ -2263,6 +3753,16 @@ def main():
                         },
                         'header': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'choices': [
                                 'none',
                                 'http',
@@ -2272,20 +3772,60 @@ def main():
                         },
                         'msg-type': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'str'
                         }
                     }
                 },
                 'traffic-quota': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'list',
                     'options': {
                         'buffer': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'str'
                         },
                         'format': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'choices': [
                                 'none',
                                 'text',
@@ -2296,6 +3836,16 @@ def main():
                         },
                         'header': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'choices': [
                                 'none',
                                 'http',
@@ -2305,20 +3855,60 @@ def main():
                         },
                         'msg-type': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'str'
                         }
                     }
                 },
                 'utm': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'list',
                     'options': {
                         'buffer': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'str'
                         },
                         'format': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'choices': [
                                 'none',
                                 'text',
@@ -2329,6 +3919,16 @@ def main():
                         },
                         'header': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'choices': [
                                 'none',
                                 'http',
@@ -2338,20 +3938,60 @@ def main():
                         },
                         'msg-type': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'str'
                         }
                     }
                 },
                 'webproxy': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'list',
                     'options': {
                         'buffer': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'str'
                         },
                         'format': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'choices': [
                                 'none',
                                 'text',
@@ -2362,6 +4002,16 @@ def main():
                         },
                         'header': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'choices': [
                                 'none',
                                 'http',
@@ -2371,6 +4021,63 @@ def main():
                         },
                         'msg-type': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'str'
+                        }
+                    }
+                },
+                'automation': {
+                    'required': False,
+                    'revision': {
+                        '7.0.0': True
+                    },
+                    'type': 'list',
+                    'options': {
+                        'buffer': {
+                            'required': False,
+                            'revision': {
+                                '7.0.0': True
+                            },
+                            'type': 'str'
+                        },
+                        'format': {
+                            'required': False,
+                            'revision': {
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'none',
+                                'text',
+                                'html'
+                            ],
+                            'type': 'str'
+                        },
+                        'header': {
+                            'required': False,
+                            'revision': {
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'none',
+                                'http',
+                                '8bit'
+                            ],
+                            'type': 'str'
+                        },
+                        'msg-type': {
+                            'required': False,
+                            'revision': {
+                                '7.0.0': True
+                            },
                             'type': 'str'
                         }
                     }

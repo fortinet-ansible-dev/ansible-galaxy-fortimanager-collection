@@ -102,6 +102,12 @@ options:
             ip:
                 type: str
                 description: 'IP.'
+            net-id:
+                type: str
+                description: 'Network ID.'
+            obj-id:
+                type: str
+                description: 'Object ID.'
 
 '''
 
@@ -127,6 +133,8 @@ EXAMPLES = '''
          state: <value in [present, absent]>
          firewall_address6_list:
             ip: <value of string>
+            net-id: <value of string>
+            obj-id: <value of string>
 
 '''
 
@@ -227,6 +235,42 @@ def main():
             'options': {
                 'ip': {
                     'required': True,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'type': 'str'
+                },
+                'net-id': {
+                    'required': False,
+                    'revision': {
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'type': 'str'
+                },
+                'obj-id': {
+                    'required': False,
+                    'revision': {
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 }
             }

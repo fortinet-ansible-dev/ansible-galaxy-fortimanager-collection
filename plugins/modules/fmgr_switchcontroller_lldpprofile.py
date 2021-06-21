@@ -105,6 +105,109 @@ options:
                 type: list
                 choices:
                  - max-frame-size
+                 - max-frame-size
+                 - power-negotiation
+                 - max-frame-size
+                 - power-negotiation
+                 - max-frame-size
+                 - power-negotiation
+                 - max-frame-size
+                 - power-negotiation
+                 - max-frame-size
+                 - power-negotiation
+                 - max-frame-size
+                 - power-negotiation
+                 - max-frame-size
+                 - max-frame-size
+                 - power-negotiation
+                 - max-frame-size
+                 - power-negotiation
+                 - max-frame-size
+                 - power-negotiation
+                 - max-frame-size
+                 - power-negotiation
+                 - max-frame-size
+                 - power-negotiation
+                 - max-frame-size
+                 - power-negotiation
+                 - max-frame-size
+                 - max-frame-size
+                 - power-negotiation
+                 - max-frame-size
+                 - power-negotiation
+                 - max-frame-size
+                 - power-negotiation
+                 - max-frame-size
+                 - power-negotiation
+                 - max-frame-size
+                 - power-negotiation
+                 - max-frame-size
+                 - power-negotiation
+                 - max-frame-size
+                 - max-frame-size
+                 - power-negotiation
+                 - max-frame-size
+                 - power-negotiation
+                 - max-frame-size
+                 - power-negotiation
+                 - max-frame-size
+                 - power-negotiation
+                 - max-frame-size
+                 - power-negotiation
+                 - max-frame-size
+                 - power-negotiation
+                 - max-frame-size
+                 - max-frame-size
+                 - power-negotiation
+                 - max-frame-size
+                 - power-negotiation
+                 - max-frame-size
+                 - power-negotiation
+                 - max-frame-size
+                 - power-negotiation
+                 - max-frame-size
+                 - power-negotiation
+                 - max-frame-size
+                 - power-negotiation
+                 - max-frame-size
+                 - max-frame-size
+                 - power-negotiation
+                 - max-frame-size
+                 - power-negotiation
+                 - max-frame-size
+                 - power-negotiation
+                 - max-frame-size
+                 - power-negotiation
+                 - max-frame-size
+                 - power-negotiation
+                 - max-frame-size
+                 - power-negotiation
+                 - max-frame-size
+                 - max-frame-size
+                 - power-negotiation
+                 - max-frame-size
+                 - power-negotiation
+                 - max-frame-size
+                 - power-negotiation
+                 - max-frame-size
+                 - power-negotiation
+                 - max-frame-size
+                 - power-negotiation
+                 - max-frame-size
+                 - power-negotiation
+                 - max-frame-size
+                 - max-frame-size
+                 - power-negotiation
+                 - max-frame-size
+                 - power-negotiation
+                 - max-frame-size
+                 - power-negotiation
+                 - max-frame-size
+                 - power-negotiation
+                 - max-frame-size
+                 - power-negotiation
+                 - max-frame-size
+                 - power-negotiation
             auto-isl:
                 type: str
                 description: 'Enable/disable auto inter-switch LAG.'
@@ -158,6 +261,15 @@ options:
                     vlan:
                         type: int
                         description: 'ID of VLAN to advertise, if configured on port (0 - 4094, 0 = priority tag).'
+                    vlan-intf:
+                        type: str
+                        description: 'VLAN interface to advertise; if configured on port.'
+                    assign-vlan:
+                        type: str
+                        description: 'Enable/disable VLAN assignment when this profile is applied on managed FortiSwitch port.'
+                        choices:
+                            - 'disable'
+                            - 'enable'
             med-tlvs:
                 description: no description
                 type: list
@@ -169,6 +281,28 @@ options:
             name:
                 type: str
                 description: 'Profile name.'
+            med-location-service:
+                description: no description
+                type: list
+                suboptions:
+                    name:
+                        type: str
+                        description: 'Location service type name.'
+                    status:
+                        type: str
+                        description: 'Enable or disable this TLV.'
+                        choices:
+                            - 'disable'
+                            - 'enable'
+                    sys-location-id:
+                        type: str
+                        description: 'Location service ID.'
+            auto-mclag-icl:
+                type: str
+                description: 'Enable/disable MCLAG inter chassis link.'
+                choices:
+                    - 'disable'
+                    - 'enable'
 
 '''
 
@@ -196,6 +330,109 @@ EXAMPLES = '''
               - port-vlan-id
             802.3-tlvs:
               - max-frame-size
+              - max-frame-size
+              - power-negotiation
+              - max-frame-size
+              - power-negotiation
+              - max-frame-size
+              - power-negotiation
+              - max-frame-size
+              - power-negotiation
+              - max-frame-size
+              - power-negotiation
+              - max-frame-size
+              - power-negotiation
+              - max-frame-size
+              - max-frame-size
+              - power-negotiation
+              - max-frame-size
+              - power-negotiation
+              - max-frame-size
+              - power-negotiation
+              - max-frame-size
+              - power-negotiation
+              - max-frame-size
+              - power-negotiation
+              - max-frame-size
+              - power-negotiation
+              - max-frame-size
+              - max-frame-size
+              - power-negotiation
+              - max-frame-size
+              - power-negotiation
+              - max-frame-size
+              - power-negotiation
+              - max-frame-size
+              - power-negotiation
+              - max-frame-size
+              - power-negotiation
+              - max-frame-size
+              - power-negotiation
+              - max-frame-size
+              - max-frame-size
+              - power-negotiation
+              - max-frame-size
+              - power-negotiation
+              - max-frame-size
+              - power-negotiation
+              - max-frame-size
+              - power-negotiation
+              - max-frame-size
+              - power-negotiation
+              - max-frame-size
+              - power-negotiation
+              - max-frame-size
+              - max-frame-size
+              - power-negotiation
+              - max-frame-size
+              - power-negotiation
+              - max-frame-size
+              - power-negotiation
+              - max-frame-size
+              - power-negotiation
+              - max-frame-size
+              - power-negotiation
+              - max-frame-size
+              - power-negotiation
+              - max-frame-size
+              - max-frame-size
+              - power-negotiation
+              - max-frame-size
+              - power-negotiation
+              - max-frame-size
+              - power-negotiation
+              - max-frame-size
+              - power-negotiation
+              - max-frame-size
+              - power-negotiation
+              - max-frame-size
+              - power-negotiation
+              - max-frame-size
+              - max-frame-size
+              - power-negotiation
+              - max-frame-size
+              - power-negotiation
+              - max-frame-size
+              - power-negotiation
+              - max-frame-size
+              - power-negotiation
+              - max-frame-size
+              - power-negotiation
+              - max-frame-size
+              - power-negotiation
+              - max-frame-size
+              - max-frame-size
+              - power-negotiation
+              - max-frame-size
+              - power-negotiation
+              - max-frame-size
+              - power-negotiation
+              - max-frame-size
+              - power-negotiation
+              - max-frame-size
+              - power-negotiation
+              - max-frame-size
+              - power-negotiation
             auto-isl: <value in [disable, enable]>
             auto-isl-hello-timer: <value of integer>
             auto-isl-port-group: <value of integer>
@@ -213,12 +450,20 @@ EXAMPLES = '''
                   priority: <value of integer>
                   status: <value in [disable, enable]>
                   vlan: <value of integer>
+                  vlan-intf: <value of string>
+                  assign-vlan: <value in [disable, enable]>
             med-tlvs:
               - inventory-management
               - network-policy
               - power-management
               - location-identification
             name: <value of string>
+            med-location-service:
+              -
+                  name: <value of string>
+                  status: <value in [disable, enable]>
+                  sys-location-id: <value of string>
+            auto-mclag-icl: <value in [disable, enable]>
 
 '''
 
@@ -315,6 +560,16 @@ def main():
             'options': {
                 '802.1-tlvs': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'list',
                     'choices': [
                         'port-vlan-id'
@@ -322,13 +577,136 @@ def main():
                 },
                 '802.3-tlvs': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'list',
                     'choices': [
-                        'max-frame-size'
+                        'max-frame-size',
+                        'max-frame-size',
+                        'power-negotiation',
+                        'max-frame-size',
+                        'power-negotiation',
+                        'max-frame-size',
+                        'power-negotiation',
+                        'max-frame-size',
+                        'power-negotiation',
+                        'max-frame-size',
+                        'power-negotiation',
+                        'max-frame-size',
+                        'power-negotiation',
+                        'max-frame-size',
+                        'max-frame-size',
+                        'power-negotiation',
+                        'max-frame-size',
+                        'power-negotiation',
+                        'max-frame-size',
+                        'power-negotiation',
+                        'max-frame-size',
+                        'power-negotiation',
+                        'max-frame-size',
+                        'power-negotiation',
+                        'max-frame-size',
+                        'power-negotiation',
+                        'max-frame-size',
+                        'max-frame-size',
+                        'power-negotiation',
+                        'max-frame-size',
+                        'power-negotiation',
+                        'max-frame-size',
+                        'power-negotiation',
+                        'max-frame-size',
+                        'power-negotiation',
+                        'max-frame-size',
+                        'power-negotiation',
+                        'max-frame-size',
+                        'power-negotiation',
+                        'max-frame-size',
+                        'max-frame-size',
+                        'power-negotiation',
+                        'max-frame-size',
+                        'power-negotiation',
+                        'max-frame-size',
+                        'power-negotiation',
+                        'max-frame-size',
+                        'power-negotiation',
+                        'max-frame-size',
+                        'power-negotiation',
+                        'max-frame-size',
+                        'power-negotiation',
+                        'max-frame-size',
+                        'max-frame-size',
+                        'power-negotiation',
+                        'max-frame-size',
+                        'power-negotiation',
+                        'max-frame-size',
+                        'power-negotiation',
+                        'max-frame-size',
+                        'power-negotiation',
+                        'max-frame-size',
+                        'power-negotiation',
+                        'max-frame-size',
+                        'power-negotiation',
+                        'max-frame-size',
+                        'max-frame-size',
+                        'power-negotiation',
+                        'max-frame-size',
+                        'power-negotiation',
+                        'max-frame-size',
+                        'power-negotiation',
+                        'max-frame-size',
+                        'power-negotiation',
+                        'max-frame-size',
+                        'power-negotiation',
+                        'max-frame-size',
+                        'power-negotiation',
+                        'max-frame-size',
+                        'max-frame-size',
+                        'power-negotiation',
+                        'max-frame-size',
+                        'power-negotiation',
+                        'max-frame-size',
+                        'power-negotiation',
+                        'max-frame-size',
+                        'power-negotiation',
+                        'max-frame-size',
+                        'power-negotiation',
+                        'max-frame-size',
+                        'power-negotiation',
+                        'max-frame-size',
+                        'max-frame-size',
+                        'power-negotiation',
+                        'max-frame-size',
+                        'power-negotiation',
+                        'max-frame-size',
+                        'power-negotiation',
+                        'max-frame-size',
+                        'power-negotiation',
+                        'max-frame-size',
+                        'power-negotiation',
+                        'max-frame-size',
+                        'power-negotiation'
                     ]
                 },
                 'auto-isl': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -337,56 +715,186 @@ def main():
                 },
                 'auto-isl-hello-timer': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'auto-isl-port-group': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'auto-isl-receive-timeout': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'custom-tlvs': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'list',
                     'options': {
                         'information-string': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'str'
                         },
                         'name': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'str'
                         },
                         'oui': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'str'
                         },
                         'subtype': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'int'
                         }
                     }
                 },
                 'med-network-policy': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'list',
                     'options': {
                         'dscp': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'int'
                         },
                         'name': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'str'
                         },
                         'priority': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'int'
                         },
                         'status': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'choices': [
                                 'disable',
                                 'enable'
@@ -395,12 +903,61 @@ def main():
                         },
                         'vlan': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'int'
+                        },
+                        'vlan-intf': {
+                            'required': False,
+                            'revision': {
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'str'
+                        },
+                        'assign-vlan': {
+                            'required': False,
+                            'revision': {
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'disable',
+                                'enable'
+                            ],
+                            'type': 'str'
                         }
                     }
                 },
                 'med-tlvs': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'list',
                     'choices': [
                         'inventory-management',
@@ -411,6 +968,88 @@ def main():
                 },
                 'name': {
                     'required': True,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'type': 'str'
+                },
+                'med-location-service': {
+                    'required': False,
+                    'revision': {
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'type': 'list',
+                    'options': {
+                        'name': {
+                            'required': False,
+                            'revision': {
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'str'
+                        },
+                        'status': {
+                            'required': False,
+                            'revision': {
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'disable',
+                                'enable'
+                            ],
+                            'type': 'str'
+                        },
+                        'sys-location-id': {
+                            'required': False,
+                            'revision': {
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'str'
+                        }
+                    }
+                },
+                'auto-mclag-icl': {
+                    'required': False,
+                    'revision': {
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'choices': [
+                        'disable',
+                        'enable'
+                    ],
                     'type': 'str'
                 }
             }

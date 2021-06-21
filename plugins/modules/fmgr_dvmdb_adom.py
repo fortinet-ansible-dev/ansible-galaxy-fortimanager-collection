@@ -109,6 +109,670 @@ options:
                  - policy_check_on_install
                  - install_on_policy_check_fail
                  - auto_push_cfg
+                 - migration
+                 - db_export
+                 - no_vpn_console
+                 - backup
+                 - other_devices
+                 - central_sdwan
+                 - is_autosync
+                 - per_device_wtp
+                 - policy_check_on_install
+                 - install_on_policy_check_fail
+                 - auto_push_cfg
+                 - per_device_fsw
+                 - migration
+                 - db_export
+                 - no_vpn_console
+                 - backup
+                 - other_devices
+                 - central_sdwan
+                 - is_autosync
+                 - per_device_wtp
+                 - policy_check_on_install
+                 - install_on_policy_check_fail
+                 - auto_push_cfg
+                 - per_device_fsw
+                 - migration
+                 - db_export
+                 - no_vpn_console
+                 - backup
+                 - other_devices
+                 - central_sdwan
+                 - is_autosync
+                 - per_device_wtp
+                 - policy_check_on_install
+                 - install_on_policy_check_fail
+                 - auto_push_cfg
+                 - per_device_fsw
+                 - migration
+                 - db_export
+                 - no_vpn_console
+                 - backup
+                 - other_devices
+                 - central_sdwan
+                 - is_autosync
+                 - per_device_wtp
+                 - policy_check_on_install
+                 - install_on_policy_check_fail
+                 - auto_push_cfg
+                 - per_device_fsw
+                 - migration
+                 - db_export
+                 - no_vpn_console
+                 - backup
+                 - other_devices
+                 - central_sdwan
+                 - is_autosync
+                 - per_device_wtp
+                 - policy_check_on_install
+                 - install_on_policy_check_fail
+                 - auto_push_cfg
+                 - per_device_fsw
+                 - migration
+                 - db_export
+                 - no_vpn_console
+                 - backup
+                 - other_devices
+                 - central_sdwan
+                 - is_autosync
+                 - per_device_wtp
+                 - policy_check_on_install
+                 - install_on_policy_check_fail
+                 - auto_push_cfg
+                 - per_device_fsw
+                 - migration
+                 - db_export
+                 - no_vpn_console
+                 - backup
+                 - other_devices
+                 - is_autosync
+                 - per_device_wtp
+                 - policy_check_on_install
+                 - install_on_policy_check_fail
+                 - auto_push_cfg
+                 - per_device_fsw
+                 - migration
+                 - db_export
+                 - no_vpn_console
+                 - backup
+                 - other_devices
+                 - central_sdwan
+                 - is_autosync
+                 - per_device_wtp
+                 - policy_check_on_install
+                 - install_on_policy_check_fail
+                 - auto_push_cfg
+                 - per_device_fsw
+                 - migration
+                 - db_export
+                 - no_vpn_console
+                 - backup
+                 - other_devices
+                 - central_sdwan
+                 - is_autosync
+                 - per_device_wtp
+                 - policy_check_on_install
+                 - install_on_policy_check_fail
+                 - auto_push_cfg
+                 - per_device_fsw
+                 - migration
+                 - db_export
+                 - no_vpn_console
+                 - backup
+                 - other_devices
+                 - central_sdwan
+                 - is_autosync
+                 - per_device_wtp
+                 - policy_check_on_install
+                 - install_on_policy_check_fail
+                 - auto_push_cfg
+                 - per_device_fsw
+                 - migration
+                 - db_export
+                 - no_vpn_console
+                 - backup
+                 - other_devices
+                 - central_sdwan
+                 - is_autosync
+                 - per_device_wtp
+                 - policy_check_on_install
+                 - install_on_policy_check_fail
+                 - auto_push_cfg
+                 - per_device_fsw
+                 - migration
+                 - db_export
+                 - no_vpn_console
+                 - backup
+                 - other_devices
+                 - central_sdwan
+                 - is_autosync
+                 - per_device_wtp
+                 - policy_check_on_install
+                 - install_on_policy_check_fail
+                 - auto_push_cfg
+                 - per_device_fsw
+                 - migration
+                 - db_export
+                 - no_vpn_console
+                 - backup
+                 - other_devices
+                 - central_sdwan
+                 - is_autosync
+                 - per_device_wtp
+                 - policy_check_on_install
+                 - install_on_policy_check_fail
+                 - auto_push_cfg
+                 - per_device_fsw
+                 - migration
+                 - db_export
+                 - no_vpn_console
+                 - backup
+                 - other_devices
+                 - is_autosync
+                 - per_device_wtp
+                 - policy_check_on_install
+                 - install_on_policy_check_fail
+                 - auto_push_cfg
+                 - per_device_fsw
+                 - migration
+                 - db_export
+                 - no_vpn_console
+                 - backup
+                 - other_devices
+                 - central_sdwan
+                 - is_autosync
+                 - per_device_wtp
+                 - policy_check_on_install
+                 - install_on_policy_check_fail
+                 - auto_push_cfg
+                 - per_device_fsw
+                 - migration
+                 - db_export
+                 - no_vpn_console
+                 - backup
+                 - other_devices
+                 - central_sdwan
+                 - is_autosync
+                 - per_device_wtp
+                 - policy_check_on_install
+                 - install_on_policy_check_fail
+                 - auto_push_cfg
+                 - per_device_fsw
+                 - migration
+                 - db_export
+                 - no_vpn_console
+                 - backup
+                 - other_devices
+                 - central_sdwan
+                 - is_autosync
+                 - per_device_wtp
+                 - policy_check_on_install
+                 - install_on_policy_check_fail
+                 - auto_push_cfg
+                 - per_device_fsw
+                 - migration
+                 - db_export
+                 - no_vpn_console
+                 - backup
+                 - other_devices
+                 - central_sdwan
+                 - is_autosync
+                 - per_device_wtp
+                 - policy_check_on_install
+                 - install_on_policy_check_fail
+                 - auto_push_cfg
+                 - per_device_fsw
+                 - migration
+                 - db_export
+                 - no_vpn_console
+                 - backup
+                 - other_devices
+                 - central_sdwan
+                 - is_autosync
+                 - per_device_wtp
+                 - policy_check_on_install
+                 - install_on_policy_check_fail
+                 - auto_push_cfg
+                 - per_device_fsw
+                 - migration
+                 - db_export
+                 - no_vpn_console
+                 - backup
+                 - other_devices
+                 - central_sdwan
+                 - is_autosync
+                 - per_device_wtp
+                 - policy_check_on_install
+                 - install_on_policy_check_fail
+                 - auto_push_cfg
+                 - per_device_fsw
+                 - migration
+                 - db_export
+                 - no_vpn_console
+                 - backup
+                 - other_devices
+                 - is_autosync
+                 - per_device_wtp
+                 - policy_check_on_install
+                 - install_on_policy_check_fail
+                 - auto_push_cfg
+                 - per_device_fsw
+                 - migration
+                 - db_export
+                 - no_vpn_console
+                 - backup
+                 - other_devices
+                 - central_sdwan
+                 - is_autosync
+                 - per_device_wtp
+                 - policy_check_on_install
+                 - install_on_policy_check_fail
+                 - auto_push_cfg
+                 - per_device_fsw
+                 - migration
+                 - db_export
+                 - no_vpn_console
+                 - backup
+                 - other_devices
+                 - central_sdwan
+                 - is_autosync
+                 - per_device_wtp
+                 - policy_check_on_install
+                 - install_on_policy_check_fail
+                 - auto_push_cfg
+                 - per_device_fsw
+                 - migration
+                 - db_export
+                 - no_vpn_console
+                 - backup
+                 - other_devices
+                 - central_sdwan
+                 - is_autosync
+                 - per_device_wtp
+                 - policy_check_on_install
+                 - install_on_policy_check_fail
+                 - auto_push_cfg
+                 - per_device_fsw
+                 - migration
+                 - db_export
+                 - no_vpn_console
+                 - backup
+                 - other_devices
+                 - central_sdwan
+                 - is_autosync
+                 - per_device_wtp
+                 - policy_check_on_install
+                 - install_on_policy_check_fail
+                 - auto_push_cfg
+                 - per_device_fsw
+                 - migration
+                 - db_export
+                 - no_vpn_console
+                 - backup
+                 - other_devices
+                 - central_sdwan
+                 - is_autosync
+                 - per_device_wtp
+                 - policy_check_on_install
+                 - install_on_policy_check_fail
+                 - auto_push_cfg
+                 - per_device_fsw
+                 - migration
+                 - db_export
+                 - no_vpn_console
+                 - backup
+                 - other_devices
+                 - central_sdwan
+                 - is_autosync
+                 - per_device_wtp
+                 - policy_check_on_install
+                 - install_on_policy_check_fail
+                 - auto_push_cfg
+                 - per_device_fsw
+                 - migration
+                 - db_export
+                 - no_vpn_console
+                 - backup
+                 - other_devices
+                 - is_autosync
+                 - per_device_wtp
+                 - policy_check_on_install
+                 - install_on_policy_check_fail
+                 - auto_push_cfg
+                 - per_device_fsw
+                 - migration
+                 - db_export
+                 - no_vpn_console
+                 - backup
+                 - other_devices
+                 - central_sdwan
+                 - is_autosync
+                 - per_device_wtp
+                 - policy_check_on_install
+                 - install_on_policy_check_fail
+                 - auto_push_cfg
+                 - per_device_fsw
+                 - migration
+                 - db_export
+                 - no_vpn_console
+                 - backup
+                 - other_devices
+                 - central_sdwan
+                 - is_autosync
+                 - per_device_wtp
+                 - policy_check_on_install
+                 - install_on_policy_check_fail
+                 - auto_push_cfg
+                 - per_device_fsw
+                 - migration
+                 - db_export
+                 - no_vpn_console
+                 - backup
+                 - other_devices
+                 - central_sdwan
+                 - is_autosync
+                 - per_device_wtp
+                 - policy_check_on_install
+                 - install_on_policy_check_fail
+                 - auto_push_cfg
+                 - per_device_fsw
+                 - migration
+                 - db_export
+                 - no_vpn_console
+                 - backup
+                 - other_devices
+                 - central_sdwan
+                 - is_autosync
+                 - per_device_wtp
+                 - policy_check_on_install
+                 - install_on_policy_check_fail
+                 - auto_push_cfg
+                 - per_device_fsw
+                 - migration
+                 - db_export
+                 - no_vpn_console
+                 - backup
+                 - other_devices
+                 - central_sdwan
+                 - is_autosync
+                 - per_device_wtp
+                 - policy_check_on_install
+                 - install_on_policy_check_fail
+                 - auto_push_cfg
+                 - per_device_fsw
+                 - migration
+                 - db_export
+                 - no_vpn_console
+                 - backup
+                 - other_devices
+                 - central_sdwan
+                 - is_autosync
+                 - per_device_wtp
+                 - policy_check_on_install
+                 - install_on_policy_check_fail
+                 - auto_push_cfg
+                 - per_device_fsw
+                 - migration
+                 - db_export
+                 - no_vpn_console
+                 - backup
+                 - other_devices
+                 - is_autosync
+                 - per_device_wtp
+                 - policy_check_on_install
+                 - install_on_policy_check_fail
+                 - auto_push_cfg
+                 - per_device_fsw
+                 - migration
+                 - db_export
+                 - no_vpn_console
+                 - backup
+                 - other_devices
+                 - central_sdwan
+                 - is_autosync
+                 - per_device_wtp
+                 - policy_check_on_install
+                 - install_on_policy_check_fail
+                 - auto_push_cfg
+                 - per_device_fsw
+                 - migration
+                 - db_export
+                 - no_vpn_console
+                 - backup
+                 - other_devices
+                 - central_sdwan
+                 - is_autosync
+                 - per_device_wtp
+                 - policy_check_on_install
+                 - install_on_policy_check_fail
+                 - auto_push_cfg
+                 - per_device_fsw
+                 - migration
+                 - db_export
+                 - no_vpn_console
+                 - backup
+                 - other_devices
+                 - central_sdwan
+                 - is_autosync
+                 - per_device_wtp
+                 - policy_check_on_install
+                 - install_on_policy_check_fail
+                 - auto_push_cfg
+                 - per_device_fsw
+                 - migration
+                 - db_export
+                 - no_vpn_console
+                 - backup
+                 - other_devices
+                 - central_sdwan
+                 - is_autosync
+                 - per_device_wtp
+                 - policy_check_on_install
+                 - install_on_policy_check_fail
+                 - auto_push_cfg
+                 - per_device_fsw
+                 - migration
+                 - db_export
+                 - no_vpn_console
+                 - backup
+                 - other_devices
+                 - central_sdwan
+                 - is_autosync
+                 - per_device_wtp
+                 - policy_check_on_install
+                 - install_on_policy_check_fail
+                 - auto_push_cfg
+                 - per_device_fsw
+                 - migration
+                 - db_export
+                 - no_vpn_console
+                 - backup
+                 - other_devices
+                 - central_sdwan
+                 - is_autosync
+                 - per_device_wtp
+                 - policy_check_on_install
+                 - install_on_policy_check_fail
+                 - auto_push_cfg
+                 - per_device_fsw
+                 - migration
+                 - db_export
+                 - no_vpn_console
+                 - backup
+                 - other_devices
+                 - is_autosync
+                 - per_device_wtp
+                 - policy_check_on_install
+                 - install_on_policy_check_fail
+                 - auto_push_cfg
+                 - per_device_fsw
+                 - migration
+                 - db_export
+                 - no_vpn_console
+                 - backup
+                 - other_devices
+                 - central_sdwan
+                 - is_autosync
+                 - per_device_wtp
+                 - policy_check_on_install
+                 - install_on_policy_check_fail
+                 - auto_push_cfg
+                 - per_device_fsw
+                 - migration
+                 - db_export
+                 - no_vpn_console
+                 - backup
+                 - other_devices
+                 - central_sdwan
+                 - is_autosync
+                 - per_device_wtp
+                 - policy_check_on_install
+                 - install_on_policy_check_fail
+                 - auto_push_cfg
+                 - per_device_fsw
+                 - migration
+                 - db_export
+                 - no_vpn_console
+                 - backup
+                 - other_devices
+                 - central_sdwan
+                 - is_autosync
+                 - per_device_wtp
+                 - policy_check_on_install
+                 - install_on_policy_check_fail
+                 - auto_push_cfg
+                 - per_device_fsw
+                 - migration
+                 - db_export
+                 - no_vpn_console
+                 - backup
+                 - other_devices
+                 - central_sdwan
+                 - is_autosync
+                 - per_device_wtp
+                 - policy_check_on_install
+                 - install_on_policy_check_fail
+                 - auto_push_cfg
+                 - per_device_fsw
+                 - migration
+                 - db_export
+                 - no_vpn_console
+                 - backup
+                 - other_devices
+                 - central_sdwan
+                 - is_autosync
+                 - per_device_wtp
+                 - policy_check_on_install
+                 - install_on_policy_check_fail
+                 - auto_push_cfg
+                 - per_device_fsw
+                 - migration
+                 - db_export
+                 - no_vpn_console
+                 - backup
+                 - other_devices
+                 - central_sdwan
+                 - is_autosync
+                 - per_device_wtp
+                 - policy_check_on_install
+                 - install_on_policy_check_fail
+                 - auto_push_cfg
+                 - per_device_fsw
+                 - migration
+                 - db_export
+                 - no_vpn_console
+                 - backup
+                 - other_devices
+                 - is_autosync
+                 - per_device_wtp
+                 - policy_check_on_install
+                 - install_on_policy_check_fail
+                 - auto_push_cfg
+                 - per_device_fsw
+                 - migration
+                 - db_export
+                 - no_vpn_console
+                 - backup
+                 - other_devices
+                 - central_sdwan
+                 - is_autosync
+                 - per_device_wtp
+                 - policy_check_on_install
+                 - install_on_policy_check_fail
+                 - auto_push_cfg
+                 - per_device_fsw
+                 - migration
+                 - db_export
+                 - no_vpn_console
+                 - backup
+                 - other_devices
+                 - central_sdwan
+                 - is_autosync
+                 - per_device_wtp
+                 - policy_check_on_install
+                 - install_on_policy_check_fail
+                 - auto_push_cfg
+                 - per_device_fsw
+                 - migration
+                 - db_export
+                 - no_vpn_console
+                 - backup
+                 - other_devices
+                 - central_sdwan
+                 - is_autosync
+                 - per_device_wtp
+                 - policy_check_on_install
+                 - install_on_policy_check_fail
+                 - auto_push_cfg
+                 - per_device_fsw
+                 - migration
+                 - db_export
+                 - no_vpn_console
+                 - backup
+                 - other_devices
+                 - central_sdwan
+                 - is_autosync
+                 - per_device_wtp
+                 - policy_check_on_install
+                 - install_on_policy_check_fail
+                 - auto_push_cfg
+                 - per_device_fsw
+                 - migration
+                 - db_export
+                 - no_vpn_console
+                 - backup
+                 - other_devices
+                 - central_sdwan
+                 - is_autosync
+                 - per_device_wtp
+                 - policy_check_on_install
+                 - install_on_policy_check_fail
+                 - auto_push_cfg
+                 - per_device_fsw
+                 - migration
+                 - db_export
+                 - no_vpn_console
+                 - backup
+                 - other_devices
+                 - central_sdwan
+                 - is_autosync
+                 - per_device_wtp
+                 - policy_check_on_install
+                 - install_on_policy_check_fail
+                 - auto_push_cfg
+                 - per_device_fsw
+                 - migration
+                 - db_export
+                 - no_vpn_console
+                 - backup
+                 - other_devices
+                 - is_autosync
+                 - per_device_wtp
+                 - policy_check_on_install
+                 - install_on_policy_check_fail
+                 - auto_push_cfg
+                 - per_device_fsw
             log_db_retention_hours:
                 type: int
                 default: 1440
@@ -148,6 +812,8 @@ options:
                     - '4.0'
                     - '5.0'
                     - '6.0'
+                    - '7.0'
+                    - '8.0'
             mode:
                 type: str
                 default: 'gms'
@@ -178,6 +844,8 @@ options:
                     - '4.0'
                     - '5.0'
                     - '6.0'
+                    - '7.0'
+                    - '8.0'
             restricted_prds:
                 description: no description
                 type: list
@@ -196,12 +864,954 @@ options:
                  - fdd
                  - fac
                  - fpx
+                 - fos
+                 - foc
+                 - fml
+                 - fch
+                 - fwb
+                 - log
+                 - fct
+                 - faz
+                 - fsa
+                 - fsw
+                 - fmg
+                 - fdd
+                 - fac
+                 - fpx
+                 - fna
+                 - fos
+                 - foc
+                 - fml
+                 - fch
+                 - fwb
+                 - log
+                 - fct
+                 - faz
+                 - fsa
+                 - fsw
+                 - fmg
+                 - fdd
+                 - fac
+                 - fpx
+                 - fna
+                 - fos
+                 - foc
+                 - fml
+                 - fch
+                 - fwb
+                 - log
+                 - fct
+                 - faz
+                 - fsa
+                 - fsw
+                 - fmg
+                 - fdd
+                 - fac
+                 - fpx
+                 - fna
+                 - fos
+                 - foc
+                 - fml
+                 - fch
+                 - fwb
+                 - log
+                 - fct
+                 - faz
+                 - fsa
+                 - fsw
+                 - fmg
+                 - fdd
+                 - fac
+                 - fpx
+                 - fna
+                 - fdc
+                 - fos
+                 - foc
+                 - fml
+                 - fch
+                 - fwb
+                 - log
+                 - fct
+                 - faz
+                 - fsa
+                 - fsw
+                 - fmg
+                 - fdd
+                 - fac
+                 - fpx
+                 - fna
+                 - fdc
+                 - fos
+                 - foc
+                 - fml
+                 - fch
+                 - fwb
+                 - log
+                 - fct
+                 - faz
+                 - fsa
+                 - fsw
+                 - fmg
+                 - fdd
+                 - fac
+                 - fpx
+                 - fna
+                 - ffw
+                 - fsr
+                 - fad
+                 - fdc
+                 - fos
+                 - foc
+                 - fml
+                 - fch
+                 - fwb
+                 - log
+                 - fct
+                 - faz
+                 - fsa
+                 - fsw
+                 - fmg
+                 - fdd
+                 - fac
+                 - fpx
+                 - fna
+                 - ffw
+                 - fsr
+                 - fad
+                 - fdc
+                 - fap
+                 - fxt
+                 - fos
+                 - foc
+                 - fml
+                 - fch
+                 - fwb
+                 - log
+                 - fct
+                 - faz
+                 - fsa
+                 - fsw
+                 - fmg
+                 - fdd
+                 - fac
+                 - fpx
+                 - fna
+                 - fos
+                 - foc
+                 - fml
+                 - fch
+                 - fwb
+                 - log
+                 - fct
+                 - faz
+                 - fsa
+                 - fsw
+                 - fmg
+                 - fdd
+                 - fac
+                 - fpx
+                 - fna
+                 - fos
+                 - foc
+                 - fml
+                 - fch
+                 - fwb
+                 - log
+                 - fct
+                 - faz
+                 - fsa
+                 - fsw
+                 - fmg
+                 - fdd
+                 - fac
+                 - fpx
+                 - fna
+                 - fos
+                 - foc
+                 - fml
+                 - fch
+                 - fwb
+                 - log
+                 - fct
+                 - faz
+                 - fsa
+                 - fsw
+                 - fmg
+                 - fdd
+                 - fac
+                 - fpx
+                 - fna
+                 - fdc
+                 - fos
+                 - foc
+                 - fml
+                 - fch
+                 - fwb
+                 - log
+                 - fct
+                 - faz
+                 - fsa
+                 - fsw
+                 - fmg
+                 - fdd
+                 - fac
+                 - fpx
+                 - fna
+                 - fdc
+                 - fos
+                 - foc
+                 - fml
+                 - fch
+                 - fwb
+                 - log
+                 - fct
+                 - faz
+                 - fsa
+                 - fsw
+                 - fmg
+                 - fdd
+                 - fac
+                 - fpx
+                 - fna
+                 - ffw
+                 - fsr
+                 - fad
+                 - fdc
+                 - fos
+                 - foc
+                 - fml
+                 - fch
+                 - fwb
+                 - log
+                 - fct
+                 - faz
+                 - fsa
+                 - fsw
+                 - fmg
+                 - fdd
+                 - fac
+                 - fpx
+                 - fna
+                 - ffw
+                 - fsr
+                 - fad
+                 - fdc
+                 - fap
+                 - fxt
+                 - fos
+                 - foc
+                 - fml
+                 - fch
+                 - fwb
+                 - log
+                 - fct
+                 - faz
+                 - fsa
+                 - fsw
+                 - fmg
+                 - fdd
+                 - fac
+                 - fpx
+                 - fna
+                 - fos
+                 - foc
+                 - fml
+                 - fch
+                 - fwb
+                 - log
+                 - fct
+                 - faz
+                 - fsa
+                 - fsw
+                 - fmg
+                 - fdd
+                 - fac
+                 - fpx
+                 - fna
+                 - fos
+                 - foc
+                 - fml
+                 - fch
+                 - fwb
+                 - log
+                 - fct
+                 - faz
+                 - fsa
+                 - fsw
+                 - fmg
+                 - fdd
+                 - fac
+                 - fpx
+                 - fna
+                 - fos
+                 - foc
+                 - fml
+                 - fch
+                 - fwb
+                 - log
+                 - fct
+                 - faz
+                 - fsa
+                 - fsw
+                 - fmg
+                 - fdd
+                 - fac
+                 - fpx
+                 - fna
+                 - fdc
+                 - fos
+                 - foc
+                 - fml
+                 - fch
+                 - fwb
+                 - log
+                 - fct
+                 - faz
+                 - fsa
+                 - fsw
+                 - fmg
+                 - fdd
+                 - fac
+                 - fpx
+                 - fna
+                 - fdc
+                 - fos
+                 - foc
+                 - fml
+                 - fch
+                 - fwb
+                 - log
+                 - fct
+                 - faz
+                 - fsa
+                 - fsw
+                 - fmg
+                 - fdd
+                 - fac
+                 - fpx
+                 - fna
+                 - ffw
+                 - fsr
+                 - fad
+                 - fdc
+                 - fos
+                 - foc
+                 - fml
+                 - fch
+                 - fwb
+                 - log
+                 - fct
+                 - faz
+                 - fsa
+                 - fsw
+                 - fmg
+                 - fdd
+                 - fac
+                 - fpx
+                 - fna
+                 - ffw
+                 - fsr
+                 - fad
+                 - fdc
+                 - fap
+                 - fxt
+                 - fos
+                 - foc
+                 - fml
+                 - fch
+                 - fwb
+                 - log
+                 - fct
+                 - faz
+                 - fsa
+                 - fsw
+                 - fmg
+                 - fdd
+                 - fac
+                 - fpx
+                 - fna
+                 - fos
+                 - foc
+                 - fml
+                 - fch
+                 - fwb
+                 - log
+                 - fct
+                 - faz
+                 - fsa
+                 - fsw
+                 - fmg
+                 - fdd
+                 - fac
+                 - fpx
+                 - fna
+                 - fos
+                 - foc
+                 - fml
+                 - fch
+                 - fwb
+                 - log
+                 - fct
+                 - faz
+                 - fsa
+                 - fsw
+                 - fmg
+                 - fdd
+                 - fac
+                 - fpx
+                 - fna
+                 - fos
+                 - foc
+                 - fml
+                 - fch
+                 - fwb
+                 - log
+                 - fct
+                 - faz
+                 - fsa
+                 - fsw
+                 - fmg
+                 - fdd
+                 - fac
+                 - fpx
+                 - fna
+                 - fdc
+                 - fos
+                 - foc
+                 - fml
+                 - fch
+                 - fwb
+                 - log
+                 - fct
+                 - faz
+                 - fsa
+                 - fsw
+                 - fmg
+                 - fdd
+                 - fac
+                 - fpx
+                 - fna
+                 - fdc
+                 - fos
+                 - foc
+                 - fml
+                 - fch
+                 - fwb
+                 - log
+                 - fct
+                 - faz
+                 - fsa
+                 - fsw
+                 - fmg
+                 - fdd
+                 - fac
+                 - fpx
+                 - fna
+                 - ffw
+                 - fsr
+                 - fad
+                 - fdc
+                 - fos
+                 - foc
+                 - fml
+                 - fch
+                 - fwb
+                 - log
+                 - fct
+                 - faz
+                 - fsa
+                 - fsw
+                 - fmg
+                 - fdd
+                 - fac
+                 - fpx
+                 - fna
+                 - ffw
+                 - fsr
+                 - fad
+                 - fdc
+                 - fap
+                 - fxt
+                 - fos
+                 - foc
+                 - fml
+                 - fch
+                 - fwb
+                 - log
+                 - fct
+                 - faz
+                 - fsa
+                 - fsw
+                 - fmg
+                 - fdd
+                 - fac
+                 - fpx
+                 - fna
+                 - fos
+                 - foc
+                 - fml
+                 - fch
+                 - fwb
+                 - log
+                 - fct
+                 - faz
+                 - fsa
+                 - fsw
+                 - fmg
+                 - fdd
+                 - fac
+                 - fpx
+                 - fna
+                 - fos
+                 - foc
+                 - fml
+                 - fch
+                 - fwb
+                 - log
+                 - fct
+                 - faz
+                 - fsa
+                 - fsw
+                 - fmg
+                 - fdd
+                 - fac
+                 - fpx
+                 - fna
+                 - fos
+                 - foc
+                 - fml
+                 - fch
+                 - fwb
+                 - log
+                 - fct
+                 - faz
+                 - fsa
+                 - fsw
+                 - fmg
+                 - fdd
+                 - fac
+                 - fpx
+                 - fna
+                 - fdc
+                 - fos
+                 - foc
+                 - fml
+                 - fch
+                 - fwb
+                 - log
+                 - fct
+                 - faz
+                 - fsa
+                 - fsw
+                 - fmg
+                 - fdd
+                 - fac
+                 - fpx
+                 - fna
+                 - fdc
+                 - fos
+                 - foc
+                 - fml
+                 - fch
+                 - fwb
+                 - log
+                 - fct
+                 - faz
+                 - fsa
+                 - fsw
+                 - fmg
+                 - fdd
+                 - fac
+                 - fpx
+                 - fna
+                 - ffw
+                 - fsr
+                 - fad
+                 - fdc
+                 - fos
+                 - foc
+                 - fml
+                 - fch
+                 - fwb
+                 - log
+                 - fct
+                 - faz
+                 - fsa
+                 - fsw
+                 - fmg
+                 - fdd
+                 - fac
+                 - fpx
+                 - fna
+                 - ffw
+                 - fsr
+                 - fad
+                 - fdc
+                 - fap
+                 - fxt
+                 - fos
+                 - foc
+                 - fml
+                 - fch
+                 - fwb
+                 - log
+                 - fct
+                 - faz
+                 - fsa
+                 - fsw
+                 - fmg
+                 - fdd
+                 - fac
+                 - fpx
+                 - fna
+                 - fos
+                 - foc
+                 - fml
+                 - fch
+                 - fwb
+                 - log
+                 - fct
+                 - faz
+                 - fsa
+                 - fsw
+                 - fmg
+                 - fdd
+                 - fac
+                 - fpx
+                 - fna
+                 - fos
+                 - foc
+                 - fml
+                 - fch
+                 - fwb
+                 - log
+                 - fct
+                 - faz
+                 - fsa
+                 - fsw
+                 - fmg
+                 - fdd
+                 - fac
+                 - fpx
+                 - fna
+                 - fos
+                 - foc
+                 - fml
+                 - fch
+                 - fwb
+                 - log
+                 - fct
+                 - faz
+                 - fsa
+                 - fsw
+                 - fmg
+                 - fdd
+                 - fac
+                 - fpx
+                 - fna
+                 - fdc
+                 - fos
+                 - foc
+                 - fml
+                 - fch
+                 - fwb
+                 - log
+                 - fct
+                 - faz
+                 - fsa
+                 - fsw
+                 - fmg
+                 - fdd
+                 - fac
+                 - fpx
+                 - fna
+                 - fdc
+                 - fos
+                 - foc
+                 - fml
+                 - fch
+                 - fwb
+                 - log
+                 - fct
+                 - faz
+                 - fsa
+                 - fsw
+                 - fmg
+                 - fdd
+                 - fac
+                 - fpx
+                 - fna
+                 - ffw
+                 - fsr
+                 - fad
+                 - fdc
+                 - fos
+                 - foc
+                 - fml
+                 - fch
+                 - fwb
+                 - log
+                 - fct
+                 - faz
+                 - fsa
+                 - fsw
+                 - fmg
+                 - fdd
+                 - fac
+                 - fpx
+                 - fna
+                 - ffw
+                 - fsr
+                 - fad
+                 - fdc
+                 - fap
+                 - fxt
+                 - fos
+                 - foc
+                 - fml
+                 - fch
+                 - fwb
+                 - log
+                 - fct
+                 - faz
+                 - fsa
+                 - fsw
+                 - fmg
+                 - fdd
+                 - fac
+                 - fpx
+                 - fna
+                 - fos
+                 - foc
+                 - fml
+                 - fch
+                 - fwb
+                 - log
+                 - fct
+                 - faz
+                 - fsa
+                 - fsw
+                 - fmg
+                 - fdd
+                 - fac
+                 - fpx
+                 - fna
+                 - fos
+                 - foc
+                 - fml
+                 - fch
+                 - fwb
+                 - log
+                 - fct
+                 - faz
+                 - fsa
+                 - fsw
+                 - fmg
+                 - fdd
+                 - fac
+                 - fpx
+                 - fna
+                 - fos
+                 - foc
+                 - fml
+                 - fch
+                 - fwb
+                 - log
+                 - fct
+                 - faz
+                 - fsa
+                 - fsw
+                 - fmg
+                 - fdd
+                 - fac
+                 - fpx
+                 - fna
+                 - fdc
+                 - fos
+                 - foc
+                 - fml
+                 - fch
+                 - fwb
+                 - log
+                 - fct
+                 - faz
+                 - fsa
+                 - fsw
+                 - fmg
+                 - fdd
+                 - fac
+                 - fpx
+                 - fna
+                 - fdc
+                 - fos
+                 - foc
+                 - fml
+                 - fch
+                 - fwb
+                 - log
+                 - fct
+                 - faz
+                 - fsa
+                 - fsw
+                 - fmg
+                 - fdd
+                 - fac
+                 - fpx
+                 - fna
+                 - ffw
+                 - fsr
+                 - fad
+                 - fdc
+                 - fos
+                 - foc
+                 - fml
+                 - fch
+                 - fwb
+                 - log
+                 - fct
+                 - faz
+                 - fsa
+                 - fsw
+                 - fmg
+                 - fdd
+                 - fac
+                 - fpx
+                 - fna
+                 - ffw
+                 - fsr
+                 - fad
+                 - fdc
+                 - fap
+                 - fxt
+                 - fos
+                 - foc
+                 - fml
+                 - fch
+                 - fwb
+                 - log
+                 - fct
+                 - faz
+                 - fsa
+                 - fsw
+                 - fmg
+                 - fdd
+                 - fac
+                 - fpx
+                 - fna
+                 - fos
+                 - foc
+                 - fml
+                 - fch
+                 - fwb
+                 - log
+                 - fct
+                 - faz
+                 - fsa
+                 - fsw
+                 - fmg
+                 - fdd
+                 - fac
+                 - fpx
+                 - fna
+                 - fos
+                 - foc
+                 - fml
+                 - fch
+                 - fwb
+                 - log
+                 - fct
+                 - faz
+                 - fsa
+                 - fsw
+                 - fmg
+                 - fdd
+                 - fac
+                 - fpx
+                 - fna
+                 - fos
+                 - foc
+                 - fml
+                 - fch
+                 - fwb
+                 - log
+                 - fct
+                 - faz
+                 - fsa
+                 - fsw
+                 - fmg
+                 - fdd
+                 - fac
+                 - fpx
+                 - fna
+                 - fdc
+                 - fos
+                 - foc
+                 - fml
+                 - fch
+                 - fwb
+                 - log
+                 - fct
+                 - faz
+                 - fsa
+                 - fsw
+                 - fmg
+                 - fdd
+                 - fac
+                 - fpx
+                 - fna
+                 - fdc
+                 - fos
+                 - foc
+                 - fml
+                 - fch
+                 - fwb
+                 - log
+                 - fct
+                 - faz
+                 - fsa
+                 - fsw
+                 - fmg
+                 - fdd
+                 - fac
+                 - fpx
+                 - fna
+                 - ffw
+                 - fsr
+                 - fad
+                 - fdc
+                 - fos
+                 - foc
+                 - fml
+                 - fch
+                 - fwb
+                 - log
+                 - fct
+                 - faz
+                 - fsa
+                 - fsw
+                 - fmg
+                 - fdd
+                 - fac
+                 - fpx
+                 - fna
+                 - ffw
+                 - fsr
+                 - fad
+                 - fdc
+                 - fap
+                 - fxt
             state:
                 type: int
                 default: 1
                 description: no description
             uuid:
                 type: str
+                description: no description
+            create_time:
+                type: int
+                description: no description
+            workspace_mode:
+                type: int
                 description: no description
 
 '''
@@ -238,6 +1848,670 @@ EXAMPLES = '''
               - policy_check_on_install
               - install_on_policy_check_fail
               - auto_push_cfg
+              - migration
+              - db_export
+              - no_vpn_console
+              - backup
+              - other_devices
+              - central_sdwan
+              - is_autosync
+              - per_device_wtp
+              - policy_check_on_install
+              - install_on_policy_check_fail
+              - auto_push_cfg
+              - per_device_fsw
+              - migration
+              - db_export
+              - no_vpn_console
+              - backup
+              - other_devices
+              - central_sdwan
+              - is_autosync
+              - per_device_wtp
+              - policy_check_on_install
+              - install_on_policy_check_fail
+              - auto_push_cfg
+              - per_device_fsw
+              - migration
+              - db_export
+              - no_vpn_console
+              - backup
+              - other_devices
+              - central_sdwan
+              - is_autosync
+              - per_device_wtp
+              - policy_check_on_install
+              - install_on_policy_check_fail
+              - auto_push_cfg
+              - per_device_fsw
+              - migration
+              - db_export
+              - no_vpn_console
+              - backup
+              - other_devices
+              - central_sdwan
+              - is_autosync
+              - per_device_wtp
+              - policy_check_on_install
+              - install_on_policy_check_fail
+              - auto_push_cfg
+              - per_device_fsw
+              - migration
+              - db_export
+              - no_vpn_console
+              - backup
+              - other_devices
+              - central_sdwan
+              - is_autosync
+              - per_device_wtp
+              - policy_check_on_install
+              - install_on_policy_check_fail
+              - auto_push_cfg
+              - per_device_fsw
+              - migration
+              - db_export
+              - no_vpn_console
+              - backup
+              - other_devices
+              - central_sdwan
+              - is_autosync
+              - per_device_wtp
+              - policy_check_on_install
+              - install_on_policy_check_fail
+              - auto_push_cfg
+              - per_device_fsw
+              - migration
+              - db_export
+              - no_vpn_console
+              - backup
+              - other_devices
+              - is_autosync
+              - per_device_wtp
+              - policy_check_on_install
+              - install_on_policy_check_fail
+              - auto_push_cfg
+              - per_device_fsw
+              - migration
+              - db_export
+              - no_vpn_console
+              - backup
+              - other_devices
+              - central_sdwan
+              - is_autosync
+              - per_device_wtp
+              - policy_check_on_install
+              - install_on_policy_check_fail
+              - auto_push_cfg
+              - per_device_fsw
+              - migration
+              - db_export
+              - no_vpn_console
+              - backup
+              - other_devices
+              - central_sdwan
+              - is_autosync
+              - per_device_wtp
+              - policy_check_on_install
+              - install_on_policy_check_fail
+              - auto_push_cfg
+              - per_device_fsw
+              - migration
+              - db_export
+              - no_vpn_console
+              - backup
+              - other_devices
+              - central_sdwan
+              - is_autosync
+              - per_device_wtp
+              - policy_check_on_install
+              - install_on_policy_check_fail
+              - auto_push_cfg
+              - per_device_fsw
+              - migration
+              - db_export
+              - no_vpn_console
+              - backup
+              - other_devices
+              - central_sdwan
+              - is_autosync
+              - per_device_wtp
+              - policy_check_on_install
+              - install_on_policy_check_fail
+              - auto_push_cfg
+              - per_device_fsw
+              - migration
+              - db_export
+              - no_vpn_console
+              - backup
+              - other_devices
+              - central_sdwan
+              - is_autosync
+              - per_device_wtp
+              - policy_check_on_install
+              - install_on_policy_check_fail
+              - auto_push_cfg
+              - per_device_fsw
+              - migration
+              - db_export
+              - no_vpn_console
+              - backup
+              - other_devices
+              - central_sdwan
+              - is_autosync
+              - per_device_wtp
+              - policy_check_on_install
+              - install_on_policy_check_fail
+              - auto_push_cfg
+              - per_device_fsw
+              - migration
+              - db_export
+              - no_vpn_console
+              - backup
+              - other_devices
+              - is_autosync
+              - per_device_wtp
+              - policy_check_on_install
+              - install_on_policy_check_fail
+              - auto_push_cfg
+              - per_device_fsw
+              - migration
+              - db_export
+              - no_vpn_console
+              - backup
+              - other_devices
+              - central_sdwan
+              - is_autosync
+              - per_device_wtp
+              - policy_check_on_install
+              - install_on_policy_check_fail
+              - auto_push_cfg
+              - per_device_fsw
+              - migration
+              - db_export
+              - no_vpn_console
+              - backup
+              - other_devices
+              - central_sdwan
+              - is_autosync
+              - per_device_wtp
+              - policy_check_on_install
+              - install_on_policy_check_fail
+              - auto_push_cfg
+              - per_device_fsw
+              - migration
+              - db_export
+              - no_vpn_console
+              - backup
+              - other_devices
+              - central_sdwan
+              - is_autosync
+              - per_device_wtp
+              - policy_check_on_install
+              - install_on_policy_check_fail
+              - auto_push_cfg
+              - per_device_fsw
+              - migration
+              - db_export
+              - no_vpn_console
+              - backup
+              - other_devices
+              - central_sdwan
+              - is_autosync
+              - per_device_wtp
+              - policy_check_on_install
+              - install_on_policy_check_fail
+              - auto_push_cfg
+              - per_device_fsw
+              - migration
+              - db_export
+              - no_vpn_console
+              - backup
+              - other_devices
+              - central_sdwan
+              - is_autosync
+              - per_device_wtp
+              - policy_check_on_install
+              - install_on_policy_check_fail
+              - auto_push_cfg
+              - per_device_fsw
+              - migration
+              - db_export
+              - no_vpn_console
+              - backup
+              - other_devices
+              - central_sdwan
+              - is_autosync
+              - per_device_wtp
+              - policy_check_on_install
+              - install_on_policy_check_fail
+              - auto_push_cfg
+              - per_device_fsw
+              - migration
+              - db_export
+              - no_vpn_console
+              - backup
+              - other_devices
+              - is_autosync
+              - per_device_wtp
+              - policy_check_on_install
+              - install_on_policy_check_fail
+              - auto_push_cfg
+              - per_device_fsw
+              - migration
+              - db_export
+              - no_vpn_console
+              - backup
+              - other_devices
+              - central_sdwan
+              - is_autosync
+              - per_device_wtp
+              - policy_check_on_install
+              - install_on_policy_check_fail
+              - auto_push_cfg
+              - per_device_fsw
+              - migration
+              - db_export
+              - no_vpn_console
+              - backup
+              - other_devices
+              - central_sdwan
+              - is_autosync
+              - per_device_wtp
+              - policy_check_on_install
+              - install_on_policy_check_fail
+              - auto_push_cfg
+              - per_device_fsw
+              - migration
+              - db_export
+              - no_vpn_console
+              - backup
+              - other_devices
+              - central_sdwan
+              - is_autosync
+              - per_device_wtp
+              - policy_check_on_install
+              - install_on_policy_check_fail
+              - auto_push_cfg
+              - per_device_fsw
+              - migration
+              - db_export
+              - no_vpn_console
+              - backup
+              - other_devices
+              - central_sdwan
+              - is_autosync
+              - per_device_wtp
+              - policy_check_on_install
+              - install_on_policy_check_fail
+              - auto_push_cfg
+              - per_device_fsw
+              - migration
+              - db_export
+              - no_vpn_console
+              - backup
+              - other_devices
+              - central_sdwan
+              - is_autosync
+              - per_device_wtp
+              - policy_check_on_install
+              - install_on_policy_check_fail
+              - auto_push_cfg
+              - per_device_fsw
+              - migration
+              - db_export
+              - no_vpn_console
+              - backup
+              - other_devices
+              - central_sdwan
+              - is_autosync
+              - per_device_wtp
+              - policy_check_on_install
+              - install_on_policy_check_fail
+              - auto_push_cfg
+              - per_device_fsw
+              - migration
+              - db_export
+              - no_vpn_console
+              - backup
+              - other_devices
+              - is_autosync
+              - per_device_wtp
+              - policy_check_on_install
+              - install_on_policy_check_fail
+              - auto_push_cfg
+              - per_device_fsw
+              - migration
+              - db_export
+              - no_vpn_console
+              - backup
+              - other_devices
+              - central_sdwan
+              - is_autosync
+              - per_device_wtp
+              - policy_check_on_install
+              - install_on_policy_check_fail
+              - auto_push_cfg
+              - per_device_fsw
+              - migration
+              - db_export
+              - no_vpn_console
+              - backup
+              - other_devices
+              - central_sdwan
+              - is_autosync
+              - per_device_wtp
+              - policy_check_on_install
+              - install_on_policy_check_fail
+              - auto_push_cfg
+              - per_device_fsw
+              - migration
+              - db_export
+              - no_vpn_console
+              - backup
+              - other_devices
+              - central_sdwan
+              - is_autosync
+              - per_device_wtp
+              - policy_check_on_install
+              - install_on_policy_check_fail
+              - auto_push_cfg
+              - per_device_fsw
+              - migration
+              - db_export
+              - no_vpn_console
+              - backup
+              - other_devices
+              - central_sdwan
+              - is_autosync
+              - per_device_wtp
+              - policy_check_on_install
+              - install_on_policy_check_fail
+              - auto_push_cfg
+              - per_device_fsw
+              - migration
+              - db_export
+              - no_vpn_console
+              - backup
+              - other_devices
+              - central_sdwan
+              - is_autosync
+              - per_device_wtp
+              - policy_check_on_install
+              - install_on_policy_check_fail
+              - auto_push_cfg
+              - per_device_fsw
+              - migration
+              - db_export
+              - no_vpn_console
+              - backup
+              - other_devices
+              - central_sdwan
+              - is_autosync
+              - per_device_wtp
+              - policy_check_on_install
+              - install_on_policy_check_fail
+              - auto_push_cfg
+              - per_device_fsw
+              - migration
+              - db_export
+              - no_vpn_console
+              - backup
+              - other_devices
+              - is_autosync
+              - per_device_wtp
+              - policy_check_on_install
+              - install_on_policy_check_fail
+              - auto_push_cfg
+              - per_device_fsw
+              - migration
+              - db_export
+              - no_vpn_console
+              - backup
+              - other_devices
+              - central_sdwan
+              - is_autosync
+              - per_device_wtp
+              - policy_check_on_install
+              - install_on_policy_check_fail
+              - auto_push_cfg
+              - per_device_fsw
+              - migration
+              - db_export
+              - no_vpn_console
+              - backup
+              - other_devices
+              - central_sdwan
+              - is_autosync
+              - per_device_wtp
+              - policy_check_on_install
+              - install_on_policy_check_fail
+              - auto_push_cfg
+              - per_device_fsw
+              - migration
+              - db_export
+              - no_vpn_console
+              - backup
+              - other_devices
+              - central_sdwan
+              - is_autosync
+              - per_device_wtp
+              - policy_check_on_install
+              - install_on_policy_check_fail
+              - auto_push_cfg
+              - per_device_fsw
+              - migration
+              - db_export
+              - no_vpn_console
+              - backup
+              - other_devices
+              - central_sdwan
+              - is_autosync
+              - per_device_wtp
+              - policy_check_on_install
+              - install_on_policy_check_fail
+              - auto_push_cfg
+              - per_device_fsw
+              - migration
+              - db_export
+              - no_vpn_console
+              - backup
+              - other_devices
+              - central_sdwan
+              - is_autosync
+              - per_device_wtp
+              - policy_check_on_install
+              - install_on_policy_check_fail
+              - auto_push_cfg
+              - per_device_fsw
+              - migration
+              - db_export
+              - no_vpn_console
+              - backup
+              - other_devices
+              - central_sdwan
+              - is_autosync
+              - per_device_wtp
+              - policy_check_on_install
+              - install_on_policy_check_fail
+              - auto_push_cfg
+              - per_device_fsw
+              - migration
+              - db_export
+              - no_vpn_console
+              - backup
+              - other_devices
+              - is_autosync
+              - per_device_wtp
+              - policy_check_on_install
+              - install_on_policy_check_fail
+              - auto_push_cfg
+              - per_device_fsw
+              - migration
+              - db_export
+              - no_vpn_console
+              - backup
+              - other_devices
+              - central_sdwan
+              - is_autosync
+              - per_device_wtp
+              - policy_check_on_install
+              - install_on_policy_check_fail
+              - auto_push_cfg
+              - per_device_fsw
+              - migration
+              - db_export
+              - no_vpn_console
+              - backup
+              - other_devices
+              - central_sdwan
+              - is_autosync
+              - per_device_wtp
+              - policy_check_on_install
+              - install_on_policy_check_fail
+              - auto_push_cfg
+              - per_device_fsw
+              - migration
+              - db_export
+              - no_vpn_console
+              - backup
+              - other_devices
+              - central_sdwan
+              - is_autosync
+              - per_device_wtp
+              - policy_check_on_install
+              - install_on_policy_check_fail
+              - auto_push_cfg
+              - per_device_fsw
+              - migration
+              - db_export
+              - no_vpn_console
+              - backup
+              - other_devices
+              - central_sdwan
+              - is_autosync
+              - per_device_wtp
+              - policy_check_on_install
+              - install_on_policy_check_fail
+              - auto_push_cfg
+              - per_device_fsw
+              - migration
+              - db_export
+              - no_vpn_console
+              - backup
+              - other_devices
+              - central_sdwan
+              - is_autosync
+              - per_device_wtp
+              - policy_check_on_install
+              - install_on_policy_check_fail
+              - auto_push_cfg
+              - per_device_fsw
+              - migration
+              - db_export
+              - no_vpn_console
+              - backup
+              - other_devices
+              - central_sdwan
+              - is_autosync
+              - per_device_wtp
+              - policy_check_on_install
+              - install_on_policy_check_fail
+              - auto_push_cfg
+              - per_device_fsw
+              - migration
+              - db_export
+              - no_vpn_console
+              - backup
+              - other_devices
+              - is_autosync
+              - per_device_wtp
+              - policy_check_on_install
+              - install_on_policy_check_fail
+              - auto_push_cfg
+              - per_device_fsw
+              - migration
+              - db_export
+              - no_vpn_console
+              - backup
+              - other_devices
+              - central_sdwan
+              - is_autosync
+              - per_device_wtp
+              - policy_check_on_install
+              - install_on_policy_check_fail
+              - auto_push_cfg
+              - per_device_fsw
+              - migration
+              - db_export
+              - no_vpn_console
+              - backup
+              - other_devices
+              - central_sdwan
+              - is_autosync
+              - per_device_wtp
+              - policy_check_on_install
+              - install_on_policy_check_fail
+              - auto_push_cfg
+              - per_device_fsw
+              - migration
+              - db_export
+              - no_vpn_console
+              - backup
+              - other_devices
+              - central_sdwan
+              - is_autosync
+              - per_device_wtp
+              - policy_check_on_install
+              - install_on_policy_check_fail
+              - auto_push_cfg
+              - per_device_fsw
+              - migration
+              - db_export
+              - no_vpn_console
+              - backup
+              - other_devices
+              - central_sdwan
+              - is_autosync
+              - per_device_wtp
+              - policy_check_on_install
+              - install_on_policy_check_fail
+              - auto_push_cfg
+              - per_device_fsw
+              - migration
+              - db_export
+              - no_vpn_console
+              - backup
+              - other_devices
+              - central_sdwan
+              - is_autosync
+              - per_device_wtp
+              - policy_check_on_install
+              - install_on_policy_check_fail
+              - auto_push_cfg
+              - per_device_fsw
+              - migration
+              - db_export
+              - no_vpn_console
+              - backup
+              - other_devices
+              - central_sdwan
+              - is_autosync
+              - per_device_wtp
+              - policy_check_on_install
+              - install_on_policy_check_fail
+              - auto_push_cfg
+              - per_device_fsw
+              - migration
+              - db_export
+              - no_vpn_console
+              - backup
+              - other_devices
+              - is_autosync
+              - per_device_wtp
+              - policy_check_on_install
+              - install_on_policy_check_fail
+              - auto_push_cfg
+              - per_device_fsw
             log_db_retention_hours: <value of integer>
             log_disk_quota: <value of integer>
             log_disk_quota_alert_thres: <value of integer>
@@ -265,8 +2539,946 @@ EXAMPLES = '''
               - fdd
               - fac
               - fpx
+              - fos
+              - foc
+              - fml
+              - fch
+              - fwb
+              - log
+              - fct
+              - faz
+              - fsa
+              - fsw
+              - fmg
+              - fdd
+              - fac
+              - fpx
+              - fna
+              - fos
+              - foc
+              - fml
+              - fch
+              - fwb
+              - log
+              - fct
+              - faz
+              - fsa
+              - fsw
+              - fmg
+              - fdd
+              - fac
+              - fpx
+              - fna
+              - fos
+              - foc
+              - fml
+              - fch
+              - fwb
+              - log
+              - fct
+              - faz
+              - fsa
+              - fsw
+              - fmg
+              - fdd
+              - fac
+              - fpx
+              - fna
+              - fos
+              - foc
+              - fml
+              - fch
+              - fwb
+              - log
+              - fct
+              - faz
+              - fsa
+              - fsw
+              - fmg
+              - fdd
+              - fac
+              - fpx
+              - fna
+              - fdc
+              - fos
+              - foc
+              - fml
+              - fch
+              - fwb
+              - log
+              - fct
+              - faz
+              - fsa
+              - fsw
+              - fmg
+              - fdd
+              - fac
+              - fpx
+              - fna
+              - fdc
+              - fos
+              - foc
+              - fml
+              - fch
+              - fwb
+              - log
+              - fct
+              - faz
+              - fsa
+              - fsw
+              - fmg
+              - fdd
+              - fac
+              - fpx
+              - fna
+              - ffw
+              - fsr
+              - fad
+              - fdc
+              - fos
+              - foc
+              - fml
+              - fch
+              - fwb
+              - log
+              - fct
+              - faz
+              - fsa
+              - fsw
+              - fmg
+              - fdd
+              - fac
+              - fpx
+              - fna
+              - ffw
+              - fsr
+              - fad
+              - fdc
+              - fap
+              - fxt
+              - fos
+              - foc
+              - fml
+              - fch
+              - fwb
+              - log
+              - fct
+              - faz
+              - fsa
+              - fsw
+              - fmg
+              - fdd
+              - fac
+              - fpx
+              - fna
+              - fos
+              - foc
+              - fml
+              - fch
+              - fwb
+              - log
+              - fct
+              - faz
+              - fsa
+              - fsw
+              - fmg
+              - fdd
+              - fac
+              - fpx
+              - fna
+              - fos
+              - foc
+              - fml
+              - fch
+              - fwb
+              - log
+              - fct
+              - faz
+              - fsa
+              - fsw
+              - fmg
+              - fdd
+              - fac
+              - fpx
+              - fna
+              - fos
+              - foc
+              - fml
+              - fch
+              - fwb
+              - log
+              - fct
+              - faz
+              - fsa
+              - fsw
+              - fmg
+              - fdd
+              - fac
+              - fpx
+              - fna
+              - fdc
+              - fos
+              - foc
+              - fml
+              - fch
+              - fwb
+              - log
+              - fct
+              - faz
+              - fsa
+              - fsw
+              - fmg
+              - fdd
+              - fac
+              - fpx
+              - fna
+              - fdc
+              - fos
+              - foc
+              - fml
+              - fch
+              - fwb
+              - log
+              - fct
+              - faz
+              - fsa
+              - fsw
+              - fmg
+              - fdd
+              - fac
+              - fpx
+              - fna
+              - ffw
+              - fsr
+              - fad
+              - fdc
+              - fos
+              - foc
+              - fml
+              - fch
+              - fwb
+              - log
+              - fct
+              - faz
+              - fsa
+              - fsw
+              - fmg
+              - fdd
+              - fac
+              - fpx
+              - fna
+              - ffw
+              - fsr
+              - fad
+              - fdc
+              - fap
+              - fxt
+              - fos
+              - foc
+              - fml
+              - fch
+              - fwb
+              - log
+              - fct
+              - faz
+              - fsa
+              - fsw
+              - fmg
+              - fdd
+              - fac
+              - fpx
+              - fna
+              - fos
+              - foc
+              - fml
+              - fch
+              - fwb
+              - log
+              - fct
+              - faz
+              - fsa
+              - fsw
+              - fmg
+              - fdd
+              - fac
+              - fpx
+              - fna
+              - fos
+              - foc
+              - fml
+              - fch
+              - fwb
+              - log
+              - fct
+              - faz
+              - fsa
+              - fsw
+              - fmg
+              - fdd
+              - fac
+              - fpx
+              - fna
+              - fos
+              - foc
+              - fml
+              - fch
+              - fwb
+              - log
+              - fct
+              - faz
+              - fsa
+              - fsw
+              - fmg
+              - fdd
+              - fac
+              - fpx
+              - fna
+              - fdc
+              - fos
+              - foc
+              - fml
+              - fch
+              - fwb
+              - log
+              - fct
+              - faz
+              - fsa
+              - fsw
+              - fmg
+              - fdd
+              - fac
+              - fpx
+              - fna
+              - fdc
+              - fos
+              - foc
+              - fml
+              - fch
+              - fwb
+              - log
+              - fct
+              - faz
+              - fsa
+              - fsw
+              - fmg
+              - fdd
+              - fac
+              - fpx
+              - fna
+              - ffw
+              - fsr
+              - fad
+              - fdc
+              - fos
+              - foc
+              - fml
+              - fch
+              - fwb
+              - log
+              - fct
+              - faz
+              - fsa
+              - fsw
+              - fmg
+              - fdd
+              - fac
+              - fpx
+              - fna
+              - ffw
+              - fsr
+              - fad
+              - fdc
+              - fap
+              - fxt
+              - fos
+              - foc
+              - fml
+              - fch
+              - fwb
+              - log
+              - fct
+              - faz
+              - fsa
+              - fsw
+              - fmg
+              - fdd
+              - fac
+              - fpx
+              - fna
+              - fos
+              - foc
+              - fml
+              - fch
+              - fwb
+              - log
+              - fct
+              - faz
+              - fsa
+              - fsw
+              - fmg
+              - fdd
+              - fac
+              - fpx
+              - fna
+              - fos
+              - foc
+              - fml
+              - fch
+              - fwb
+              - log
+              - fct
+              - faz
+              - fsa
+              - fsw
+              - fmg
+              - fdd
+              - fac
+              - fpx
+              - fna
+              - fos
+              - foc
+              - fml
+              - fch
+              - fwb
+              - log
+              - fct
+              - faz
+              - fsa
+              - fsw
+              - fmg
+              - fdd
+              - fac
+              - fpx
+              - fna
+              - fdc
+              - fos
+              - foc
+              - fml
+              - fch
+              - fwb
+              - log
+              - fct
+              - faz
+              - fsa
+              - fsw
+              - fmg
+              - fdd
+              - fac
+              - fpx
+              - fna
+              - fdc
+              - fos
+              - foc
+              - fml
+              - fch
+              - fwb
+              - log
+              - fct
+              - faz
+              - fsa
+              - fsw
+              - fmg
+              - fdd
+              - fac
+              - fpx
+              - fna
+              - ffw
+              - fsr
+              - fad
+              - fdc
+              - fos
+              - foc
+              - fml
+              - fch
+              - fwb
+              - log
+              - fct
+              - faz
+              - fsa
+              - fsw
+              - fmg
+              - fdd
+              - fac
+              - fpx
+              - fna
+              - ffw
+              - fsr
+              - fad
+              - fdc
+              - fap
+              - fxt
+              - fos
+              - foc
+              - fml
+              - fch
+              - fwb
+              - log
+              - fct
+              - faz
+              - fsa
+              - fsw
+              - fmg
+              - fdd
+              - fac
+              - fpx
+              - fna
+              - fos
+              - foc
+              - fml
+              - fch
+              - fwb
+              - log
+              - fct
+              - faz
+              - fsa
+              - fsw
+              - fmg
+              - fdd
+              - fac
+              - fpx
+              - fna
+              - fos
+              - foc
+              - fml
+              - fch
+              - fwb
+              - log
+              - fct
+              - faz
+              - fsa
+              - fsw
+              - fmg
+              - fdd
+              - fac
+              - fpx
+              - fna
+              - fos
+              - foc
+              - fml
+              - fch
+              - fwb
+              - log
+              - fct
+              - faz
+              - fsa
+              - fsw
+              - fmg
+              - fdd
+              - fac
+              - fpx
+              - fna
+              - fdc
+              - fos
+              - foc
+              - fml
+              - fch
+              - fwb
+              - log
+              - fct
+              - faz
+              - fsa
+              - fsw
+              - fmg
+              - fdd
+              - fac
+              - fpx
+              - fna
+              - fdc
+              - fos
+              - foc
+              - fml
+              - fch
+              - fwb
+              - log
+              - fct
+              - faz
+              - fsa
+              - fsw
+              - fmg
+              - fdd
+              - fac
+              - fpx
+              - fna
+              - ffw
+              - fsr
+              - fad
+              - fdc
+              - fos
+              - foc
+              - fml
+              - fch
+              - fwb
+              - log
+              - fct
+              - faz
+              - fsa
+              - fsw
+              - fmg
+              - fdd
+              - fac
+              - fpx
+              - fna
+              - ffw
+              - fsr
+              - fad
+              - fdc
+              - fap
+              - fxt
+              - fos
+              - foc
+              - fml
+              - fch
+              - fwb
+              - log
+              - fct
+              - faz
+              - fsa
+              - fsw
+              - fmg
+              - fdd
+              - fac
+              - fpx
+              - fna
+              - fos
+              - foc
+              - fml
+              - fch
+              - fwb
+              - log
+              - fct
+              - faz
+              - fsa
+              - fsw
+              - fmg
+              - fdd
+              - fac
+              - fpx
+              - fna
+              - fos
+              - foc
+              - fml
+              - fch
+              - fwb
+              - log
+              - fct
+              - faz
+              - fsa
+              - fsw
+              - fmg
+              - fdd
+              - fac
+              - fpx
+              - fna
+              - fos
+              - foc
+              - fml
+              - fch
+              - fwb
+              - log
+              - fct
+              - faz
+              - fsa
+              - fsw
+              - fmg
+              - fdd
+              - fac
+              - fpx
+              - fna
+              - fdc
+              - fos
+              - foc
+              - fml
+              - fch
+              - fwb
+              - log
+              - fct
+              - faz
+              - fsa
+              - fsw
+              - fmg
+              - fdd
+              - fac
+              - fpx
+              - fna
+              - fdc
+              - fos
+              - foc
+              - fml
+              - fch
+              - fwb
+              - log
+              - fct
+              - faz
+              - fsa
+              - fsw
+              - fmg
+              - fdd
+              - fac
+              - fpx
+              - fna
+              - ffw
+              - fsr
+              - fad
+              - fdc
+              - fos
+              - foc
+              - fml
+              - fch
+              - fwb
+              - log
+              - fct
+              - faz
+              - fsa
+              - fsw
+              - fmg
+              - fdd
+              - fac
+              - fpx
+              - fna
+              - ffw
+              - fsr
+              - fad
+              - fdc
+              - fap
+              - fxt
+              - fos
+              - foc
+              - fml
+              - fch
+              - fwb
+              - log
+              - fct
+              - faz
+              - fsa
+              - fsw
+              - fmg
+              - fdd
+              - fac
+              - fpx
+              - fna
+              - fos
+              - foc
+              - fml
+              - fch
+              - fwb
+              - log
+              - fct
+              - faz
+              - fsa
+              - fsw
+              - fmg
+              - fdd
+              - fac
+              - fpx
+              - fna
+              - fos
+              - foc
+              - fml
+              - fch
+              - fwb
+              - log
+              - fct
+              - faz
+              - fsa
+              - fsw
+              - fmg
+              - fdd
+              - fac
+              - fpx
+              - fna
+              - fos
+              - foc
+              - fml
+              - fch
+              - fwb
+              - log
+              - fct
+              - faz
+              - fsa
+              - fsw
+              - fmg
+              - fdd
+              - fac
+              - fpx
+              - fna
+              - fdc
+              - fos
+              - foc
+              - fml
+              - fch
+              - fwb
+              - log
+              - fct
+              - faz
+              - fsa
+              - fsw
+              - fmg
+              - fdd
+              - fac
+              - fpx
+              - fna
+              - fdc
+              - fos
+              - foc
+              - fml
+              - fch
+              - fwb
+              - log
+              - fct
+              - faz
+              - fsa
+              - fsw
+              - fmg
+              - fdd
+              - fac
+              - fpx
+              - fna
+              - ffw
+              - fsr
+              - fad
+              - fdc
+              - fos
+              - foc
+              - fml
+              - fch
+              - fwb
+              - log
+              - fct
+              - faz
+              - fsa
+              - fsw
+              - fmg
+              - fdd
+              - fac
+              - fpx
+              - fna
+              - ffw
+              - fsr
+              - fad
+              - fdc
+              - fap
+              - fxt
+              - fos
+              - foc
+              - fml
+              - fch
+              - fwb
+              - log
+              - fct
+              - faz
+              - fsa
+              - fsw
+              - fmg
+              - fdd
+              - fac
+              - fpx
+              - fna
+              - fos
+              - foc
+              - fml
+              - fch
+              - fwb
+              - log
+              - fct
+              - faz
+              - fsa
+              - fsw
+              - fmg
+              - fdd
+              - fac
+              - fpx
+              - fna
+              - fos
+              - foc
+              - fml
+              - fch
+              - fwb
+              - log
+              - fct
+              - faz
+              - fsa
+              - fsw
+              - fmg
+              - fdd
+              - fac
+              - fpx
+              - fna
+              - fos
+              - foc
+              - fml
+              - fch
+              - fwb
+              - log
+              - fct
+              - faz
+              - fsa
+              - fsw
+              - fmg
+              - fdd
+              - fac
+              - fpx
+              - fna
+              - fdc
+              - fos
+              - foc
+              - fml
+              - fch
+              - fwb
+              - log
+              - fct
+              - faz
+              - fsa
+              - fsw
+              - fmg
+              - fdd
+              - fac
+              - fpx
+              - fna
+              - fdc
+              - fos
+              - foc
+              - fml
+              - fch
+              - fwb
+              - log
+              - fct
+              - faz
+              - fsa
+              - fsw
+              - fmg
+              - fdd
+              - fac
+              - fpx
+              - fna
+              - ffw
+              - fsr
+              - fad
+              - fdc
+              - fos
+              - foc
+              - fml
+              - fch
+              - fwb
+              - log
+              - fct
+              - faz
+              - fsa
+              - fsw
+              - fmg
+              - fdd
+              - fac
+              - fpx
+              - fna
+              - ffw
+              - fsr
+              - fad
+              - fdc
+              - fap
+              - fxt
             state: <value of integer>
             uuid: <value of string>
+            create_time: <value of integer>
+            workspace_mode: <value of integer>
 
 '''
 
@@ -357,10 +3569,30 @@ def main():
             'options': {
                 'desc': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'flags': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'list',
                     'choices': [
                         'migration',
@@ -373,39 +3605,783 @@ def main():
                         'per_device_wtp',
                         'policy_check_on_install',
                         'install_on_policy_check_fail',
-                        'auto_push_cfg'
+                        'auto_push_cfg',
+                        'migration',
+                        'db_export',
+                        'no_vpn_console',
+                        'backup',
+                        'other_devices',
+                        'central_sdwan',
+                        'is_autosync',
+                        'per_device_wtp',
+                        'policy_check_on_install',
+                        'install_on_policy_check_fail',
+                        'auto_push_cfg',
+                        'per_device_fsw',
+                        'migration',
+                        'db_export',
+                        'no_vpn_console',
+                        'backup',
+                        'other_devices',
+                        'central_sdwan',
+                        'is_autosync',
+                        'per_device_wtp',
+                        'policy_check_on_install',
+                        'install_on_policy_check_fail',
+                        'auto_push_cfg',
+                        'per_device_fsw',
+                        'migration',
+                        'db_export',
+                        'no_vpn_console',
+                        'backup',
+                        'other_devices',
+                        'central_sdwan',
+                        'is_autosync',
+                        'per_device_wtp',
+                        'policy_check_on_install',
+                        'install_on_policy_check_fail',
+                        'auto_push_cfg',
+                        'per_device_fsw',
+                        'migration',
+                        'db_export',
+                        'no_vpn_console',
+                        'backup',
+                        'other_devices',
+                        'central_sdwan',
+                        'is_autosync',
+                        'per_device_wtp',
+                        'policy_check_on_install',
+                        'install_on_policy_check_fail',
+                        'auto_push_cfg',
+                        'per_device_fsw',
+                        'migration',
+                        'db_export',
+                        'no_vpn_console',
+                        'backup',
+                        'other_devices',
+                        'central_sdwan',
+                        'is_autosync',
+                        'per_device_wtp',
+                        'policy_check_on_install',
+                        'install_on_policy_check_fail',
+                        'auto_push_cfg',
+                        'per_device_fsw',
+                        'migration',
+                        'db_export',
+                        'no_vpn_console',
+                        'backup',
+                        'other_devices',
+                        'central_sdwan',
+                        'is_autosync',
+                        'per_device_wtp',
+                        'policy_check_on_install',
+                        'install_on_policy_check_fail',
+                        'auto_push_cfg',
+                        'per_device_fsw',
+                        'migration',
+                        'db_export',
+                        'no_vpn_console',
+                        'backup',
+                        'other_devices',
+                        'is_autosync',
+                        'per_device_wtp',
+                        'policy_check_on_install',
+                        'install_on_policy_check_fail',
+                        'auto_push_cfg',
+                        'per_device_fsw',
+                        'migration',
+                        'db_export',
+                        'no_vpn_console',
+                        'backup',
+                        'other_devices',
+                        'central_sdwan',
+                        'is_autosync',
+                        'per_device_wtp',
+                        'policy_check_on_install',
+                        'install_on_policy_check_fail',
+                        'auto_push_cfg',
+                        'per_device_fsw',
+                        'migration',
+                        'db_export',
+                        'no_vpn_console',
+                        'backup',
+                        'other_devices',
+                        'central_sdwan',
+                        'is_autosync',
+                        'per_device_wtp',
+                        'policy_check_on_install',
+                        'install_on_policy_check_fail',
+                        'auto_push_cfg',
+                        'per_device_fsw',
+                        'migration',
+                        'db_export',
+                        'no_vpn_console',
+                        'backup',
+                        'other_devices',
+                        'central_sdwan',
+                        'is_autosync',
+                        'per_device_wtp',
+                        'policy_check_on_install',
+                        'install_on_policy_check_fail',
+                        'auto_push_cfg',
+                        'per_device_fsw',
+                        'migration',
+                        'db_export',
+                        'no_vpn_console',
+                        'backup',
+                        'other_devices',
+                        'central_sdwan',
+                        'is_autosync',
+                        'per_device_wtp',
+                        'policy_check_on_install',
+                        'install_on_policy_check_fail',
+                        'auto_push_cfg',
+                        'per_device_fsw',
+                        'migration',
+                        'db_export',
+                        'no_vpn_console',
+                        'backup',
+                        'other_devices',
+                        'central_sdwan',
+                        'is_autosync',
+                        'per_device_wtp',
+                        'policy_check_on_install',
+                        'install_on_policy_check_fail',
+                        'auto_push_cfg',
+                        'per_device_fsw',
+                        'migration',
+                        'db_export',
+                        'no_vpn_console',
+                        'backup',
+                        'other_devices',
+                        'central_sdwan',
+                        'is_autosync',
+                        'per_device_wtp',
+                        'policy_check_on_install',
+                        'install_on_policy_check_fail',
+                        'auto_push_cfg',
+                        'per_device_fsw',
+                        'migration',
+                        'db_export',
+                        'no_vpn_console',
+                        'backup',
+                        'other_devices',
+                        'is_autosync',
+                        'per_device_wtp',
+                        'policy_check_on_install',
+                        'install_on_policy_check_fail',
+                        'auto_push_cfg',
+                        'per_device_fsw',
+                        'migration',
+                        'db_export',
+                        'no_vpn_console',
+                        'backup',
+                        'other_devices',
+                        'central_sdwan',
+                        'is_autosync',
+                        'per_device_wtp',
+                        'policy_check_on_install',
+                        'install_on_policy_check_fail',
+                        'auto_push_cfg',
+                        'per_device_fsw',
+                        'migration',
+                        'db_export',
+                        'no_vpn_console',
+                        'backup',
+                        'other_devices',
+                        'central_sdwan',
+                        'is_autosync',
+                        'per_device_wtp',
+                        'policy_check_on_install',
+                        'install_on_policy_check_fail',
+                        'auto_push_cfg',
+                        'per_device_fsw',
+                        'migration',
+                        'db_export',
+                        'no_vpn_console',
+                        'backup',
+                        'other_devices',
+                        'central_sdwan',
+                        'is_autosync',
+                        'per_device_wtp',
+                        'policy_check_on_install',
+                        'install_on_policy_check_fail',
+                        'auto_push_cfg',
+                        'per_device_fsw',
+                        'migration',
+                        'db_export',
+                        'no_vpn_console',
+                        'backup',
+                        'other_devices',
+                        'central_sdwan',
+                        'is_autosync',
+                        'per_device_wtp',
+                        'policy_check_on_install',
+                        'install_on_policy_check_fail',
+                        'auto_push_cfg',
+                        'per_device_fsw',
+                        'migration',
+                        'db_export',
+                        'no_vpn_console',
+                        'backup',
+                        'other_devices',
+                        'central_sdwan',
+                        'is_autosync',
+                        'per_device_wtp',
+                        'policy_check_on_install',
+                        'install_on_policy_check_fail',
+                        'auto_push_cfg',
+                        'per_device_fsw',
+                        'migration',
+                        'db_export',
+                        'no_vpn_console',
+                        'backup',
+                        'other_devices',
+                        'central_sdwan',
+                        'is_autosync',
+                        'per_device_wtp',
+                        'policy_check_on_install',
+                        'install_on_policy_check_fail',
+                        'auto_push_cfg',
+                        'per_device_fsw',
+                        'migration',
+                        'db_export',
+                        'no_vpn_console',
+                        'backup',
+                        'other_devices',
+                        'is_autosync',
+                        'per_device_wtp',
+                        'policy_check_on_install',
+                        'install_on_policy_check_fail',
+                        'auto_push_cfg',
+                        'per_device_fsw',
+                        'migration',
+                        'db_export',
+                        'no_vpn_console',
+                        'backup',
+                        'other_devices',
+                        'central_sdwan',
+                        'is_autosync',
+                        'per_device_wtp',
+                        'policy_check_on_install',
+                        'install_on_policy_check_fail',
+                        'auto_push_cfg',
+                        'per_device_fsw',
+                        'migration',
+                        'db_export',
+                        'no_vpn_console',
+                        'backup',
+                        'other_devices',
+                        'central_sdwan',
+                        'is_autosync',
+                        'per_device_wtp',
+                        'policy_check_on_install',
+                        'install_on_policy_check_fail',
+                        'auto_push_cfg',
+                        'per_device_fsw',
+                        'migration',
+                        'db_export',
+                        'no_vpn_console',
+                        'backup',
+                        'other_devices',
+                        'central_sdwan',
+                        'is_autosync',
+                        'per_device_wtp',
+                        'policy_check_on_install',
+                        'install_on_policy_check_fail',
+                        'auto_push_cfg',
+                        'per_device_fsw',
+                        'migration',
+                        'db_export',
+                        'no_vpn_console',
+                        'backup',
+                        'other_devices',
+                        'central_sdwan',
+                        'is_autosync',
+                        'per_device_wtp',
+                        'policy_check_on_install',
+                        'install_on_policy_check_fail',
+                        'auto_push_cfg',
+                        'per_device_fsw',
+                        'migration',
+                        'db_export',
+                        'no_vpn_console',
+                        'backup',
+                        'other_devices',
+                        'central_sdwan',
+                        'is_autosync',
+                        'per_device_wtp',
+                        'policy_check_on_install',
+                        'install_on_policy_check_fail',
+                        'auto_push_cfg',
+                        'per_device_fsw',
+                        'migration',
+                        'db_export',
+                        'no_vpn_console',
+                        'backup',
+                        'other_devices',
+                        'central_sdwan',
+                        'is_autosync',
+                        'per_device_wtp',
+                        'policy_check_on_install',
+                        'install_on_policy_check_fail',
+                        'auto_push_cfg',
+                        'per_device_fsw',
+                        'migration',
+                        'db_export',
+                        'no_vpn_console',
+                        'backup',
+                        'other_devices',
+                        'is_autosync',
+                        'per_device_wtp',
+                        'policy_check_on_install',
+                        'install_on_policy_check_fail',
+                        'auto_push_cfg',
+                        'per_device_fsw',
+                        'migration',
+                        'db_export',
+                        'no_vpn_console',
+                        'backup',
+                        'other_devices',
+                        'central_sdwan',
+                        'is_autosync',
+                        'per_device_wtp',
+                        'policy_check_on_install',
+                        'install_on_policy_check_fail',
+                        'auto_push_cfg',
+                        'per_device_fsw',
+                        'migration',
+                        'db_export',
+                        'no_vpn_console',
+                        'backup',
+                        'other_devices',
+                        'central_sdwan',
+                        'is_autosync',
+                        'per_device_wtp',
+                        'policy_check_on_install',
+                        'install_on_policy_check_fail',
+                        'auto_push_cfg',
+                        'per_device_fsw',
+                        'migration',
+                        'db_export',
+                        'no_vpn_console',
+                        'backup',
+                        'other_devices',
+                        'central_sdwan',
+                        'is_autosync',
+                        'per_device_wtp',
+                        'policy_check_on_install',
+                        'install_on_policy_check_fail',
+                        'auto_push_cfg',
+                        'per_device_fsw',
+                        'migration',
+                        'db_export',
+                        'no_vpn_console',
+                        'backup',
+                        'other_devices',
+                        'central_sdwan',
+                        'is_autosync',
+                        'per_device_wtp',
+                        'policy_check_on_install',
+                        'install_on_policy_check_fail',
+                        'auto_push_cfg',
+                        'per_device_fsw',
+                        'migration',
+                        'db_export',
+                        'no_vpn_console',
+                        'backup',
+                        'other_devices',
+                        'central_sdwan',
+                        'is_autosync',
+                        'per_device_wtp',
+                        'policy_check_on_install',
+                        'install_on_policy_check_fail',
+                        'auto_push_cfg',
+                        'per_device_fsw',
+                        'migration',
+                        'db_export',
+                        'no_vpn_console',
+                        'backup',
+                        'other_devices',
+                        'central_sdwan',
+                        'is_autosync',
+                        'per_device_wtp',
+                        'policy_check_on_install',
+                        'install_on_policy_check_fail',
+                        'auto_push_cfg',
+                        'per_device_fsw',
+                        'migration',
+                        'db_export',
+                        'no_vpn_console',
+                        'backup',
+                        'other_devices',
+                        'is_autosync',
+                        'per_device_wtp',
+                        'policy_check_on_install',
+                        'install_on_policy_check_fail',
+                        'auto_push_cfg',
+                        'per_device_fsw',
+                        'migration',
+                        'db_export',
+                        'no_vpn_console',
+                        'backup',
+                        'other_devices',
+                        'central_sdwan',
+                        'is_autosync',
+                        'per_device_wtp',
+                        'policy_check_on_install',
+                        'install_on_policy_check_fail',
+                        'auto_push_cfg',
+                        'per_device_fsw',
+                        'migration',
+                        'db_export',
+                        'no_vpn_console',
+                        'backup',
+                        'other_devices',
+                        'central_sdwan',
+                        'is_autosync',
+                        'per_device_wtp',
+                        'policy_check_on_install',
+                        'install_on_policy_check_fail',
+                        'auto_push_cfg',
+                        'per_device_fsw',
+                        'migration',
+                        'db_export',
+                        'no_vpn_console',
+                        'backup',
+                        'other_devices',
+                        'central_sdwan',
+                        'is_autosync',
+                        'per_device_wtp',
+                        'policy_check_on_install',
+                        'install_on_policy_check_fail',
+                        'auto_push_cfg',
+                        'per_device_fsw',
+                        'migration',
+                        'db_export',
+                        'no_vpn_console',
+                        'backup',
+                        'other_devices',
+                        'central_sdwan',
+                        'is_autosync',
+                        'per_device_wtp',
+                        'policy_check_on_install',
+                        'install_on_policy_check_fail',
+                        'auto_push_cfg',
+                        'per_device_fsw',
+                        'migration',
+                        'db_export',
+                        'no_vpn_console',
+                        'backup',
+                        'other_devices',
+                        'central_sdwan',
+                        'is_autosync',
+                        'per_device_wtp',
+                        'policy_check_on_install',
+                        'install_on_policy_check_fail',
+                        'auto_push_cfg',
+                        'per_device_fsw',
+                        'migration',
+                        'db_export',
+                        'no_vpn_console',
+                        'backup',
+                        'other_devices',
+                        'central_sdwan',
+                        'is_autosync',
+                        'per_device_wtp',
+                        'policy_check_on_install',
+                        'install_on_policy_check_fail',
+                        'auto_push_cfg',
+                        'per_device_fsw',
+                        'migration',
+                        'db_export',
+                        'no_vpn_console',
+                        'backup',
+                        'other_devices',
+                        'is_autosync',
+                        'per_device_wtp',
+                        'policy_check_on_install',
+                        'install_on_policy_check_fail',
+                        'auto_push_cfg',
+                        'per_device_fsw',
+                        'migration',
+                        'db_export',
+                        'no_vpn_console',
+                        'backup',
+                        'other_devices',
+                        'central_sdwan',
+                        'is_autosync',
+                        'per_device_wtp',
+                        'policy_check_on_install',
+                        'install_on_policy_check_fail',
+                        'auto_push_cfg',
+                        'per_device_fsw',
+                        'migration',
+                        'db_export',
+                        'no_vpn_console',
+                        'backup',
+                        'other_devices',
+                        'central_sdwan',
+                        'is_autosync',
+                        'per_device_wtp',
+                        'policy_check_on_install',
+                        'install_on_policy_check_fail',
+                        'auto_push_cfg',
+                        'per_device_fsw',
+                        'migration',
+                        'db_export',
+                        'no_vpn_console',
+                        'backup',
+                        'other_devices',
+                        'central_sdwan',
+                        'is_autosync',
+                        'per_device_wtp',
+                        'policy_check_on_install',
+                        'install_on_policy_check_fail',
+                        'auto_push_cfg',
+                        'per_device_fsw',
+                        'migration',
+                        'db_export',
+                        'no_vpn_console',
+                        'backup',
+                        'other_devices',
+                        'central_sdwan',
+                        'is_autosync',
+                        'per_device_wtp',
+                        'policy_check_on_install',
+                        'install_on_policy_check_fail',
+                        'auto_push_cfg',
+                        'per_device_fsw',
+                        'migration',
+                        'db_export',
+                        'no_vpn_console',
+                        'backup',
+                        'other_devices',
+                        'central_sdwan',
+                        'is_autosync',
+                        'per_device_wtp',
+                        'policy_check_on_install',
+                        'install_on_policy_check_fail',
+                        'auto_push_cfg',
+                        'per_device_fsw',
+                        'migration',
+                        'db_export',
+                        'no_vpn_console',
+                        'backup',
+                        'other_devices',
+                        'central_sdwan',
+                        'is_autosync',
+                        'per_device_wtp',
+                        'policy_check_on_install',
+                        'install_on_policy_check_fail',
+                        'auto_push_cfg',
+                        'per_device_fsw',
+                        'migration',
+                        'db_export',
+                        'no_vpn_console',
+                        'backup',
+                        'other_devices',
+                        'is_autosync',
+                        'per_device_wtp',
+                        'policy_check_on_install',
+                        'install_on_policy_check_fail',
+                        'auto_push_cfg',
+                        'per_device_fsw',
+                        'migration',
+                        'db_export',
+                        'no_vpn_console',
+                        'backup',
+                        'other_devices',
+                        'central_sdwan',
+                        'is_autosync',
+                        'per_device_wtp',
+                        'policy_check_on_install',
+                        'install_on_policy_check_fail',
+                        'auto_push_cfg',
+                        'per_device_fsw',
+                        'migration',
+                        'db_export',
+                        'no_vpn_console',
+                        'backup',
+                        'other_devices',
+                        'central_sdwan',
+                        'is_autosync',
+                        'per_device_wtp',
+                        'policy_check_on_install',
+                        'install_on_policy_check_fail',
+                        'auto_push_cfg',
+                        'per_device_fsw',
+                        'migration',
+                        'db_export',
+                        'no_vpn_console',
+                        'backup',
+                        'other_devices',
+                        'central_sdwan',
+                        'is_autosync',
+                        'per_device_wtp',
+                        'policy_check_on_install',
+                        'install_on_policy_check_fail',
+                        'auto_push_cfg',
+                        'per_device_fsw',
+                        'migration',
+                        'db_export',
+                        'no_vpn_console',
+                        'backup',
+                        'other_devices',
+                        'central_sdwan',
+                        'is_autosync',
+                        'per_device_wtp',
+                        'policy_check_on_install',
+                        'install_on_policy_check_fail',
+                        'auto_push_cfg',
+                        'per_device_fsw',
+                        'migration',
+                        'db_export',
+                        'no_vpn_console',
+                        'backup',
+                        'other_devices',
+                        'central_sdwan',
+                        'is_autosync',
+                        'per_device_wtp',
+                        'policy_check_on_install',
+                        'install_on_policy_check_fail',
+                        'auto_push_cfg',
+                        'per_device_fsw',
+                        'migration',
+                        'db_export',
+                        'no_vpn_console',
+                        'backup',
+                        'other_devices',
+                        'central_sdwan',
+                        'is_autosync',
+                        'per_device_wtp',
+                        'policy_check_on_install',
+                        'install_on_policy_check_fail',
+                        'auto_push_cfg',
+                        'per_device_fsw',
+                        'migration',
+                        'db_export',
+                        'no_vpn_console',
+                        'backup',
+                        'other_devices',
+                        'is_autosync',
+                        'per_device_wtp',
+                        'policy_check_on_install',
+                        'install_on_policy_check_fail',
+                        'auto_push_cfg',
+                        'per_device_fsw'
                     ]
                 },
                 'log_db_retention_hours': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'log_disk_quota': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'log_disk_quota_alert_thres': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'log_disk_quota_split_ratio': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'log_file_retention_hours': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'meta fields': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'dict'
                 },
                 'mig_mr': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'mig_os_ver': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'unknown',
                         '0.0',
@@ -414,12 +4390,24 @@ def main():
                         '3.0',
                         '4.0',
                         '5.0',
-                        '6.0'
+                        '6.0',
+                        '7.0',
+                        '8.0'
                     ],
                     'type': 'str'
                 },
                 'mode': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'ems',
                         'gms',
@@ -429,14 +4417,44 @@ def main():
                 },
                 'mr': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'name': {
                     'required': True,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'os_ver': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'unknown',
                         '0.0',
@@ -445,12 +4463,24 @@ def main():
                         '3.0',
                         '4.0',
                         '5.0',
-                        '6.0'
+                        '6.0',
+                        '7.0',
+                        '8.0'
                     ],
                     'type': 'str'
                 },
                 'restricted_prds': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'list',
                     'choices': [
                         'fos',
@@ -466,16 +4496,989 @@ def main():
                         'fmg',
                         'fdd',
                         'fac',
-                        'fpx'
+                        'fpx',
+                        'fos',
+                        'foc',
+                        'fml',
+                        'fch',
+                        'fwb',
+                        'log',
+                        'fct',
+                        'faz',
+                        'fsa',
+                        'fsw',
+                        'fmg',
+                        'fdd',
+                        'fac',
+                        'fpx',
+                        'fna',
+                        'fos',
+                        'foc',
+                        'fml',
+                        'fch',
+                        'fwb',
+                        'log',
+                        'fct',
+                        'faz',
+                        'fsa',
+                        'fsw',
+                        'fmg',
+                        'fdd',
+                        'fac',
+                        'fpx',
+                        'fna',
+                        'fos',
+                        'foc',
+                        'fml',
+                        'fch',
+                        'fwb',
+                        'log',
+                        'fct',
+                        'faz',
+                        'fsa',
+                        'fsw',
+                        'fmg',
+                        'fdd',
+                        'fac',
+                        'fpx',
+                        'fna',
+                        'fos',
+                        'foc',
+                        'fml',
+                        'fch',
+                        'fwb',
+                        'log',
+                        'fct',
+                        'faz',
+                        'fsa',
+                        'fsw',
+                        'fmg',
+                        'fdd',
+                        'fac',
+                        'fpx',
+                        'fna',
+                        'fdc',
+                        'fos',
+                        'foc',
+                        'fml',
+                        'fch',
+                        'fwb',
+                        'log',
+                        'fct',
+                        'faz',
+                        'fsa',
+                        'fsw',
+                        'fmg',
+                        'fdd',
+                        'fac',
+                        'fpx',
+                        'fna',
+                        'fdc',
+                        'fos',
+                        'foc',
+                        'fml',
+                        'fch',
+                        'fwb',
+                        'log',
+                        'fct',
+                        'faz',
+                        'fsa',
+                        'fsw',
+                        'fmg',
+                        'fdd',
+                        'fac',
+                        'fpx',
+                        'fna',
+                        'ffw',
+                        'fsr',
+                        'fad',
+                        'fdc',
+                        'fos',
+                        'foc',
+                        'fml',
+                        'fch',
+                        'fwb',
+                        'log',
+                        'fct',
+                        'faz',
+                        'fsa',
+                        'fsw',
+                        'fmg',
+                        'fdd',
+                        'fac',
+                        'fpx',
+                        'fna',
+                        'ffw',
+                        'fsr',
+                        'fad',
+                        'fdc',
+                        'fap',
+                        'fxt',
+                        'fos',
+                        'foc',
+                        'fml',
+                        'fch',
+                        'fwb',
+                        'log',
+                        'fct',
+                        'faz',
+                        'fsa',
+                        'fsw',
+                        'fmg',
+                        'fdd',
+                        'fac',
+                        'fpx',
+                        'fna',
+                        'fos',
+                        'foc',
+                        'fml',
+                        'fch',
+                        'fwb',
+                        'log',
+                        'fct',
+                        'faz',
+                        'fsa',
+                        'fsw',
+                        'fmg',
+                        'fdd',
+                        'fac',
+                        'fpx',
+                        'fna',
+                        'fos',
+                        'foc',
+                        'fml',
+                        'fch',
+                        'fwb',
+                        'log',
+                        'fct',
+                        'faz',
+                        'fsa',
+                        'fsw',
+                        'fmg',
+                        'fdd',
+                        'fac',
+                        'fpx',
+                        'fna',
+                        'fos',
+                        'foc',
+                        'fml',
+                        'fch',
+                        'fwb',
+                        'log',
+                        'fct',
+                        'faz',
+                        'fsa',
+                        'fsw',
+                        'fmg',
+                        'fdd',
+                        'fac',
+                        'fpx',
+                        'fna',
+                        'fdc',
+                        'fos',
+                        'foc',
+                        'fml',
+                        'fch',
+                        'fwb',
+                        'log',
+                        'fct',
+                        'faz',
+                        'fsa',
+                        'fsw',
+                        'fmg',
+                        'fdd',
+                        'fac',
+                        'fpx',
+                        'fna',
+                        'fdc',
+                        'fos',
+                        'foc',
+                        'fml',
+                        'fch',
+                        'fwb',
+                        'log',
+                        'fct',
+                        'faz',
+                        'fsa',
+                        'fsw',
+                        'fmg',
+                        'fdd',
+                        'fac',
+                        'fpx',
+                        'fna',
+                        'ffw',
+                        'fsr',
+                        'fad',
+                        'fdc',
+                        'fos',
+                        'foc',
+                        'fml',
+                        'fch',
+                        'fwb',
+                        'log',
+                        'fct',
+                        'faz',
+                        'fsa',
+                        'fsw',
+                        'fmg',
+                        'fdd',
+                        'fac',
+                        'fpx',
+                        'fna',
+                        'ffw',
+                        'fsr',
+                        'fad',
+                        'fdc',
+                        'fap',
+                        'fxt',
+                        'fos',
+                        'foc',
+                        'fml',
+                        'fch',
+                        'fwb',
+                        'log',
+                        'fct',
+                        'faz',
+                        'fsa',
+                        'fsw',
+                        'fmg',
+                        'fdd',
+                        'fac',
+                        'fpx',
+                        'fna',
+                        'fos',
+                        'foc',
+                        'fml',
+                        'fch',
+                        'fwb',
+                        'log',
+                        'fct',
+                        'faz',
+                        'fsa',
+                        'fsw',
+                        'fmg',
+                        'fdd',
+                        'fac',
+                        'fpx',
+                        'fna',
+                        'fos',
+                        'foc',
+                        'fml',
+                        'fch',
+                        'fwb',
+                        'log',
+                        'fct',
+                        'faz',
+                        'fsa',
+                        'fsw',
+                        'fmg',
+                        'fdd',
+                        'fac',
+                        'fpx',
+                        'fna',
+                        'fos',
+                        'foc',
+                        'fml',
+                        'fch',
+                        'fwb',
+                        'log',
+                        'fct',
+                        'faz',
+                        'fsa',
+                        'fsw',
+                        'fmg',
+                        'fdd',
+                        'fac',
+                        'fpx',
+                        'fna',
+                        'fdc',
+                        'fos',
+                        'foc',
+                        'fml',
+                        'fch',
+                        'fwb',
+                        'log',
+                        'fct',
+                        'faz',
+                        'fsa',
+                        'fsw',
+                        'fmg',
+                        'fdd',
+                        'fac',
+                        'fpx',
+                        'fna',
+                        'fdc',
+                        'fos',
+                        'foc',
+                        'fml',
+                        'fch',
+                        'fwb',
+                        'log',
+                        'fct',
+                        'faz',
+                        'fsa',
+                        'fsw',
+                        'fmg',
+                        'fdd',
+                        'fac',
+                        'fpx',
+                        'fna',
+                        'ffw',
+                        'fsr',
+                        'fad',
+                        'fdc',
+                        'fos',
+                        'foc',
+                        'fml',
+                        'fch',
+                        'fwb',
+                        'log',
+                        'fct',
+                        'faz',
+                        'fsa',
+                        'fsw',
+                        'fmg',
+                        'fdd',
+                        'fac',
+                        'fpx',
+                        'fna',
+                        'ffw',
+                        'fsr',
+                        'fad',
+                        'fdc',
+                        'fap',
+                        'fxt',
+                        'fos',
+                        'foc',
+                        'fml',
+                        'fch',
+                        'fwb',
+                        'log',
+                        'fct',
+                        'faz',
+                        'fsa',
+                        'fsw',
+                        'fmg',
+                        'fdd',
+                        'fac',
+                        'fpx',
+                        'fna',
+                        'fos',
+                        'foc',
+                        'fml',
+                        'fch',
+                        'fwb',
+                        'log',
+                        'fct',
+                        'faz',
+                        'fsa',
+                        'fsw',
+                        'fmg',
+                        'fdd',
+                        'fac',
+                        'fpx',
+                        'fna',
+                        'fos',
+                        'foc',
+                        'fml',
+                        'fch',
+                        'fwb',
+                        'log',
+                        'fct',
+                        'faz',
+                        'fsa',
+                        'fsw',
+                        'fmg',
+                        'fdd',
+                        'fac',
+                        'fpx',
+                        'fna',
+                        'fos',
+                        'foc',
+                        'fml',
+                        'fch',
+                        'fwb',
+                        'log',
+                        'fct',
+                        'faz',
+                        'fsa',
+                        'fsw',
+                        'fmg',
+                        'fdd',
+                        'fac',
+                        'fpx',
+                        'fna',
+                        'fdc',
+                        'fos',
+                        'foc',
+                        'fml',
+                        'fch',
+                        'fwb',
+                        'log',
+                        'fct',
+                        'faz',
+                        'fsa',
+                        'fsw',
+                        'fmg',
+                        'fdd',
+                        'fac',
+                        'fpx',
+                        'fna',
+                        'fdc',
+                        'fos',
+                        'foc',
+                        'fml',
+                        'fch',
+                        'fwb',
+                        'log',
+                        'fct',
+                        'faz',
+                        'fsa',
+                        'fsw',
+                        'fmg',
+                        'fdd',
+                        'fac',
+                        'fpx',
+                        'fna',
+                        'ffw',
+                        'fsr',
+                        'fad',
+                        'fdc',
+                        'fos',
+                        'foc',
+                        'fml',
+                        'fch',
+                        'fwb',
+                        'log',
+                        'fct',
+                        'faz',
+                        'fsa',
+                        'fsw',
+                        'fmg',
+                        'fdd',
+                        'fac',
+                        'fpx',
+                        'fna',
+                        'ffw',
+                        'fsr',
+                        'fad',
+                        'fdc',
+                        'fap',
+                        'fxt',
+                        'fos',
+                        'foc',
+                        'fml',
+                        'fch',
+                        'fwb',
+                        'log',
+                        'fct',
+                        'faz',
+                        'fsa',
+                        'fsw',
+                        'fmg',
+                        'fdd',
+                        'fac',
+                        'fpx',
+                        'fna',
+                        'fos',
+                        'foc',
+                        'fml',
+                        'fch',
+                        'fwb',
+                        'log',
+                        'fct',
+                        'faz',
+                        'fsa',
+                        'fsw',
+                        'fmg',
+                        'fdd',
+                        'fac',
+                        'fpx',
+                        'fna',
+                        'fos',
+                        'foc',
+                        'fml',
+                        'fch',
+                        'fwb',
+                        'log',
+                        'fct',
+                        'faz',
+                        'fsa',
+                        'fsw',
+                        'fmg',
+                        'fdd',
+                        'fac',
+                        'fpx',
+                        'fna',
+                        'fos',
+                        'foc',
+                        'fml',
+                        'fch',
+                        'fwb',
+                        'log',
+                        'fct',
+                        'faz',
+                        'fsa',
+                        'fsw',
+                        'fmg',
+                        'fdd',
+                        'fac',
+                        'fpx',
+                        'fna',
+                        'fdc',
+                        'fos',
+                        'foc',
+                        'fml',
+                        'fch',
+                        'fwb',
+                        'log',
+                        'fct',
+                        'faz',
+                        'fsa',
+                        'fsw',
+                        'fmg',
+                        'fdd',
+                        'fac',
+                        'fpx',
+                        'fna',
+                        'fdc',
+                        'fos',
+                        'foc',
+                        'fml',
+                        'fch',
+                        'fwb',
+                        'log',
+                        'fct',
+                        'faz',
+                        'fsa',
+                        'fsw',
+                        'fmg',
+                        'fdd',
+                        'fac',
+                        'fpx',
+                        'fna',
+                        'ffw',
+                        'fsr',
+                        'fad',
+                        'fdc',
+                        'fos',
+                        'foc',
+                        'fml',
+                        'fch',
+                        'fwb',
+                        'log',
+                        'fct',
+                        'faz',
+                        'fsa',
+                        'fsw',
+                        'fmg',
+                        'fdd',
+                        'fac',
+                        'fpx',
+                        'fna',
+                        'ffw',
+                        'fsr',
+                        'fad',
+                        'fdc',
+                        'fap',
+                        'fxt',
+                        'fos',
+                        'foc',
+                        'fml',
+                        'fch',
+                        'fwb',
+                        'log',
+                        'fct',
+                        'faz',
+                        'fsa',
+                        'fsw',
+                        'fmg',
+                        'fdd',
+                        'fac',
+                        'fpx',
+                        'fna',
+                        'fos',
+                        'foc',
+                        'fml',
+                        'fch',
+                        'fwb',
+                        'log',
+                        'fct',
+                        'faz',
+                        'fsa',
+                        'fsw',
+                        'fmg',
+                        'fdd',
+                        'fac',
+                        'fpx',
+                        'fna',
+                        'fos',
+                        'foc',
+                        'fml',
+                        'fch',
+                        'fwb',
+                        'log',
+                        'fct',
+                        'faz',
+                        'fsa',
+                        'fsw',
+                        'fmg',
+                        'fdd',
+                        'fac',
+                        'fpx',
+                        'fna',
+                        'fos',
+                        'foc',
+                        'fml',
+                        'fch',
+                        'fwb',
+                        'log',
+                        'fct',
+                        'faz',
+                        'fsa',
+                        'fsw',
+                        'fmg',
+                        'fdd',
+                        'fac',
+                        'fpx',
+                        'fna',
+                        'fdc',
+                        'fos',
+                        'foc',
+                        'fml',
+                        'fch',
+                        'fwb',
+                        'log',
+                        'fct',
+                        'faz',
+                        'fsa',
+                        'fsw',
+                        'fmg',
+                        'fdd',
+                        'fac',
+                        'fpx',
+                        'fna',
+                        'fdc',
+                        'fos',
+                        'foc',
+                        'fml',
+                        'fch',
+                        'fwb',
+                        'log',
+                        'fct',
+                        'faz',
+                        'fsa',
+                        'fsw',
+                        'fmg',
+                        'fdd',
+                        'fac',
+                        'fpx',
+                        'fna',
+                        'ffw',
+                        'fsr',
+                        'fad',
+                        'fdc',
+                        'fos',
+                        'foc',
+                        'fml',
+                        'fch',
+                        'fwb',
+                        'log',
+                        'fct',
+                        'faz',
+                        'fsa',
+                        'fsw',
+                        'fmg',
+                        'fdd',
+                        'fac',
+                        'fpx',
+                        'fna',
+                        'ffw',
+                        'fsr',
+                        'fad',
+                        'fdc',
+                        'fap',
+                        'fxt',
+                        'fos',
+                        'foc',
+                        'fml',
+                        'fch',
+                        'fwb',
+                        'log',
+                        'fct',
+                        'faz',
+                        'fsa',
+                        'fsw',
+                        'fmg',
+                        'fdd',
+                        'fac',
+                        'fpx',
+                        'fna',
+                        'fos',
+                        'foc',
+                        'fml',
+                        'fch',
+                        'fwb',
+                        'log',
+                        'fct',
+                        'faz',
+                        'fsa',
+                        'fsw',
+                        'fmg',
+                        'fdd',
+                        'fac',
+                        'fpx',
+                        'fna',
+                        'fos',
+                        'foc',
+                        'fml',
+                        'fch',
+                        'fwb',
+                        'log',
+                        'fct',
+                        'faz',
+                        'fsa',
+                        'fsw',
+                        'fmg',
+                        'fdd',
+                        'fac',
+                        'fpx',
+                        'fna',
+                        'fos',
+                        'foc',
+                        'fml',
+                        'fch',
+                        'fwb',
+                        'log',
+                        'fct',
+                        'faz',
+                        'fsa',
+                        'fsw',
+                        'fmg',
+                        'fdd',
+                        'fac',
+                        'fpx',
+                        'fna',
+                        'fdc',
+                        'fos',
+                        'foc',
+                        'fml',
+                        'fch',
+                        'fwb',
+                        'log',
+                        'fct',
+                        'faz',
+                        'fsa',
+                        'fsw',
+                        'fmg',
+                        'fdd',
+                        'fac',
+                        'fpx',
+                        'fna',
+                        'fdc',
+                        'fos',
+                        'foc',
+                        'fml',
+                        'fch',
+                        'fwb',
+                        'log',
+                        'fct',
+                        'faz',
+                        'fsa',
+                        'fsw',
+                        'fmg',
+                        'fdd',
+                        'fac',
+                        'fpx',
+                        'fna',
+                        'ffw',
+                        'fsr',
+                        'fad',
+                        'fdc',
+                        'fos',
+                        'foc',
+                        'fml',
+                        'fch',
+                        'fwb',
+                        'log',
+                        'fct',
+                        'faz',
+                        'fsa',
+                        'fsw',
+                        'fmg',
+                        'fdd',
+                        'fac',
+                        'fpx',
+                        'fna',
+                        'ffw',
+                        'fsr',
+                        'fad',
+                        'fdc',
+                        'fap',
+                        'fxt',
+                        'fos',
+                        'foc',
+                        'fml',
+                        'fch',
+                        'fwb',
+                        'log',
+                        'fct',
+                        'faz',
+                        'fsa',
+                        'fsw',
+                        'fmg',
+                        'fdd',
+                        'fac',
+                        'fpx',
+                        'fna',
+                        'fos',
+                        'foc',
+                        'fml',
+                        'fch',
+                        'fwb',
+                        'log',
+                        'fct',
+                        'faz',
+                        'fsa',
+                        'fsw',
+                        'fmg',
+                        'fdd',
+                        'fac',
+                        'fpx',
+                        'fna',
+                        'fos',
+                        'foc',
+                        'fml',
+                        'fch',
+                        'fwb',
+                        'log',
+                        'fct',
+                        'faz',
+                        'fsa',
+                        'fsw',
+                        'fmg',
+                        'fdd',
+                        'fac',
+                        'fpx',
+                        'fna',
+                        'fos',
+                        'foc',
+                        'fml',
+                        'fch',
+                        'fwb',
+                        'log',
+                        'fct',
+                        'faz',
+                        'fsa',
+                        'fsw',
+                        'fmg',
+                        'fdd',
+                        'fac',
+                        'fpx',
+                        'fna',
+                        'fdc',
+                        'fos',
+                        'foc',
+                        'fml',
+                        'fch',
+                        'fwb',
+                        'log',
+                        'fct',
+                        'faz',
+                        'fsa',
+                        'fsw',
+                        'fmg',
+                        'fdd',
+                        'fac',
+                        'fpx',
+                        'fna',
+                        'fdc',
+                        'fos',
+                        'foc',
+                        'fml',
+                        'fch',
+                        'fwb',
+                        'log',
+                        'fct',
+                        'faz',
+                        'fsa',
+                        'fsw',
+                        'fmg',
+                        'fdd',
+                        'fac',
+                        'fpx',
+                        'fna',
+                        'ffw',
+                        'fsr',
+                        'fad',
+                        'fdc',
+                        'fos',
+                        'foc',
+                        'fml',
+                        'fch',
+                        'fwb',
+                        'log',
+                        'fct',
+                        'faz',
+                        'fsa',
+                        'fsw',
+                        'fmg',
+                        'fdd',
+                        'fac',
+                        'fpx',
+                        'fna',
+                        'ffw',
+                        'fsr',
+                        'fad',
+                        'fdc',
+                        'fap',
+                        'fxt'
                     ]
                 },
                 'state': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'uuid': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
+                },
+                'create_time': {
+                    'required': False,
+                    'revision': {
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'type': 'int'
+                },
+                'workspace_mode': {
+                    'required': False,
+                    'revision': {
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'type': 'int'
                 }
             }
 

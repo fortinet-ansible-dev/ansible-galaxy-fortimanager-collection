@@ -165,6 +165,34 @@ options:
                     - 'U422EV'
                     - 'U24JEV'
                     - '321E'
+                    - 'U431F'
+                    - 'U433F'
+                    - '231E'
+                    - '431F'
+                    - '433F'
+                    - '231F'
+                    - '432F'
+                    - '234F'
+                    - '23JF'
+                    - 'U231F'
+                    - '831F'
+                    - 'U234F'
+                    - 'U432F'
+            mode:
+                type: str
+                description: 'Configure operation mode of 5G radios (default = dual-5G).'
+                choices:
+                    - 'dual-5G'
+                    - 'single-5G'
+            ddscan:
+                type: str
+                description: 'Enable/disable use of one radio for dedicated dual-band scanning to detect RF characterization and wireless threat management.'
+                choices:
+                    - 'disable'
+                    - 'enable'
+            _local_platform_str:
+                type: str
+                description: no description
 
 '''
 
@@ -189,6 +217,9 @@ EXAMPLES = '''
          wtp-profile: <your own value>
          wtpprofile_platform:
             type: <value in [30B-50B, 60B, 80CM-81CM, ...]>
+            mode: <value in [dual-5G, single-5G]>
+            ddscan: <value in [disable, enable]>
+            _local_platform_str: <value of string>
 
 '''
 
@@ -281,6 +312,16 @@ def main():
             'options': {
                 'type': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         '30B-50B',
                         '60B',
@@ -343,8 +384,59 @@ def main():
                         '224E',
                         'U422EV',
                         'U24JEV',
-                        '321E'
+                        '321E',
+                        'U431F',
+                        'U433F',
+                        '231E',
+                        '431F',
+                        '433F',
+                        '231F',
+                        '432F',
+                        '234F',
+                        '23JF',
+                        'U231F',
+                        '831F',
+                        'U234F',
+                        'U432F'
                     ],
+                    'type': 'str'
+                },
+                'mode': {
+                    'required': False,
+                    'revision': {
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'choices': [
+                        'dual-5G',
+                        'single-5G'
+                    ],
+                    'type': 'str'
+                },
+                'ddscan': {
+                    'required': False,
+                    'revision': {
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'choices': [
+                        'disable',
+                        'enable'
+                    ],
+                    'type': 'str'
+                },
+                '_local_platform_str': {
+                    'required': False,
+                    'revision': {
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 }
             }

@@ -234,22 +234,72 @@ def main():
             'options': {
                 'id': {
                     'required': True,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': False,
+                        '6.2.3': False,
+                        '6.2.5': False,
+                        '6.4.0': False,
+                        '6.4.2': False,
+                        '6.4.5': False,
+                        '7.0.0': False
+                    },
                     'type': 'int'
                 },
                 'ip-number': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': False,
+                        '6.2.3': False,
+                        '6.2.5': False,
+                        '6.4.0': False,
+                        '6.4.2': False,
+                        '6.4.5': False,
+                        '7.0.0': False
+                    },
                     'type': 'int'
                 },
                 'ip-range-number': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': False,
+                        '6.2.3': False,
+                        '6.2.5': False,
+                        '6.4.0': False,
+                        '6.4.2': False,
+                        '6.4.5': False,
+                        '7.0.0': False
+                    },
                     'type': 'int'
                 },
                 'port': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': False,
+                        '6.2.3': False,
+                        '6.2.5': False,
+                        '6.4.0': False,
+                        '6.4.2': False,
+                        '6.4.5': False,
+                        '7.0.0': False
+                    },
                     'type': 'int'
                 },
                 'protocol': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': False,
+                        '6.2.3': False,
+                        '6.2.5': False,
+                        '6.4.0': False,
+                        '6.4.2': False,
+                        '6.4.5': False,
+                        '7.0.0': False
+                    },
                     'type': 'int'
                 }
             }

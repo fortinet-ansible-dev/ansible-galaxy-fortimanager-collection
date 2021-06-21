@@ -198,6 +198,10 @@ options:
                             - 'dns'
                             - 'ssh'
                             - 'ssl'
+                            - 'file-filter'
+                            - 'asset'
+                            - 'protocol'
+                            - 'siem'
             database-name:
                 type: str
                 description: 'Database name.'
@@ -255,6 +259,525 @@ options:
                  - dns
                  - ssh
                  - ssl
+                 - none
+                 - app-ctrl
+                 - attack
+                 - content
+                 - dlp
+                 - emailfilter
+                 - event
+                 - generic
+                 - history
+                 - traffic
+                 - virus
+                 - voip
+                 - webfilter
+                 - netscan
+                 - fct-event
+                 - fct-traffic
+                 - fct-netscan
+                 - waf
+                 - gtp
+                 - dns
+                 - ssh
+                 - ssl
+                 - file-filter
+                 - none
+                 - app-ctrl
+                 - attack
+                 - content
+                 - dlp
+                 - emailfilter
+                 - event
+                 - generic
+                 - history
+                 - traffic
+                 - virus
+                 - voip
+                 - webfilter
+                 - netscan
+                 - fct-event
+                 - fct-traffic
+                 - fct-netscan
+                 - waf
+                 - gtp
+                 - dns
+                 - ssh
+                 - ssl
+                 - file-filter
+                 - asset
+                 - none
+                 - app-ctrl
+                 - attack
+                 - content
+                 - dlp
+                 - emailfilter
+                 - event
+                 - generic
+                 - history
+                 - traffic
+                 - virus
+                 - voip
+                 - webfilter
+                 - netscan
+                 - fct-event
+                 - fct-traffic
+                 - fct-netscan
+                 - waf
+                 - gtp
+                 - dns
+                 - ssh
+                 - ssl
+                 - file-filter
+                 - asset
+                 - none
+                 - app-ctrl
+                 - attack
+                 - content
+                 - dlp
+                 - emailfilter
+                 - event
+                 - generic
+                 - history
+                 - traffic
+                 - virus
+                 - voip
+                 - webfilter
+                 - netscan
+                 - fct-event
+                 - fct-traffic
+                 - fct-netscan
+                 - waf
+                 - gtp
+                 - dns
+                 - ssh
+                 - ssl
+                 - file-filter
+                 - asset
+                 - protocol
+                 - none
+                 - app-ctrl
+                 - attack
+                 - content
+                 - dlp
+                 - emailfilter
+                 - event
+                 - generic
+                 - history
+                 - traffic
+                 - virus
+                 - voip
+                 - webfilter
+                 - netscan
+                 - fct-event
+                 - fct-traffic
+                 - fct-netscan
+                 - waf
+                 - gtp
+                 - dns
+                 - ssh
+                 - ssl
+                 - file-filter
+                 - asset
+                 - protocol
+                 - none
+                 - app-ctrl
+                 - attack
+                 - content
+                 - dlp
+                 - emailfilter
+                 - event
+                 - generic
+                 - history
+                 - traffic
+                 - virus
+                 - voip
+                 - webfilter
+                 - netscan
+                 - fct-event
+                 - fct-traffic
+                 - fct-netscan
+                 - waf
+                 - gtp
+                 - dns
+                 - ssh
+                 - ssl
+                 - file-filter
+                 - asset
+                 - protocol
+                 - siem
+                 - none
+                 - app-ctrl
+                 - attack
+                 - content
+                 - dlp
+                 - emailfilter
+                 - event
+                 - generic
+                 - history
+                 - traffic
+                 - virus
+                 - voip
+                 - webfilter
+                 - netscan
+                 - fct-event
+                 - fct-traffic
+                 - fct-netscan
+                 - waf
+                 - gtp
+                 - dns
+                 - ssh
+                 - ssl
+                 - file-filter
+                 - asset
+                 - protocol
+                 - siem
+                 - none
+                 - app-ctrl
+                 - attack
+                 - content
+                 - dlp
+                 - emailfilter
+                 - event
+                 - generic
+                 - history
+                 - traffic
+                 - virus
+                 - voip
+                 - webfilter
+                 - netscan
+                 - fct-event
+                 - fct-traffic
+                 - fct-netscan
+                 - waf
+                 - gtp
+                 - dns
+                 - ssh
+                 - ssl
+                 - file-filter
+                 - none
+                 - app-ctrl
+                 - attack
+                 - content
+                 - dlp
+                 - emailfilter
+                 - event
+                 - generic
+                 - history
+                 - traffic
+                 - virus
+                 - voip
+                 - webfilter
+                 - netscan
+                 - fct-event
+                 - fct-traffic
+                 - fct-netscan
+                 - waf
+                 - gtp
+                 - dns
+                 - ssh
+                 - ssl
+                 - file-filter
+                 - asset
+                 - none
+                 - app-ctrl
+                 - attack
+                 - content
+                 - dlp
+                 - emailfilter
+                 - event
+                 - generic
+                 - history
+                 - traffic
+                 - virus
+                 - voip
+                 - webfilter
+                 - netscan
+                 - fct-event
+                 - fct-traffic
+                 - fct-netscan
+                 - waf
+                 - gtp
+                 - dns
+                 - ssh
+                 - ssl
+                 - file-filter
+                 - asset
+                 - none
+                 - app-ctrl
+                 - attack
+                 - content
+                 - dlp
+                 - emailfilter
+                 - event
+                 - generic
+                 - history
+                 - traffic
+                 - virus
+                 - voip
+                 - webfilter
+                 - netscan
+                 - fct-event
+                 - fct-traffic
+                 - fct-netscan
+                 - waf
+                 - gtp
+                 - dns
+                 - ssh
+                 - ssl
+                 - file-filter
+                 - asset
+                 - protocol
+                 - none
+                 - app-ctrl
+                 - attack
+                 - content
+                 - dlp
+                 - emailfilter
+                 - event
+                 - generic
+                 - history
+                 - traffic
+                 - virus
+                 - voip
+                 - webfilter
+                 - netscan
+                 - fct-event
+                 - fct-traffic
+                 - fct-netscan
+                 - waf
+                 - gtp
+                 - dns
+                 - ssh
+                 - ssl
+                 - file-filter
+                 - asset
+                 - protocol
+                 - none
+                 - app-ctrl
+                 - attack
+                 - content
+                 - dlp
+                 - emailfilter
+                 - event
+                 - generic
+                 - history
+                 - traffic
+                 - virus
+                 - voip
+                 - webfilter
+                 - netscan
+                 - fct-event
+                 - fct-traffic
+                 - fct-netscan
+                 - waf
+                 - gtp
+                 - dns
+                 - ssh
+                 - ssl
+                 - file-filter
+                 - asset
+                 - protocol
+                 - siem
+                 - none
+                 - app-ctrl
+                 - attack
+                 - content
+                 - dlp
+                 - emailfilter
+                 - event
+                 - generic
+                 - history
+                 - traffic
+                 - virus
+                 - voip
+                 - webfilter
+                 - netscan
+                 - fct-event
+                 - fct-traffic
+                 - fct-netscan
+                 - waf
+                 - gtp
+                 - dns
+                 - ssh
+                 - ssl
+                 - file-filter
+                 - asset
+                 - protocol
+                 - siem
+                 - none
+                 - app-ctrl
+                 - attack
+                 - content
+                 - dlp
+                 - emailfilter
+                 - event
+                 - generic
+                 - history
+                 - traffic
+                 - virus
+                 - voip
+                 - webfilter
+                 - netscan
+                 - fct-event
+                 - fct-traffic
+                 - fct-netscan
+                 - waf
+                 - gtp
+                 - dns
+                 - ssh
+                 - ssl
+                 - file-filter
+                 - none
+                 - app-ctrl
+                 - attack
+                 - content
+                 - dlp
+                 - emailfilter
+                 - event
+                 - generic
+                 - history
+                 - traffic
+                 - virus
+                 - voip
+                 - webfilter
+                 - netscan
+                 - fct-event
+                 - fct-traffic
+                 - fct-netscan
+                 - waf
+                 - gtp
+                 - dns
+                 - ssh
+                 - ssl
+                 - file-filter
+                 - asset
+                 - none
+                 - app-ctrl
+                 - attack
+                 - content
+                 - dlp
+                 - emailfilter
+                 - event
+                 - generic
+                 - history
+                 - traffic
+                 - virus
+                 - voip
+                 - webfilter
+                 - netscan
+                 - fct-event
+                 - fct-traffic
+                 - fct-netscan
+                 - waf
+                 - gtp
+                 - dns
+                 - ssh
+                 - ssl
+                 - file-filter
+                 - asset
+                 - none
+                 - app-ctrl
+                 - attack
+                 - content
+                 - dlp
+                 - emailfilter
+                 - event
+                 - generic
+                 - history
+                 - traffic
+                 - virus
+                 - voip
+                 - webfilter
+                 - netscan
+                 - fct-event
+                 - fct-traffic
+                 - fct-netscan
+                 - waf
+                 - gtp
+                 - dns
+                 - ssh
+                 - ssl
+                 - file-filter
+                 - asset
+                 - protocol
+                 - none
+                 - app-ctrl
+                 - attack
+                 - content
+                 - dlp
+                 - emailfilter
+                 - event
+                 - generic
+                 - history
+                 - traffic
+                 - virus
+                 - voip
+                 - webfilter
+                 - netscan
+                 - fct-event
+                 - fct-traffic
+                 - fct-netscan
+                 - waf
+                 - gtp
+                 - dns
+                 - ssh
+                 - ssl
+                 - file-filter
+                 - asset
+                 - protocol
+                 - none
+                 - app-ctrl
+                 - attack
+                 - content
+                 - dlp
+                 - emailfilter
+                 - event
+                 - generic
+                 - history
+                 - traffic
+                 - virus
+                 - voip
+                 - webfilter
+                 - netscan
+                 - fct-event
+                 - fct-traffic
+                 - fct-netscan
+                 - waf
+                 - gtp
+                 - dns
+                 - ssh
+                 - ssl
+                 - file-filter
+                 - asset
+                 - protocol
+                 - siem
+                 - none
+                 - app-ctrl
+                 - attack
+                 - content
+                 - dlp
+                 - emailfilter
+                 - event
+                 - generic
+                 - history
+                 - traffic
+                 - virus
+                 - voip
+                 - webfilter
+                 - netscan
+                 - fct-event
+                 - fct-traffic
+                 - fct-netscan
+                 - waf
+                 - gtp
+                 - dns
+                 - ssh
+                 - ssl
+                 - file-filter
+                 - asset
+                 - protocol
+                 - siem
             password:
                 description: no description
                 type: str
@@ -328,6 +851,95 @@ options:
                 type: int
                 default: 0
                 description: 'Maximum SQL database table partitioning time range in minute (0 for unlimited) for UTM logs.'
+            custom-skipidx:
+                description: no description
+                type: list
+                suboptions:
+                    device-type:
+                        type: str
+                        default: 'FortiGate'
+                        description:
+                         - 'Device type.'
+                         - 'FortiGate - Set device type to FortiGate.'
+                         - 'FortiManager - Set device type to FortiManager'
+                         - 'FortiClient - Set device type to FortiClient.'
+                         - 'FortiMail - Set device type to FortiMail.'
+                         - 'FortiWeb - Set device type to FortiWeb.'
+                         - 'FortiSandbox - Set device type to FortiSandbox'
+                         - 'FortiProxy - Set device type to FortiProxy'
+                        choices:
+                            - 'FortiGate'
+                            - 'FortiManager'
+                            - 'FortiClient'
+                            - 'FortiMail'
+                            - 'FortiWeb'
+                            - 'FortiSandbox'
+                            - 'FortiProxy'
+                    id:
+                        type: int
+                        default: 0
+                        description: 'Add or Edit log index fields.'
+                    index-field:
+                        type: str
+                        description: 'Field to be added to skip index.'
+                    log-type:
+                        type: str
+                        default: 'app-ctrl'
+                        description:
+                         - 'Log type.'
+                         - 'app-ctrl '
+                         - 'attack '
+                         - 'content '
+                         - 'dlp '
+                         - 'emailfilter '
+                         - 'event '
+                         - 'generic '
+                         - 'history '
+                         - 'traffic '
+                         - 'virus '
+                         - 'voip '
+                         - 'webfilter '
+                         - 'netscan '
+                         - 'fct-event '
+                         - 'fct-traffic '
+                         - 'fct-netscan '
+                         - 'waf '
+                         - 'gtp '
+                         - 'dns '
+                         - 'ssh '
+                         - 'ssl '
+                         - 'file-filter '
+                         - 'asset '
+                        choices:
+                            - 'app-ctrl'
+                            - 'attack'
+                            - 'content'
+                            - 'dlp'
+                            - 'emailfilter'
+                            - 'event'
+                            - 'generic'
+                            - 'history'
+                            - 'traffic'
+                            - 'virus'
+                            - 'voip'
+                            - 'webfilter'
+                            - 'netscan'
+                            - 'fct-event'
+                            - 'fct-traffic'
+                            - 'fct-netscan'
+                            - 'waf'
+                            - 'gtp'
+                            - 'dns'
+                            - 'ssh'
+                            - 'ssl'
+                            - 'file-filter'
+                            - 'asset'
+                            - 'protocol'
+                            - 'siem'
+            compress-table-min-age:
+                type: int
+                default: 7
+                description: 'Minimum age in days for SQL tables to be compressed.'
 
 '''
 
@@ -385,6 +997,525 @@ EXAMPLES = '''
               - dns
               - ssh
               - ssl
+              - none
+              - app-ctrl
+              - attack
+              - content
+              - dlp
+              - emailfilter
+              - event
+              - generic
+              - history
+              - traffic
+              - virus
+              - voip
+              - webfilter
+              - netscan
+              - fct-event
+              - fct-traffic
+              - fct-netscan
+              - waf
+              - gtp
+              - dns
+              - ssh
+              - ssl
+              - file-filter
+              - none
+              - app-ctrl
+              - attack
+              - content
+              - dlp
+              - emailfilter
+              - event
+              - generic
+              - history
+              - traffic
+              - virus
+              - voip
+              - webfilter
+              - netscan
+              - fct-event
+              - fct-traffic
+              - fct-netscan
+              - waf
+              - gtp
+              - dns
+              - ssh
+              - ssl
+              - file-filter
+              - asset
+              - none
+              - app-ctrl
+              - attack
+              - content
+              - dlp
+              - emailfilter
+              - event
+              - generic
+              - history
+              - traffic
+              - virus
+              - voip
+              - webfilter
+              - netscan
+              - fct-event
+              - fct-traffic
+              - fct-netscan
+              - waf
+              - gtp
+              - dns
+              - ssh
+              - ssl
+              - file-filter
+              - asset
+              - none
+              - app-ctrl
+              - attack
+              - content
+              - dlp
+              - emailfilter
+              - event
+              - generic
+              - history
+              - traffic
+              - virus
+              - voip
+              - webfilter
+              - netscan
+              - fct-event
+              - fct-traffic
+              - fct-netscan
+              - waf
+              - gtp
+              - dns
+              - ssh
+              - ssl
+              - file-filter
+              - asset
+              - protocol
+              - none
+              - app-ctrl
+              - attack
+              - content
+              - dlp
+              - emailfilter
+              - event
+              - generic
+              - history
+              - traffic
+              - virus
+              - voip
+              - webfilter
+              - netscan
+              - fct-event
+              - fct-traffic
+              - fct-netscan
+              - waf
+              - gtp
+              - dns
+              - ssh
+              - ssl
+              - file-filter
+              - asset
+              - protocol
+              - none
+              - app-ctrl
+              - attack
+              - content
+              - dlp
+              - emailfilter
+              - event
+              - generic
+              - history
+              - traffic
+              - virus
+              - voip
+              - webfilter
+              - netscan
+              - fct-event
+              - fct-traffic
+              - fct-netscan
+              - waf
+              - gtp
+              - dns
+              - ssh
+              - ssl
+              - file-filter
+              - asset
+              - protocol
+              - siem
+              - none
+              - app-ctrl
+              - attack
+              - content
+              - dlp
+              - emailfilter
+              - event
+              - generic
+              - history
+              - traffic
+              - virus
+              - voip
+              - webfilter
+              - netscan
+              - fct-event
+              - fct-traffic
+              - fct-netscan
+              - waf
+              - gtp
+              - dns
+              - ssh
+              - ssl
+              - file-filter
+              - asset
+              - protocol
+              - siem
+              - none
+              - app-ctrl
+              - attack
+              - content
+              - dlp
+              - emailfilter
+              - event
+              - generic
+              - history
+              - traffic
+              - virus
+              - voip
+              - webfilter
+              - netscan
+              - fct-event
+              - fct-traffic
+              - fct-netscan
+              - waf
+              - gtp
+              - dns
+              - ssh
+              - ssl
+              - file-filter
+              - none
+              - app-ctrl
+              - attack
+              - content
+              - dlp
+              - emailfilter
+              - event
+              - generic
+              - history
+              - traffic
+              - virus
+              - voip
+              - webfilter
+              - netscan
+              - fct-event
+              - fct-traffic
+              - fct-netscan
+              - waf
+              - gtp
+              - dns
+              - ssh
+              - ssl
+              - file-filter
+              - asset
+              - none
+              - app-ctrl
+              - attack
+              - content
+              - dlp
+              - emailfilter
+              - event
+              - generic
+              - history
+              - traffic
+              - virus
+              - voip
+              - webfilter
+              - netscan
+              - fct-event
+              - fct-traffic
+              - fct-netscan
+              - waf
+              - gtp
+              - dns
+              - ssh
+              - ssl
+              - file-filter
+              - asset
+              - none
+              - app-ctrl
+              - attack
+              - content
+              - dlp
+              - emailfilter
+              - event
+              - generic
+              - history
+              - traffic
+              - virus
+              - voip
+              - webfilter
+              - netscan
+              - fct-event
+              - fct-traffic
+              - fct-netscan
+              - waf
+              - gtp
+              - dns
+              - ssh
+              - ssl
+              - file-filter
+              - asset
+              - protocol
+              - none
+              - app-ctrl
+              - attack
+              - content
+              - dlp
+              - emailfilter
+              - event
+              - generic
+              - history
+              - traffic
+              - virus
+              - voip
+              - webfilter
+              - netscan
+              - fct-event
+              - fct-traffic
+              - fct-netscan
+              - waf
+              - gtp
+              - dns
+              - ssh
+              - ssl
+              - file-filter
+              - asset
+              - protocol
+              - none
+              - app-ctrl
+              - attack
+              - content
+              - dlp
+              - emailfilter
+              - event
+              - generic
+              - history
+              - traffic
+              - virus
+              - voip
+              - webfilter
+              - netscan
+              - fct-event
+              - fct-traffic
+              - fct-netscan
+              - waf
+              - gtp
+              - dns
+              - ssh
+              - ssl
+              - file-filter
+              - asset
+              - protocol
+              - siem
+              - none
+              - app-ctrl
+              - attack
+              - content
+              - dlp
+              - emailfilter
+              - event
+              - generic
+              - history
+              - traffic
+              - virus
+              - voip
+              - webfilter
+              - netscan
+              - fct-event
+              - fct-traffic
+              - fct-netscan
+              - waf
+              - gtp
+              - dns
+              - ssh
+              - ssl
+              - file-filter
+              - asset
+              - protocol
+              - siem
+              - none
+              - app-ctrl
+              - attack
+              - content
+              - dlp
+              - emailfilter
+              - event
+              - generic
+              - history
+              - traffic
+              - virus
+              - voip
+              - webfilter
+              - netscan
+              - fct-event
+              - fct-traffic
+              - fct-netscan
+              - waf
+              - gtp
+              - dns
+              - ssh
+              - ssl
+              - file-filter
+              - none
+              - app-ctrl
+              - attack
+              - content
+              - dlp
+              - emailfilter
+              - event
+              - generic
+              - history
+              - traffic
+              - virus
+              - voip
+              - webfilter
+              - netscan
+              - fct-event
+              - fct-traffic
+              - fct-netscan
+              - waf
+              - gtp
+              - dns
+              - ssh
+              - ssl
+              - file-filter
+              - asset
+              - none
+              - app-ctrl
+              - attack
+              - content
+              - dlp
+              - emailfilter
+              - event
+              - generic
+              - history
+              - traffic
+              - virus
+              - voip
+              - webfilter
+              - netscan
+              - fct-event
+              - fct-traffic
+              - fct-netscan
+              - waf
+              - gtp
+              - dns
+              - ssh
+              - ssl
+              - file-filter
+              - asset
+              - none
+              - app-ctrl
+              - attack
+              - content
+              - dlp
+              - emailfilter
+              - event
+              - generic
+              - history
+              - traffic
+              - virus
+              - voip
+              - webfilter
+              - netscan
+              - fct-event
+              - fct-traffic
+              - fct-netscan
+              - waf
+              - gtp
+              - dns
+              - ssh
+              - ssl
+              - file-filter
+              - asset
+              - protocol
+              - none
+              - app-ctrl
+              - attack
+              - content
+              - dlp
+              - emailfilter
+              - event
+              - generic
+              - history
+              - traffic
+              - virus
+              - voip
+              - webfilter
+              - netscan
+              - fct-event
+              - fct-traffic
+              - fct-netscan
+              - waf
+              - gtp
+              - dns
+              - ssh
+              - ssl
+              - file-filter
+              - asset
+              - protocol
+              - none
+              - app-ctrl
+              - attack
+              - content
+              - dlp
+              - emailfilter
+              - event
+              - generic
+              - history
+              - traffic
+              - virus
+              - voip
+              - webfilter
+              - netscan
+              - fct-event
+              - fct-traffic
+              - fct-netscan
+              - waf
+              - gtp
+              - dns
+              - ssh
+              - ssl
+              - file-filter
+              - asset
+              - protocol
+              - siem
+              - none
+              - app-ctrl
+              - attack
+              - content
+              - dlp
+              - emailfilter
+              - event
+              - generic
+              - history
+              - traffic
+              - virus
+              - voip
+              - webfilter
+              - netscan
+              - fct-event
+              - fct-traffic
+              - fct-netscan
+              - waf
+              - gtp
+              - dns
+              - ssh
+              - ssl
+              - file-filter
+              - asset
+              - protocol
+              - siem
             password: <value of string>
             prompt-sql-upgrade: <value in [disable, enable]>
             rebuild-event: <value in [disable, enable]>
@@ -400,6 +1531,13 @@ EXAMPLES = '''
                   value: <value of string>
             username: <value of string>
             utm-table-partition-time: <value of integer>
+            custom-skipidx:
+              -
+                  device-type: <value in [FortiGate, FortiManager, FortiClient, ...]>
+                  id: <value of integer>
+                  index-field: <value of string>
+                  log-type: <value in [app-ctrl, attack, content, ...]>
+            compress-table-min-age: <value of integer>
 
 '''
 
@@ -482,6 +1620,16 @@ def main():
             'options': {
                 'background-rebuild': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -490,10 +1638,30 @@ def main():
                 },
                 'custom-index': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'list',
                     'options': {
                         'case-sensitive': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'choices': [
                                 'disable',
                                 'enable'
@@ -502,6 +1670,16 @@ def main():
                         },
                         'device-type': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'choices': [
                                 'FortiGate',
                                 'FortiManager',
@@ -518,14 +1696,44 @@ def main():
                         },
                         'id': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'int'
                         },
                         'index-field': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'str'
                         },
                         'log-type': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'choices': [
                                 'none',
                                 'app-ctrl',
@@ -548,7 +1756,11 @@ def main():
                                 'gtp',
                                 'dns',
                                 'ssh',
-                                'ssl'
+                                'ssl',
+                                'file-filter',
+                                'asset',
+                                'protocol',
+                                'siem'
                             ],
                             'type': 'str'
                         }
@@ -556,10 +1768,30 @@ def main():
                 },
                 'database-name': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'database-type': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'mysql',
                         'postgres'
@@ -568,6 +1800,16 @@ def main():
                 },
                 'device-count-high': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -576,14 +1818,44 @@ def main():
                 },
                 'event-table-partition-time': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'fct-table-partition-time': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'logtype': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'list',
                     'choices': [
                         'none',
@@ -607,15 +1879,554 @@ def main():
                         'gtp',
                         'dns',
                         'ssh',
-                        'ssl'
+                        'ssl',
+                        'none',
+                        'app-ctrl',
+                        'attack',
+                        'content',
+                        'dlp',
+                        'emailfilter',
+                        'event',
+                        'generic',
+                        'history',
+                        'traffic',
+                        'virus',
+                        'voip',
+                        'webfilter',
+                        'netscan',
+                        'fct-event',
+                        'fct-traffic',
+                        'fct-netscan',
+                        'waf',
+                        'gtp',
+                        'dns',
+                        'ssh',
+                        'ssl',
+                        'file-filter',
+                        'none',
+                        'app-ctrl',
+                        'attack',
+                        'content',
+                        'dlp',
+                        'emailfilter',
+                        'event',
+                        'generic',
+                        'history',
+                        'traffic',
+                        'virus',
+                        'voip',
+                        'webfilter',
+                        'netscan',
+                        'fct-event',
+                        'fct-traffic',
+                        'fct-netscan',
+                        'waf',
+                        'gtp',
+                        'dns',
+                        'ssh',
+                        'ssl',
+                        'file-filter',
+                        'asset',
+                        'none',
+                        'app-ctrl',
+                        'attack',
+                        'content',
+                        'dlp',
+                        'emailfilter',
+                        'event',
+                        'generic',
+                        'history',
+                        'traffic',
+                        'virus',
+                        'voip',
+                        'webfilter',
+                        'netscan',
+                        'fct-event',
+                        'fct-traffic',
+                        'fct-netscan',
+                        'waf',
+                        'gtp',
+                        'dns',
+                        'ssh',
+                        'ssl',
+                        'file-filter',
+                        'asset',
+                        'none',
+                        'app-ctrl',
+                        'attack',
+                        'content',
+                        'dlp',
+                        'emailfilter',
+                        'event',
+                        'generic',
+                        'history',
+                        'traffic',
+                        'virus',
+                        'voip',
+                        'webfilter',
+                        'netscan',
+                        'fct-event',
+                        'fct-traffic',
+                        'fct-netscan',
+                        'waf',
+                        'gtp',
+                        'dns',
+                        'ssh',
+                        'ssl',
+                        'file-filter',
+                        'asset',
+                        'protocol',
+                        'none',
+                        'app-ctrl',
+                        'attack',
+                        'content',
+                        'dlp',
+                        'emailfilter',
+                        'event',
+                        'generic',
+                        'history',
+                        'traffic',
+                        'virus',
+                        'voip',
+                        'webfilter',
+                        'netscan',
+                        'fct-event',
+                        'fct-traffic',
+                        'fct-netscan',
+                        'waf',
+                        'gtp',
+                        'dns',
+                        'ssh',
+                        'ssl',
+                        'file-filter',
+                        'asset',
+                        'protocol',
+                        'none',
+                        'app-ctrl',
+                        'attack',
+                        'content',
+                        'dlp',
+                        'emailfilter',
+                        'event',
+                        'generic',
+                        'history',
+                        'traffic',
+                        'virus',
+                        'voip',
+                        'webfilter',
+                        'netscan',
+                        'fct-event',
+                        'fct-traffic',
+                        'fct-netscan',
+                        'waf',
+                        'gtp',
+                        'dns',
+                        'ssh',
+                        'ssl',
+                        'file-filter',
+                        'asset',
+                        'protocol',
+                        'siem',
+                        'none',
+                        'app-ctrl',
+                        'attack',
+                        'content',
+                        'dlp',
+                        'emailfilter',
+                        'event',
+                        'generic',
+                        'history',
+                        'traffic',
+                        'virus',
+                        'voip',
+                        'webfilter',
+                        'netscan',
+                        'fct-event',
+                        'fct-traffic',
+                        'fct-netscan',
+                        'waf',
+                        'gtp',
+                        'dns',
+                        'ssh',
+                        'ssl',
+                        'file-filter',
+                        'asset',
+                        'protocol',
+                        'siem',
+                        'none',
+                        'app-ctrl',
+                        'attack',
+                        'content',
+                        'dlp',
+                        'emailfilter',
+                        'event',
+                        'generic',
+                        'history',
+                        'traffic',
+                        'virus',
+                        'voip',
+                        'webfilter',
+                        'netscan',
+                        'fct-event',
+                        'fct-traffic',
+                        'fct-netscan',
+                        'waf',
+                        'gtp',
+                        'dns',
+                        'ssh',
+                        'ssl',
+                        'file-filter',
+                        'none',
+                        'app-ctrl',
+                        'attack',
+                        'content',
+                        'dlp',
+                        'emailfilter',
+                        'event',
+                        'generic',
+                        'history',
+                        'traffic',
+                        'virus',
+                        'voip',
+                        'webfilter',
+                        'netscan',
+                        'fct-event',
+                        'fct-traffic',
+                        'fct-netscan',
+                        'waf',
+                        'gtp',
+                        'dns',
+                        'ssh',
+                        'ssl',
+                        'file-filter',
+                        'asset',
+                        'none',
+                        'app-ctrl',
+                        'attack',
+                        'content',
+                        'dlp',
+                        'emailfilter',
+                        'event',
+                        'generic',
+                        'history',
+                        'traffic',
+                        'virus',
+                        'voip',
+                        'webfilter',
+                        'netscan',
+                        'fct-event',
+                        'fct-traffic',
+                        'fct-netscan',
+                        'waf',
+                        'gtp',
+                        'dns',
+                        'ssh',
+                        'ssl',
+                        'file-filter',
+                        'asset',
+                        'none',
+                        'app-ctrl',
+                        'attack',
+                        'content',
+                        'dlp',
+                        'emailfilter',
+                        'event',
+                        'generic',
+                        'history',
+                        'traffic',
+                        'virus',
+                        'voip',
+                        'webfilter',
+                        'netscan',
+                        'fct-event',
+                        'fct-traffic',
+                        'fct-netscan',
+                        'waf',
+                        'gtp',
+                        'dns',
+                        'ssh',
+                        'ssl',
+                        'file-filter',
+                        'asset',
+                        'protocol',
+                        'none',
+                        'app-ctrl',
+                        'attack',
+                        'content',
+                        'dlp',
+                        'emailfilter',
+                        'event',
+                        'generic',
+                        'history',
+                        'traffic',
+                        'virus',
+                        'voip',
+                        'webfilter',
+                        'netscan',
+                        'fct-event',
+                        'fct-traffic',
+                        'fct-netscan',
+                        'waf',
+                        'gtp',
+                        'dns',
+                        'ssh',
+                        'ssl',
+                        'file-filter',
+                        'asset',
+                        'protocol',
+                        'none',
+                        'app-ctrl',
+                        'attack',
+                        'content',
+                        'dlp',
+                        'emailfilter',
+                        'event',
+                        'generic',
+                        'history',
+                        'traffic',
+                        'virus',
+                        'voip',
+                        'webfilter',
+                        'netscan',
+                        'fct-event',
+                        'fct-traffic',
+                        'fct-netscan',
+                        'waf',
+                        'gtp',
+                        'dns',
+                        'ssh',
+                        'ssl',
+                        'file-filter',
+                        'asset',
+                        'protocol',
+                        'siem',
+                        'none',
+                        'app-ctrl',
+                        'attack',
+                        'content',
+                        'dlp',
+                        'emailfilter',
+                        'event',
+                        'generic',
+                        'history',
+                        'traffic',
+                        'virus',
+                        'voip',
+                        'webfilter',
+                        'netscan',
+                        'fct-event',
+                        'fct-traffic',
+                        'fct-netscan',
+                        'waf',
+                        'gtp',
+                        'dns',
+                        'ssh',
+                        'ssl',
+                        'file-filter',
+                        'asset',
+                        'protocol',
+                        'siem',
+                        'none',
+                        'app-ctrl',
+                        'attack',
+                        'content',
+                        'dlp',
+                        'emailfilter',
+                        'event',
+                        'generic',
+                        'history',
+                        'traffic',
+                        'virus',
+                        'voip',
+                        'webfilter',
+                        'netscan',
+                        'fct-event',
+                        'fct-traffic',
+                        'fct-netscan',
+                        'waf',
+                        'gtp',
+                        'dns',
+                        'ssh',
+                        'ssl',
+                        'file-filter',
+                        'none',
+                        'app-ctrl',
+                        'attack',
+                        'content',
+                        'dlp',
+                        'emailfilter',
+                        'event',
+                        'generic',
+                        'history',
+                        'traffic',
+                        'virus',
+                        'voip',
+                        'webfilter',
+                        'netscan',
+                        'fct-event',
+                        'fct-traffic',
+                        'fct-netscan',
+                        'waf',
+                        'gtp',
+                        'dns',
+                        'ssh',
+                        'ssl',
+                        'file-filter',
+                        'asset',
+                        'none',
+                        'app-ctrl',
+                        'attack',
+                        'content',
+                        'dlp',
+                        'emailfilter',
+                        'event',
+                        'generic',
+                        'history',
+                        'traffic',
+                        'virus',
+                        'voip',
+                        'webfilter',
+                        'netscan',
+                        'fct-event',
+                        'fct-traffic',
+                        'fct-netscan',
+                        'waf',
+                        'gtp',
+                        'dns',
+                        'ssh',
+                        'ssl',
+                        'file-filter',
+                        'asset',
+                        'none',
+                        'app-ctrl',
+                        'attack',
+                        'content',
+                        'dlp',
+                        'emailfilter',
+                        'event',
+                        'generic',
+                        'history',
+                        'traffic',
+                        'virus',
+                        'voip',
+                        'webfilter',
+                        'netscan',
+                        'fct-event',
+                        'fct-traffic',
+                        'fct-netscan',
+                        'waf',
+                        'gtp',
+                        'dns',
+                        'ssh',
+                        'ssl',
+                        'file-filter',
+                        'asset',
+                        'protocol',
+                        'none',
+                        'app-ctrl',
+                        'attack',
+                        'content',
+                        'dlp',
+                        'emailfilter',
+                        'event',
+                        'generic',
+                        'history',
+                        'traffic',
+                        'virus',
+                        'voip',
+                        'webfilter',
+                        'netscan',
+                        'fct-event',
+                        'fct-traffic',
+                        'fct-netscan',
+                        'waf',
+                        'gtp',
+                        'dns',
+                        'ssh',
+                        'ssl',
+                        'file-filter',
+                        'asset',
+                        'protocol',
+                        'none',
+                        'app-ctrl',
+                        'attack',
+                        'content',
+                        'dlp',
+                        'emailfilter',
+                        'event',
+                        'generic',
+                        'history',
+                        'traffic',
+                        'virus',
+                        'voip',
+                        'webfilter',
+                        'netscan',
+                        'fct-event',
+                        'fct-traffic',
+                        'fct-netscan',
+                        'waf',
+                        'gtp',
+                        'dns',
+                        'ssh',
+                        'ssl',
+                        'file-filter',
+                        'asset',
+                        'protocol',
+                        'siem',
+                        'none',
+                        'app-ctrl',
+                        'attack',
+                        'content',
+                        'dlp',
+                        'emailfilter',
+                        'event',
+                        'generic',
+                        'history',
+                        'traffic',
+                        'virus',
+                        'voip',
+                        'webfilter',
+                        'netscan',
+                        'fct-event',
+                        'fct-traffic',
+                        'fct-netscan',
+                        'waf',
+                        'gtp',
+                        'dns',
+                        'ssh',
+                        'ssl',
+                        'file-filter',
+                        'asset',
+                        'protocol',
+                        'siem'
                     ]
                 },
                 'password': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'prompt-sql-upgrade': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -624,6 +2435,16 @@ def main():
                 },
                 'rebuild-event': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -632,18 +2453,58 @@ def main():
                 },
                 'rebuild-event-start-time': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'server': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'start-time': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'status': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'local'
@@ -652,6 +2513,16 @@ def main():
                 },
                 'text-search-index': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -660,28 +2531,194 @@ def main():
                 },
                 'traffic-table-partition-time': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'ts-index-field': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'list',
                     'options': {
                         'category': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'str'
                         },
                         'value': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'str'
                         }
                     }
                 },
                 'username': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'utm-table-partition-time': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'type': 'int'
+                },
+                'custom-skipidx': {
+                    'required': False,
+                    'revision': {
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'type': 'list',
+                    'options': {
+                        'device-type': {
+                            'required': False,
+                            'revision': {
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'FortiGate',
+                                'FortiManager',
+                                'FortiClient',
+                                'FortiMail',
+                                'FortiWeb',
+                                'FortiSandbox',
+                                'FortiProxy'
+                            ],
+                            'type': 'str'
+                        },
+                        'id': {
+                            'required': False,
+                            'revision': {
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'int'
+                        },
+                        'index-field': {
+                            'required': False,
+                            'revision': {
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'str'
+                        },
+                        'log-type': {
+                            'required': False,
+                            'revision': {
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'app-ctrl',
+                                'attack',
+                                'content',
+                                'dlp',
+                                'emailfilter',
+                                'event',
+                                'generic',
+                                'history',
+                                'traffic',
+                                'virus',
+                                'voip',
+                                'webfilter',
+                                'netscan',
+                                'fct-event',
+                                'fct-traffic',
+                                'fct-netscan',
+                                'waf',
+                                'gtp',
+                                'dns',
+                                'ssh',
+                                'ssl',
+                                'file-filter',
+                                'asset',
+                                'protocol',
+                                'siem'
+                            ],
+                            'type': 'str'
+                        }
+                    }
+                },
+                'compress-table-min-age': {
+                    'required': False,
+                    'revision': {
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 }
             }

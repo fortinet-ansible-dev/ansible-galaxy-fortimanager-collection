@@ -113,6 +113,21 @@ options:
             private-key:
                 description: no description
                 type: str
+            local:
+                type: str
+                description: 'Choose from a local certificates.'
+            mode:
+                type: str
+                default: 'default'
+                description:
+                 - 'Mode of certificates used by oftpd.'
+                 - 'default - Default mode.'
+                 - 'custom - Use custom certificate.'
+                 - 'local - Use a local certificate.'
+                choices:
+                    - 'default'
+                    - 'custom'
+                    - 'local'
 
 '''
 
@@ -139,6 +154,8 @@ EXAMPLES = '''
             custom: <value in [disable, enable]>
             password: <value of string>
             private-key: <value of string>
+            local: <value of string>
+            mode: <value in [default, custom, local]>
 
 '''
 
@@ -221,14 +238,44 @@ def main():
             'options': {
                 'certificate': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'comment': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'custom': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': False,
+                        '6.4.0': True,
+                        '6.4.2': False,
+                        '6.4.5': False,
+                        '7.0.0': False
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -237,10 +284,57 @@ def main():
                 },
                 'password': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'private-key': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'type': 'str'
+                },
+                'local': {
+                    'required': False,
+                    'revision': {
+                        '6.2.5': True,
+                        '6.4.0': False,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'type': 'str'
+                },
+                'mode': {
+                    'required': False,
+                    'revision': {
+                        '6.2.5': True,
+                        '6.4.0': False,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'choices': [
+                        'default',
+                        'custom',
+                        'local'
+                    ],
                     'type': 'str'
                 }
             }

@@ -107,6 +107,21 @@ options:
             virtual-host:
                 type: str
                 description: 'Virtual host name for realm.'
+            nas-ip:
+                type: str
+                description: 'IP address used as a NAS-IP to communicate with the RADIUS server.'
+            radius-server:
+                type: str
+                description: 'RADIUS server associated with realm.'
+            radius-port:
+                type: int
+                description: 'RADIUS service port number (0 - 65535, 0 means user.radius.radius-port).'
+            virtual-host-only:
+                type: str
+                description: 'Enable/disable enforcement of virtual host method for SSL-VPN client access.'
+                choices:
+                    - 'disable'
+                    - 'enable'
 
 '''
 
@@ -134,6 +149,10 @@ EXAMPLES = '''
             max-concurrent-user: <value of integer>
             url-path: <value of string>
             virtual-host: <value of string>
+            nas-ip: <value of string>
+            radius-server: <value of string>
+            radius-port: <value of integer>
+            virtual-host-only: <value in [disable, enable]>
 
 '''
 
@@ -230,18 +249,100 @@ def main():
             'options': {
                 'login-page': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'max-concurrent-user': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'url-path': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'virtual-host': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'type': 'str'
+                },
+                'nas-ip': {
+                    'required': False,
+                    'revision': {
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'type': 'str'
+                },
+                'radius-server': {
+                    'required': False,
+                    'revision': {
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'type': 'str'
+                },
+                'radius-port': {
+                    'required': False,
+                    'revision': {
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'type': 'int'
+                },
+                'virtual-host-only': {
+                    'required': False,
+                    'revision': {
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'choices': [
+                        'disable',
+                        'enable'
+                    ],
                     'type': 'str'
                 }
             }

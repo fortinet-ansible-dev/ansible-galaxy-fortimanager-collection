@@ -133,6 +133,15 @@ options:
             subnet-segment-count:
                 type: int
                 description: 'Number of IPv6 subnet segments.'
+            _image-base64:
+                type: str
+                description: no description
+            fabric-object:
+                type: str
+                description: 'Security Fabric global object setting.'
+                choices:
+                    - 'disable'
+                    - 'enable'
 
 '''
 
@@ -169,6 +178,8 @@ EXAMPLES = '''
                         name: <value of string>
                         value: <value of string>
             subnet-segment-count: <value of integer>
+            _image-base64: <value of string>
+            fabric-object: <value in [disable, enable]>
 
 '''
 
@@ -265,22 +276,72 @@ def main():
             'options': {
                 'ip6': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'name': {
                     'required': True,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'subnet-segment': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'list',
                     'options': {
                         'bits': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'int'
                         },
                         'exclusive': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'choices': [
                                 'disable',
                                 'enable'
@@ -289,22 +350,72 @@ def main():
                         },
                         'id': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'int'
                         },
                         'name': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'str'
                         },
                         'values': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'list',
                             'options': {
                                 'name': {
                                     'required': False,
+                                    'revision': {
+                                        '6.0.0': True,
+                                        '6.2.1': True,
+                                        '6.2.3': True,
+                                        '6.2.5': True,
+                                        '6.4.0': True,
+                                        '6.4.2': True,
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
                                     'type': 'str'
                                 },
                                 'value': {
                                     'required': False,
+                                    'revision': {
+                                        '6.0.0': True,
+                                        '6.2.1': True,
+                                        '6.2.3': True,
+                                        '6.2.5': True,
+                                        '6.4.0': True,
+                                        '6.4.2': True,
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
                                     'type': 'str'
                                 }
                             }
@@ -313,7 +424,40 @@ def main():
                 },
                 'subnet-segment-count': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
+                },
+                '_image-base64': {
+                    'required': False,
+                    'revision': {
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'type': 'str'
+                },
+                'fabric-object': {
+                    'required': False,
+                    'revision': {
+                        '7.0.0': True
+                    },
+                    'choices': [
+                        'disable',
+                        'enable'
+                    ],
+                    'type': 'str'
                 }
             }
 

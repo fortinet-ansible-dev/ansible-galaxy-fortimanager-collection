@@ -113,6 +113,31 @@ options:
                 choices:
                     - 'application'
                     - 'category'
+                    - 'filter'
+            behavior:
+                type: str
+                description: 'Application behavior filter.'
+            popularity:
+                description: no description
+                type: list
+                choices:
+                 - 1
+                 - 2
+                 - 3
+                 - 4
+                 - 5
+            protocols:
+                type: str
+                description: 'Application protocol filter.'
+            risk:
+                description: no description
+                type: int
+            technology:
+                type: str
+                description: 'Application technology filter.'
+            vendor:
+                type: str
+                description: 'Application vendor filter.'
 
 '''
 
@@ -140,7 +165,18 @@ EXAMPLES = '''
             category: <value of integer>
             comment: <value of string>
             name: <value of string>
-            type: <value in [application, category]>
+            type: <value in [application, category, filter]>
+            behavior: <value of string>
+            popularity:
+              - 1
+              - 2
+              - 3
+              - 4
+              - 5
+            protocols: <value of string>
+            risk: <value of integer>
+            technology: <value of string>
+            vendor: <value of string>
 
 '''
 
@@ -237,26 +273,126 @@ def main():
             'options': {
                 'application': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'category': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'comment': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'name': {
                     'required': True,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'type': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'application',
-                        'category'
+                        'category',
+                        'filter'
                     ],
+                    'type': 'str'
+                },
+                'behavior': {
+                    'required': False,
+                    'revision': {
+                        '7.0.0': True
+                    },
+                    'type': 'str'
+                },
+                'popularity': {
+                    'required': False,
+                    'revision': {
+                        '7.0.0': True
+                    },
+                    'type': 'list',
+                    'choices': [
+                        '1',
+                        '2',
+                        '3',
+                        '4',
+                        '5'
+                    ]
+                },
+                'protocols': {
+                    'required': False,
+                    'revision': {
+                        '7.0.0': True
+                    },
+                    'type': 'str'
+                },
+                'risk': {
+                    'required': False,
+                    'revision': {
+                        '7.0.0': True
+                    },
+                    'type': 'int'
+                },
+                'technology': {
+                    'required': False,
+                    'revision': {
+                        '7.0.0': True
+                    },
+                    'type': 'str'
+                },
+                'vendor': {
+                    'required': False,
+                    'revision': {
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 }
             }

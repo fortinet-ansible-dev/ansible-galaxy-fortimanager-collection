@@ -133,6 +133,73 @@ options:
                     - 'allow'
                     - 'block'
                     - 'ignore'
+            invalid-server-cert:
+                type: str
+                description: 'Allow or block the invalid SSL session server certificate.'
+                choices:
+                    - 'allow'
+                    - 'block'
+            sni-server-cert-check:
+                type: str
+                description: 'Check the SNI in the client hello message with the CN or SAN fields in the returned server certificate.'
+                choices:
+                    - 'disable'
+                    - 'enable'
+                    - 'strict'
+            untrusted-server-cert:
+                type: str
+                description: 'Allow, ignore, or block the untrusted SSL session server certificate.'
+                choices:
+                    - 'allow'
+                    - 'block'
+                    - 'ignore'
+            cert-validation-failure:
+                type: str
+                description: 'Action based on certificate validation failure.'
+                choices:
+                    - 'allow'
+                    - 'block'
+                    - 'ignore'
+            cert-validation-timeout:
+                type: str
+                description: 'Action based on certificate validation timeout.'
+                choices:
+                    - 'allow'
+                    - 'block'
+                    - 'ignore'
+            client-certificate:
+                type: str
+                description: 'Action based on received client certificate.'
+                choices:
+                    - 'bypass'
+                    - 'inspect'
+                    - 'block'
+            expired-server-cert:
+                type: str
+                description: 'Action based on server certificate is expired.'
+                choices:
+                    - 'allow'
+                    - 'block'
+                    - 'ignore'
+            revoked-server-cert:
+                type: str
+                description: 'Action based on server certificate is revoked.'
+                choices:
+                    - 'allow'
+                    - 'block'
+                    - 'ignore'
+            unsupported-ssl-cipher:
+                type: str
+                description: 'Action based on the SSL cipher used being unsupported.'
+                choices:
+                    - 'allow'
+                    - 'block'
+            unsupported-ssl-negotiation:
+                type: str
+                description: 'Action based on the SSL negotiation used being unsupported.'
+                choices:
+                    - 'allow'
+                    - 'block'
 
 '''
 
@@ -161,6 +228,16 @@ EXAMPLES = '''
             inspect-all: <value in [disable, certificate-inspection, deep-inspection]>
             unsupported-ssl: <value in [bypass, inspect, block]>
             untrusted-cert: <value in [allow, block, ignore]>
+            invalid-server-cert: <value in [allow, block]>
+            sni-server-cert-check: <value in [disable, enable, strict]>
+            untrusted-server-cert: <value in [allow, block, ignore]>
+            cert-validation-failure: <value in [allow, block, ignore]>
+            cert-validation-timeout: <value in [allow, block, ignore]>
+            client-certificate: <value in [bypass, inspect, block]>
+            expired-server-cert: <value in [allow, block, ignore]>
+            revoked-server-cert: <value in [allow, block, ignore]>
+            unsupported-ssl-cipher: <value in [allow, block]>
+            unsupported-ssl-negotiation: <value in [allow, block]>
 
 '''
 
@@ -253,6 +330,16 @@ def main():
             'options': {
                 'allow-invalid-server-cert': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': False,
+                        '6.2.3': False,
+                        '6.2.5': False,
+                        '6.4.0': False,
+                        '6.4.2': False,
+                        '6.4.5': False,
+                        '7.0.0': False
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -261,6 +348,16 @@ def main():
                 },
                 'client-cert-request': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': False,
+                        '6.4.2': False,
+                        '6.4.5': False,
+                        '7.0.0': False
+                    },
                     'choices': [
                         'bypass',
                         'inspect',
@@ -270,6 +367,16 @@ def main():
                 },
                 'inspect-all': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'certificate-inspection',
@@ -279,6 +386,16 @@ def main():
                 },
                 'unsupported-ssl': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': False,
+                        '6.4.2': False,
+                        '6.4.5': False,
+                        '7.0.0': False
+                    },
                     'choices': [
                         'bypass',
                         'inspect',
@@ -288,10 +405,176 @@ def main():
                 },
                 'untrusted-cert': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': False,
+                        '6.2.3': False,
+                        '6.2.5': False,
+                        '6.4.0': False,
+                        '6.4.2': False,
+                        '6.4.5': False,
+                        '7.0.0': False
+                    },
                     'choices': [
                         'allow',
                         'block',
                         'ignore'
+                    ],
+                    'type': 'str'
+                },
+                'invalid-server-cert': {
+                    'required': False,
+                    'revision': {
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': False,
+                        '6.4.2': False,
+                        '6.4.5': False,
+                        '7.0.0': False
+                    },
+                    'choices': [
+                        'allow',
+                        'block'
+                    ],
+                    'type': 'str'
+                },
+                'sni-server-cert-check': {
+                    'required': False,
+                    'revision': {
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'choices': [
+                        'disable',
+                        'enable',
+                        'strict'
+                    ],
+                    'type': 'str'
+                },
+                'untrusted-server-cert': {
+                    'required': False,
+                    'revision': {
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'choices': [
+                        'allow',
+                        'block',
+                        'ignore'
+                    ],
+                    'type': 'str'
+                },
+                'cert-validation-failure': {
+                    'required': False,
+                    'revision': {
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'choices': [
+                        'allow',
+                        'block',
+                        'ignore'
+                    ],
+                    'type': 'str'
+                },
+                'cert-validation-timeout': {
+                    'required': False,
+                    'revision': {
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'choices': [
+                        'allow',
+                        'block',
+                        'ignore'
+                    ],
+                    'type': 'str'
+                },
+                'client-certificate': {
+                    'required': False,
+                    'revision': {
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'choices': [
+                        'bypass',
+                        'inspect',
+                        'block'
+                    ],
+                    'type': 'str'
+                },
+                'expired-server-cert': {
+                    'required': False,
+                    'revision': {
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'choices': [
+                        'allow',
+                        'block',
+                        'ignore'
+                    ],
+                    'type': 'str'
+                },
+                'revoked-server-cert': {
+                    'required': False,
+                    'revision': {
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'choices': [
+                        'allow',
+                        'block',
+                        'ignore'
+                    ],
+                    'type': 'str'
+                },
+                'unsupported-ssl-cipher': {
+                    'required': False,
+                    'revision': {
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'choices': [
+                        'allow',
+                        'block'
+                    ],
+                    'type': 'str'
+                },
+                'unsupported-ssl-negotiation': {
+                    'required': False,
+                    'revision': {
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'choices': [
+                        'allow',
+                        'block'
                     ],
                     'type': 'str'
                 }

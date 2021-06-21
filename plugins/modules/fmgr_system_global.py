@@ -254,6 +254,63 @@ options:
                 type: list
                 choices:
                  - fortiview-noc
+                 - fortiview-noc
+                 - none
+                 - fortiview-noc
+                 - fortirecorder
+                 - siem
+                 - soc
+                 - ai
+                 - fortiview-noc
+                 - fortirecorder
+                 - siem
+                 - soc
+                 - ai
+                 - fortiview-noc
+                 - fortirecorder
+                 - siem
+                 - soc
+                 - ai
+                 - fortiview-noc
+                 - fortiview-noc
+                 - fortiview-noc
+                 - fortiview-noc
+                 - none
+                 - fortiview-noc
+                 - fortirecorder
+                 - siem
+                 - soc
+                 - ai
+                 - fortiview-noc
+                 - fortirecorder
+                 - siem
+                 - soc
+                 - ai
+                 - fortiview-noc
+                 - fortirecorder
+                 - siem
+                 - soc
+                 - ai
+                 - fortiview-noc
+                 - fortiview-noc
+                 - fortiview-noc
+                 - fortiview-noc
+                 - none
+                 - fortiview-noc
+                 - fortirecorder
+                 - siem
+                 - soc
+                 - ai
+                 - fortiview-noc
+                 - fortirecorder
+                 - siem
+                 - soc
+                 - ai
+                 - fortiview-noc
+                 - fortirecorder
+                 - siem
+                 - soc
+                 - ai
             enc-algorithm:
                 type: str
                 default: 'high'
@@ -293,6 +350,7 @@ options:
                     - 'tlsv1.0'
                     - 'tlsv1.1'
                     - 'tlsv1.2'
+                    - 'tlsv1.3'
             ha-member-auto-grouping:
                 type: str
                 default: 'enable'
@@ -405,6 +463,7 @@ options:
                     - 'tlsv1.0'
                     - 'tlsv1.1'
                     - 'tlsv1.2'
+                    - 'tlsv1.3'
             partial-install:
                 type: str
                 default: 'disable'
@@ -506,6 +565,90 @@ options:
                 description: no description
                 type: list
                 choices:
+                 - tlsv1.2
+                 - tlsv1.1
+                 - tlsv1.0
+                 - sslv3
+                 - tlsv1.3
+                 - tlsv1.2
+                 - tlsv1.1
+                 - tlsv1.0
+                 - sslv3
+                 - tlsv1.3
+                 - tlsv1.2
+                 - tlsv1.1
+                 - tlsv1.0
+                 - sslv3
+                 - tlsv1.3
+                 - tlsv1.2
+                 - tlsv1.1
+                 - tlsv1.0
+                 - sslv3
+                 - tlsv1.3
+                 - tlsv1.2
+                 - tlsv1.1
+                 - tlsv1.0
+                 - sslv3
+                 - tlsv1.2
+                 - tlsv1.1
+                 - tlsv1.0
+                 - sslv3
+                 - tlsv1.2
+                 - tlsv1.1
+                 - tlsv1.0
+                 - sslv3
+                 - tlsv1.2
+                 - tlsv1.1
+                 - tlsv1.0
+                 - sslv3
+                 - tlsv1.3
+                 - tlsv1.2
+                 - tlsv1.1
+                 - tlsv1.0
+                 - sslv3
+                 - tlsv1.3
+                 - tlsv1.2
+                 - tlsv1.1
+                 - tlsv1.0
+                 - sslv3
+                 - tlsv1.3
+                 - tlsv1.2
+                 - tlsv1.1
+                 - tlsv1.0
+                 - sslv3
+                 - tlsv1.3
+                 - tlsv1.2
+                 - tlsv1.1
+                 - tlsv1.0
+                 - sslv3
+                 - tlsv1.2
+                 - tlsv1.1
+                 - tlsv1.0
+                 - sslv3
+                 - tlsv1.2
+                 - tlsv1.1
+                 - tlsv1.0
+                 - sslv3
+                 - tlsv1.2
+                 - tlsv1.1
+                 - tlsv1.0
+                 - sslv3
+                 - tlsv1.3
+                 - tlsv1.2
+                 - tlsv1.1
+                 - tlsv1.0
+                 - sslv3
+                 - tlsv1.3
+                 - tlsv1.2
+                 - tlsv1.1
+                 - tlsv1.0
+                 - sslv3
+                 - tlsv1.3
+                 - tlsv1.2
+                 - tlsv1.1
+                 - tlsv1.0
+                 - sslv3
+                 - tlsv1.3
                  - tlsv1.2
                  - tlsv1.1
                  - tlsv1.0
@@ -720,6 +863,8 @@ options:
                     - '87'
                     - '88'
                     - '89'
+                    - '90'
+                    - '91'
             tunnel-mtu:
                 type: int
                 default: 1500
@@ -753,6 +898,108 @@ options:
                  - tlsv1.0
                  - sslv3
                  - sslv2
+                 - tlsv1.3
+                 - tlsv1.2
+                 - tlsv1.1
+                 - tlsv1.0
+                 - sslv3
+                 - sslv2
+                 - tlsv1.3
+                 - tlsv1.2
+                 - tlsv1.1
+                 - tlsv1.0
+                 - sslv3
+                 - sslv2
+                 - tlsv1.3
+                 - tlsv1.2
+                 - tlsv1.1
+                 - tlsv1.0
+                 - sslv3
+                 - sslv2
+                 - tlsv1.3
+                 - tlsv1.2
+                 - tlsv1.1
+                 - tlsv1.0
+                 - sslv3
+                 - sslv2
+                 - tlsv1.2
+                 - tlsv1.1
+                 - tlsv1.0
+                 - sslv3
+                 - sslv2
+                 - tlsv1.2
+                 - tlsv1.1
+                 - tlsv1.0
+                 - sslv3
+                 - sslv2
+                 - tlsv1.2
+                 - tlsv1.1
+                 - tlsv1.0
+                 - sslv3
+                 - sslv2
+                 - tlsv1.3
+                 - tlsv1.2
+                 - tlsv1.1
+                 - tlsv1.0
+                 - sslv3
+                 - sslv2
+                 - tlsv1.3
+                 - tlsv1.2
+                 - tlsv1.1
+                 - tlsv1.0
+                 - sslv3
+                 - sslv2
+                 - tlsv1.3
+                 - tlsv1.2
+                 - tlsv1.1
+                 - tlsv1.0
+                 - sslv3
+                 - sslv2
+                 - tlsv1.3
+                 - tlsv1.2
+                 - tlsv1.1
+                 - tlsv1.0
+                 - sslv3
+                 - sslv2
+                 - tlsv1.2
+                 - tlsv1.1
+                 - tlsv1.0
+                 - sslv3
+                 - sslv2
+                 - tlsv1.2
+                 - tlsv1.1
+                 - tlsv1.0
+                 - sslv3
+                 - sslv2
+                 - tlsv1.2
+                 - tlsv1.1
+                 - tlsv1.0
+                 - sslv3
+                 - sslv2
+                 - tlsv1.3
+                 - tlsv1.2
+                 - tlsv1.1
+                 - tlsv1.0
+                 - sslv3
+                 - sslv2
+                 - tlsv1.3
+                 - tlsv1.2
+                 - tlsv1.1
+                 - tlsv1.0
+                 - sslv3
+                 - sslv2
+                 - tlsv1.3
+                 - tlsv1.2
+                 - tlsv1.1
+                 - tlsv1.0
+                 - sslv3
+                 - sslv2
+                 - tlsv1.3
+                 - tlsv1.2
+                 - tlsv1.1
+                 - tlsv1.0
+                 - sslv3
+                 - sslv2
             workflow-max-sessions:
                 type: int
                 default: 500
@@ -769,6 +1016,95 @@ options:
                     - 'disabled'
                     - 'normal'
                     - 'workflow'
+                    - 'per-adom'
+            clone-name-option:
+                type: str
+                default: 'default'
+                description:
+                 - 'set the clone object names option.'
+                 - 'default - Add a prefix of Clone of to the clone name.'
+                 - 'keep - Keep the original name for user to edit.'
+                choices:
+                    - 'default'
+                    - 'keep'
+            fgfm-ca-cert:
+                type: str
+                description: 'set the extra fgfm CA certificates.'
+            mc-policy-disabled-adoms:
+                description: no description
+                type: list
+                suboptions:
+                    adom-name:
+                        type: str
+                        description: 'Adom names.'
+            policy-object-icon:
+                type: str
+                default: 'disable'
+                description:
+                 - 'show icons of policy objects.'
+                 - 'disable - Disable icon of policy objects.'
+                 - 'enable - Enable icon of policy objects.'
+                choices:
+                    - 'disable'
+                    - 'enable'
+            private-data-encryption:
+                type: str
+                default: 'disable'
+                description:
+                 - 'Enable/disable private data encryption using an AES 128-bit key.'
+                 - 'disable - Disable private data encryption using an AES 128-bit key.'
+                 - 'enable - Enable private data encryption using an AES 128-bit key.'
+                choices:
+                    - 'disable'
+                    - 'enable'
+            per-policy-lock:
+                type: str
+                default: 'disable'
+                description:
+                 - 'Enable/Disable per policy lock.'
+                 - 'disable - Disable per policy lock.'
+                 - 'enable - Enable per policy lock.'
+                choices:
+                    - 'disable'
+                    - 'enable'
+            multiple-steps-upgrade-in-autolink:
+                type: str
+                default: 'disable'
+                description:
+                 - 'Enable/disable multiple steps upgade in autolink process'
+                 - 'disable - Disable setting.'
+                 - 'enable - Enable setting.'
+                choices:
+                    - 'disable'
+                    - 'enable'
+            object-revision-db-max:
+                type: int
+                default: 100000
+                description: 'Maximum revisions for a single database (10,000-1,000,000 default 100,000).'
+            object-revision-mandatory-note:
+                type: str
+                default: 'enable'
+                description:
+                 - 'Enable/disable mandatory note when create revision.'
+                 - 'disable - Disable object revision.'
+                 - 'enable - Enable object revision.'
+                choices:
+                    - 'disable'
+                    - 'enable'
+            object-revision-object-max:
+                type: int
+                default: 100
+                description: 'Maximum revisions for a single object (10-1000 default 100).'
+            object-revision-status:
+                type: str
+                default: 'enable'
+                description:
+                 - 'Enable/disable create revision when modify objects.'
+                 - 'disable - Disable object revision.'
+                 - 'enable - Enable object revision.'
+                choices:
+                    - 'disable'
+                    - 'enable'
 
 '''
 
@@ -810,6 +1146,63 @@ EXAMPLES = '''
             dh-params: <value in [1024, 1536, 2048, ...]>
             disable-module:
               - fortiview-noc
+              - fortiview-noc
+              - none
+              - fortiview-noc
+              - fortirecorder
+              - siem
+              - soc
+              - ai
+              - fortiview-noc
+              - fortirecorder
+              - siem
+              - soc
+              - ai
+              - fortiview-noc
+              - fortirecorder
+              - siem
+              - soc
+              - ai
+              - fortiview-noc
+              - fortiview-noc
+              - fortiview-noc
+              - fortiview-noc
+              - none
+              - fortiview-noc
+              - fortirecorder
+              - siem
+              - soc
+              - ai
+              - fortiview-noc
+              - fortirecorder
+              - siem
+              - soc
+              - ai
+              - fortiview-noc
+              - fortirecorder
+              - siem
+              - soc
+              - ai
+              - fortiview-noc
+              - fortiview-noc
+              - fortiview-noc
+              - fortiview-noc
+              - none
+              - fortiview-noc
+              - fortirecorder
+              - siem
+              - soc
+              - ai
+              - fortiview-noc
+              - fortirecorder
+              - siem
+              - soc
+              - ai
+              - fortiview-noc
+              - fortirecorder
+              - siem
+              - soc
+              - ai
             enc-algorithm: <value in [low, medium, high]>
             faz-status: <value in [disable, enable]>
             fgfm-local-cert: <value of string>
@@ -846,6 +1239,90 @@ EXAMPLES = '''
               - tlsv1.1
               - tlsv1.0
               - sslv3
+              - tlsv1.3
+              - tlsv1.2
+              - tlsv1.1
+              - tlsv1.0
+              - sslv3
+              - tlsv1.3
+              - tlsv1.2
+              - tlsv1.1
+              - tlsv1.0
+              - sslv3
+              - tlsv1.3
+              - tlsv1.2
+              - tlsv1.1
+              - tlsv1.0
+              - sslv3
+              - tlsv1.3
+              - tlsv1.2
+              - tlsv1.1
+              - tlsv1.0
+              - sslv3
+              - tlsv1.2
+              - tlsv1.1
+              - tlsv1.0
+              - sslv3
+              - tlsv1.2
+              - tlsv1.1
+              - tlsv1.0
+              - sslv3
+              - tlsv1.2
+              - tlsv1.1
+              - tlsv1.0
+              - sslv3
+              - tlsv1.3
+              - tlsv1.2
+              - tlsv1.1
+              - tlsv1.0
+              - sslv3
+              - tlsv1.3
+              - tlsv1.2
+              - tlsv1.1
+              - tlsv1.0
+              - sslv3
+              - tlsv1.3
+              - tlsv1.2
+              - tlsv1.1
+              - tlsv1.0
+              - sslv3
+              - tlsv1.3
+              - tlsv1.2
+              - tlsv1.1
+              - tlsv1.0
+              - sslv3
+              - tlsv1.2
+              - tlsv1.1
+              - tlsv1.0
+              - sslv3
+              - tlsv1.2
+              - tlsv1.1
+              - tlsv1.0
+              - sslv3
+              - tlsv1.2
+              - tlsv1.1
+              - tlsv1.0
+              - sslv3
+              - tlsv1.3
+              - tlsv1.2
+              - tlsv1.1
+              - tlsv1.0
+              - sslv3
+              - tlsv1.3
+              - tlsv1.2
+              - tlsv1.1
+              - tlsv1.0
+              - sslv3
+              - tlsv1.3
+              - tlsv1.2
+              - tlsv1.1
+              - tlsv1.0
+              - sslv3
+              - tlsv1.3
+              - tlsv1.2
+              - tlsv1.1
+              - tlsv1.0
+              - sslv3
             ssl-static-key-ciphers: <value in [disable, enable]>
             task-list-size: <value of integer>
             tftp: <value in [disable, enable]>
@@ -859,8 +1336,123 @@ EXAMPLES = '''
               - tlsv1.0
               - sslv3
               - sslv2
+              - tlsv1.3
+              - tlsv1.2
+              - tlsv1.1
+              - tlsv1.0
+              - sslv3
+              - sslv2
+              - tlsv1.3
+              - tlsv1.2
+              - tlsv1.1
+              - tlsv1.0
+              - sslv3
+              - sslv2
+              - tlsv1.3
+              - tlsv1.2
+              - tlsv1.1
+              - tlsv1.0
+              - sslv3
+              - sslv2
+              - tlsv1.3
+              - tlsv1.2
+              - tlsv1.1
+              - tlsv1.0
+              - sslv3
+              - sslv2
+              - tlsv1.2
+              - tlsv1.1
+              - tlsv1.0
+              - sslv3
+              - sslv2
+              - tlsv1.2
+              - tlsv1.1
+              - tlsv1.0
+              - sslv3
+              - sslv2
+              - tlsv1.2
+              - tlsv1.1
+              - tlsv1.0
+              - sslv3
+              - sslv2
+              - tlsv1.3
+              - tlsv1.2
+              - tlsv1.1
+              - tlsv1.0
+              - sslv3
+              - sslv2
+              - tlsv1.3
+              - tlsv1.2
+              - tlsv1.1
+              - tlsv1.0
+              - sslv3
+              - sslv2
+              - tlsv1.3
+              - tlsv1.2
+              - tlsv1.1
+              - tlsv1.0
+              - sslv3
+              - sslv2
+              - tlsv1.3
+              - tlsv1.2
+              - tlsv1.1
+              - tlsv1.0
+              - sslv3
+              - sslv2
+              - tlsv1.2
+              - tlsv1.1
+              - tlsv1.0
+              - sslv3
+              - sslv2
+              - tlsv1.2
+              - tlsv1.1
+              - tlsv1.0
+              - sslv3
+              - sslv2
+              - tlsv1.2
+              - tlsv1.1
+              - tlsv1.0
+              - sslv3
+              - sslv2
+              - tlsv1.3
+              - tlsv1.2
+              - tlsv1.1
+              - tlsv1.0
+              - sslv3
+              - sslv2
+              - tlsv1.3
+              - tlsv1.2
+              - tlsv1.1
+              - tlsv1.0
+              - sslv3
+              - sslv2
+              - tlsv1.3
+              - tlsv1.2
+              - tlsv1.1
+              - tlsv1.0
+              - sslv3
+              - sslv2
+              - tlsv1.3
+              - tlsv1.2
+              - tlsv1.1
+              - tlsv1.0
+              - sslv3
+              - sslv2
             workflow-max-sessions: <value of integer>
-            workspace-mode: <value in [disabled, normal, workflow]>
+            workspace-mode: <value in [disabled, normal, workflow, ...]>
+            clone-name-option: <value in [default, keep]>
+            fgfm-ca-cert: <value of string>
+            mc-policy-disabled-adoms:
+              -
+                  adom-name: <value of string>
+            policy-object-icon: <value in [disable, enable]>
+            private-data-encryption: <value in [disable, enable]>
+            per-policy-lock: <value in [disable, enable]>
+            multiple-steps-upgrade-in-autolink: <value in [disable, enable]>
+            object-revision-db-max: <value of integer>
+            object-revision-mandatory-note: <value in [disable, enable]>
+            object-revision-object-max: <value of integer>
+            object-revision-status: <value in [disable, enable]>
 
 '''
 
@@ -943,14 +1535,44 @@ def main():
             'options': {
                 'admin-lockout-duration': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'admin-lockout-threshold': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'adom-mode': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'normal',
                         'advanced'
@@ -959,6 +1581,16 @@ def main():
                 },
                 'adom-rev-auto-delete': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'by-revisions',
@@ -968,18 +1600,58 @@ def main():
                 },
                 'adom-rev-max-backup-revisions': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'adom-rev-max-days': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'adom-rev-max-revisions': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'adom-select': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -988,6 +1660,16 @@ def main():
                 },
                 'adom-status': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -996,6 +1678,16 @@ def main():
                 },
                 'clt-cert-req': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable',
@@ -1005,6 +1697,16 @@ def main():
                 },
                 'console-output': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'standard',
                         'more'
@@ -1013,6 +1715,16 @@ def main():
                 },
                 'country-flag': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -1021,6 +1733,16 @@ def main():
                 },
                 'create-revision': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -1029,6 +1751,16 @@ def main():
                 },
                 'daylightsavetime': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -1037,10 +1769,30 @@ def main():
                 },
                 'default-disk-quota': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': False,
+                        '6.2.3': False,
+                        '6.2.5': False,
+                        '6.4.0': False,
+                        '6.4.2': False,
+                        '6.4.5': False,
+                        '7.0.0': False
+                    },
                     'type': 'int'
                 },
                 'detect-unregistered-log-device': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -1049,6 +1801,16 @@ def main():
                 },
                 'device-view-mode': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'regular',
                         'tree'
@@ -1057,6 +1819,16 @@ def main():
                 },
                 'dh-params': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         '1024',
                         '1536',
@@ -1070,13 +1842,90 @@ def main():
                 },
                 'disable-module': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'list',
                     'choices': [
-                        'fortiview-noc'
+                        'fortiview-noc',
+                        'fortiview-noc',
+                        'none',
+                        'fortiview-noc',
+                        'fortirecorder',
+                        'siem',
+                        'soc',
+                        'ai',
+                        'fortiview-noc',
+                        'fortirecorder',
+                        'siem',
+                        'soc',
+                        'ai',
+                        'fortiview-noc',
+                        'fortirecorder',
+                        'siem',
+                        'soc',
+                        'ai',
+                        'fortiview-noc',
+                        'fortiview-noc',
+                        'fortiview-noc',
+                        'fortiview-noc',
+                        'none',
+                        'fortiview-noc',
+                        'fortirecorder',
+                        'siem',
+                        'soc',
+                        'ai',
+                        'fortiview-noc',
+                        'fortirecorder',
+                        'siem',
+                        'soc',
+                        'ai',
+                        'fortiview-noc',
+                        'fortirecorder',
+                        'siem',
+                        'soc',
+                        'ai',
+                        'fortiview-noc',
+                        'fortiview-noc',
+                        'fortiview-noc',
+                        'fortiview-noc',
+                        'none',
+                        'fortiview-noc',
+                        'fortirecorder',
+                        'siem',
+                        'soc',
+                        'ai',
+                        'fortiview-noc',
+                        'fortirecorder',
+                        'siem',
+                        'soc',
+                        'ai',
+                        'fortiview-noc',
+                        'fortirecorder',
+                        'siem',
+                        'soc',
+                        'ai'
                     ]
                 },
                 'enc-algorithm': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'low',
                         'medium',
@@ -1086,6 +1935,16 @@ def main():
                 },
                 'faz-status': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -1094,20 +1953,51 @@ def main():
                 },
                 'fgfm-local-cert': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'fgfm-ssl-protocol': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'sslv3',
                         'tlsv1.0',
                         'tlsv1.1',
-                        'tlsv1.2'
+                        'tlsv1.2',
+                        'tlsv1.3'
                     ],
                     'type': 'str'
                 },
                 'ha-member-auto-grouping': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -1116,18 +2006,58 @@ def main():
                 },
                 'hitcount_concurrent': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': False,
+                        '7.0.0': False
+                    },
                     'type': 'int'
                 },
                 'hitcount_interval': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': False,
+                        '7.0.0': False
+                    },
                     'type': 'int'
                 },
                 'hostname': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'import-ignore-addr-cmt': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -1136,6 +2066,16 @@ def main():
                 },
                 'language': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'english',
                         'simch',
@@ -1148,18 +2088,58 @@ def main():
                 },
                 'latitude': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'ldap-cache-timeout': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'ldapconntimeout': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'lock-preempt': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -1168,6 +2148,16 @@ def main():
                 },
                 'log-checksum': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'none',
                         'md5',
@@ -1177,32 +2167,93 @@ def main():
                 },
                 'log-forward-cache-size': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'longitude': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'max-log-forward': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'max-running-reports': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'oftp-ssl-protocol': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'sslv3',
                         'tlsv1.0',
                         'tlsv1.1',
-                        'tlsv1.2'
+                        'tlsv1.2',
+                        'tlsv1.3'
                     ],
                     'type': 'str'
                 },
                 'partial-install': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -1211,6 +2262,16 @@ def main():
                 },
                 'partial-install-force': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -1219,6 +2280,16 @@ def main():
                 },
                 'partial-install-rev': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -1227,6 +2298,16 @@ def main():
                 },
                 'perform-improve-by-ha': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -1235,6 +2316,16 @@ def main():
                 },
                 'policy-hit-count': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': False,
+                        '7.0.0': False
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -1243,6 +2334,16 @@ def main():
                 },
                 'policy-object-in-dual-pane': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -1251,6 +2352,16 @@ def main():
                 },
                 'pre-login-banner': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -1259,14 +2370,44 @@ def main():
                 },
                 'pre-login-banner-message': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'remoteauthtimeout': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'search-all-adoms': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -1275,6 +2416,16 @@ def main():
                 },
                 'ssl-low-encryption': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -1283,8 +2434,102 @@ def main():
                 },
                 'ssl-protocol': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'list',
                     'choices': [
+                        'tlsv1.2',
+                        'tlsv1.1',
+                        'tlsv1.0',
+                        'sslv3',
+                        'tlsv1.3',
+                        'tlsv1.2',
+                        'tlsv1.1',
+                        'tlsv1.0',
+                        'sslv3',
+                        'tlsv1.3',
+                        'tlsv1.2',
+                        'tlsv1.1',
+                        'tlsv1.0',
+                        'sslv3',
+                        'tlsv1.3',
+                        'tlsv1.2',
+                        'tlsv1.1',
+                        'tlsv1.0',
+                        'sslv3',
+                        'tlsv1.3',
+                        'tlsv1.2',
+                        'tlsv1.1',
+                        'tlsv1.0',
+                        'sslv3',
+                        'tlsv1.2',
+                        'tlsv1.1',
+                        'tlsv1.0',
+                        'sslv3',
+                        'tlsv1.2',
+                        'tlsv1.1',
+                        'tlsv1.0',
+                        'sslv3',
+                        'tlsv1.2',
+                        'tlsv1.1',
+                        'tlsv1.0',
+                        'sslv3',
+                        'tlsv1.3',
+                        'tlsv1.2',
+                        'tlsv1.1',
+                        'tlsv1.0',
+                        'sslv3',
+                        'tlsv1.3',
+                        'tlsv1.2',
+                        'tlsv1.1',
+                        'tlsv1.0',
+                        'sslv3',
+                        'tlsv1.3',
+                        'tlsv1.2',
+                        'tlsv1.1',
+                        'tlsv1.0',
+                        'sslv3',
+                        'tlsv1.3',
+                        'tlsv1.2',
+                        'tlsv1.1',
+                        'tlsv1.0',
+                        'sslv3',
+                        'tlsv1.2',
+                        'tlsv1.1',
+                        'tlsv1.0',
+                        'sslv3',
+                        'tlsv1.2',
+                        'tlsv1.1',
+                        'tlsv1.0',
+                        'sslv3',
+                        'tlsv1.2',
+                        'tlsv1.1',
+                        'tlsv1.0',
+                        'sslv3',
+                        'tlsv1.3',
+                        'tlsv1.2',
+                        'tlsv1.1',
+                        'tlsv1.0',
+                        'sslv3',
+                        'tlsv1.3',
+                        'tlsv1.2',
+                        'tlsv1.1',
+                        'tlsv1.0',
+                        'sslv3',
+                        'tlsv1.3',
+                        'tlsv1.2',
+                        'tlsv1.1',
+                        'tlsv1.0',
+                        'sslv3',
+                        'tlsv1.3',
                         'tlsv1.2',
                         'tlsv1.1',
                         'tlsv1.0',
@@ -1293,6 +2538,16 @@ def main():
                 },
                 'ssl-static-key-ciphers': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -1301,10 +2556,30 @@ def main():
                 },
                 'task-list-size': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'tftp': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -1313,6 +2588,16 @@ def main():
                 },
                 'timezone': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         '00',
                         '01',
@@ -1403,16 +2688,38 @@ def main():
                         '86',
                         '87',
                         '88',
-                        '89'
+                        '89',
+                        '90',
+                        '91'
                     ],
                     'type': 'str'
                 },
                 'tunnel-mtu': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'usg': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -1421,6 +2728,16 @@ def main():
                 },
                 'vdom-mirror': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -1429,8 +2746,120 @@ def main():
                 },
                 'webservice-proto': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'list',
                     'choices': [
+                        'tlsv1.2',
+                        'tlsv1.1',
+                        'tlsv1.0',
+                        'sslv3',
+                        'sslv2',
+                        'tlsv1.3',
+                        'tlsv1.2',
+                        'tlsv1.1',
+                        'tlsv1.0',
+                        'sslv3',
+                        'sslv2',
+                        'tlsv1.3',
+                        'tlsv1.2',
+                        'tlsv1.1',
+                        'tlsv1.0',
+                        'sslv3',
+                        'sslv2',
+                        'tlsv1.3',
+                        'tlsv1.2',
+                        'tlsv1.1',
+                        'tlsv1.0',
+                        'sslv3',
+                        'sslv2',
+                        'tlsv1.3',
+                        'tlsv1.2',
+                        'tlsv1.1',
+                        'tlsv1.0',
+                        'sslv3',
+                        'sslv2',
+                        'tlsv1.2',
+                        'tlsv1.1',
+                        'tlsv1.0',
+                        'sslv3',
+                        'sslv2',
+                        'tlsv1.2',
+                        'tlsv1.1',
+                        'tlsv1.0',
+                        'sslv3',
+                        'sslv2',
+                        'tlsv1.2',
+                        'tlsv1.1',
+                        'tlsv1.0',
+                        'sslv3',
+                        'sslv2',
+                        'tlsv1.3',
+                        'tlsv1.2',
+                        'tlsv1.1',
+                        'tlsv1.0',
+                        'sslv3',
+                        'sslv2',
+                        'tlsv1.3',
+                        'tlsv1.2',
+                        'tlsv1.1',
+                        'tlsv1.0',
+                        'sslv3',
+                        'sslv2',
+                        'tlsv1.3',
+                        'tlsv1.2',
+                        'tlsv1.1',
+                        'tlsv1.0',
+                        'sslv3',
+                        'sslv2',
+                        'tlsv1.3',
+                        'tlsv1.2',
+                        'tlsv1.1',
+                        'tlsv1.0',
+                        'sslv3',
+                        'sslv2',
+                        'tlsv1.2',
+                        'tlsv1.1',
+                        'tlsv1.0',
+                        'sslv3',
+                        'sslv2',
+                        'tlsv1.2',
+                        'tlsv1.1',
+                        'tlsv1.0',
+                        'sslv3',
+                        'sslv2',
+                        'tlsv1.2',
+                        'tlsv1.1',
+                        'tlsv1.0',
+                        'sslv3',
+                        'sslv2',
+                        'tlsv1.3',
+                        'tlsv1.2',
+                        'tlsv1.1',
+                        'tlsv1.0',
+                        'sslv3',
+                        'sslv2',
+                        'tlsv1.3',
+                        'tlsv1.2',
+                        'tlsv1.1',
+                        'tlsv1.0',
+                        'sslv3',
+                        'sslv2',
+                        'tlsv1.3',
+                        'tlsv1.2',
+                        'tlsv1.1',
+                        'tlsv1.0',
+                        'sslv3',
+                        'sslv2',
+                        'tlsv1.3',
                         'tlsv1.2',
                         'tlsv1.1',
                         'tlsv1.0',
@@ -1440,14 +2869,182 @@ def main():
                 },
                 'workflow-max-sessions': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'workspace-mode': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disabled',
                         'normal',
-                        'workflow'
+                        'workflow',
+                        'per-adom'
+                    ],
+                    'type': 'str'
+                },
+                'clone-name-option': {
+                    'required': False,
+                    'revision': {
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'choices': [
+                        'default',
+                        'keep'
+                    ],
+                    'type': 'str'
+                },
+                'fgfm-ca-cert': {
+                    'required': False,
+                    'revision': {
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'type': 'str'
+                },
+                'mc-policy-disabled-adoms': {
+                    'required': False,
+                    'revision': {
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'type': 'list',
+                    'options': {
+                        'adom-name': {
+                            'required': False,
+                            'revision': {
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'str'
+                        }
+                    }
+                },
+                'policy-object-icon': {
+                    'required': False,
+                    'revision': {
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'choices': [
+                        'disable',
+                        'enable'
+                    ],
+                    'type': 'str'
+                },
+                'private-data-encryption': {
+                    'required': False,
+                    'revision': {
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'choices': [
+                        'disable',
+                        'enable'
+                    ],
+                    'type': 'str'
+                },
+                'per-policy-lock': {
+                    'required': False,
+                    'revision': {
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'choices': [
+                        'disable',
+                        'enable'
+                    ],
+                    'type': 'str'
+                },
+                'multiple-steps-upgrade-in-autolink': {
+                    'required': False,
+                    'revision': {
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'choices': [
+                        'disable',
+                        'enable'
+                    ],
+                    'type': 'str'
+                },
+                'object-revision-db-max': {
+                    'required': False,
+                    'revision': {
+                        '7.0.0': True
+                    },
+                    'type': 'int'
+                },
+                'object-revision-mandatory-note': {
+                    'required': False,
+                    'revision': {
+                        '7.0.0': True
+                    },
+                    'choices': [
+                        'disable',
+                        'enable'
+                    ],
+                    'type': 'str'
+                },
+                'object-revision-object-max': {
+                    'required': False,
+                    'revision': {
+                        '7.0.0': True
+                    },
+                    'type': 'int'
+                },
+                'object-revision-status': {
+                    'required': False,
+                    'revision': {
+                        '7.0.0': True
+                    },
+                    'choices': [
+                        'disable',
+                        'enable'
                     ],
                     'type': 'str'
                 }

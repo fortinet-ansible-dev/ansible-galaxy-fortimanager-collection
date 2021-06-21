@@ -24,7 +24,7 @@ ANSIBLE_METADATA = {'status': ['preview'],
 DOCUMENTATION = '''
 ---
 module: fmgr_pkg_footer_policy6
-short_description: no description
+short_description: Configure IPv6 policies.
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
@@ -691,6 +691,45 @@ options:
             webfilter-profile:
                 type: str
                 description: no description
+            waf-profile:
+                type: str
+                description: no description
+            webcache:
+                type: str
+                description: no description
+                choices:
+                    - 'disable'
+                    - 'enable'
+            webcache-https:
+                type: str
+                description: no description
+                choices:
+                    - 'disable'
+                    - 'enable'
+            webproxy-forward-server:
+                type: str
+                description: no description
+            webproxy-profile:
+                type: str
+                description: no description
+            fsso-groups:
+                type: str
+                description: no description
+            decrypted-traffic-mirror:
+                type: str
+                description: no description
+            file-filter-profile:
+                type: str
+                description: no description
+            cgn-log-server-grp:
+                type: str
+                description: no description
+            policy-offload:
+                type: str
+                description: no description
+                choices:
+                    - 'disable'
+                    - 'enable'
 
 '''
 
@@ -704,7 +743,7 @@ EXAMPLES = '''
       ansible_httpapi_validate_certs: False
       ansible_httpapi_port: 443
    tasks:
-    - name: no description
+    - name: Configure IPv6 policies.
       fmgr_pkg_footer_policy6:
          bypass_validation: False
          workspace_locking_adom: <value in [global, custom adom including root]>
@@ -867,6 +906,16 @@ EXAMPLES = '''
             voip-profile: <value of string>
             vpntunnel: <value of string>
             webfilter-profile: <value of string>
+            waf-profile: <value of string>
+            webcache: <value in [disable, enable]>
+            webcache-https: <value in [disable, enable]>
+            webproxy-forward-server: <value of string>
+            webproxy-profile: <value of string>
+            fsso-groups: <value of string>
+            decrypted-traffic-mirror: <value of string>
+            file-filter-profile: <value of string>
+            cgn-log-server-grp: <value of string>
+            policy-offload: <value in [disable, enable]>
 
 '''
 
@@ -961,6 +1010,16 @@ def main():
             'options': {
                 'action': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'deny',
                         'accept',
@@ -971,6 +1030,16 @@ def main():
                 },
                 'anti-replay': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -979,18 +1048,58 @@ def main():
                 },
                 'app-category': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'app-group': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'application': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'application-charts': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'list',
                     'choices': [
                         'top10-app',
@@ -1000,10 +1109,30 @@ def main():
                 },
                 'application-list': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'auto-asic-offload': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -1012,14 +1141,44 @@ def main():
                 },
                 'av-profile': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'casi-profile': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'cifs-profile': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'comments': {
@@ -1028,14 +1187,44 @@ def main():
                 },
                 'custom-log-fields': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'deep-inspection-options': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'device-detection-portal': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -1044,10 +1233,30 @@ def main():
                 },
                 'devices': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': False,
+                        '6.2.3': False,
+                        '6.2.5': False,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'diffserv-forward': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -1056,6 +1265,16 @@ def main():
                 },
                 'diffserv-reverse': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -1064,22 +1283,72 @@ def main():
                 },
                 'diffservcode-forward': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'diffservcode-rev': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'dlp-sensor': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'dnsfilter-profile': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'dscp-match': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -1088,6 +1357,16 @@ def main():
                 },
                 'dscp-negate': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -1096,10 +1375,30 @@ def main():
                 },
                 'dscp-value': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'dsri': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -1108,10 +1407,30 @@ def main():
                 },
                 'dstaddr': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'dstaddr-negate': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -1120,10 +1439,30 @@ def main():
                 },
                 'dstintf': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'dynamic-profile': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -1132,6 +1471,16 @@ def main():
                 },
                 'dynamic-profile-access': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'list',
                     'choices': [
                         'imap',
@@ -1150,10 +1499,30 @@ def main():
                 },
                 'dynamic-profile-group': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'email-collection-portal': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -1162,10 +1531,30 @@ def main():
                 },
                 'emailfilter-profile': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'firewall-session-dirty': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'check-all',
                         'check-new'
@@ -1174,6 +1563,16 @@ def main():
                 },
                 'fixedport': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -1182,6 +1581,16 @@ def main():
                 },
                 'fsae': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -1190,14 +1599,44 @@ def main():
                 },
                 'global-label': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'groups': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'http-policy-redirect': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -1206,10 +1645,30 @@ def main():
                 },
                 'icap-profile': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'identity-based': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -1218,10 +1677,30 @@ def main():
                 },
                 'identity-based-policy6': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': False,
+                        '6.2.3': False,
+                        '6.2.5': False,
+                        '6.4.0': False,
+                        '6.4.2': False,
+                        '6.4.5': False,
+                        '7.0.0': False
+                    },
                     'type': 'list',
                     'options': {
                         'action': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': False,
+                                '6.2.3': False,
+                                '6.2.5': False,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
                             'choices': [
                                 'deny',
                                 'accept'
@@ -1230,26 +1709,86 @@ def main():
                         },
                         'application-list': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': False,
+                                '6.2.3': False,
+                                '6.2.5': False,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
                             'type': 'str'
                         },
                         'av-profile': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': False,
+                                '6.2.3': False,
+                                '6.2.5': False,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
                             'type': 'str'
                         },
                         'deep-inspection-options': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': False,
+                                '6.2.3': False,
+                                '6.2.5': False,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
                             'type': 'str'
                         },
                         'devices': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': False,
+                                '6.2.3': False,
+                                '6.2.5': False,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
                             'type': 'str'
                         },
                         'dlp-sensor': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': False,
+                                '6.2.3': False,
+                                '6.2.5': False,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
                             'type': 'str'
                         },
                         'endpoint-compliance': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': False,
+                                '6.2.3': False,
+                                '6.2.5': False,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
                             'choices': [
                                 'disable',
                                 'enable'
@@ -1258,22 +1797,72 @@ def main():
                         },
                         'groups': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': False,
+                                '6.2.3': False,
+                                '6.2.5': False,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
                             'type': 'str'
                         },
                         'icap-profile': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': False,
+                                '6.2.3': False,
+                                '6.2.5': False,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
                             'type': 'str'
                         },
                         'id': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': False,
+                                '6.2.3': False,
+                                '6.2.5': False,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
                             'type': 'int'
                         },
                         'ips-sensor': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': False,
+                                '6.2.3': False,
+                                '6.2.5': False,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
                             'type': 'str'
                         },
                         'logtraffic': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': False,
+                                '6.2.3': False,
+                                '6.2.5': False,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
                             'choices': [
                                 'disable',
                                 'enable',
@@ -1284,22 +1873,72 @@ def main():
                         },
                         'mms-profile': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': False,
+                                '6.2.3': False,
+                                '6.2.5': False,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
                             'type': 'str'
                         },
                         'per-ip-shaper': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': False,
+                                '6.2.3': False,
+                                '6.2.5': False,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
                             'type': 'str'
                         },
                         'profile-group': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': False,
+                                '6.2.3': False,
+                                '6.2.5': False,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
                             'type': 'str'
                         },
                         'profile-protocol-options': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': False,
+                                '6.2.3': False,
+                                '6.2.5': False,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
                             'type': 'str'
                         },
                         'profile-type': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': False,
+                                '6.2.3': False,
+                                '6.2.5': False,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
                             'choices': [
                                 'single',
                                 'group'
@@ -1308,14 +1947,44 @@ def main():
                         },
                         'replacemsg-group': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': False,
+                                '6.2.3': False,
+                                '6.2.5': False,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
                             'type': 'str'
                         },
                         'schedule': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': False,
+                                '6.2.3': False,
+                                '6.2.5': False,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
                             'type': 'str'
                         },
                         'send-deny-packet': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': False,
+                                '6.2.3': False,
+                                '6.2.5': False,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
                             'choices': [
                                 'disable',
                                 'enable'
@@ -1324,10 +1993,30 @@ def main():
                         },
                         'service': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': False,
+                                '6.2.3': False,
+                                '6.2.5': False,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
                             'type': 'str'
                         },
                         'service-negate': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': False,
+                                '6.2.3': False,
+                                '6.2.5': False,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
                             'choices': [
                                 'disable',
                                 'enable'
@@ -1336,26 +2025,86 @@ def main():
                         },
                         'spamfilter-profile': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': False,
+                                '6.2.3': False,
+                                '6.2.5': False,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
                             'type': 'str'
                         },
                         'sslvpn-portal': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': False,
+                                '6.2.3': False,
+                                '6.2.5': False,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
                             'type': 'str'
                         },
                         'sslvpn-realm': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': False,
+                                '6.2.3': False,
+                                '6.2.5': False,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
                             'type': 'str'
                         },
                         'traffic-shaper': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': False,
+                                '6.2.3': False,
+                                '6.2.5': False,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
                             'type': 'str'
                         },
                         'traffic-shaper-reverse': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': False,
+                                '6.2.3': False,
+                                '6.2.5': False,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
                             'type': 'str'
                         },
                         'utm-status': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': False,
+                                '6.2.3': False,
+                                '6.2.5': False,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
                             'choices': [
                                 'disable',
                                 'enable'
@@ -1364,16 +2113,46 @@ def main():
                         },
                         'voip-profile': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': False,
+                                '6.2.3': False,
+                                '6.2.5': False,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
                             'type': 'str'
                         },
                         'webfilter-profile': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': False,
+                                '6.2.3': False,
+                                '6.2.5': False,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
                             'type': 'str'
                         }
                     }
                 },
                 'identity-from': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'auth',
                         'device'
@@ -1382,6 +2161,16 @@ def main():
                 },
                 'inbound': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -1390,6 +2179,16 @@ def main():
                 },
                 'inspection-mode': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'proxy',
                         'flow'
@@ -1398,6 +2197,16 @@ def main():
                 },
                 'ippool': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -1406,14 +2215,44 @@ def main():
                 },
                 'ips-sensor': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'label': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'logtraffic': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable',
@@ -1424,6 +2263,16 @@ def main():
                 },
                 'logtraffic-start': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -1432,14 +2281,44 @@ def main():
                 },
                 'mms-profile': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'name': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'nat': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -1448,6 +2327,16 @@ def main():
                 },
                 'natinbound': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -1456,6 +2345,16 @@ def main():
                 },
                 'natoutbound': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -1464,6 +2363,16 @@ def main():
                 },
                 'np-accelation': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -1472,6 +2381,16 @@ def main():
                 },
                 'np-acceleration': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -1480,6 +2399,16 @@ def main():
                 },
                 'outbound': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -1488,26 +2417,86 @@ def main():
                 },
                 'per-ip-shaper': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'policyid': {
                     'required': True,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'poolname': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'profile-group': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'profile-protocol-options': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'profile-type': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'single',
                         'group'
@@ -1516,14 +2505,44 @@ def main():
                 },
                 'replacemsg-group': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'replacemsg-override-group': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'rsso': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -1532,10 +2551,30 @@ def main():
                 },
                 'schedule': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'send-deny-packet': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -1544,10 +2583,30 @@ def main():
                 },
                 'service': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'service-negate': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -1556,18 +2615,58 @@ def main():
                 },
                 'session-ttl': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'spamfilter-profile': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'srcaddr': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'srcaddr-negate': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -1576,14 +2675,44 @@ def main():
                 },
                 'srcintf': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'ssh-filter-profile': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'ssh-policy-redirect': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -1592,6 +2721,16 @@ def main():
                 },
                 'ssl-mirror': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -1600,14 +2739,44 @@ def main():
                 },
                 'ssl-mirror-intf': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'ssl-ssh-profile': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'sslvpn-auth': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'any',
                         'local',
@@ -1619,6 +2788,16 @@ def main():
                 },
                 'sslvpn-ccert': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -1627,6 +2806,16 @@ def main():
                 },
                 'sslvpn-cipher': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'any',
                         'high',
@@ -1636,6 +2825,16 @@ def main():
                 },
                 'status': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -1644,18 +2843,58 @@ def main():
                 },
                 'tags': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'tcp-mss-receiver': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'tcp-mss-sender': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'tcp-session-without-syn': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'all',
                         'data-only',
@@ -1665,6 +2904,16 @@ def main():
                 },
                 'timeout-send-rst': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -1673,14 +2922,44 @@ def main():
                 },
                 'tos': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'tos-mask': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'tos-negate': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -1689,22 +2968,72 @@ def main():
                 },
                 'traffic-shaper': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'traffic-shaper-reverse': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'url-category': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'users': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'utm-inspection-mode': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'proxy',
                         'flow'
@@ -1713,6 +3042,16 @@ def main():
                 },
                 'utm-status': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -1721,30 +3060,224 @@ def main():
                 },
                 'uuid': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'vlan-cos-fwd': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'vlan-cos-rev': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'vlan-filter': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'voip-profile': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'vpntunnel': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'webfilter-profile': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'type': 'str'
+                },
+                'waf-profile': {
+                    'required': False,
+                    'revision': {
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'type': 'str'
+                },
+                'webcache': {
+                    'required': False,
+                    'revision': {
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'choices': [
+                        'disable',
+                        'enable'
+                    ],
+                    'type': 'str'
+                },
+                'webcache-https': {
+                    'required': False,
+                    'revision': {
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'choices': [
+                        'disable',
+                        'enable'
+                    ],
+                    'type': 'str'
+                },
+                'webproxy-forward-server': {
+                    'required': False,
+                    'revision': {
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'type': 'str'
+                },
+                'webproxy-profile': {
+                    'required': False,
+                    'revision': {
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'type': 'str'
+                },
+                'fsso-groups': {
+                    'required': False,
+                    'revision': {
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'type': 'str'
+                },
+                'decrypted-traffic-mirror': {
+                    'required': False,
+                    'revision': {
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'type': 'str'
+                },
+                'file-filter-profile': {
+                    'required': False,
+                    'revision': {
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'type': 'str'
+                },
+                'cgn-log-server-grp': {
+                    'required': False,
+                    'revision': {
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'type': 'str'
+                },
+                'policy-offload': {
+                    'required': False,
+                    'revision': {
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'choices': [
+                        'disable',
+                        'enable'
+                    ],
                     'type': 'str'
                 }
             }

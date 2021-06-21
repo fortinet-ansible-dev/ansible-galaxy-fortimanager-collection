@@ -138,6 +138,12 @@ options:
                 choices:
                     - 'block'
                     - 'bypass'
+            proxy-after-tcp-handshake:
+                type: str
+                description: 'Proxy traffic after the TCP 3-way handshake has been established (not before).'
+                choices:
+                    - 'disable'
+                    - 'enable'
 
 '''
 
@@ -168,6 +174,7 @@ EXAMPLES = '''
             ssh-tun-policy-check: <value in [disable, enable]>
             status: <value in [disable, deep-inspection]>
             unsupported-version: <value in [block, bypass]>
+            proxy-after-tcp-handshake: <value in [disable, enable]>
 
 '''
 
@@ -260,6 +267,16 @@ def main():
             'options': {
                 'inspect-all': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'deep-inspection'
@@ -268,10 +285,30 @@ def main():
                 },
                 'ports': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'ssh-algorithm': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'compatible',
                         'high-encryption'
@@ -280,6 +317,16 @@ def main():
                 },
                 'ssh-policy-check': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': False,
+                        '6.2.3': False,
+                        '6.2.5': False,
+                        '6.4.0': False,
+                        '6.4.2': False,
+                        '6.4.5': False,
+                        '7.0.0': False
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -288,6 +335,16 @@ def main():
                 },
                 'ssh-tun-policy-check': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -296,6 +353,16 @@ def main():
                 },
                 'status': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'deep-inspection'
@@ -304,9 +371,33 @@ def main():
                 },
                 'unsupported-version': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'block',
                         'bypass'
+                    ],
+                    'type': 'str'
+                },
+                'proxy-after-tcp-handshake': {
+                    'required': False,
+                    'revision': {
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'choices': [
+                        'disable',
+                        'enable'
                     ],
                     'type': 'str'
                 }

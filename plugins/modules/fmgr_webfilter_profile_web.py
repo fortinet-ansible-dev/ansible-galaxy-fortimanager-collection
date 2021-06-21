@@ -152,6 +152,22 @@ options:
                     - 'strict'
                     - 'none'
                     - 'moderate'
+            allowlist:
+                description: no description
+                type: list
+                choices:
+                 - exempt-av
+                 - exempt-webcontent
+                 - exempt-activex-java-cookie
+                 - exempt-dlp
+                 - exempt-rangeblock
+                 - extended-log-others
+            blocklist:
+                type: str
+                description: 'Enable/disable automatic addition of URLs detected by FortiSandbox to blocklist.'
+                choices:
+                    - 'disable'
+                    - 'enable'
 
 '''
 
@@ -196,6 +212,14 @@ EXAMPLES = '''
               - exempt-rangeblock
               - extended-log-others
             youtube-restrict: <value in [strict, none, moderate]>
+            allowlist:
+              - exempt-av
+              - exempt-webcontent
+              - exempt-activex-java-cookie
+              - exempt-dlp
+              - exempt-rangeblock
+              - extended-log-others
+            blocklist: <value in [disable, enable]>
 
 '''
 
@@ -288,6 +312,16 @@ def main():
             'options': {
                 'blacklist': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': False
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -296,22 +330,72 @@ def main():
                 },
                 'bword-table': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'bword-threshold': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'content-header-list': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'keyword-match': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'log-search': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -320,6 +404,16 @@ def main():
                 },
                 'safe-search': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'list',
                     'choices': [
                         'google',
@@ -331,10 +425,30 @@ def main():
                 },
                 'urlfilter-table': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'whitelist': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': False
+                    },
                     'type': 'list',
                     'choices': [
                         'exempt-av',
@@ -347,10 +461,46 @@ def main():
                 },
                 'youtube-restrict': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': False
+                    },
                     'choices': [
                         'strict',
                         'none',
                         'moderate'
+                    ],
+                    'type': 'str'
+                },
+                'allowlist': {
+                    'required': False,
+                    'revision': {
+                        '7.0.0': True
+                    },
+                    'type': 'list',
+                    'choices': [
+                        'exempt-av',
+                        'exempt-webcontent',
+                        'exempt-activex-java-cookie',
+                        'exempt-dlp',
+                        'exempt-rangeblock',
+                        'extended-log-others'
+                    ]
+                },
+                'blocklist': {
+                    'required': False,
+                    'revision': {
+                        '7.0.0': True
+                    },
+                    'choices': [
+                        'disable',
+                        'enable'
                     ],
                     'type': 'str'
                 }

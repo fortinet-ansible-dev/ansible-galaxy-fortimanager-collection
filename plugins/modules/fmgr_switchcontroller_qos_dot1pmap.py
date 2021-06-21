@@ -197,6 +197,12 @@ options:
                     - 'queue-5'
                     - 'queue-6'
                     - 'queue-7'
+            egress-pri-tagging:
+                type: str
+                description: 'Enable/disable egress priority-tag frame.'
+                choices:
+                    - 'disable'
+                    - 'enable'
 
 '''
 
@@ -230,6 +236,7 @@ EXAMPLES = '''
             priority-5: <value in [queue-0, queue-1, queue-2, ...]>
             priority-6: <value in [queue-0, queue-1, queue-2, ...]>
             priority-7: <value in [queue-0, queue-1, queue-2, ...]>
+            egress-pri-tagging: <value in [disable, enable]>
 
 '''
 
@@ -326,14 +333,44 @@ def main():
             'options': {
                 'description': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'name': {
                     'required': True,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'priority-0': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'queue-0',
                         'queue-1',
@@ -348,6 +385,16 @@ def main():
                 },
                 'priority-1': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'queue-0',
                         'queue-1',
@@ -362,6 +409,16 @@ def main():
                 },
                 'priority-2': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'queue-0',
                         'queue-1',
@@ -376,6 +433,16 @@ def main():
                 },
                 'priority-3': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'queue-0',
                         'queue-1',
@@ -390,6 +457,16 @@ def main():
                 },
                 'priority-4': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'queue-0',
                         'queue-1',
@@ -404,6 +481,16 @@ def main():
                 },
                 'priority-5': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'queue-0',
                         'queue-1',
@@ -418,6 +505,16 @@ def main():
                 },
                 'priority-6': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'queue-0',
                         'queue-1',
@@ -432,6 +529,16 @@ def main():
                 },
                 'priority-7': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'queue-0',
                         'queue-1',
@@ -441,6 +548,22 @@ def main():
                         'queue-5',
                         'queue-6',
                         'queue-7'
+                    ],
+                    'type': 'str'
+                },
+                'egress-pri-tagging': {
+                    'required': False,
+                    'revision': {
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'choices': [
+                        'disable',
+                        'enable'
                     ],
                     'type': 'str'
                 }

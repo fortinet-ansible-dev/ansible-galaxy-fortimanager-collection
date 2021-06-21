@@ -155,6 +155,84 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
+            icap-headers:
+                description: no description
+                type: list
+                suboptions:
+                    base64-encoding:
+                        type: str
+                        description: 'Enable/disable use of base64 encoding of HTTP content.'
+                        choices:
+                            - 'disable'
+                            - 'enable'
+                    content:
+                        type: str
+                        description: 'HTTP header content.'
+                    id:
+                        type: int
+                        description: 'HTTP forwarded header ID.'
+                    name:
+                        type: str
+                        description: 'HTTP forwarded header name.'
+            preview:
+                type: str
+                description: 'Enable/disable preview of data to ICAP server.'
+                choices:
+                    - 'disable'
+                    - 'enable'
+            preview-data-length:
+                type: int
+                description: 'Preview data length to be sent to ICAP server.'
+            response-req-hdr:
+                type: str
+                description: 'Enable/disable addition of req-hdr for ICAP response modification (respmod) processing.'
+                choices:
+                    - 'disable'
+                    - 'enable'
+            respmod-default-action:
+                type: str
+                description: 'Default action to ICAP response modification (respmod) processing.'
+                choices:
+                    - 'bypass'
+                    - 'forward'
+            respmod-forward-rules:
+                description: no description
+                type: list
+                suboptions:
+                    action:
+                        type: str
+                        description: 'Action to be taken for ICAP server.'
+                        choices:
+                            - 'bypass'
+                            - 'forward'
+                    header-group:
+                        description: no description
+                        type: list
+                        suboptions:
+                            case-sensitivity:
+                                type: str
+                                description: 'Enable/disable case sensitivity when matching header.'
+                                choices:
+                                    - 'disable'
+                                    - 'enable'
+                            header:
+                                type: str
+                                description: 'HTTP header regular expression.'
+                            header-name:
+                                type: str
+                                description: 'HTTP header.'
+                            id:
+                                type: int
+                                description: 'ID.'
+                    host:
+                        type: str
+                        description: 'Address object for the host.'
+                    http-resp-status-code:
+                        description: no description
+                        type: int
+                    name:
+                        type: str
+                        description: 'Address name.'
 
 '''
 
@@ -198,6 +276,28 @@ EXAMPLES = '''
             response-path: <value of string>
             response-server: <value of string>
             streaming-content-bypass: <value in [disable, enable]>
+            icap-headers:
+              -
+                  base64-encoding: <value in [disable, enable]>
+                  content: <value of string>
+                  id: <value of integer>
+                  name: <value of string>
+            preview: <value in [disable, enable]>
+            preview-data-length: <value of integer>
+            response-req-hdr: <value in [disable, enable]>
+            respmod-default-action: <value in [bypass, forward]>
+            respmod-forward-rules:
+              -
+                  action: <value in [bypass, forward]>
+                  header-group:
+                    -
+                        case-sensitivity: <value in [disable, enable]>
+                        header: <value of string>
+                        header-name: <value of string>
+                        id: <value of integer>
+                  host: <value of string>
+                  http-resp-status-code: <value of integer>
+                  name: <value of string>
 
 '''
 
@@ -294,6 +394,16 @@ def main():
             'options': {
                 'methods': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'list',
                     'choices': [
                         'delete',
@@ -308,14 +418,44 @@ def main():
                 },
                 'name': {
                     'required': True,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'replacemsg-group': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'request': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -324,6 +464,16 @@ def main():
                 },
                 'request-failure': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'error',
                         'bypass'
@@ -332,14 +482,44 @@ def main():
                 },
                 'request-path': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'request-server': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'response': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -348,6 +528,16 @@ def main():
                 },
                 'response-failure': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'error',
                         'bypass'
@@ -356,19 +546,293 @@ def main():
                 },
                 'response-path': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'response-server': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'streaming-content-bypass': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
                     ],
                     'type': 'str'
+                },
+                'icap-headers': {
+                    'required': False,
+                    'revision': {
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'type': 'list',
+                    'options': {
+                        'base64-encoding': {
+                            'required': False,
+                            'revision': {
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'disable',
+                                'enable'
+                            ],
+                            'type': 'str'
+                        },
+                        'content': {
+                            'required': False,
+                            'revision': {
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'str'
+                        },
+                        'id': {
+                            'required': False,
+                            'revision': {
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'int'
+                        },
+                        'name': {
+                            'required': False,
+                            'revision': {
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'str'
+                        }
+                    }
+                },
+                'preview': {
+                    'required': False,
+                    'revision': {
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'choices': [
+                        'disable',
+                        'enable'
+                    ],
+                    'type': 'str'
+                },
+                'preview-data-length': {
+                    'required': False,
+                    'revision': {
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'type': 'int'
+                },
+                'response-req-hdr': {
+                    'required': False,
+                    'revision': {
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'choices': [
+                        'disable',
+                        'enable'
+                    ],
+                    'type': 'str'
+                },
+                'respmod-default-action': {
+                    'required': False,
+                    'revision': {
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'choices': [
+                        'bypass',
+                        'forward'
+                    ],
+                    'type': 'str'
+                },
+                'respmod-forward-rules': {
+                    'required': False,
+                    'revision': {
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'type': 'list',
+                    'options': {
+                        'action': {
+                            'required': False,
+                            'revision': {
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'bypass',
+                                'forward'
+                            ],
+                            'type': 'str'
+                        },
+                        'header-group': {
+                            'required': False,
+                            'revision': {
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'list',
+                            'options': {
+                                'case-sensitivity': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.4.0': True,
+                                        '6.4.2': True,
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'choices': [
+                                        'disable',
+                                        'enable'
+                                    ],
+                                    'type': 'str'
+                                },
+                                'header': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.4.0': True,
+                                        '6.4.2': True,
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'type': 'str'
+                                },
+                                'header-name': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.4.0': True,
+                                        '6.4.2': True,
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'type': 'str'
+                                },
+                                'id': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.4.0': True,
+                                        '6.4.2': True,
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'type': 'int'
+                                }
+                            }
+                        },
+                        'host': {
+                            'required': False,
+                            'revision': {
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'str'
+                        },
+                        'http-resp-status-code': {
+                            'required': False,
+                            'revision': {
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'int'
+                        },
+                        'name': {
+                            'required': False,
+                            'revision': {
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'str'
+                        }
+                    }
                 }
             }
 

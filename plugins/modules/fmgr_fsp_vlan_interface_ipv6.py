@@ -24,7 +24,7 @@ ANSIBLE_METADATA = {'status': ['preview'],
 DOCUMENTATION = '''
 ---
 module: fmgr_fsp_vlan_interface_ipv6
-short_description: no description
+short_description: IPv6 of interface.
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
@@ -164,6 +164,804 @@ options:
                  - telnet
                  - fgfm
                  - capwap
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - capwap
+                 - fabric
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - capwap
+                 - fabric
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - capwap
+                 - fabric
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - capwap
+                 - fabric
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - capwap
+                 - fabric
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - capwap
+                 - fabric
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - capwap
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - capwap
+                 - fabric
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - capwap
+                 - fabric
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - capwap
+                 - fabric
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - capwap
+                 - fabric
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - capwap
+                 - fabric
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - capwap
+                 - fabric
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - capwap
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - capwap
+                 - fabric
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - capwap
+                 - fabric
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - capwap
+                 - fabric
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - capwap
+                 - fabric
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - capwap
+                 - fabric
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - capwap
+                 - fabric
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - capwap
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - capwap
+                 - fabric
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - capwap
+                 - fabric
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - capwap
+                 - fabric
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - capwap
+                 - fabric
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - capwap
+                 - fabric
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - capwap
+                 - fabric
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - capwap
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - capwap
+                 - fabric
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - capwap
+                 - fabric
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - capwap
+                 - fabric
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - capwap
+                 - fabric
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - capwap
+                 - fabric
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - capwap
+                 - fabric
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - capwap
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - capwap
+                 - fabric
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - capwap
+                 - fabric
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - capwap
+                 - fabric
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - capwap
+                 - fabric
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - capwap
+                 - fabric
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - capwap
+                 - fabric
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - capwap
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - capwap
+                 - fabric
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - capwap
+                 - fabric
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - capwap
+                 - fabric
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - capwap
+                 - fabric
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - capwap
+                 - fabric
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - capwap
+                 - fabric
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - capwap
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - capwap
+                 - fabric
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - capwap
+                 - fabric
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - capwap
+                 - fabric
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - capwap
+                 - fabric
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - capwap
+                 - fabric
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - capwap
+                 - fabric
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - capwap
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - capwap
+                 - fabric
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - capwap
+                 - fabric
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - capwap
+                 - fabric
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - capwap
+                 - fabric
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - capwap
+                 - fabric
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - capwap
+                 - fabric
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - capwap
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - capwap
+                 - fabric
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - capwap
+                 - fabric
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - capwap
+                 - fabric
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - capwap
+                 - fabric
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - capwap
+                 - fabric
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - capwap
+                 - fabric
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - capwap
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - capwap
+                 - fabric
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - capwap
+                 - fabric
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - capwap
+                 - fabric
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - capwap
+                 - fabric
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - capwap
+                 - fabric
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - capwap
+                 - fabric
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - capwap
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - capwap
+                 - fabric
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - capwap
+                 - fabric
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - capwap
+                 - fabric
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - capwap
+                 - fabric
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - capwap
+                 - fabric
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - capwap
+                 - fabric
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - capwap
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - capwap
+                 - fabric
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - capwap
+                 - fabric
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - capwap
+                 - fabric
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - capwap
+                 - fabric
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - capwap
+                 - fabric
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - capwap
+                 - fabric
             ip6-default-life:
                 type: int
                 description: no description
@@ -253,6 +1051,152 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
+            ip6-delegated-prefix-list:
+                description: no description
+                type: list
+                suboptions:
+                    autonomous-flag:
+                        type: str
+                        description: no description
+                        choices:
+                            - 'disable'
+                            - 'enable'
+                    onlink-flag:
+                        type: str
+                        description: no description
+                        choices:
+                            - 'disable'
+                            - 'enable'
+                    prefix-id:
+                        type: int
+                        description: no description
+                    rdnss:
+                        description: no description
+                        type: str
+                    rdnss-service:
+                        type: str
+                        description: no description
+                        choices:
+                            - 'delegated'
+                            - 'default'
+                            - 'specify'
+                    subnet:
+                        type: str
+                        description: no description
+                    upstream-interface:
+                        type: str
+                        description: no description
+            ip6-extra-addr:
+                description: no description
+                type: list
+                suboptions:
+                    prefix:
+                        type: str
+                        description: no description
+            ip6-prefix-list:
+                description: no description
+                type: list
+                suboptions:
+                    autonomous-flag:
+                        type: str
+                        description: no description
+                        choices:
+                            - 'disable'
+                            - 'enable'
+                    dnssl:
+                        description: no description
+                        type: str
+                    onlink-flag:
+                        type: str
+                        description: no description
+                        choices:
+                            - 'disable'
+                            - 'enable'
+                    preferred-life-time:
+                        type: int
+                        description: no description
+                    prefix:
+                        type: str
+                        description: no description
+                    rdnss:
+                        description: no description
+                        type: str
+                    valid-life-time:
+                        type: int
+                        description: no description
+            vrrp6:
+                description: no description
+                type: list
+                suboptions:
+                    accept-mode:
+                        type: str
+                        description: no description
+                        choices:
+                            - 'disable'
+                            - 'enable'
+                    adv-interval:
+                        type: int
+                        description: no description
+                    preempt:
+                        type: str
+                        description: no description
+                        choices:
+                            - 'disable'
+                            - 'enable'
+                    priority:
+                        type: int
+                        description: no description
+                    start-time:
+                        type: int
+                        description: no description
+                    status:
+                        type: str
+                        description: no description
+                        choices:
+                            - 'disable'
+                            - 'enable'
+                    vrdst6:
+                        type: str
+                        description: no description
+                    vrgrp:
+                        type: int
+                        description: no description
+                    vrid:
+                        type: int
+                        description: no description
+                    vrip6:
+                        type: str
+                        description: no description
+            interface-identifier:
+                type: str
+                description: no description
+            unique-autoconf-addr:
+                type: str
+                description: no description
+                choices:
+                    - 'disable'
+                    - 'enable'
+            icmp6-send-redirect:
+                type: str
+                description: 'Enable/disable sending of ICMPv6 redirects.'
+                choices:
+                    - 'disable'
+                    - 'enable'
+            cli-conn6-status:
+                type: int
+                description: no description
+            ip6-prefix-mode:
+                type: str
+                description: 'Assigning a prefix from DHCP or RA.'
+                choices:
+                    - 'dhcp6'
+                    - 'ra'
+            ra-send-mtu:
+                type: str
+                description: 'Enable/disable sending link MTU in RA packet.'
+                choices:
+                    - 'disable'
+                    - 'enable'
 
 '''
 
@@ -266,7 +1210,7 @@ EXAMPLES = '''
       ansible_httpapi_validate_certs: False
       ansible_httpapi_port: 443
    tasks:
-    - name: no description
+    - name: IPv6 of interface.
       fmgr_fsp_vlan_interface_ipv6:
          bypass_validation: False
          workspace_locking_adom: <value in [global, custom adom including root]>
@@ -301,6 +1245,804 @@ EXAMPLES = '''
               - telnet
               - fgfm
               - capwap
+              - https
+              - ping
+              - ssh
+              - snmp
+              - http
+              - telnet
+              - fgfm
+              - capwap
+              - fabric
+              - https
+              - ping
+              - ssh
+              - snmp
+              - http
+              - telnet
+              - fgfm
+              - capwap
+              - fabric
+              - https
+              - ping
+              - ssh
+              - snmp
+              - http
+              - telnet
+              - fgfm
+              - capwap
+              - fabric
+              - https
+              - ping
+              - ssh
+              - snmp
+              - http
+              - telnet
+              - fgfm
+              - capwap
+              - fabric
+              - https
+              - ping
+              - ssh
+              - snmp
+              - http
+              - telnet
+              - fgfm
+              - capwap
+              - fabric
+              - https
+              - ping
+              - ssh
+              - snmp
+              - http
+              - telnet
+              - fgfm
+              - capwap
+              - fabric
+              - https
+              - ping
+              - ssh
+              - snmp
+              - http
+              - telnet
+              - fgfm
+              - capwap
+              - https
+              - ping
+              - ssh
+              - snmp
+              - http
+              - telnet
+              - fgfm
+              - capwap
+              - fabric
+              - https
+              - ping
+              - ssh
+              - snmp
+              - http
+              - telnet
+              - fgfm
+              - capwap
+              - fabric
+              - https
+              - ping
+              - ssh
+              - snmp
+              - http
+              - telnet
+              - fgfm
+              - capwap
+              - fabric
+              - https
+              - ping
+              - ssh
+              - snmp
+              - http
+              - telnet
+              - fgfm
+              - capwap
+              - fabric
+              - https
+              - ping
+              - ssh
+              - snmp
+              - http
+              - telnet
+              - fgfm
+              - capwap
+              - fabric
+              - https
+              - ping
+              - ssh
+              - snmp
+              - http
+              - telnet
+              - fgfm
+              - capwap
+              - fabric
+              - https
+              - ping
+              - ssh
+              - snmp
+              - http
+              - telnet
+              - fgfm
+              - capwap
+              - https
+              - ping
+              - ssh
+              - snmp
+              - http
+              - telnet
+              - fgfm
+              - capwap
+              - fabric
+              - https
+              - ping
+              - ssh
+              - snmp
+              - http
+              - telnet
+              - fgfm
+              - capwap
+              - fabric
+              - https
+              - ping
+              - ssh
+              - snmp
+              - http
+              - telnet
+              - fgfm
+              - capwap
+              - fabric
+              - https
+              - ping
+              - ssh
+              - snmp
+              - http
+              - telnet
+              - fgfm
+              - capwap
+              - fabric
+              - https
+              - ping
+              - ssh
+              - snmp
+              - http
+              - telnet
+              - fgfm
+              - capwap
+              - fabric
+              - https
+              - ping
+              - ssh
+              - snmp
+              - http
+              - telnet
+              - fgfm
+              - capwap
+              - fabric
+              - https
+              - ping
+              - ssh
+              - snmp
+              - http
+              - telnet
+              - fgfm
+              - capwap
+              - https
+              - ping
+              - ssh
+              - snmp
+              - http
+              - telnet
+              - fgfm
+              - capwap
+              - fabric
+              - https
+              - ping
+              - ssh
+              - snmp
+              - http
+              - telnet
+              - fgfm
+              - capwap
+              - fabric
+              - https
+              - ping
+              - ssh
+              - snmp
+              - http
+              - telnet
+              - fgfm
+              - capwap
+              - fabric
+              - https
+              - ping
+              - ssh
+              - snmp
+              - http
+              - telnet
+              - fgfm
+              - capwap
+              - fabric
+              - https
+              - ping
+              - ssh
+              - snmp
+              - http
+              - telnet
+              - fgfm
+              - capwap
+              - fabric
+              - https
+              - ping
+              - ssh
+              - snmp
+              - http
+              - telnet
+              - fgfm
+              - capwap
+              - fabric
+              - https
+              - ping
+              - ssh
+              - snmp
+              - http
+              - telnet
+              - fgfm
+              - capwap
+              - https
+              - ping
+              - ssh
+              - snmp
+              - http
+              - telnet
+              - fgfm
+              - capwap
+              - fabric
+              - https
+              - ping
+              - ssh
+              - snmp
+              - http
+              - telnet
+              - fgfm
+              - capwap
+              - fabric
+              - https
+              - ping
+              - ssh
+              - snmp
+              - http
+              - telnet
+              - fgfm
+              - capwap
+              - fabric
+              - https
+              - ping
+              - ssh
+              - snmp
+              - http
+              - telnet
+              - fgfm
+              - capwap
+              - fabric
+              - https
+              - ping
+              - ssh
+              - snmp
+              - http
+              - telnet
+              - fgfm
+              - capwap
+              - fabric
+              - https
+              - ping
+              - ssh
+              - snmp
+              - http
+              - telnet
+              - fgfm
+              - capwap
+              - fabric
+              - https
+              - ping
+              - ssh
+              - snmp
+              - http
+              - telnet
+              - fgfm
+              - capwap
+              - https
+              - ping
+              - ssh
+              - snmp
+              - http
+              - telnet
+              - fgfm
+              - capwap
+              - fabric
+              - https
+              - ping
+              - ssh
+              - snmp
+              - http
+              - telnet
+              - fgfm
+              - capwap
+              - fabric
+              - https
+              - ping
+              - ssh
+              - snmp
+              - http
+              - telnet
+              - fgfm
+              - capwap
+              - fabric
+              - https
+              - ping
+              - ssh
+              - snmp
+              - http
+              - telnet
+              - fgfm
+              - capwap
+              - fabric
+              - https
+              - ping
+              - ssh
+              - snmp
+              - http
+              - telnet
+              - fgfm
+              - capwap
+              - fabric
+              - https
+              - ping
+              - ssh
+              - snmp
+              - http
+              - telnet
+              - fgfm
+              - capwap
+              - fabric
+              - https
+              - ping
+              - ssh
+              - snmp
+              - http
+              - telnet
+              - fgfm
+              - capwap
+              - https
+              - ping
+              - ssh
+              - snmp
+              - http
+              - telnet
+              - fgfm
+              - capwap
+              - fabric
+              - https
+              - ping
+              - ssh
+              - snmp
+              - http
+              - telnet
+              - fgfm
+              - capwap
+              - fabric
+              - https
+              - ping
+              - ssh
+              - snmp
+              - http
+              - telnet
+              - fgfm
+              - capwap
+              - fabric
+              - https
+              - ping
+              - ssh
+              - snmp
+              - http
+              - telnet
+              - fgfm
+              - capwap
+              - fabric
+              - https
+              - ping
+              - ssh
+              - snmp
+              - http
+              - telnet
+              - fgfm
+              - capwap
+              - fabric
+              - https
+              - ping
+              - ssh
+              - snmp
+              - http
+              - telnet
+              - fgfm
+              - capwap
+              - fabric
+              - https
+              - ping
+              - ssh
+              - snmp
+              - http
+              - telnet
+              - fgfm
+              - capwap
+              - https
+              - ping
+              - ssh
+              - snmp
+              - http
+              - telnet
+              - fgfm
+              - capwap
+              - fabric
+              - https
+              - ping
+              - ssh
+              - snmp
+              - http
+              - telnet
+              - fgfm
+              - capwap
+              - fabric
+              - https
+              - ping
+              - ssh
+              - snmp
+              - http
+              - telnet
+              - fgfm
+              - capwap
+              - fabric
+              - https
+              - ping
+              - ssh
+              - snmp
+              - http
+              - telnet
+              - fgfm
+              - capwap
+              - fabric
+              - https
+              - ping
+              - ssh
+              - snmp
+              - http
+              - telnet
+              - fgfm
+              - capwap
+              - fabric
+              - https
+              - ping
+              - ssh
+              - snmp
+              - http
+              - telnet
+              - fgfm
+              - capwap
+              - fabric
+              - https
+              - ping
+              - ssh
+              - snmp
+              - http
+              - telnet
+              - fgfm
+              - capwap
+              - https
+              - ping
+              - ssh
+              - snmp
+              - http
+              - telnet
+              - fgfm
+              - capwap
+              - fabric
+              - https
+              - ping
+              - ssh
+              - snmp
+              - http
+              - telnet
+              - fgfm
+              - capwap
+              - fabric
+              - https
+              - ping
+              - ssh
+              - snmp
+              - http
+              - telnet
+              - fgfm
+              - capwap
+              - fabric
+              - https
+              - ping
+              - ssh
+              - snmp
+              - http
+              - telnet
+              - fgfm
+              - capwap
+              - fabric
+              - https
+              - ping
+              - ssh
+              - snmp
+              - http
+              - telnet
+              - fgfm
+              - capwap
+              - fabric
+              - https
+              - ping
+              - ssh
+              - snmp
+              - http
+              - telnet
+              - fgfm
+              - capwap
+              - fabric
+              - https
+              - ping
+              - ssh
+              - snmp
+              - http
+              - telnet
+              - fgfm
+              - capwap
+              - https
+              - ping
+              - ssh
+              - snmp
+              - http
+              - telnet
+              - fgfm
+              - capwap
+              - fabric
+              - https
+              - ping
+              - ssh
+              - snmp
+              - http
+              - telnet
+              - fgfm
+              - capwap
+              - fabric
+              - https
+              - ping
+              - ssh
+              - snmp
+              - http
+              - telnet
+              - fgfm
+              - capwap
+              - fabric
+              - https
+              - ping
+              - ssh
+              - snmp
+              - http
+              - telnet
+              - fgfm
+              - capwap
+              - fabric
+              - https
+              - ping
+              - ssh
+              - snmp
+              - http
+              - telnet
+              - fgfm
+              - capwap
+              - fabric
+              - https
+              - ping
+              - ssh
+              - snmp
+              - http
+              - telnet
+              - fgfm
+              - capwap
+              - fabric
+              - https
+              - ping
+              - ssh
+              - snmp
+              - http
+              - telnet
+              - fgfm
+              - capwap
+              - https
+              - ping
+              - ssh
+              - snmp
+              - http
+              - telnet
+              - fgfm
+              - capwap
+              - fabric
+              - https
+              - ping
+              - ssh
+              - snmp
+              - http
+              - telnet
+              - fgfm
+              - capwap
+              - fabric
+              - https
+              - ping
+              - ssh
+              - snmp
+              - http
+              - telnet
+              - fgfm
+              - capwap
+              - fabric
+              - https
+              - ping
+              - ssh
+              - snmp
+              - http
+              - telnet
+              - fgfm
+              - capwap
+              - fabric
+              - https
+              - ping
+              - ssh
+              - snmp
+              - http
+              - telnet
+              - fgfm
+              - capwap
+              - fabric
+              - https
+              - ping
+              - ssh
+              - snmp
+              - http
+              - telnet
+              - fgfm
+              - capwap
+              - fabric
+              - https
+              - ping
+              - ssh
+              - snmp
+              - http
+              - telnet
+              - fgfm
+              - capwap
+              - https
+              - ping
+              - ssh
+              - snmp
+              - http
+              - telnet
+              - fgfm
+              - capwap
+              - fabric
+              - https
+              - ping
+              - ssh
+              - snmp
+              - http
+              - telnet
+              - fgfm
+              - capwap
+              - fabric
+              - https
+              - ping
+              - ssh
+              - snmp
+              - http
+              - telnet
+              - fgfm
+              - capwap
+              - fabric
+              - https
+              - ping
+              - ssh
+              - snmp
+              - http
+              - telnet
+              - fgfm
+              - capwap
+              - fabric
+              - https
+              - ping
+              - ssh
+              - snmp
+              - http
+              - telnet
+              - fgfm
+              - capwap
+              - fabric
+              - https
+              - ping
+              - ssh
+              - snmp
+              - http
+              - telnet
+              - fgfm
+              - capwap
+              - fabric
+              - https
+              - ping
+              - ssh
+              - snmp
+              - http
+              - telnet
+              - fgfm
+              - capwap
+              - https
+              - ping
+              - ssh
+              - snmp
+              - http
+              - telnet
+              - fgfm
+              - capwap
+              - fabric
+              - https
+              - ping
+              - ssh
+              - snmp
+              - http
+              - telnet
+              - fgfm
+              - capwap
+              - fabric
+              - https
+              - ping
+              - ssh
+              - snmp
+              - http
+              - telnet
+              - fgfm
+              - capwap
+              - fabric
+              - https
+              - ping
+              - ssh
+              - snmp
+              - http
+              - telnet
+              - fgfm
+              - capwap
+              - fabric
+              - https
+              - ping
+              - ssh
+              - snmp
+              - http
+              - telnet
+              - fgfm
+              - capwap
+              - fabric
+              - https
+              - ping
+              - ssh
+              - snmp
+              - http
+              - telnet
+              - fgfm
+              - capwap
+              - fabric
             ip6-default-life: <value of integer>
             ip6-dns-server-override: <value in [disable, enable]>
             ip6-hop-limit: <value of integer>
@@ -323,6 +2065,45 @@ EXAMPLES = '''
             nd-timestamp-fuzz: <value of integer>
             vrip6_link_local: <value of string>
             vrrp-virtual-mac6: <value in [disable, enable]>
+            ip6-delegated-prefix-list:
+              -
+                  autonomous-flag: <value in [disable, enable]>
+                  onlink-flag: <value in [disable, enable]>
+                  prefix-id: <value of integer>
+                  rdnss: <value of string>
+                  rdnss-service: <value in [delegated, default, specify]>
+                  subnet: <value of string>
+                  upstream-interface: <value of string>
+            ip6-extra-addr:
+              -
+                  prefix: <value of string>
+            ip6-prefix-list:
+              -
+                  autonomous-flag: <value in [disable, enable]>
+                  dnssl: <value of string>
+                  onlink-flag: <value in [disable, enable]>
+                  preferred-life-time: <value of integer>
+                  prefix: <value of string>
+                  rdnss: <value of string>
+                  valid-life-time: <value of integer>
+            vrrp6:
+              -
+                  accept-mode: <value in [disable, enable]>
+                  adv-interval: <value of integer>
+                  preempt: <value in [disable, enable]>
+                  priority: <value of integer>
+                  start-time: <value of integer>
+                  status: <value in [disable, enable]>
+                  vrdst6: <value of string>
+                  vrgrp: <value of integer>
+                  vrid: <value of integer>
+                  vrip6: <value of string>
+            interface-identifier: <value of string>
+            unique-autoconf-addr: <value in [disable, enable]>
+            icmp6-send-redirect: <value in [disable, enable]>
+            cli-conn6-status: <value of integer>
+            ip6-prefix-mode: <value in [dhcp6, ra]>
+            ra-send-mtu: <value in [disable, enable]>
 
 '''
 
@@ -415,6 +2196,16 @@ def main():
             'options': {
                 'autoconf': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -423,6 +2214,16 @@ def main():
                 },
                 'dhcp6-client-options': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'list',
                     'choices': [
                         'rapid',
@@ -434,6 +2235,16 @@ def main():
                 },
                 'dhcp6-information-request': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -442,6 +2253,16 @@ def main():
                 },
                 'dhcp6-prefix-delegation': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -450,22 +2271,72 @@ def main():
                 },
                 'dhcp6-prefix-hint': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'dhcp6-prefix-hint-plt': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'dhcp6-prefix-hint-vlt': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'dhcp6-relay-ip': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'dhcp6-relay-service': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -474,6 +2345,16 @@ def main():
                 },
                 'dhcp6-relay-type': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'regular'
                     ],
@@ -481,10 +2362,30 @@ def main():
                 },
                 'ip6-address': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'ip6-allowaccess': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'list',
                     'choices': [
                         'https',
@@ -494,15 +2395,833 @@ def main():
                         'http',
                         'telnet',
                         'fgfm',
-                        'capwap'
+                        'capwap',
+                        'https',
+                        'ping',
+                        'ssh',
+                        'snmp',
+                        'http',
+                        'telnet',
+                        'fgfm',
+                        'capwap',
+                        'fabric',
+                        'https',
+                        'ping',
+                        'ssh',
+                        'snmp',
+                        'http',
+                        'telnet',
+                        'fgfm',
+                        'capwap',
+                        'fabric',
+                        'https',
+                        'ping',
+                        'ssh',
+                        'snmp',
+                        'http',
+                        'telnet',
+                        'fgfm',
+                        'capwap',
+                        'fabric',
+                        'https',
+                        'ping',
+                        'ssh',
+                        'snmp',
+                        'http',
+                        'telnet',
+                        'fgfm',
+                        'capwap',
+                        'fabric',
+                        'https',
+                        'ping',
+                        'ssh',
+                        'snmp',
+                        'http',
+                        'telnet',
+                        'fgfm',
+                        'capwap',
+                        'fabric',
+                        'https',
+                        'ping',
+                        'ssh',
+                        'snmp',
+                        'http',
+                        'telnet',
+                        'fgfm',
+                        'capwap',
+                        'fabric',
+                        'https',
+                        'ping',
+                        'ssh',
+                        'snmp',
+                        'http',
+                        'telnet',
+                        'fgfm',
+                        'capwap',
+                        'https',
+                        'ping',
+                        'ssh',
+                        'snmp',
+                        'http',
+                        'telnet',
+                        'fgfm',
+                        'capwap',
+                        'fabric',
+                        'https',
+                        'ping',
+                        'ssh',
+                        'snmp',
+                        'http',
+                        'telnet',
+                        'fgfm',
+                        'capwap',
+                        'fabric',
+                        'https',
+                        'ping',
+                        'ssh',
+                        'snmp',
+                        'http',
+                        'telnet',
+                        'fgfm',
+                        'capwap',
+                        'fabric',
+                        'https',
+                        'ping',
+                        'ssh',
+                        'snmp',
+                        'http',
+                        'telnet',
+                        'fgfm',
+                        'capwap',
+                        'fabric',
+                        'https',
+                        'ping',
+                        'ssh',
+                        'snmp',
+                        'http',
+                        'telnet',
+                        'fgfm',
+                        'capwap',
+                        'fabric',
+                        'https',
+                        'ping',
+                        'ssh',
+                        'snmp',
+                        'http',
+                        'telnet',
+                        'fgfm',
+                        'capwap',
+                        'fabric',
+                        'https',
+                        'ping',
+                        'ssh',
+                        'snmp',
+                        'http',
+                        'telnet',
+                        'fgfm',
+                        'capwap',
+                        'https',
+                        'ping',
+                        'ssh',
+                        'snmp',
+                        'http',
+                        'telnet',
+                        'fgfm',
+                        'capwap',
+                        'fabric',
+                        'https',
+                        'ping',
+                        'ssh',
+                        'snmp',
+                        'http',
+                        'telnet',
+                        'fgfm',
+                        'capwap',
+                        'fabric',
+                        'https',
+                        'ping',
+                        'ssh',
+                        'snmp',
+                        'http',
+                        'telnet',
+                        'fgfm',
+                        'capwap',
+                        'fabric',
+                        'https',
+                        'ping',
+                        'ssh',
+                        'snmp',
+                        'http',
+                        'telnet',
+                        'fgfm',
+                        'capwap',
+                        'fabric',
+                        'https',
+                        'ping',
+                        'ssh',
+                        'snmp',
+                        'http',
+                        'telnet',
+                        'fgfm',
+                        'capwap',
+                        'fabric',
+                        'https',
+                        'ping',
+                        'ssh',
+                        'snmp',
+                        'http',
+                        'telnet',
+                        'fgfm',
+                        'capwap',
+                        'fabric',
+                        'https',
+                        'ping',
+                        'ssh',
+                        'snmp',
+                        'http',
+                        'telnet',
+                        'fgfm',
+                        'capwap',
+                        'https',
+                        'ping',
+                        'ssh',
+                        'snmp',
+                        'http',
+                        'telnet',
+                        'fgfm',
+                        'capwap',
+                        'fabric',
+                        'https',
+                        'ping',
+                        'ssh',
+                        'snmp',
+                        'http',
+                        'telnet',
+                        'fgfm',
+                        'capwap',
+                        'fabric',
+                        'https',
+                        'ping',
+                        'ssh',
+                        'snmp',
+                        'http',
+                        'telnet',
+                        'fgfm',
+                        'capwap',
+                        'fabric',
+                        'https',
+                        'ping',
+                        'ssh',
+                        'snmp',
+                        'http',
+                        'telnet',
+                        'fgfm',
+                        'capwap',
+                        'fabric',
+                        'https',
+                        'ping',
+                        'ssh',
+                        'snmp',
+                        'http',
+                        'telnet',
+                        'fgfm',
+                        'capwap',
+                        'fabric',
+                        'https',
+                        'ping',
+                        'ssh',
+                        'snmp',
+                        'http',
+                        'telnet',
+                        'fgfm',
+                        'capwap',
+                        'fabric',
+                        'https',
+                        'ping',
+                        'ssh',
+                        'snmp',
+                        'http',
+                        'telnet',
+                        'fgfm',
+                        'capwap',
+                        'https',
+                        'ping',
+                        'ssh',
+                        'snmp',
+                        'http',
+                        'telnet',
+                        'fgfm',
+                        'capwap',
+                        'fabric',
+                        'https',
+                        'ping',
+                        'ssh',
+                        'snmp',
+                        'http',
+                        'telnet',
+                        'fgfm',
+                        'capwap',
+                        'fabric',
+                        'https',
+                        'ping',
+                        'ssh',
+                        'snmp',
+                        'http',
+                        'telnet',
+                        'fgfm',
+                        'capwap',
+                        'fabric',
+                        'https',
+                        'ping',
+                        'ssh',
+                        'snmp',
+                        'http',
+                        'telnet',
+                        'fgfm',
+                        'capwap',
+                        'fabric',
+                        'https',
+                        'ping',
+                        'ssh',
+                        'snmp',
+                        'http',
+                        'telnet',
+                        'fgfm',
+                        'capwap',
+                        'fabric',
+                        'https',
+                        'ping',
+                        'ssh',
+                        'snmp',
+                        'http',
+                        'telnet',
+                        'fgfm',
+                        'capwap',
+                        'fabric',
+                        'https',
+                        'ping',
+                        'ssh',
+                        'snmp',
+                        'http',
+                        'telnet',
+                        'fgfm',
+                        'capwap',
+                        'https',
+                        'ping',
+                        'ssh',
+                        'snmp',
+                        'http',
+                        'telnet',
+                        'fgfm',
+                        'capwap',
+                        'fabric',
+                        'https',
+                        'ping',
+                        'ssh',
+                        'snmp',
+                        'http',
+                        'telnet',
+                        'fgfm',
+                        'capwap',
+                        'fabric',
+                        'https',
+                        'ping',
+                        'ssh',
+                        'snmp',
+                        'http',
+                        'telnet',
+                        'fgfm',
+                        'capwap',
+                        'fabric',
+                        'https',
+                        'ping',
+                        'ssh',
+                        'snmp',
+                        'http',
+                        'telnet',
+                        'fgfm',
+                        'capwap',
+                        'fabric',
+                        'https',
+                        'ping',
+                        'ssh',
+                        'snmp',
+                        'http',
+                        'telnet',
+                        'fgfm',
+                        'capwap',
+                        'fabric',
+                        'https',
+                        'ping',
+                        'ssh',
+                        'snmp',
+                        'http',
+                        'telnet',
+                        'fgfm',
+                        'capwap',
+                        'fabric',
+                        'https',
+                        'ping',
+                        'ssh',
+                        'snmp',
+                        'http',
+                        'telnet',
+                        'fgfm',
+                        'capwap',
+                        'https',
+                        'ping',
+                        'ssh',
+                        'snmp',
+                        'http',
+                        'telnet',
+                        'fgfm',
+                        'capwap',
+                        'fabric',
+                        'https',
+                        'ping',
+                        'ssh',
+                        'snmp',
+                        'http',
+                        'telnet',
+                        'fgfm',
+                        'capwap',
+                        'fabric',
+                        'https',
+                        'ping',
+                        'ssh',
+                        'snmp',
+                        'http',
+                        'telnet',
+                        'fgfm',
+                        'capwap',
+                        'fabric',
+                        'https',
+                        'ping',
+                        'ssh',
+                        'snmp',
+                        'http',
+                        'telnet',
+                        'fgfm',
+                        'capwap',
+                        'fabric',
+                        'https',
+                        'ping',
+                        'ssh',
+                        'snmp',
+                        'http',
+                        'telnet',
+                        'fgfm',
+                        'capwap',
+                        'fabric',
+                        'https',
+                        'ping',
+                        'ssh',
+                        'snmp',
+                        'http',
+                        'telnet',
+                        'fgfm',
+                        'capwap',
+                        'fabric',
+                        'https',
+                        'ping',
+                        'ssh',
+                        'snmp',
+                        'http',
+                        'telnet',
+                        'fgfm',
+                        'capwap',
+                        'https',
+                        'ping',
+                        'ssh',
+                        'snmp',
+                        'http',
+                        'telnet',
+                        'fgfm',
+                        'capwap',
+                        'fabric',
+                        'https',
+                        'ping',
+                        'ssh',
+                        'snmp',
+                        'http',
+                        'telnet',
+                        'fgfm',
+                        'capwap',
+                        'fabric',
+                        'https',
+                        'ping',
+                        'ssh',
+                        'snmp',
+                        'http',
+                        'telnet',
+                        'fgfm',
+                        'capwap',
+                        'fabric',
+                        'https',
+                        'ping',
+                        'ssh',
+                        'snmp',
+                        'http',
+                        'telnet',
+                        'fgfm',
+                        'capwap',
+                        'fabric',
+                        'https',
+                        'ping',
+                        'ssh',
+                        'snmp',
+                        'http',
+                        'telnet',
+                        'fgfm',
+                        'capwap',
+                        'fabric',
+                        'https',
+                        'ping',
+                        'ssh',
+                        'snmp',
+                        'http',
+                        'telnet',
+                        'fgfm',
+                        'capwap',
+                        'fabric',
+                        'https',
+                        'ping',
+                        'ssh',
+                        'snmp',
+                        'http',
+                        'telnet',
+                        'fgfm',
+                        'capwap',
+                        'https',
+                        'ping',
+                        'ssh',
+                        'snmp',
+                        'http',
+                        'telnet',
+                        'fgfm',
+                        'capwap',
+                        'fabric',
+                        'https',
+                        'ping',
+                        'ssh',
+                        'snmp',
+                        'http',
+                        'telnet',
+                        'fgfm',
+                        'capwap',
+                        'fabric',
+                        'https',
+                        'ping',
+                        'ssh',
+                        'snmp',
+                        'http',
+                        'telnet',
+                        'fgfm',
+                        'capwap',
+                        'fabric',
+                        'https',
+                        'ping',
+                        'ssh',
+                        'snmp',
+                        'http',
+                        'telnet',
+                        'fgfm',
+                        'capwap',
+                        'fabric',
+                        'https',
+                        'ping',
+                        'ssh',
+                        'snmp',
+                        'http',
+                        'telnet',
+                        'fgfm',
+                        'capwap',
+                        'fabric',
+                        'https',
+                        'ping',
+                        'ssh',
+                        'snmp',
+                        'http',
+                        'telnet',
+                        'fgfm',
+                        'capwap',
+                        'fabric',
+                        'https',
+                        'ping',
+                        'ssh',
+                        'snmp',
+                        'http',
+                        'telnet',
+                        'fgfm',
+                        'capwap',
+                        'https',
+                        'ping',
+                        'ssh',
+                        'snmp',
+                        'http',
+                        'telnet',
+                        'fgfm',
+                        'capwap',
+                        'fabric',
+                        'https',
+                        'ping',
+                        'ssh',
+                        'snmp',
+                        'http',
+                        'telnet',
+                        'fgfm',
+                        'capwap',
+                        'fabric',
+                        'https',
+                        'ping',
+                        'ssh',
+                        'snmp',
+                        'http',
+                        'telnet',
+                        'fgfm',
+                        'capwap',
+                        'fabric',
+                        'https',
+                        'ping',
+                        'ssh',
+                        'snmp',
+                        'http',
+                        'telnet',
+                        'fgfm',
+                        'capwap',
+                        'fabric',
+                        'https',
+                        'ping',
+                        'ssh',
+                        'snmp',
+                        'http',
+                        'telnet',
+                        'fgfm',
+                        'capwap',
+                        'fabric',
+                        'https',
+                        'ping',
+                        'ssh',
+                        'snmp',
+                        'http',
+                        'telnet',
+                        'fgfm',
+                        'capwap',
+                        'fabric',
+                        'https',
+                        'ping',
+                        'ssh',
+                        'snmp',
+                        'http',
+                        'telnet',
+                        'fgfm',
+                        'capwap',
+                        'https',
+                        'ping',
+                        'ssh',
+                        'snmp',
+                        'http',
+                        'telnet',
+                        'fgfm',
+                        'capwap',
+                        'fabric',
+                        'https',
+                        'ping',
+                        'ssh',
+                        'snmp',
+                        'http',
+                        'telnet',
+                        'fgfm',
+                        'capwap',
+                        'fabric',
+                        'https',
+                        'ping',
+                        'ssh',
+                        'snmp',
+                        'http',
+                        'telnet',
+                        'fgfm',
+                        'capwap',
+                        'fabric',
+                        'https',
+                        'ping',
+                        'ssh',
+                        'snmp',
+                        'http',
+                        'telnet',
+                        'fgfm',
+                        'capwap',
+                        'fabric',
+                        'https',
+                        'ping',
+                        'ssh',
+                        'snmp',
+                        'http',
+                        'telnet',
+                        'fgfm',
+                        'capwap',
+                        'fabric',
+                        'https',
+                        'ping',
+                        'ssh',
+                        'snmp',
+                        'http',
+                        'telnet',
+                        'fgfm',
+                        'capwap',
+                        'fabric',
+                        'https',
+                        'ping',
+                        'ssh',
+                        'snmp',
+                        'http',
+                        'telnet',
+                        'fgfm',
+                        'capwap',
+                        'https',
+                        'ping',
+                        'ssh',
+                        'snmp',
+                        'http',
+                        'telnet',
+                        'fgfm',
+                        'capwap',
+                        'fabric',
+                        'https',
+                        'ping',
+                        'ssh',
+                        'snmp',
+                        'http',
+                        'telnet',
+                        'fgfm',
+                        'capwap',
+                        'fabric',
+                        'https',
+                        'ping',
+                        'ssh',
+                        'snmp',
+                        'http',
+                        'telnet',
+                        'fgfm',
+                        'capwap',
+                        'fabric',
+                        'https',
+                        'ping',
+                        'ssh',
+                        'snmp',
+                        'http',
+                        'telnet',
+                        'fgfm',
+                        'capwap',
+                        'fabric',
+                        'https',
+                        'ping',
+                        'ssh',
+                        'snmp',
+                        'http',
+                        'telnet',
+                        'fgfm',
+                        'capwap',
+                        'fabric',
+                        'https',
+                        'ping',
+                        'ssh',
+                        'snmp',
+                        'http',
+                        'telnet',
+                        'fgfm',
+                        'capwap',
+                        'fabric',
+                        'https',
+                        'ping',
+                        'ssh',
+                        'snmp',
+                        'http',
+                        'telnet',
+                        'fgfm',
+                        'capwap',
+                        'https',
+                        'ping',
+                        'ssh',
+                        'snmp',
+                        'http',
+                        'telnet',
+                        'fgfm',
+                        'capwap',
+                        'fabric',
+                        'https',
+                        'ping',
+                        'ssh',
+                        'snmp',
+                        'http',
+                        'telnet',
+                        'fgfm',
+                        'capwap',
+                        'fabric',
+                        'https',
+                        'ping',
+                        'ssh',
+                        'snmp',
+                        'http',
+                        'telnet',
+                        'fgfm',
+                        'capwap',
+                        'fabric',
+                        'https',
+                        'ping',
+                        'ssh',
+                        'snmp',
+                        'http',
+                        'telnet',
+                        'fgfm',
+                        'capwap',
+                        'fabric',
+                        'https',
+                        'ping',
+                        'ssh',
+                        'snmp',
+                        'http',
+                        'telnet',
+                        'fgfm',
+                        'capwap',
+                        'fabric',
+                        'https',
+                        'ping',
+                        'ssh',
+                        'snmp',
+                        'http',
+                        'telnet',
+                        'fgfm',
+                        'capwap',
+                        'fabric'
                     ]
                 },
                 'ip6-default-life': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'ip6-dns-server-override': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -511,14 +3230,44 @@ def main():
                 },
                 'ip6-hop-limit': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'ip6-link-mtu': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'ip6-manage-flag': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -527,14 +3276,44 @@ def main():
                 },
                 'ip6-max-interval': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'ip6-min-interval': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'ip6-mode': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'static',
                         'dhcp',
@@ -545,6 +3324,16 @@ def main():
                 },
                 'ip6-other-flag': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -553,14 +3342,44 @@ def main():
                 },
                 'ip6-reachable-time': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'ip6-retrans-time': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'ip6-send-adv': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -569,22 +3388,72 @@ def main():
                 },
                 'ip6-subnet': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'ip6-upstream-interface': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'nd-cert': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'nd-cga-modifier': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'nd-mode': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'basic',
                         'SEND-compatible'
@@ -593,22 +3462,524 @@ def main():
                 },
                 'nd-security-level': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'nd-timestamp-delta': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'nd-timestamp-fuzz': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'vrip6_link_local': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'vrrp-virtual-mac6': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'choices': [
+                        'disable',
+                        'enable'
+                    ],
+                    'type': 'str'
+                },
+                'ip6-delegated-prefix-list': {
+                    'required': False,
+                    'revision': {
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'type': 'list',
+                    'options': {
+                        'autonomous-flag': {
+                            'required': False,
+                            'revision': {
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'disable',
+                                'enable'
+                            ],
+                            'type': 'str'
+                        },
+                        'onlink-flag': {
+                            'required': False,
+                            'revision': {
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'disable',
+                                'enable'
+                            ],
+                            'type': 'str'
+                        },
+                        'prefix-id': {
+                            'required': False,
+                            'revision': {
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'int'
+                        },
+                        'rdnss': {
+                            'required': False,
+                            'revision': {
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'str'
+                        },
+                        'rdnss-service': {
+                            'required': False,
+                            'revision': {
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'delegated',
+                                'default',
+                                'specify'
+                            ],
+                            'type': 'str'
+                        },
+                        'subnet': {
+                            'required': False,
+                            'revision': {
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'str'
+                        },
+                        'upstream-interface': {
+                            'required': False,
+                            'revision': {
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'str'
+                        }
+                    }
+                },
+                'ip6-extra-addr': {
+                    'required': False,
+                    'revision': {
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'type': 'list',
+                    'options': {
+                        'prefix': {
+                            'required': False,
+                            'revision': {
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'str'
+                        }
+                    }
+                },
+                'ip6-prefix-list': {
+                    'required': False,
+                    'revision': {
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'type': 'list',
+                    'options': {
+                        'autonomous-flag': {
+                            'required': False,
+                            'revision': {
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'disable',
+                                'enable'
+                            ],
+                            'type': 'str'
+                        },
+                        'dnssl': {
+                            'required': False,
+                            'revision': {
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'str'
+                        },
+                        'onlink-flag': {
+                            'required': False,
+                            'revision': {
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'disable',
+                                'enable'
+                            ],
+                            'type': 'str'
+                        },
+                        'preferred-life-time': {
+                            'required': False,
+                            'revision': {
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'int'
+                        },
+                        'prefix': {
+                            'required': False,
+                            'revision': {
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'str'
+                        },
+                        'rdnss': {
+                            'required': False,
+                            'revision': {
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'str'
+                        },
+                        'valid-life-time': {
+                            'required': False,
+                            'revision': {
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'int'
+                        }
+                    }
+                },
+                'vrrp6': {
+                    'required': False,
+                    'revision': {
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'type': 'list',
+                    'options': {
+                        'accept-mode': {
+                            'required': False,
+                            'revision': {
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'disable',
+                                'enable'
+                            ],
+                            'type': 'str'
+                        },
+                        'adv-interval': {
+                            'required': False,
+                            'revision': {
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'int'
+                        },
+                        'preempt': {
+                            'required': False,
+                            'revision': {
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'disable',
+                                'enable'
+                            ],
+                            'type': 'str'
+                        },
+                        'priority': {
+                            'required': False,
+                            'revision': {
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'int'
+                        },
+                        'start-time': {
+                            'required': False,
+                            'revision': {
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'int'
+                        },
+                        'status': {
+                            'required': False,
+                            'revision': {
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'disable',
+                                'enable'
+                            ],
+                            'type': 'str'
+                        },
+                        'vrdst6': {
+                            'required': False,
+                            'revision': {
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'str'
+                        },
+                        'vrgrp': {
+                            'required': False,
+                            'revision': {
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'int'
+                        },
+                        'vrid': {
+                            'required': False,
+                            'revision': {
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'int'
+                        },
+                        'vrip6': {
+                            'required': False,
+                            'revision': {
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'str'
+                        }
+                    }
+                },
+                'interface-identifier': {
+                    'required': False,
+                    'revision': {
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'type': 'str'
+                },
+                'unique-autoconf-addr': {
+                    'required': False,
+                    'revision': {
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'choices': [
+                        'disable',
+                        'enable'
+                    ],
+                    'type': 'str'
+                },
+                'icmp6-send-redirect': {
+                    'required': False,
+                    'revision': {
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'choices': [
+                        'disable',
+                        'enable'
+                    ],
+                    'type': 'str'
+                },
+                'cli-conn6-status': {
+                    'required': False,
+                    'revision': {
+                        '7.0.0': True
+                    },
+                    'type': 'int'
+                },
+                'ip6-prefix-mode': {
+                    'required': False,
+                    'revision': {
+                        '7.0.0': True
+                    },
+                    'choices': [
+                        'dhcp6',
+                        'ra'
+                    ],
+                    'type': 'str'
+                },
+                'ra-send-mtu': {
+                    'required': False,
+                    'revision': {
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'

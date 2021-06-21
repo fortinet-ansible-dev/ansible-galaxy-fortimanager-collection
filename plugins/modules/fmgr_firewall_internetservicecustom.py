@@ -156,6 +156,12 @@ options:
             name:
                 type: str
                 description: 'Internet Service name.'
+            reputation:
+                type: int
+                description: 'Reputation level of the custom Internet Service.'
+            id:
+                type: int
+                description: 'Internet Service ID.'
 
 '''
 
@@ -202,6 +208,8 @@ EXAMPLES = '''
                   protocol: <value of integer>
             master-service-id: <value of string>
             name: <value of string>
+            reputation: <value of integer>
+            id: <value of integer>
 
 '''
 
@@ -242,7 +250,7 @@ def main():
     ]
 
     url_params = ['adom']
-    module_primary_key = 'name'
+    module_primary_key = 'id'
     module_arg_spec = {
         'enable_log': {
             'type': 'bool',
@@ -298,87 +306,299 @@ def main():
             'options': {
                 'comment': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'disable-entry': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': False,
+                        '6.2.3': False,
+                        '6.2.5': False,
+                        '6.4.0': False,
+                        '6.4.2': False,
+                        '6.4.5': False,
+                        '7.0.0': False
+                    },
                     'type': 'list',
                     'options': {
                         'id': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': False,
+                                '6.2.3': False,
+                                '6.2.5': False,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
                             'type': 'int'
                         },
                         'ip-range': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': False,
+                                '6.2.3': False,
+                                '6.2.5': False,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
                             'type': 'list',
                             'options': {
                                 'end-ip': {
                                     'required': False,
+                                    'revision': {
+                                        '6.0.0': True,
+                                        '6.2.1': False,
+                                        '6.2.3': False,
+                                        '6.2.5': False,
+                                        '6.4.0': False,
+                                        '6.4.2': False,
+                                        '6.4.5': False,
+                                        '7.0.0': False
+                                    },
                                     'type': 'str'
                                 },
                                 'id': {
                                     'required': False,
+                                    'revision': {
+                                        '6.0.0': True,
+                                        '6.2.1': False,
+                                        '6.2.3': False,
+                                        '6.2.5': False,
+                                        '6.4.0': False,
+                                        '6.4.2': False,
+                                        '6.4.5': False,
+                                        '7.0.0': False
+                                    },
                                     'type': 'int'
                                 },
                                 'start-ip': {
                                     'required': False,
+                                    'revision': {
+                                        '6.0.0': True,
+                                        '6.2.1': False,
+                                        '6.2.3': False,
+                                        '6.2.5': False,
+                                        '6.4.0': False,
+                                        '6.4.2': False,
+                                        '6.4.5': False,
+                                        '7.0.0': False
+                                    },
                                     'type': 'str'
                                 }
                             }
                         },
                         'port': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': False,
+                                '6.2.3': False,
+                                '6.2.5': False,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
                             'type': 'int'
                         },
                         'protocol': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': False,
+                                '6.2.3': False,
+                                '6.2.5': False,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
                             'type': 'int'
                         }
                     }
                 },
                 'entry': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'list',
                     'options': {
                         'dst': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'str'
                         },
                         'id': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'int'
                         },
                         'port-range': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'list',
                             'options': {
                                 'end-port': {
                                     'required': False,
+                                    'revision': {
+                                        '6.0.0': True,
+                                        '6.2.1': True,
+                                        '6.2.3': True,
+                                        '6.2.5': True,
+                                        '6.4.0': True,
+                                        '6.4.2': True,
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
                                     'type': 'int'
                                 },
                                 'id': {
                                     'required': False,
+                                    'revision': {
+                                        '6.0.0': True,
+                                        '6.2.1': True,
+                                        '6.2.3': True,
+                                        '6.2.5': True,
+                                        '6.4.0': True,
+                                        '6.4.2': True,
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
                                     'type': 'int'
                                 },
                                 'start-port': {
                                     'required': False,
+                                    'revision': {
+                                        '6.0.0': True,
+                                        '6.2.1': True,
+                                        '6.2.3': True,
+                                        '6.2.5': True,
+                                        '6.4.0': True,
+                                        '6.4.2': True,
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
                                     'type': 'int'
                                 }
                             }
                         },
                         'protocol': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'int'
                         }
                     }
                 },
                 'master-service-id': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': False,
+                        '6.2.3': False,
+                        '6.2.5': False,
+                        '6.4.0': False,
+                        '6.4.2': False,
+                        '6.4.5': False,
+                        '7.0.0': False
+                    },
                     'type': 'str'
                 },
                 'name': {
-                    'required': True,
+                    'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
+                },
+                'reputation': {
+                    'required': False,
+                    'revision': {
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'type': 'int'
+                },
+                'id': {
+                    'required': True,
+                    'revision': {
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'type': 'int'
                 }
             }
 

@@ -163,6 +163,7 @@ options:
                     - 'class'
                     - 'jad'
                     - 'cod'
+                    - 'flac'
             filter-type:
                 type: str
                 description: 'Filter by file name pattern or by file type.'
@@ -299,6 +300,16 @@ def main():
             'options': {
                 'file-type': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'unknown',
                         'ignored',
@@ -359,12 +370,23 @@ def main():
                         'prc',
                         'class',
                         'jad',
-                        'cod'
+                        'cod',
+                        'flac'
                     ],
                     'type': 'str'
                 },
                 'filter-type': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'pattern',
                         'type'
@@ -373,6 +395,16 @@ def main():
                 },
                 'pattern': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 }
             }

@@ -139,6 +139,12 @@ options:
                     - 'private'
                     - 'shared'
                     - 'express-shared'
+            protocol-opt:
+                type: str
+                description: 'Select Protocol specific optimitation or generic TCP optimization.'
+                choices:
+                    - 'protocol'
+                    - 'tcp'
 
 '''
 
@@ -169,6 +175,7 @@ EXAMPLES = '''
             secure-tunnel: <value in [disable, enable]>
             status: <value in [disable, enable]>
             tunnel-sharing: <value in [private, shared, express-shared]>
+            protocol-opt: <value in [protocol, tcp]>
 
 '''
 
@@ -261,6 +268,16 @@ def main():
             'options': {
                 'byte-caching': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -269,6 +286,16 @@ def main():
                 },
                 'log-traffic': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -277,10 +304,30 @@ def main():
                 },
                 'port': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': False,
+                        '6.4.2': False,
+                        '6.4.5': False,
+                        '7.0.0': False
+                    },
                     'type': 'int'
                 },
                 'prefer-chunking': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'dynamic',
                         'fix'
@@ -289,6 +336,16 @@ def main():
                 },
                 'secure-tunnel': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -297,6 +354,16 @@ def main():
                 },
                 'status': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -305,10 +372,34 @@ def main():
                 },
                 'tunnel-sharing': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'private',
                         'shared',
                         'express-shared'
+                    ],
+                    'type': 'str'
+                },
+                'protocol-opt': {
+                    'required': False,
+                    'revision': {
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'choices': [
+                        'protocol',
+                        'tcp'
                     ],
                     'type': 'str'
                 }

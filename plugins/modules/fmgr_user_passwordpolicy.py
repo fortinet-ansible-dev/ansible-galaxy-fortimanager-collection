@@ -104,6 +104,12 @@ options:
             warn-days:
                 type: int
                 description: 'Time in days before a password expiration warning message is displayed to the user upon login.'
+            expired-password-renewal:
+                type: str
+                description: 'Enable/disable renewal of a password that already is expired.'
+                choices:
+                    - 'disable'
+                    - 'enable'
 
 '''
 
@@ -130,6 +136,7 @@ EXAMPLES = '''
             expire-days: <value of integer>
             name: <value of string>
             warn-days: <value of integer>
+            expired-password-renewal: <value in [disable, enable]>
 
 '''
 
@@ -226,15 +233,62 @@ def main():
             'options': {
                 'expire-days': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'name': {
                     'required': True,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'warn-days': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
+                },
+                'expired-password-renewal': {
+                    'required': False,
+                    'revision': {
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'choices': [
+                        'disable',
+                        'enable'
+                    ],
+                    'type': 'str'
                 }
             }
 

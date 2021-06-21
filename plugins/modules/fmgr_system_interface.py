@@ -105,6 +105,164 @@ options:
                  - http
                  - webservice
                  - https-logging
+                 - ping
+                 - https
+                 - ssh
+                 - snmp
+                 - http
+                 - webservice
+                 - https-logging
+                 - soc-fabric
+                 - ping
+                 - https
+                 - ssh
+                 - snmp
+                 - http
+                 - webservice
+                 - https-logging
+                 - ping
+                 - https
+                 - ssh
+                 - snmp
+                 - http
+                 - webservice
+                 - https-logging
+                 - ping
+                 - https
+                 - ssh
+                 - snmp
+                 - http
+                 - webservice
+                 - https-logging
+                 - ping
+                 - https
+                 - ssh
+                 - snmp
+                 - http
+                 - webservice
+                 - https-logging
+                 - ping
+                 - https
+                 - ssh
+                 - snmp
+                 - http
+                 - webservice
+                 - https-logging
+                 - ping
+                 - https
+                 - ssh
+                 - snmp
+                 - http
+                 - webservice
+                 - https-logging
+                 - ping
+                 - https
+                 - ssh
+                 - snmp
+                 - http
+                 - webservice
+                 - https-logging
+                 - soc-fabric
+                 - ping
+                 - https
+                 - ssh
+                 - snmp
+                 - http
+                 - webservice
+                 - https-logging
+                 - ping
+                 - https
+                 - ssh
+                 - snmp
+                 - http
+                 - webservice
+                 - https-logging
+                 - ping
+                 - https
+                 - ssh
+                 - snmp
+                 - http
+                 - webservice
+                 - https-logging
+                 - ping
+                 - https
+                 - ssh
+                 - snmp
+                 - http
+                 - webservice
+                 - https-logging
+                 - ping
+                 - https
+                 - ssh
+                 - snmp
+                 - http
+                 - webservice
+                 - https-logging
+                 - ping
+                 - https
+                 - ssh
+                 - snmp
+                 - http
+                 - webservice
+                 - https-logging
+                 - ping
+                 - https
+                 - ssh
+                 - snmp
+                 - http
+                 - webservice
+                 - https-logging
+                 - soc-fabric
+                 - ping
+                 - https
+                 - ssh
+                 - snmp
+                 - http
+                 - webservice
+                 - https-logging
+                 - ping
+                 - https
+                 - ssh
+                 - snmp
+                 - http
+                 - webservice
+                 - https-logging
+                 - ping
+                 - https
+                 - ssh
+                 - snmp
+                 - http
+                 - webservice
+                 - https-logging
+                 - ping
+                 - https
+                 - ssh
+                 - snmp
+                 - http
+                 - webservice
+                 - https-logging
+                 - ping
+                 - https
+                 - ssh
+                 - snmp
+                 - http
+                 - webservice
+                 - https-logging
+                 - ping
+                 - https
+                 - ssh
+                 - snmp
+                 - http
+                 - webservice
+                 - https-logging
+                 - ping
+                 - https
+                 - ssh
+                 - snmp
+                 - http
+                 - webservice
+                 - https-logging
+                 - soc-fabric
             description:
                 type: str
                 description: 'Description.'
@@ -186,6 +344,14 @@ options:
                 choices:
                     - 'down'
                     - 'up'
+            rating-service-ip:
+                type: str
+                default: '0.0.0.0 0.0.0.0'
+                description: 'IP address for fgt rating service, must be same subnet with interface ip.'
+            update-service-ip:
+                type: str
+                default: '0.0.0.0 0.0.0.0'
+                description: 'IP address for fgt/fct update service, must be same subnet with interface ip.'
 
 '''
 
@@ -217,6 +383,164 @@ EXAMPLES = '''
               - http
               - webservice
               - https-logging
+              - ping
+              - https
+              - ssh
+              - snmp
+              - http
+              - webservice
+              - https-logging
+              - soc-fabric
+              - ping
+              - https
+              - ssh
+              - snmp
+              - http
+              - webservice
+              - https-logging
+              - ping
+              - https
+              - ssh
+              - snmp
+              - http
+              - webservice
+              - https-logging
+              - ping
+              - https
+              - ssh
+              - snmp
+              - http
+              - webservice
+              - https-logging
+              - ping
+              - https
+              - ssh
+              - snmp
+              - http
+              - webservice
+              - https-logging
+              - ping
+              - https
+              - ssh
+              - snmp
+              - http
+              - webservice
+              - https-logging
+              - ping
+              - https
+              - ssh
+              - snmp
+              - http
+              - webservice
+              - https-logging
+              - ping
+              - https
+              - ssh
+              - snmp
+              - http
+              - webservice
+              - https-logging
+              - soc-fabric
+              - ping
+              - https
+              - ssh
+              - snmp
+              - http
+              - webservice
+              - https-logging
+              - ping
+              - https
+              - ssh
+              - snmp
+              - http
+              - webservice
+              - https-logging
+              - ping
+              - https
+              - ssh
+              - snmp
+              - http
+              - webservice
+              - https-logging
+              - ping
+              - https
+              - ssh
+              - snmp
+              - http
+              - webservice
+              - https-logging
+              - ping
+              - https
+              - ssh
+              - snmp
+              - http
+              - webservice
+              - https-logging
+              - ping
+              - https
+              - ssh
+              - snmp
+              - http
+              - webservice
+              - https-logging
+              - ping
+              - https
+              - ssh
+              - snmp
+              - http
+              - webservice
+              - https-logging
+              - soc-fabric
+              - ping
+              - https
+              - ssh
+              - snmp
+              - http
+              - webservice
+              - https-logging
+              - ping
+              - https
+              - ssh
+              - snmp
+              - http
+              - webservice
+              - https-logging
+              - ping
+              - https
+              - ssh
+              - snmp
+              - http
+              - webservice
+              - https-logging
+              - ping
+              - https
+              - ssh
+              - snmp
+              - http
+              - webservice
+              - https-logging
+              - ping
+              - https
+              - ssh
+              - snmp
+              - http
+              - webservice
+              - https-logging
+              - ping
+              - https
+              - ssh
+              - snmp
+              - http
+              - webservice
+              - https-logging
+              - ping
+              - https
+              - ssh
+              - snmp
+              - http
+              - webservice
+              - https-logging
+              - soc-fabric
             description: <value of string>
             ip: <value of string>
             ipv6:
@@ -238,6 +562,8 @@ EXAMPLES = '''
               - webfilter-antispam
             speed: <value in [auto, 10full, 10half, ...]>
             status: <value in [down, up]>
+            rating-service-ip: <value of string>
+            update-service-ip: <value of string>
 
 '''
 
@@ -328,10 +654,30 @@ def main():
             'options': {
                 'alias': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'allowaccess': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'list',
                     'choices': [
                         'ping',
@@ -340,15 +686,193 @@ def main():
                         'snmp',
                         'http',
                         'webservice',
-                        'https-logging'
+                        'https-logging',
+                        'ping',
+                        'https',
+                        'ssh',
+                        'snmp',
+                        'http',
+                        'webservice',
+                        'https-logging',
+                        'soc-fabric',
+                        'ping',
+                        'https',
+                        'ssh',
+                        'snmp',
+                        'http',
+                        'webservice',
+                        'https-logging',
+                        'ping',
+                        'https',
+                        'ssh',
+                        'snmp',
+                        'http',
+                        'webservice',
+                        'https-logging',
+                        'ping',
+                        'https',
+                        'ssh',
+                        'snmp',
+                        'http',
+                        'webservice',
+                        'https-logging',
+                        'ping',
+                        'https',
+                        'ssh',
+                        'snmp',
+                        'http',
+                        'webservice',
+                        'https-logging',
+                        'ping',
+                        'https',
+                        'ssh',
+                        'snmp',
+                        'http',
+                        'webservice',
+                        'https-logging',
+                        'ping',
+                        'https',
+                        'ssh',
+                        'snmp',
+                        'http',
+                        'webservice',
+                        'https-logging',
+                        'ping',
+                        'https',
+                        'ssh',
+                        'snmp',
+                        'http',
+                        'webservice',
+                        'https-logging',
+                        'soc-fabric',
+                        'ping',
+                        'https',
+                        'ssh',
+                        'snmp',
+                        'http',
+                        'webservice',
+                        'https-logging',
+                        'ping',
+                        'https',
+                        'ssh',
+                        'snmp',
+                        'http',
+                        'webservice',
+                        'https-logging',
+                        'ping',
+                        'https',
+                        'ssh',
+                        'snmp',
+                        'http',
+                        'webservice',
+                        'https-logging',
+                        'ping',
+                        'https',
+                        'ssh',
+                        'snmp',
+                        'http',
+                        'webservice',
+                        'https-logging',
+                        'ping',
+                        'https',
+                        'ssh',
+                        'snmp',
+                        'http',
+                        'webservice',
+                        'https-logging',
+                        'ping',
+                        'https',
+                        'ssh',
+                        'snmp',
+                        'http',
+                        'webservice',
+                        'https-logging',
+                        'ping',
+                        'https',
+                        'ssh',
+                        'snmp',
+                        'http',
+                        'webservice',
+                        'https-logging',
+                        'soc-fabric',
+                        'ping',
+                        'https',
+                        'ssh',
+                        'snmp',
+                        'http',
+                        'webservice',
+                        'https-logging',
+                        'ping',
+                        'https',
+                        'ssh',
+                        'snmp',
+                        'http',
+                        'webservice',
+                        'https-logging',
+                        'ping',
+                        'https',
+                        'ssh',
+                        'snmp',
+                        'http',
+                        'webservice',
+                        'https-logging',
+                        'ping',
+                        'https',
+                        'ssh',
+                        'snmp',
+                        'http',
+                        'webservice',
+                        'https-logging',
+                        'ping',
+                        'https',
+                        'ssh',
+                        'snmp',
+                        'http',
+                        'webservice',
+                        'https-logging',
+                        'ping',
+                        'https',
+                        'ssh',
+                        'snmp',
+                        'http',
+                        'webservice',
+                        'https-logging',
+                        'ping',
+                        'https',
+                        'ssh',
+                        'snmp',
+                        'http',
+                        'webservice',
+                        'https-logging',
+                        'soc-fabric'
                     ]
                 },
                 'description': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'ip': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'ipv6': {
@@ -357,10 +881,30 @@ def main():
                     'options': {
                         'ip6-address': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'str'
                         },
                         'ip6-allowaccess': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'list',
                             'choices': [
                                 'ping',
@@ -374,6 +918,16 @@ def main():
                         },
                         'ip6-autoconf': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'choices': [
                                 'disable',
                                 'enable'
@@ -384,14 +938,44 @@ def main():
                 },
                 'mtu': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'name': {
                     'required': True,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'serviceaccess': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'list',
                     'choices': [
                         'fgtupdates',
@@ -401,6 +985,16 @@ def main():
                 },
                 'speed': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'auto',
                         '10full',
@@ -414,10 +1008,44 @@ def main():
                 },
                 'status': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'down',
                         'up'
                     ],
+                    'type': 'str'
+                },
+                'rating-service-ip': {
+                    'required': False,
+                    'revision': {
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'type': 'str'
+                },
+                'update-service-ip': {
+                    'required': False,
+                    'revision': {
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 }
             }

@@ -149,6 +149,87 @@ options:
                 choices:
                     - 'strict'
                     - 'moderate'
+            dns-translation:
+                description: no description
+                type: list
+                suboptions:
+                    dst:
+                        type: str
+                        description: 'IPv4 address or subnet on the external network to substitute for the resolved address in DNS query replies. Can be sin...'
+                    id:
+                        type: int
+                        description: 'ID.'
+                    netmask:
+                        type: str
+                        description: 'If src and dst are subnets rather than single IP addresses, enter the netmask for both src and dst.'
+                    src:
+                        type: str
+                        description: 'IPv4 address or subnet on the internal network to compare with the resolved address in DNS query replies. If the resol...'
+                    status:
+                        type: str
+                        description: 'Enable/disable this DNS translation entry.'
+                        choices:
+                            - 'disable'
+                            - 'enable'
+                    addr-type:
+                        type: str
+                        description: 'DNS translation type (IPv4 or IPv6).'
+                        choices:
+                            - 'ipv4'
+                            - 'ipv6'
+                    dst6:
+                        type: str
+                        description: 'IPv6 address or subnet on the external network to substitute for the resolved address in DNS query replies. Can be sin...'
+                    prefix:
+                        type: int
+                        description: 'If src6 and dst6 are subnets rather than single IP addresses, enter the prefix for both src6 and dst6 (1 - 128, defaul...'
+                    src6:
+                        type: str
+                        description: 'IPv6 address or subnet on the internal network to compare with the resolved address in DNS query replies. If the resol...'
+            redirect-portal6:
+                type: str
+                description: 'IPv6 address of the SDNS redirect portal.'
+            domain-filter:
+                description: no description
+                type: dict
+                required: false
+                suboptions:
+                    domain-filter-table:
+                        type: int
+                        description: 'DNS domain filter table ID.'
+            ftgd-dns:
+                description: no description
+                type: dict
+                required: false
+                suboptions:
+                    filters:
+                        description: no description
+                        type: list
+                        suboptions:
+                            action:
+                                type: str
+                                description: 'Action to take for DNS requests matching the category.'
+                                choices:
+                                    - 'monitor'
+                                    - 'block'
+                            category:
+                                type: str
+                                description: 'Category number.'
+                            id:
+                                type: int
+                                description: 'ID number.'
+                            log:
+                                type: str
+                                description: 'Enable/disable DNS filter logging for this DNS profile.'
+                                choices:
+                                    - 'disable'
+                                    - 'enable'
+                    options:
+                        description: no description
+                        type: list
+                        choices:
+                         - error-allow
+                         - ftgd-disable
 
 '''
 
@@ -183,6 +264,30 @@ EXAMPLES = '''
             sdns-domain-log: <value in [disable, enable]>
             sdns-ftgd-err-log: <value in [disable, enable]>
             youtube-restrict: <value in [strict, moderate]>
+            dns-translation:
+              -
+                  dst: <value of string>
+                  id: <value of integer>
+                  netmask: <value of string>
+                  src: <value of string>
+                  status: <value in [disable, enable]>
+                  addr-type: <value in [ipv4, ipv6]>
+                  dst6: <value of string>
+                  prefix: <value of integer>
+                  src6: <value of string>
+            redirect-portal6: <value of string>
+            domain-filter:
+               domain-filter-table: <value of integer>
+            ftgd-dns:
+               filters:
+                 -
+                     action: <value in [monitor, block]>
+                     category: <value of string>
+                     id: <value of integer>
+                     log: <value in [disable, enable]>
+               options:
+                 - error-allow
+                 - ftgd-disable
 
 '''
 
@@ -279,6 +384,16 @@ def main():
             'options': {
                 'block-action': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'block',
                         'redirect'
@@ -287,6 +402,16 @@ def main():
                 },
                 'block-botnet': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -295,14 +420,44 @@ def main():
                 },
                 'comment': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'external-ip-blocklist': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'log-all-domain': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -311,14 +466,44 @@ def main():
                 },
                 'name': {
                     'required': True,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'redirect-portal': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'safe-search': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -327,6 +512,16 @@ def main():
                 },
                 'sdns-domain-log': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -335,6 +530,16 @@ def main():
                 },
                 'sdns-ftgd-err-log': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -343,11 +548,252 @@ def main():
                 },
                 'youtube-restrict': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'strict',
                         'moderate'
                     ],
                     'type': 'str'
+                },
+                'dns-translation': {
+                    'required': False,
+                    'revision': {
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'type': 'list',
+                    'options': {
+                        'dst': {
+                            'required': False,
+                            'revision': {
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'str'
+                        },
+                        'id': {
+                            'required': False,
+                            'revision': {
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'int'
+                        },
+                        'netmask': {
+                            'required': False,
+                            'revision': {
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'str'
+                        },
+                        'src': {
+                            'required': False,
+                            'revision': {
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'str'
+                        },
+                        'status': {
+                            'required': False,
+                            'revision': {
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'disable',
+                                'enable'
+                            ],
+                            'type': 'str'
+                        },
+                        'addr-type': {
+                            'required': False,
+                            'revision': {
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'ipv4',
+                                'ipv6'
+                            ],
+                            'type': 'str'
+                        },
+                        'dst6': {
+                            'required': False,
+                            'revision': {
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'str'
+                        },
+                        'prefix': {
+                            'required': False,
+                            'revision': {
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'int'
+                        },
+                        'src6': {
+                            'required': False,
+                            'revision': {
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'str'
+                        }
+                    }
+                },
+                'redirect-portal6': {
+                    'required': False,
+                    'revision': {
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'type': 'str'
+                },
+                'domain-filter': {
+                    'required': False,
+                    'type': 'dict',
+                    'options': {
+                        'domain-filter-table': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'int'
+                        }
+                    }
+                },
+                'ftgd-dns': {
+                    'required': False,
+                    'type': 'dict',
+                    'options': {
+                        'filters': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'list',
+                            'options': {
+                                'action': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'choices': [
+                                        'monitor',
+                                        'block'
+                                    ],
+                                    'type': 'str'
+                                },
+                                'category': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'type': 'str'
+                                },
+                                'id': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'type': 'int'
+                                },
+                                'log': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'choices': [
+                                        'disable',
+                                        'enable'
+                                    ],
+                                    'type': 'str'
+                                }
+                            }
+                        },
+                        'options': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'list',
+                            'choices': [
+                                'error-allow',
+                                'ftgd-disable'
+                            ]
+                        }
+                    }
                 }
             }
 

@@ -145,12 +145,10 @@ from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import 
 
 def main():
     jrpc_urls = [
-        '/dvm/cmd/discover/device',
         '/dvm/cmd/discover/device'
     ]
 
     perobject_jrpc_urls = [
-        '/dvm/cmd/discover/device/{device}',
         '/dvm/cmd/discover/device/{device}'
     ]
 
@@ -193,14 +191,44 @@ def main():
                     'options': {
                         'adm_pass': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'str'
                         },
                         'adm_usr': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'str'
                         },
                         'ip': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'str'
                         }
                     }

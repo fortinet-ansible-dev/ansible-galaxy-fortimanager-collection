@@ -220,6 +220,48 @@ options:
                             - 'bypass'
                             - 'inspect'
                             - 'block'
+                    ftps-client-certificate:
+                        type: str
+                        description: 'Action based on received client certificate during the FTPS handshake.'
+                        choices:
+                            - 'bypass'
+                            - 'inspect'
+                            - 'block'
+                    https-client-certificate:
+                        type: str
+                        description: 'Action based on received client certificate during the HTTPS handshake.'
+                        choices:
+                            - 'bypass'
+                            - 'inspect'
+                            - 'block'
+                    imaps-client-certificate:
+                        type: str
+                        description: 'Action based on received client certificate during the IMAPS handshake.'
+                        choices:
+                            - 'bypass'
+                            - 'inspect'
+                            - 'block'
+                    pop3s-client-certificate:
+                        type: str
+                        description: 'Action based on received client certificate during the POP3S handshake.'
+                        choices:
+                            - 'bypass'
+                            - 'inspect'
+                            - 'block'
+                    smtps-client-certificate:
+                        type: str
+                        description: 'Action based on received client certificate during the SMTPS handshake.'
+                        choices:
+                            - 'bypass'
+                            - 'inspect'
+                            - 'block'
+                    ssl-other-client-certificate:
+                        type: str
+                        description: 'Action based on received client certificate during an SSL protocol handshake.'
+                        choices:
+                            - 'bypass'
+                            - 'inspect'
+                            - 'block'
             untrusted-caname:
                 type: str
                 description: 'Untrusted CA certificate used by SSL Inspection.'
@@ -235,6 +277,639 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
+            block-blacklisted-certificates:
+                type: str
+                description: 'Enable/disable blocking SSL-based botnet communication by FortiGuard certificate blacklist.'
+                choices:
+                    - 'disable'
+                    - 'enable'
+            ssl-negotiation-log:
+                type: str
+                description: 'Enable/disable logging SSL negotiation.'
+                choices:
+                    - 'disable'
+                    - 'enable'
+            ftps:
+                description: no description
+                type: dict
+                required: false
+                suboptions:
+                    cert-validation-failure:
+                        type: str
+                        description: 'Action based on certificate validation failure.'
+                        choices:
+                            - 'allow'
+                            - 'block'
+                            - 'ignore'
+                    cert-validation-timeout:
+                        type: str
+                        description: 'Action based on certificate validation timeout.'
+                        choices:
+                            - 'allow'
+                            - 'block'
+                            - 'ignore'
+                    client-certificate:
+                        type: str
+                        description: 'Action based on received client certificate.'
+                        choices:
+                            - 'bypass'
+                            - 'inspect'
+                            - 'block'
+                    expired-server-cert:
+                        type: str
+                        description: 'Action based on server certificate is expired.'
+                        choices:
+                            - 'allow'
+                            - 'block'
+                            - 'ignore'
+                    ports:
+                        description: no description
+                        type: int
+                    revoked-server-cert:
+                        type: str
+                        description: 'Action based on server certificate is revoked.'
+                        choices:
+                            - 'allow'
+                            - 'block'
+                            - 'ignore'
+                    sni-server-cert-check:
+                        type: str
+                        description: 'Check the SNI in the client hello message with the CN or SAN fields in the returned server certificate.'
+                        choices:
+                            - 'disable'
+                            - 'enable'
+                            - 'strict'
+                    status:
+                        type: str
+                        description: 'Configure protocol inspection status.'
+                        choices:
+                            - 'disable'
+                            - 'deep-inspection'
+                    unsupported-ssl-cipher:
+                        type: str
+                        description: 'Action based on the SSL cipher used being unsupported.'
+                        choices:
+                            - 'allow'
+                            - 'block'
+                    unsupported-ssl-negotiation:
+                        type: str
+                        description: 'Action based on the SSL negotiation used being unsupported.'
+                        choices:
+                            - 'allow'
+                            - 'block'
+                    untrusted-server-cert:
+                        type: str
+                        description: 'Action based on server certificate is not issued by a trusted CA.'
+                        choices:
+                            - 'allow'
+                            - 'block'
+                            - 'ignore'
+            https:
+                description: no description
+                type: dict
+                required: false
+                suboptions:
+                    cert-validation-failure:
+                        type: str
+                        description: 'Action based on certificate validation failure.'
+                        choices:
+                            - 'allow'
+                            - 'block'
+                            - 'ignore'
+                    cert-validation-timeout:
+                        type: str
+                        description: 'Action based on certificate validation timeout.'
+                        choices:
+                            - 'allow'
+                            - 'block'
+                            - 'ignore'
+                    client-certificate:
+                        type: str
+                        description: 'Action based on received client certificate.'
+                        choices:
+                            - 'bypass'
+                            - 'inspect'
+                            - 'block'
+                    expired-server-cert:
+                        type: str
+                        description: 'Action based on server certificate is expired.'
+                        choices:
+                            - 'allow'
+                            - 'block'
+                            - 'ignore'
+                    ports:
+                        description: no description
+                        type: int
+                    proxy-after-tcp-handshake:
+                        type: str
+                        description: 'Proxy traffic after the TCP 3-way handshake has been established (not before).'
+                        choices:
+                            - 'disable'
+                            - 'enable'
+                    revoked-server-cert:
+                        type: str
+                        description: 'Action based on server certificate is revoked.'
+                        choices:
+                            - 'allow'
+                            - 'block'
+                            - 'ignore'
+                    sni-server-cert-check:
+                        type: str
+                        description: 'Check the SNI in the client hello message with the CN or SAN fields in the returned server certificate.'
+                        choices:
+                            - 'disable'
+                            - 'enable'
+                            - 'strict'
+                    status:
+                        type: str
+                        description: 'Configure protocol inspection status.'
+                        choices:
+                            - 'disable'
+                            - 'certificate-inspection'
+                            - 'deep-inspection'
+                    unsupported-ssl-cipher:
+                        type: str
+                        description: 'Action based on the SSL cipher used being unsupported.'
+                        choices:
+                            - 'allow'
+                            - 'block'
+                    unsupported-ssl-negotiation:
+                        type: str
+                        description: 'Action based on the SSL negotiation used being unsupported.'
+                        choices:
+                            - 'allow'
+                            - 'block'
+                    untrusted-server-cert:
+                        type: str
+                        description: 'Action based on server certificate is not issued by a trusted CA.'
+                        choices:
+                            - 'allow'
+                            - 'block'
+                            - 'ignore'
+                    cert-probe-failure:
+                        type: str
+                        description: 'Action based on certificate probe failure.'
+                        choices:
+                            - 'block'
+                            - 'allow'
+            imaps:
+                description: no description
+                type: dict
+                required: false
+                suboptions:
+                    cert-validation-failure:
+                        type: str
+                        description: 'Action based on certificate validation failure.'
+                        choices:
+                            - 'allow'
+                            - 'block'
+                            - 'ignore'
+                    cert-validation-timeout:
+                        type: str
+                        description: 'Action based on certificate validation timeout.'
+                        choices:
+                            - 'allow'
+                            - 'block'
+                            - 'ignore'
+                    client-certificate:
+                        type: str
+                        description: 'Action based on received client certificate.'
+                        choices:
+                            - 'bypass'
+                            - 'inspect'
+                            - 'block'
+                    expired-server-cert:
+                        type: str
+                        description: 'Action based on server certificate is expired.'
+                        choices:
+                            - 'allow'
+                            - 'block'
+                            - 'ignore'
+                    ports:
+                        description: no description
+                        type: int
+                    proxy-after-tcp-handshake:
+                        type: str
+                        description: 'Proxy traffic after the TCP 3-way handshake has been established (not before).'
+                        choices:
+                            - 'disable'
+                            - 'enable'
+                    revoked-server-cert:
+                        type: str
+                        description: 'Action based on server certificate is revoked.'
+                        choices:
+                            - 'allow'
+                            - 'block'
+                            - 'ignore'
+                    sni-server-cert-check:
+                        type: str
+                        description: 'Check the SNI in the client hello message with the CN or SAN fields in the returned server certificate.'
+                        choices:
+                            - 'disable'
+                            - 'enable'
+                            - 'strict'
+                    status:
+                        type: str
+                        description: 'Configure protocol inspection status.'
+                        choices:
+                            - 'disable'
+                            - 'deep-inspection'
+                    unsupported-ssl-cipher:
+                        type: str
+                        description: 'Action based on the SSL cipher used being unsupported.'
+                        choices:
+                            - 'allow'
+                            - 'block'
+                    unsupported-ssl-negotiation:
+                        type: str
+                        description: 'Action based on the SSL negotiation used being unsupported.'
+                        choices:
+                            - 'allow'
+                            - 'block'
+                    untrusted-server-cert:
+                        type: str
+                        description: 'Action based on server certificate is not issued by a trusted CA.'
+                        choices:
+                            - 'allow'
+                            - 'block'
+                            - 'ignore'
+            pop3s:
+                description: no description
+                type: dict
+                required: false
+                suboptions:
+                    cert-validation-failure:
+                        type: str
+                        description: 'Action based on certificate validation failure.'
+                        choices:
+                            - 'allow'
+                            - 'block'
+                            - 'ignore'
+                    cert-validation-timeout:
+                        type: str
+                        description: 'Action based on certificate validation timeout.'
+                        choices:
+                            - 'allow'
+                            - 'block'
+                            - 'ignore'
+                    client-certificate:
+                        type: str
+                        description: 'Action based on received client certificate.'
+                        choices:
+                            - 'bypass'
+                            - 'inspect'
+                            - 'block'
+                    expired-server-cert:
+                        type: str
+                        description: 'Action based on server certificate is expired.'
+                        choices:
+                            - 'allow'
+                            - 'block'
+                            - 'ignore'
+                    ports:
+                        description: no description
+                        type: int
+                    proxy-after-tcp-handshake:
+                        type: str
+                        description: 'Proxy traffic after the TCP 3-way handshake has been established (not before).'
+                        choices:
+                            - 'disable'
+                            - 'enable'
+                    revoked-server-cert:
+                        type: str
+                        description: 'Action based on server certificate is revoked.'
+                        choices:
+                            - 'allow'
+                            - 'block'
+                            - 'ignore'
+                    sni-server-cert-check:
+                        type: str
+                        description: 'Check the SNI in the client hello message with the CN or SAN fields in the returned server certificate.'
+                        choices:
+                            - 'disable'
+                            - 'enable'
+                            - 'strict'
+                    status:
+                        type: str
+                        description: 'Configure protocol inspection status.'
+                        choices:
+                            - 'disable'
+                            - 'deep-inspection'
+                    unsupported-ssl-cipher:
+                        type: str
+                        description: 'Action based on the SSL cipher used being unsupported.'
+                        choices:
+                            - 'allow'
+                            - 'block'
+                    unsupported-ssl-negotiation:
+                        type: str
+                        description: 'Action based on the SSL negotiation used being unsupported.'
+                        choices:
+                            - 'allow'
+                            - 'block'
+                    untrusted-server-cert:
+                        type: str
+                        description: 'Action based on server certificate is not issued by a trusted CA.'
+                        choices:
+                            - 'allow'
+                            - 'block'
+                            - 'ignore'
+            smtps:
+                description: no description
+                type: dict
+                required: false
+                suboptions:
+                    cert-validation-failure:
+                        type: str
+                        description: 'Action based on certificate validation failure.'
+                        choices:
+                            - 'allow'
+                            - 'block'
+                            - 'ignore'
+                    cert-validation-timeout:
+                        type: str
+                        description: 'Action based on certificate validation timeout.'
+                        choices:
+                            - 'allow'
+                            - 'block'
+                            - 'ignore'
+                    client-certificate:
+                        type: str
+                        description: 'Action based on received client certificate.'
+                        choices:
+                            - 'bypass'
+                            - 'inspect'
+                            - 'block'
+                    expired-server-cert:
+                        type: str
+                        description: 'Action based on server certificate is expired.'
+                        choices:
+                            - 'allow'
+                            - 'block'
+                            - 'ignore'
+                    ports:
+                        description: no description
+                        type: int
+                    proxy-after-tcp-handshake:
+                        type: str
+                        description: 'Proxy traffic after the TCP 3-way handshake has been established (not before).'
+                        choices:
+                            - 'disable'
+                            - 'enable'
+                    revoked-server-cert:
+                        type: str
+                        description: 'Action based on server certificate is revoked.'
+                        choices:
+                            - 'allow'
+                            - 'block'
+                            - 'ignore'
+                    sni-server-cert-check:
+                        type: str
+                        description: 'Check the SNI in the client hello message with the CN or SAN fields in the returned server certificate.'
+                        choices:
+                            - 'disable'
+                            - 'enable'
+                            - 'strict'
+                    status:
+                        type: str
+                        description: 'Configure protocol inspection status.'
+                        choices:
+                            - 'disable'
+                            - 'deep-inspection'
+                    unsupported-ssl-cipher:
+                        type: str
+                        description: 'Action based on the SSL cipher used being unsupported.'
+                        choices:
+                            - 'allow'
+                            - 'block'
+                    unsupported-ssl-negotiation:
+                        type: str
+                        description: 'Action based on the SSL negotiation used being unsupported.'
+                        choices:
+                            - 'allow'
+                            - 'block'
+                    untrusted-server-cert:
+                        type: str
+                        description: 'Action based on server certificate is not issued by a trusted CA.'
+                        choices:
+                            - 'allow'
+                            - 'block'
+                            - 'ignore'
+            ssh:
+                description: no description
+                type: dict
+                required: false
+                suboptions:
+                    inspect-all:
+                        type: str
+                        description: 'Level of SSL inspection.'
+                        choices:
+                            - 'disable'
+                            - 'deep-inspection'
+                    ports:
+                        description: no description
+                        type: int
+                    proxy-after-tcp-handshake:
+                        type: str
+                        description: 'Proxy traffic after the TCP 3-way handshake has been established (not before).'
+                        choices:
+                            - 'disable'
+                            - 'enable'
+                    ssh-algorithm:
+                        type: str
+                        description: 'Relative strength of encryption algorithms accepted during negotiation.'
+                        choices:
+                            - 'compatible'
+                            - 'high-encryption'
+                    ssh-tun-policy-check:
+                        type: str
+                        description: 'Enable/disable SSH tunnel policy check.'
+                        choices:
+                            - 'disable'
+                            - 'enable'
+                    status:
+                        type: str
+                        description: 'Configure protocol inspection status.'
+                        choices:
+                            - 'disable'
+                            - 'deep-inspection'
+                    unsupported-version:
+                        type: str
+                        description: 'Action based on SSH version being unsupported.'
+                        choices:
+                            - 'block'
+                            - 'bypass'
+            ssl:
+                description: no description
+                type: dict
+                required: false
+                suboptions:
+                    cert-validation-failure:
+                        type: str
+                        description: 'Action based on certificate validation failure.'
+                        choices:
+                            - 'allow'
+                            - 'block'
+                            - 'ignore'
+                    cert-validation-timeout:
+                        type: str
+                        description: 'Action based on certificate validation timeout.'
+                        choices:
+                            - 'allow'
+                            - 'block'
+                            - 'ignore'
+                    client-certificate:
+                        type: str
+                        description: 'Action based on received client certificate.'
+                        choices:
+                            - 'bypass'
+                            - 'inspect'
+                            - 'block'
+                    expired-server-cert:
+                        type: str
+                        description: 'Action based on server certificate is expired.'
+                        choices:
+                            - 'allow'
+                            - 'block'
+                            - 'ignore'
+                    inspect-all:
+                        type: str
+                        description: 'Level of SSL inspection.'
+                        choices:
+                            - 'disable'
+                            - 'certificate-inspection'
+                            - 'deep-inspection'
+                    revoked-server-cert:
+                        type: str
+                        description: 'Action based on server certificate is revoked.'
+                        choices:
+                            - 'allow'
+                            - 'block'
+                            - 'ignore'
+                    sni-server-cert-check:
+                        type: str
+                        description: 'Check the SNI in the client hello message with the CN or SAN fields in the returned server certificate.'
+                        choices:
+                            - 'disable'
+                            - 'enable'
+                            - 'strict'
+                    unsupported-ssl-cipher:
+                        type: str
+                        description: 'Action based on the SSL cipher used being unsupported.'
+                        choices:
+                            - 'allow'
+                            - 'block'
+                    unsupported-ssl-negotiation:
+                        type: str
+                        description: 'Action based on the SSL negotiation used being unsupported.'
+                        choices:
+                            - 'allow'
+                            - 'block'
+                    untrusted-server-cert:
+                        type: str
+                        description: 'Action based on server certificate is not issued by a trusted CA.'
+                        choices:
+                            - 'allow'
+                            - 'block'
+                            - 'ignore'
+            allowlist:
+                type: str
+                description: 'Enable/disable exempting servers by FortiGuard allowlist.'
+                choices:
+                    - 'disable'
+                    - 'enable'
+            block-blocklisted-certificates:
+                type: str
+                description: 'Enable/disable blocking SSL-based botnet communication by FortiGuard certificate blocklist.'
+                choices:
+                    - 'disable'
+                    - 'enable'
+            dot:
+                description: no description
+                type: dict
+                required: false
+                suboptions:
+                    cert-validation-failure:
+                        type: str
+                        description: 'Action based on certificate validation failure.'
+                        choices:
+                            - 'allow'
+                            - 'block'
+                            - 'ignore'
+                    cert-validation-timeout:
+                        type: str
+                        description: 'Action based on certificate validation timeout.'
+                        choices:
+                            - 'allow'
+                            - 'block'
+                            - 'ignore'
+                    client-certificate:
+                        type: str
+                        description: 'Action based on received client certificate.'
+                        choices:
+                            - 'bypass'
+                            - 'inspect'
+                            - 'block'
+                    expired-server-cert:
+                        type: str
+                        description: 'Action based on server certificate is expired.'
+                        choices:
+                            - 'allow'
+                            - 'block'
+                            - 'ignore'
+                    proxy-after-tcp-handshake:
+                        type: str
+                        description: 'Proxy traffic after the TCP 3-way handshake has been established (not before).'
+                        choices:
+                            - 'disable'
+                            - 'enable'
+                    revoked-server-cert:
+                        type: str
+                        description: 'Action based on server certificate is revoked.'
+                        choices:
+                            - 'allow'
+                            - 'block'
+                            - 'ignore'
+                    sni-server-cert-check:
+                        type: str
+                        description: 'Check the SNI in the client hello message with the CN or SAN fields in the returned server certificate.'
+                        choices:
+                            - 'enable'
+                            - 'strict'
+                            - 'disable'
+                    status:
+                        type: str
+                        description: 'Configure protocol inspection status.'
+                        choices:
+                            - 'disable'
+                            - 'deep-inspection'
+                    unsupported-ssl-cipher:
+                        type: str
+                        description: 'Action based on the SSL cipher used being unsupported.'
+                        choices:
+                            - 'block'
+                            - 'allow'
+                    unsupported-ssl-negotiation:
+                        type: str
+                        description: 'Action based on the SSL negotiation used being unsupported.'
+                        choices:
+                            - 'block'
+                            - 'allow'
+                    untrusted-server-cert:
+                        type: str
+                        description: 'Action based on server certificate is not issued by a trusted CA.'
+                        choices:
+                            - 'allow'
+                            - 'block'
+                            - 'ignore'
+            supported-alpn:
+                type: str
+                description: 'Configure ALPN option.'
+                choices:
+                    - 'none'
+                    - 'http1-1'
+                    - 'http2'
+                    - 'all'
 
 '''
 
@@ -286,9 +961,116 @@ EXAMPLES = '''
                   pop3s-client-cert-request: <value in [bypass, inspect, block]>
                   smtps-client-cert-request: <value in [bypass, inspect, block]>
                   ssl-other-client-cert-request: <value in [bypass, inspect, block]>
+                  ftps-client-certificate: <value in [bypass, inspect, block]>
+                  https-client-certificate: <value in [bypass, inspect, block]>
+                  imaps-client-certificate: <value in [bypass, inspect, block]>
+                  pop3s-client-certificate: <value in [bypass, inspect, block]>
+                  smtps-client-certificate: <value in [bypass, inspect, block]>
+                  ssl-other-client-certificate: <value in [bypass, inspect, block]>
             untrusted-caname: <value of string>
             use-ssl-server: <value in [disable, enable]>
             whitelist: <value in [disable, enable]>
+            block-blacklisted-certificates: <value in [disable, enable]>
+            ssl-negotiation-log: <value in [disable, enable]>
+            ftps:
+               cert-validation-failure: <value in [allow, block, ignore]>
+               cert-validation-timeout: <value in [allow, block, ignore]>
+               client-certificate: <value in [bypass, inspect, block]>
+               expired-server-cert: <value in [allow, block, ignore]>
+               ports: <value of integer>
+               revoked-server-cert: <value in [allow, block, ignore]>
+               sni-server-cert-check: <value in [disable, enable, strict]>
+               status: <value in [disable, deep-inspection]>
+               unsupported-ssl-cipher: <value in [allow, block]>
+               unsupported-ssl-negotiation: <value in [allow, block]>
+               untrusted-server-cert: <value in [allow, block, ignore]>
+            https:
+               cert-validation-failure: <value in [allow, block, ignore]>
+               cert-validation-timeout: <value in [allow, block, ignore]>
+               client-certificate: <value in [bypass, inspect, block]>
+               expired-server-cert: <value in [allow, block, ignore]>
+               ports: <value of integer>
+               proxy-after-tcp-handshake: <value in [disable, enable]>
+               revoked-server-cert: <value in [allow, block, ignore]>
+               sni-server-cert-check: <value in [disable, enable, strict]>
+               status: <value in [disable, certificate-inspection, deep-inspection]>
+               unsupported-ssl-cipher: <value in [allow, block]>
+               unsupported-ssl-negotiation: <value in [allow, block]>
+               untrusted-server-cert: <value in [allow, block, ignore]>
+               cert-probe-failure: <value in [block, allow]>
+            imaps:
+               cert-validation-failure: <value in [allow, block, ignore]>
+               cert-validation-timeout: <value in [allow, block, ignore]>
+               client-certificate: <value in [bypass, inspect, block]>
+               expired-server-cert: <value in [allow, block, ignore]>
+               ports: <value of integer>
+               proxy-after-tcp-handshake: <value in [disable, enable]>
+               revoked-server-cert: <value in [allow, block, ignore]>
+               sni-server-cert-check: <value in [disable, enable, strict]>
+               status: <value in [disable, deep-inspection]>
+               unsupported-ssl-cipher: <value in [allow, block]>
+               unsupported-ssl-negotiation: <value in [allow, block]>
+               untrusted-server-cert: <value in [allow, block, ignore]>
+            pop3s:
+               cert-validation-failure: <value in [allow, block, ignore]>
+               cert-validation-timeout: <value in [allow, block, ignore]>
+               client-certificate: <value in [bypass, inspect, block]>
+               expired-server-cert: <value in [allow, block, ignore]>
+               ports: <value of integer>
+               proxy-after-tcp-handshake: <value in [disable, enable]>
+               revoked-server-cert: <value in [allow, block, ignore]>
+               sni-server-cert-check: <value in [disable, enable, strict]>
+               status: <value in [disable, deep-inspection]>
+               unsupported-ssl-cipher: <value in [allow, block]>
+               unsupported-ssl-negotiation: <value in [allow, block]>
+               untrusted-server-cert: <value in [allow, block, ignore]>
+            smtps:
+               cert-validation-failure: <value in [allow, block, ignore]>
+               cert-validation-timeout: <value in [allow, block, ignore]>
+               client-certificate: <value in [bypass, inspect, block]>
+               expired-server-cert: <value in [allow, block, ignore]>
+               ports: <value of integer>
+               proxy-after-tcp-handshake: <value in [disable, enable]>
+               revoked-server-cert: <value in [allow, block, ignore]>
+               sni-server-cert-check: <value in [disable, enable, strict]>
+               status: <value in [disable, deep-inspection]>
+               unsupported-ssl-cipher: <value in [allow, block]>
+               unsupported-ssl-negotiation: <value in [allow, block]>
+               untrusted-server-cert: <value in [allow, block, ignore]>
+            ssh:
+               inspect-all: <value in [disable, deep-inspection]>
+               ports: <value of integer>
+               proxy-after-tcp-handshake: <value in [disable, enable]>
+               ssh-algorithm: <value in [compatible, high-encryption]>
+               ssh-tun-policy-check: <value in [disable, enable]>
+               status: <value in [disable, deep-inspection]>
+               unsupported-version: <value in [block, bypass]>
+            ssl:
+               cert-validation-failure: <value in [allow, block, ignore]>
+               cert-validation-timeout: <value in [allow, block, ignore]>
+               client-certificate: <value in [bypass, inspect, block]>
+               expired-server-cert: <value in [allow, block, ignore]>
+               inspect-all: <value in [disable, certificate-inspection, deep-inspection]>
+               revoked-server-cert: <value in [allow, block, ignore]>
+               sni-server-cert-check: <value in [disable, enable, strict]>
+               unsupported-ssl-cipher: <value in [allow, block]>
+               unsupported-ssl-negotiation: <value in [allow, block]>
+               untrusted-server-cert: <value in [allow, block, ignore]>
+            allowlist: <value in [disable, enable]>
+            block-blocklisted-certificates: <value in [disable, enable]>
+            dot:
+               cert-validation-failure: <value in [allow, block, ignore]>
+               cert-validation-timeout: <value in [allow, block, ignore]>
+               client-certificate: <value in [bypass, inspect, block]>
+               expired-server-cert: <value in [allow, block, ignore]>
+               proxy-after-tcp-handshake: <value in [disable, enable]>
+               revoked-server-cert: <value in [allow, block, ignore]>
+               sni-server-cert-check: <value in [enable, strict, disable]>
+               status: <value in [disable, deep-inspection]>
+               unsupported-ssl-cipher: <value in [block, allow]>
+               unsupported-ssl-negotiation: <value in [block, allow]>
+               untrusted-server-cert: <value in [allow, block, ignore]>
+            supported-alpn: <value in [none, http1-1, http2, ...]>
 
 '''
 
@@ -385,14 +1167,44 @@ def main():
             'options': {
                 'caname': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'comment': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'mapi-over-https': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -401,10 +1213,30 @@ def main():
                 },
                 'name': {
                     'required': True,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'rpc-over-https': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -413,10 +1245,30 @@ def main():
                 },
                 'server-cert': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'server-cert-mode': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         're-sign',
                         'replace'
@@ -425,6 +1277,16 @@ def main():
                 },
                 'ssl-anomalies-log': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -433,30 +1295,100 @@ def main():
                 },
                 'ssl-exempt': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'list',
                     'options': {
                         'address': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'str'
                         },
                         'address6': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'str'
                         },
                         'fortiguard-category': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'str'
                         },
                         'id': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'int'
                         },
                         'regex': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'str'
                         },
                         'type': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'choices': [
                                 'fortiguard-category',
                                 'address',
@@ -468,12 +1400,32 @@ def main():
                         },
                         'wildcard-fqdn': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'str'
                         }
                     }
                 },
                 'ssl-exemptions-log': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -482,10 +1434,30 @@ def main():
                 },
                 'ssl-server': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'list',
                     'options': {
                         'ftps-client-cert-request': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
                             'choices': [
                                 'bypass',
                                 'inspect',
@@ -495,6 +1467,16 @@ def main():
                         },
                         'https-client-cert-request': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
                             'choices': [
                                 'bypass',
                                 'inspect',
@@ -504,10 +1486,30 @@ def main():
                         },
                         'id': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'int'
                         },
                         'imaps-client-cert-request': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
                             'choices': [
                                 'bypass',
                                 'inspect',
@@ -517,10 +1519,30 @@ def main():
                         },
                         'ip': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'str'
                         },
                         'pop3s-client-cert-request': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
                             'choices': [
                                 'bypass',
                                 'inspect',
@@ -530,6 +1552,16 @@ def main():
                         },
                         'smtps-client-cert-request': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
                             'choices': [
                                 'bypass',
                                 'inspect',
@@ -539,6 +1571,106 @@ def main():
                         },
                         'ssl-other-client-cert-request': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
+                            'choices': [
+                                'bypass',
+                                'inspect',
+                                'block'
+                            ],
+                            'type': 'str'
+                        },
+                        'ftps-client-certificate': {
+                            'required': False,
+                            'revision': {
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'bypass',
+                                'inspect',
+                                'block'
+                            ],
+                            'type': 'str'
+                        },
+                        'https-client-certificate': {
+                            'required': False,
+                            'revision': {
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'bypass',
+                                'inspect',
+                                'block'
+                            ],
+                            'type': 'str'
+                        },
+                        'imaps-client-certificate': {
+                            'required': False,
+                            'revision': {
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'bypass',
+                                'inspect',
+                                'block'
+                            ],
+                            'type': 'str'
+                        },
+                        'pop3s-client-certificate': {
+                            'required': False,
+                            'revision': {
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'bypass',
+                                'inspect',
+                                'block'
+                            ],
+                            'type': 'str'
+                        },
+                        'smtps-client-certificate': {
+                            'required': False,
+                            'revision': {
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'bypass',
+                                'inspect',
+                                'block'
+                            ],
+                            'type': 'str'
+                        },
+                        'ssl-other-client-certificate': {
+                            'required': False,
+                            'revision': {
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'choices': [
                                 'bypass',
                                 'inspect',
@@ -550,10 +1682,30 @@ def main():
                 },
                 'untrusted-caname': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'use-ssl-server': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -562,9 +1714,1204 @@ def main():
                 },
                 'whitelist': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': False
+                    },
                     'choices': [
                         'disable',
                         'enable'
+                    ],
+                    'type': 'str'
+                },
+                'block-blacklisted-certificates': {
+                    'required': False,
+                    'revision': {
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': False
+                    },
+                    'choices': [
+                        'disable',
+                        'enable'
+                    ],
+                    'type': 'str'
+                },
+                'ssl-negotiation-log': {
+                    'required': False,
+                    'revision': {
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'choices': [
+                        'disable',
+                        'enable'
+                    ],
+                    'type': 'str'
+                },
+                'ftps': {
+                    'required': False,
+                    'type': 'dict',
+                    'options': {
+                        'cert-validation-failure': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'allow',
+                                'block',
+                                'ignore'
+                            ],
+                            'type': 'str'
+                        },
+                        'cert-validation-timeout': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'allow',
+                                'block',
+                                'ignore'
+                            ],
+                            'type': 'str'
+                        },
+                        'client-certificate': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'bypass',
+                                'inspect',
+                                'block'
+                            ],
+                            'type': 'str'
+                        },
+                        'expired-server-cert': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'allow',
+                                'block',
+                                'ignore'
+                            ],
+                            'type': 'str'
+                        },
+                        'ports': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'int'
+                        },
+                        'revoked-server-cert': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'allow',
+                                'block',
+                                'ignore'
+                            ],
+                            'type': 'str'
+                        },
+                        'sni-server-cert-check': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'disable',
+                                'enable',
+                                'strict'
+                            ],
+                            'type': 'str'
+                        },
+                        'status': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'disable',
+                                'deep-inspection'
+                            ],
+                            'type': 'str'
+                        },
+                        'unsupported-ssl-cipher': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'allow',
+                                'block'
+                            ],
+                            'type': 'str'
+                        },
+                        'unsupported-ssl-negotiation': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'allow',
+                                'block'
+                            ],
+                            'type': 'str'
+                        },
+                        'untrusted-server-cert': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'allow',
+                                'block',
+                                'ignore'
+                            ],
+                            'type': 'str'
+                        }
+                    }
+                },
+                'https': {
+                    'required': False,
+                    'type': 'dict',
+                    'options': {
+                        'cert-validation-failure': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'allow',
+                                'block',
+                                'ignore'
+                            ],
+                            'type': 'str'
+                        },
+                        'cert-validation-timeout': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'allow',
+                                'block',
+                                'ignore'
+                            ],
+                            'type': 'str'
+                        },
+                        'client-certificate': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'bypass',
+                                'inspect',
+                                'block'
+                            ],
+                            'type': 'str'
+                        },
+                        'expired-server-cert': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'allow',
+                                'block',
+                                'ignore'
+                            ],
+                            'type': 'str'
+                        },
+                        'ports': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'int'
+                        },
+                        'proxy-after-tcp-handshake': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'disable',
+                                'enable'
+                            ],
+                            'type': 'str'
+                        },
+                        'revoked-server-cert': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'allow',
+                                'block',
+                                'ignore'
+                            ],
+                            'type': 'str'
+                        },
+                        'sni-server-cert-check': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'disable',
+                                'enable',
+                                'strict'
+                            ],
+                            'type': 'str'
+                        },
+                        'status': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'disable',
+                                'certificate-inspection',
+                                'deep-inspection'
+                            ],
+                            'type': 'str'
+                        },
+                        'unsupported-ssl-cipher': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'allow',
+                                'block'
+                            ],
+                            'type': 'str'
+                        },
+                        'unsupported-ssl-negotiation': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'allow',
+                                'block'
+                            ],
+                            'type': 'str'
+                        },
+                        'untrusted-server-cert': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'allow',
+                                'block',
+                                'ignore'
+                            ],
+                            'type': 'str'
+                        },
+                        'cert-probe-failure': {
+                            'required': False,
+                            'revision': {
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'block',
+                                'allow'
+                            ],
+                            'type': 'str'
+                        }
+                    }
+                },
+                'imaps': {
+                    'required': False,
+                    'type': 'dict',
+                    'options': {
+                        'cert-validation-failure': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'allow',
+                                'block',
+                                'ignore'
+                            ],
+                            'type': 'str'
+                        },
+                        'cert-validation-timeout': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'allow',
+                                'block',
+                                'ignore'
+                            ],
+                            'type': 'str'
+                        },
+                        'client-certificate': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'bypass',
+                                'inspect',
+                                'block'
+                            ],
+                            'type': 'str'
+                        },
+                        'expired-server-cert': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'allow',
+                                'block',
+                                'ignore'
+                            ],
+                            'type': 'str'
+                        },
+                        'ports': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'int'
+                        },
+                        'proxy-after-tcp-handshake': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'disable',
+                                'enable'
+                            ],
+                            'type': 'str'
+                        },
+                        'revoked-server-cert': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'allow',
+                                'block',
+                                'ignore'
+                            ],
+                            'type': 'str'
+                        },
+                        'sni-server-cert-check': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'disable',
+                                'enable',
+                                'strict'
+                            ],
+                            'type': 'str'
+                        },
+                        'status': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'disable',
+                                'deep-inspection'
+                            ],
+                            'type': 'str'
+                        },
+                        'unsupported-ssl-cipher': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'allow',
+                                'block'
+                            ],
+                            'type': 'str'
+                        },
+                        'unsupported-ssl-negotiation': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'allow',
+                                'block'
+                            ],
+                            'type': 'str'
+                        },
+                        'untrusted-server-cert': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'allow',
+                                'block',
+                                'ignore'
+                            ],
+                            'type': 'str'
+                        }
+                    }
+                },
+                'pop3s': {
+                    'required': False,
+                    'type': 'dict',
+                    'options': {
+                        'cert-validation-failure': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'allow',
+                                'block',
+                                'ignore'
+                            ],
+                            'type': 'str'
+                        },
+                        'cert-validation-timeout': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'allow',
+                                'block',
+                                'ignore'
+                            ],
+                            'type': 'str'
+                        },
+                        'client-certificate': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'bypass',
+                                'inspect',
+                                'block'
+                            ],
+                            'type': 'str'
+                        },
+                        'expired-server-cert': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'allow',
+                                'block',
+                                'ignore'
+                            ],
+                            'type': 'str'
+                        },
+                        'ports': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'int'
+                        },
+                        'proxy-after-tcp-handshake': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'disable',
+                                'enable'
+                            ],
+                            'type': 'str'
+                        },
+                        'revoked-server-cert': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'allow',
+                                'block',
+                                'ignore'
+                            ],
+                            'type': 'str'
+                        },
+                        'sni-server-cert-check': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'disable',
+                                'enable',
+                                'strict'
+                            ],
+                            'type': 'str'
+                        },
+                        'status': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'disable',
+                                'deep-inspection'
+                            ],
+                            'type': 'str'
+                        },
+                        'unsupported-ssl-cipher': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'allow',
+                                'block'
+                            ],
+                            'type': 'str'
+                        },
+                        'unsupported-ssl-negotiation': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'allow',
+                                'block'
+                            ],
+                            'type': 'str'
+                        },
+                        'untrusted-server-cert': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'allow',
+                                'block',
+                                'ignore'
+                            ],
+                            'type': 'str'
+                        }
+                    }
+                },
+                'smtps': {
+                    'required': False,
+                    'type': 'dict',
+                    'options': {
+                        'cert-validation-failure': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'allow',
+                                'block',
+                                'ignore'
+                            ],
+                            'type': 'str'
+                        },
+                        'cert-validation-timeout': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'allow',
+                                'block',
+                                'ignore'
+                            ],
+                            'type': 'str'
+                        },
+                        'client-certificate': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'bypass',
+                                'inspect',
+                                'block'
+                            ],
+                            'type': 'str'
+                        },
+                        'expired-server-cert': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'allow',
+                                'block',
+                                'ignore'
+                            ],
+                            'type': 'str'
+                        },
+                        'ports': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'int'
+                        },
+                        'proxy-after-tcp-handshake': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'disable',
+                                'enable'
+                            ],
+                            'type': 'str'
+                        },
+                        'revoked-server-cert': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'allow',
+                                'block',
+                                'ignore'
+                            ],
+                            'type': 'str'
+                        },
+                        'sni-server-cert-check': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'disable',
+                                'enable',
+                                'strict'
+                            ],
+                            'type': 'str'
+                        },
+                        'status': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'disable',
+                                'deep-inspection'
+                            ],
+                            'type': 'str'
+                        },
+                        'unsupported-ssl-cipher': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'allow',
+                                'block'
+                            ],
+                            'type': 'str'
+                        },
+                        'unsupported-ssl-negotiation': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'allow',
+                                'block'
+                            ],
+                            'type': 'str'
+                        },
+                        'untrusted-server-cert': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'allow',
+                                'block',
+                                'ignore'
+                            ],
+                            'type': 'str'
+                        }
+                    }
+                },
+                'ssh': {
+                    'required': False,
+                    'type': 'dict',
+                    'options': {
+                        'inspect-all': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'disable',
+                                'deep-inspection'
+                            ],
+                            'type': 'str'
+                        },
+                        'ports': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'int'
+                        },
+                        'proxy-after-tcp-handshake': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'disable',
+                                'enable'
+                            ],
+                            'type': 'str'
+                        },
+                        'ssh-algorithm': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'compatible',
+                                'high-encryption'
+                            ],
+                            'type': 'str'
+                        },
+                        'ssh-tun-policy-check': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'disable',
+                                'enable'
+                            ],
+                            'type': 'str'
+                        },
+                        'status': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'disable',
+                                'deep-inspection'
+                            ],
+                            'type': 'str'
+                        },
+                        'unsupported-version': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'block',
+                                'bypass'
+                            ],
+                            'type': 'str'
+                        }
+                    }
+                },
+                'ssl': {
+                    'required': False,
+                    'type': 'dict',
+                    'options': {
+                        'cert-validation-failure': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'allow',
+                                'block',
+                                'ignore'
+                            ],
+                            'type': 'str'
+                        },
+                        'cert-validation-timeout': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'allow',
+                                'block',
+                                'ignore'
+                            ],
+                            'type': 'str'
+                        },
+                        'client-certificate': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'bypass',
+                                'inspect',
+                                'block'
+                            ],
+                            'type': 'str'
+                        },
+                        'expired-server-cert': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'allow',
+                                'block',
+                                'ignore'
+                            ],
+                            'type': 'str'
+                        },
+                        'inspect-all': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'disable',
+                                'certificate-inspection',
+                                'deep-inspection'
+                            ],
+                            'type': 'str'
+                        },
+                        'revoked-server-cert': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'allow',
+                                'block',
+                                'ignore'
+                            ],
+                            'type': 'str'
+                        },
+                        'sni-server-cert-check': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'disable',
+                                'enable',
+                                'strict'
+                            ],
+                            'type': 'str'
+                        },
+                        'unsupported-ssl-cipher': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'allow',
+                                'block'
+                            ],
+                            'type': 'str'
+                        },
+                        'unsupported-ssl-negotiation': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'allow',
+                                'block'
+                            ],
+                            'type': 'str'
+                        },
+                        'untrusted-server-cert': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'allow',
+                                'block',
+                                'ignore'
+                            ],
+                            'type': 'str'
+                        }
+                    }
+                },
+                'allowlist': {
+                    'required': False,
+                    'revision': {
+                        '7.0.0': True
+                    },
+                    'choices': [
+                        'disable',
+                        'enable'
+                    ],
+                    'type': 'str'
+                },
+                'block-blocklisted-certificates': {
+                    'required': False,
+                    'revision': {
+                        '7.0.0': True
+                    },
+                    'choices': [
+                        'disable',
+                        'enable'
+                    ],
+                    'type': 'str'
+                },
+                'dot': {
+                    'required': False,
+                    'type': 'dict',
+                    'options': {
+                        'cert-validation-failure': {
+                            'required': False,
+                            'revision': {
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'allow',
+                                'block',
+                                'ignore'
+                            ],
+                            'type': 'str'
+                        },
+                        'cert-validation-timeout': {
+                            'required': False,
+                            'revision': {
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'allow',
+                                'block',
+                                'ignore'
+                            ],
+                            'type': 'str'
+                        },
+                        'client-certificate': {
+                            'required': False,
+                            'revision': {
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'bypass',
+                                'inspect',
+                                'block'
+                            ],
+                            'type': 'str'
+                        },
+                        'expired-server-cert': {
+                            'required': False,
+                            'revision': {
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'allow',
+                                'block',
+                                'ignore'
+                            ],
+                            'type': 'str'
+                        },
+                        'proxy-after-tcp-handshake': {
+                            'required': False,
+                            'revision': {
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'disable',
+                                'enable'
+                            ],
+                            'type': 'str'
+                        },
+                        'revoked-server-cert': {
+                            'required': False,
+                            'revision': {
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'allow',
+                                'block',
+                                'ignore'
+                            ],
+                            'type': 'str'
+                        },
+                        'sni-server-cert-check': {
+                            'required': False,
+                            'revision': {
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'enable',
+                                'strict',
+                                'disable'
+                            ],
+                            'type': 'str'
+                        },
+                        'status': {
+                            'required': False,
+                            'revision': {
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'disable',
+                                'deep-inspection'
+                            ],
+                            'type': 'str'
+                        },
+                        'unsupported-ssl-cipher': {
+                            'required': False,
+                            'revision': {
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'block',
+                                'allow'
+                            ],
+                            'type': 'str'
+                        },
+                        'unsupported-ssl-negotiation': {
+                            'required': False,
+                            'revision': {
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'block',
+                                'allow'
+                            ],
+                            'type': 'str'
+                        },
+                        'untrusted-server-cert': {
+                            'required': False,
+                            'revision': {
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'allow',
+                                'block',
+                                'ignore'
+                            ],
+                            'type': 'str'
+                        }
+                    }
+                },
+                'supported-alpn': {
+                    'required': False,
+                    'revision': {
+                        '7.0.0': True
+                    },
+                    'choices': [
+                        'none',
+                        'http1-1',
+                        'http2',
+                        'all'
                     ],
                     'type': 'str'
                 }

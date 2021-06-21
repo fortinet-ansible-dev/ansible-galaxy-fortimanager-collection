@@ -152,6 +152,29 @@ options:
                     - 'disabled'
                     - 'files'
                     - 'full-archive'
+                    - 'disable'
+                    - 'block'
+                    - 'monitor'
+            av-scan:
+                type: str
+                description: 'Enable AntiVirus scan service.'
+                choices:
+                    - 'disable'
+                    - 'monitor'
+                    - 'block'
+            external-blocklist:
+                type: str
+                description: 'Enable external-blocklist.'
+                choices:
+                    - 'disable'
+                    - 'monitor'
+                    - 'block'
+            quarantine:
+                type: str
+                description: 'Enable/disable quarantine for infected files.'
+                choices:
+                    - 'disable'
+                    - 'enable'
 
 '''
 
@@ -202,7 +225,10 @@ EXAMPLES = '''
               - quarantine
               - avquery
               - avmonitor
-            outbreak-prevention: <value in [disabled, files, full-archive]>
+            outbreak-prevention: <value in [disabled, files, full-archive, ...]>
+            av-scan: <value in [disable, monitor, block]>
+            external-blocklist: <value in [disable, monitor, block]>
+            quarantine: <value in [disable, enable]>
 
 '''
 
@@ -295,6 +321,16 @@ def main():
             'options': {
                 'archive-block': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'list',
                     'choices': [
                         'encrypted',
@@ -310,6 +346,16 @@ def main():
                 },
                 'archive-log': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'list',
                     'choices': [
                         'encrypted',
@@ -325,6 +371,16 @@ def main():
                 },
                 'emulator': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -333,6 +389,16 @@ def main():
                 },
                 'executables': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'default',
                         'virus'
@@ -341,6 +407,16 @@ def main():
                 },
                 'options': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'list',
                     'choices': [
                         'scan',
@@ -351,10 +427,58 @@ def main():
                 },
                 'outbreak-prevention': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disabled',
                         'files',
-                        'full-archive'
+                        'full-archive',
+                        'disable',
+                        'block',
+                        'monitor'
+                    ],
+                    'type': 'str'
+                },
+                'av-scan': {
+                    'required': False,
+                    'revision': {
+                        '7.0.0': True
+                    },
+                    'choices': [
+                        'disable',
+                        'monitor',
+                        'block'
+                    ],
+                    'type': 'str'
+                },
+                'external-blocklist': {
+                    'required': False,
+                    'revision': {
+                        '7.0.0': True
+                    },
+                    'choices': [
+                        'disable',
+                        'monitor',
+                        'block'
+                    ],
+                    'type': 'str'
+                },
+                'quarantine': {
+                    'required': False,
+                    'revision': {
+                        '7.0.0': True
+                    },
+                    'choices': [
+                        'disable',
+                        'enable'
                     ],
                     'type': 'str'
                 }

@@ -213,6 +213,9 @@ options:
                             - 'disable'
                             - 'enable'
                             - 'default'
+                    cve:
+                        description: no description
+                        type: str
             extended-log:
                 type: str
                 description: 'Enable/disable extended logging.'
@@ -355,6 +358,13 @@ options:
             replacemsg-group:
                 type: str
                 description: 'Replacement message group.'
+            scan-botnet-connections:
+                type: str
+                description: 'Block or monitor connections to Botnet servers, or disable Botnet scanning.'
+                choices:
+                    - 'disable'
+                    - 'block'
+                    - 'monitor'
 
 '''
 
@@ -406,6 +416,7 @@ EXAMPLES = '''
                   rule: <value of string>
                   severity: <value of string>
                   status: <value in [disable, enable, default]>
+                  cve: <value of string>
             extended-log: <value in [disable, enable]>
             filter:
               -
@@ -439,6 +450,7 @@ EXAMPLES = '''
                   rule-id: <value of integer>
                   status: <value in [disable, enable]>
             replacemsg-group: <value of string>
+            scan-botnet-connections: <value in [disable, block, monitor]>
 
 '''
 
@@ -535,6 +547,16 @@ def main():
             'options': {
                 'block-malicious-url': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -543,14 +565,44 @@ def main():
                 },
                 'comment': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'entries': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'list',
                     'options': {
                         'action': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'choices': [
                                 'pass',
                                 'block',
@@ -561,36 +613,116 @@ def main():
                         },
                         'application': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'str'
                         },
                         'exempt-ip': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'list',
                             'options': {
                                 'dst-ip': {
                                     'required': False,
+                                    'revision': {
+                                        '6.0.0': True,
+                                        '6.2.1': True,
+                                        '6.2.3': True,
+                                        '6.2.5': True,
+                                        '6.4.0': True,
+                                        '6.4.2': True,
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
                                     'type': 'str'
                                 },
                                 'id': {
                                     'required': False,
+                                    'revision': {
+                                        '6.0.0': True,
+                                        '6.2.1': True,
+                                        '6.2.3': True,
+                                        '6.2.5': True,
+                                        '6.4.0': True,
+                                        '6.4.2': True,
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
                                     'type': 'int'
                                 },
                                 'src-ip': {
                                     'required': False,
+                                    'revision': {
+                                        '6.0.0': True,
+                                        '6.2.1': True,
+                                        '6.2.3': True,
+                                        '6.2.5': True,
+                                        '6.4.0': True,
+                                        '6.4.2': True,
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
                                     'type': 'str'
                                 }
                             }
                         },
                         'id': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'int'
                         },
                         'location': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'str'
                         },
                         'log': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'choices': [
                                 'disable',
                                 'enable'
@@ -599,6 +731,16 @@ def main():
                         },
                         'log-attack-context': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'choices': [
                                 'disable',
                                 'enable'
@@ -607,6 +749,16 @@ def main():
                         },
                         'log-packet': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'choices': [
                                 'disable',
                                 'enable'
@@ -615,14 +767,44 @@ def main():
                         },
                         'os': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'str'
                         },
                         'protocol': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'str'
                         },
                         'quarantine': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'choices': [
                                 'none',
                                 'attacker',
@@ -633,10 +815,30 @@ def main():
                         },
                         'quarantine-expiry': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'str'
                         },
                         'quarantine-log': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'choices': [
                                 'disable',
                                 'enable'
@@ -645,14 +847,44 @@ def main():
                         },
                         'rate-count': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'int'
                         },
                         'rate-duration': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'int'
                         },
                         'rate-mode': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'choices': [
                                 'periodical',
                                 'continuous'
@@ -661,6 +893,16 @@ def main():
                         },
                         'rate-track': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'choices': [
                                 'none',
                                 'src-ip',
@@ -672,25 +914,74 @@ def main():
                         },
                         'rule': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'str'
                         },
                         'severity': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'str'
                         },
                         'status': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'choices': [
                                 'disable',
                                 'enable',
                                 'default'
                             ],
                             'type': 'str'
+                        },
+                        'cve': {
+                            'required': False,
+                            'revision': {
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'str'
                         }
                     }
                 },
                 'extended-log': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -699,10 +990,30 @@ def main():
                 },
                 'filter': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': False,
+                        '6.2.3': False,
+                        '6.2.5': False,
+                        '6.4.0': False,
+                        '6.4.2': False,
+                        '6.4.5': False,
+                        '7.0.0': False
+                    },
                     'type': 'list',
                     'options': {
                         'action': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': False,
+                                '6.2.3': False,
+                                '6.2.5': False,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
                             'choices': [
                                 'pass',
                                 'block',
@@ -713,14 +1024,44 @@ def main():
                         },
                         'application': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': False,
+                                '6.2.3': False,
+                                '6.2.5': False,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
                             'type': 'str'
                         },
                         'location': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': False,
+                                '6.2.3': False,
+                                '6.2.5': False,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
                             'type': 'str'
                         },
                         'log': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': False,
+                                '6.2.3': False,
+                                '6.2.5': False,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
                             'choices': [
                                 'disable',
                                 'enable',
@@ -730,6 +1071,16 @@ def main():
                         },
                         'log-packet': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': False,
+                                '6.2.3': False,
+                                '6.2.5': False,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
                             'choices': [
                                 'disable',
                                 'enable',
@@ -739,18 +1090,58 @@ def main():
                         },
                         'name': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': False,
+                                '6.2.3': False,
+                                '6.2.5': False,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
                             'type': 'str'
                         },
                         'os': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': False,
+                                '6.2.3': False,
+                                '6.2.5': False,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
                             'type': 'str'
                         },
                         'protocol': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': False,
+                                '6.2.3': False,
+                                '6.2.5': False,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
                             'type': 'str'
                         },
                         'quarantine': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': False,
+                                '6.2.3': False,
+                                '6.2.5': False,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
                             'choices': [
                                 'none',
                                 'attacker',
@@ -761,10 +1152,30 @@ def main():
                         },
                         'quarantine-expiry': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': False,
+                                '6.2.3': False,
+                                '6.2.5': False,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
                             'type': 'int'
                         },
                         'quarantine-log': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': False,
+                                '6.2.3': False,
+                                '6.2.5': False,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
                             'choices': [
                                 'disable',
                                 'enable'
@@ -773,10 +1184,30 @@ def main():
                         },
                         'severity': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': False,
+                                '6.2.3': False,
+                                '6.2.5': False,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
                             'type': 'str'
                         },
                         'status': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': False,
+                                '6.2.3': False,
+                                '6.2.5': False,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
                             'choices': [
                                 'disable',
                                 'enable',
@@ -788,14 +1219,44 @@ def main():
                 },
                 'name': {
                     'required': True,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'override': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': False,
+                        '6.2.3': False,
+                        '6.2.5': False,
+                        '6.4.0': False,
+                        '6.4.2': False,
+                        '6.4.5': False,
+                        '7.0.0': False
+                    },
                     'type': 'list',
                     'options': {
                         'action': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': False,
+                                '6.2.3': False,
+                                '6.2.5': False,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
                             'choices': [
                                 'pass',
                                 'block',
@@ -805,24 +1266,74 @@ def main():
                         },
                         'exempt-ip': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': False,
+                                '6.2.3': False,
+                                '6.2.5': False,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
                             'type': 'list',
                             'options': {
                                 'dst-ip': {
                                     'required': False,
+                                    'revision': {
+                                        '6.0.0': True,
+                                        '6.2.1': False,
+                                        '6.2.3': False,
+                                        '6.2.5': False,
+                                        '6.4.0': False,
+                                        '6.4.2': False,
+                                        '6.4.5': False,
+                                        '7.0.0': False
+                                    },
                                     'type': 'str'
                                 },
                                 'id': {
                                     'required': False,
+                                    'revision': {
+                                        '6.0.0': True,
+                                        '6.2.1': False,
+                                        '6.2.3': False,
+                                        '6.2.5': False,
+                                        '6.4.0': False,
+                                        '6.4.2': False,
+                                        '6.4.5': False,
+                                        '7.0.0': False
+                                    },
                                     'type': 'int'
                                 },
                                 'src-ip': {
                                     'required': False,
+                                    'revision': {
+                                        '6.0.0': True,
+                                        '6.2.1': False,
+                                        '6.2.3': False,
+                                        '6.2.5': False,
+                                        '6.4.0': False,
+                                        '6.4.2': False,
+                                        '6.4.5': False,
+                                        '7.0.0': False
+                                    },
                                     'type': 'str'
                                 }
                             }
                         },
                         'log': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': False,
+                                '6.2.3': False,
+                                '6.2.5': False,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
                             'choices': [
                                 'disable',
                                 'enable'
@@ -831,6 +1342,16 @@ def main():
                         },
                         'log-packet': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': False,
+                                '6.2.3': False,
+                                '6.2.5': False,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
                             'choices': [
                                 'disable',
                                 'enable'
@@ -839,6 +1360,16 @@ def main():
                         },
                         'quarantine': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': False,
+                                '6.2.3': False,
+                                '6.2.5': False,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
                             'choices': [
                                 'none',
                                 'attacker',
@@ -849,10 +1380,30 @@ def main():
                         },
                         'quarantine-expiry': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': False,
+                                '6.2.3': False,
+                                '6.2.5': False,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
                             'type': 'int'
                         },
                         'quarantine-log': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': False,
+                                '6.2.3': False,
+                                '6.2.5': False,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
                             'choices': [
                                 'disable',
                                 'enable'
@@ -861,10 +1412,30 @@ def main():
                         },
                         'rule-id': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': False,
+                                '6.2.3': False,
+                                '6.2.5': False,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
                             'type': 'int'
                         },
                         'status': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': False,
+                                '6.2.3': False,
+                                '6.2.5': False,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
                             'choices': [
                                 'disable',
                                 'enable'
@@ -875,6 +1446,34 @@ def main():
                 },
                 'replacemsg-group': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'type': 'str'
+                },
+                'scan-botnet-connections': {
+                    'required': False,
+                    'revision': {
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'choices': [
+                        'disable',
+                        'block',
+                        'monitor'
+                    ],
                     'type': 'str'
                 }
             }

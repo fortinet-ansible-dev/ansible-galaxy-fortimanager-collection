@@ -104,6 +104,13 @@ options:
             name:
                 type: str
                 description: 'Internet Service group name.'
+            direction:
+                type: str
+                description: 'How this service may be used (source, destination or both).'
+                choices:
+                    - 'both'
+                    - 'source'
+                    - 'destination'
 
 '''
 
@@ -130,6 +137,7 @@ EXAMPLES = '''
             comment: <value of string>
             member: <value of string>
             name: <value of string>
+            direction: <value in [both, source, destination]>
 
 '''
 
@@ -226,14 +234,62 @@ def main():
             'options': {
                 'comment': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'member': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'name': {
                     'required': True,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'type': 'str'
+                },
+                'direction': {
+                    'required': False,
+                    'revision': {
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'choices': [
+                        'both',
+                        'source',
+                        'destination'
+                    ],
                     'type': 'str'
                 }
             }

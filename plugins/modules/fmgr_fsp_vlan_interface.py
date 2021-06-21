@@ -24,7 +24,7 @@ ANSIBLE_METADATA = {'status': ['preview'],
 DOCUMENTATION = '''
 ---
 module: fmgr_fsp_vlan_interface
-short_description: no description
+short_description: Configure interfaces.
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
@@ -132,6 +132,478 @@ options:
                  - capwap
                  - dnp
                  - ftm
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - auto-ipsec
+                 - radius-acct
+                 - probe-response
+                 - capwap
+                 - dnp
+                 - ftm
+                 - fabric
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - auto-ipsec
+                 - radius-acct
+                 - probe-response
+                 - capwap
+                 - dnp
+                 - ftm
+                 - fabric
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - auto-ipsec
+                 - radius-acct
+                 - probe-response
+                 - capwap
+                 - dnp
+                 - ftm
+                 - fabric
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - auto-ipsec
+                 - radius-acct
+                 - probe-response
+                 - capwap
+                 - dnp
+                 - ftm
+                 - fabric
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - auto-ipsec
+                 - radius-acct
+                 - probe-response
+                 - capwap
+                 - dnp
+                 - ftm
+                 - fabric
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - auto-ipsec
+                 - radius-acct
+                 - probe-response
+                 - capwap
+                 - dnp
+                 - ftm
+                 - fabric
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - auto-ipsec
+                 - radius-acct
+                 - probe-response
+                 - capwap
+                 - dnp
+                 - ftm
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - auto-ipsec
+                 - radius-acct
+                 - probe-response
+                 - capwap
+                 - dnp
+                 - ftm
+                 - fabric
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - auto-ipsec
+                 - radius-acct
+                 - probe-response
+                 - capwap
+                 - dnp
+                 - ftm
+                 - fabric
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - auto-ipsec
+                 - radius-acct
+                 - probe-response
+                 - capwap
+                 - dnp
+                 - ftm
+                 - fabric
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - auto-ipsec
+                 - radius-acct
+                 - probe-response
+                 - capwap
+                 - dnp
+                 - ftm
+                 - fabric
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - auto-ipsec
+                 - radius-acct
+                 - probe-response
+                 - capwap
+                 - dnp
+                 - ftm
+                 - fabric
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - auto-ipsec
+                 - radius-acct
+                 - probe-response
+                 - capwap
+                 - dnp
+                 - ftm
+                 - fabric
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - auto-ipsec
+                 - radius-acct
+                 - probe-response
+                 - capwap
+                 - dnp
+                 - ftm
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - auto-ipsec
+                 - radius-acct
+                 - probe-response
+                 - capwap
+                 - dnp
+                 - ftm
+                 - fabric
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - auto-ipsec
+                 - radius-acct
+                 - probe-response
+                 - capwap
+                 - dnp
+                 - ftm
+                 - fabric
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - auto-ipsec
+                 - radius-acct
+                 - probe-response
+                 - capwap
+                 - dnp
+                 - ftm
+                 - fabric
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - auto-ipsec
+                 - radius-acct
+                 - probe-response
+                 - capwap
+                 - dnp
+                 - ftm
+                 - fabric
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - auto-ipsec
+                 - radius-acct
+                 - probe-response
+                 - capwap
+                 - dnp
+                 - ftm
+                 - fabric
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - auto-ipsec
+                 - radius-acct
+                 - probe-response
+                 - capwap
+                 - dnp
+                 - ftm
+                 - fabric
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - auto-ipsec
+                 - radius-acct
+                 - probe-response
+                 - capwap
+                 - dnp
+                 - ftm
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - auto-ipsec
+                 - radius-acct
+                 - probe-response
+                 - capwap
+                 - dnp
+                 - ftm
+                 - fabric
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - auto-ipsec
+                 - radius-acct
+                 - probe-response
+                 - capwap
+                 - dnp
+                 - ftm
+                 - fabric
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - auto-ipsec
+                 - radius-acct
+                 - probe-response
+                 - capwap
+                 - dnp
+                 - ftm
+                 - fabric
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - auto-ipsec
+                 - radius-acct
+                 - probe-response
+                 - capwap
+                 - dnp
+                 - ftm
+                 - fabric
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - auto-ipsec
+                 - radius-acct
+                 - probe-response
+                 - capwap
+                 - dnp
+                 - ftm
+                 - fabric
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - auto-ipsec
+                 - radius-acct
+                 - probe-response
+                 - capwap
+                 - dnp
+                 - ftm
+                 - fabric
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - auto-ipsec
+                 - radius-acct
+                 - probe-response
+                 - capwap
+                 - dnp
+                 - ftm
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - auto-ipsec
+                 - radius-acct
+                 - probe-response
+                 - capwap
+                 - dnp
+                 - ftm
+                 - fabric
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - auto-ipsec
+                 - radius-acct
+                 - probe-response
+                 - capwap
+                 - dnp
+                 - ftm
+                 - fabric
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - auto-ipsec
+                 - radius-acct
+                 - probe-response
+                 - capwap
+                 - dnp
+                 - ftm
+                 - fabric
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - auto-ipsec
+                 - radius-acct
+                 - probe-response
+                 - capwap
+                 - dnp
+                 - ftm
+                 - fabric
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - auto-ipsec
+                 - radius-acct
+                 - probe-response
+                 - capwap
+                 - dnp
+                 - ftm
+                 - fabric
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - auto-ipsec
+                 - radius-acct
+                 - probe-response
+                 - capwap
+                 - dnp
+                 - ftm
+                 - fabric
             ap-discover:
                 type: str
                 description: no description
@@ -492,6 +964,8 @@ options:
                     - 'enable'
                     - 'rs-fec'
                     - 'base-r-fec'
+                    - 'fec-cl91'
+                    - 'fec-cl74'
             fp-anomaly:
                 description: no description
                 type: list
@@ -710,6 +1184,308 @@ options:
                          - telnet
                          - fgfm
                          - capwap
+                         - https
+                         - ping
+                         - ssh
+                         - snmp
+                         - http
+                         - telnet
+                         - fgfm
+                         - capwap
+                         - fabric
+                         - https
+                         - ping
+                         - ssh
+                         - snmp
+                         - http
+                         - telnet
+                         - fgfm
+                         - capwap
+                         - fabric
+                         - https
+                         - ping
+                         - ssh
+                         - snmp
+                         - http
+                         - telnet
+                         - fgfm
+                         - capwap
+                         - fabric
+                         - https
+                         - ping
+                         - ssh
+                         - snmp
+                         - http
+                         - telnet
+                         - fgfm
+                         - capwap
+                         - fabric
+                         - https
+                         - ping
+                         - ssh
+                         - snmp
+                         - http
+                         - telnet
+                         - fgfm
+                         - capwap
+                         - fabric
+                         - https
+                         - ping
+                         - ssh
+                         - snmp
+                         - http
+                         - telnet
+                         - fgfm
+                         - capwap
+                         - fabric
+                         - https
+                         - ping
+                         - ssh
+                         - snmp
+                         - http
+                         - telnet
+                         - fgfm
+                         - capwap
+                         - https
+                         - ping
+                         - ssh
+                         - snmp
+                         - http
+                         - telnet
+                         - fgfm
+                         - capwap
+                         - fabric
+                         - https
+                         - ping
+                         - ssh
+                         - snmp
+                         - http
+                         - telnet
+                         - fgfm
+                         - capwap
+                         - fabric
+                         - https
+                         - ping
+                         - ssh
+                         - snmp
+                         - http
+                         - telnet
+                         - fgfm
+                         - capwap
+                         - fabric
+                         - https
+                         - ping
+                         - ssh
+                         - snmp
+                         - http
+                         - telnet
+                         - fgfm
+                         - capwap
+                         - fabric
+                         - https
+                         - ping
+                         - ssh
+                         - snmp
+                         - http
+                         - telnet
+                         - fgfm
+                         - capwap
+                         - fabric
+                         - https
+                         - ping
+                         - ssh
+                         - snmp
+                         - http
+                         - telnet
+                         - fgfm
+                         - capwap
+                         - fabric
+                         - https
+                         - ping
+                         - ssh
+                         - snmp
+                         - http
+                         - telnet
+                         - fgfm
+                         - capwap
+                         - https
+                         - ping
+                         - ssh
+                         - snmp
+                         - http
+                         - telnet
+                         - fgfm
+                         - capwap
+                         - fabric
+                         - https
+                         - ping
+                         - ssh
+                         - snmp
+                         - http
+                         - telnet
+                         - fgfm
+                         - capwap
+                         - fabric
+                         - https
+                         - ping
+                         - ssh
+                         - snmp
+                         - http
+                         - telnet
+                         - fgfm
+                         - capwap
+                         - fabric
+                         - https
+                         - ping
+                         - ssh
+                         - snmp
+                         - http
+                         - telnet
+                         - fgfm
+                         - capwap
+                         - fabric
+                         - https
+                         - ping
+                         - ssh
+                         - snmp
+                         - http
+                         - telnet
+                         - fgfm
+                         - capwap
+                         - fabric
+                         - https
+                         - ping
+                         - ssh
+                         - snmp
+                         - http
+                         - telnet
+                         - fgfm
+                         - capwap
+                         - fabric
+                         - https
+                         - ping
+                         - ssh
+                         - snmp
+                         - http
+                         - telnet
+                         - fgfm
+                         - capwap
+                         - https
+                         - ping
+                         - ssh
+                         - snmp
+                         - http
+                         - telnet
+                         - fgfm
+                         - capwap
+                         - fabric
+                         - https
+                         - ping
+                         - ssh
+                         - snmp
+                         - http
+                         - telnet
+                         - fgfm
+                         - capwap
+                         - fabric
+                         - https
+                         - ping
+                         - ssh
+                         - snmp
+                         - http
+                         - telnet
+                         - fgfm
+                         - capwap
+                         - fabric
+                         - https
+                         - ping
+                         - ssh
+                         - snmp
+                         - http
+                         - telnet
+                         - fgfm
+                         - capwap
+                         - fabric
+                         - https
+                         - ping
+                         - ssh
+                         - snmp
+                         - http
+                         - telnet
+                         - fgfm
+                         - capwap
+                         - fabric
+                         - https
+                         - ping
+                         - ssh
+                         - snmp
+                         - http
+                         - telnet
+                         - fgfm
+                         - capwap
+                         - fabric
+                         - https
+                         - ping
+                         - ssh
+                         - snmp
+                         - http
+                         - telnet
+                         - fgfm
+                         - capwap
+                         - https
+                         - ping
+                         - ssh
+                         - snmp
+                         - http
+                         - telnet
+                         - fgfm
+                         - capwap
+                         - fabric
+                         - https
+                         - ping
+                         - ssh
+                         - snmp
+                         - http
+                         - telnet
+                         - fgfm
+                         - capwap
+                         - fabric
+                         - https
+                         - ping
+                         - ssh
+                         - snmp
+                         - http
+                         - telnet
+                         - fgfm
+                         - capwap
+                         - fabric
+                         - https
+                         - ping
+                         - ssh
+                         - snmp
+                         - http
+                         - telnet
+                         - fgfm
+                         - capwap
+                         - fabric
+                         - https
+                         - ping
+                         - ssh
+                         - snmp
+                         - http
+                         - telnet
+                         - fgfm
+                         - capwap
+                         - fabric
+                         - https
+                         - ping
+                         - ssh
+                         - snmp
+                         - http
+                         - telnet
+                         - fgfm
+                         - capwap
+                         - fabric
                     ip6-default-life:
                         type: int
                         description: no description
@@ -796,6 +1572,152 @@ options:
                     vrrp-virtual-mac6:
                         type: str
                         description: no description
+                        choices:
+                            - 'disable'
+                            - 'enable'
+                    ip6-delegated-prefix-list:
+                        description: no description
+                        type: list
+                        suboptions:
+                            autonomous-flag:
+                                type: str
+                                description: no description
+                                choices:
+                                    - 'disable'
+                                    - 'enable'
+                            onlink-flag:
+                                type: str
+                                description: no description
+                                choices:
+                                    - 'disable'
+                                    - 'enable'
+                            prefix-id:
+                                type: int
+                                description: no description
+                            rdnss:
+                                description: no description
+                                type: str
+                            rdnss-service:
+                                type: str
+                                description: no description
+                                choices:
+                                    - 'delegated'
+                                    - 'default'
+                                    - 'specify'
+                            subnet:
+                                type: str
+                                description: no description
+                            upstream-interface:
+                                type: str
+                                description: no description
+                    ip6-extra-addr:
+                        description: no description
+                        type: list
+                        suboptions:
+                            prefix:
+                                type: str
+                                description: no description
+                    ip6-prefix-list:
+                        description: no description
+                        type: list
+                        suboptions:
+                            autonomous-flag:
+                                type: str
+                                description: no description
+                                choices:
+                                    - 'disable'
+                                    - 'enable'
+                            dnssl:
+                                description: no description
+                                type: str
+                            onlink-flag:
+                                type: str
+                                description: no description
+                                choices:
+                                    - 'disable'
+                                    - 'enable'
+                            preferred-life-time:
+                                type: int
+                                description: no description
+                            prefix:
+                                type: str
+                                description: no description
+                            rdnss:
+                                description: no description
+                                type: str
+                            valid-life-time:
+                                type: int
+                                description: no description
+                    vrrp6:
+                        description: no description
+                        type: list
+                        suboptions:
+                            accept-mode:
+                                type: str
+                                description: no description
+                                choices:
+                                    - 'disable'
+                                    - 'enable'
+                            adv-interval:
+                                type: int
+                                description: no description
+                            preempt:
+                                type: str
+                                description: no description
+                                choices:
+                                    - 'disable'
+                                    - 'enable'
+                            priority:
+                                type: int
+                                description: no description
+                            start-time:
+                                type: int
+                                description: no description
+                            status:
+                                type: str
+                                description: no description
+                                choices:
+                                    - 'disable'
+                                    - 'enable'
+                            vrdst6:
+                                type: str
+                                description: no description
+                            vrgrp:
+                                type: int
+                                description: no description
+                            vrid:
+                                type: int
+                                description: no description
+                            vrip6:
+                                type: str
+                                description: no description
+                    interface-identifier:
+                        type: str
+                        description: no description
+                    unique-autoconf-addr:
+                        type: str
+                        description: no description
+                        choices:
+                            - 'disable'
+                            - 'enable'
+                    icmp6-send-redirect:
+                        type: str
+                        description: 'Enable/disable sending of ICMPv6 redirects.'
+                        choices:
+                            - 'disable'
+                            - 'enable'
+                    cli-conn6-status:
+                        type: int
+                        description: no description
+                    ip6-prefix-mode:
+                        type: str
+                        description: 'Assigning a prefix from DHCP or RA.'
+                        choices:
+                            - 'dhcp6'
+                            - 'ra'
+                    ra-send-mtu:
+                        type: str
+                        description: 'Enable/disable sending link MTU in RA packet.'
                         choices:
                             - 'disable'
                             - 'enable'
@@ -895,6 +1817,9 @@ options:
                     - 'qsfp28-sr4'
                     - 'qsfp28-lr4'
                     - 'qsfp28-cr4'
+                    - 'sr4'
+                    - 'cr4'
+                    - 'lr4'
             member:
                 type: str
                 description: no description
@@ -1122,6 +2047,575 @@ options:
                          - capwap
                          - dnp
                          - ftm
+                         - https
+                         - ping
+                         - ssh
+                         - snmp
+                         - http
+                         - telnet
+                         - fgfm
+                         - auto-ipsec
+                         - radius-acct
+                         - probe-response
+                         - capwap
+                         - dnp
+                         - ftm
+                         - fabric
+                         - https
+                         - ping
+                         - ssh
+                         - snmp
+                         - http
+                         - telnet
+                         - fgfm
+                         - auto-ipsec
+                         - radius-acct
+                         - probe-response
+                         - capwap
+                         - dnp
+                         - ftm
+                         - fabric
+                         - https
+                         - ping
+                         - ssh
+                         - snmp
+                         - http
+                         - telnet
+                         - fgfm
+                         - auto-ipsec
+                         - radius-acct
+                         - probe-response
+                         - capwap
+                         - dnp
+                         - ftm
+                         - fabric
+                         - https
+                         - ping
+                         - ssh
+                         - snmp
+                         - http
+                         - telnet
+                         - fgfm
+                         - auto-ipsec
+                         - radius-acct
+                         - probe-response
+                         - capwap
+                         - dnp
+                         - ftm
+                         - fabric
+                         - https
+                         - ping
+                         - ssh
+                         - snmp
+                         - http
+                         - telnet
+                         - fgfm
+                         - auto-ipsec
+                         - radius-acct
+                         - probe-response
+                         - capwap
+                         - dnp
+                         - ftm
+                         - fabric
+                         - https
+                         - ping
+                         - ssh
+                         - snmp
+                         - http
+                         - telnet
+                         - fgfm
+                         - auto-ipsec
+                         - radius-acct
+                         - probe-response
+                         - capwap
+                         - dnp
+                         - ftm
+                         - fabric
+                         - https
+                         - ping
+                         - ssh
+                         - snmp
+                         - http
+                         - telnet
+                         - fgfm
+                         - auto-ipsec
+                         - radius-acct
+                         - probe-response
+                         - capwap
+                         - dnp
+                         - ftm
+                         - https
+                         - ping
+                         - ssh
+                         - snmp
+                         - http
+                         - telnet
+                         - fgfm
+                         - auto-ipsec
+                         - radius-acct
+                         - probe-response
+                         - capwap
+                         - dnp
+                         - ftm
+                         - fabric
+                         - https
+                         - ping
+                         - ssh
+                         - snmp
+                         - http
+                         - telnet
+                         - fgfm
+                         - auto-ipsec
+                         - radius-acct
+                         - probe-response
+                         - capwap
+                         - dnp
+                         - ftm
+                         - fabric
+                         - https
+                         - ping
+                         - ssh
+                         - snmp
+                         - http
+                         - telnet
+                         - fgfm
+                         - auto-ipsec
+                         - radius-acct
+                         - probe-response
+                         - capwap
+                         - dnp
+                         - ftm
+                         - fabric
+                         - https
+                         - ping
+                         - ssh
+                         - snmp
+                         - http
+                         - telnet
+                         - fgfm
+                         - auto-ipsec
+                         - radius-acct
+                         - probe-response
+                         - capwap
+                         - dnp
+                         - ftm
+                         - fabric
+                         - https
+                         - ping
+                         - ssh
+                         - snmp
+                         - http
+                         - telnet
+                         - fgfm
+                         - auto-ipsec
+                         - radius-acct
+                         - probe-response
+                         - capwap
+                         - dnp
+                         - ftm
+                         - fabric
+                         - https
+                         - ping
+                         - ssh
+                         - snmp
+                         - http
+                         - telnet
+                         - fgfm
+                         - auto-ipsec
+                         - radius-acct
+                         - probe-response
+                         - capwap
+                         - dnp
+                         - ftm
+                         - fabric
+                         - https
+                         - ping
+                         - ssh
+                         - snmp
+                         - http
+                         - telnet
+                         - fgfm
+                         - auto-ipsec
+                         - radius-acct
+                         - probe-response
+                         - capwap
+                         - dnp
+                         - ftm
+                         - https
+                         - ping
+                         - ssh
+                         - snmp
+                         - http
+                         - telnet
+                         - fgfm
+                         - auto-ipsec
+                         - radius-acct
+                         - probe-response
+                         - capwap
+                         - dnp
+                         - ftm
+                         - fabric
+                         - https
+                         - ping
+                         - ssh
+                         - snmp
+                         - http
+                         - telnet
+                         - fgfm
+                         - auto-ipsec
+                         - radius-acct
+                         - probe-response
+                         - capwap
+                         - dnp
+                         - ftm
+                         - fabric
+                         - https
+                         - ping
+                         - ssh
+                         - snmp
+                         - http
+                         - telnet
+                         - fgfm
+                         - auto-ipsec
+                         - radius-acct
+                         - probe-response
+                         - capwap
+                         - dnp
+                         - ftm
+                         - fabric
+                         - https
+                         - ping
+                         - ssh
+                         - snmp
+                         - http
+                         - telnet
+                         - fgfm
+                         - auto-ipsec
+                         - radius-acct
+                         - probe-response
+                         - capwap
+                         - dnp
+                         - ftm
+                         - fabric
+                         - https
+                         - ping
+                         - ssh
+                         - snmp
+                         - http
+                         - telnet
+                         - fgfm
+                         - auto-ipsec
+                         - radius-acct
+                         - probe-response
+                         - capwap
+                         - dnp
+                         - ftm
+                         - fabric
+                         - https
+                         - ping
+                         - ssh
+                         - snmp
+                         - http
+                         - telnet
+                         - fgfm
+                         - auto-ipsec
+                         - radius-acct
+                         - probe-response
+                         - capwap
+                         - dnp
+                         - ftm
+                         - fabric
+                         - https
+                         - ping
+                         - ssh
+                         - snmp
+                         - http
+                         - telnet
+                         - fgfm
+                         - auto-ipsec
+                         - radius-acct
+                         - probe-response
+                         - capwap
+                         - dnp
+                         - ftm
+                         - https
+                         - ping
+                         - ssh
+                         - snmp
+                         - http
+                         - telnet
+                         - fgfm
+                         - auto-ipsec
+                         - radius-acct
+                         - probe-response
+                         - capwap
+                         - dnp
+                         - ftm
+                         - fabric
+                         - https
+                         - ping
+                         - ssh
+                         - snmp
+                         - http
+                         - telnet
+                         - fgfm
+                         - auto-ipsec
+                         - radius-acct
+                         - probe-response
+                         - capwap
+                         - dnp
+                         - ftm
+                         - fabric
+                         - https
+                         - ping
+                         - ssh
+                         - snmp
+                         - http
+                         - telnet
+                         - fgfm
+                         - auto-ipsec
+                         - radius-acct
+                         - probe-response
+                         - capwap
+                         - dnp
+                         - ftm
+                         - fabric
+                         - https
+                         - ping
+                         - ssh
+                         - snmp
+                         - http
+                         - telnet
+                         - fgfm
+                         - auto-ipsec
+                         - radius-acct
+                         - probe-response
+                         - capwap
+                         - dnp
+                         - ftm
+                         - fabric
+                         - https
+                         - ping
+                         - ssh
+                         - snmp
+                         - http
+                         - telnet
+                         - fgfm
+                         - auto-ipsec
+                         - radius-acct
+                         - probe-response
+                         - capwap
+                         - dnp
+                         - ftm
+                         - fabric
+                         - https
+                         - ping
+                         - ssh
+                         - snmp
+                         - http
+                         - telnet
+                         - fgfm
+                         - auto-ipsec
+                         - radius-acct
+                         - probe-response
+                         - capwap
+                         - dnp
+                         - ftm
+                         - fabric
+                         - https
+                         - ping
+                         - ssh
+                         - snmp
+                         - http
+                         - telnet
+                         - fgfm
+                         - auto-ipsec
+                         - radius-acct
+                         - probe-response
+                         - capwap
+                         - dnp
+                         - ftm
+                         - https
+                         - ping
+                         - ssh
+                         - snmp
+                         - http
+                         - telnet
+                         - fgfm
+                         - auto-ipsec
+                         - radius-acct
+                         - probe-response
+                         - capwap
+                         - dnp
+                         - ftm
+                         - fabric
+                         - https
+                         - ping
+                         - ssh
+                         - snmp
+                         - http
+                         - telnet
+                         - fgfm
+                         - auto-ipsec
+                         - radius-acct
+                         - probe-response
+                         - capwap
+                         - dnp
+                         - ftm
+                         - fabric
+                         - https
+                         - ping
+                         - ssh
+                         - snmp
+                         - http
+                         - telnet
+                         - fgfm
+                         - auto-ipsec
+                         - radius-acct
+                         - probe-response
+                         - capwap
+                         - dnp
+                         - ftm
+                         - fabric
+                         - https
+                         - ping
+                         - ssh
+                         - snmp
+                         - http
+                         - telnet
+                         - fgfm
+                         - auto-ipsec
+                         - radius-acct
+                         - probe-response
+                         - capwap
+                         - dnp
+                         - ftm
+                         - fabric
+                         - https
+                         - ping
+                         - ssh
+                         - snmp
+                         - http
+                         - telnet
+                         - fgfm
+                         - auto-ipsec
+                         - radius-acct
+                         - probe-response
+                         - capwap
+                         - dnp
+                         - ftm
+                         - fabric
+                         - https
+                         - ping
+                         - ssh
+                         - snmp
+                         - http
+                         - telnet
+                         - fgfm
+                         - auto-ipsec
+                         - radius-acct
+                         - probe-response
+                         - capwap
+                         - dnp
+                         - ftm
+                         - fabric
+                         - https
+                         - ping
+                         - ssh
+                         - snmp
+                         - http
+                         - telnet
+                         - fgfm
+                         - auto-ipsec
+                         - radius-acct
+                         - probe-response
+                         - capwap
+                         - dnp
+                         - ftm
+                         - https
+                         - ping
+                         - ssh
+                         - snmp
+                         - http
+                         - telnet
+                         - fgfm
+                         - auto-ipsec
+                         - radius-acct
+                         - probe-response
+                         - capwap
+                         - dnp
+                         - ftm
+                         - fabric
+                         - https
+                         - ping
+                         - ssh
+                         - snmp
+                         - http
+                         - telnet
+                         - fgfm
+                         - auto-ipsec
+                         - radius-acct
+                         - probe-response
+                         - capwap
+                         - dnp
+                         - ftm
+                         - fabric
+                         - https
+                         - ping
+                         - ssh
+                         - snmp
+                         - http
+                         - telnet
+                         - fgfm
+                         - auto-ipsec
+                         - radius-acct
+                         - probe-response
+                         - capwap
+                         - dnp
+                         - ftm
+                         - fabric
+                         - https
+                         - ping
+                         - ssh
+                         - snmp
+                         - http
+                         - telnet
+                         - fgfm
+                         - auto-ipsec
+                         - radius-acct
+                         - probe-response
+                         - capwap
+                         - dnp
+                         - ftm
+                         - fabric
+                         - https
+                         - ping
+                         - ssh
+                         - snmp
+                         - http
+                         - telnet
+                         - fgfm
+                         - auto-ipsec
+                         - radius-acct
+                         - probe-response
+                         - capwap
+                         - dnp
+                         - ftm
+                         - fabric
+                         - https
+                         - ping
+                         - ssh
+                         - snmp
+                         - http
+                         - telnet
+                         - fgfm
+                         - auto-ipsec
+                         - radius-acct
+                         - probe-response
+                         - capwap
+                         - dnp
+                         - ftm
+                         - fabric
                     detectprotocol:
                         description: no description
                         type: list
@@ -1392,6 +2886,8 @@ options:
                     - 'fext-wan'
                     - 'vxlan'
                     - 'emac-vlan'
+                    - 'geneve'
+                    - 'ssl'
             username:
                 type: str
                 description: no description
@@ -1597,6 +3093,148 @@ options:
             wins-ip:
                 type: str
                 description: no description
+            eip:
+                type: str
+                description: no description
+            fortilink-neighbor-detect:
+                type: str
+                description: no description
+                choices:
+                    - 'lldp'
+                    - 'fortilink'
+            ingress-shaping-profile:
+                type: str
+                description: no description
+            ring-rx:
+                type: int
+                description: no description
+            ring-tx:
+                type: int
+                description: no description
+            switch-controller-igmp-snooping-fast-leave:
+                type: str
+                description: no description
+                choices:
+                    - 'disable'
+                    - 'enable'
+            switch-controller-igmp-snooping-proxy:
+                type: str
+                description: no description
+                choices:
+                    - 'disable'
+                    - 'enable'
+            switch-controller-rspan-mode:
+                type: str
+                description: no description
+                choices:
+                    - 'disable'
+                    - 'enable'
+            bandwidth-measure-time:
+                type: int
+                description: no description
+            ip-managed-by-fortiipam:
+                type: str
+                description: no description
+                choices:
+                    - 'disable'
+                    - 'enable'
+            managed-subnetwork-size:
+                type: str
+                description: no description
+                choices:
+                    - '256'
+                    - '512'
+                    - '1024'
+                    - '2048'
+                    - '4096'
+                    - '8192'
+                    - '16384'
+                    - '32768'
+                    - '65536'
+            measured-downstream-bandwidth:
+                type: int
+                description: no description
+            measured-upstream-bandwidth:
+                type: int
+                description: no description
+            monitor-bandwidth:
+                type: str
+                description: no description
+                choices:
+                    - 'disable'
+                    - 'enable'
+            swc-vlan:
+                type: int
+                description: no description
+            switch-controller-feature:
+                type: str
+                description: no description
+                choices:
+                    - 'none'
+                    - 'default-vlan'
+                    - 'quarantine'
+                    - 'sniffer'
+                    - 'voice'
+                    - 'camera'
+                    - 'rspan'
+                    - 'video'
+                    - 'nac'
+            switch-controller-mgmt-vlan:
+                type: int
+                description: no description
+            switch-controller-nac:
+                type: str
+                description: no description
+            vlan-protocol:
+                type: str
+                description: no description
+                choices:
+                    - '8021q'
+                    - '8021ad'
+            dhcp-relay-interface:
+                type: str
+                description: no description
+            dhcp-relay-interface-select-method:
+                type: str
+                description: no description
+                choices:
+                    - 'auto'
+                    - 'sdwan'
+                    - 'specify'
+            np-qos-profile:
+                type: int
+                description: no description
+            swc-first-create:
+                type: int
+                description: 'Initial create for switch-controller VLANs.'
+            switch-controller-iot-scanning:
+                type: str
+                description: 'Enable/disable managed FortiSwitch IoT scanning.'
+                choices:
+                    - 'disable'
+                    - 'enable'
+            switch-controller-source-ip:
+                type: str
+                description: 'Source IP address used in FortiLink over L3 connections.'
+                choices:
+                    - 'outbound'
+                    - 'fixed'
+            dhcp-relay-request-all-server:
+                type: str
+                description: 'Enable/disable sending of DHCP requests to all servers.'
+                choices:
+                    - 'disable'
+                    - 'enable'
+            stp-ha-secondary:
+                type: str
+                description: 'Control STP behaviour on HA secondary.'
+                choices:
+                    - 'disable'
+                    - 'enable'
+                    - 'priority-adjust'
+            switch-controller-dynamic:
+                type: str
+                description: 'Integrated FortiLink settings for managed FortiSwitch.'
 
 '''
 
@@ -1610,7 +3248,7 @@ EXAMPLES = '''
       ansible_httpapi_validate_certs: False
       ansible_httpapi_port: 443
    tasks:
-    - name: no description
+    - name: Configure interfaces.
       fmgr_fsp_vlan_interface:
          bypass_validation: False
          workspace_locking_adom: <value in [global, custom adom including root]>
@@ -1638,6 +3276,478 @@ EXAMPLES = '''
               - capwap
               - dnp
               - ftm
+              - https
+              - ping
+              - ssh
+              - snmp
+              - http
+              - telnet
+              - fgfm
+              - auto-ipsec
+              - radius-acct
+              - probe-response
+              - capwap
+              - dnp
+              - ftm
+              - fabric
+              - https
+              - ping
+              - ssh
+              - snmp
+              - http
+              - telnet
+              - fgfm
+              - auto-ipsec
+              - radius-acct
+              - probe-response
+              - capwap
+              - dnp
+              - ftm
+              - fabric
+              - https
+              - ping
+              - ssh
+              - snmp
+              - http
+              - telnet
+              - fgfm
+              - auto-ipsec
+              - radius-acct
+              - probe-response
+              - capwap
+              - dnp
+              - ftm
+              - fabric
+              - https
+              - ping
+              - ssh
+              - snmp
+              - http
+              - telnet
+              - fgfm
+              - auto-ipsec
+              - radius-acct
+              - probe-response
+              - capwap
+              - dnp
+              - ftm
+              - fabric
+              - https
+              - ping
+              - ssh
+              - snmp
+              - http
+              - telnet
+              - fgfm
+              - auto-ipsec
+              - radius-acct
+              - probe-response
+              - capwap
+              - dnp
+              - ftm
+              - fabric
+              - https
+              - ping
+              - ssh
+              - snmp
+              - http
+              - telnet
+              - fgfm
+              - auto-ipsec
+              - radius-acct
+              - probe-response
+              - capwap
+              - dnp
+              - ftm
+              - fabric
+              - https
+              - ping
+              - ssh
+              - snmp
+              - http
+              - telnet
+              - fgfm
+              - auto-ipsec
+              - radius-acct
+              - probe-response
+              - capwap
+              - dnp
+              - ftm
+              - https
+              - ping
+              - ssh
+              - snmp
+              - http
+              - telnet
+              - fgfm
+              - auto-ipsec
+              - radius-acct
+              - probe-response
+              - capwap
+              - dnp
+              - ftm
+              - fabric
+              - https
+              - ping
+              - ssh
+              - snmp
+              - http
+              - telnet
+              - fgfm
+              - auto-ipsec
+              - radius-acct
+              - probe-response
+              - capwap
+              - dnp
+              - ftm
+              - fabric
+              - https
+              - ping
+              - ssh
+              - snmp
+              - http
+              - telnet
+              - fgfm
+              - auto-ipsec
+              - radius-acct
+              - probe-response
+              - capwap
+              - dnp
+              - ftm
+              - fabric
+              - https
+              - ping
+              - ssh
+              - snmp
+              - http
+              - telnet
+              - fgfm
+              - auto-ipsec
+              - radius-acct
+              - probe-response
+              - capwap
+              - dnp
+              - ftm
+              - fabric
+              - https
+              - ping
+              - ssh
+              - snmp
+              - http
+              - telnet
+              - fgfm
+              - auto-ipsec
+              - radius-acct
+              - probe-response
+              - capwap
+              - dnp
+              - ftm
+              - fabric
+              - https
+              - ping
+              - ssh
+              - snmp
+              - http
+              - telnet
+              - fgfm
+              - auto-ipsec
+              - radius-acct
+              - probe-response
+              - capwap
+              - dnp
+              - ftm
+              - fabric
+              - https
+              - ping
+              - ssh
+              - snmp
+              - http
+              - telnet
+              - fgfm
+              - auto-ipsec
+              - radius-acct
+              - probe-response
+              - capwap
+              - dnp
+              - ftm
+              - https
+              - ping
+              - ssh
+              - snmp
+              - http
+              - telnet
+              - fgfm
+              - auto-ipsec
+              - radius-acct
+              - probe-response
+              - capwap
+              - dnp
+              - ftm
+              - fabric
+              - https
+              - ping
+              - ssh
+              - snmp
+              - http
+              - telnet
+              - fgfm
+              - auto-ipsec
+              - radius-acct
+              - probe-response
+              - capwap
+              - dnp
+              - ftm
+              - fabric
+              - https
+              - ping
+              - ssh
+              - snmp
+              - http
+              - telnet
+              - fgfm
+              - auto-ipsec
+              - radius-acct
+              - probe-response
+              - capwap
+              - dnp
+              - ftm
+              - fabric
+              - https
+              - ping
+              - ssh
+              - snmp
+              - http
+              - telnet
+              - fgfm
+              - auto-ipsec
+              - radius-acct
+              - probe-response
+              - capwap
+              - dnp
+              - ftm
+              - fabric
+              - https
+              - ping
+              - ssh
+              - snmp
+              - http
+              - telnet
+              - fgfm
+              - auto-ipsec
+              - radius-acct
+              - probe-response
+              - capwap
+              - dnp
+              - ftm
+              - fabric
+              - https
+              - ping
+              - ssh
+              - snmp
+              - http
+              - telnet
+              - fgfm
+              - auto-ipsec
+              - radius-acct
+              - probe-response
+              - capwap
+              - dnp
+              - ftm
+              - fabric
+              - https
+              - ping
+              - ssh
+              - snmp
+              - http
+              - telnet
+              - fgfm
+              - auto-ipsec
+              - radius-acct
+              - probe-response
+              - capwap
+              - dnp
+              - ftm
+              - https
+              - ping
+              - ssh
+              - snmp
+              - http
+              - telnet
+              - fgfm
+              - auto-ipsec
+              - radius-acct
+              - probe-response
+              - capwap
+              - dnp
+              - ftm
+              - fabric
+              - https
+              - ping
+              - ssh
+              - snmp
+              - http
+              - telnet
+              - fgfm
+              - auto-ipsec
+              - radius-acct
+              - probe-response
+              - capwap
+              - dnp
+              - ftm
+              - fabric
+              - https
+              - ping
+              - ssh
+              - snmp
+              - http
+              - telnet
+              - fgfm
+              - auto-ipsec
+              - radius-acct
+              - probe-response
+              - capwap
+              - dnp
+              - ftm
+              - fabric
+              - https
+              - ping
+              - ssh
+              - snmp
+              - http
+              - telnet
+              - fgfm
+              - auto-ipsec
+              - radius-acct
+              - probe-response
+              - capwap
+              - dnp
+              - ftm
+              - fabric
+              - https
+              - ping
+              - ssh
+              - snmp
+              - http
+              - telnet
+              - fgfm
+              - auto-ipsec
+              - radius-acct
+              - probe-response
+              - capwap
+              - dnp
+              - ftm
+              - fabric
+              - https
+              - ping
+              - ssh
+              - snmp
+              - http
+              - telnet
+              - fgfm
+              - auto-ipsec
+              - radius-acct
+              - probe-response
+              - capwap
+              - dnp
+              - ftm
+              - fabric
+              - https
+              - ping
+              - ssh
+              - snmp
+              - http
+              - telnet
+              - fgfm
+              - auto-ipsec
+              - radius-acct
+              - probe-response
+              - capwap
+              - dnp
+              - ftm
+              - https
+              - ping
+              - ssh
+              - snmp
+              - http
+              - telnet
+              - fgfm
+              - auto-ipsec
+              - radius-acct
+              - probe-response
+              - capwap
+              - dnp
+              - ftm
+              - fabric
+              - https
+              - ping
+              - ssh
+              - snmp
+              - http
+              - telnet
+              - fgfm
+              - auto-ipsec
+              - radius-acct
+              - probe-response
+              - capwap
+              - dnp
+              - ftm
+              - fabric
+              - https
+              - ping
+              - ssh
+              - snmp
+              - http
+              - telnet
+              - fgfm
+              - auto-ipsec
+              - radius-acct
+              - probe-response
+              - capwap
+              - dnp
+              - ftm
+              - fabric
+              - https
+              - ping
+              - ssh
+              - snmp
+              - http
+              - telnet
+              - fgfm
+              - auto-ipsec
+              - radius-acct
+              - probe-response
+              - capwap
+              - dnp
+              - ftm
+              - fabric
+              - https
+              - ping
+              - ssh
+              - snmp
+              - http
+              - telnet
+              - fgfm
+              - auto-ipsec
+              - radius-acct
+              - probe-response
+              - capwap
+              - dnp
+              - ftm
+              - fabric
+              - https
+              - ping
+              - ssh
+              - snmp
+              - http
+              - telnet
+              - fgfm
+              - auto-ipsec
+              - radius-acct
+              - probe-response
+              - capwap
+              - dnp
+              - ftm
+              - fabric
             ap-discover: <value in [disable, enable]>
             arpforward: <value in [disable, enable]>
             atm-protocol: <value in [none, ipoa]>
@@ -1799,6 +3909,308 @@ EXAMPLES = '''
                  - telnet
                  - fgfm
                  - capwap
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - capwap
+                 - fabric
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - capwap
+                 - fabric
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - capwap
+                 - fabric
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - capwap
+                 - fabric
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - capwap
+                 - fabric
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - capwap
+                 - fabric
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - capwap
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - capwap
+                 - fabric
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - capwap
+                 - fabric
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - capwap
+                 - fabric
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - capwap
+                 - fabric
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - capwap
+                 - fabric
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - capwap
+                 - fabric
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - capwap
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - capwap
+                 - fabric
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - capwap
+                 - fabric
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - capwap
+                 - fabric
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - capwap
+                 - fabric
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - capwap
+                 - fabric
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - capwap
+                 - fabric
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - capwap
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - capwap
+                 - fabric
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - capwap
+                 - fabric
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - capwap
+                 - fabric
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - capwap
+                 - fabric
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - capwap
+                 - fabric
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - capwap
+                 - fabric
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - capwap
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - capwap
+                 - fabric
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - capwap
+                 - fabric
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - capwap
+                 - fabric
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - capwap
+                 - fabric
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - capwap
+                 - fabric
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - capwap
+                 - fabric
                ip6-default-life: <value of integer>
                ip6-dns-server-override: <value in [disable, enable]>
                ip6-hop-limit: <value of integer>
@@ -1821,6 +4233,45 @@ EXAMPLES = '''
                nd-timestamp-fuzz: <value of integer>
                vrip6_link_local: <value of string>
                vrrp-virtual-mac6: <value in [disable, enable]>
+               ip6-delegated-prefix-list:
+                 -
+                     autonomous-flag: <value in [disable, enable]>
+                     onlink-flag: <value in [disable, enable]>
+                     prefix-id: <value of integer>
+                     rdnss: <value of string>
+                     rdnss-service: <value in [delegated, default, specify]>
+                     subnet: <value of string>
+                     upstream-interface: <value of string>
+               ip6-extra-addr:
+                 -
+                     prefix: <value of string>
+               ip6-prefix-list:
+                 -
+                     autonomous-flag: <value in [disable, enable]>
+                     dnssl: <value of string>
+                     onlink-flag: <value in [disable, enable]>
+                     preferred-life-time: <value of integer>
+                     prefix: <value of string>
+                     rdnss: <value of string>
+                     valid-life-time: <value of integer>
+               vrrp6:
+                 -
+                     accept-mode: <value in [disable, enable]>
+                     adv-interval: <value of integer>
+                     preempt: <value in [disable, enable]>
+                     priority: <value of integer>
+                     start-time: <value of integer>
+                     status: <value in [disable, enable]>
+                     vrdst6: <value of string>
+                     vrgrp: <value of integer>
+                     vrid: <value of integer>
+                     vrip6: <value of string>
+               interface-identifier: <value of string>
+               unique-autoconf-addr: <value in [disable, enable]>
+               icmp6-send-redirect: <value in [disable, enable]>
+               cli-conn6-status: <value of integer>
+               ip6-prefix-mode: <value in [dhcp6, ra]>
+               ra-send-mtu: <value in [disable, enable]>
             l2forward: <value in [disable, enable]>
             l2tp-client: <value in [disable, enable]>
             lacp-ha-slave: <value in [disable, enable]>
@@ -1897,6 +4348,575 @@ EXAMPLES = '''
                     - capwap
                     - dnp
                     - ftm
+                    - https
+                    - ping
+                    - ssh
+                    - snmp
+                    - http
+                    - telnet
+                    - fgfm
+                    - auto-ipsec
+                    - radius-acct
+                    - probe-response
+                    - capwap
+                    - dnp
+                    - ftm
+                    - fabric
+                    - https
+                    - ping
+                    - ssh
+                    - snmp
+                    - http
+                    - telnet
+                    - fgfm
+                    - auto-ipsec
+                    - radius-acct
+                    - probe-response
+                    - capwap
+                    - dnp
+                    - ftm
+                    - fabric
+                    - https
+                    - ping
+                    - ssh
+                    - snmp
+                    - http
+                    - telnet
+                    - fgfm
+                    - auto-ipsec
+                    - radius-acct
+                    - probe-response
+                    - capwap
+                    - dnp
+                    - ftm
+                    - fabric
+                    - https
+                    - ping
+                    - ssh
+                    - snmp
+                    - http
+                    - telnet
+                    - fgfm
+                    - auto-ipsec
+                    - radius-acct
+                    - probe-response
+                    - capwap
+                    - dnp
+                    - ftm
+                    - fabric
+                    - https
+                    - ping
+                    - ssh
+                    - snmp
+                    - http
+                    - telnet
+                    - fgfm
+                    - auto-ipsec
+                    - radius-acct
+                    - probe-response
+                    - capwap
+                    - dnp
+                    - ftm
+                    - fabric
+                    - https
+                    - ping
+                    - ssh
+                    - snmp
+                    - http
+                    - telnet
+                    - fgfm
+                    - auto-ipsec
+                    - radius-acct
+                    - probe-response
+                    - capwap
+                    - dnp
+                    - ftm
+                    - fabric
+                    - https
+                    - ping
+                    - ssh
+                    - snmp
+                    - http
+                    - telnet
+                    - fgfm
+                    - auto-ipsec
+                    - radius-acct
+                    - probe-response
+                    - capwap
+                    - dnp
+                    - ftm
+                    - https
+                    - ping
+                    - ssh
+                    - snmp
+                    - http
+                    - telnet
+                    - fgfm
+                    - auto-ipsec
+                    - radius-acct
+                    - probe-response
+                    - capwap
+                    - dnp
+                    - ftm
+                    - fabric
+                    - https
+                    - ping
+                    - ssh
+                    - snmp
+                    - http
+                    - telnet
+                    - fgfm
+                    - auto-ipsec
+                    - radius-acct
+                    - probe-response
+                    - capwap
+                    - dnp
+                    - ftm
+                    - fabric
+                    - https
+                    - ping
+                    - ssh
+                    - snmp
+                    - http
+                    - telnet
+                    - fgfm
+                    - auto-ipsec
+                    - radius-acct
+                    - probe-response
+                    - capwap
+                    - dnp
+                    - ftm
+                    - fabric
+                    - https
+                    - ping
+                    - ssh
+                    - snmp
+                    - http
+                    - telnet
+                    - fgfm
+                    - auto-ipsec
+                    - radius-acct
+                    - probe-response
+                    - capwap
+                    - dnp
+                    - ftm
+                    - fabric
+                    - https
+                    - ping
+                    - ssh
+                    - snmp
+                    - http
+                    - telnet
+                    - fgfm
+                    - auto-ipsec
+                    - radius-acct
+                    - probe-response
+                    - capwap
+                    - dnp
+                    - ftm
+                    - fabric
+                    - https
+                    - ping
+                    - ssh
+                    - snmp
+                    - http
+                    - telnet
+                    - fgfm
+                    - auto-ipsec
+                    - radius-acct
+                    - probe-response
+                    - capwap
+                    - dnp
+                    - ftm
+                    - fabric
+                    - https
+                    - ping
+                    - ssh
+                    - snmp
+                    - http
+                    - telnet
+                    - fgfm
+                    - auto-ipsec
+                    - radius-acct
+                    - probe-response
+                    - capwap
+                    - dnp
+                    - ftm
+                    - https
+                    - ping
+                    - ssh
+                    - snmp
+                    - http
+                    - telnet
+                    - fgfm
+                    - auto-ipsec
+                    - radius-acct
+                    - probe-response
+                    - capwap
+                    - dnp
+                    - ftm
+                    - fabric
+                    - https
+                    - ping
+                    - ssh
+                    - snmp
+                    - http
+                    - telnet
+                    - fgfm
+                    - auto-ipsec
+                    - radius-acct
+                    - probe-response
+                    - capwap
+                    - dnp
+                    - ftm
+                    - fabric
+                    - https
+                    - ping
+                    - ssh
+                    - snmp
+                    - http
+                    - telnet
+                    - fgfm
+                    - auto-ipsec
+                    - radius-acct
+                    - probe-response
+                    - capwap
+                    - dnp
+                    - ftm
+                    - fabric
+                    - https
+                    - ping
+                    - ssh
+                    - snmp
+                    - http
+                    - telnet
+                    - fgfm
+                    - auto-ipsec
+                    - radius-acct
+                    - probe-response
+                    - capwap
+                    - dnp
+                    - ftm
+                    - fabric
+                    - https
+                    - ping
+                    - ssh
+                    - snmp
+                    - http
+                    - telnet
+                    - fgfm
+                    - auto-ipsec
+                    - radius-acct
+                    - probe-response
+                    - capwap
+                    - dnp
+                    - ftm
+                    - fabric
+                    - https
+                    - ping
+                    - ssh
+                    - snmp
+                    - http
+                    - telnet
+                    - fgfm
+                    - auto-ipsec
+                    - radius-acct
+                    - probe-response
+                    - capwap
+                    - dnp
+                    - ftm
+                    - fabric
+                    - https
+                    - ping
+                    - ssh
+                    - snmp
+                    - http
+                    - telnet
+                    - fgfm
+                    - auto-ipsec
+                    - radius-acct
+                    - probe-response
+                    - capwap
+                    - dnp
+                    - ftm
+                    - https
+                    - ping
+                    - ssh
+                    - snmp
+                    - http
+                    - telnet
+                    - fgfm
+                    - auto-ipsec
+                    - radius-acct
+                    - probe-response
+                    - capwap
+                    - dnp
+                    - ftm
+                    - fabric
+                    - https
+                    - ping
+                    - ssh
+                    - snmp
+                    - http
+                    - telnet
+                    - fgfm
+                    - auto-ipsec
+                    - radius-acct
+                    - probe-response
+                    - capwap
+                    - dnp
+                    - ftm
+                    - fabric
+                    - https
+                    - ping
+                    - ssh
+                    - snmp
+                    - http
+                    - telnet
+                    - fgfm
+                    - auto-ipsec
+                    - radius-acct
+                    - probe-response
+                    - capwap
+                    - dnp
+                    - ftm
+                    - fabric
+                    - https
+                    - ping
+                    - ssh
+                    - snmp
+                    - http
+                    - telnet
+                    - fgfm
+                    - auto-ipsec
+                    - radius-acct
+                    - probe-response
+                    - capwap
+                    - dnp
+                    - ftm
+                    - fabric
+                    - https
+                    - ping
+                    - ssh
+                    - snmp
+                    - http
+                    - telnet
+                    - fgfm
+                    - auto-ipsec
+                    - radius-acct
+                    - probe-response
+                    - capwap
+                    - dnp
+                    - ftm
+                    - fabric
+                    - https
+                    - ping
+                    - ssh
+                    - snmp
+                    - http
+                    - telnet
+                    - fgfm
+                    - auto-ipsec
+                    - radius-acct
+                    - probe-response
+                    - capwap
+                    - dnp
+                    - ftm
+                    - fabric
+                    - https
+                    - ping
+                    - ssh
+                    - snmp
+                    - http
+                    - telnet
+                    - fgfm
+                    - auto-ipsec
+                    - radius-acct
+                    - probe-response
+                    - capwap
+                    - dnp
+                    - ftm
+                    - https
+                    - ping
+                    - ssh
+                    - snmp
+                    - http
+                    - telnet
+                    - fgfm
+                    - auto-ipsec
+                    - radius-acct
+                    - probe-response
+                    - capwap
+                    - dnp
+                    - ftm
+                    - fabric
+                    - https
+                    - ping
+                    - ssh
+                    - snmp
+                    - http
+                    - telnet
+                    - fgfm
+                    - auto-ipsec
+                    - radius-acct
+                    - probe-response
+                    - capwap
+                    - dnp
+                    - ftm
+                    - fabric
+                    - https
+                    - ping
+                    - ssh
+                    - snmp
+                    - http
+                    - telnet
+                    - fgfm
+                    - auto-ipsec
+                    - radius-acct
+                    - probe-response
+                    - capwap
+                    - dnp
+                    - ftm
+                    - fabric
+                    - https
+                    - ping
+                    - ssh
+                    - snmp
+                    - http
+                    - telnet
+                    - fgfm
+                    - auto-ipsec
+                    - radius-acct
+                    - probe-response
+                    - capwap
+                    - dnp
+                    - ftm
+                    - fabric
+                    - https
+                    - ping
+                    - ssh
+                    - snmp
+                    - http
+                    - telnet
+                    - fgfm
+                    - auto-ipsec
+                    - radius-acct
+                    - probe-response
+                    - capwap
+                    - dnp
+                    - ftm
+                    - fabric
+                    - https
+                    - ping
+                    - ssh
+                    - snmp
+                    - http
+                    - telnet
+                    - fgfm
+                    - auto-ipsec
+                    - radius-acct
+                    - probe-response
+                    - capwap
+                    - dnp
+                    - ftm
+                    - fabric
+                    - https
+                    - ping
+                    - ssh
+                    - snmp
+                    - http
+                    - telnet
+                    - fgfm
+                    - auto-ipsec
+                    - radius-acct
+                    - probe-response
+                    - capwap
+                    - dnp
+                    - ftm
+                    - https
+                    - ping
+                    - ssh
+                    - snmp
+                    - http
+                    - telnet
+                    - fgfm
+                    - auto-ipsec
+                    - radius-acct
+                    - probe-response
+                    - capwap
+                    - dnp
+                    - ftm
+                    - fabric
+                    - https
+                    - ping
+                    - ssh
+                    - snmp
+                    - http
+                    - telnet
+                    - fgfm
+                    - auto-ipsec
+                    - radius-acct
+                    - probe-response
+                    - capwap
+                    - dnp
+                    - ftm
+                    - fabric
+                    - https
+                    - ping
+                    - ssh
+                    - snmp
+                    - http
+                    - telnet
+                    - fgfm
+                    - auto-ipsec
+                    - radius-acct
+                    - probe-response
+                    - capwap
+                    - dnp
+                    - ftm
+                    - fabric
+                    - https
+                    - ping
+                    - ssh
+                    - snmp
+                    - http
+                    - telnet
+                    - fgfm
+                    - auto-ipsec
+                    - radius-acct
+                    - probe-response
+                    - capwap
+                    - dnp
+                    - ftm
+                    - fabric
+                    - https
+                    - ping
+                    - ssh
+                    - snmp
+                    - http
+                    - telnet
+                    - fgfm
+                    - auto-ipsec
+                    - radius-acct
+                    - probe-response
+                    - capwap
+                    - dnp
+                    - ftm
+                    - fabric
+                    - https
+                    - ping
+                    - ssh
+                    - snmp
+                    - http
+                    - telnet
+                    - fgfm
+                    - auto-ipsec
+                    - radius-acct
+                    - probe-response
+                    - capwap
+                    - dnp
+                    - ftm
+                    - fabric
                   detectprotocol:
                     - ping
                     - tcp-echo
@@ -1997,6 +5017,34 @@ EXAMPLES = '''
             wifi-ssid: <value of string>
             wifi-usergroup: <value of string>
             wins-ip: <value of string>
+            eip: <value of string>
+            fortilink-neighbor-detect: <value in [lldp, fortilink]>
+            ingress-shaping-profile: <value of string>
+            ring-rx: <value of integer>
+            ring-tx: <value of integer>
+            switch-controller-igmp-snooping-fast-leave: <value in [disable, enable]>
+            switch-controller-igmp-snooping-proxy: <value in [disable, enable]>
+            switch-controller-rspan-mode: <value in [disable, enable]>
+            bandwidth-measure-time: <value of integer>
+            ip-managed-by-fortiipam: <value in [disable, enable]>
+            managed-subnetwork-size: <value in [256, 512, 1024, ...]>
+            measured-downstream-bandwidth: <value of integer>
+            measured-upstream-bandwidth: <value of integer>
+            monitor-bandwidth: <value in [disable, enable]>
+            swc-vlan: <value of integer>
+            switch-controller-feature: <value in [none, default-vlan, quarantine, ...]>
+            switch-controller-mgmt-vlan: <value of integer>
+            switch-controller-nac: <value of string>
+            vlan-protocol: <value in [8021q, 8021ad]>
+            dhcp-relay-interface: <value of string>
+            dhcp-relay-interface-select-method: <value in [auto, sdwan, specify]>
+            np-qos-profile: <value of integer>
+            swc-first-create: <value of integer>
+            switch-controller-iot-scanning: <value in [disable, enable]>
+            switch-controller-source-ip: <value in [outbound, fixed]>
+            dhcp-relay-request-all-server: <value in [disable, enable]>
+            stp-ha-secondary: <value in [disable, enable, priority-adjust]>
+            switch-controller-dynamic: <value of string>
 
 '''
 
@@ -2089,14 +5137,44 @@ def main():
             'options': {
                 'ac-name': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'aggregate': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'algorithm': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'L2',
                         'L3',
@@ -2106,10 +5184,30 @@ def main():
                 },
                 'alias': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'allowaccess': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'list',
                     'choices': [
                         'https',
@@ -2124,11 +5222,493 @@ def main():
                         'probe-response',
                         'capwap',
                         'dnp',
-                        'ftm'
+                        'ftm',
+                        'https',
+                        'ping',
+                        'ssh',
+                        'snmp',
+                        'http',
+                        'telnet',
+                        'fgfm',
+                        'auto-ipsec',
+                        'radius-acct',
+                        'probe-response',
+                        'capwap',
+                        'dnp',
+                        'ftm',
+                        'fabric',
+                        'https',
+                        'ping',
+                        'ssh',
+                        'snmp',
+                        'http',
+                        'telnet',
+                        'fgfm',
+                        'auto-ipsec',
+                        'radius-acct',
+                        'probe-response',
+                        'capwap',
+                        'dnp',
+                        'ftm',
+                        'fabric',
+                        'https',
+                        'ping',
+                        'ssh',
+                        'snmp',
+                        'http',
+                        'telnet',
+                        'fgfm',
+                        'auto-ipsec',
+                        'radius-acct',
+                        'probe-response',
+                        'capwap',
+                        'dnp',
+                        'ftm',
+                        'fabric',
+                        'https',
+                        'ping',
+                        'ssh',
+                        'snmp',
+                        'http',
+                        'telnet',
+                        'fgfm',
+                        'auto-ipsec',
+                        'radius-acct',
+                        'probe-response',
+                        'capwap',
+                        'dnp',
+                        'ftm',
+                        'fabric',
+                        'https',
+                        'ping',
+                        'ssh',
+                        'snmp',
+                        'http',
+                        'telnet',
+                        'fgfm',
+                        'auto-ipsec',
+                        'radius-acct',
+                        'probe-response',
+                        'capwap',
+                        'dnp',
+                        'ftm',
+                        'fabric',
+                        'https',
+                        'ping',
+                        'ssh',
+                        'snmp',
+                        'http',
+                        'telnet',
+                        'fgfm',
+                        'auto-ipsec',
+                        'radius-acct',
+                        'probe-response',
+                        'capwap',
+                        'dnp',
+                        'ftm',
+                        'fabric',
+                        'https',
+                        'ping',
+                        'ssh',
+                        'snmp',
+                        'http',
+                        'telnet',
+                        'fgfm',
+                        'auto-ipsec',
+                        'radius-acct',
+                        'probe-response',
+                        'capwap',
+                        'dnp',
+                        'ftm',
+                        'https',
+                        'ping',
+                        'ssh',
+                        'snmp',
+                        'http',
+                        'telnet',
+                        'fgfm',
+                        'auto-ipsec',
+                        'radius-acct',
+                        'probe-response',
+                        'capwap',
+                        'dnp',
+                        'ftm',
+                        'fabric',
+                        'https',
+                        'ping',
+                        'ssh',
+                        'snmp',
+                        'http',
+                        'telnet',
+                        'fgfm',
+                        'auto-ipsec',
+                        'radius-acct',
+                        'probe-response',
+                        'capwap',
+                        'dnp',
+                        'ftm',
+                        'fabric',
+                        'https',
+                        'ping',
+                        'ssh',
+                        'snmp',
+                        'http',
+                        'telnet',
+                        'fgfm',
+                        'auto-ipsec',
+                        'radius-acct',
+                        'probe-response',
+                        'capwap',
+                        'dnp',
+                        'ftm',
+                        'fabric',
+                        'https',
+                        'ping',
+                        'ssh',
+                        'snmp',
+                        'http',
+                        'telnet',
+                        'fgfm',
+                        'auto-ipsec',
+                        'radius-acct',
+                        'probe-response',
+                        'capwap',
+                        'dnp',
+                        'ftm',
+                        'fabric',
+                        'https',
+                        'ping',
+                        'ssh',
+                        'snmp',
+                        'http',
+                        'telnet',
+                        'fgfm',
+                        'auto-ipsec',
+                        'radius-acct',
+                        'probe-response',
+                        'capwap',
+                        'dnp',
+                        'ftm',
+                        'fabric',
+                        'https',
+                        'ping',
+                        'ssh',
+                        'snmp',
+                        'http',
+                        'telnet',
+                        'fgfm',
+                        'auto-ipsec',
+                        'radius-acct',
+                        'probe-response',
+                        'capwap',
+                        'dnp',
+                        'ftm',
+                        'fabric',
+                        'https',
+                        'ping',
+                        'ssh',
+                        'snmp',
+                        'http',
+                        'telnet',
+                        'fgfm',
+                        'auto-ipsec',
+                        'radius-acct',
+                        'probe-response',
+                        'capwap',
+                        'dnp',
+                        'ftm',
+                        'https',
+                        'ping',
+                        'ssh',
+                        'snmp',
+                        'http',
+                        'telnet',
+                        'fgfm',
+                        'auto-ipsec',
+                        'radius-acct',
+                        'probe-response',
+                        'capwap',
+                        'dnp',
+                        'ftm',
+                        'fabric',
+                        'https',
+                        'ping',
+                        'ssh',
+                        'snmp',
+                        'http',
+                        'telnet',
+                        'fgfm',
+                        'auto-ipsec',
+                        'radius-acct',
+                        'probe-response',
+                        'capwap',
+                        'dnp',
+                        'ftm',
+                        'fabric',
+                        'https',
+                        'ping',
+                        'ssh',
+                        'snmp',
+                        'http',
+                        'telnet',
+                        'fgfm',
+                        'auto-ipsec',
+                        'radius-acct',
+                        'probe-response',
+                        'capwap',
+                        'dnp',
+                        'ftm',
+                        'fabric',
+                        'https',
+                        'ping',
+                        'ssh',
+                        'snmp',
+                        'http',
+                        'telnet',
+                        'fgfm',
+                        'auto-ipsec',
+                        'radius-acct',
+                        'probe-response',
+                        'capwap',
+                        'dnp',
+                        'ftm',
+                        'fabric',
+                        'https',
+                        'ping',
+                        'ssh',
+                        'snmp',
+                        'http',
+                        'telnet',
+                        'fgfm',
+                        'auto-ipsec',
+                        'radius-acct',
+                        'probe-response',
+                        'capwap',
+                        'dnp',
+                        'ftm',
+                        'fabric',
+                        'https',
+                        'ping',
+                        'ssh',
+                        'snmp',
+                        'http',
+                        'telnet',
+                        'fgfm',
+                        'auto-ipsec',
+                        'radius-acct',
+                        'probe-response',
+                        'capwap',
+                        'dnp',
+                        'ftm',
+                        'fabric',
+                        'https',
+                        'ping',
+                        'ssh',
+                        'snmp',
+                        'http',
+                        'telnet',
+                        'fgfm',
+                        'auto-ipsec',
+                        'radius-acct',
+                        'probe-response',
+                        'capwap',
+                        'dnp',
+                        'ftm',
+                        'https',
+                        'ping',
+                        'ssh',
+                        'snmp',
+                        'http',
+                        'telnet',
+                        'fgfm',
+                        'auto-ipsec',
+                        'radius-acct',
+                        'probe-response',
+                        'capwap',
+                        'dnp',
+                        'ftm',
+                        'fabric',
+                        'https',
+                        'ping',
+                        'ssh',
+                        'snmp',
+                        'http',
+                        'telnet',
+                        'fgfm',
+                        'auto-ipsec',
+                        'radius-acct',
+                        'probe-response',
+                        'capwap',
+                        'dnp',
+                        'ftm',
+                        'fabric',
+                        'https',
+                        'ping',
+                        'ssh',
+                        'snmp',
+                        'http',
+                        'telnet',
+                        'fgfm',
+                        'auto-ipsec',
+                        'radius-acct',
+                        'probe-response',
+                        'capwap',
+                        'dnp',
+                        'ftm',
+                        'fabric',
+                        'https',
+                        'ping',
+                        'ssh',
+                        'snmp',
+                        'http',
+                        'telnet',
+                        'fgfm',
+                        'auto-ipsec',
+                        'radius-acct',
+                        'probe-response',
+                        'capwap',
+                        'dnp',
+                        'ftm',
+                        'fabric',
+                        'https',
+                        'ping',
+                        'ssh',
+                        'snmp',
+                        'http',
+                        'telnet',
+                        'fgfm',
+                        'auto-ipsec',
+                        'radius-acct',
+                        'probe-response',
+                        'capwap',
+                        'dnp',
+                        'ftm',
+                        'fabric',
+                        'https',
+                        'ping',
+                        'ssh',
+                        'snmp',
+                        'http',
+                        'telnet',
+                        'fgfm',
+                        'auto-ipsec',
+                        'radius-acct',
+                        'probe-response',
+                        'capwap',
+                        'dnp',
+                        'ftm',
+                        'fabric',
+                        'https',
+                        'ping',
+                        'ssh',
+                        'snmp',
+                        'http',
+                        'telnet',
+                        'fgfm',
+                        'auto-ipsec',
+                        'radius-acct',
+                        'probe-response',
+                        'capwap',
+                        'dnp',
+                        'ftm',
+                        'https',
+                        'ping',
+                        'ssh',
+                        'snmp',
+                        'http',
+                        'telnet',
+                        'fgfm',
+                        'auto-ipsec',
+                        'radius-acct',
+                        'probe-response',
+                        'capwap',
+                        'dnp',
+                        'ftm',
+                        'fabric',
+                        'https',
+                        'ping',
+                        'ssh',
+                        'snmp',
+                        'http',
+                        'telnet',
+                        'fgfm',
+                        'auto-ipsec',
+                        'radius-acct',
+                        'probe-response',
+                        'capwap',
+                        'dnp',
+                        'ftm',
+                        'fabric',
+                        'https',
+                        'ping',
+                        'ssh',
+                        'snmp',
+                        'http',
+                        'telnet',
+                        'fgfm',
+                        'auto-ipsec',
+                        'radius-acct',
+                        'probe-response',
+                        'capwap',
+                        'dnp',
+                        'ftm',
+                        'fabric',
+                        'https',
+                        'ping',
+                        'ssh',
+                        'snmp',
+                        'http',
+                        'telnet',
+                        'fgfm',
+                        'auto-ipsec',
+                        'radius-acct',
+                        'probe-response',
+                        'capwap',
+                        'dnp',
+                        'ftm',
+                        'fabric',
+                        'https',
+                        'ping',
+                        'ssh',
+                        'snmp',
+                        'http',
+                        'telnet',
+                        'fgfm',
+                        'auto-ipsec',
+                        'radius-acct',
+                        'probe-response',
+                        'capwap',
+                        'dnp',
+                        'ftm',
+                        'fabric',
+                        'https',
+                        'ping',
+                        'ssh',
+                        'snmp',
+                        'http',
+                        'telnet',
+                        'fgfm',
+                        'auto-ipsec',
+                        'radius-acct',
+                        'probe-response',
+                        'capwap',
+                        'dnp',
+                        'ftm',
+                        'fabric'
                     ]
                 },
                 'ap-discover': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -2137,6 +5717,16 @@ def main():
                 },
                 'arpforward': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -2145,6 +5735,16 @@ def main():
                 },
                 'atm-protocol': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'none',
                         'ipoa'
@@ -2153,6 +5753,16 @@ def main():
                 },
                 'auth-type': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'auto',
                         'pap',
@@ -2164,6 +5774,16 @@ def main():
                 },
                 'auto-auth-extension-device': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -2172,6 +5792,16 @@ def main():
                 },
                 'bfd': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'global',
                         'enable',
@@ -2181,18 +5811,58 @@ def main():
                 },
                 'bfd-desired-min-tx': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'bfd-detect-mult': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'bfd-required-min-rx': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'broadcast-forticlient-discovery': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -2201,6 +5871,16 @@ def main():
                 },
                 'broadcast-forward': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -2209,18 +5889,58 @@ def main():
                 },
                 'captive-portal': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'cli-conn-status': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'color': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'ddns': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -2229,6 +5949,16 @@ def main():
                 },
                 'ddns-auth': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'tsig'
@@ -2237,22 +5967,72 @@ def main():
                 },
                 'ddns-domain': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'ddns-key': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'ddns-keyname': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'ddns-password': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'ddns-server': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'dhs.org',
                         'dyndns.org',
@@ -2269,26 +6049,86 @@ def main():
                 },
                 'ddns-server-ip': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'ddns-sn': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'ddns-ttl': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'ddns-username': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'ddns-zone': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'dedicated-to': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'none',
                         'management'
@@ -2297,6 +6137,16 @@ def main():
                 },
                 'defaultgw': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -2305,14 +6155,44 @@ def main():
                 },
                 'description': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'detected-peer-mtu': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'detectprotocol': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'list',
                     'choices': [
                         'ping',
@@ -2322,14 +6202,44 @@ def main():
                 },
                 'detectserver': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'device-access-list': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'device-identification': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -2338,6 +6248,16 @@ def main():
                 },
                 'device-identification-active-scan': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -2346,6 +6266,16 @@ def main():
                 },
                 'device-netscan': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -2354,6 +6284,16 @@ def main():
                 },
                 'device-user-identification': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -2362,14 +6302,44 @@ def main():
                 },
                 'devindex': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'dhcp-client-identifier': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'dhcp-relay-agent-option': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -2378,10 +6348,30 @@ def main():
                 },
                 'dhcp-relay-ip': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'dhcp-relay-service': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -2390,6 +6380,16 @@ def main():
                 },
                 'dhcp-relay-type': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'regular',
                         'ipsec'
@@ -2398,22 +6398,72 @@ def main():
                 },
                 'dhcp-renew-time': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'disc-retry-timeout': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'disconnect-threshold': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'distance': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'dns-query': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'recursive',
@@ -2423,6 +6473,16 @@ def main():
                 },
                 'dns-server-override': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -2431,6 +6491,16 @@ def main():
                 },
                 'drop-fragment': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -2439,6 +6509,16 @@ def main():
                 },
                 'drop-overlapped-fragment': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -2447,6 +6527,16 @@ def main():
                 },
                 'egress-cos': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'cos0',
@@ -2462,10 +6552,30 @@ def main():
                 },
                 'egress-shaping-profile': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'endpoint-compliance': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -2474,14 +6584,44 @@ def main():
                 },
                 'estimated-downstream-bandwidth': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'estimated-upstream-bandwidth': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'explicit-ftp-proxy': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -2490,6 +6630,16 @@ def main():
                 },
                 'explicit-web-proxy': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -2498,6 +6648,16 @@ def main():
                 },
                 'external': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -2506,6 +6666,16 @@ def main():
                 },
                 'fail-action-on-extender': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'soft-restart',
                         'hard-restart',
@@ -2515,10 +6685,30 @@ def main():
                 },
                 'fail-alert-interfaces': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'fail-alert-method': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'link-failed-signal',
                         'link-down'
@@ -2527,6 +6717,16 @@ def main():
                 },
                 'fail-detect': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -2535,6 +6735,16 @@ def main():
                 },
                 'fail-detect-option': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'list',
                     'choices': [
                         'detectserver',
@@ -2543,6 +6753,16 @@ def main():
                 },
                 'fdp': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -2551,6 +6771,16 @@ def main():
                 },
                 'fortiheartbeat': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -2559,6 +6789,16 @@ def main():
                 },
                 'fortilink': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -2567,10 +6807,30 @@ def main():
                 },
                 'fortilink-backup-link': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'fortilink-split-interface': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -2579,6 +6839,16 @@ def main():
                 },
                 'fortilink-stacking': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -2587,20 +6857,52 @@ def main():
                 },
                 'forward-domain': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'forward-error-correction': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable',
                         'rs-fec',
-                        'base-r-fec'
+                        'base-r-fec',
+                        'fec-cl91',
+                        'fec-cl74'
                     ],
                     'type': 'str'
                 },
                 'fp-anomaly': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'list',
                     'choices': [
                         'drop_tcp_fin_noack',
@@ -2639,6 +6941,16 @@ def main():
                 },
                 'fp-disable': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'list',
                     'choices': [
                         'all',
@@ -2648,10 +6960,30 @@ def main():
                 },
                 'gateway-address': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'gi-gk': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -2660,10 +6992,30 @@ def main():
                 },
                 'gwaddr': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'gwdetect': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -2672,10 +7024,30 @@ def main():
                 },
                 'ha-priority': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'icmp-accept-redirect': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -2684,6 +7056,16 @@ def main():
                 },
                 'icmp-redirect': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -2692,6 +7074,16 @@ def main():
                 },
                 'icmp-send-redirect': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -2700,6 +7092,16 @@ def main():
                 },
                 'ident-accept': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -2708,10 +7110,30 @@ def main():
                 },
                 'idle-timeout': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'if-mdix': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'auto',
                         'normal',
@@ -2721,6 +7143,16 @@ def main():
                 },
                 'if-media': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'auto',
                         'copper',
@@ -2730,14 +7162,44 @@ def main():
                 },
                 'in-force-vlan-cos': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'inbandwidth': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'ingress-cos': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'cos0',
@@ -2753,18 +7215,58 @@ def main():
                 },
                 'ingress-spillover-threshold': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'internal': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'ip': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'ipmac': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -2773,6 +7275,16 @@ def main():
                 },
                 'ips-sniffer-mode': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -2781,6 +7293,16 @@ def main():
                 },
                 'ipunnumbered': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'ipv6': {
@@ -2789,6 +7311,16 @@ def main():
                     'options': {
                         'autoconf': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'choices': [
                                 'disable',
                                 'enable'
@@ -2797,6 +7329,16 @@ def main():
                         },
                         'dhcp6-client-options': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'list',
                             'choices': [
                                 'rapid',
@@ -2808,6 +7350,16 @@ def main():
                         },
                         'dhcp6-information-request': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'choices': [
                                 'disable',
                                 'enable'
@@ -2816,6 +7368,16 @@ def main():
                         },
                         'dhcp6-prefix-delegation': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'choices': [
                                 'disable',
                                 'enable'
@@ -2824,22 +7386,72 @@ def main():
                         },
                         'dhcp6-prefix-hint': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'str'
                         },
                         'dhcp6-prefix-hint-plt': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'int'
                         },
                         'dhcp6-prefix-hint-vlt': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'int'
                         },
                         'dhcp6-relay-ip': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'str'
                         },
                         'dhcp6-relay-service': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'choices': [
                                 'disable',
                                 'enable'
@@ -2848,6 +7460,16 @@ def main():
                         },
                         'dhcp6-relay-type': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'choices': [
                                 'regular'
                             ],
@@ -2855,10 +7477,30 @@ def main():
                         },
                         'ip6-address': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'str'
                         },
                         'ip6-allowaccess': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'list',
                             'choices': [
                                 'https',
@@ -2868,15 +7510,337 @@ def main():
                                 'http',
                                 'telnet',
                                 'fgfm',
-                                'capwap'
+                                'capwap',
+                                'https',
+                                'ping',
+                                'ssh',
+                                'snmp',
+                                'http',
+                                'telnet',
+                                'fgfm',
+                                'capwap',
+                                'fabric',
+                                'https',
+                                'ping',
+                                'ssh',
+                                'snmp',
+                                'http',
+                                'telnet',
+                                'fgfm',
+                                'capwap',
+                                'fabric',
+                                'https',
+                                'ping',
+                                'ssh',
+                                'snmp',
+                                'http',
+                                'telnet',
+                                'fgfm',
+                                'capwap',
+                                'fabric',
+                                'https',
+                                'ping',
+                                'ssh',
+                                'snmp',
+                                'http',
+                                'telnet',
+                                'fgfm',
+                                'capwap',
+                                'fabric',
+                                'https',
+                                'ping',
+                                'ssh',
+                                'snmp',
+                                'http',
+                                'telnet',
+                                'fgfm',
+                                'capwap',
+                                'fabric',
+                                'https',
+                                'ping',
+                                'ssh',
+                                'snmp',
+                                'http',
+                                'telnet',
+                                'fgfm',
+                                'capwap',
+                                'fabric',
+                                'https',
+                                'ping',
+                                'ssh',
+                                'snmp',
+                                'http',
+                                'telnet',
+                                'fgfm',
+                                'capwap',
+                                'https',
+                                'ping',
+                                'ssh',
+                                'snmp',
+                                'http',
+                                'telnet',
+                                'fgfm',
+                                'capwap',
+                                'fabric',
+                                'https',
+                                'ping',
+                                'ssh',
+                                'snmp',
+                                'http',
+                                'telnet',
+                                'fgfm',
+                                'capwap',
+                                'fabric',
+                                'https',
+                                'ping',
+                                'ssh',
+                                'snmp',
+                                'http',
+                                'telnet',
+                                'fgfm',
+                                'capwap',
+                                'fabric',
+                                'https',
+                                'ping',
+                                'ssh',
+                                'snmp',
+                                'http',
+                                'telnet',
+                                'fgfm',
+                                'capwap',
+                                'fabric',
+                                'https',
+                                'ping',
+                                'ssh',
+                                'snmp',
+                                'http',
+                                'telnet',
+                                'fgfm',
+                                'capwap',
+                                'fabric',
+                                'https',
+                                'ping',
+                                'ssh',
+                                'snmp',
+                                'http',
+                                'telnet',
+                                'fgfm',
+                                'capwap',
+                                'fabric',
+                                'https',
+                                'ping',
+                                'ssh',
+                                'snmp',
+                                'http',
+                                'telnet',
+                                'fgfm',
+                                'capwap',
+                                'https',
+                                'ping',
+                                'ssh',
+                                'snmp',
+                                'http',
+                                'telnet',
+                                'fgfm',
+                                'capwap',
+                                'fabric',
+                                'https',
+                                'ping',
+                                'ssh',
+                                'snmp',
+                                'http',
+                                'telnet',
+                                'fgfm',
+                                'capwap',
+                                'fabric',
+                                'https',
+                                'ping',
+                                'ssh',
+                                'snmp',
+                                'http',
+                                'telnet',
+                                'fgfm',
+                                'capwap',
+                                'fabric',
+                                'https',
+                                'ping',
+                                'ssh',
+                                'snmp',
+                                'http',
+                                'telnet',
+                                'fgfm',
+                                'capwap',
+                                'fabric',
+                                'https',
+                                'ping',
+                                'ssh',
+                                'snmp',
+                                'http',
+                                'telnet',
+                                'fgfm',
+                                'capwap',
+                                'fabric',
+                                'https',
+                                'ping',
+                                'ssh',
+                                'snmp',
+                                'http',
+                                'telnet',
+                                'fgfm',
+                                'capwap',
+                                'fabric',
+                                'https',
+                                'ping',
+                                'ssh',
+                                'snmp',
+                                'http',
+                                'telnet',
+                                'fgfm',
+                                'capwap',
+                                'https',
+                                'ping',
+                                'ssh',
+                                'snmp',
+                                'http',
+                                'telnet',
+                                'fgfm',
+                                'capwap',
+                                'fabric',
+                                'https',
+                                'ping',
+                                'ssh',
+                                'snmp',
+                                'http',
+                                'telnet',
+                                'fgfm',
+                                'capwap',
+                                'fabric',
+                                'https',
+                                'ping',
+                                'ssh',
+                                'snmp',
+                                'http',
+                                'telnet',
+                                'fgfm',
+                                'capwap',
+                                'fabric',
+                                'https',
+                                'ping',
+                                'ssh',
+                                'snmp',
+                                'http',
+                                'telnet',
+                                'fgfm',
+                                'capwap',
+                                'fabric',
+                                'https',
+                                'ping',
+                                'ssh',
+                                'snmp',
+                                'http',
+                                'telnet',
+                                'fgfm',
+                                'capwap',
+                                'fabric',
+                                'https',
+                                'ping',
+                                'ssh',
+                                'snmp',
+                                'http',
+                                'telnet',
+                                'fgfm',
+                                'capwap',
+                                'fabric',
+                                'https',
+                                'ping',
+                                'ssh',
+                                'snmp',
+                                'http',
+                                'telnet',
+                                'fgfm',
+                                'capwap',
+                                'https',
+                                'ping',
+                                'ssh',
+                                'snmp',
+                                'http',
+                                'telnet',
+                                'fgfm',
+                                'capwap',
+                                'fabric',
+                                'https',
+                                'ping',
+                                'ssh',
+                                'snmp',
+                                'http',
+                                'telnet',
+                                'fgfm',
+                                'capwap',
+                                'fabric',
+                                'https',
+                                'ping',
+                                'ssh',
+                                'snmp',
+                                'http',
+                                'telnet',
+                                'fgfm',
+                                'capwap',
+                                'fabric',
+                                'https',
+                                'ping',
+                                'ssh',
+                                'snmp',
+                                'http',
+                                'telnet',
+                                'fgfm',
+                                'capwap',
+                                'fabric',
+                                'https',
+                                'ping',
+                                'ssh',
+                                'snmp',
+                                'http',
+                                'telnet',
+                                'fgfm',
+                                'capwap',
+                                'fabric',
+                                'https',
+                                'ping',
+                                'ssh',
+                                'snmp',
+                                'http',
+                                'telnet',
+                                'fgfm',
+                                'capwap',
+                                'fabric'
                             ]
                         },
                         'ip6-default-life': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'int'
                         },
                         'ip6-dns-server-override': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'choices': [
                                 'disable',
                                 'enable'
@@ -2885,14 +7849,44 @@ def main():
                         },
                         'ip6-hop-limit': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'int'
                         },
                         'ip6-link-mtu': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'int'
                         },
                         'ip6-manage-flag': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'choices': [
                                 'disable',
                                 'enable'
@@ -2901,14 +7895,44 @@ def main():
                         },
                         'ip6-max-interval': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'int'
                         },
                         'ip6-min-interval': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'int'
                         },
                         'ip6-mode': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'choices': [
                                 'static',
                                 'dhcp',
@@ -2919,6 +7943,16 @@ def main():
                         },
                         'ip6-other-flag': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'choices': [
                                 'disable',
                                 'enable'
@@ -2927,14 +7961,44 @@ def main():
                         },
                         'ip6-reachable-time': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'int'
                         },
                         'ip6-retrans-time': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'int'
                         },
                         'ip6-send-adv': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'choices': [
                                 'disable',
                                 'enable'
@@ -2943,22 +8007,72 @@ def main():
                         },
                         'ip6-subnet': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'str'
                         },
                         'ip6-upstream-interface': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'str'
                         },
                         'nd-cert': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'str'
                         },
                         'nd-cga-modifier': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'str'
                         },
                         'nd-mode': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'choices': [
                                 'basic',
                                 'SEND-compatible'
@@ -2967,22 +8081,524 @@ def main():
                         },
                         'nd-security-level': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'int'
                         },
                         'nd-timestamp-delta': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'int'
                         },
                         'nd-timestamp-fuzz': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'int'
                         },
                         'vrip6_link_local': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'str'
                         },
                         'vrrp-virtual-mac6': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'disable',
+                                'enable'
+                            ],
+                            'type': 'str'
+                        },
+                        'ip6-delegated-prefix-list': {
+                            'required': False,
+                            'revision': {
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'list',
+                            'options': {
+                                'autonomous-flag': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.2.3': True,
+                                        '6.2.5': True,
+                                        '6.4.0': True,
+                                        '6.4.2': True,
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'choices': [
+                                        'disable',
+                                        'enable'
+                                    ],
+                                    'type': 'str'
+                                },
+                                'onlink-flag': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.2.3': True,
+                                        '6.2.5': True,
+                                        '6.4.0': True,
+                                        '6.4.2': True,
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'choices': [
+                                        'disable',
+                                        'enable'
+                                    ],
+                                    'type': 'str'
+                                },
+                                'prefix-id': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.2.3': True,
+                                        '6.2.5': True,
+                                        '6.4.0': True,
+                                        '6.4.2': True,
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'type': 'int'
+                                },
+                                'rdnss': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.2.3': True,
+                                        '6.2.5': True,
+                                        '6.4.0': True,
+                                        '6.4.2': True,
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'type': 'str'
+                                },
+                                'rdnss-service': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.2.3': True,
+                                        '6.2.5': True,
+                                        '6.4.0': True,
+                                        '6.4.2': True,
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'choices': [
+                                        'delegated',
+                                        'default',
+                                        'specify'
+                                    ],
+                                    'type': 'str'
+                                },
+                                'subnet': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.2.3': True,
+                                        '6.2.5': True,
+                                        '6.4.0': True,
+                                        '6.4.2': True,
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'type': 'str'
+                                },
+                                'upstream-interface': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.2.3': True,
+                                        '6.2.5': True,
+                                        '6.4.0': True,
+                                        '6.4.2': True,
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'type': 'str'
+                                }
+                            }
+                        },
+                        'ip6-extra-addr': {
+                            'required': False,
+                            'revision': {
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'list',
+                            'options': {
+                                'prefix': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.2.3': True,
+                                        '6.2.5': True,
+                                        '6.4.0': True,
+                                        '6.4.2': True,
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'type': 'str'
+                                }
+                            }
+                        },
+                        'ip6-prefix-list': {
+                            'required': False,
+                            'revision': {
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'list',
+                            'options': {
+                                'autonomous-flag': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.2.3': True,
+                                        '6.2.5': True,
+                                        '6.4.0': True,
+                                        '6.4.2': True,
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'choices': [
+                                        'disable',
+                                        'enable'
+                                    ],
+                                    'type': 'str'
+                                },
+                                'dnssl': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.2.3': True,
+                                        '6.2.5': True,
+                                        '6.4.0': True,
+                                        '6.4.2': True,
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'type': 'str'
+                                },
+                                'onlink-flag': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.2.3': True,
+                                        '6.2.5': True,
+                                        '6.4.0': True,
+                                        '6.4.2': True,
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'choices': [
+                                        'disable',
+                                        'enable'
+                                    ],
+                                    'type': 'str'
+                                },
+                                'preferred-life-time': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.2.3': True,
+                                        '6.2.5': True,
+                                        '6.4.0': True,
+                                        '6.4.2': True,
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'type': 'int'
+                                },
+                                'prefix': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.2.3': True,
+                                        '6.2.5': True,
+                                        '6.4.0': True,
+                                        '6.4.2': True,
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'type': 'str'
+                                },
+                                'rdnss': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.2.3': True,
+                                        '6.2.5': True,
+                                        '6.4.0': True,
+                                        '6.4.2': True,
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'type': 'str'
+                                },
+                                'valid-life-time': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.2.3': True,
+                                        '6.2.5': True,
+                                        '6.4.0': True,
+                                        '6.4.2': True,
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'type': 'int'
+                                }
+                            }
+                        },
+                        'vrrp6': {
+                            'required': False,
+                            'revision': {
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'list',
+                            'options': {
+                                'accept-mode': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.2.3': True,
+                                        '6.2.5': True,
+                                        '6.4.0': True,
+                                        '6.4.2': True,
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'choices': [
+                                        'disable',
+                                        'enable'
+                                    ],
+                                    'type': 'str'
+                                },
+                                'adv-interval': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.2.3': True,
+                                        '6.2.5': True,
+                                        '6.4.0': True,
+                                        '6.4.2': True,
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'type': 'int'
+                                },
+                                'preempt': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.2.3': True,
+                                        '6.2.5': True,
+                                        '6.4.0': True,
+                                        '6.4.2': True,
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'choices': [
+                                        'disable',
+                                        'enable'
+                                    ],
+                                    'type': 'str'
+                                },
+                                'priority': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.2.3': True,
+                                        '6.2.5': True,
+                                        '6.4.0': True,
+                                        '6.4.2': True,
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'type': 'int'
+                                },
+                                'start-time': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.2.3': True,
+                                        '6.2.5': True,
+                                        '6.4.0': True,
+                                        '6.4.2': True,
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'type': 'int'
+                                },
+                                'status': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.2.3': True,
+                                        '6.2.5': True,
+                                        '6.4.0': True,
+                                        '6.4.2': True,
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'choices': [
+                                        'disable',
+                                        'enable'
+                                    ],
+                                    'type': 'str'
+                                },
+                                'vrdst6': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.2.3': True,
+                                        '6.2.5': True,
+                                        '6.4.0': True,
+                                        '6.4.2': True,
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'type': 'str'
+                                },
+                                'vrgrp': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.2.3': True,
+                                        '6.2.5': True,
+                                        '6.4.0': True,
+                                        '6.4.2': True,
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'type': 'int'
+                                },
+                                'vrid': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.2.3': True,
+                                        '6.2.5': True,
+                                        '6.4.0': True,
+                                        '6.4.2': True,
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'type': 'int'
+                                },
+                                'vrip6': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.2.3': True,
+                                        '6.2.5': True,
+                                        '6.4.0': True,
+                                        '6.4.2': True,
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'type': 'str'
+                                }
+                            }
+                        },
+                        'interface-identifier': {
+                            'required': False,
+                            'revision': {
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'str'
+                        },
+                        'unique-autoconf-addr': {
+                            'required': False,
+                            'revision': {
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'disable',
+                                'enable'
+                            ],
+                            'type': 'str'
+                        },
+                        'icmp6-send-redirect': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'disable',
+                                'enable'
+                            ],
+                            'type': 'str'
+                        },
+                        'cli-conn6-status': {
+                            'required': False,
+                            'revision': {
+                                '7.0.0': True
+                            },
+                            'type': 'int'
+                        },
+                        'ip6-prefix-mode': {
+                            'required': False,
+                            'revision': {
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'dhcp6',
+                                'ra'
+                            ],
+                            'type': 'str'
+                        },
+                        'ra-send-mtu': {
+                            'required': False,
+                            'revision': {
+                                '7.0.0': True
+                            },
                             'choices': [
                                 'disable',
                                 'enable'
@@ -2993,6 +8609,16 @@ def main():
                 },
                 'l2forward': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -3001,6 +8627,16 @@ def main():
                 },
                 'l2tp-client': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -3009,6 +8645,16 @@ def main():
                 },
                 'lacp-ha-slave': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -3017,6 +8663,16 @@ def main():
                 },
                 'lacp-mode': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'static',
                         'passive',
@@ -3026,6 +8682,16 @@ def main():
                 },
                 'lacp-speed': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'slow',
                         'fast'
@@ -3034,18 +8700,58 @@ def main():
                 },
                 'lcp-echo-interval': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'lcp-max-echo-fails': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'link-up-delay': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'listen-forticlient-connection': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -3054,10 +8760,30 @@ def main():
                 },
                 'lldp-network-policy': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'lldp-reception': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable',
@@ -3067,6 +8793,16 @@ def main():
                 },
                 'lldp-transmission': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'enable',
                         'disable',
@@ -3076,6 +8812,16 @@ def main():
                 },
                 'log': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -3084,22 +8830,72 @@ def main():
                 },
                 'macaddr': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'management-ip': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'max-egress-burst-rate': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'max-egress-rate': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'mediatype': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'serdes-sfp',
                         'sgmii-sfp',
@@ -3111,20 +8907,53 @@ def main():
                         'lr',
                         'qsfp28-sr4',
                         'qsfp28-lr4',
-                        'qsfp28-cr4'
+                        'qsfp28-cr4',
+                        'sr4',
+                        'cr4',
+                        'lr4'
                     ],
                     'type': 'str'
                 },
                 'member': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'min-links': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'min-links-down': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'operational',
                         'administrative'
@@ -3133,6 +8962,16 @@ def main():
                 },
                 'mode': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'static',
                         'dhcp',
@@ -3145,10 +8984,30 @@ def main():
                 },
                 'mtu': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'mtu-override': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -3157,6 +9016,16 @@ def main():
                 },
                 'mux-type': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'llc-encaps',
                         'vc-encaps'
@@ -3165,10 +9034,30 @@ def main():
                 },
                 'name': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'ndiscforward': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -3177,6 +9066,16 @@ def main():
                 },
                 'netbios-forward': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -3185,6 +9084,16 @@ def main():
                 },
                 'netflow-sampler': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'tx',
@@ -3195,6 +9104,16 @@ def main():
                 },
                 'npu-fastpath': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -3203,6 +9122,16 @@ def main():
                 },
                 'nst': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -3211,26 +9140,86 @@ def main():
                 },
                 'out-force-vlan-cos': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'outbandwidth': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'padt-retry-timeout': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'password': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'peer-interface': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'phy-mode': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'auto',
                         'adsl',
@@ -3240,10 +9229,30 @@ def main():
                 },
                 'ping-serv-status': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'poe': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -3252,10 +9261,30 @@ def main():
                 },
                 'polling-interval': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'pppoe-unnumbered-negotiate': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -3264,6 +9293,16 @@ def main():
                 },
                 'pptp-auth-type': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'auto',
                         'pap',
@@ -3275,6 +9314,16 @@ def main():
                 },
                 'pptp-client': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -3283,22 +9332,72 @@ def main():
                 },
                 'pptp-password': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'pptp-server-ip': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'pptp-timeout': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'pptp-user': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'preserve-session-route': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -3307,10 +9406,30 @@ def main():
                 },
                 'priority': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'priority-override': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -3319,6 +9438,16 @@ def main():
                 },
                 'proxy-captive-portal': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -3327,18 +9456,58 @@ def main():
                 },
                 'redundant-interface': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'remote-ip': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'replacemsg-override-group': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'retransmission': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -3347,6 +9516,16 @@ def main():
                 },
                 'role': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'lan',
                         'wan',
@@ -3357,6 +9536,16 @@ def main():
                 },
                 'sample-direction': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'rx',
                         'tx',
@@ -3366,10 +9555,30 @@ def main():
                 },
                 'sample-rate': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'scan-botnet-connections': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'block',
@@ -3379,6 +9588,16 @@ def main():
                 },
                 'secondary-IP': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -3387,10 +9606,30 @@ def main():
                 },
                 'secondaryip': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'list',
                     'options': {
                         'allowaccess': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'list',
                             'choices': [
                                 'https',
@@ -3405,11 +9644,590 @@ def main():
                                 'probe-response',
                                 'capwap',
                                 'dnp',
-                                'ftm'
+                                'ftm',
+                                'https',
+                                'ping',
+                                'ssh',
+                                'snmp',
+                                'http',
+                                'telnet',
+                                'fgfm',
+                                'auto-ipsec',
+                                'radius-acct',
+                                'probe-response',
+                                'capwap',
+                                'dnp',
+                                'ftm',
+                                'fabric',
+                                'https',
+                                'ping',
+                                'ssh',
+                                'snmp',
+                                'http',
+                                'telnet',
+                                'fgfm',
+                                'auto-ipsec',
+                                'radius-acct',
+                                'probe-response',
+                                'capwap',
+                                'dnp',
+                                'ftm',
+                                'fabric',
+                                'https',
+                                'ping',
+                                'ssh',
+                                'snmp',
+                                'http',
+                                'telnet',
+                                'fgfm',
+                                'auto-ipsec',
+                                'radius-acct',
+                                'probe-response',
+                                'capwap',
+                                'dnp',
+                                'ftm',
+                                'fabric',
+                                'https',
+                                'ping',
+                                'ssh',
+                                'snmp',
+                                'http',
+                                'telnet',
+                                'fgfm',
+                                'auto-ipsec',
+                                'radius-acct',
+                                'probe-response',
+                                'capwap',
+                                'dnp',
+                                'ftm',
+                                'fabric',
+                                'https',
+                                'ping',
+                                'ssh',
+                                'snmp',
+                                'http',
+                                'telnet',
+                                'fgfm',
+                                'auto-ipsec',
+                                'radius-acct',
+                                'probe-response',
+                                'capwap',
+                                'dnp',
+                                'ftm',
+                                'fabric',
+                                'https',
+                                'ping',
+                                'ssh',
+                                'snmp',
+                                'http',
+                                'telnet',
+                                'fgfm',
+                                'auto-ipsec',
+                                'radius-acct',
+                                'probe-response',
+                                'capwap',
+                                'dnp',
+                                'ftm',
+                                'fabric',
+                                'https',
+                                'ping',
+                                'ssh',
+                                'snmp',
+                                'http',
+                                'telnet',
+                                'fgfm',
+                                'auto-ipsec',
+                                'radius-acct',
+                                'probe-response',
+                                'capwap',
+                                'dnp',
+                                'ftm',
+                                'https',
+                                'ping',
+                                'ssh',
+                                'snmp',
+                                'http',
+                                'telnet',
+                                'fgfm',
+                                'auto-ipsec',
+                                'radius-acct',
+                                'probe-response',
+                                'capwap',
+                                'dnp',
+                                'ftm',
+                                'fabric',
+                                'https',
+                                'ping',
+                                'ssh',
+                                'snmp',
+                                'http',
+                                'telnet',
+                                'fgfm',
+                                'auto-ipsec',
+                                'radius-acct',
+                                'probe-response',
+                                'capwap',
+                                'dnp',
+                                'ftm',
+                                'fabric',
+                                'https',
+                                'ping',
+                                'ssh',
+                                'snmp',
+                                'http',
+                                'telnet',
+                                'fgfm',
+                                'auto-ipsec',
+                                'radius-acct',
+                                'probe-response',
+                                'capwap',
+                                'dnp',
+                                'ftm',
+                                'fabric',
+                                'https',
+                                'ping',
+                                'ssh',
+                                'snmp',
+                                'http',
+                                'telnet',
+                                'fgfm',
+                                'auto-ipsec',
+                                'radius-acct',
+                                'probe-response',
+                                'capwap',
+                                'dnp',
+                                'ftm',
+                                'fabric',
+                                'https',
+                                'ping',
+                                'ssh',
+                                'snmp',
+                                'http',
+                                'telnet',
+                                'fgfm',
+                                'auto-ipsec',
+                                'radius-acct',
+                                'probe-response',
+                                'capwap',
+                                'dnp',
+                                'ftm',
+                                'fabric',
+                                'https',
+                                'ping',
+                                'ssh',
+                                'snmp',
+                                'http',
+                                'telnet',
+                                'fgfm',
+                                'auto-ipsec',
+                                'radius-acct',
+                                'probe-response',
+                                'capwap',
+                                'dnp',
+                                'ftm',
+                                'fabric',
+                                'https',
+                                'ping',
+                                'ssh',
+                                'snmp',
+                                'http',
+                                'telnet',
+                                'fgfm',
+                                'auto-ipsec',
+                                'radius-acct',
+                                'probe-response',
+                                'capwap',
+                                'dnp',
+                                'ftm',
+                                'https',
+                                'ping',
+                                'ssh',
+                                'snmp',
+                                'http',
+                                'telnet',
+                                'fgfm',
+                                'auto-ipsec',
+                                'radius-acct',
+                                'probe-response',
+                                'capwap',
+                                'dnp',
+                                'ftm',
+                                'fabric',
+                                'https',
+                                'ping',
+                                'ssh',
+                                'snmp',
+                                'http',
+                                'telnet',
+                                'fgfm',
+                                'auto-ipsec',
+                                'radius-acct',
+                                'probe-response',
+                                'capwap',
+                                'dnp',
+                                'ftm',
+                                'fabric',
+                                'https',
+                                'ping',
+                                'ssh',
+                                'snmp',
+                                'http',
+                                'telnet',
+                                'fgfm',
+                                'auto-ipsec',
+                                'radius-acct',
+                                'probe-response',
+                                'capwap',
+                                'dnp',
+                                'ftm',
+                                'fabric',
+                                'https',
+                                'ping',
+                                'ssh',
+                                'snmp',
+                                'http',
+                                'telnet',
+                                'fgfm',
+                                'auto-ipsec',
+                                'radius-acct',
+                                'probe-response',
+                                'capwap',
+                                'dnp',
+                                'ftm',
+                                'fabric',
+                                'https',
+                                'ping',
+                                'ssh',
+                                'snmp',
+                                'http',
+                                'telnet',
+                                'fgfm',
+                                'auto-ipsec',
+                                'radius-acct',
+                                'probe-response',
+                                'capwap',
+                                'dnp',
+                                'ftm',
+                                'fabric',
+                                'https',
+                                'ping',
+                                'ssh',
+                                'snmp',
+                                'http',
+                                'telnet',
+                                'fgfm',
+                                'auto-ipsec',
+                                'radius-acct',
+                                'probe-response',
+                                'capwap',
+                                'dnp',
+                                'ftm',
+                                'fabric',
+                                'https',
+                                'ping',
+                                'ssh',
+                                'snmp',
+                                'http',
+                                'telnet',
+                                'fgfm',
+                                'auto-ipsec',
+                                'radius-acct',
+                                'probe-response',
+                                'capwap',
+                                'dnp',
+                                'ftm',
+                                'https',
+                                'ping',
+                                'ssh',
+                                'snmp',
+                                'http',
+                                'telnet',
+                                'fgfm',
+                                'auto-ipsec',
+                                'radius-acct',
+                                'probe-response',
+                                'capwap',
+                                'dnp',
+                                'ftm',
+                                'fabric',
+                                'https',
+                                'ping',
+                                'ssh',
+                                'snmp',
+                                'http',
+                                'telnet',
+                                'fgfm',
+                                'auto-ipsec',
+                                'radius-acct',
+                                'probe-response',
+                                'capwap',
+                                'dnp',
+                                'ftm',
+                                'fabric',
+                                'https',
+                                'ping',
+                                'ssh',
+                                'snmp',
+                                'http',
+                                'telnet',
+                                'fgfm',
+                                'auto-ipsec',
+                                'radius-acct',
+                                'probe-response',
+                                'capwap',
+                                'dnp',
+                                'ftm',
+                                'fabric',
+                                'https',
+                                'ping',
+                                'ssh',
+                                'snmp',
+                                'http',
+                                'telnet',
+                                'fgfm',
+                                'auto-ipsec',
+                                'radius-acct',
+                                'probe-response',
+                                'capwap',
+                                'dnp',
+                                'ftm',
+                                'fabric',
+                                'https',
+                                'ping',
+                                'ssh',
+                                'snmp',
+                                'http',
+                                'telnet',
+                                'fgfm',
+                                'auto-ipsec',
+                                'radius-acct',
+                                'probe-response',
+                                'capwap',
+                                'dnp',
+                                'ftm',
+                                'fabric',
+                                'https',
+                                'ping',
+                                'ssh',
+                                'snmp',
+                                'http',
+                                'telnet',
+                                'fgfm',
+                                'auto-ipsec',
+                                'radius-acct',
+                                'probe-response',
+                                'capwap',
+                                'dnp',
+                                'ftm',
+                                'fabric',
+                                'https',
+                                'ping',
+                                'ssh',
+                                'snmp',
+                                'http',
+                                'telnet',
+                                'fgfm',
+                                'auto-ipsec',
+                                'radius-acct',
+                                'probe-response',
+                                'capwap',
+                                'dnp',
+                                'ftm',
+                                'https',
+                                'ping',
+                                'ssh',
+                                'snmp',
+                                'http',
+                                'telnet',
+                                'fgfm',
+                                'auto-ipsec',
+                                'radius-acct',
+                                'probe-response',
+                                'capwap',
+                                'dnp',
+                                'ftm',
+                                'fabric',
+                                'https',
+                                'ping',
+                                'ssh',
+                                'snmp',
+                                'http',
+                                'telnet',
+                                'fgfm',
+                                'auto-ipsec',
+                                'radius-acct',
+                                'probe-response',
+                                'capwap',
+                                'dnp',
+                                'ftm',
+                                'fabric',
+                                'https',
+                                'ping',
+                                'ssh',
+                                'snmp',
+                                'http',
+                                'telnet',
+                                'fgfm',
+                                'auto-ipsec',
+                                'radius-acct',
+                                'probe-response',
+                                'capwap',
+                                'dnp',
+                                'ftm',
+                                'fabric',
+                                'https',
+                                'ping',
+                                'ssh',
+                                'snmp',
+                                'http',
+                                'telnet',
+                                'fgfm',
+                                'auto-ipsec',
+                                'radius-acct',
+                                'probe-response',
+                                'capwap',
+                                'dnp',
+                                'ftm',
+                                'fabric',
+                                'https',
+                                'ping',
+                                'ssh',
+                                'snmp',
+                                'http',
+                                'telnet',
+                                'fgfm',
+                                'auto-ipsec',
+                                'radius-acct',
+                                'probe-response',
+                                'capwap',
+                                'dnp',
+                                'ftm',
+                                'fabric',
+                                'https',
+                                'ping',
+                                'ssh',
+                                'snmp',
+                                'http',
+                                'telnet',
+                                'fgfm',
+                                'auto-ipsec',
+                                'radius-acct',
+                                'probe-response',
+                                'capwap',
+                                'dnp',
+                                'ftm',
+                                'fabric',
+                                'https',
+                                'ping',
+                                'ssh',
+                                'snmp',
+                                'http',
+                                'telnet',
+                                'fgfm',
+                                'auto-ipsec',
+                                'radius-acct',
+                                'probe-response',
+                                'capwap',
+                                'dnp',
+                                'ftm',
+                                'https',
+                                'ping',
+                                'ssh',
+                                'snmp',
+                                'http',
+                                'telnet',
+                                'fgfm',
+                                'auto-ipsec',
+                                'radius-acct',
+                                'probe-response',
+                                'capwap',
+                                'dnp',
+                                'ftm',
+                                'fabric',
+                                'https',
+                                'ping',
+                                'ssh',
+                                'snmp',
+                                'http',
+                                'telnet',
+                                'fgfm',
+                                'auto-ipsec',
+                                'radius-acct',
+                                'probe-response',
+                                'capwap',
+                                'dnp',
+                                'ftm',
+                                'fabric',
+                                'https',
+                                'ping',
+                                'ssh',
+                                'snmp',
+                                'http',
+                                'telnet',
+                                'fgfm',
+                                'auto-ipsec',
+                                'radius-acct',
+                                'probe-response',
+                                'capwap',
+                                'dnp',
+                                'ftm',
+                                'fabric',
+                                'https',
+                                'ping',
+                                'ssh',
+                                'snmp',
+                                'http',
+                                'telnet',
+                                'fgfm',
+                                'auto-ipsec',
+                                'radius-acct',
+                                'probe-response',
+                                'capwap',
+                                'dnp',
+                                'ftm',
+                                'fabric',
+                                'https',
+                                'ping',
+                                'ssh',
+                                'snmp',
+                                'http',
+                                'telnet',
+                                'fgfm',
+                                'auto-ipsec',
+                                'radius-acct',
+                                'probe-response',
+                                'capwap',
+                                'dnp',
+                                'ftm',
+                                'fabric',
+                                'https',
+                                'ping',
+                                'ssh',
+                                'snmp',
+                                'http',
+                                'telnet',
+                                'fgfm',
+                                'auto-ipsec',
+                                'radius-acct',
+                                'probe-response',
+                                'capwap',
+                                'dnp',
+                                'ftm',
+                                'fabric'
                             ]
                         },
                         'detectprotocol': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'list',
                             'choices': [
                                 'ping',
@@ -3419,10 +10237,30 @@ def main():
                         },
                         'detectserver': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'str'
                         },
                         'gwdetect': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'choices': [
                                 'disable',
                                 'enable'
@@ -3431,36 +10269,116 @@ def main():
                         },
                         'ha-priority': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'int'
                         },
                         'id': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'int'
                         },
                         'ip': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'str'
                         },
                         'ping-serv-status': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'int'
                         },
                         'seq': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'int'
                         }
                     }
                 },
                 'security-8021x-dynamic-vlan-id': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'security-8021x-master': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'security-8021x-mode': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'default',
                         'dynamic-vlan',
@@ -3471,22 +10389,72 @@ def main():
                 },
                 'security-exempt-list': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'security-external-logout': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'security-external-web': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'security-groups': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'security-mac-auth-bypass': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable',
@@ -3496,6 +10464,16 @@ def main():
                 },
                 'security-mode': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'none',
                         'captive-portal',
@@ -3505,14 +10483,44 @@ def main():
                 },
                 'security-redirect-url': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'service-name': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'sflow-sampler': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -3521,6 +10529,16 @@ def main():
                 },
                 'speed': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'auto',
                         '10full',
@@ -3543,10 +10561,30 @@ def main():
                 },
                 'spillover-threshold': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'src-check': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -3555,6 +10593,16 @@ def main():
                 },
                 'status': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'down',
                         'up'
@@ -3563,6 +10611,16 @@ def main():
                 },
                 'stp': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -3571,6 +10629,16 @@ def main():
                 },
                 'stp-ha-slave': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable',
@@ -3580,6 +10648,16 @@ def main():
                 },
                 'stpforward': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -3588,6 +10666,16 @@ def main():
                 },
                 'stpforward-mode': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'rpl-all-ext-id',
                         'rpl-bridge-ext-id',
@@ -3597,6 +10685,16 @@ def main():
                 },
                 'strip-priority-vlan-tag': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -3605,6 +10703,16 @@ def main():
                 },
                 'subst': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -3613,14 +10721,44 @@ def main():
                 },
                 'substitute-dst-mac': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'switch': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'switch-controller-access-vlan': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -3629,6 +10767,16 @@ def main():
                 },
                 'switch-controller-arp-inspection': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -3637,6 +10785,16 @@ def main():
                 },
                 'switch-controller-auth': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'radius',
                         'usergroup'
@@ -3645,6 +10803,16 @@ def main():
                 },
                 'switch-controller-dhcp-snooping': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -3653,6 +10821,16 @@ def main():
                 },
                 'switch-controller-dhcp-snooping-option82': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -3661,6 +10839,16 @@ def main():
                 },
                 'switch-controller-dhcp-snooping-verify-mac': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -3669,6 +10857,16 @@ def main():
                 },
                 'switch-controller-igmp-snooping': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -3677,18 +10875,58 @@ def main():
                 },
                 'switch-controller-learning-limit': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'switch-controller-radius-server': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'switch-controller-traffic-policy': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'tc-mode': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'ptm',
                         'atm'
@@ -3697,10 +10935,30 @@ def main():
                 },
                 'tcp-mss': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'trunk': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -3709,30 +10967,100 @@ def main():
                 },
                 'trust-ip-1': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'trust-ip-2': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'trust-ip-3': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'trust-ip6-1': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'trust-ip6-2': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'trust-ip6-3': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'type': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'physical',
                         'vlan',
@@ -3753,20 +11081,52 @@ def main():
                         'tdm',
                         'fext-wan',
                         'vxlan',
-                        'emac-vlan'
+                        'emac-vlan',
+                        'geneve',
+                        'ssl'
                     ],
                     'type': 'str'
                 },
                 'username': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'vci': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'vectoring': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -3775,10 +11135,30 @@ def main():
                 },
                 'vindex': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'vlanforward': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -3787,22 +11167,72 @@ def main():
                 },
                 'vlanid': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'vpi': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'vrf': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'vrrp': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'list',
                     'options': {
                         'accept-mode': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'choices': [
                                 'disable',
                                 'enable'
@@ -3811,10 +11241,30 @@ def main():
                         },
                         'adv-interval': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'int'
                         },
                         'ignore-default-route': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'choices': [
                                 'disable',
                                 'enable'
@@ -3823,6 +11273,16 @@ def main():
                         },
                         'preempt': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'choices': [
                                 'disable',
                                 'enable'
@@ -3831,14 +11291,44 @@ def main():
                         },
                         'priority': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'int'
                         },
                         'start-time': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'int'
                         },
                         'status': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'choices': [
                                 'disable',
                                 'enable'
@@ -3847,6 +11337,16 @@ def main():
                         },
                         'version': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'choices': [
                                 '2',
                                 '3'
@@ -3855,28 +11355,88 @@ def main():
                         },
                         'vrdst': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'str'
                         },
                         'vrdst-priority': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'int'
                         },
                         'vrgrp': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'int'
                         },
                         'vrid': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'int'
                         },
                         'vrip': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'str'
                         }
                     }
                 },
                 'vrrp-virtual-mac': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -3885,6 +11445,16 @@ def main():
                 },
                 'wccp': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -3893,14 +11463,44 @@ def main():
                 },
                 'weight': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'wifi-5g-threshold': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'wifi-acl': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'deny',
                         'allow'
@@ -3909,6 +11509,16 @@ def main():
                 },
                 'wifi-ap-band': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'any',
                         '5g-preferred',
@@ -3918,6 +11528,16 @@ def main():
                 },
                 'wifi-auth': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'PSK',
                         'RADIUS',
@@ -3928,6 +11548,16 @@ def main():
                 },
                 'wifi-auto-connect': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -3936,6 +11566,16 @@ def main():
                 },
                 'wifi-auto-save': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -3944,6 +11584,16 @@ def main():
                 },
                 'wifi-broadcast-ssid': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -3952,6 +11602,16 @@ def main():
                 },
                 'wifi-encrypt': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'TKIP',
                         'AES'
@@ -3960,18 +11620,58 @@ def main():
                 },
                 'wifi-fragment-threshold': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'wifi-key': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'wifi-keyindex': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'wifi-mac-filter': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -3980,18 +11680,58 @@ def main():
                 },
                 'wifi-passphrase': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'wifi-radius-server': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'wifi-rts-threshold': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'wifi-security': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'None',
                         'WEP64',
@@ -4015,14 +11755,398 @@ def main():
                 },
                 'wifi-ssid': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'wifi-usergroup': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'wins-ip': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'type': 'str'
+                },
+                'eip': {
+                    'required': False,
+                    'revision': {
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'type': 'str'
+                },
+                'fortilink-neighbor-detect': {
+                    'required': False,
+                    'revision': {
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'choices': [
+                        'lldp',
+                        'fortilink'
+                    ],
+                    'type': 'str'
+                },
+                'ingress-shaping-profile': {
+                    'required': False,
+                    'revision': {
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'type': 'str'
+                },
+                'ring-rx': {
+                    'required': False,
+                    'revision': {
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'type': 'int'
+                },
+                'ring-tx': {
+                    'required': False,
+                    'revision': {
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'type': 'int'
+                },
+                'switch-controller-igmp-snooping-fast-leave': {
+                    'required': False,
+                    'revision': {
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'choices': [
+                        'disable',
+                        'enable'
+                    ],
+                    'type': 'str'
+                },
+                'switch-controller-igmp-snooping-proxy': {
+                    'required': False,
+                    'revision': {
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'choices': [
+                        'disable',
+                        'enable'
+                    ],
+                    'type': 'str'
+                },
+                'switch-controller-rspan-mode': {
+                    'required': False,
+                    'revision': {
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'choices': [
+                        'disable',
+                        'enable'
+                    ],
+                    'type': 'str'
+                },
+                'bandwidth-measure-time': {
+                    'required': False,
+                    'revision': {
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'type': 'int'
+                },
+                'ip-managed-by-fortiipam': {
+                    'required': False,
+                    'revision': {
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'choices': [
+                        'disable',
+                        'enable'
+                    ],
+                    'type': 'str'
+                },
+                'managed-subnetwork-size': {
+                    'required': False,
+                    'revision': {
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'choices': [
+                        '256',
+                        '512',
+                        '1024',
+                        '2048',
+                        '4096',
+                        '8192',
+                        '16384',
+                        '32768',
+                        '65536'
+                    ],
+                    'type': 'str'
+                },
+                'measured-downstream-bandwidth': {
+                    'required': False,
+                    'revision': {
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'type': 'int'
+                },
+                'measured-upstream-bandwidth': {
+                    'required': False,
+                    'revision': {
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'type': 'int'
+                },
+                'monitor-bandwidth': {
+                    'required': False,
+                    'revision': {
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'choices': [
+                        'disable',
+                        'enable'
+                    ],
+                    'type': 'str'
+                },
+                'swc-vlan': {
+                    'required': False,
+                    'revision': {
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'type': 'int'
+                },
+                'switch-controller-feature': {
+                    'required': False,
+                    'revision': {
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'choices': [
+                        'none',
+                        'default-vlan',
+                        'quarantine',
+                        'sniffer',
+                        'voice',
+                        'camera',
+                        'rspan',
+                        'video',
+                        'nac'
+                    ],
+                    'type': 'str'
+                },
+                'switch-controller-mgmt-vlan': {
+                    'required': False,
+                    'revision': {
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'type': 'int'
+                },
+                'switch-controller-nac': {
+                    'required': False,
+                    'revision': {
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'type': 'str'
+                },
+                'vlan-protocol': {
+                    'required': False,
+                    'revision': {
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'choices': [
+                        '8021q',
+                        '8021ad'
+                    ],
+                    'type': 'str'
+                },
+                'dhcp-relay-interface': {
+                    'required': False,
+                    'revision': {
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'type': 'str'
+                },
+                'dhcp-relay-interface-select-method': {
+                    'required': False,
+                    'revision': {
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'choices': [
+                        'auto',
+                        'sdwan',
+                        'specify'
+                    ],
+                    'type': 'str'
+                },
+                'np-qos-profile': {
+                    'required': False,
+                    'revision': {
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'type': 'int'
+                },
+                'swc-first-create': {
+                    'required': False,
+                    'revision': {
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'type': 'int'
+                },
+                'switch-controller-iot-scanning': {
+                    'required': False,
+                    'revision': {
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'choices': [
+                        'disable',
+                        'enable'
+                    ],
+                    'type': 'str'
+                },
+                'switch-controller-source-ip': {
+                    'required': False,
+                    'revision': {
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'choices': [
+                        'outbound',
+                        'fixed'
+                    ],
+                    'type': 'str'
+                },
+                'dhcp-relay-request-all-server': {
+                    'required': False,
+                    'revision': {
+                        '7.0.0': True
+                    },
+                    'choices': [
+                        'disable',
+                        'enable'
+                    ],
+                    'type': 'str'
+                },
+                'stp-ha-secondary': {
+                    'required': False,
+                    'revision': {
+                        '7.0.0': True
+                    },
+                    'choices': [
+                        'disable',
+                        'enable',
+                        'priority-adjust'
+                    ],
+                    'type': 'str'
+                },
+                'switch-controller-dynamic': {
+                    'required': False,
+                    'revision': {
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 }
             }

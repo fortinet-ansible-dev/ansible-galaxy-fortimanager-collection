@@ -86,18 +86,25 @@ options:
         description: the rc codes list with which the conditions to fail will be overriden
         type: list
         required: false
-    device:
-        description: the parameter (device) in requested url
-        type: str
-        required: true
-    vdom:
-        description: the parameter (vdom) in requested url
+    adom:
+        description: the parameter (adom) in requested url
         type: str
         required: true
     managed-switch:
         description: the parameter (managed-switch) in requested url
         type: str
         required: true
+    switchcontroller_managedswitch_customcommand:
+        description: the top level parameters set
+        required: false
+        type: dict
+        suboptions:
+            command-entry:
+                type: str
+                description: 'List of FortiSwitch commands.'
+            command-name:
+                type: str
+                description: 'Names of commands to be pushed to this FortiSwitch device, as configured under config switch-controller custom-command.'
 
 '''
 
@@ -118,10 +125,12 @@ EXAMPLES = '''
          workspace_locking_timeout: 300
          rc_succeeded: [0, -2, -3, ...]
          rc_failed: [-2, -3, ...]
-         device: <your own value>
-         vdom: <your own value>
+         adom: <your own value>
          managed-switch: <your own value>
          state: <value in [present, absent]>
+         switchcontroller_managedswitch_customcommand:
+            command-entry: <value of string>
+            command-name: <value of string>
 
 '''
 
@@ -152,14 +161,16 @@ from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import 
 
 def main():
     jrpc_urls = [
-        '/pm/config/device/{device}/vdom/{vdom}/switch-controller/managed-switch/{managed-switch}/custom-command'
+        '/pm/config/global/obj/switch-controller/managed-switch/{managed-switch}/custom-command',
+        '/pm/config/adom/{adom}/obj/switch-controller/managed-switch/{managed-switch}/custom-command'
     ]
 
     perobject_jrpc_urls = [
-        '/pm/config/device/{device}/vdom/{vdom}/switch-controller/managed-switch/{managed-switch}/custom-command/{custom-command}'
+        '/pm/config/global/obj/switch-controller/managed-switch/{managed-switch}/custom-command/{custom-command}',
+        '/pm/config/adom/{adom}/obj/switch-controller/managed-switch/{managed-switch}/custom-command/{custom-command}'
     ]
 
-    url_params = ['device', 'vdom', 'managed-switch']
+    url_params = ['adom', 'managed-switch']
     module_primary_key = None
     module_arg_spec = {
         'enable_log': {
@@ -206,11 +217,7 @@ def main():
                 'absent'
             ]
         },
-        'device': {
-            'required': True,
-            'type': 'str'
-        },
-        'vdom': {
+        'adom': {
             'required': True,
             'type': 'str'
         },
@@ -222,6 +229,20 @@ def main():
             'required': False,
             'type': 'dict',
             'options': {
+                'command-entry': {
+                    'required': False,
+                    'revision': {
+                        '7.0.0': True
+                    },
+                    'type': 'str'
+                },
+                'command-name': {
+                    'required': False,
+                    'revision': {
+                        '7.0.0': True
+                    },
+                    'type': 'str'
+                }
             }
 
         }

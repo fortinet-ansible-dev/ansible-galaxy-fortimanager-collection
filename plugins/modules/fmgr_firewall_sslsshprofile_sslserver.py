@@ -147,6 +147,48 @@ options:
                     - 'bypass'
                     - 'inspect'
                     - 'block'
+            ftps-client-certificate:
+                type: str
+                description: 'Action based on received client certificate during the FTPS handshake.'
+                choices:
+                    - 'bypass'
+                    - 'inspect'
+                    - 'block'
+            https-client-certificate:
+                type: str
+                description: 'Action based on received client certificate during the HTTPS handshake.'
+                choices:
+                    - 'bypass'
+                    - 'inspect'
+                    - 'block'
+            imaps-client-certificate:
+                type: str
+                description: 'Action based on received client certificate during the IMAPS handshake.'
+                choices:
+                    - 'bypass'
+                    - 'inspect'
+                    - 'block'
+            pop3s-client-certificate:
+                type: str
+                description: 'Action based on received client certificate during the POP3S handshake.'
+                choices:
+                    - 'bypass'
+                    - 'inspect'
+                    - 'block'
+            smtps-client-certificate:
+                type: str
+                description: 'Action based on received client certificate during the SMTPS handshake.'
+                choices:
+                    - 'bypass'
+                    - 'inspect'
+                    - 'block'
+            ssl-other-client-certificate:
+                type: str
+                description: 'Action based on received client certificate during an SSL protocol handshake.'
+                choices:
+                    - 'bypass'
+                    - 'inspect'
+                    - 'block'
 
 '''
 
@@ -179,6 +221,12 @@ EXAMPLES = '''
             pop3s-client-cert-request: <value in [bypass, inspect, block]>
             smtps-client-cert-request: <value in [bypass, inspect, block]>
             ssl-other-client-cert-request: <value in [bypass, inspect, block]>
+            ftps-client-certificate: <value in [bypass, inspect, block]>
+            https-client-certificate: <value in [bypass, inspect, block]>
+            imaps-client-certificate: <value in [bypass, inspect, block]>
+            pop3s-client-certificate: <value in [bypass, inspect, block]>
+            smtps-client-certificate: <value in [bypass, inspect, block]>
+            ssl-other-client-certificate: <value in [bypass, inspect, block]>
 
 '''
 
@@ -279,6 +327,16 @@ def main():
             'options': {
                 'ftps-client-cert-request': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': False,
+                        '6.4.2': False,
+                        '6.4.5': False,
+                        '7.0.0': False
+                    },
                     'choices': [
                         'bypass',
                         'inspect',
@@ -288,6 +346,16 @@ def main():
                 },
                 'https-client-cert-request': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': False,
+                        '6.4.2': False,
+                        '6.4.5': False,
+                        '7.0.0': False
+                    },
                     'choices': [
                         'bypass',
                         'inspect',
@@ -297,10 +365,30 @@ def main():
                 },
                 'id': {
                     'required': True,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'imaps-client-cert-request': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': False,
+                        '6.4.2': False,
+                        '6.4.5': False,
+                        '7.0.0': False
+                    },
                     'choices': [
                         'bypass',
                         'inspect',
@@ -310,10 +398,30 @@ def main():
                 },
                 'ip': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'pop3s-client-cert-request': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': False,
+                        '6.4.2': False,
+                        '6.4.5': False,
+                        '7.0.0': False
+                    },
                     'choices': [
                         'bypass',
                         'inspect',
@@ -323,6 +431,16 @@ def main():
                 },
                 'smtps-client-cert-request': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': False,
+                        '6.4.2': False,
+                        '6.4.5': False,
+                        '7.0.0': False
+                    },
                     'choices': [
                         'bypass',
                         'inspect',
@@ -332,6 +450,106 @@ def main():
                 },
                 'ssl-other-client-cert-request': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': False,
+                        '6.4.2': False,
+                        '6.4.5': False,
+                        '7.0.0': False
+                    },
+                    'choices': [
+                        'bypass',
+                        'inspect',
+                        'block'
+                    ],
+                    'type': 'str'
+                },
+                'ftps-client-certificate': {
+                    'required': False,
+                    'revision': {
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'choices': [
+                        'bypass',
+                        'inspect',
+                        'block'
+                    ],
+                    'type': 'str'
+                },
+                'https-client-certificate': {
+                    'required': False,
+                    'revision': {
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'choices': [
+                        'bypass',
+                        'inspect',
+                        'block'
+                    ],
+                    'type': 'str'
+                },
+                'imaps-client-certificate': {
+                    'required': False,
+                    'revision': {
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'choices': [
+                        'bypass',
+                        'inspect',
+                        'block'
+                    ],
+                    'type': 'str'
+                },
+                'pop3s-client-certificate': {
+                    'required': False,
+                    'revision': {
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'choices': [
+                        'bypass',
+                        'inspect',
+                        'block'
+                    ],
+                    'type': 'str'
+                },
+                'smtps-client-certificate': {
+                    'required': False,
+                    'revision': {
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'choices': [
+                        'bypass',
+                        'inspect',
+                        'block'
+                    ],
+                    'type': 'str'
+                },
+                'ssl-other-client-certificate': {
+                    'required': False,
+                    'revision': {
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'bypass',
                         'inspect',

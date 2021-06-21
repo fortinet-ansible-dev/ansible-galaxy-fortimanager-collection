@@ -109,6 +109,392 @@ options:
             vlanid:
                 type: int
                 description: no description
+            dhcp-relay-agent-option:
+                type: str
+                description: no description
+                choices:
+                    - 'disable'
+                    - 'enable'
+            dhcp-relay-ip:
+                description: no description
+                type: str
+            dhcp-relay-service:
+                type: str
+                description: no description
+                choices:
+                    - 'disable'
+                    - 'enable'
+            dhcp-relay-type:
+                type: str
+                description: no description
+                choices:
+                    - 'regular'
+                    - 'ipsec'
+            ipv6:
+                description: no description
+                type: dict
+                required: false
+                suboptions:
+                    autoconf:
+                        type: str
+                        description: no description
+                        choices:
+                            - 'disable'
+                            - 'enable'
+                    dhcp6-client-options:
+                        description: no description
+                        type: list
+                        choices:
+                         - rapid
+                         - iapd
+                         - iana
+                         - dns
+                         - dnsname
+                    dhcp6-information-request:
+                        type: str
+                        description: no description
+                        choices:
+                            - 'disable'
+                            - 'enable'
+                    dhcp6-prefix-delegation:
+                        type: str
+                        description: no description
+                        choices:
+                            - 'disable'
+                            - 'enable'
+                    dhcp6-prefix-hint:
+                        type: str
+                        description: no description
+                    dhcp6-prefix-hint-plt:
+                        type: int
+                        description: no description
+                    dhcp6-prefix-hint-vlt:
+                        type: int
+                        description: no description
+                    dhcp6-relay-ip:
+                        type: str
+                        description: no description
+                    dhcp6-relay-service:
+                        type: str
+                        description: no description
+                        choices:
+                            - 'disable'
+                            - 'enable'
+                    dhcp6-relay-type:
+                        type: str
+                        description: no description
+                        choices:
+                            - 'regular'
+                    ip6-address:
+                        type: str
+                        description: no description
+                    ip6-allowaccess:
+                        description: no description
+                        type: list
+                        choices:
+                         - https
+                         - ping
+                         - ssh
+                         - snmp
+                         - http
+                         - telnet
+                         - fgfm
+                         - capwap
+                         - fabric
+                    ip6-default-life:
+                        type: int
+                        description: no description
+                    ip6-delegated-prefix-list:
+                        description: no description
+                        type: list
+                        suboptions:
+                            autonomous-flag:
+                                type: str
+                                description: no description
+                                choices:
+                                    - 'disable'
+                                    - 'enable'
+                            onlink-flag:
+                                type: str
+                                description: no description
+                                choices:
+                                    - 'disable'
+                                    - 'enable'
+                            prefix-id:
+                                type: int
+                                description: no description
+                            rdnss:
+                                description: no description
+                                type: str
+                            rdnss-service:
+                                type: str
+                                description: no description
+                                choices:
+                                    - 'delegated'
+                                    - 'default'
+                                    - 'specify'
+                            subnet:
+                                type: str
+                                description: no description
+                            upstream-interface:
+                                type: str
+                                description: no description
+                    ip6-dns-server-override:
+                        type: str
+                        description: no description
+                        choices:
+                            - 'disable'
+                            - 'enable'
+                    ip6-extra-addr:
+                        description: no description
+                        type: list
+                        suboptions:
+                            prefix:
+                                type: str
+                                description: no description
+                    ip6-hop-limit:
+                        type: int
+                        description: no description
+                    ip6-link-mtu:
+                        type: int
+                        description: no description
+                    ip6-manage-flag:
+                        type: str
+                        description: no description
+                        choices:
+                            - 'disable'
+                            - 'enable'
+                    ip6-max-interval:
+                        type: int
+                        description: no description
+                    ip6-min-interval:
+                        type: int
+                        description: no description
+                    ip6-mode:
+                        type: str
+                        description: no description
+                        choices:
+                            - 'static'
+                            - 'dhcp'
+                            - 'pppoe'
+                            - 'delegated'
+                    ip6-other-flag:
+                        type: str
+                        description: no description
+                        choices:
+                            - 'disable'
+                            - 'enable'
+                    ip6-prefix-list:
+                        description: no description
+                        type: list
+                        suboptions:
+                            autonomous-flag:
+                                type: str
+                                description: no description
+                                choices:
+                                    - 'disable'
+                                    - 'enable'
+                            dnssl:
+                                description: no description
+                                type: str
+                            onlink-flag:
+                                type: str
+                                description: no description
+                                choices:
+                                    - 'disable'
+                                    - 'enable'
+                            preferred-life-time:
+                                type: int
+                                description: no description
+                            prefix:
+                                type: str
+                                description: no description
+                            rdnss:
+                                description: no description
+                                type: str
+                            valid-life-time:
+                                type: int
+                                description: no description
+                    ip6-reachable-time:
+                        type: int
+                        description: no description
+                    ip6-retrans-time:
+                        type: int
+                        description: no description
+                    ip6-send-adv:
+                        type: str
+                        description: no description
+                        choices:
+                            - 'disable'
+                            - 'enable'
+                    ip6-subnet:
+                        type: str
+                        description: no description
+                    ip6-upstream-interface:
+                        type: str
+                        description: no description
+                    nd-cert:
+                        type: str
+                        description: no description
+                    nd-cga-modifier:
+                        type: str
+                        description: no description
+                    nd-mode:
+                        type: str
+                        description: no description
+                        choices:
+                            - 'basic'
+                            - 'SEND-compatible'
+                    nd-security-level:
+                        type: int
+                        description: no description
+                    nd-timestamp-delta:
+                        type: int
+                        description: no description
+                    nd-timestamp-fuzz:
+                        type: int
+                        description: no description
+                    vrip6_link_local:
+                        type: str
+                        description: no description
+                    vrrp-virtual-mac6:
+                        type: str
+                        description: no description
+                        choices:
+                            - 'disable'
+                            - 'enable'
+                    vrrp6:
+                        description: no description
+                        type: list
+                        suboptions:
+                            accept-mode:
+                                type: str
+                                description: no description
+                                choices:
+                                    - 'disable'
+                                    - 'enable'
+                            adv-interval:
+                                type: int
+                                description: no description
+                            preempt:
+                                type: str
+                                description: no description
+                                choices:
+                                    - 'disable'
+                                    - 'enable'
+                            priority:
+                                type: int
+                                description: no description
+                            start-time:
+                                type: int
+                                description: no description
+                            status:
+                                type: str
+                                description: no description
+                                choices:
+                                    - 'disable'
+                                    - 'enable'
+                            vrdst6:
+                                type: str
+                                description: no description
+                            vrgrp:
+                                type: int
+                                description: no description
+                            vrid:
+                                type: int
+                                description: no description
+                            vrip6:
+                                type: str
+                                description: no description
+                    interface-identifier:
+                        type: str
+                        description: no description
+                    unique-autoconf-addr:
+                        type: str
+                        description: no description
+                        choices:
+                            - 'disable'
+                            - 'enable'
+                    icmp6-send-redirect:
+                        type: str
+                        description: 'Enable/disable sending of ICMPv6 redirects.'
+                        choices:
+                            - 'disable'
+                            - 'enable'
+                    cli-conn6-status:
+                        type: int
+                        description: no description
+                    ip6-prefix-mode:
+                        type: str
+                        description: 'Assigning a prefix from DHCP or RA.'
+                        choices:
+                            - 'dhcp6'
+                            - 'ra'
+                    ra-send-mtu:
+                        type: str
+                        description: 'Enable/disable sending link MTU in RA packet.'
+                        choices:
+                            - 'disable'
+                            - 'enable'
+            secondary-IP:
+                type: str
+                description: no description
+                choices:
+                    - 'disable'
+                    - 'enable'
+            secondaryip:
+                description: no description
+                type: list
+                suboptions:
+                    allowaccess:
+                        description: no description
+                        type: list
+                        choices:
+                         - https
+                         - ping
+                         - ssh
+                         - snmp
+                         - http
+                         - telnet
+                         - fgfm
+                         - auto-ipsec
+                         - radius-acct
+                         - probe-response
+                         - capwap
+                         - dnp
+                         - ftm
+                         - fabric
+                    detectprotocol:
+                        description: no description
+                        type: list
+                        choices:
+                         - ping
+                         - tcp-echo
+                         - udp-echo
+                    detectserver:
+                        type: str
+                        description: no description
+                    gwdetect:
+                        type: str
+                        description: no description
+                        choices:
+                            - 'disable'
+                            - 'enable'
+                    ha-priority:
+                        type: int
+                        description: no description
+                    id:
+                        type: int
+                        description: no description
+                    ip:
+                        type: str
+                        description: no description
+                    ping-serv-status:
+                        type: int
+                        description: no description
+                    seq:
+                        type: int
+                        description: no description
 
 '''
 
@@ -135,6 +521,127 @@ EXAMPLES = '''
          fsp_vlan_dynamicmapping_interface:
             ip: <value of string>
             vlanid: <value of integer>
+            dhcp-relay-agent-option: <value in [disable, enable]>
+            dhcp-relay-ip: <value of string>
+            dhcp-relay-service: <value in [disable, enable]>
+            dhcp-relay-type: <value in [regular, ipsec]>
+            ipv6:
+               autoconf: <value in [disable, enable]>
+               dhcp6-client-options:
+                 - rapid
+                 - iapd
+                 - iana
+                 - dns
+                 - dnsname
+               dhcp6-information-request: <value in [disable, enable]>
+               dhcp6-prefix-delegation: <value in [disable, enable]>
+               dhcp6-prefix-hint: <value of string>
+               dhcp6-prefix-hint-plt: <value of integer>
+               dhcp6-prefix-hint-vlt: <value of integer>
+               dhcp6-relay-ip: <value of string>
+               dhcp6-relay-service: <value in [disable, enable]>
+               dhcp6-relay-type: <value in [regular]>
+               ip6-address: <value of string>
+               ip6-allowaccess:
+                 - https
+                 - ping
+                 - ssh
+                 - snmp
+                 - http
+                 - telnet
+                 - fgfm
+                 - capwap
+                 - fabric
+               ip6-default-life: <value of integer>
+               ip6-delegated-prefix-list:
+                 -
+                     autonomous-flag: <value in [disable, enable]>
+                     onlink-flag: <value in [disable, enable]>
+                     prefix-id: <value of integer>
+                     rdnss: <value of string>
+                     rdnss-service: <value in [delegated, default, specify]>
+                     subnet: <value of string>
+                     upstream-interface: <value of string>
+               ip6-dns-server-override: <value in [disable, enable]>
+               ip6-extra-addr:
+                 -
+                     prefix: <value of string>
+               ip6-hop-limit: <value of integer>
+               ip6-link-mtu: <value of integer>
+               ip6-manage-flag: <value in [disable, enable]>
+               ip6-max-interval: <value of integer>
+               ip6-min-interval: <value of integer>
+               ip6-mode: <value in [static, dhcp, pppoe, ...]>
+               ip6-other-flag: <value in [disable, enable]>
+               ip6-prefix-list:
+                 -
+                     autonomous-flag: <value in [disable, enable]>
+                     dnssl: <value of string>
+                     onlink-flag: <value in [disable, enable]>
+                     preferred-life-time: <value of integer>
+                     prefix: <value of string>
+                     rdnss: <value of string>
+                     valid-life-time: <value of integer>
+               ip6-reachable-time: <value of integer>
+               ip6-retrans-time: <value of integer>
+               ip6-send-adv: <value in [disable, enable]>
+               ip6-subnet: <value of string>
+               ip6-upstream-interface: <value of string>
+               nd-cert: <value of string>
+               nd-cga-modifier: <value of string>
+               nd-mode: <value in [basic, SEND-compatible]>
+               nd-security-level: <value of integer>
+               nd-timestamp-delta: <value of integer>
+               nd-timestamp-fuzz: <value of integer>
+               vrip6_link_local: <value of string>
+               vrrp-virtual-mac6: <value in [disable, enable]>
+               vrrp6:
+                 -
+                     accept-mode: <value in [disable, enable]>
+                     adv-interval: <value of integer>
+                     preempt: <value in [disable, enable]>
+                     priority: <value of integer>
+                     start-time: <value of integer>
+                     status: <value in [disable, enable]>
+                     vrdst6: <value of string>
+                     vrgrp: <value of integer>
+                     vrid: <value of integer>
+                     vrip6: <value of string>
+               interface-identifier: <value of string>
+               unique-autoconf-addr: <value in [disable, enable]>
+               icmp6-send-redirect: <value in [disable, enable]>
+               cli-conn6-status: <value of integer>
+               ip6-prefix-mode: <value in [dhcp6, ra]>
+               ra-send-mtu: <value in [disable, enable]>
+            secondary-IP: <value in [disable, enable]>
+            secondaryip:
+              -
+                  allowaccess:
+                    - https
+                    - ping
+                    - ssh
+                    - snmp
+                    - http
+                    - telnet
+                    - fgfm
+                    - auto-ipsec
+                    - radius-acct
+                    - probe-response
+                    - capwap
+                    - dnp
+                    - ftm
+                    - fabric
+                  detectprotocol:
+                    - ping
+                    - tcp-echo
+                    - udp-echo
+                  detectserver: <value of string>
+                  gwdetect: <value in [disable, enable]>
+                  ha-priority: <value of integer>
+                  id: <value of integer>
+                  ip: <value of string>
+                  ping-serv-status: <value of integer>
+                  seq: <value of integer>
 
 '''
 
@@ -231,11 +738,1187 @@ def main():
             'options': {
                 'ip': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'vlanid': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
+                },
+                'dhcp-relay-agent-option': {
+                    'required': False,
+                    'revision': {
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'choices': [
+                        'disable',
+                        'enable'
+                    ],
+                    'type': 'str'
+                },
+                'dhcp-relay-ip': {
+                    'required': False,
+                    'revision': {
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'type': 'str'
+                },
+                'dhcp-relay-service': {
+                    'required': False,
+                    'revision': {
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'choices': [
+                        'disable',
+                        'enable'
+                    ],
+                    'type': 'str'
+                },
+                'dhcp-relay-type': {
+                    'required': False,
+                    'revision': {
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'choices': [
+                        'regular',
+                        'ipsec'
+                    ],
+                    'type': 'str'
+                },
+                'ipv6': {
+                    'required': False,
+                    'type': 'dict',
+                    'options': {
+                        'autoconf': {
+                            'required': False,
+                            'revision': {
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'disable',
+                                'enable'
+                            ],
+                            'type': 'str'
+                        },
+                        'dhcp6-client-options': {
+                            'required': False,
+                            'revision': {
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'list',
+                            'choices': [
+                                'rapid',
+                                'iapd',
+                                'iana',
+                                'dns',
+                                'dnsname'
+                            ]
+                        },
+                        'dhcp6-information-request': {
+                            'required': False,
+                            'revision': {
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'disable',
+                                'enable'
+                            ],
+                            'type': 'str'
+                        },
+                        'dhcp6-prefix-delegation': {
+                            'required': False,
+                            'revision': {
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'disable',
+                                'enable'
+                            ],
+                            'type': 'str'
+                        },
+                        'dhcp6-prefix-hint': {
+                            'required': False,
+                            'revision': {
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'str'
+                        },
+                        'dhcp6-prefix-hint-plt': {
+                            'required': False,
+                            'revision': {
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'int'
+                        },
+                        'dhcp6-prefix-hint-vlt': {
+                            'required': False,
+                            'revision': {
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'int'
+                        },
+                        'dhcp6-relay-ip': {
+                            'required': False,
+                            'revision': {
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'str'
+                        },
+                        'dhcp6-relay-service': {
+                            'required': False,
+                            'revision': {
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'disable',
+                                'enable'
+                            ],
+                            'type': 'str'
+                        },
+                        'dhcp6-relay-type': {
+                            'required': False,
+                            'revision': {
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'regular'
+                            ],
+                            'type': 'str'
+                        },
+                        'ip6-address': {
+                            'required': False,
+                            'revision': {
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'str'
+                        },
+                        'ip6-allowaccess': {
+                            'required': False,
+                            'revision': {
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'list',
+                            'choices': [
+                                'https',
+                                'ping',
+                                'ssh',
+                                'snmp',
+                                'http',
+                                'telnet',
+                                'fgfm',
+                                'capwap',
+                                'fabric'
+                            ]
+                        },
+                        'ip6-default-life': {
+                            'required': False,
+                            'revision': {
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'int'
+                        },
+                        'ip6-delegated-prefix-list': {
+                            'required': False,
+                            'revision': {
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'list',
+                            'options': {
+                                'autonomous-flag': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.2.3': True,
+                                        '6.2.5': True,
+                                        '6.4.0': True,
+                                        '6.4.2': True,
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'choices': [
+                                        'disable',
+                                        'enable'
+                                    ],
+                                    'type': 'str'
+                                },
+                                'onlink-flag': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.2.3': True,
+                                        '6.2.5': True,
+                                        '6.4.0': True,
+                                        '6.4.2': True,
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'choices': [
+                                        'disable',
+                                        'enable'
+                                    ],
+                                    'type': 'str'
+                                },
+                                'prefix-id': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.2.3': True,
+                                        '6.2.5': True,
+                                        '6.4.0': True,
+                                        '6.4.2': True,
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'type': 'int'
+                                },
+                                'rdnss': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.2.3': True,
+                                        '6.2.5': True,
+                                        '6.4.0': True,
+                                        '6.4.2': True,
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'type': 'str'
+                                },
+                                'rdnss-service': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.2.3': True,
+                                        '6.2.5': True,
+                                        '6.4.0': True,
+                                        '6.4.2': True,
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'choices': [
+                                        'delegated',
+                                        'default',
+                                        'specify'
+                                    ],
+                                    'type': 'str'
+                                },
+                                'subnet': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.2.3': True,
+                                        '6.2.5': True,
+                                        '6.4.0': True,
+                                        '6.4.2': True,
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'type': 'str'
+                                },
+                                'upstream-interface': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.2.3': True,
+                                        '6.2.5': True,
+                                        '6.4.0': True,
+                                        '6.4.2': True,
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'type': 'str'
+                                }
+                            }
+                        },
+                        'ip6-dns-server-override': {
+                            'required': False,
+                            'revision': {
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'disable',
+                                'enable'
+                            ],
+                            'type': 'str'
+                        },
+                        'ip6-extra-addr': {
+                            'required': False,
+                            'revision': {
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'list',
+                            'options': {
+                                'prefix': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.2.3': True,
+                                        '6.2.5': True,
+                                        '6.4.0': True,
+                                        '6.4.2': True,
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'type': 'str'
+                                }
+                            }
+                        },
+                        'ip6-hop-limit': {
+                            'required': False,
+                            'revision': {
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'int'
+                        },
+                        'ip6-link-mtu': {
+                            'required': False,
+                            'revision': {
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'int'
+                        },
+                        'ip6-manage-flag': {
+                            'required': False,
+                            'revision': {
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'disable',
+                                'enable'
+                            ],
+                            'type': 'str'
+                        },
+                        'ip6-max-interval': {
+                            'required': False,
+                            'revision': {
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'int'
+                        },
+                        'ip6-min-interval': {
+                            'required': False,
+                            'revision': {
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'int'
+                        },
+                        'ip6-mode': {
+                            'required': False,
+                            'revision': {
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'static',
+                                'dhcp',
+                                'pppoe',
+                                'delegated'
+                            ],
+                            'type': 'str'
+                        },
+                        'ip6-other-flag': {
+                            'required': False,
+                            'revision': {
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'disable',
+                                'enable'
+                            ],
+                            'type': 'str'
+                        },
+                        'ip6-prefix-list': {
+                            'required': False,
+                            'revision': {
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'list',
+                            'options': {
+                                'autonomous-flag': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.2.3': True,
+                                        '6.2.5': True,
+                                        '6.4.0': True,
+                                        '6.4.2': True,
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'choices': [
+                                        'disable',
+                                        'enable'
+                                    ],
+                                    'type': 'str'
+                                },
+                                'dnssl': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.2.3': True,
+                                        '6.2.5': True,
+                                        '6.4.0': True,
+                                        '6.4.2': True,
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'type': 'str'
+                                },
+                                'onlink-flag': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.2.3': True,
+                                        '6.2.5': True,
+                                        '6.4.0': True,
+                                        '6.4.2': True,
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'choices': [
+                                        'disable',
+                                        'enable'
+                                    ],
+                                    'type': 'str'
+                                },
+                                'preferred-life-time': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.2.3': True,
+                                        '6.2.5': True,
+                                        '6.4.0': True,
+                                        '6.4.2': True,
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'type': 'int'
+                                },
+                                'prefix': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.2.3': True,
+                                        '6.2.5': True,
+                                        '6.4.0': True,
+                                        '6.4.2': True,
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'type': 'str'
+                                },
+                                'rdnss': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.2.3': True,
+                                        '6.2.5': True,
+                                        '6.4.0': True,
+                                        '6.4.2': True,
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'type': 'str'
+                                },
+                                'valid-life-time': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.2.3': True,
+                                        '6.2.5': True,
+                                        '6.4.0': True,
+                                        '6.4.2': True,
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'type': 'int'
+                                }
+                            }
+                        },
+                        'ip6-reachable-time': {
+                            'required': False,
+                            'revision': {
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'int'
+                        },
+                        'ip6-retrans-time': {
+                            'required': False,
+                            'revision': {
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'int'
+                        },
+                        'ip6-send-adv': {
+                            'required': False,
+                            'revision': {
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'disable',
+                                'enable'
+                            ],
+                            'type': 'str'
+                        },
+                        'ip6-subnet': {
+                            'required': False,
+                            'revision': {
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'str'
+                        },
+                        'ip6-upstream-interface': {
+                            'required': False,
+                            'revision': {
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'str'
+                        },
+                        'nd-cert': {
+                            'required': False,
+                            'revision': {
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'str'
+                        },
+                        'nd-cga-modifier': {
+                            'required': False,
+                            'revision': {
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'str'
+                        },
+                        'nd-mode': {
+                            'required': False,
+                            'revision': {
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'basic',
+                                'SEND-compatible'
+                            ],
+                            'type': 'str'
+                        },
+                        'nd-security-level': {
+                            'required': False,
+                            'revision': {
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'int'
+                        },
+                        'nd-timestamp-delta': {
+                            'required': False,
+                            'revision': {
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'int'
+                        },
+                        'nd-timestamp-fuzz': {
+                            'required': False,
+                            'revision': {
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'int'
+                        },
+                        'vrip6_link_local': {
+                            'required': False,
+                            'revision': {
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'str'
+                        },
+                        'vrrp-virtual-mac6': {
+                            'required': False,
+                            'revision': {
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'disable',
+                                'enable'
+                            ],
+                            'type': 'str'
+                        },
+                        'vrrp6': {
+                            'required': False,
+                            'revision': {
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'list',
+                            'options': {
+                                'accept-mode': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.2.3': True,
+                                        '6.2.5': True,
+                                        '6.4.0': True,
+                                        '6.4.2': True,
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'choices': [
+                                        'disable',
+                                        'enable'
+                                    ],
+                                    'type': 'str'
+                                },
+                                'adv-interval': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.2.3': True,
+                                        '6.2.5': True,
+                                        '6.4.0': True,
+                                        '6.4.2': True,
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'type': 'int'
+                                },
+                                'preempt': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.2.3': True,
+                                        '6.2.5': True,
+                                        '6.4.0': True,
+                                        '6.4.2': True,
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'choices': [
+                                        'disable',
+                                        'enable'
+                                    ],
+                                    'type': 'str'
+                                },
+                                'priority': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.2.3': True,
+                                        '6.2.5': True,
+                                        '6.4.0': True,
+                                        '6.4.2': True,
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'type': 'int'
+                                },
+                                'start-time': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.2.3': True,
+                                        '6.2.5': True,
+                                        '6.4.0': True,
+                                        '6.4.2': True,
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'type': 'int'
+                                },
+                                'status': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.2.3': True,
+                                        '6.2.5': True,
+                                        '6.4.0': True,
+                                        '6.4.2': True,
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'choices': [
+                                        'disable',
+                                        'enable'
+                                    ],
+                                    'type': 'str'
+                                },
+                                'vrdst6': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.2.3': True,
+                                        '6.2.5': True,
+                                        '6.4.0': True,
+                                        '6.4.2': True,
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'type': 'str'
+                                },
+                                'vrgrp': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.2.3': True,
+                                        '6.2.5': True,
+                                        '6.4.0': True,
+                                        '6.4.2': True,
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'type': 'int'
+                                },
+                                'vrid': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.2.3': True,
+                                        '6.2.5': True,
+                                        '6.4.0': True,
+                                        '6.4.2': True,
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'type': 'int'
+                                },
+                                'vrip6': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.2.3': True,
+                                        '6.2.5': True,
+                                        '6.4.0': True,
+                                        '6.4.2': True,
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'type': 'str'
+                                }
+                            }
+                        },
+                        'interface-identifier': {
+                            'required': False,
+                            'revision': {
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'str'
+                        },
+                        'unique-autoconf-addr': {
+                            'required': False,
+                            'revision': {
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'disable',
+                                'enable'
+                            ],
+                            'type': 'str'
+                        },
+                        'icmp6-send-redirect': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'disable',
+                                'enable'
+                            ],
+                            'type': 'str'
+                        },
+                        'cli-conn6-status': {
+                            'required': False,
+                            'revision': {
+                                '7.0.0': True
+                            },
+                            'type': 'int'
+                        },
+                        'ip6-prefix-mode': {
+                            'required': False,
+                            'revision': {
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'dhcp6',
+                                'ra'
+                            ],
+                            'type': 'str'
+                        },
+                        'ra-send-mtu': {
+                            'required': False,
+                            'revision': {
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'disable',
+                                'enable'
+                            ],
+                            'type': 'str'
+                        }
+                    }
+                },
+                'secondary-IP': {
+                    'required': False,
+                    'revision': {
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'choices': [
+                        'disable',
+                        'enable'
+                    ],
+                    'type': 'str'
+                },
+                'secondaryip': {
+                    'required': False,
+                    'revision': {
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'type': 'list',
+                    'options': {
+                        'allowaccess': {
+                            'required': False,
+                            'revision': {
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'list',
+                            'choices': [
+                                'https',
+                                'ping',
+                                'ssh',
+                                'snmp',
+                                'http',
+                                'telnet',
+                                'fgfm',
+                                'auto-ipsec',
+                                'radius-acct',
+                                'probe-response',
+                                'capwap',
+                                'dnp',
+                                'ftm',
+                                'fabric'
+                            ]
+                        },
+                        'detectprotocol': {
+                            'required': False,
+                            'revision': {
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'list',
+                            'choices': [
+                                'ping',
+                                'tcp-echo',
+                                'udp-echo'
+                            ]
+                        },
+                        'detectserver': {
+                            'required': False,
+                            'revision': {
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'str'
+                        },
+                        'gwdetect': {
+                            'required': False,
+                            'revision': {
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'disable',
+                                'enable'
+                            ],
+                            'type': 'str'
+                        },
+                        'ha-priority': {
+                            'required': False,
+                            'revision': {
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'int'
+                        },
+                        'id': {
+                            'required': False,
+                            'revision': {
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'int'
+                        },
+                        'ip': {
+                            'required': False,
+                            'revision': {
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'str'
+                        },
+                        'ping-serv-status': {
+                            'required': False,
+                            'revision': {
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'int'
+                        },
+                        'seq': {
+                            'required': False,
+                            'revision': {
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'int'
+                        }
+                    }
                 }
             }
 

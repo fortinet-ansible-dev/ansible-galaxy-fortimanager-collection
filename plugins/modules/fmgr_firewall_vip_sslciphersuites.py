@@ -170,6 +170,9 @@ options:
                     - 'TLS-ECDHE-ECDSA-WITH-ARIA-256-CBC-SHA384'
                     - 'TLS-DHE-DSS-WITH-3DES-EDE-CBC-SHA'
                     - 'TLS-DHE-DSS-WITH-DES-CBC-SHA'
+                    - 'TLS-AES-128-GCM-SHA256'
+                    - 'TLS-AES-256-GCM-SHA384'
+                    - 'TLS-CHACHA20-POLY1305-SHA256'
             id:
                 type: int
                 description: no description
@@ -181,6 +184,744 @@ options:
                  - tls-1.0
                  - tls-1.1
                  - tls-1.2
+                 - ssl-3.0
+                 - tls-1.0
+                 - tls-1.1
+                 - tls-1.2
+                 - tls-1.3
+                 - ssl-3.0
+                 - tls-1.0
+                 - tls-1.1
+                 - tls-1.2
+                 - tls-1.3
+                 - ssl-3.0
+                 - tls-1.0
+                 - tls-1.1
+                 - tls-1.2
+                 - tls-1.3
+                 - ssl-3.0
+                 - tls-1.0
+                 - tls-1.1
+                 - tls-1.2
+                 - tls-1.3
+                 - ssl-3.0
+                 - tls-1.0
+                 - tls-1.1
+                 - tls-1.2
+                 - tls-1.3
+                 - ssl-3.0
+                 - tls-1.0
+                 - tls-1.1
+                 - tls-1.2
+                 - tls-1.3
+                 - ssl-3.0
+                 - tls-1.0
+                 - tls-1.1
+                 - tls-1.2
+                 - tls-1.3
+                 - ssl-3.0
+                 - tls-1.0
+                 - tls-1.1
+                 - tls-1.2
+                 - tls-1.3
+                 - ssl-3.0
+                 - tls-1.0
+                 - tls-1.1
+                 - tls-1.2
+                 - tls-1.3
+                 - ssl-3.0
+                 - tls-1.0
+                 - tls-1.1
+                 - tls-1.2
+                 - tls-1.3
+                 - ssl-3.0
+                 - tls-1.0
+                 - tls-1.1
+                 - tls-1.2
+                 - tls-1.3
+                 - ssl-3.0
+                 - tls-1.0
+                 - tls-1.1
+                 - tls-1.2
+                 - tls-1.3
+                 - ssl-3.0
+                 - tls-1.0
+                 - tls-1.1
+                 - tls-1.2
+                 - tls-1.3
+                 - ssl-3.0
+                 - tls-1.0
+                 - tls-1.1
+                 - tls-1.2
+                 - tls-1.3
+                 - ssl-3.0
+                 - tls-1.0
+                 - tls-1.1
+                 - tls-1.2
+                 - tls-1.3
+                 - ssl-3.0
+                 - tls-1.0
+                 - tls-1.1
+                 - tls-1.2
+                 - tls-1.3
+                 - ssl-3.0
+                 - tls-1.0
+                 - tls-1.1
+                 - tls-1.2
+                 - tls-1.3
+                 - ssl-3.0
+                 - tls-1.0
+                 - tls-1.1
+                 - tls-1.2
+                 - tls-1.3
+                 - ssl-3.0
+                 - tls-1.0
+                 - tls-1.1
+                 - tls-1.2
+                 - tls-1.3
+                 - ssl-3.0
+                 - tls-1.0
+                 - tls-1.1
+                 - tls-1.2
+                 - tls-1.3
+                 - ssl-3.0
+                 - tls-1.0
+                 - tls-1.1
+                 - tls-1.2
+                 - tls-1.3
+                 - ssl-3.0
+                 - tls-1.0
+                 - tls-1.1
+                 - tls-1.2
+                 - tls-1.3
+                 - ssl-3.0
+                 - tls-1.0
+                 - tls-1.1
+                 - tls-1.2
+                 - tls-1.3
+                 - ssl-3.0
+                 - tls-1.0
+                 - tls-1.1
+                 - tls-1.2
+                 - tls-1.3
+                 - ssl-3.0
+                 - tls-1.0
+                 - tls-1.1
+                 - tls-1.2
+                 - tls-1.3
+                 - ssl-3.0
+                 - tls-1.0
+                 - tls-1.1
+                 - tls-1.2
+                 - tls-1.3
+                 - ssl-3.0
+                 - tls-1.0
+                 - tls-1.1
+                 - tls-1.2
+                 - tls-1.3
+                 - ssl-3.0
+                 - tls-1.0
+                 - tls-1.1
+                 - tls-1.2
+                 - tls-1.3
+                 - ssl-3.0
+                 - tls-1.0
+                 - tls-1.1
+                 - tls-1.2
+                 - tls-1.3
+                 - ssl-3.0
+                 - tls-1.0
+                 - tls-1.1
+                 - tls-1.2
+                 - tls-1.3
+                 - ssl-3.0
+                 - tls-1.0
+                 - tls-1.1
+                 - tls-1.2
+                 - tls-1.3
+                 - ssl-3.0
+                 - tls-1.0
+                 - tls-1.1
+                 - tls-1.2
+                 - tls-1.3
+                 - ssl-3.0
+                 - tls-1.0
+                 - tls-1.1
+                 - tls-1.2
+                 - tls-1.3
+                 - ssl-3.0
+                 - tls-1.0
+                 - tls-1.1
+                 - tls-1.2
+                 - tls-1.3
+                 - ssl-3.0
+                 - tls-1.0
+                 - tls-1.1
+                 - tls-1.2
+                 - tls-1.3
+                 - ssl-3.0
+                 - tls-1.0
+                 - tls-1.1
+                 - tls-1.2
+                 - tls-1.3
+                 - ssl-3.0
+                 - tls-1.0
+                 - tls-1.1
+                 - tls-1.2
+                 - tls-1.3
+                 - ssl-3.0
+                 - tls-1.0
+                 - tls-1.1
+                 - tls-1.2
+                 - tls-1.3
+                 - ssl-3.0
+                 - tls-1.0
+                 - tls-1.1
+                 - tls-1.2
+                 - tls-1.3
+                 - ssl-3.0
+                 - tls-1.0
+                 - tls-1.1
+                 - tls-1.2
+                 - tls-1.3
+                 - ssl-3.0
+                 - tls-1.0
+                 - tls-1.1
+                 - tls-1.2
+                 - tls-1.3
+                 - ssl-3.0
+                 - tls-1.0
+                 - tls-1.1
+                 - tls-1.2
+                 - tls-1.3
+                 - ssl-3.0
+                 - tls-1.0
+                 - tls-1.1
+                 - tls-1.2
+                 - tls-1.3
+                 - ssl-3.0
+                 - tls-1.0
+                 - tls-1.1
+                 - tls-1.2
+                 - tls-1.3
+                 - ssl-3.0
+                 - tls-1.0
+                 - tls-1.1
+                 - tls-1.2
+                 - tls-1.3
+                 - ssl-3.0
+                 - tls-1.0
+                 - tls-1.1
+                 - tls-1.2
+                 - tls-1.3
+                 - ssl-3.0
+                 - tls-1.0
+                 - tls-1.1
+                 - tls-1.2
+                 - tls-1.3
+                 - ssl-3.0
+                 - tls-1.0
+                 - tls-1.1
+                 - tls-1.2
+                 - tls-1.3
+                 - ssl-3.0
+                 - tls-1.0
+                 - tls-1.1
+                 - tls-1.2
+                 - tls-1.3
+                 - ssl-3.0
+                 - tls-1.0
+                 - tls-1.1
+                 - tls-1.2
+                 - tls-1.3
+                 - ssl-3.0
+                 - tls-1.0
+                 - tls-1.1
+                 - tls-1.2
+                 - tls-1.3
+                 - ssl-3.0
+                 - tls-1.0
+                 - tls-1.1
+                 - tls-1.2
+                 - tls-1.3
+                 - ssl-3.0
+                 - tls-1.0
+                 - tls-1.1
+                 - tls-1.2
+                 - tls-1.3
+                 - ssl-3.0
+                 - tls-1.0
+                 - tls-1.1
+                 - tls-1.2
+                 - tls-1.3
+                 - ssl-3.0
+                 - tls-1.0
+                 - tls-1.1
+                 - tls-1.2
+                 - tls-1.3
+                 - ssl-3.0
+                 - tls-1.0
+                 - tls-1.1
+                 - tls-1.2
+                 - tls-1.3
+                 - ssl-3.0
+                 - tls-1.0
+                 - tls-1.1
+                 - tls-1.2
+                 - tls-1.3
+                 - ssl-3.0
+                 - tls-1.0
+                 - tls-1.1
+                 - tls-1.2
+                 - tls-1.3
+                 - ssl-3.0
+                 - tls-1.0
+                 - tls-1.1
+                 - tls-1.2
+                 - tls-1.3
+                 - ssl-3.0
+                 - tls-1.0
+                 - tls-1.1
+                 - tls-1.2
+                 - tls-1.3
+                 - ssl-3.0
+                 - tls-1.0
+                 - tls-1.1
+                 - tls-1.2
+                 - tls-1.3
+                 - ssl-3.0
+                 - tls-1.0
+                 - tls-1.1
+                 - tls-1.2
+                 - tls-1.3
+                 - ssl-3.0
+                 - tls-1.0
+                 - tls-1.1
+                 - tls-1.2
+                 - tls-1.3
+                 - ssl-3.0
+                 - tls-1.0
+                 - tls-1.1
+                 - tls-1.2
+                 - tls-1.3
+                 - ssl-3.0
+                 - tls-1.0
+                 - tls-1.1
+                 - tls-1.2
+                 - tls-1.3
+                 - ssl-3.0
+                 - tls-1.0
+                 - tls-1.1
+                 - tls-1.2
+                 - tls-1.3
+                 - ssl-3.0
+                 - tls-1.0
+                 - tls-1.1
+                 - tls-1.2
+                 - tls-1.3
+                 - ssl-3.0
+                 - tls-1.0
+                 - tls-1.1
+                 - tls-1.2
+                 - tls-1.3
+                 - ssl-3.0
+                 - tls-1.0
+                 - tls-1.1
+                 - tls-1.2
+                 - tls-1.3
+                 - ssl-3.0
+                 - tls-1.0
+                 - tls-1.1
+                 - tls-1.2
+                 - tls-1.3
+                 - ssl-3.0
+                 - tls-1.0
+                 - tls-1.1
+                 - tls-1.2
+                 - tls-1.3
+                 - ssl-3.0
+                 - tls-1.0
+                 - tls-1.1
+                 - tls-1.2
+                 - tls-1.3
+                 - ssl-3.0
+                 - tls-1.0
+                 - tls-1.1
+                 - tls-1.2
+                 - tls-1.3
+                 - ssl-3.0
+                 - tls-1.0
+                 - tls-1.1
+                 - tls-1.2
+                 - tls-1.3
+                 - ssl-3.0
+                 - tls-1.0
+                 - tls-1.1
+                 - tls-1.2
+                 - tls-1.3
+                 - ssl-3.0
+                 - tls-1.0
+                 - tls-1.1
+                 - tls-1.2
+                 - tls-1.3
+                 - ssl-3.0
+                 - tls-1.0
+                 - tls-1.1
+                 - tls-1.2
+                 - tls-1.3
+                 - ssl-3.0
+                 - tls-1.0
+                 - tls-1.1
+                 - tls-1.2
+                 - tls-1.3
+                 - ssl-3.0
+                 - tls-1.0
+                 - tls-1.1
+                 - tls-1.2
+                 - tls-1.3
+                 - ssl-3.0
+                 - tls-1.0
+                 - tls-1.1
+                 - tls-1.2
+                 - tls-1.3
+                 - ssl-3.0
+                 - tls-1.0
+                 - tls-1.1
+                 - tls-1.2
+                 - tls-1.3
+                 - ssl-3.0
+                 - tls-1.0
+                 - tls-1.1
+                 - tls-1.2
+                 - tls-1.3
+                 - ssl-3.0
+                 - tls-1.0
+                 - tls-1.1
+                 - tls-1.2
+                 - tls-1.3
+                 - ssl-3.0
+                 - tls-1.0
+                 - tls-1.1
+                 - tls-1.2
+                 - tls-1.3
+                 - ssl-3.0
+                 - tls-1.0
+                 - tls-1.1
+                 - tls-1.2
+                 - tls-1.3
+                 - ssl-3.0
+                 - tls-1.0
+                 - tls-1.1
+                 - tls-1.2
+                 - tls-1.3
+                 - ssl-3.0
+                 - tls-1.0
+                 - tls-1.1
+                 - tls-1.2
+                 - tls-1.3
+                 - ssl-3.0
+                 - tls-1.0
+                 - tls-1.1
+                 - tls-1.2
+                 - tls-1.3
+                 - ssl-3.0
+                 - tls-1.0
+                 - tls-1.1
+                 - tls-1.2
+                 - tls-1.3
+                 - ssl-3.0
+                 - tls-1.0
+                 - tls-1.1
+                 - tls-1.2
+                 - tls-1.3
+                 - ssl-3.0
+                 - tls-1.0
+                 - tls-1.1
+                 - tls-1.2
+                 - tls-1.3
+                 - ssl-3.0
+                 - tls-1.0
+                 - tls-1.1
+                 - tls-1.2
+                 - tls-1.3
+                 - ssl-3.0
+                 - tls-1.0
+                 - tls-1.1
+                 - tls-1.2
+                 - tls-1.3
+                 - ssl-3.0
+                 - tls-1.0
+                 - tls-1.1
+                 - tls-1.2
+                 - tls-1.3
+                 - ssl-3.0
+                 - tls-1.0
+                 - tls-1.1
+                 - tls-1.2
+                 - tls-1.3
+                 - ssl-3.0
+                 - tls-1.0
+                 - tls-1.1
+                 - tls-1.2
+                 - tls-1.3
+                 - ssl-3.0
+                 - tls-1.0
+                 - tls-1.1
+                 - tls-1.2
+                 - tls-1.3
+                 - ssl-3.0
+                 - tls-1.0
+                 - tls-1.1
+                 - tls-1.2
+                 - tls-1.3
+                 - ssl-3.0
+                 - tls-1.0
+                 - tls-1.1
+                 - tls-1.2
+                 - tls-1.3
+                 - ssl-3.0
+                 - tls-1.0
+                 - tls-1.1
+                 - tls-1.2
+                 - tls-1.3
+                 - ssl-3.0
+                 - tls-1.0
+                 - tls-1.1
+                 - tls-1.2
+                 - tls-1.3
+                 - ssl-3.0
+                 - tls-1.0
+                 - tls-1.1
+                 - tls-1.2
+                 - tls-1.3
+                 - ssl-3.0
+                 - tls-1.0
+                 - tls-1.1
+                 - tls-1.2
+                 - tls-1.3
+                 - ssl-3.0
+                 - tls-1.0
+                 - tls-1.1
+                 - tls-1.2
+                 - tls-1.3
+                 - ssl-3.0
+                 - tls-1.0
+                 - tls-1.1
+                 - tls-1.2
+                 - tls-1.3
+                 - ssl-3.0
+                 - tls-1.0
+                 - tls-1.1
+                 - tls-1.2
+                 - tls-1.3
+                 - ssl-3.0
+                 - tls-1.0
+                 - tls-1.1
+                 - tls-1.2
+                 - tls-1.3
+                 - ssl-3.0
+                 - tls-1.0
+                 - tls-1.1
+                 - tls-1.2
+                 - tls-1.3
+                 - ssl-3.0
+                 - tls-1.0
+                 - tls-1.1
+                 - tls-1.2
+                 - tls-1.3
+                 - ssl-3.0
+                 - tls-1.0
+                 - tls-1.1
+                 - tls-1.2
+                 - tls-1.3
+                 - ssl-3.0
+                 - tls-1.0
+                 - tls-1.1
+                 - tls-1.2
+                 - tls-1.3
+                 - ssl-3.0
+                 - tls-1.0
+                 - tls-1.1
+                 - tls-1.2
+                 - tls-1.3
+                 - ssl-3.0
+                 - tls-1.0
+                 - tls-1.1
+                 - tls-1.2
+                 - tls-1.3
+                 - ssl-3.0
+                 - tls-1.0
+                 - tls-1.1
+                 - tls-1.2
+                 - tls-1.3
+                 - ssl-3.0
+                 - tls-1.0
+                 - tls-1.1
+                 - tls-1.2
+                 - tls-1.3
+                 - ssl-3.0
+                 - tls-1.0
+                 - tls-1.1
+                 - tls-1.2
+                 - tls-1.3
+                 - ssl-3.0
+                 - tls-1.0
+                 - tls-1.1
+                 - tls-1.2
+                 - tls-1.3
+                 - ssl-3.0
+                 - tls-1.0
+                 - tls-1.1
+                 - tls-1.2
+                 - tls-1.3
+                 - ssl-3.0
+                 - tls-1.0
+                 - tls-1.1
+                 - tls-1.2
+                 - tls-1.3
+                 - ssl-3.0
+                 - tls-1.0
+                 - tls-1.1
+                 - tls-1.2
+                 - tls-1.3
+                 - ssl-3.0
+                 - tls-1.0
+                 - tls-1.1
+                 - tls-1.2
+                 - tls-1.3
+                 - ssl-3.0
+                 - tls-1.0
+                 - tls-1.1
+                 - tls-1.2
+                 - tls-1.3
+                 - ssl-3.0
+                 - tls-1.0
+                 - tls-1.1
+                 - tls-1.2
+                 - tls-1.3
+                 - ssl-3.0
+                 - tls-1.0
+                 - tls-1.1
+                 - tls-1.2
+                 - tls-1.3
+                 - ssl-3.0
+                 - tls-1.0
+                 - tls-1.1
+                 - tls-1.2
+                 - tls-1.3
+                 - ssl-3.0
+                 - tls-1.0
+                 - tls-1.1
+                 - tls-1.2
+                 - tls-1.3
+                 - ssl-3.0
+                 - tls-1.0
+                 - tls-1.1
+                 - tls-1.2
+                 - tls-1.3
+                 - ssl-3.0
+                 - tls-1.0
+                 - tls-1.1
+                 - tls-1.2
+                 - tls-1.3
+                 - ssl-3.0
+                 - tls-1.0
+                 - tls-1.1
+                 - tls-1.2
+                 - tls-1.3
+                 - ssl-3.0
+                 - tls-1.0
+                 - tls-1.1
+                 - tls-1.2
+                 - tls-1.3
+                 - ssl-3.0
+                 - tls-1.0
+                 - tls-1.1
+                 - tls-1.2
+                 - tls-1.3
+                 - ssl-3.0
+                 - tls-1.0
+                 - tls-1.1
+                 - tls-1.2
+                 - tls-1.3
+                 - ssl-3.0
+                 - tls-1.0
+                 - tls-1.1
+                 - tls-1.2
+                 - tls-1.3
+                 - ssl-3.0
+                 - tls-1.0
+                 - tls-1.1
+                 - tls-1.2
+                 - tls-1.3
+                 - ssl-3.0
+                 - tls-1.0
+                 - tls-1.1
+                 - tls-1.2
+                 - tls-1.3
+                 - ssl-3.0
+                 - tls-1.0
+                 - tls-1.1
+                 - tls-1.2
+                 - tls-1.3
+                 - ssl-3.0
+                 - tls-1.0
+                 - tls-1.1
+                 - tls-1.2
+                 - tls-1.3
+                 - ssl-3.0
+                 - tls-1.0
+                 - tls-1.1
+                 - tls-1.2
+                 - tls-1.3
+                 - ssl-3.0
+                 - tls-1.0
+                 - tls-1.1
+                 - tls-1.2
+                 - tls-1.3
+                 - ssl-3.0
+                 - tls-1.0
+                 - tls-1.1
+                 - tls-1.2
+                 - tls-1.3
+                 - ssl-3.0
+                 - tls-1.0
+                 - tls-1.1
+                 - tls-1.2
+                 - tls-1.3
+                 - ssl-3.0
+                 - tls-1.0
+                 - tls-1.1
+                 - tls-1.2
+                 - tls-1.3
+                 - ssl-3.0
+                 - tls-1.0
+                 - tls-1.1
+                 - tls-1.2
+                 - tls-1.3
+                 - ssl-3.0
+                 - tls-1.0
+                 - tls-1.1
+                 - tls-1.2
+                 - tls-1.3
+                 - ssl-3.0
+                 - tls-1.0
+                 - tls-1.1
+                 - tls-1.2
+                 - tls-1.3
+                 - ssl-3.0
+                 - tls-1.0
+                 - tls-1.1
+                 - tls-1.2
+                 - tls-1.3
+                 - ssl-3.0
+                 - tls-1.0
+                 - tls-1.1
+                 - tls-1.2
+                 - tls-1.3
+            priority:
+                type: int
+                description: 'SSL/TLS cipher suites priority.'
 
 '''
 
@@ -212,6 +953,742 @@ EXAMPLES = '''
               - tls-1.0
               - tls-1.1
               - tls-1.2
+              - ssl-3.0
+              - tls-1.0
+              - tls-1.1
+              - tls-1.2
+              - tls-1.3
+              - ssl-3.0
+              - tls-1.0
+              - tls-1.1
+              - tls-1.2
+              - tls-1.3
+              - ssl-3.0
+              - tls-1.0
+              - tls-1.1
+              - tls-1.2
+              - tls-1.3
+              - ssl-3.0
+              - tls-1.0
+              - tls-1.1
+              - tls-1.2
+              - tls-1.3
+              - ssl-3.0
+              - tls-1.0
+              - tls-1.1
+              - tls-1.2
+              - tls-1.3
+              - ssl-3.0
+              - tls-1.0
+              - tls-1.1
+              - tls-1.2
+              - tls-1.3
+              - ssl-3.0
+              - tls-1.0
+              - tls-1.1
+              - tls-1.2
+              - tls-1.3
+              - ssl-3.0
+              - tls-1.0
+              - tls-1.1
+              - tls-1.2
+              - tls-1.3
+              - ssl-3.0
+              - tls-1.0
+              - tls-1.1
+              - tls-1.2
+              - tls-1.3
+              - ssl-3.0
+              - tls-1.0
+              - tls-1.1
+              - tls-1.2
+              - tls-1.3
+              - ssl-3.0
+              - tls-1.0
+              - tls-1.1
+              - tls-1.2
+              - tls-1.3
+              - ssl-3.0
+              - tls-1.0
+              - tls-1.1
+              - tls-1.2
+              - tls-1.3
+              - ssl-3.0
+              - tls-1.0
+              - tls-1.1
+              - tls-1.2
+              - tls-1.3
+              - ssl-3.0
+              - tls-1.0
+              - tls-1.1
+              - tls-1.2
+              - tls-1.3
+              - ssl-3.0
+              - tls-1.0
+              - tls-1.1
+              - tls-1.2
+              - tls-1.3
+              - ssl-3.0
+              - tls-1.0
+              - tls-1.1
+              - tls-1.2
+              - tls-1.3
+              - ssl-3.0
+              - tls-1.0
+              - tls-1.1
+              - tls-1.2
+              - tls-1.3
+              - ssl-3.0
+              - tls-1.0
+              - tls-1.1
+              - tls-1.2
+              - tls-1.3
+              - ssl-3.0
+              - tls-1.0
+              - tls-1.1
+              - tls-1.2
+              - tls-1.3
+              - ssl-3.0
+              - tls-1.0
+              - tls-1.1
+              - tls-1.2
+              - tls-1.3
+              - ssl-3.0
+              - tls-1.0
+              - tls-1.1
+              - tls-1.2
+              - tls-1.3
+              - ssl-3.0
+              - tls-1.0
+              - tls-1.1
+              - tls-1.2
+              - tls-1.3
+              - ssl-3.0
+              - tls-1.0
+              - tls-1.1
+              - tls-1.2
+              - tls-1.3
+              - ssl-3.0
+              - tls-1.0
+              - tls-1.1
+              - tls-1.2
+              - tls-1.3
+              - ssl-3.0
+              - tls-1.0
+              - tls-1.1
+              - tls-1.2
+              - tls-1.3
+              - ssl-3.0
+              - tls-1.0
+              - tls-1.1
+              - tls-1.2
+              - tls-1.3
+              - ssl-3.0
+              - tls-1.0
+              - tls-1.1
+              - tls-1.2
+              - tls-1.3
+              - ssl-3.0
+              - tls-1.0
+              - tls-1.1
+              - tls-1.2
+              - tls-1.3
+              - ssl-3.0
+              - tls-1.0
+              - tls-1.1
+              - tls-1.2
+              - tls-1.3
+              - ssl-3.0
+              - tls-1.0
+              - tls-1.1
+              - tls-1.2
+              - tls-1.3
+              - ssl-3.0
+              - tls-1.0
+              - tls-1.1
+              - tls-1.2
+              - tls-1.3
+              - ssl-3.0
+              - tls-1.0
+              - tls-1.1
+              - tls-1.2
+              - tls-1.3
+              - ssl-3.0
+              - tls-1.0
+              - tls-1.1
+              - tls-1.2
+              - tls-1.3
+              - ssl-3.0
+              - tls-1.0
+              - tls-1.1
+              - tls-1.2
+              - tls-1.3
+              - ssl-3.0
+              - tls-1.0
+              - tls-1.1
+              - tls-1.2
+              - tls-1.3
+              - ssl-3.0
+              - tls-1.0
+              - tls-1.1
+              - tls-1.2
+              - tls-1.3
+              - ssl-3.0
+              - tls-1.0
+              - tls-1.1
+              - tls-1.2
+              - tls-1.3
+              - ssl-3.0
+              - tls-1.0
+              - tls-1.1
+              - tls-1.2
+              - tls-1.3
+              - ssl-3.0
+              - tls-1.0
+              - tls-1.1
+              - tls-1.2
+              - tls-1.3
+              - ssl-3.0
+              - tls-1.0
+              - tls-1.1
+              - tls-1.2
+              - tls-1.3
+              - ssl-3.0
+              - tls-1.0
+              - tls-1.1
+              - tls-1.2
+              - tls-1.3
+              - ssl-3.0
+              - tls-1.0
+              - tls-1.1
+              - tls-1.2
+              - tls-1.3
+              - ssl-3.0
+              - tls-1.0
+              - tls-1.1
+              - tls-1.2
+              - tls-1.3
+              - ssl-3.0
+              - tls-1.0
+              - tls-1.1
+              - tls-1.2
+              - tls-1.3
+              - ssl-3.0
+              - tls-1.0
+              - tls-1.1
+              - tls-1.2
+              - tls-1.3
+              - ssl-3.0
+              - tls-1.0
+              - tls-1.1
+              - tls-1.2
+              - tls-1.3
+              - ssl-3.0
+              - tls-1.0
+              - tls-1.1
+              - tls-1.2
+              - tls-1.3
+              - ssl-3.0
+              - tls-1.0
+              - tls-1.1
+              - tls-1.2
+              - tls-1.3
+              - ssl-3.0
+              - tls-1.0
+              - tls-1.1
+              - tls-1.2
+              - tls-1.3
+              - ssl-3.0
+              - tls-1.0
+              - tls-1.1
+              - tls-1.2
+              - tls-1.3
+              - ssl-3.0
+              - tls-1.0
+              - tls-1.1
+              - tls-1.2
+              - tls-1.3
+              - ssl-3.0
+              - tls-1.0
+              - tls-1.1
+              - tls-1.2
+              - tls-1.3
+              - ssl-3.0
+              - tls-1.0
+              - tls-1.1
+              - tls-1.2
+              - tls-1.3
+              - ssl-3.0
+              - tls-1.0
+              - tls-1.1
+              - tls-1.2
+              - tls-1.3
+              - ssl-3.0
+              - tls-1.0
+              - tls-1.1
+              - tls-1.2
+              - tls-1.3
+              - ssl-3.0
+              - tls-1.0
+              - tls-1.1
+              - tls-1.2
+              - tls-1.3
+              - ssl-3.0
+              - tls-1.0
+              - tls-1.1
+              - tls-1.2
+              - tls-1.3
+              - ssl-3.0
+              - tls-1.0
+              - tls-1.1
+              - tls-1.2
+              - tls-1.3
+              - ssl-3.0
+              - tls-1.0
+              - tls-1.1
+              - tls-1.2
+              - tls-1.3
+              - ssl-3.0
+              - tls-1.0
+              - tls-1.1
+              - tls-1.2
+              - tls-1.3
+              - ssl-3.0
+              - tls-1.0
+              - tls-1.1
+              - tls-1.2
+              - tls-1.3
+              - ssl-3.0
+              - tls-1.0
+              - tls-1.1
+              - tls-1.2
+              - tls-1.3
+              - ssl-3.0
+              - tls-1.0
+              - tls-1.1
+              - tls-1.2
+              - tls-1.3
+              - ssl-3.0
+              - tls-1.0
+              - tls-1.1
+              - tls-1.2
+              - tls-1.3
+              - ssl-3.0
+              - tls-1.0
+              - tls-1.1
+              - tls-1.2
+              - tls-1.3
+              - ssl-3.0
+              - tls-1.0
+              - tls-1.1
+              - tls-1.2
+              - tls-1.3
+              - ssl-3.0
+              - tls-1.0
+              - tls-1.1
+              - tls-1.2
+              - tls-1.3
+              - ssl-3.0
+              - tls-1.0
+              - tls-1.1
+              - tls-1.2
+              - tls-1.3
+              - ssl-3.0
+              - tls-1.0
+              - tls-1.1
+              - tls-1.2
+              - tls-1.3
+              - ssl-3.0
+              - tls-1.0
+              - tls-1.1
+              - tls-1.2
+              - tls-1.3
+              - ssl-3.0
+              - tls-1.0
+              - tls-1.1
+              - tls-1.2
+              - tls-1.3
+              - ssl-3.0
+              - tls-1.0
+              - tls-1.1
+              - tls-1.2
+              - tls-1.3
+              - ssl-3.0
+              - tls-1.0
+              - tls-1.1
+              - tls-1.2
+              - tls-1.3
+              - ssl-3.0
+              - tls-1.0
+              - tls-1.1
+              - tls-1.2
+              - tls-1.3
+              - ssl-3.0
+              - tls-1.0
+              - tls-1.1
+              - tls-1.2
+              - tls-1.3
+              - ssl-3.0
+              - tls-1.0
+              - tls-1.1
+              - tls-1.2
+              - tls-1.3
+              - ssl-3.0
+              - tls-1.0
+              - tls-1.1
+              - tls-1.2
+              - tls-1.3
+              - ssl-3.0
+              - tls-1.0
+              - tls-1.1
+              - tls-1.2
+              - tls-1.3
+              - ssl-3.0
+              - tls-1.0
+              - tls-1.1
+              - tls-1.2
+              - tls-1.3
+              - ssl-3.0
+              - tls-1.0
+              - tls-1.1
+              - tls-1.2
+              - tls-1.3
+              - ssl-3.0
+              - tls-1.0
+              - tls-1.1
+              - tls-1.2
+              - tls-1.3
+              - ssl-3.0
+              - tls-1.0
+              - tls-1.1
+              - tls-1.2
+              - tls-1.3
+              - ssl-3.0
+              - tls-1.0
+              - tls-1.1
+              - tls-1.2
+              - tls-1.3
+              - ssl-3.0
+              - tls-1.0
+              - tls-1.1
+              - tls-1.2
+              - tls-1.3
+              - ssl-3.0
+              - tls-1.0
+              - tls-1.1
+              - tls-1.2
+              - tls-1.3
+              - ssl-3.0
+              - tls-1.0
+              - tls-1.1
+              - tls-1.2
+              - tls-1.3
+              - ssl-3.0
+              - tls-1.0
+              - tls-1.1
+              - tls-1.2
+              - tls-1.3
+              - ssl-3.0
+              - tls-1.0
+              - tls-1.1
+              - tls-1.2
+              - tls-1.3
+              - ssl-3.0
+              - tls-1.0
+              - tls-1.1
+              - tls-1.2
+              - tls-1.3
+              - ssl-3.0
+              - tls-1.0
+              - tls-1.1
+              - tls-1.2
+              - tls-1.3
+              - ssl-3.0
+              - tls-1.0
+              - tls-1.1
+              - tls-1.2
+              - tls-1.3
+              - ssl-3.0
+              - tls-1.0
+              - tls-1.1
+              - tls-1.2
+              - tls-1.3
+              - ssl-3.0
+              - tls-1.0
+              - tls-1.1
+              - tls-1.2
+              - tls-1.3
+              - ssl-3.0
+              - tls-1.0
+              - tls-1.1
+              - tls-1.2
+              - tls-1.3
+              - ssl-3.0
+              - tls-1.0
+              - tls-1.1
+              - tls-1.2
+              - tls-1.3
+              - ssl-3.0
+              - tls-1.0
+              - tls-1.1
+              - tls-1.2
+              - tls-1.3
+              - ssl-3.0
+              - tls-1.0
+              - tls-1.1
+              - tls-1.2
+              - tls-1.3
+              - ssl-3.0
+              - tls-1.0
+              - tls-1.1
+              - tls-1.2
+              - tls-1.3
+              - ssl-3.0
+              - tls-1.0
+              - tls-1.1
+              - tls-1.2
+              - tls-1.3
+              - ssl-3.0
+              - tls-1.0
+              - tls-1.1
+              - tls-1.2
+              - tls-1.3
+              - ssl-3.0
+              - tls-1.0
+              - tls-1.1
+              - tls-1.2
+              - tls-1.3
+              - ssl-3.0
+              - tls-1.0
+              - tls-1.1
+              - tls-1.2
+              - tls-1.3
+              - ssl-3.0
+              - tls-1.0
+              - tls-1.1
+              - tls-1.2
+              - tls-1.3
+              - ssl-3.0
+              - tls-1.0
+              - tls-1.1
+              - tls-1.2
+              - tls-1.3
+              - ssl-3.0
+              - tls-1.0
+              - tls-1.1
+              - tls-1.2
+              - tls-1.3
+              - ssl-3.0
+              - tls-1.0
+              - tls-1.1
+              - tls-1.2
+              - tls-1.3
+              - ssl-3.0
+              - tls-1.0
+              - tls-1.1
+              - tls-1.2
+              - tls-1.3
+              - ssl-3.0
+              - tls-1.0
+              - tls-1.1
+              - tls-1.2
+              - tls-1.3
+              - ssl-3.0
+              - tls-1.0
+              - tls-1.1
+              - tls-1.2
+              - tls-1.3
+              - ssl-3.0
+              - tls-1.0
+              - tls-1.1
+              - tls-1.2
+              - tls-1.3
+              - ssl-3.0
+              - tls-1.0
+              - tls-1.1
+              - tls-1.2
+              - tls-1.3
+              - ssl-3.0
+              - tls-1.0
+              - tls-1.1
+              - tls-1.2
+              - tls-1.3
+              - ssl-3.0
+              - tls-1.0
+              - tls-1.1
+              - tls-1.2
+              - tls-1.3
+              - ssl-3.0
+              - tls-1.0
+              - tls-1.1
+              - tls-1.2
+              - tls-1.3
+              - ssl-3.0
+              - tls-1.0
+              - tls-1.1
+              - tls-1.2
+              - tls-1.3
+              - ssl-3.0
+              - tls-1.0
+              - tls-1.1
+              - tls-1.2
+              - tls-1.3
+              - ssl-3.0
+              - tls-1.0
+              - tls-1.1
+              - tls-1.2
+              - tls-1.3
+              - ssl-3.0
+              - tls-1.0
+              - tls-1.1
+              - tls-1.2
+              - tls-1.3
+              - ssl-3.0
+              - tls-1.0
+              - tls-1.1
+              - tls-1.2
+              - tls-1.3
+              - ssl-3.0
+              - tls-1.0
+              - tls-1.1
+              - tls-1.2
+              - tls-1.3
+              - ssl-3.0
+              - tls-1.0
+              - tls-1.1
+              - tls-1.2
+              - tls-1.3
+              - ssl-3.0
+              - tls-1.0
+              - tls-1.1
+              - tls-1.2
+              - tls-1.3
+              - ssl-3.0
+              - tls-1.0
+              - tls-1.1
+              - tls-1.2
+              - tls-1.3
+              - ssl-3.0
+              - tls-1.0
+              - tls-1.1
+              - tls-1.2
+              - tls-1.3
+              - ssl-3.0
+              - tls-1.0
+              - tls-1.1
+              - tls-1.2
+              - tls-1.3
+              - ssl-3.0
+              - tls-1.0
+              - tls-1.1
+              - tls-1.2
+              - tls-1.3
+              - ssl-3.0
+              - tls-1.0
+              - tls-1.1
+              - tls-1.2
+              - tls-1.3
+              - ssl-3.0
+              - tls-1.0
+              - tls-1.1
+              - tls-1.2
+              - tls-1.3
+              - ssl-3.0
+              - tls-1.0
+              - tls-1.1
+              - tls-1.2
+              - tls-1.3
+              - ssl-3.0
+              - tls-1.0
+              - tls-1.1
+              - tls-1.2
+              - tls-1.3
+              - ssl-3.0
+              - tls-1.0
+              - tls-1.1
+              - tls-1.2
+              - tls-1.3
+              - ssl-3.0
+              - tls-1.0
+              - tls-1.1
+              - tls-1.2
+              - tls-1.3
+              - ssl-3.0
+              - tls-1.0
+              - tls-1.1
+              - tls-1.2
+              - tls-1.3
+              - ssl-3.0
+              - tls-1.0
+              - tls-1.1
+              - tls-1.2
+              - tls-1.3
+              - ssl-3.0
+              - tls-1.0
+              - tls-1.1
+              - tls-1.2
+              - tls-1.3
+              - ssl-3.0
+              - tls-1.0
+              - tls-1.1
+              - tls-1.2
+              - tls-1.3
+              - ssl-3.0
+              - tls-1.0
+              - tls-1.1
+              - tls-1.2
+              - tls-1.3
+              - ssl-3.0
+              - tls-1.0
+              - tls-1.1
+              - tls-1.2
+              - tls-1.3
+              - ssl-3.0
+              - tls-1.0
+              - tls-1.1
+              - tls-1.2
+              - tls-1.3
+              - ssl-3.0
+              - tls-1.0
+              - tls-1.1
+              - tls-1.2
+              - tls-1.3
+              - ssl-3.0
+              - tls-1.0
+              - tls-1.1
+              - tls-1.2
+              - tls-1.3
+              - ssl-3.0
+              - tls-1.0
+              - tls-1.1
+              - tls-1.2
+              - tls-1.3
+              - ssl-3.0
+              - tls-1.0
+              - tls-1.1
+              - tls-1.2
+              - tls-1.3
+              - ssl-3.0
+              - tls-1.0
+              - tls-1.1
+              - tls-1.2
+              - tls-1.3
+              - ssl-3.0
+              - tls-1.0
+              - tls-1.1
+              - tls-1.2
+              - tls-1.3
+              - ssl-3.0
+              - tls-1.0
+              - tls-1.1
+              - tls-1.2
+              - tls-1.3
+              - ssl-3.0
+              - tls-1.0
+              - tls-1.1
+              - tls-1.2
+              - tls-1.3
+            priority: <value of integer>
 
 '''
 
@@ -312,6 +1789,16 @@ def main():
             'options': {
                 'cipher': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'TLS-RSA-WITH-RC4-128-MD5',
                         'TLS-RSA-WITH-RC4-128-SHA',
@@ -379,23 +1866,791 @@ def main():
                         'TLS-ECDHE-ECDSA-WITH-ARIA-128-CBC-SHA256',
                         'TLS-ECDHE-ECDSA-WITH-ARIA-256-CBC-SHA384',
                         'TLS-DHE-DSS-WITH-3DES-EDE-CBC-SHA',
-                        'TLS-DHE-DSS-WITH-DES-CBC-SHA'
+                        'TLS-DHE-DSS-WITH-DES-CBC-SHA',
+                        'TLS-AES-128-GCM-SHA256',
+                        'TLS-AES-256-GCM-SHA384',
+                        'TLS-CHACHA20-POLY1305-SHA256'
                     ],
                     'type': 'str'
                 },
                 'id': {
                     'required': True,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': False,
+                        '6.4.2': False,
+                        '6.4.5': False,
+                        '7.0.0': False
+                    },
                     'type': 'int'
                 },
                 'versions': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'list',
                     'choices': [
                         'ssl-3.0',
                         'tls-1.0',
                         'tls-1.1',
-                        'tls-1.2'
+                        'tls-1.2',
+                        'ssl-3.0',
+                        'tls-1.0',
+                        'tls-1.1',
+                        'tls-1.2',
+                        'tls-1.3',
+                        'ssl-3.0',
+                        'tls-1.0',
+                        'tls-1.1',
+                        'tls-1.2',
+                        'tls-1.3',
+                        'ssl-3.0',
+                        'tls-1.0',
+                        'tls-1.1',
+                        'tls-1.2',
+                        'tls-1.3',
+                        'ssl-3.0',
+                        'tls-1.0',
+                        'tls-1.1',
+                        'tls-1.2',
+                        'tls-1.3',
+                        'ssl-3.0',
+                        'tls-1.0',
+                        'tls-1.1',
+                        'tls-1.2',
+                        'tls-1.3',
+                        'ssl-3.0',
+                        'tls-1.0',
+                        'tls-1.1',
+                        'tls-1.2',
+                        'tls-1.3',
+                        'ssl-3.0',
+                        'tls-1.0',
+                        'tls-1.1',
+                        'tls-1.2',
+                        'tls-1.3',
+                        'ssl-3.0',
+                        'tls-1.0',
+                        'tls-1.1',
+                        'tls-1.2',
+                        'tls-1.3',
+                        'ssl-3.0',
+                        'tls-1.0',
+                        'tls-1.1',
+                        'tls-1.2',
+                        'tls-1.3',
+                        'ssl-3.0',
+                        'tls-1.0',
+                        'tls-1.1',
+                        'tls-1.2',
+                        'tls-1.3',
+                        'ssl-3.0',
+                        'tls-1.0',
+                        'tls-1.1',
+                        'tls-1.2',
+                        'tls-1.3',
+                        'ssl-3.0',
+                        'tls-1.0',
+                        'tls-1.1',
+                        'tls-1.2',
+                        'tls-1.3',
+                        'ssl-3.0',
+                        'tls-1.0',
+                        'tls-1.1',
+                        'tls-1.2',
+                        'tls-1.3',
+                        'ssl-3.0',
+                        'tls-1.0',
+                        'tls-1.1',
+                        'tls-1.2',
+                        'tls-1.3',
+                        'ssl-3.0',
+                        'tls-1.0',
+                        'tls-1.1',
+                        'tls-1.2',
+                        'tls-1.3',
+                        'ssl-3.0',
+                        'tls-1.0',
+                        'tls-1.1',
+                        'tls-1.2',
+                        'tls-1.3',
+                        'ssl-3.0',
+                        'tls-1.0',
+                        'tls-1.1',
+                        'tls-1.2',
+                        'tls-1.3',
+                        'ssl-3.0',
+                        'tls-1.0',
+                        'tls-1.1',
+                        'tls-1.2',
+                        'tls-1.3',
+                        'ssl-3.0',
+                        'tls-1.0',
+                        'tls-1.1',
+                        'tls-1.2',
+                        'tls-1.3',
+                        'ssl-3.0',
+                        'tls-1.0',
+                        'tls-1.1',
+                        'tls-1.2',
+                        'tls-1.3',
+                        'ssl-3.0',
+                        'tls-1.0',
+                        'tls-1.1',
+                        'tls-1.2',
+                        'tls-1.3',
+                        'ssl-3.0',
+                        'tls-1.0',
+                        'tls-1.1',
+                        'tls-1.2',
+                        'tls-1.3',
+                        'ssl-3.0',
+                        'tls-1.0',
+                        'tls-1.1',
+                        'tls-1.2',
+                        'tls-1.3',
+                        'ssl-3.0',
+                        'tls-1.0',
+                        'tls-1.1',
+                        'tls-1.2',
+                        'tls-1.3',
+                        'ssl-3.0',
+                        'tls-1.0',
+                        'tls-1.1',
+                        'tls-1.2',
+                        'tls-1.3',
+                        'ssl-3.0',
+                        'tls-1.0',
+                        'tls-1.1',
+                        'tls-1.2',
+                        'tls-1.3',
+                        'ssl-3.0',
+                        'tls-1.0',
+                        'tls-1.1',
+                        'tls-1.2',
+                        'tls-1.3',
+                        'ssl-3.0',
+                        'tls-1.0',
+                        'tls-1.1',
+                        'tls-1.2',
+                        'tls-1.3',
+                        'ssl-3.0',
+                        'tls-1.0',
+                        'tls-1.1',
+                        'tls-1.2',
+                        'tls-1.3',
+                        'ssl-3.0',
+                        'tls-1.0',
+                        'tls-1.1',
+                        'tls-1.2',
+                        'tls-1.3',
+                        'ssl-3.0',
+                        'tls-1.0',
+                        'tls-1.1',
+                        'tls-1.2',
+                        'tls-1.3',
+                        'ssl-3.0',
+                        'tls-1.0',
+                        'tls-1.1',
+                        'tls-1.2',
+                        'tls-1.3',
+                        'ssl-3.0',
+                        'tls-1.0',
+                        'tls-1.1',
+                        'tls-1.2',
+                        'tls-1.3',
+                        'ssl-3.0',
+                        'tls-1.0',
+                        'tls-1.1',
+                        'tls-1.2',
+                        'tls-1.3',
+                        'ssl-3.0',
+                        'tls-1.0',
+                        'tls-1.1',
+                        'tls-1.2',
+                        'tls-1.3',
+                        'ssl-3.0',
+                        'tls-1.0',
+                        'tls-1.1',
+                        'tls-1.2',
+                        'tls-1.3',
+                        'ssl-3.0',
+                        'tls-1.0',
+                        'tls-1.1',
+                        'tls-1.2',
+                        'tls-1.3',
+                        'ssl-3.0',
+                        'tls-1.0',
+                        'tls-1.1',
+                        'tls-1.2',
+                        'tls-1.3',
+                        'ssl-3.0',
+                        'tls-1.0',
+                        'tls-1.1',
+                        'tls-1.2',
+                        'tls-1.3',
+                        'ssl-3.0',
+                        'tls-1.0',
+                        'tls-1.1',
+                        'tls-1.2',
+                        'tls-1.3',
+                        'ssl-3.0',
+                        'tls-1.0',
+                        'tls-1.1',
+                        'tls-1.2',
+                        'tls-1.3',
+                        'ssl-3.0',
+                        'tls-1.0',
+                        'tls-1.1',
+                        'tls-1.2',
+                        'tls-1.3',
+                        'ssl-3.0',
+                        'tls-1.0',
+                        'tls-1.1',
+                        'tls-1.2',
+                        'tls-1.3',
+                        'ssl-3.0',
+                        'tls-1.0',
+                        'tls-1.1',
+                        'tls-1.2',
+                        'tls-1.3',
+                        'ssl-3.0',
+                        'tls-1.0',
+                        'tls-1.1',
+                        'tls-1.2',
+                        'tls-1.3',
+                        'ssl-3.0',
+                        'tls-1.0',
+                        'tls-1.1',
+                        'tls-1.2',
+                        'tls-1.3',
+                        'ssl-3.0',
+                        'tls-1.0',
+                        'tls-1.1',
+                        'tls-1.2',
+                        'tls-1.3',
+                        'ssl-3.0',
+                        'tls-1.0',
+                        'tls-1.1',
+                        'tls-1.2',
+                        'tls-1.3',
+                        'ssl-3.0',
+                        'tls-1.0',
+                        'tls-1.1',
+                        'tls-1.2',
+                        'tls-1.3',
+                        'ssl-3.0',
+                        'tls-1.0',
+                        'tls-1.1',
+                        'tls-1.2',
+                        'tls-1.3',
+                        'ssl-3.0',
+                        'tls-1.0',
+                        'tls-1.1',
+                        'tls-1.2',
+                        'tls-1.3',
+                        'ssl-3.0',
+                        'tls-1.0',
+                        'tls-1.1',
+                        'tls-1.2',
+                        'tls-1.3',
+                        'ssl-3.0',
+                        'tls-1.0',
+                        'tls-1.1',
+                        'tls-1.2',
+                        'tls-1.3',
+                        'ssl-3.0',
+                        'tls-1.0',
+                        'tls-1.1',
+                        'tls-1.2',
+                        'tls-1.3',
+                        'ssl-3.0',
+                        'tls-1.0',
+                        'tls-1.1',
+                        'tls-1.2',
+                        'tls-1.3',
+                        'ssl-3.0',
+                        'tls-1.0',
+                        'tls-1.1',
+                        'tls-1.2',
+                        'tls-1.3',
+                        'ssl-3.0',
+                        'tls-1.0',
+                        'tls-1.1',
+                        'tls-1.2',
+                        'tls-1.3',
+                        'ssl-3.0',
+                        'tls-1.0',
+                        'tls-1.1',
+                        'tls-1.2',
+                        'tls-1.3',
+                        'ssl-3.0',
+                        'tls-1.0',
+                        'tls-1.1',
+                        'tls-1.2',
+                        'tls-1.3',
+                        'ssl-3.0',
+                        'tls-1.0',
+                        'tls-1.1',
+                        'tls-1.2',
+                        'tls-1.3',
+                        'ssl-3.0',
+                        'tls-1.0',
+                        'tls-1.1',
+                        'tls-1.2',
+                        'tls-1.3',
+                        'ssl-3.0',
+                        'tls-1.0',
+                        'tls-1.1',
+                        'tls-1.2',
+                        'tls-1.3',
+                        'ssl-3.0',
+                        'tls-1.0',
+                        'tls-1.1',
+                        'tls-1.2',
+                        'tls-1.3',
+                        'ssl-3.0',
+                        'tls-1.0',
+                        'tls-1.1',
+                        'tls-1.2',
+                        'tls-1.3',
+                        'ssl-3.0',
+                        'tls-1.0',
+                        'tls-1.1',
+                        'tls-1.2',
+                        'tls-1.3',
+                        'ssl-3.0',
+                        'tls-1.0',
+                        'tls-1.1',
+                        'tls-1.2',
+                        'tls-1.3',
+                        'ssl-3.0',
+                        'tls-1.0',
+                        'tls-1.1',
+                        'tls-1.2',
+                        'tls-1.3',
+                        'ssl-3.0',
+                        'tls-1.0',
+                        'tls-1.1',
+                        'tls-1.2',
+                        'tls-1.3',
+                        'ssl-3.0',
+                        'tls-1.0',
+                        'tls-1.1',
+                        'tls-1.2',
+                        'tls-1.3',
+                        'ssl-3.0',
+                        'tls-1.0',
+                        'tls-1.1',
+                        'tls-1.2',
+                        'tls-1.3',
+                        'ssl-3.0',
+                        'tls-1.0',
+                        'tls-1.1',
+                        'tls-1.2',
+                        'tls-1.3',
+                        'ssl-3.0',
+                        'tls-1.0',
+                        'tls-1.1',
+                        'tls-1.2',
+                        'tls-1.3',
+                        'ssl-3.0',
+                        'tls-1.0',
+                        'tls-1.1',
+                        'tls-1.2',
+                        'tls-1.3',
+                        'ssl-3.0',
+                        'tls-1.0',
+                        'tls-1.1',
+                        'tls-1.2',
+                        'tls-1.3',
+                        'ssl-3.0',
+                        'tls-1.0',
+                        'tls-1.1',
+                        'tls-1.2',
+                        'tls-1.3',
+                        'ssl-3.0',
+                        'tls-1.0',
+                        'tls-1.1',
+                        'tls-1.2',
+                        'tls-1.3',
+                        'ssl-3.0',
+                        'tls-1.0',
+                        'tls-1.1',
+                        'tls-1.2',
+                        'tls-1.3',
+                        'ssl-3.0',
+                        'tls-1.0',
+                        'tls-1.1',
+                        'tls-1.2',
+                        'tls-1.3',
+                        'ssl-3.0',
+                        'tls-1.0',
+                        'tls-1.1',
+                        'tls-1.2',
+                        'tls-1.3',
+                        'ssl-3.0',
+                        'tls-1.0',
+                        'tls-1.1',
+                        'tls-1.2',
+                        'tls-1.3',
+                        'ssl-3.0',
+                        'tls-1.0',
+                        'tls-1.1',
+                        'tls-1.2',
+                        'tls-1.3',
+                        'ssl-3.0',
+                        'tls-1.0',
+                        'tls-1.1',
+                        'tls-1.2',
+                        'tls-1.3',
+                        'ssl-3.0',
+                        'tls-1.0',
+                        'tls-1.1',
+                        'tls-1.2',
+                        'tls-1.3',
+                        'ssl-3.0',
+                        'tls-1.0',
+                        'tls-1.1',
+                        'tls-1.2',
+                        'tls-1.3',
+                        'ssl-3.0',
+                        'tls-1.0',
+                        'tls-1.1',
+                        'tls-1.2',
+                        'tls-1.3',
+                        'ssl-3.0',
+                        'tls-1.0',
+                        'tls-1.1',
+                        'tls-1.2',
+                        'tls-1.3',
+                        'ssl-3.0',
+                        'tls-1.0',
+                        'tls-1.1',
+                        'tls-1.2',
+                        'tls-1.3',
+                        'ssl-3.0',
+                        'tls-1.0',
+                        'tls-1.1',
+                        'tls-1.2',
+                        'tls-1.3',
+                        'ssl-3.0',
+                        'tls-1.0',
+                        'tls-1.1',
+                        'tls-1.2',
+                        'tls-1.3',
+                        'ssl-3.0',
+                        'tls-1.0',
+                        'tls-1.1',
+                        'tls-1.2',
+                        'tls-1.3',
+                        'ssl-3.0',
+                        'tls-1.0',
+                        'tls-1.1',
+                        'tls-1.2',
+                        'tls-1.3',
+                        'ssl-3.0',
+                        'tls-1.0',
+                        'tls-1.1',
+                        'tls-1.2',
+                        'tls-1.3',
+                        'ssl-3.0',
+                        'tls-1.0',
+                        'tls-1.1',
+                        'tls-1.2',
+                        'tls-1.3',
+                        'ssl-3.0',
+                        'tls-1.0',
+                        'tls-1.1',
+                        'tls-1.2',
+                        'tls-1.3',
+                        'ssl-3.0',
+                        'tls-1.0',
+                        'tls-1.1',
+                        'tls-1.2',
+                        'tls-1.3',
+                        'ssl-3.0',
+                        'tls-1.0',
+                        'tls-1.1',
+                        'tls-1.2',
+                        'tls-1.3',
+                        'ssl-3.0',
+                        'tls-1.0',
+                        'tls-1.1',
+                        'tls-1.2',
+                        'tls-1.3',
+                        'ssl-3.0',
+                        'tls-1.0',
+                        'tls-1.1',
+                        'tls-1.2',
+                        'tls-1.3',
+                        'ssl-3.0',
+                        'tls-1.0',
+                        'tls-1.1',
+                        'tls-1.2',
+                        'tls-1.3',
+                        'ssl-3.0',
+                        'tls-1.0',
+                        'tls-1.1',
+                        'tls-1.2',
+                        'tls-1.3',
+                        'ssl-3.0',
+                        'tls-1.0',
+                        'tls-1.1',
+                        'tls-1.2',
+                        'tls-1.3',
+                        'ssl-3.0',
+                        'tls-1.0',
+                        'tls-1.1',
+                        'tls-1.2',
+                        'tls-1.3',
+                        'ssl-3.0',
+                        'tls-1.0',
+                        'tls-1.1',
+                        'tls-1.2',
+                        'tls-1.3',
+                        'ssl-3.0',
+                        'tls-1.0',
+                        'tls-1.1',
+                        'tls-1.2',
+                        'tls-1.3',
+                        'ssl-3.0',
+                        'tls-1.0',
+                        'tls-1.1',
+                        'tls-1.2',
+                        'tls-1.3',
+                        'ssl-3.0',
+                        'tls-1.0',
+                        'tls-1.1',
+                        'tls-1.2',
+                        'tls-1.3',
+                        'ssl-3.0',
+                        'tls-1.0',
+                        'tls-1.1',
+                        'tls-1.2',
+                        'tls-1.3',
+                        'ssl-3.0',
+                        'tls-1.0',
+                        'tls-1.1',
+                        'tls-1.2',
+                        'tls-1.3',
+                        'ssl-3.0',
+                        'tls-1.0',
+                        'tls-1.1',
+                        'tls-1.2',
+                        'tls-1.3',
+                        'ssl-3.0',
+                        'tls-1.0',
+                        'tls-1.1',
+                        'tls-1.2',
+                        'tls-1.3',
+                        'ssl-3.0',
+                        'tls-1.0',
+                        'tls-1.1',
+                        'tls-1.2',
+                        'tls-1.3',
+                        'ssl-3.0',
+                        'tls-1.0',
+                        'tls-1.1',
+                        'tls-1.2',
+                        'tls-1.3',
+                        'ssl-3.0',
+                        'tls-1.0',
+                        'tls-1.1',
+                        'tls-1.2',
+                        'tls-1.3',
+                        'ssl-3.0',
+                        'tls-1.0',
+                        'tls-1.1',
+                        'tls-1.2',
+                        'tls-1.3',
+                        'ssl-3.0',
+                        'tls-1.0',
+                        'tls-1.1',
+                        'tls-1.2',
+                        'tls-1.3',
+                        'ssl-3.0',
+                        'tls-1.0',
+                        'tls-1.1',
+                        'tls-1.2',
+                        'tls-1.3',
+                        'ssl-3.0',
+                        'tls-1.0',
+                        'tls-1.1',
+                        'tls-1.2',
+                        'tls-1.3',
+                        'ssl-3.0',
+                        'tls-1.0',
+                        'tls-1.1',
+                        'tls-1.2',
+                        'tls-1.3',
+                        'ssl-3.0',
+                        'tls-1.0',
+                        'tls-1.1',
+                        'tls-1.2',
+                        'tls-1.3',
+                        'ssl-3.0',
+                        'tls-1.0',
+                        'tls-1.1',
+                        'tls-1.2',
+                        'tls-1.3',
+                        'ssl-3.0',
+                        'tls-1.0',
+                        'tls-1.1',
+                        'tls-1.2',
+                        'tls-1.3',
+                        'ssl-3.0',
+                        'tls-1.0',
+                        'tls-1.1',
+                        'tls-1.2',
+                        'tls-1.3',
+                        'ssl-3.0',
+                        'tls-1.0',
+                        'tls-1.1',
+                        'tls-1.2',
+                        'tls-1.3',
+                        'ssl-3.0',
+                        'tls-1.0',
+                        'tls-1.1',
+                        'tls-1.2',
+                        'tls-1.3',
+                        'ssl-3.0',
+                        'tls-1.0',
+                        'tls-1.1',
+                        'tls-1.2',
+                        'tls-1.3',
+                        'ssl-3.0',
+                        'tls-1.0',
+                        'tls-1.1',
+                        'tls-1.2',
+                        'tls-1.3',
+                        'ssl-3.0',
+                        'tls-1.0',
+                        'tls-1.1',
+                        'tls-1.2',
+                        'tls-1.3',
+                        'ssl-3.0',
+                        'tls-1.0',
+                        'tls-1.1',
+                        'tls-1.2',
+                        'tls-1.3',
+                        'ssl-3.0',
+                        'tls-1.0',
+                        'tls-1.1',
+                        'tls-1.2',
+                        'tls-1.3',
+                        'ssl-3.0',
+                        'tls-1.0',
+                        'tls-1.1',
+                        'tls-1.2',
+                        'tls-1.3',
+                        'ssl-3.0',
+                        'tls-1.0',
+                        'tls-1.1',
+                        'tls-1.2',
+                        'tls-1.3',
+                        'ssl-3.0',
+                        'tls-1.0',
+                        'tls-1.1',
+                        'tls-1.2',
+                        'tls-1.3',
+                        'ssl-3.0',
+                        'tls-1.0',
+                        'tls-1.1',
+                        'tls-1.2',
+                        'tls-1.3',
+                        'ssl-3.0',
+                        'tls-1.0',
+                        'tls-1.1',
+                        'tls-1.2',
+                        'tls-1.3',
+                        'ssl-3.0',
+                        'tls-1.0',
+                        'tls-1.1',
+                        'tls-1.2',
+                        'tls-1.3',
+                        'ssl-3.0',
+                        'tls-1.0',
+                        'tls-1.1',
+                        'tls-1.2',
+                        'tls-1.3',
+                        'ssl-3.0',
+                        'tls-1.0',
+                        'tls-1.1',
+                        'tls-1.2',
+                        'tls-1.3',
+                        'ssl-3.0',
+                        'tls-1.0',
+                        'tls-1.1',
+                        'tls-1.2',
+                        'tls-1.3',
+                        'ssl-3.0',
+                        'tls-1.0',
+                        'tls-1.1',
+                        'tls-1.2',
+                        'tls-1.3',
+                        'ssl-3.0',
+                        'tls-1.0',
+                        'tls-1.1',
+                        'tls-1.2',
+                        'tls-1.3',
+                        'ssl-3.0',
+                        'tls-1.0',
+                        'tls-1.1',
+                        'tls-1.2',
+                        'tls-1.3',
+                        'ssl-3.0',
+                        'tls-1.0',
+                        'tls-1.1',
+                        'tls-1.2',
+                        'tls-1.3',
+                        'ssl-3.0',
+                        'tls-1.0',
+                        'tls-1.1',
+                        'tls-1.2',
+                        'tls-1.3',
+                        'ssl-3.0',
+                        'tls-1.0',
+                        'tls-1.1',
+                        'tls-1.2',
+                        'tls-1.3',
+                        'ssl-3.0',
+                        'tls-1.0',
+                        'tls-1.1',
+                        'tls-1.2',
+                        'tls-1.3',
+                        'ssl-3.0',
+                        'tls-1.0',
+                        'tls-1.1',
+                        'tls-1.2',
+                        'tls-1.3',
+                        'ssl-3.0',
+                        'tls-1.0',
+                        'tls-1.1',
+                        'tls-1.2',
+                        'tls-1.3'
                     ]
+                },
+                'priority': {
+                    'required': False,
+                    'revision': {
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'type': 'int'
                 }
             }
 

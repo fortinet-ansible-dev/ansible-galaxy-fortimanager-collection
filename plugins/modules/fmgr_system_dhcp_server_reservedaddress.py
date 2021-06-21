@@ -118,6 +118,30 @@ options:
             mac:
                 type: str
                 description: 'MAC address of the client that will get the reserved IP address.'
+            circuit-id:
+                type: str
+                description: 'Option 82 circuit-ID of the client that will get the reserved IP address.'
+            circuit-id-type:
+                type: str
+                description: 'DHCP option type.'
+                choices:
+                    - 'hex'
+                    - 'string'
+            remote-id:
+                type: str
+                description: 'Option 82 remote-ID of the client that will get the reserved IP address.'
+            remote-id-type:
+                type: str
+                description: 'DHCP option type.'
+                choices:
+                    - 'hex'
+                    - 'string'
+            type:
+                type: str
+                description: 'DHCP reserved-address type.'
+                choices:
+                    - 'mac'
+                    - 'option82'
 
 '''
 
@@ -147,6 +171,11 @@ EXAMPLES = '''
             id: <value of integer>
             ip: <value of string>
             mac: <value of string>
+            circuit-id: <value of string>
+            circuit-id-type: <value in [hex, string]>
+            remote-id: <value of string>
+            remote-id-type: <value in [hex, string]>
+            type: <value in [mac, option82]>
 
 '''
 
@@ -247,6 +276,16 @@ def main():
             'options': {
                 'action': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'assign',
                         'block',
@@ -256,18 +295,135 @@ def main():
                 },
                 'description': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'id': {
                     'required': True,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'ip': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'mac': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'type': 'str'
+                },
+                'circuit-id': {
+                    'required': False,
+                    'revision': {
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'type': 'str'
+                },
+                'circuit-id-type': {
+                    'required': False,
+                    'revision': {
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'choices': [
+                        'hex',
+                        'string'
+                    ],
+                    'type': 'str'
+                },
+                'remote-id': {
+                    'required': False,
+                    'revision': {
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'type': 'str'
+                },
+                'remote-id-type': {
+                    'required': False,
+                    'revision': {
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'choices': [
+                        'hex',
+                        'string'
+                    ],
+                    'type': 'str'
+                },
+                'type': {
+                    'required': False,
+                    'revision': {
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'choices': [
+                        'mac',
+                        'option82'
+                    ],
                     'type': 'str'
                 }
             }

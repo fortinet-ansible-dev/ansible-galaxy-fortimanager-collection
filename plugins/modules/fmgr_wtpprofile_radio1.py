@@ -178,6 +178,15 @@ options:
                     - '802.11ac-only'
                     - '802.11ac,n-only'
                     - '802.11n-5G-only'
+                    - '802.11ax-5G'
+                    - '802.11ax'
+                    - '802.11ax-5G-only'
+                    - '802.11ax,ac-only'
+                    - '802.11ax,ac,n-only'
+                    - '802.11ax-only'
+                    - '802.11ax,n-only'
+                    - '802.11ax,n,g-only'
+                    - '802.11ac-2G'
             bandwidth-admission-control:
                 type: str
                 description: 'Enable/disable WiFi multimedia (WMM) bandwidth admission control to optimize WiFi bandwidth use. A request to join the wireles...'
@@ -211,6 +220,7 @@ options:
                     - '80MHz'
                     - '40MHz'
                     - '20MHz'
+                    - '160MHz'
             channel-utilization:
                 type: str
                 description: 'Enable/disable measuring channel utilization.'
@@ -255,6 +265,7 @@ options:
                     - 'ap'
                     - 'monitor'
                     - 'sniffer'
+                    - 'sam'
             power-level:
                 type: int
                 description: 'Radio power level as a percentage of the maximum transmit power (0 - 100, default = 100).'
@@ -292,6 +303,7 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
+                    - 'scan-only'
             transmit-optimize:
                 description: no description
                 type: list
@@ -307,12 +319,132 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
+                    - 'tunnel'
+                    - 'bridge'
+                    - 'manual'
             vaps:
                 type: str
                 description: 'Manually selected list of Virtual Access Points (VAPs).'
             wids-profile:
                 type: str
                 description: 'Wireless Intrusion Detection System (WIDS) profile name to assign to the radio.'
+            airtime-fairness:
+                type: str
+                description: 'Enable/disable airtime fairness (default = disable).'
+                choices:
+                    - 'disable'
+                    - 'enable'
+            band-5g-type:
+                type: str
+                description: 'WiFi 5G band type.'
+                choices:
+                    - '5g-full'
+                    - '5g-high'
+                    - '5g-low'
+            zero-wait-dfs:
+                type: str
+                description: 'Enable/disable zero wait DFS on radio (default = enable).'
+                choices:
+                    - 'disable'
+                    - 'enable'
+            vap1:
+                type: str
+                description: 'Virtual Access Point (VAP) for wlan ID 1'
+            vap2:
+                type: str
+                description: 'Virtual Access Point (VAP) for wlan ID 2'
+            vap3:
+                type: str
+                description: 'Virtual Access Point (VAP) for wlan ID 3'
+            vap4:
+                type: str
+                description: 'Virtual Access Point (VAP) for wlan ID 4'
+            vap5:
+                type: str
+                description: 'Virtual Access Point (VAP) for wlan ID 5'
+            vap6:
+                type: str
+                description: 'Virtual Access Point (VAP) for wlan ID 6'
+            vap7:
+                type: str
+                description: 'Virtual Access Point (VAP) for wlan ID 7'
+            vap8:
+                type: str
+                description: 'Virtual Access Point (VAP) for wlan ID 8'
+            bss-color:
+                type: int
+                description: 'BSS color value for this 11ax radio (0 - 63, 0 means disable. default = 0).'
+            auto-power-target:
+                type: str
+                description: 'The target of automatic transmit power adjustment in dBm. (-95 to -20, default = -70).'
+            drma:
+                type: str
+                description: 'Enable/disable dynamic radio mode assignment (DRMA) (default = disable).'
+                choices:
+                    - 'disable'
+                    - 'enable'
+            drma-sensitivity:
+                type: str
+                description: 'Network Coverage Factor (NCF) percentage required to consider a radio as redundant (default = low).'
+                choices:
+                    - 'low'
+                    - 'medium'
+                    - 'high'
+            iperf-protocol:
+                type: str
+                description: 'Iperf test protocol (default = "UDP").'
+                choices:
+                    - 'udp'
+                    - 'tcp'
+            iperf-server-port:
+                type: int
+                description: 'Iperf service port number.'
+            power-mode:
+                type: str
+                description: 'Set radio effective isotropic radiated power (EIRP) in dBm or by a percentage of the maximum EIRP (default = percentage). This...'
+                choices:
+                    - 'dBm'
+                    - 'percentage'
+            power-value:
+                type: int
+                description: 'Radio EIRP power in dBm (1 - 33, default = 27).'
+            sam-bssid:
+                type: str
+                description: 'BSSID for WiFi network.'
+            sam-captive-portal:
+                type: str
+                description: 'Enable/disable Captive Portal Authentication (default = disable).'
+                choices:
+                    - 'disable'
+                    - 'enable'
+            sam-password:
+                description: no description
+                type: str
+            sam-report-intv:
+                type: int
+                description: 'SAM report interval (sec), 0 for a one-time report.'
+            sam-security-type:
+                type: str
+                description: 'Select WiFi network security type (default = "wpa-personal").'
+                choices:
+                    - 'open'
+                    - 'wpa-personal'
+                    - 'wpa-enterprise'
+            sam-server:
+                type: str
+                description: 'SAM test server IP address or domain name.'
+            sam-ssid:
+                type: str
+                description: 'SSID for WiFi network.'
+            sam-test:
+                type: str
+                description: 'Select SAM test type (default = "PING").'
+                choices:
+                    - 'ping'
+                    - 'iperf'
+            sam-username:
+                type: str
+                description: 'Username for WiFi network connection.'
 
 '''
 
@@ -377,16 +509,44 @@ EXAMPLES = '''
             radio-id: <value of integer>
             rts-threshold: <value of integer>
             short-guard-interval: <value in [disable, enable]>
-            spectrum-analysis: <value in [disable, enable]>
+            spectrum-analysis: <value in [disable, enable, scan-only]>
             transmit-optimize:
               - disable
               - power-save
               - aggr-limit
               - retry-limit
               - send-bar
-            vap-all: <value in [disable, enable]>
+            vap-all: <value in [disable, enable, tunnel, ...]>
             vaps: <value of string>
             wids-profile: <value of string>
+            airtime-fairness: <value in [disable, enable]>
+            band-5g-type: <value in [5g-full, 5g-high, 5g-low]>
+            zero-wait-dfs: <value in [disable, enable]>
+            vap1: <value of string>
+            vap2: <value of string>
+            vap3: <value of string>
+            vap4: <value of string>
+            vap5: <value of string>
+            vap6: <value of string>
+            vap7: <value of string>
+            vap8: <value of string>
+            bss-color: <value of integer>
+            auto-power-target: <value of string>
+            drma: <value in [disable, enable]>
+            drma-sensitivity: <value in [low, medium, high]>
+            iperf-protocol: <value in [udp, tcp]>
+            iperf-server-port: <value of integer>
+            power-mode: <value in [dBm, percentage]>
+            power-value: <value of integer>
+            sam-bssid: <value of string>
+            sam-captive-portal: <value in [disable, enable]>
+            sam-password: <value of string>
+            sam-report-intv: <value of integer>
+            sam-security-type: <value in [open, wpa-personal, wpa-enterprise]>
+            sam-server: <value of string>
+            sam-ssid: <value of string>
+            sam-test: <value in [ping, iperf]>
+            sam-username: <value of string>
 
 '''
 
@@ -479,6 +639,16 @@ def main():
             'options': {
                 'amsdu': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -487,6 +657,16 @@ def main():
                 },
                 'ap-handoff': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': False,
+                        '6.4.2': False,
+                        '6.4.5': False,
+                        '7.0.0': False
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -495,18 +675,58 @@ def main():
                 },
                 'ap-sniffer-addr': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'ap-sniffer-bufsize': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'ap-sniffer-chan': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'ap-sniffer-ctl': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -515,6 +735,16 @@ def main():
                 },
                 'ap-sniffer-data': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -523,6 +753,16 @@ def main():
                 },
                 'ap-sniffer-mgmt-beacon': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -531,6 +771,16 @@ def main():
                 },
                 'ap-sniffer-mgmt-other': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -539,6 +789,16 @@ def main():
                 },
                 'ap-sniffer-mgmt-probe': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -547,10 +807,30 @@ def main():
                 },
                 'auto-power-high': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'auto-power-level': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -559,10 +839,30 @@ def main():
                 },
                 'auto-power-low': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'band': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         '802.11b',
                         '802.11a',
@@ -575,12 +875,31 @@ def main():
                         '802.11n,g-only',
                         '802.11ac-only',
                         '802.11ac,n-only',
-                        '802.11n-5G-only'
+                        '802.11n-5G-only',
+                        '802.11ax-5G',
+                        '802.11ax',
+                        '802.11ax-5G-only',
+                        '802.11ax,ac-only',
+                        '802.11ax,ac,n-only',
+                        '802.11ax-only',
+                        '802.11ax,n-only',
+                        '802.11ax,n,g-only',
+                        '802.11ac-2G'
                     ],
                     'type': 'str'
                 },
                 'bandwidth-admission-control': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -589,14 +908,44 @@ def main():
                 },
                 'bandwidth-capacity': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'beacon-interval': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'call-admission-control': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -605,25 +954,66 @@ def main():
                 },
                 'call-capacity': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'channel': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'channel-bonding': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable',
                         '80MHz',
                         '40MHz',
-                        '20MHz'
+                        '20MHz',
+                        '160MHz'
                     ],
                     'type': 'str'
                 },
                 'channel-utilization': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -632,6 +1022,16 @@ def main():
                 },
                 'coexistence': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -640,6 +1040,16 @@ def main():
                 },
                 'darrp': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -648,14 +1058,44 @@ def main():
                 },
                 'dtim': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'frag-threshold': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'frequency-handoff': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': False,
+                        '6.4.2': False,
+                        '6.4.5': False,
+                        '7.0.0': False
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -664,28 +1104,79 @@ def main():
                 },
                 'max-clients': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'max-distance': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'mode': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disabled',
                         'ap',
                         'monitor',
-                        'sniffer'
+                        'sniffer',
+                        'sam'
                     ],
                     'type': 'str'
                 },
                 'power-level': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'powersave-optimize': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'list',
                     'choices': [
                         'tim',
@@ -697,6 +1188,16 @@ def main():
                 },
                 'protection-mode': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'rtscts',
                         'ctsonly',
@@ -706,14 +1207,44 @@ def main():
                 },
                 'radio-id': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'rts-threshold': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'short-guard-interval': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -722,14 +1253,35 @@ def main():
                 },
                 'spectrum-analysis': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': False
+                    },
                     'choices': [
                         'disable',
-                        'enable'
+                        'enable',
+                        'scan-only'
                     ],
                     'type': 'str'
                 },
                 'transmit-optimize': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'list',
                     'choices': [
                         'disable',
@@ -741,18 +1293,333 @@ def main():
                 },
                 'vap-all': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'choices': [
+                        'disable',
+                        'enable',
+                        'tunnel',
+                        'bridge',
+                        'manual'
+                    ],
+                    'type': 'str'
+                },
+                'vaps': {
+                    'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'type': 'str'
+                },
+                'wids-profile': {
+                    'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'type': 'str'
+                },
+                'airtime-fairness': {
+                    'required': False,
+                    'revision': {
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
                     ],
                     'type': 'str'
                 },
-                'vaps': {
+                'band-5g-type': {
                     'required': False,
+                    'revision': {
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'choices': [
+                        '5g-full',
+                        '5g-high',
+                        '5g-low'
+                    ],
                     'type': 'str'
                 },
-                'wids-profile': {
+                'zero-wait-dfs': {
                     'required': False,
+                    'revision': {
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'choices': [
+                        'disable',
+                        'enable'
+                    ],
+                    'type': 'str'
+                },
+                'vap1': {
+                    'required': False,
+                    'revision': {
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'type': 'str'
+                },
+                'vap2': {
+                    'required': False,
+                    'revision': {
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'type': 'str'
+                },
+                'vap3': {
+                    'required': False,
+                    'revision': {
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'type': 'str'
+                },
+                'vap4': {
+                    'required': False,
+                    'revision': {
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'type': 'str'
+                },
+                'vap5': {
+                    'required': False,
+                    'revision': {
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'type': 'str'
+                },
+                'vap6': {
+                    'required': False,
+                    'revision': {
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'type': 'str'
+                },
+                'vap7': {
+                    'required': False,
+                    'revision': {
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'type': 'str'
+                },
+                'vap8': {
+                    'required': False,
+                    'revision': {
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'type': 'str'
+                },
+                'bss-color': {
+                    'required': False,
+                    'revision': {
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'type': 'int'
+                },
+                'auto-power-target': {
+                    'required': False,
+                    'revision': {
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'type': 'str'
+                },
+                'drma': {
+                    'required': False,
+                    'revision': {
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'choices': [
+                        'disable',
+                        'enable'
+                    ],
+                    'type': 'str'
+                },
+                'drma-sensitivity': {
+                    'required': False,
+                    'revision': {
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'choices': [
+                        'low',
+                        'medium',
+                        'high'
+                    ],
+                    'type': 'str'
+                },
+                'iperf-protocol': {
+                    'required': False,
+                    'revision': {
+                        '7.0.0': True
+                    },
+                    'choices': [
+                        'udp',
+                        'tcp'
+                    ],
+                    'type': 'str'
+                },
+                'iperf-server-port': {
+                    'required': False,
+                    'revision': {
+                        '7.0.0': True
+                    },
+                    'type': 'int'
+                },
+                'power-mode': {
+                    'required': False,
+                    'revision': {
+                        '7.0.0': True
+                    },
+                    'choices': [
+                        'dBm',
+                        'percentage'
+                    ],
+                    'type': 'str'
+                },
+                'power-value': {
+                    'required': False,
+                    'revision': {
+                        '7.0.0': True
+                    },
+                    'type': 'int'
+                },
+                'sam-bssid': {
+                    'required': False,
+                    'revision': {
+                        '7.0.0': True
+                    },
+                    'type': 'str'
+                },
+                'sam-captive-portal': {
+                    'required': False,
+                    'revision': {
+                        '7.0.0': True
+                    },
+                    'choices': [
+                        'disable',
+                        'enable'
+                    ],
+                    'type': 'str'
+                },
+                'sam-password': {
+                    'required': False,
+                    'revision': {
+                        '7.0.0': True
+                    },
+                    'type': 'str'
+                },
+                'sam-report-intv': {
+                    'required': False,
+                    'revision': {
+                        '7.0.0': True
+                    },
+                    'type': 'int'
+                },
+                'sam-security-type': {
+                    'required': False,
+                    'revision': {
+                        '7.0.0': True
+                    },
+                    'choices': [
+                        'open',
+                        'wpa-personal',
+                        'wpa-enterprise'
+                    ],
+                    'type': 'str'
+                },
+                'sam-server': {
+                    'required': False,
+                    'revision': {
+                        '7.0.0': True
+                    },
+                    'type': 'str'
+                },
+                'sam-ssid': {
+                    'required': False,
+                    'revision': {
+                        '7.0.0': True
+                    },
+                    'type': 'str'
+                },
+                'sam-test': {
+                    'required': False,
+                    'revision': {
+                        '7.0.0': True
+                    },
+                    'choices': [
+                        'ping',
+                        'iperf'
+                    ],
+                    'type': 'str'
+                },
+                'sam-username': {
+                    'required': False,
+                    'revision': {
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 }
             }

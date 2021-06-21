@@ -106,6 +106,439 @@ options:
                  - tun-forward
                  - sftp
                  - unknown
+                 - x11
+                 - shell
+                 - exec
+                 - port-forward
+                 - tun-forward
+                 - sftp
+                 - unknown
+                 - scp
+                 - x11
+                 - shell
+                 - exec
+                 - port-forward
+                 - tun-forward
+                 - sftp
+                 - unknown
+                 - scp
+                 - x11
+                 - shell
+                 - exec
+                 - port-forward
+                 - tun-forward
+                 - sftp
+                 - unknown
+                 - scp
+                 - x11
+                 - shell
+                 - exec
+                 - port-forward
+                 - tun-forward
+                 - sftp
+                 - unknown
+                 - scp
+                 - x11
+                 - shell
+                 - exec
+                 - port-forward
+                 - tun-forward
+                 - sftp
+                 - unknown
+                 - scp
+                 - x11
+                 - shell
+                 - exec
+                 - port-forward
+                 - tun-forward
+                 - sftp
+                 - unknown
+                 - scp
+                 - x11
+                 - shell
+                 - exec
+                 - port-forward
+                 - tun-forward
+                 - sftp
+                 - unknown
+                 - x11
+                 - shell
+                 - exec
+                 - port-forward
+                 - tun-forward
+                 - sftp
+                 - unknown
+                 - scp
+                 - x11
+                 - shell
+                 - exec
+                 - port-forward
+                 - tun-forward
+                 - sftp
+                 - unknown
+                 - scp
+                 - x11
+                 - shell
+                 - exec
+                 - port-forward
+                 - tun-forward
+                 - sftp
+                 - unknown
+                 - scp
+                 - x11
+                 - shell
+                 - exec
+                 - port-forward
+                 - tun-forward
+                 - sftp
+                 - unknown
+                 - scp
+                 - x11
+                 - shell
+                 - exec
+                 - port-forward
+                 - tun-forward
+                 - sftp
+                 - unknown
+                 - scp
+                 - x11
+                 - shell
+                 - exec
+                 - port-forward
+                 - tun-forward
+                 - sftp
+                 - unknown
+                 - scp
+                 - x11
+                 - shell
+                 - exec
+                 - port-forward
+                 - tun-forward
+                 - sftp
+                 - unknown
+                 - x11
+                 - shell
+                 - exec
+                 - port-forward
+                 - tun-forward
+                 - sftp
+                 - unknown
+                 - scp
+                 - x11
+                 - shell
+                 - exec
+                 - port-forward
+                 - tun-forward
+                 - sftp
+                 - unknown
+                 - scp
+                 - x11
+                 - shell
+                 - exec
+                 - port-forward
+                 - tun-forward
+                 - sftp
+                 - unknown
+                 - scp
+                 - x11
+                 - shell
+                 - exec
+                 - port-forward
+                 - tun-forward
+                 - sftp
+                 - unknown
+                 - scp
+                 - x11
+                 - shell
+                 - exec
+                 - port-forward
+                 - tun-forward
+                 - sftp
+                 - unknown
+                 - scp
+                 - x11
+                 - shell
+                 - exec
+                 - port-forward
+                 - tun-forward
+                 - sftp
+                 - unknown
+                 - scp
+                 - x11
+                 - shell
+                 - exec
+                 - port-forward
+                 - tun-forward
+                 - sftp
+                 - unknown
+                 - x11
+                 - shell
+                 - exec
+                 - port-forward
+                 - tun-forward
+                 - sftp
+                 - unknown
+                 - scp
+                 - x11
+                 - shell
+                 - exec
+                 - port-forward
+                 - tun-forward
+                 - sftp
+                 - unknown
+                 - scp
+                 - x11
+                 - shell
+                 - exec
+                 - port-forward
+                 - tun-forward
+                 - sftp
+                 - unknown
+                 - scp
+                 - x11
+                 - shell
+                 - exec
+                 - port-forward
+                 - tun-forward
+                 - sftp
+                 - unknown
+                 - scp
+                 - x11
+                 - shell
+                 - exec
+                 - port-forward
+                 - tun-forward
+                 - sftp
+                 - unknown
+                 - scp
+                 - x11
+                 - shell
+                 - exec
+                 - port-forward
+                 - tun-forward
+                 - sftp
+                 - unknown
+                 - scp
+                 - x11
+                 - shell
+                 - exec
+                 - port-forward
+                 - tun-forward
+                 - sftp
+                 - unknown
+                 - x11
+                 - shell
+                 - exec
+                 - port-forward
+                 - tun-forward
+                 - sftp
+                 - unknown
+                 - scp
+                 - x11
+                 - shell
+                 - exec
+                 - port-forward
+                 - tun-forward
+                 - sftp
+                 - unknown
+                 - scp
+                 - x11
+                 - shell
+                 - exec
+                 - port-forward
+                 - tun-forward
+                 - sftp
+                 - unknown
+                 - scp
+                 - x11
+                 - shell
+                 - exec
+                 - port-forward
+                 - tun-forward
+                 - sftp
+                 - unknown
+                 - scp
+                 - x11
+                 - shell
+                 - exec
+                 - port-forward
+                 - tun-forward
+                 - sftp
+                 - unknown
+                 - scp
+                 - x11
+                 - shell
+                 - exec
+                 - port-forward
+                 - tun-forward
+                 - sftp
+                 - unknown
+                 - scp
+                 - x11
+                 - shell
+                 - exec
+                 - port-forward
+                 - tun-forward
+                 - sftp
+                 - unknown
+                 - x11
+                 - shell
+                 - exec
+                 - port-forward
+                 - tun-forward
+                 - sftp
+                 - unknown
+                 - scp
+                 - x11
+                 - shell
+                 - exec
+                 - port-forward
+                 - tun-forward
+                 - sftp
+                 - unknown
+                 - scp
+                 - x11
+                 - shell
+                 - exec
+                 - port-forward
+                 - tun-forward
+                 - sftp
+                 - unknown
+                 - scp
+                 - x11
+                 - shell
+                 - exec
+                 - port-forward
+                 - tun-forward
+                 - sftp
+                 - unknown
+                 - scp
+                 - x11
+                 - shell
+                 - exec
+                 - port-forward
+                 - tun-forward
+                 - sftp
+                 - unknown
+                 - scp
+                 - x11
+                 - shell
+                 - exec
+                 - port-forward
+                 - tun-forward
+                 - sftp
+                 - unknown
+                 - scp
+                 - x11
+                 - shell
+                 - exec
+                 - port-forward
+                 - tun-forward
+                 - sftp
+                 - unknown
+                 - x11
+                 - shell
+                 - exec
+                 - port-forward
+                 - tun-forward
+                 - sftp
+                 - unknown
+                 - scp
+                 - x11
+                 - shell
+                 - exec
+                 - port-forward
+                 - tun-forward
+                 - sftp
+                 - unknown
+                 - scp
+                 - x11
+                 - shell
+                 - exec
+                 - port-forward
+                 - tun-forward
+                 - sftp
+                 - unknown
+                 - scp
+                 - x11
+                 - shell
+                 - exec
+                 - port-forward
+                 - tun-forward
+                 - sftp
+                 - unknown
+                 - scp
+                 - x11
+                 - shell
+                 - exec
+                 - port-forward
+                 - tun-forward
+                 - sftp
+                 - unknown
+                 - scp
+                 - x11
+                 - shell
+                 - exec
+                 - port-forward
+                 - tun-forward
+                 - sftp
+                 - unknown
+                 - scp
+                 - x11
+                 - shell
+                 - exec
+                 - port-forward
+                 - tun-forward
+                 - sftp
+                 - unknown
+                 - x11
+                 - shell
+                 - exec
+                 - port-forward
+                 - tun-forward
+                 - sftp
+                 - unknown
+                 - scp
+                 - x11
+                 - shell
+                 - exec
+                 - port-forward
+                 - tun-forward
+                 - sftp
+                 - unknown
+                 - scp
+                 - x11
+                 - shell
+                 - exec
+                 - port-forward
+                 - tun-forward
+                 - sftp
+                 - unknown
+                 - scp
+                 - x11
+                 - shell
+                 - exec
+                 - port-forward
+                 - tun-forward
+                 - sftp
+                 - unknown
+                 - scp
+                 - x11
+                 - shell
+                 - exec
+                 - port-forward
+                 - tun-forward
+                 - sftp
+                 - unknown
+                 - scp
+                 - x11
+                 - shell
+                 - exec
+                 - port-forward
+                 - tun-forward
+                 - sftp
+                 - unknown
+                 - scp
             default-command-log:
                 type: str
                 description: 'Enable/disable logging unmatched shell commands.'
@@ -123,6 +556,439 @@ options:
                  - tun-forward
                  - sftp
                  - unknown
+                 - x11
+                 - shell
+                 - exec
+                 - port-forward
+                 - tun-forward
+                 - sftp
+                 - unknown
+                 - scp
+                 - x11
+                 - shell
+                 - exec
+                 - port-forward
+                 - tun-forward
+                 - sftp
+                 - unknown
+                 - scp
+                 - x11
+                 - shell
+                 - exec
+                 - port-forward
+                 - tun-forward
+                 - sftp
+                 - unknown
+                 - scp
+                 - x11
+                 - shell
+                 - exec
+                 - port-forward
+                 - tun-forward
+                 - sftp
+                 - unknown
+                 - scp
+                 - x11
+                 - shell
+                 - exec
+                 - port-forward
+                 - tun-forward
+                 - sftp
+                 - unknown
+                 - scp
+                 - x11
+                 - shell
+                 - exec
+                 - port-forward
+                 - tun-forward
+                 - sftp
+                 - unknown
+                 - scp
+                 - x11
+                 - shell
+                 - exec
+                 - port-forward
+                 - tun-forward
+                 - sftp
+                 - unknown
+                 - x11
+                 - shell
+                 - exec
+                 - port-forward
+                 - tun-forward
+                 - sftp
+                 - unknown
+                 - scp
+                 - x11
+                 - shell
+                 - exec
+                 - port-forward
+                 - tun-forward
+                 - sftp
+                 - unknown
+                 - scp
+                 - x11
+                 - shell
+                 - exec
+                 - port-forward
+                 - tun-forward
+                 - sftp
+                 - unknown
+                 - scp
+                 - x11
+                 - shell
+                 - exec
+                 - port-forward
+                 - tun-forward
+                 - sftp
+                 - unknown
+                 - scp
+                 - x11
+                 - shell
+                 - exec
+                 - port-forward
+                 - tun-forward
+                 - sftp
+                 - unknown
+                 - scp
+                 - x11
+                 - shell
+                 - exec
+                 - port-forward
+                 - tun-forward
+                 - sftp
+                 - unknown
+                 - scp
+                 - x11
+                 - shell
+                 - exec
+                 - port-forward
+                 - tun-forward
+                 - sftp
+                 - unknown
+                 - x11
+                 - shell
+                 - exec
+                 - port-forward
+                 - tun-forward
+                 - sftp
+                 - unknown
+                 - scp
+                 - x11
+                 - shell
+                 - exec
+                 - port-forward
+                 - tun-forward
+                 - sftp
+                 - unknown
+                 - scp
+                 - x11
+                 - shell
+                 - exec
+                 - port-forward
+                 - tun-forward
+                 - sftp
+                 - unknown
+                 - scp
+                 - x11
+                 - shell
+                 - exec
+                 - port-forward
+                 - tun-forward
+                 - sftp
+                 - unknown
+                 - scp
+                 - x11
+                 - shell
+                 - exec
+                 - port-forward
+                 - tun-forward
+                 - sftp
+                 - unknown
+                 - scp
+                 - x11
+                 - shell
+                 - exec
+                 - port-forward
+                 - tun-forward
+                 - sftp
+                 - unknown
+                 - scp
+                 - x11
+                 - shell
+                 - exec
+                 - port-forward
+                 - tun-forward
+                 - sftp
+                 - unknown
+                 - x11
+                 - shell
+                 - exec
+                 - port-forward
+                 - tun-forward
+                 - sftp
+                 - unknown
+                 - scp
+                 - x11
+                 - shell
+                 - exec
+                 - port-forward
+                 - tun-forward
+                 - sftp
+                 - unknown
+                 - scp
+                 - x11
+                 - shell
+                 - exec
+                 - port-forward
+                 - tun-forward
+                 - sftp
+                 - unknown
+                 - scp
+                 - x11
+                 - shell
+                 - exec
+                 - port-forward
+                 - tun-forward
+                 - sftp
+                 - unknown
+                 - scp
+                 - x11
+                 - shell
+                 - exec
+                 - port-forward
+                 - tun-forward
+                 - sftp
+                 - unknown
+                 - scp
+                 - x11
+                 - shell
+                 - exec
+                 - port-forward
+                 - tun-forward
+                 - sftp
+                 - unknown
+                 - scp
+                 - x11
+                 - shell
+                 - exec
+                 - port-forward
+                 - tun-forward
+                 - sftp
+                 - unknown
+                 - x11
+                 - shell
+                 - exec
+                 - port-forward
+                 - tun-forward
+                 - sftp
+                 - unknown
+                 - scp
+                 - x11
+                 - shell
+                 - exec
+                 - port-forward
+                 - tun-forward
+                 - sftp
+                 - unknown
+                 - scp
+                 - x11
+                 - shell
+                 - exec
+                 - port-forward
+                 - tun-forward
+                 - sftp
+                 - unknown
+                 - scp
+                 - x11
+                 - shell
+                 - exec
+                 - port-forward
+                 - tun-forward
+                 - sftp
+                 - unknown
+                 - scp
+                 - x11
+                 - shell
+                 - exec
+                 - port-forward
+                 - tun-forward
+                 - sftp
+                 - unknown
+                 - scp
+                 - x11
+                 - shell
+                 - exec
+                 - port-forward
+                 - tun-forward
+                 - sftp
+                 - unknown
+                 - scp
+                 - x11
+                 - shell
+                 - exec
+                 - port-forward
+                 - tun-forward
+                 - sftp
+                 - unknown
+                 - x11
+                 - shell
+                 - exec
+                 - port-forward
+                 - tun-forward
+                 - sftp
+                 - unknown
+                 - scp
+                 - x11
+                 - shell
+                 - exec
+                 - port-forward
+                 - tun-forward
+                 - sftp
+                 - unknown
+                 - scp
+                 - x11
+                 - shell
+                 - exec
+                 - port-forward
+                 - tun-forward
+                 - sftp
+                 - unknown
+                 - scp
+                 - x11
+                 - shell
+                 - exec
+                 - port-forward
+                 - tun-forward
+                 - sftp
+                 - unknown
+                 - scp
+                 - x11
+                 - shell
+                 - exec
+                 - port-forward
+                 - tun-forward
+                 - sftp
+                 - unknown
+                 - scp
+                 - x11
+                 - shell
+                 - exec
+                 - port-forward
+                 - tun-forward
+                 - sftp
+                 - unknown
+                 - scp
+                 - x11
+                 - shell
+                 - exec
+                 - port-forward
+                 - tun-forward
+                 - sftp
+                 - unknown
+                 - x11
+                 - shell
+                 - exec
+                 - port-forward
+                 - tun-forward
+                 - sftp
+                 - unknown
+                 - scp
+                 - x11
+                 - shell
+                 - exec
+                 - port-forward
+                 - tun-forward
+                 - sftp
+                 - unknown
+                 - scp
+                 - x11
+                 - shell
+                 - exec
+                 - port-forward
+                 - tun-forward
+                 - sftp
+                 - unknown
+                 - scp
+                 - x11
+                 - shell
+                 - exec
+                 - port-forward
+                 - tun-forward
+                 - sftp
+                 - unknown
+                 - scp
+                 - x11
+                 - shell
+                 - exec
+                 - port-forward
+                 - tun-forward
+                 - sftp
+                 - unknown
+                 - scp
+                 - x11
+                 - shell
+                 - exec
+                 - port-forward
+                 - tun-forward
+                 - sftp
+                 - unknown
+                 - scp
+                 - x11
+                 - shell
+                 - exec
+                 - port-forward
+                 - tun-forward
+                 - sftp
+                 - unknown
+                 - x11
+                 - shell
+                 - exec
+                 - port-forward
+                 - tun-forward
+                 - sftp
+                 - unknown
+                 - scp
+                 - x11
+                 - shell
+                 - exec
+                 - port-forward
+                 - tun-forward
+                 - sftp
+                 - unknown
+                 - scp
+                 - x11
+                 - shell
+                 - exec
+                 - port-forward
+                 - tun-forward
+                 - sftp
+                 - unknown
+                 - scp
+                 - x11
+                 - shell
+                 - exec
+                 - port-forward
+                 - tun-forward
+                 - sftp
+                 - unknown
+                 - scp
+                 - x11
+                 - shell
+                 - exec
+                 - port-forward
+                 - tun-forward
+                 - sftp
+                 - unknown
+                 - scp
+                 - x11
+                 - shell
+                 - exec
+                 - port-forward
+                 - tun-forward
+                 - sftp
+                 - unknown
+                 - scp
             name:
                 type: str
                 description: 'SSH filter profile name.'
@@ -199,6 +1065,439 @@ EXAMPLES = '''
               - tun-forward
               - sftp
               - unknown
+              - x11
+              - shell
+              - exec
+              - port-forward
+              - tun-forward
+              - sftp
+              - unknown
+              - scp
+              - x11
+              - shell
+              - exec
+              - port-forward
+              - tun-forward
+              - sftp
+              - unknown
+              - scp
+              - x11
+              - shell
+              - exec
+              - port-forward
+              - tun-forward
+              - sftp
+              - unknown
+              - scp
+              - x11
+              - shell
+              - exec
+              - port-forward
+              - tun-forward
+              - sftp
+              - unknown
+              - scp
+              - x11
+              - shell
+              - exec
+              - port-forward
+              - tun-forward
+              - sftp
+              - unknown
+              - scp
+              - x11
+              - shell
+              - exec
+              - port-forward
+              - tun-forward
+              - sftp
+              - unknown
+              - scp
+              - x11
+              - shell
+              - exec
+              - port-forward
+              - tun-forward
+              - sftp
+              - unknown
+              - x11
+              - shell
+              - exec
+              - port-forward
+              - tun-forward
+              - sftp
+              - unknown
+              - scp
+              - x11
+              - shell
+              - exec
+              - port-forward
+              - tun-forward
+              - sftp
+              - unknown
+              - scp
+              - x11
+              - shell
+              - exec
+              - port-forward
+              - tun-forward
+              - sftp
+              - unknown
+              - scp
+              - x11
+              - shell
+              - exec
+              - port-forward
+              - tun-forward
+              - sftp
+              - unknown
+              - scp
+              - x11
+              - shell
+              - exec
+              - port-forward
+              - tun-forward
+              - sftp
+              - unknown
+              - scp
+              - x11
+              - shell
+              - exec
+              - port-forward
+              - tun-forward
+              - sftp
+              - unknown
+              - scp
+              - x11
+              - shell
+              - exec
+              - port-forward
+              - tun-forward
+              - sftp
+              - unknown
+              - x11
+              - shell
+              - exec
+              - port-forward
+              - tun-forward
+              - sftp
+              - unknown
+              - scp
+              - x11
+              - shell
+              - exec
+              - port-forward
+              - tun-forward
+              - sftp
+              - unknown
+              - scp
+              - x11
+              - shell
+              - exec
+              - port-forward
+              - tun-forward
+              - sftp
+              - unknown
+              - scp
+              - x11
+              - shell
+              - exec
+              - port-forward
+              - tun-forward
+              - sftp
+              - unknown
+              - scp
+              - x11
+              - shell
+              - exec
+              - port-forward
+              - tun-forward
+              - sftp
+              - unknown
+              - scp
+              - x11
+              - shell
+              - exec
+              - port-forward
+              - tun-forward
+              - sftp
+              - unknown
+              - scp
+              - x11
+              - shell
+              - exec
+              - port-forward
+              - tun-forward
+              - sftp
+              - unknown
+              - x11
+              - shell
+              - exec
+              - port-forward
+              - tun-forward
+              - sftp
+              - unknown
+              - scp
+              - x11
+              - shell
+              - exec
+              - port-forward
+              - tun-forward
+              - sftp
+              - unknown
+              - scp
+              - x11
+              - shell
+              - exec
+              - port-forward
+              - tun-forward
+              - sftp
+              - unknown
+              - scp
+              - x11
+              - shell
+              - exec
+              - port-forward
+              - tun-forward
+              - sftp
+              - unknown
+              - scp
+              - x11
+              - shell
+              - exec
+              - port-forward
+              - tun-forward
+              - sftp
+              - unknown
+              - scp
+              - x11
+              - shell
+              - exec
+              - port-forward
+              - tun-forward
+              - sftp
+              - unknown
+              - scp
+              - x11
+              - shell
+              - exec
+              - port-forward
+              - tun-forward
+              - sftp
+              - unknown
+              - x11
+              - shell
+              - exec
+              - port-forward
+              - tun-forward
+              - sftp
+              - unknown
+              - scp
+              - x11
+              - shell
+              - exec
+              - port-forward
+              - tun-forward
+              - sftp
+              - unknown
+              - scp
+              - x11
+              - shell
+              - exec
+              - port-forward
+              - tun-forward
+              - sftp
+              - unknown
+              - scp
+              - x11
+              - shell
+              - exec
+              - port-forward
+              - tun-forward
+              - sftp
+              - unknown
+              - scp
+              - x11
+              - shell
+              - exec
+              - port-forward
+              - tun-forward
+              - sftp
+              - unknown
+              - scp
+              - x11
+              - shell
+              - exec
+              - port-forward
+              - tun-forward
+              - sftp
+              - unknown
+              - scp
+              - x11
+              - shell
+              - exec
+              - port-forward
+              - tun-forward
+              - sftp
+              - unknown
+              - x11
+              - shell
+              - exec
+              - port-forward
+              - tun-forward
+              - sftp
+              - unknown
+              - scp
+              - x11
+              - shell
+              - exec
+              - port-forward
+              - tun-forward
+              - sftp
+              - unknown
+              - scp
+              - x11
+              - shell
+              - exec
+              - port-forward
+              - tun-forward
+              - sftp
+              - unknown
+              - scp
+              - x11
+              - shell
+              - exec
+              - port-forward
+              - tun-forward
+              - sftp
+              - unknown
+              - scp
+              - x11
+              - shell
+              - exec
+              - port-forward
+              - tun-forward
+              - sftp
+              - unknown
+              - scp
+              - x11
+              - shell
+              - exec
+              - port-forward
+              - tun-forward
+              - sftp
+              - unknown
+              - scp
+              - x11
+              - shell
+              - exec
+              - port-forward
+              - tun-forward
+              - sftp
+              - unknown
+              - x11
+              - shell
+              - exec
+              - port-forward
+              - tun-forward
+              - sftp
+              - unknown
+              - scp
+              - x11
+              - shell
+              - exec
+              - port-forward
+              - tun-forward
+              - sftp
+              - unknown
+              - scp
+              - x11
+              - shell
+              - exec
+              - port-forward
+              - tun-forward
+              - sftp
+              - unknown
+              - scp
+              - x11
+              - shell
+              - exec
+              - port-forward
+              - tun-forward
+              - sftp
+              - unknown
+              - scp
+              - x11
+              - shell
+              - exec
+              - port-forward
+              - tun-forward
+              - sftp
+              - unknown
+              - scp
+              - x11
+              - shell
+              - exec
+              - port-forward
+              - tun-forward
+              - sftp
+              - unknown
+              - scp
+              - x11
+              - shell
+              - exec
+              - port-forward
+              - tun-forward
+              - sftp
+              - unknown
+              - x11
+              - shell
+              - exec
+              - port-forward
+              - tun-forward
+              - sftp
+              - unknown
+              - scp
+              - x11
+              - shell
+              - exec
+              - port-forward
+              - tun-forward
+              - sftp
+              - unknown
+              - scp
+              - x11
+              - shell
+              - exec
+              - port-forward
+              - tun-forward
+              - sftp
+              - unknown
+              - scp
+              - x11
+              - shell
+              - exec
+              - port-forward
+              - tun-forward
+              - sftp
+              - unknown
+              - scp
+              - x11
+              - shell
+              - exec
+              - port-forward
+              - tun-forward
+              - sftp
+              - unknown
+              - scp
+              - x11
+              - shell
+              - exec
+              - port-forward
+              - tun-forward
+              - sftp
+              - unknown
+              - scp
             default-command-log: <value in [disable, enable]>
             log:
               - x11
@@ -208,6 +1507,439 @@ EXAMPLES = '''
               - tun-forward
               - sftp
               - unknown
+              - x11
+              - shell
+              - exec
+              - port-forward
+              - tun-forward
+              - sftp
+              - unknown
+              - scp
+              - x11
+              - shell
+              - exec
+              - port-forward
+              - tun-forward
+              - sftp
+              - unknown
+              - scp
+              - x11
+              - shell
+              - exec
+              - port-forward
+              - tun-forward
+              - sftp
+              - unknown
+              - scp
+              - x11
+              - shell
+              - exec
+              - port-forward
+              - tun-forward
+              - sftp
+              - unknown
+              - scp
+              - x11
+              - shell
+              - exec
+              - port-forward
+              - tun-forward
+              - sftp
+              - unknown
+              - scp
+              - x11
+              - shell
+              - exec
+              - port-forward
+              - tun-forward
+              - sftp
+              - unknown
+              - scp
+              - x11
+              - shell
+              - exec
+              - port-forward
+              - tun-forward
+              - sftp
+              - unknown
+              - x11
+              - shell
+              - exec
+              - port-forward
+              - tun-forward
+              - sftp
+              - unknown
+              - scp
+              - x11
+              - shell
+              - exec
+              - port-forward
+              - tun-forward
+              - sftp
+              - unknown
+              - scp
+              - x11
+              - shell
+              - exec
+              - port-forward
+              - tun-forward
+              - sftp
+              - unknown
+              - scp
+              - x11
+              - shell
+              - exec
+              - port-forward
+              - tun-forward
+              - sftp
+              - unknown
+              - scp
+              - x11
+              - shell
+              - exec
+              - port-forward
+              - tun-forward
+              - sftp
+              - unknown
+              - scp
+              - x11
+              - shell
+              - exec
+              - port-forward
+              - tun-forward
+              - sftp
+              - unknown
+              - scp
+              - x11
+              - shell
+              - exec
+              - port-forward
+              - tun-forward
+              - sftp
+              - unknown
+              - x11
+              - shell
+              - exec
+              - port-forward
+              - tun-forward
+              - sftp
+              - unknown
+              - scp
+              - x11
+              - shell
+              - exec
+              - port-forward
+              - tun-forward
+              - sftp
+              - unknown
+              - scp
+              - x11
+              - shell
+              - exec
+              - port-forward
+              - tun-forward
+              - sftp
+              - unknown
+              - scp
+              - x11
+              - shell
+              - exec
+              - port-forward
+              - tun-forward
+              - sftp
+              - unknown
+              - scp
+              - x11
+              - shell
+              - exec
+              - port-forward
+              - tun-forward
+              - sftp
+              - unknown
+              - scp
+              - x11
+              - shell
+              - exec
+              - port-forward
+              - tun-forward
+              - sftp
+              - unknown
+              - scp
+              - x11
+              - shell
+              - exec
+              - port-forward
+              - tun-forward
+              - sftp
+              - unknown
+              - x11
+              - shell
+              - exec
+              - port-forward
+              - tun-forward
+              - sftp
+              - unknown
+              - scp
+              - x11
+              - shell
+              - exec
+              - port-forward
+              - tun-forward
+              - sftp
+              - unknown
+              - scp
+              - x11
+              - shell
+              - exec
+              - port-forward
+              - tun-forward
+              - sftp
+              - unknown
+              - scp
+              - x11
+              - shell
+              - exec
+              - port-forward
+              - tun-forward
+              - sftp
+              - unknown
+              - scp
+              - x11
+              - shell
+              - exec
+              - port-forward
+              - tun-forward
+              - sftp
+              - unknown
+              - scp
+              - x11
+              - shell
+              - exec
+              - port-forward
+              - tun-forward
+              - sftp
+              - unknown
+              - scp
+              - x11
+              - shell
+              - exec
+              - port-forward
+              - tun-forward
+              - sftp
+              - unknown
+              - x11
+              - shell
+              - exec
+              - port-forward
+              - tun-forward
+              - sftp
+              - unknown
+              - scp
+              - x11
+              - shell
+              - exec
+              - port-forward
+              - tun-forward
+              - sftp
+              - unknown
+              - scp
+              - x11
+              - shell
+              - exec
+              - port-forward
+              - tun-forward
+              - sftp
+              - unknown
+              - scp
+              - x11
+              - shell
+              - exec
+              - port-forward
+              - tun-forward
+              - sftp
+              - unknown
+              - scp
+              - x11
+              - shell
+              - exec
+              - port-forward
+              - tun-forward
+              - sftp
+              - unknown
+              - scp
+              - x11
+              - shell
+              - exec
+              - port-forward
+              - tun-forward
+              - sftp
+              - unknown
+              - scp
+              - x11
+              - shell
+              - exec
+              - port-forward
+              - tun-forward
+              - sftp
+              - unknown
+              - x11
+              - shell
+              - exec
+              - port-forward
+              - tun-forward
+              - sftp
+              - unknown
+              - scp
+              - x11
+              - shell
+              - exec
+              - port-forward
+              - tun-forward
+              - sftp
+              - unknown
+              - scp
+              - x11
+              - shell
+              - exec
+              - port-forward
+              - tun-forward
+              - sftp
+              - unknown
+              - scp
+              - x11
+              - shell
+              - exec
+              - port-forward
+              - tun-forward
+              - sftp
+              - unknown
+              - scp
+              - x11
+              - shell
+              - exec
+              - port-forward
+              - tun-forward
+              - sftp
+              - unknown
+              - scp
+              - x11
+              - shell
+              - exec
+              - port-forward
+              - tun-forward
+              - sftp
+              - unknown
+              - scp
+              - x11
+              - shell
+              - exec
+              - port-forward
+              - tun-forward
+              - sftp
+              - unknown
+              - x11
+              - shell
+              - exec
+              - port-forward
+              - tun-forward
+              - sftp
+              - unknown
+              - scp
+              - x11
+              - shell
+              - exec
+              - port-forward
+              - tun-forward
+              - sftp
+              - unknown
+              - scp
+              - x11
+              - shell
+              - exec
+              - port-forward
+              - tun-forward
+              - sftp
+              - unknown
+              - scp
+              - x11
+              - shell
+              - exec
+              - port-forward
+              - tun-forward
+              - sftp
+              - unknown
+              - scp
+              - x11
+              - shell
+              - exec
+              - port-forward
+              - tun-forward
+              - sftp
+              - unknown
+              - scp
+              - x11
+              - shell
+              - exec
+              - port-forward
+              - tun-forward
+              - sftp
+              - unknown
+              - scp
+              - x11
+              - shell
+              - exec
+              - port-forward
+              - tun-forward
+              - sftp
+              - unknown
+              - x11
+              - shell
+              - exec
+              - port-forward
+              - tun-forward
+              - sftp
+              - unknown
+              - scp
+              - x11
+              - shell
+              - exec
+              - port-forward
+              - tun-forward
+              - sftp
+              - unknown
+              - scp
+              - x11
+              - shell
+              - exec
+              - port-forward
+              - tun-forward
+              - sftp
+              - unknown
+              - scp
+              - x11
+              - shell
+              - exec
+              - port-forward
+              - tun-forward
+              - sftp
+              - unknown
+              - scp
+              - x11
+              - shell
+              - exec
+              - port-forward
+              - tun-forward
+              - sftp
+              - unknown
+              - scp
+              - x11
+              - shell
+              - exec
+              - port-forward
+              - tun-forward
+              - sftp
+              - unknown
+              - scp
             name: <value of string>
             shell-commands:
               -
@@ -314,6 +2046,16 @@ def main():
             'options': {
                 'block': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'list',
                     'choices': [
                         'x11',
@@ -322,11 +2064,454 @@ def main():
                         'port-forward',
                         'tun-forward',
                         'sftp',
-                        'unknown'
+                        'unknown',
+                        'x11',
+                        'shell',
+                        'exec',
+                        'port-forward',
+                        'tun-forward',
+                        'sftp',
+                        'unknown',
+                        'scp',
+                        'x11',
+                        'shell',
+                        'exec',
+                        'port-forward',
+                        'tun-forward',
+                        'sftp',
+                        'unknown',
+                        'scp',
+                        'x11',
+                        'shell',
+                        'exec',
+                        'port-forward',
+                        'tun-forward',
+                        'sftp',
+                        'unknown',
+                        'scp',
+                        'x11',
+                        'shell',
+                        'exec',
+                        'port-forward',
+                        'tun-forward',
+                        'sftp',
+                        'unknown',
+                        'scp',
+                        'x11',
+                        'shell',
+                        'exec',
+                        'port-forward',
+                        'tun-forward',
+                        'sftp',
+                        'unknown',
+                        'scp',
+                        'x11',
+                        'shell',
+                        'exec',
+                        'port-forward',
+                        'tun-forward',
+                        'sftp',
+                        'unknown',
+                        'scp',
+                        'x11',
+                        'shell',
+                        'exec',
+                        'port-forward',
+                        'tun-forward',
+                        'sftp',
+                        'unknown',
+                        'x11',
+                        'shell',
+                        'exec',
+                        'port-forward',
+                        'tun-forward',
+                        'sftp',
+                        'unknown',
+                        'scp',
+                        'x11',
+                        'shell',
+                        'exec',
+                        'port-forward',
+                        'tun-forward',
+                        'sftp',
+                        'unknown',
+                        'scp',
+                        'x11',
+                        'shell',
+                        'exec',
+                        'port-forward',
+                        'tun-forward',
+                        'sftp',
+                        'unknown',
+                        'scp',
+                        'x11',
+                        'shell',
+                        'exec',
+                        'port-forward',
+                        'tun-forward',
+                        'sftp',
+                        'unknown',
+                        'scp',
+                        'x11',
+                        'shell',
+                        'exec',
+                        'port-forward',
+                        'tun-forward',
+                        'sftp',
+                        'unknown',
+                        'scp',
+                        'x11',
+                        'shell',
+                        'exec',
+                        'port-forward',
+                        'tun-forward',
+                        'sftp',
+                        'unknown',
+                        'scp',
+                        'x11',
+                        'shell',
+                        'exec',
+                        'port-forward',
+                        'tun-forward',
+                        'sftp',
+                        'unknown',
+                        'x11',
+                        'shell',
+                        'exec',
+                        'port-forward',
+                        'tun-forward',
+                        'sftp',
+                        'unknown',
+                        'scp',
+                        'x11',
+                        'shell',
+                        'exec',
+                        'port-forward',
+                        'tun-forward',
+                        'sftp',
+                        'unknown',
+                        'scp',
+                        'x11',
+                        'shell',
+                        'exec',
+                        'port-forward',
+                        'tun-forward',
+                        'sftp',
+                        'unknown',
+                        'scp',
+                        'x11',
+                        'shell',
+                        'exec',
+                        'port-forward',
+                        'tun-forward',
+                        'sftp',
+                        'unknown',
+                        'scp',
+                        'x11',
+                        'shell',
+                        'exec',
+                        'port-forward',
+                        'tun-forward',
+                        'sftp',
+                        'unknown',
+                        'scp',
+                        'x11',
+                        'shell',
+                        'exec',
+                        'port-forward',
+                        'tun-forward',
+                        'sftp',
+                        'unknown',
+                        'scp',
+                        'x11',
+                        'shell',
+                        'exec',
+                        'port-forward',
+                        'tun-forward',
+                        'sftp',
+                        'unknown',
+                        'x11',
+                        'shell',
+                        'exec',
+                        'port-forward',
+                        'tun-forward',
+                        'sftp',
+                        'unknown',
+                        'scp',
+                        'x11',
+                        'shell',
+                        'exec',
+                        'port-forward',
+                        'tun-forward',
+                        'sftp',
+                        'unknown',
+                        'scp',
+                        'x11',
+                        'shell',
+                        'exec',
+                        'port-forward',
+                        'tun-forward',
+                        'sftp',
+                        'unknown',
+                        'scp',
+                        'x11',
+                        'shell',
+                        'exec',
+                        'port-forward',
+                        'tun-forward',
+                        'sftp',
+                        'unknown',
+                        'scp',
+                        'x11',
+                        'shell',
+                        'exec',
+                        'port-forward',
+                        'tun-forward',
+                        'sftp',
+                        'unknown',
+                        'scp',
+                        'x11',
+                        'shell',
+                        'exec',
+                        'port-forward',
+                        'tun-forward',
+                        'sftp',
+                        'unknown',
+                        'scp',
+                        'x11',
+                        'shell',
+                        'exec',
+                        'port-forward',
+                        'tun-forward',
+                        'sftp',
+                        'unknown',
+                        'x11',
+                        'shell',
+                        'exec',
+                        'port-forward',
+                        'tun-forward',
+                        'sftp',
+                        'unknown',
+                        'scp',
+                        'x11',
+                        'shell',
+                        'exec',
+                        'port-forward',
+                        'tun-forward',
+                        'sftp',
+                        'unknown',
+                        'scp',
+                        'x11',
+                        'shell',
+                        'exec',
+                        'port-forward',
+                        'tun-forward',
+                        'sftp',
+                        'unknown',
+                        'scp',
+                        'x11',
+                        'shell',
+                        'exec',
+                        'port-forward',
+                        'tun-forward',
+                        'sftp',
+                        'unknown',
+                        'scp',
+                        'x11',
+                        'shell',
+                        'exec',
+                        'port-forward',
+                        'tun-forward',
+                        'sftp',
+                        'unknown',
+                        'scp',
+                        'x11',
+                        'shell',
+                        'exec',
+                        'port-forward',
+                        'tun-forward',
+                        'sftp',
+                        'unknown',
+                        'scp',
+                        'x11',
+                        'shell',
+                        'exec',
+                        'port-forward',
+                        'tun-forward',
+                        'sftp',
+                        'unknown',
+                        'x11',
+                        'shell',
+                        'exec',
+                        'port-forward',
+                        'tun-forward',
+                        'sftp',
+                        'unknown',
+                        'scp',
+                        'x11',
+                        'shell',
+                        'exec',
+                        'port-forward',
+                        'tun-forward',
+                        'sftp',
+                        'unknown',
+                        'scp',
+                        'x11',
+                        'shell',
+                        'exec',
+                        'port-forward',
+                        'tun-forward',
+                        'sftp',
+                        'unknown',
+                        'scp',
+                        'x11',
+                        'shell',
+                        'exec',
+                        'port-forward',
+                        'tun-forward',
+                        'sftp',
+                        'unknown',
+                        'scp',
+                        'x11',
+                        'shell',
+                        'exec',
+                        'port-forward',
+                        'tun-forward',
+                        'sftp',
+                        'unknown',
+                        'scp',
+                        'x11',
+                        'shell',
+                        'exec',
+                        'port-forward',
+                        'tun-forward',
+                        'sftp',
+                        'unknown',
+                        'scp',
+                        'x11',
+                        'shell',
+                        'exec',
+                        'port-forward',
+                        'tun-forward',
+                        'sftp',
+                        'unknown',
+                        'x11',
+                        'shell',
+                        'exec',
+                        'port-forward',
+                        'tun-forward',
+                        'sftp',
+                        'unknown',
+                        'scp',
+                        'x11',
+                        'shell',
+                        'exec',
+                        'port-forward',
+                        'tun-forward',
+                        'sftp',
+                        'unknown',
+                        'scp',
+                        'x11',
+                        'shell',
+                        'exec',
+                        'port-forward',
+                        'tun-forward',
+                        'sftp',
+                        'unknown',
+                        'scp',
+                        'x11',
+                        'shell',
+                        'exec',
+                        'port-forward',
+                        'tun-forward',
+                        'sftp',
+                        'unknown',
+                        'scp',
+                        'x11',
+                        'shell',
+                        'exec',
+                        'port-forward',
+                        'tun-forward',
+                        'sftp',
+                        'unknown',
+                        'scp',
+                        'x11',
+                        'shell',
+                        'exec',
+                        'port-forward',
+                        'tun-forward',
+                        'sftp',
+                        'unknown',
+                        'scp',
+                        'x11',
+                        'shell',
+                        'exec',
+                        'port-forward',
+                        'tun-forward',
+                        'sftp',
+                        'unknown',
+                        'x11',
+                        'shell',
+                        'exec',
+                        'port-forward',
+                        'tun-forward',
+                        'sftp',
+                        'unknown',
+                        'scp',
+                        'x11',
+                        'shell',
+                        'exec',
+                        'port-forward',
+                        'tun-forward',
+                        'sftp',
+                        'unknown',
+                        'scp',
+                        'x11',
+                        'shell',
+                        'exec',
+                        'port-forward',
+                        'tun-forward',
+                        'sftp',
+                        'unknown',
+                        'scp',
+                        'x11',
+                        'shell',
+                        'exec',
+                        'port-forward',
+                        'tun-forward',
+                        'sftp',
+                        'unknown',
+                        'scp',
+                        'x11',
+                        'shell',
+                        'exec',
+                        'port-forward',
+                        'tun-forward',
+                        'sftp',
+                        'unknown',
+                        'scp',
+                        'x11',
+                        'shell',
+                        'exec',
+                        'port-forward',
+                        'tun-forward',
+                        'sftp',
+                        'unknown',
+                        'scp'
                     ]
                 },
                 'default-command-log': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -335,6 +2520,16 @@ def main():
                 },
                 'log': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'list',
                     'choices': [
                         'x11',
@@ -343,19 +2538,482 @@ def main():
                         'port-forward',
                         'tun-forward',
                         'sftp',
-                        'unknown'
+                        'unknown',
+                        'x11',
+                        'shell',
+                        'exec',
+                        'port-forward',
+                        'tun-forward',
+                        'sftp',
+                        'unknown',
+                        'scp',
+                        'x11',
+                        'shell',
+                        'exec',
+                        'port-forward',
+                        'tun-forward',
+                        'sftp',
+                        'unknown',
+                        'scp',
+                        'x11',
+                        'shell',
+                        'exec',
+                        'port-forward',
+                        'tun-forward',
+                        'sftp',
+                        'unknown',
+                        'scp',
+                        'x11',
+                        'shell',
+                        'exec',
+                        'port-forward',
+                        'tun-forward',
+                        'sftp',
+                        'unknown',
+                        'scp',
+                        'x11',
+                        'shell',
+                        'exec',
+                        'port-forward',
+                        'tun-forward',
+                        'sftp',
+                        'unknown',
+                        'scp',
+                        'x11',
+                        'shell',
+                        'exec',
+                        'port-forward',
+                        'tun-forward',
+                        'sftp',
+                        'unknown',
+                        'scp',
+                        'x11',
+                        'shell',
+                        'exec',
+                        'port-forward',
+                        'tun-forward',
+                        'sftp',
+                        'unknown',
+                        'x11',
+                        'shell',
+                        'exec',
+                        'port-forward',
+                        'tun-forward',
+                        'sftp',
+                        'unknown',
+                        'scp',
+                        'x11',
+                        'shell',
+                        'exec',
+                        'port-forward',
+                        'tun-forward',
+                        'sftp',
+                        'unknown',
+                        'scp',
+                        'x11',
+                        'shell',
+                        'exec',
+                        'port-forward',
+                        'tun-forward',
+                        'sftp',
+                        'unknown',
+                        'scp',
+                        'x11',
+                        'shell',
+                        'exec',
+                        'port-forward',
+                        'tun-forward',
+                        'sftp',
+                        'unknown',
+                        'scp',
+                        'x11',
+                        'shell',
+                        'exec',
+                        'port-forward',
+                        'tun-forward',
+                        'sftp',
+                        'unknown',
+                        'scp',
+                        'x11',
+                        'shell',
+                        'exec',
+                        'port-forward',
+                        'tun-forward',
+                        'sftp',
+                        'unknown',
+                        'scp',
+                        'x11',
+                        'shell',
+                        'exec',
+                        'port-forward',
+                        'tun-forward',
+                        'sftp',
+                        'unknown',
+                        'x11',
+                        'shell',
+                        'exec',
+                        'port-forward',
+                        'tun-forward',
+                        'sftp',
+                        'unknown',
+                        'scp',
+                        'x11',
+                        'shell',
+                        'exec',
+                        'port-forward',
+                        'tun-forward',
+                        'sftp',
+                        'unknown',
+                        'scp',
+                        'x11',
+                        'shell',
+                        'exec',
+                        'port-forward',
+                        'tun-forward',
+                        'sftp',
+                        'unknown',
+                        'scp',
+                        'x11',
+                        'shell',
+                        'exec',
+                        'port-forward',
+                        'tun-forward',
+                        'sftp',
+                        'unknown',
+                        'scp',
+                        'x11',
+                        'shell',
+                        'exec',
+                        'port-forward',
+                        'tun-forward',
+                        'sftp',
+                        'unknown',
+                        'scp',
+                        'x11',
+                        'shell',
+                        'exec',
+                        'port-forward',
+                        'tun-forward',
+                        'sftp',
+                        'unknown',
+                        'scp',
+                        'x11',
+                        'shell',
+                        'exec',
+                        'port-forward',
+                        'tun-forward',
+                        'sftp',
+                        'unknown',
+                        'x11',
+                        'shell',
+                        'exec',
+                        'port-forward',
+                        'tun-forward',
+                        'sftp',
+                        'unknown',
+                        'scp',
+                        'x11',
+                        'shell',
+                        'exec',
+                        'port-forward',
+                        'tun-forward',
+                        'sftp',
+                        'unknown',
+                        'scp',
+                        'x11',
+                        'shell',
+                        'exec',
+                        'port-forward',
+                        'tun-forward',
+                        'sftp',
+                        'unknown',
+                        'scp',
+                        'x11',
+                        'shell',
+                        'exec',
+                        'port-forward',
+                        'tun-forward',
+                        'sftp',
+                        'unknown',
+                        'scp',
+                        'x11',
+                        'shell',
+                        'exec',
+                        'port-forward',
+                        'tun-forward',
+                        'sftp',
+                        'unknown',
+                        'scp',
+                        'x11',
+                        'shell',
+                        'exec',
+                        'port-forward',
+                        'tun-forward',
+                        'sftp',
+                        'unknown',
+                        'scp',
+                        'x11',
+                        'shell',
+                        'exec',
+                        'port-forward',
+                        'tun-forward',
+                        'sftp',
+                        'unknown',
+                        'x11',
+                        'shell',
+                        'exec',
+                        'port-forward',
+                        'tun-forward',
+                        'sftp',
+                        'unknown',
+                        'scp',
+                        'x11',
+                        'shell',
+                        'exec',
+                        'port-forward',
+                        'tun-forward',
+                        'sftp',
+                        'unknown',
+                        'scp',
+                        'x11',
+                        'shell',
+                        'exec',
+                        'port-forward',
+                        'tun-forward',
+                        'sftp',
+                        'unknown',
+                        'scp',
+                        'x11',
+                        'shell',
+                        'exec',
+                        'port-forward',
+                        'tun-forward',
+                        'sftp',
+                        'unknown',
+                        'scp',
+                        'x11',
+                        'shell',
+                        'exec',
+                        'port-forward',
+                        'tun-forward',
+                        'sftp',
+                        'unknown',
+                        'scp',
+                        'x11',
+                        'shell',
+                        'exec',
+                        'port-forward',
+                        'tun-forward',
+                        'sftp',
+                        'unknown',
+                        'scp',
+                        'x11',
+                        'shell',
+                        'exec',
+                        'port-forward',
+                        'tun-forward',
+                        'sftp',
+                        'unknown',
+                        'x11',
+                        'shell',
+                        'exec',
+                        'port-forward',
+                        'tun-forward',
+                        'sftp',
+                        'unknown',
+                        'scp',
+                        'x11',
+                        'shell',
+                        'exec',
+                        'port-forward',
+                        'tun-forward',
+                        'sftp',
+                        'unknown',
+                        'scp',
+                        'x11',
+                        'shell',
+                        'exec',
+                        'port-forward',
+                        'tun-forward',
+                        'sftp',
+                        'unknown',
+                        'scp',
+                        'x11',
+                        'shell',
+                        'exec',
+                        'port-forward',
+                        'tun-forward',
+                        'sftp',
+                        'unknown',
+                        'scp',
+                        'x11',
+                        'shell',
+                        'exec',
+                        'port-forward',
+                        'tun-forward',
+                        'sftp',
+                        'unknown',
+                        'scp',
+                        'x11',
+                        'shell',
+                        'exec',
+                        'port-forward',
+                        'tun-forward',
+                        'sftp',
+                        'unknown',
+                        'scp',
+                        'x11',
+                        'shell',
+                        'exec',
+                        'port-forward',
+                        'tun-forward',
+                        'sftp',
+                        'unknown',
+                        'x11',
+                        'shell',
+                        'exec',
+                        'port-forward',
+                        'tun-forward',
+                        'sftp',
+                        'unknown',
+                        'scp',
+                        'x11',
+                        'shell',
+                        'exec',
+                        'port-forward',
+                        'tun-forward',
+                        'sftp',
+                        'unknown',
+                        'scp',
+                        'x11',
+                        'shell',
+                        'exec',
+                        'port-forward',
+                        'tun-forward',
+                        'sftp',
+                        'unknown',
+                        'scp',
+                        'x11',
+                        'shell',
+                        'exec',
+                        'port-forward',
+                        'tun-forward',
+                        'sftp',
+                        'unknown',
+                        'scp',
+                        'x11',
+                        'shell',
+                        'exec',
+                        'port-forward',
+                        'tun-forward',
+                        'sftp',
+                        'unknown',
+                        'scp',
+                        'x11',
+                        'shell',
+                        'exec',
+                        'port-forward',
+                        'tun-forward',
+                        'sftp',
+                        'unknown',
+                        'scp',
+                        'x11',
+                        'shell',
+                        'exec',
+                        'port-forward',
+                        'tun-forward',
+                        'sftp',
+                        'unknown',
+                        'x11',
+                        'shell',
+                        'exec',
+                        'port-forward',
+                        'tun-forward',
+                        'sftp',
+                        'unknown',
+                        'scp',
+                        'x11',
+                        'shell',
+                        'exec',
+                        'port-forward',
+                        'tun-forward',
+                        'sftp',
+                        'unknown',
+                        'scp',
+                        'x11',
+                        'shell',
+                        'exec',
+                        'port-forward',
+                        'tun-forward',
+                        'sftp',
+                        'unknown',
+                        'scp',
+                        'x11',
+                        'shell',
+                        'exec',
+                        'port-forward',
+                        'tun-forward',
+                        'sftp',
+                        'unknown',
+                        'scp',
+                        'x11',
+                        'shell',
+                        'exec',
+                        'port-forward',
+                        'tun-forward',
+                        'sftp',
+                        'unknown',
+                        'scp',
+                        'x11',
+                        'shell',
+                        'exec',
+                        'port-forward',
+                        'tun-forward',
+                        'sftp',
+                        'unknown',
+                        'scp'
                     ]
                 },
                 'name': {
                     'required': True,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'shell-commands': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'list',
                     'options': {
                         'action': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'choices': [
                                 'block',
                                 'allow'
@@ -364,6 +3022,16 @@ def main():
                         },
                         'alert': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'choices': [
                                 'disable',
                                 'enable'
@@ -372,10 +3040,30 @@ def main():
                         },
                         'id': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'int'
                         },
                         'log': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'choices': [
                                 'disable',
                                 'enable'
@@ -384,10 +3072,30 @@ def main():
                         },
                         'pattern': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'str'
                         },
                         'severity': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'choices': [
                                 'low',
                                 'medium',
@@ -398,6 +3106,16 @@ def main():
                         },
                         'type': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'choices': [
                                 'regex',
                                 'simple'

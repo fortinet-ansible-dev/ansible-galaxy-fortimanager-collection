@@ -109,6 +109,19 @@ options:
             value:
                 type: str
                 description: 'Parameter value.'
+            members:
+                description: no description
+                type: list
+                suboptions:
+                    id:
+                        type: int
+                        description: 'Parameter.'
+                    name:
+                        type: str
+                        description: 'Parameter name.'
+                    value:
+                        type: str
+                        description: 'Parameter value.'
 
 '''
 
@@ -136,6 +149,11 @@ EXAMPLES = '''
          application_list_entries_parameters:
             id: <value of integer>
             value: <value of string>
+            members:
+              -
+                  id: <value of integer>
+                  name: <value of string>
+                  value: <value of string>
 
 '''
 
@@ -240,11 +258,73 @@ def main():
             'options': {
                 'id': {
                     'required': True,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'value': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': False,
+                        '6.4.2': False,
+                        '6.4.5': False,
+                        '7.0.0': False
+                    },
                     'type': 'str'
+                },
+                'members': {
+                    'required': False,
+                    'revision': {
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'type': 'list',
+                    'options': {
+                        'id': {
+                            'required': False,
+                            'revision': {
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'int'
+                        },
+                        'name': {
+                            'required': False,
+                            'revision': {
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'str'
+                        },
+                        'value': {
+                            'required': False,
+                            'revision': {
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'str'
+                        }
+                    }
                 }
             }
 

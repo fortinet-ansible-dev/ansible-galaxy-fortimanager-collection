@@ -245,6 +245,9 @@ options:
                     sgsn-addr:
                         type: str
                         description: 'SGSN address name.'
+                    sgsn-addr6:
+                        type: str
+                        description: 'SGSN IPv6 address name.'
             ie-remover:
                 type: str
                 description: 'IE removal policy.'
@@ -329,6 +332,12 @@ options:
                     srcaddr:
                         type: str
                         description: 'Source address name.'
+                    dstaddr6:
+                        type: str
+                        description: 'Destination IPv6 address name.'
+                    srcaddr6:
+                        type: str
+                        description: 'Source IPv6 address name.'
             log-freq:
                 type: int
                 description: 'Logging of frequency of GTP-C packets.'
@@ -496,6 +505,12 @@ options:
                     uli:
                         type: str
                         description: 'ULI pattern.'
+                    imsi-prefix:
+                        type: str
+                        description: 'IMSI prefix.'
+                    msisdn-prefix:
+                        type: str
+                        description: 'MSISDN prefix.'
             policy-filter:
                 type: str
                 description: 'Advanced policy filter'
@@ -593,6 +608,955 @@ options:
             warning-threshold:
                 type: int
                 description: 'Warning threshold for rate limiting (0 - 99 percent).'
+            policy-v2:
+                description: no description
+                type: list
+                suboptions:
+                    action:
+                        type: str
+                        description: 'Action.'
+                        choices:
+                            - 'deny'
+                            - 'allow'
+                    apn-sel-mode:
+                        description: no description
+                        type: list
+                        choices:
+                         - ms
+                         - net
+                         - vrf
+                    apnmember:
+                        type: str
+                        description: 'APN member.'
+                    id:
+                        type: int
+                        description: 'ID.'
+                    imsi-prefix:
+                        type: str
+                        description: 'IMSI prefix.'
+                    max-apn-restriction:
+                        type: str
+                        description: 'Maximum APN restriction value.'
+                        choices:
+                            - 'all'
+                            - 'public-1'
+                            - 'public-2'
+                            - 'private-1'
+                            - 'private-2'
+                    mei:
+                        type: str
+                        description: 'MEI pattern.'
+                    messages:
+                        description: no description
+                        type: list
+                        choices:
+                         - create-ses-req
+                         - create-ses-res
+                         - modify-bearer-req
+                         - modify-bearer-res
+                    msisdn-prefix:
+                        type: str
+                        description: 'MSISDN prefix.'
+                    rat-type:
+                        description: no description
+                        type: list
+                        choices:
+                         - any
+                         - utran
+                         - geran
+                         - wlan
+                         - gan
+                         - hspa
+                         - eutran
+                         - virtual
+                         - nbiot
+                         - any
+                         - utran
+                         - geran
+                         - wlan
+                         - gan
+                         - hspa
+                         - eutran
+                         - virtual
+                         - nbiot
+                         - ltem
+                         - nr
+                         - any
+                         - utran
+                         - geran
+                         - wlan
+                         - gan
+                         - hspa
+                         - eutran
+                         - virtual
+                         - nbiot
+                         - ltem
+                         - nr
+                         - any
+                         - utran
+                         - geran
+                         - wlan
+                         - gan
+                         - hspa
+                         - eutran
+                         - virtual
+                         - nbiot
+                         - ltem
+                         - nr
+                         - any
+                         - utran
+                         - geran
+                         - wlan
+                         - gan
+                         - hspa
+                         - eutran
+                         - virtual
+                         - nbiot
+                         - any
+                         - utran
+                         - geran
+                         - wlan
+                         - gan
+                         - hspa
+                         - eutran
+                         - virtual
+                         - nbiot
+                         - any
+                         - utran
+                         - geran
+                         - wlan
+                         - gan
+                         - hspa
+                         - eutran
+                         - virtual
+                         - nbiot
+                         - any
+                         - utran
+                         - geran
+                         - wlan
+                         - gan
+                         - hspa
+                         - eutran
+                         - virtual
+                         - nbiot
+                         - ltem
+                         - nr
+                         - any
+                         - utran
+                         - geran
+                         - wlan
+                         - gan
+                         - hspa
+                         - eutran
+                         - virtual
+                         - nbiot
+                         - ltem
+                         - nr
+                         - any
+                         - utran
+                         - geran
+                         - wlan
+                         - gan
+                         - hspa
+                         - eutran
+                         - virtual
+                         - nbiot
+                         - ltem
+                         - nr
+                         - any
+                         - utran
+                         - geran
+                         - wlan
+                         - gan
+                         - hspa
+                         - eutran
+                         - virtual
+                         - nbiot
+                         - any
+                         - utran
+                         - geran
+                         - wlan
+                         - gan
+                         - hspa
+                         - eutran
+                         - virtual
+                         - nbiot
+                         - any
+                         - utran
+                         - geran
+                         - wlan
+                         - gan
+                         - hspa
+                         - eutran
+                         - virtual
+                         - nbiot
+                         - any
+                         - utran
+                         - geran
+                         - wlan
+                         - gan
+                         - hspa
+                         - eutran
+                         - virtual
+                         - nbiot
+                         - ltem
+                         - nr
+                         - any
+                         - utran
+                         - geran
+                         - wlan
+                         - gan
+                         - hspa
+                         - eutran
+                         - virtual
+                         - nbiot
+                         - ltem
+                         - nr
+                         - any
+                         - utran
+                         - geran
+                         - wlan
+                         - gan
+                         - hspa
+                         - eutran
+                         - virtual
+                         - nbiot
+                         - ltem
+                         - nr
+                         - any
+                         - utran
+                         - geran
+                         - wlan
+                         - gan
+                         - hspa
+                         - eutran
+                         - virtual
+                         - nbiot
+                         - any
+                         - utran
+                         - geran
+                         - wlan
+                         - gan
+                         - hspa
+                         - eutran
+                         - virtual
+                         - nbiot
+                         - any
+                         - utran
+                         - geran
+                         - wlan
+                         - gan
+                         - hspa
+                         - eutran
+                         - virtual
+                         - nbiot
+                         - any
+                         - utran
+                         - geran
+                         - wlan
+                         - gan
+                         - hspa
+                         - eutran
+                         - virtual
+                         - nbiot
+                         - ltem
+                         - nr
+                         - any
+                         - utran
+                         - geran
+                         - wlan
+                         - gan
+                         - hspa
+                         - eutran
+                         - virtual
+                         - nbiot
+                         - ltem
+                         - nr
+                         - any
+                         - utran
+                         - geran
+                         - wlan
+                         - gan
+                         - hspa
+                         - eutran
+                         - virtual
+                         - nbiot
+                         - ltem
+                         - nr
+                         - any
+                         - utran
+                         - geran
+                         - wlan
+                         - gan
+                         - hspa
+                         - eutran
+                         - virtual
+                         - nbiot
+                         - any
+                         - utran
+                         - geran
+                         - wlan
+                         - gan
+                         - hspa
+                         - eutran
+                         - virtual
+                         - nbiot
+                         - any
+                         - utran
+                         - geran
+                         - wlan
+                         - gan
+                         - hspa
+                         - eutran
+                         - virtual
+                         - nbiot
+                         - any
+                         - utran
+                         - geran
+                         - wlan
+                         - gan
+                         - hspa
+                         - eutran
+                         - virtual
+                         - nbiot
+                         - ltem
+                         - nr
+                         - any
+                         - utran
+                         - geran
+                         - wlan
+                         - gan
+                         - hspa
+                         - eutran
+                         - virtual
+                         - nbiot
+                         - ltem
+                         - nr
+                         - any
+                         - utran
+                         - geran
+                         - wlan
+                         - gan
+                         - hspa
+                         - eutran
+                         - virtual
+                         - nbiot
+                         - ltem
+                         - nr
+                         - any
+                         - utran
+                         - geran
+                         - wlan
+                         - gan
+                         - hspa
+                         - eutran
+                         - virtual
+                         - nbiot
+                         - any
+                         - utran
+                         - geran
+                         - wlan
+                         - gan
+                         - hspa
+                         - eutran
+                         - virtual
+                         - nbiot
+                         - any
+                         - utran
+                         - geran
+                         - wlan
+                         - gan
+                         - hspa
+                         - eutran
+                         - virtual
+                         - nbiot
+                         - any
+                         - utran
+                         - geran
+                         - wlan
+                         - gan
+                         - hspa
+                         - eutran
+                         - virtual
+                         - nbiot
+                         - ltem
+                         - nr
+                         - any
+                         - utran
+                         - geran
+                         - wlan
+                         - gan
+                         - hspa
+                         - eutran
+                         - virtual
+                         - nbiot
+                         - ltem
+                         - nr
+                         - any
+                         - utran
+                         - geran
+                         - wlan
+                         - gan
+                         - hspa
+                         - eutran
+                         - virtual
+                         - nbiot
+                         - ltem
+                         - nr
+                         - any
+                         - utran
+                         - geran
+                         - wlan
+                         - gan
+                         - hspa
+                         - eutran
+                         - virtual
+                         - nbiot
+                         - any
+                         - utran
+                         - geran
+                         - wlan
+                         - gan
+                         - hspa
+                         - eutran
+                         - virtual
+                         - nbiot
+                         - any
+                         - utran
+                         - geran
+                         - wlan
+                         - gan
+                         - hspa
+                         - eutran
+                         - virtual
+                         - nbiot
+                         - any
+                         - utran
+                         - geran
+                         - wlan
+                         - gan
+                         - hspa
+                         - eutran
+                         - virtual
+                         - nbiot
+                         - ltem
+                         - nr
+                         - any
+                         - utran
+                         - geran
+                         - wlan
+                         - gan
+                         - hspa
+                         - eutran
+                         - virtual
+                         - nbiot
+                         - ltem
+                         - nr
+                         - any
+                         - utran
+                         - geran
+                         - wlan
+                         - gan
+                         - hspa
+                         - eutran
+                         - virtual
+                         - nbiot
+                         - ltem
+                         - nr
+                         - any
+                         - utran
+                         - geran
+                         - wlan
+                         - gan
+                         - hspa
+                         - eutran
+                         - virtual
+                         - nbiot
+                         - any
+                         - utran
+                         - geran
+                         - wlan
+                         - gan
+                         - hspa
+                         - eutran
+                         - virtual
+                         - nbiot
+                         - any
+                         - utran
+                         - geran
+                         - wlan
+                         - gan
+                         - hspa
+                         - eutran
+                         - virtual
+                         - nbiot
+                         - any
+                         - utran
+                         - geran
+                         - wlan
+                         - gan
+                         - hspa
+                         - eutran
+                         - virtual
+                         - nbiot
+                         - ltem
+                         - nr
+                         - any
+                         - utran
+                         - geran
+                         - wlan
+                         - gan
+                         - hspa
+                         - eutran
+                         - virtual
+                         - nbiot
+                         - ltem
+                         - nr
+                         - any
+                         - utran
+                         - geran
+                         - wlan
+                         - gan
+                         - hspa
+                         - eutran
+                         - virtual
+                         - nbiot
+                         - ltem
+                         - nr
+                         - any
+                         - utran
+                         - geran
+                         - wlan
+                         - gan
+                         - hspa
+                         - eutran
+                         - virtual
+                         - nbiot
+                         - any
+                         - utran
+                         - geran
+                         - wlan
+                         - gan
+                         - hspa
+                         - eutran
+                         - virtual
+                         - nbiot
+                         - any
+                         - utran
+                         - geran
+                         - wlan
+                         - gan
+                         - hspa
+                         - eutran
+                         - virtual
+                         - nbiot
+                         - any
+                         - utran
+                         - geran
+                         - wlan
+                         - gan
+                         - hspa
+                         - eutran
+                         - virtual
+                         - nbiot
+                         - ltem
+                         - nr
+                         - any
+                         - utran
+                         - geran
+                         - wlan
+                         - gan
+                         - hspa
+                         - eutran
+                         - virtual
+                         - nbiot
+                         - ltem
+                         - nr
+                         - any
+                         - utran
+                         - geran
+                         - wlan
+                         - gan
+                         - hspa
+                         - eutran
+                         - virtual
+                         - nbiot
+                         - ltem
+                         - nr
+                    uli:
+                        description: no description
+                        type: str
+            sub-second-interval:
+                type: str
+                description: 'Sub-second interval (0.1, 0.25, or 0.5 sec, default = 0.5).'
+                choices:
+                    - '0.1'
+                    - '0.25'
+                    - '0.5'
+            sub-second-sampling:
+                type: str
+                description: 'Enable/disable sub-second sampling.'
+                choices:
+                    - 'disable'
+                    - 'enable'
+            authorized-ggsns6:
+                type: str
+                description: 'Authorized GGSN/PGW IPv6 group.'
+            authorized-sgsns6:
+                type: str
+                description: 'Authorized SGSN/SGW IPv6 group.'
+            handover-group6:
+                type: str
+                description: 'Handover SGSN/SGW IPv6 group.'
+            invalid-sgsns6-to-log:
+                type: str
+                description: 'Invalid SGSN IPv6 group to be logged.'
+            ie-validation:
+                description: no description
+                type: dict
+                required: false
+                suboptions:
+                    apn-restriction:
+                        type: str
+                        description: 'Validate APN restriction.'
+                        choices:
+                            - 'disable'
+                            - 'enable'
+                    charging-ID:
+                        type: str
+                        description: 'Validate charging ID.'
+                        choices:
+                            - 'disable'
+                            - 'enable'
+                    charging-gateway-addr:
+                        type: str
+                        description: 'Validate charging gateway address.'
+                        choices:
+                            - 'disable'
+                            - 'enable'
+                    end-user-addr:
+                        type: str
+                        description: 'Validate end user address.'
+                        choices:
+                            - 'disable'
+                            - 'enable'
+                    gsn-addr:
+                        type: str
+                        description: 'Validate GSN address.'
+                        choices:
+                            - 'disable'
+                            - 'enable'
+                    imei:
+                        type: str
+                        description: 'Validate IMEI(SV).'
+                        choices:
+                            - 'disable'
+                            - 'enable'
+                    imsi:
+                        type: str
+                        description: 'Validate IMSI.'
+                        choices:
+                            - 'disable'
+                            - 'enable'
+                    mm-context:
+                        type: str
+                        description: 'Validate MM context.'
+                        choices:
+                            - 'disable'
+                            - 'enable'
+                    ms-tzone:
+                        type: str
+                        description: 'Validate MS time zone.'
+                        choices:
+                            - 'disable'
+                            - 'enable'
+                    ms-validated:
+                        type: str
+                        description: 'Validate MS validated.'
+                        choices:
+                            - 'disable'
+                            - 'enable'
+                    msisdn:
+                        type: str
+                        description: 'Validate MSISDN.'
+                        choices:
+                            - 'disable'
+                            - 'enable'
+                    nsapi:
+                        type: str
+                        description: 'Validate NSAPI.'
+                        choices:
+                            - 'disable'
+                            - 'enable'
+                    pdp-context:
+                        type: str
+                        description: 'Validate PDP context.'
+                        choices:
+                            - 'disable'
+                            - 'enable'
+                    qos-profile:
+                        type: str
+                        description: 'Validate Quality of Service(QoS) profile.'
+                        choices:
+                            - 'disable'
+                            - 'enable'
+                    rai:
+                        type: str
+                        description: 'Validate RAI.'
+                        choices:
+                            - 'disable'
+                            - 'enable'
+                    rat-type:
+                        type: str
+                        description: 'Validate RAT type.'
+                        choices:
+                            - 'disable'
+                            - 'enable'
+                    reordering-required:
+                        type: str
+                        description: 'Validate re-ordering required.'
+                        choices:
+                            - 'disable'
+                            - 'enable'
+                    selection-mode:
+                        type: str
+                        description: 'Validate selection mode.'
+                        choices:
+                            - 'disable'
+                            - 'enable'
+                    uli:
+                        type: str
+                        description: 'Validate user location information.'
+                        choices:
+                            - 'disable'
+                            - 'enable'
+            message-rate-limit:
+                description: no description
+                type: dict
+                required: false
+                suboptions:
+                    create-aa-pdp-request:
+                        type: int
+                        description: 'Rate limit for create AA PDP context request (packets per second).'
+                    create-aa-pdp-response:
+                        type: int
+                        description: 'Rate limit for create AA PDP context response (packets per second).'
+                    create-mbms-request:
+                        type: int
+                        description: 'Rate limit for create MBMS context request (packets per second).'
+                    create-mbms-response:
+                        type: int
+                        description: 'Rate limit for create MBMS context response (packets per second).'
+                    create-pdp-request:
+                        type: int
+                        description: 'Rate limit for create PDP context request (packets per second).'
+                    create-pdp-response:
+                        type: int
+                        description: 'Rate limit for create PDP context response (packets per second).'
+                    delete-aa-pdp-request:
+                        type: int
+                        description: 'Rate limit for delete AA PDP context request (packets per second).'
+                    delete-aa-pdp-response:
+                        type: int
+                        description: 'Rate limit for delete AA PDP context response (packets per second).'
+                    delete-mbms-request:
+                        type: int
+                        description: 'Rate limit for delete MBMS context request (packets per second).'
+                    delete-mbms-response:
+                        type: int
+                        description: 'Rate limit for delete MBMS context response (packets per second).'
+                    delete-pdp-request:
+                        type: int
+                        description: 'Rate limit for delete PDP context request (packets per second).'
+                    delete-pdp-response:
+                        type: int
+                        description: 'Rate limit for delete PDP context response (packets per second).'
+                    echo-reponse:
+                        type: int
+                        description: 'Rate limit for echo response (packets per second).'
+                    echo-request:
+                        type: int
+                        description: 'Rate limit for echo requests (packets per second).'
+                    error-indication:
+                        type: int
+                        description: 'Rate limit for error indication (packets per second).'
+                    failure-report-request:
+                        type: int
+                        description: 'Rate limit for failure report request (packets per second).'
+                    failure-report-response:
+                        type: int
+                        description: 'Rate limit for failure report response (packets per second).'
+                    fwd-reloc-complete-ack:
+                        type: int
+                        description: 'Rate limit for forward relocation complete acknowledge (packets per second).'
+                    fwd-relocation-complete:
+                        type: int
+                        description: 'Rate limit for forward relocation complete (packets per second).'
+                    fwd-relocation-request:
+                        type: int
+                        description: 'Rate limit for forward relocation request (packets per second).'
+                    fwd-relocation-response:
+                        type: int
+                        description: 'Rate limit for forward relocation response (packets per second).'
+                    fwd-srns-context:
+                        type: int
+                        description: 'Rate limit for forward SRNS context (packets per second).'
+                    fwd-srns-context-ack:
+                        type: int
+                        description: 'Rate limit for forward SRNS context acknowledge (packets per second).'
+                    g-pdu:
+                        type: int
+                        description: 'Rate limit for G-PDU (packets per second).'
+                    identification-request:
+                        type: int
+                        description: 'Rate limit for identification request (packets per second).'
+                    identification-response:
+                        type: int
+                        description: 'Rate limit for identification response (packets per second).'
+                    mbms-de-reg-request:
+                        type: int
+                        description: 'Rate limit for MBMS de-registration request (packets per second).'
+                    mbms-de-reg-response:
+                        type: int
+                        description: 'Rate limit for MBMS de-registration response (packets per second).'
+                    mbms-notify-rej-request:
+                        type: int
+                        description: 'Rate limit for MBMS notification reject request (packets per second).'
+                    mbms-notify-rej-response:
+                        type: int
+                        description: 'Rate limit for MBMS notification reject response (packets per second).'
+                    mbms-notify-request:
+                        type: int
+                        description: 'Rate limit for MBMS notification request (packets per second).'
+                    mbms-notify-response:
+                        type: int
+                        description: 'Rate limit for MBMS notification response (packets per second).'
+                    mbms-reg-request:
+                        type: int
+                        description: 'Rate limit for MBMS registration request (packets per second).'
+                    mbms-reg-response:
+                        type: int
+                        description: 'Rate limit for MBMS registration response (packets per second).'
+                    mbms-ses-start-request:
+                        type: int
+                        description: 'Rate limit for MBMS session start request (packets per second).'
+                    mbms-ses-start-response:
+                        type: int
+                        description: 'Rate limit for MBMS session start response (packets per second).'
+                    mbms-ses-stop-request:
+                        type: int
+                        description: 'Rate limit for MBMS session stop request (packets per second).'
+                    mbms-ses-stop-response:
+                        type: int
+                        description: 'Rate limit for MBMS session stop response (packets per second).'
+                    note-ms-request:
+                        type: int
+                        description: 'Rate limit for note MS GPRS present request (packets per second).'
+                    note-ms-response:
+                        type: int
+                        description: 'Rate limit for note MS GPRS present response (packets per second).'
+                    pdu-notify-rej-request:
+                        type: int
+                        description: 'Rate limit for PDU notify reject request (packets per second).'
+                    pdu-notify-rej-response:
+                        type: int
+                        description: 'Rate limit for PDU notify reject response (packets per second).'
+                    pdu-notify-request:
+                        type: int
+                        description: 'Rate limit for PDU notify request (packets per second).'
+                    pdu-notify-response:
+                        type: int
+                        description: 'Rate limit for PDU notify response (packets per second).'
+                    ran-info:
+                        type: int
+                        description: 'Rate limit for RAN information relay (packets per second).'
+                    relocation-cancel-request:
+                        type: int
+                        description: 'Rate limit for relocation cancel request (packets per second).'
+                    relocation-cancel-response:
+                        type: int
+                        description: 'Rate limit for relocation cancel response (packets per second).'
+                    send-route-request:
+                        type: int
+                        description: 'Rate limit for send routing information for GPRS request (packets per second).'
+                    send-route-response:
+                        type: int
+                        description: 'Rate limit for send routing information for GPRS response (packets per second).'
+                    sgsn-context-ack:
+                        type: int
+                        description: 'Rate limit for SGSN context acknowledgement (packets per second).'
+                    sgsn-context-request:
+                        type: int
+                        description: 'Rate limit for SGSN context request (packets per second).'
+                    sgsn-context-response:
+                        type: int
+                        description: 'Rate limit for SGSN context response (packets per second).'
+                    support-ext-hdr-notify:
+                        type: int
+                        description: 'Rate limit for support extension headers notification (packets per second).'
+                    update-mbms-request:
+                        type: int
+                        description: 'Rate limit for update MBMS context request (packets per second).'
+                    update-mbms-response:
+                        type: int
+                        description: 'Rate limit for update MBMS context response (packets per second).'
+                    update-pdp-request:
+                        type: int
+                        description: 'Rate limit for update PDP context request (packets per second).'
+                    update-pdp-response:
+                        type: int
+                        description: 'Rate limit for update PDP context response (packets per second).'
+                    version-not-support:
+                        type: int
+                        description: 'Rate limit for version not supported (packets per second).'
+            message-rate-limit-v0:
+                description: no description
+                type: dict
+                required: false
+                suboptions:
+                    create-pdp-request:
+                        type: int
+                        description: 'Rate limit (packets/s) for create PDP context request.'
+                    delete-pdp-request:
+                        type: int
+                        description: 'Rate limit (packets/s) for delete PDP context request.'
+                    echo-request:
+                        type: int
+                        description: 'Rate limit (packets/s) for echo request.'
+            message-rate-limit-v1:
+                description: no description
+                type: dict
+                required: false
+                suboptions:
+                    create-pdp-request:
+                        type: int
+                        description: 'Rate limit (packets/s) for create PDP context request.'
+                    delete-pdp-request:
+                        type: int
+                        description: 'Rate limit (packets/s) for delete PDP context request.'
+                    echo-request:
+                        type: int
+                        description: 'Rate limit (packets/s) for echo request.'
+            message-rate-limit-v2:
+                description: no description
+                type: dict
+                required: false
+                suboptions:
+                    create-session-request:
+                        type: int
+                        description: 'Rate limit (packets/s) for create session request.'
+                    delete-session-request:
+                        type: int
+                        description: 'Rate limit (packets/s) for delete session request.'
+                    echo-request:
+                        type: int
+                        description: 'Rate limit (packets/s) for echo request.'
+            ie-allow-list-v0v1:
+                type: str
+                description: 'IE allow list.'
+            ie-allow-list-v2:
+                type: str
+                description: 'IE allow list.'
 
 '''
 
@@ -659,6 +1623,7 @@ EXAMPLES = '''
                     - uli
                     - imei
                   sgsn-addr: <value of string>
+                  sgsn-addr6: <value of string>
             ie-remover: <value in [disable, enable]>
             ie-white-list-v0v1: <value of string>
             ie-white-list-v2: <value of string>
@@ -684,6 +1649,8 @@ EXAMPLES = '''
                   dstaddr: <value of string>
                   id: <value of integer>
                   srcaddr: <value of string>
+                  dstaddr6: <value of string>
+                  srcaddr6: <value of string>
             log-freq: <value of integer>
             log-gtpu-limit: <value of integer>
             log-imsi-prefix: <value of string>
@@ -741,6 +1708,8 @@ EXAMPLES = '''
                     - virtual
                     - nbiot
                   uli: <value of string>
+                  imsi-prefix: <value of string>
+                  msisdn-prefix: <value of string>
             policy-filter: <value in [disable, enable]>
             port-notify: <value of integer>
             rate-limit-mode: <value in [per-profile, per-stream, per-apn]>
@@ -760,6 +1729,647 @@ EXAMPLES = '''
             unknown-version-action: <value in [allow, deny]>
             user-plane-message-rate-limit: <value of integer>
             warning-threshold: <value of integer>
+            policy-v2:
+              -
+                  action: <value in [deny, allow]>
+                  apn-sel-mode:
+                    - ms
+                    - net
+                    - vrf
+                  apnmember: <value of string>
+                  id: <value of integer>
+                  imsi-prefix: <value of string>
+                  max-apn-restriction: <value in [all, public-1, public-2, ...]>
+                  mei: <value of string>
+                  messages:
+                    - create-ses-req
+                    - create-ses-res
+                    - modify-bearer-req
+                    - modify-bearer-res
+                  msisdn-prefix: <value of string>
+                  rat-type:
+                    - any
+                    - utran
+                    - geran
+                    - wlan
+                    - gan
+                    - hspa
+                    - eutran
+                    - virtual
+                    - nbiot
+                    - any
+                    - utran
+                    - geran
+                    - wlan
+                    - gan
+                    - hspa
+                    - eutran
+                    - virtual
+                    - nbiot
+                    - ltem
+                    - nr
+                    - any
+                    - utran
+                    - geran
+                    - wlan
+                    - gan
+                    - hspa
+                    - eutran
+                    - virtual
+                    - nbiot
+                    - ltem
+                    - nr
+                    - any
+                    - utran
+                    - geran
+                    - wlan
+                    - gan
+                    - hspa
+                    - eutran
+                    - virtual
+                    - nbiot
+                    - ltem
+                    - nr
+                    - any
+                    - utran
+                    - geran
+                    - wlan
+                    - gan
+                    - hspa
+                    - eutran
+                    - virtual
+                    - nbiot
+                    - any
+                    - utran
+                    - geran
+                    - wlan
+                    - gan
+                    - hspa
+                    - eutran
+                    - virtual
+                    - nbiot
+                    - any
+                    - utran
+                    - geran
+                    - wlan
+                    - gan
+                    - hspa
+                    - eutran
+                    - virtual
+                    - nbiot
+                    - any
+                    - utran
+                    - geran
+                    - wlan
+                    - gan
+                    - hspa
+                    - eutran
+                    - virtual
+                    - nbiot
+                    - ltem
+                    - nr
+                    - any
+                    - utran
+                    - geran
+                    - wlan
+                    - gan
+                    - hspa
+                    - eutran
+                    - virtual
+                    - nbiot
+                    - ltem
+                    - nr
+                    - any
+                    - utran
+                    - geran
+                    - wlan
+                    - gan
+                    - hspa
+                    - eutran
+                    - virtual
+                    - nbiot
+                    - ltem
+                    - nr
+                    - any
+                    - utran
+                    - geran
+                    - wlan
+                    - gan
+                    - hspa
+                    - eutran
+                    - virtual
+                    - nbiot
+                    - any
+                    - utran
+                    - geran
+                    - wlan
+                    - gan
+                    - hspa
+                    - eutran
+                    - virtual
+                    - nbiot
+                    - any
+                    - utran
+                    - geran
+                    - wlan
+                    - gan
+                    - hspa
+                    - eutran
+                    - virtual
+                    - nbiot
+                    - any
+                    - utran
+                    - geran
+                    - wlan
+                    - gan
+                    - hspa
+                    - eutran
+                    - virtual
+                    - nbiot
+                    - ltem
+                    - nr
+                    - any
+                    - utran
+                    - geran
+                    - wlan
+                    - gan
+                    - hspa
+                    - eutran
+                    - virtual
+                    - nbiot
+                    - ltem
+                    - nr
+                    - any
+                    - utran
+                    - geran
+                    - wlan
+                    - gan
+                    - hspa
+                    - eutran
+                    - virtual
+                    - nbiot
+                    - ltem
+                    - nr
+                    - any
+                    - utran
+                    - geran
+                    - wlan
+                    - gan
+                    - hspa
+                    - eutran
+                    - virtual
+                    - nbiot
+                    - any
+                    - utran
+                    - geran
+                    - wlan
+                    - gan
+                    - hspa
+                    - eutran
+                    - virtual
+                    - nbiot
+                    - any
+                    - utran
+                    - geran
+                    - wlan
+                    - gan
+                    - hspa
+                    - eutran
+                    - virtual
+                    - nbiot
+                    - any
+                    - utran
+                    - geran
+                    - wlan
+                    - gan
+                    - hspa
+                    - eutran
+                    - virtual
+                    - nbiot
+                    - ltem
+                    - nr
+                    - any
+                    - utran
+                    - geran
+                    - wlan
+                    - gan
+                    - hspa
+                    - eutran
+                    - virtual
+                    - nbiot
+                    - ltem
+                    - nr
+                    - any
+                    - utran
+                    - geran
+                    - wlan
+                    - gan
+                    - hspa
+                    - eutran
+                    - virtual
+                    - nbiot
+                    - ltem
+                    - nr
+                    - any
+                    - utran
+                    - geran
+                    - wlan
+                    - gan
+                    - hspa
+                    - eutran
+                    - virtual
+                    - nbiot
+                    - any
+                    - utran
+                    - geran
+                    - wlan
+                    - gan
+                    - hspa
+                    - eutran
+                    - virtual
+                    - nbiot
+                    - any
+                    - utran
+                    - geran
+                    - wlan
+                    - gan
+                    - hspa
+                    - eutran
+                    - virtual
+                    - nbiot
+                    - any
+                    - utran
+                    - geran
+                    - wlan
+                    - gan
+                    - hspa
+                    - eutran
+                    - virtual
+                    - nbiot
+                    - ltem
+                    - nr
+                    - any
+                    - utran
+                    - geran
+                    - wlan
+                    - gan
+                    - hspa
+                    - eutran
+                    - virtual
+                    - nbiot
+                    - ltem
+                    - nr
+                    - any
+                    - utran
+                    - geran
+                    - wlan
+                    - gan
+                    - hspa
+                    - eutran
+                    - virtual
+                    - nbiot
+                    - ltem
+                    - nr
+                    - any
+                    - utran
+                    - geran
+                    - wlan
+                    - gan
+                    - hspa
+                    - eutran
+                    - virtual
+                    - nbiot
+                    - any
+                    - utran
+                    - geran
+                    - wlan
+                    - gan
+                    - hspa
+                    - eutran
+                    - virtual
+                    - nbiot
+                    - any
+                    - utran
+                    - geran
+                    - wlan
+                    - gan
+                    - hspa
+                    - eutran
+                    - virtual
+                    - nbiot
+                    - any
+                    - utran
+                    - geran
+                    - wlan
+                    - gan
+                    - hspa
+                    - eutran
+                    - virtual
+                    - nbiot
+                    - ltem
+                    - nr
+                    - any
+                    - utran
+                    - geran
+                    - wlan
+                    - gan
+                    - hspa
+                    - eutran
+                    - virtual
+                    - nbiot
+                    - ltem
+                    - nr
+                    - any
+                    - utran
+                    - geran
+                    - wlan
+                    - gan
+                    - hspa
+                    - eutran
+                    - virtual
+                    - nbiot
+                    - ltem
+                    - nr
+                    - any
+                    - utran
+                    - geran
+                    - wlan
+                    - gan
+                    - hspa
+                    - eutran
+                    - virtual
+                    - nbiot
+                    - any
+                    - utran
+                    - geran
+                    - wlan
+                    - gan
+                    - hspa
+                    - eutran
+                    - virtual
+                    - nbiot
+                    - any
+                    - utran
+                    - geran
+                    - wlan
+                    - gan
+                    - hspa
+                    - eutran
+                    - virtual
+                    - nbiot
+                    - any
+                    - utran
+                    - geran
+                    - wlan
+                    - gan
+                    - hspa
+                    - eutran
+                    - virtual
+                    - nbiot
+                    - ltem
+                    - nr
+                    - any
+                    - utran
+                    - geran
+                    - wlan
+                    - gan
+                    - hspa
+                    - eutran
+                    - virtual
+                    - nbiot
+                    - ltem
+                    - nr
+                    - any
+                    - utran
+                    - geran
+                    - wlan
+                    - gan
+                    - hspa
+                    - eutran
+                    - virtual
+                    - nbiot
+                    - ltem
+                    - nr
+                    - any
+                    - utran
+                    - geran
+                    - wlan
+                    - gan
+                    - hspa
+                    - eutran
+                    - virtual
+                    - nbiot
+                    - any
+                    - utran
+                    - geran
+                    - wlan
+                    - gan
+                    - hspa
+                    - eutran
+                    - virtual
+                    - nbiot
+                    - any
+                    - utran
+                    - geran
+                    - wlan
+                    - gan
+                    - hspa
+                    - eutran
+                    - virtual
+                    - nbiot
+                    - any
+                    - utran
+                    - geran
+                    - wlan
+                    - gan
+                    - hspa
+                    - eutran
+                    - virtual
+                    - nbiot
+                    - ltem
+                    - nr
+                    - any
+                    - utran
+                    - geran
+                    - wlan
+                    - gan
+                    - hspa
+                    - eutran
+                    - virtual
+                    - nbiot
+                    - ltem
+                    - nr
+                    - any
+                    - utran
+                    - geran
+                    - wlan
+                    - gan
+                    - hspa
+                    - eutran
+                    - virtual
+                    - nbiot
+                    - ltem
+                    - nr
+                    - any
+                    - utran
+                    - geran
+                    - wlan
+                    - gan
+                    - hspa
+                    - eutran
+                    - virtual
+                    - nbiot
+                    - any
+                    - utran
+                    - geran
+                    - wlan
+                    - gan
+                    - hspa
+                    - eutran
+                    - virtual
+                    - nbiot
+                    - any
+                    - utran
+                    - geran
+                    - wlan
+                    - gan
+                    - hspa
+                    - eutran
+                    - virtual
+                    - nbiot
+                    - any
+                    - utran
+                    - geran
+                    - wlan
+                    - gan
+                    - hspa
+                    - eutran
+                    - virtual
+                    - nbiot
+                    - ltem
+                    - nr
+                    - any
+                    - utran
+                    - geran
+                    - wlan
+                    - gan
+                    - hspa
+                    - eutran
+                    - virtual
+                    - nbiot
+                    - ltem
+                    - nr
+                    - any
+                    - utran
+                    - geran
+                    - wlan
+                    - gan
+                    - hspa
+                    - eutran
+                    - virtual
+                    - nbiot
+                    - ltem
+                    - nr
+                  uli: <value of string>
+            sub-second-interval: <value in [0.1, 0.25, 0.5]>
+            sub-second-sampling: <value in [disable, enable]>
+            authorized-ggsns6: <value of string>
+            authorized-sgsns6: <value of string>
+            handover-group6: <value of string>
+            invalid-sgsns6-to-log: <value of string>
+            ie-validation:
+               apn-restriction: <value in [disable, enable]>
+               charging-ID: <value in [disable, enable]>
+               charging-gateway-addr: <value in [disable, enable]>
+               end-user-addr: <value in [disable, enable]>
+               gsn-addr: <value in [disable, enable]>
+               imei: <value in [disable, enable]>
+               imsi: <value in [disable, enable]>
+               mm-context: <value in [disable, enable]>
+               ms-tzone: <value in [disable, enable]>
+               ms-validated: <value in [disable, enable]>
+               msisdn: <value in [disable, enable]>
+               nsapi: <value in [disable, enable]>
+               pdp-context: <value in [disable, enable]>
+               qos-profile: <value in [disable, enable]>
+               rai: <value in [disable, enable]>
+               rat-type: <value in [disable, enable]>
+               reordering-required: <value in [disable, enable]>
+               selection-mode: <value in [disable, enable]>
+               uli: <value in [disable, enable]>
+            message-rate-limit:
+               create-aa-pdp-request: <value of integer>
+               create-aa-pdp-response: <value of integer>
+               create-mbms-request: <value of integer>
+               create-mbms-response: <value of integer>
+               create-pdp-request: <value of integer>
+               create-pdp-response: <value of integer>
+               delete-aa-pdp-request: <value of integer>
+               delete-aa-pdp-response: <value of integer>
+               delete-mbms-request: <value of integer>
+               delete-mbms-response: <value of integer>
+               delete-pdp-request: <value of integer>
+               delete-pdp-response: <value of integer>
+               echo-reponse: <value of integer>
+               echo-request: <value of integer>
+               error-indication: <value of integer>
+               failure-report-request: <value of integer>
+               failure-report-response: <value of integer>
+               fwd-reloc-complete-ack: <value of integer>
+               fwd-relocation-complete: <value of integer>
+               fwd-relocation-request: <value of integer>
+               fwd-relocation-response: <value of integer>
+               fwd-srns-context: <value of integer>
+               fwd-srns-context-ack: <value of integer>
+               g-pdu: <value of integer>
+               identification-request: <value of integer>
+               identification-response: <value of integer>
+               mbms-de-reg-request: <value of integer>
+               mbms-de-reg-response: <value of integer>
+               mbms-notify-rej-request: <value of integer>
+               mbms-notify-rej-response: <value of integer>
+               mbms-notify-request: <value of integer>
+               mbms-notify-response: <value of integer>
+               mbms-reg-request: <value of integer>
+               mbms-reg-response: <value of integer>
+               mbms-ses-start-request: <value of integer>
+               mbms-ses-start-response: <value of integer>
+               mbms-ses-stop-request: <value of integer>
+               mbms-ses-stop-response: <value of integer>
+               note-ms-request: <value of integer>
+               note-ms-response: <value of integer>
+               pdu-notify-rej-request: <value of integer>
+               pdu-notify-rej-response: <value of integer>
+               pdu-notify-request: <value of integer>
+               pdu-notify-response: <value of integer>
+               ran-info: <value of integer>
+               relocation-cancel-request: <value of integer>
+               relocation-cancel-response: <value of integer>
+               send-route-request: <value of integer>
+               send-route-response: <value of integer>
+               sgsn-context-ack: <value of integer>
+               sgsn-context-request: <value of integer>
+               sgsn-context-response: <value of integer>
+               support-ext-hdr-notify: <value of integer>
+               update-mbms-request: <value of integer>
+               update-mbms-response: <value of integer>
+               update-pdp-request: <value of integer>
+               update-pdp-response: <value of integer>
+               version-not-support: <value of integer>
+            message-rate-limit-v0:
+               create-pdp-request: <value of integer>
+               delete-pdp-request: <value of integer>
+               echo-request: <value of integer>
+            message-rate-limit-v1:
+               create-pdp-request: <value of integer>
+               delete-pdp-request: <value of integer>
+               echo-request: <value of integer>
+            message-rate-limit-v2:
+               create-session-request: <value of integer>
+               delete-session-request: <value of integer>
+               echo-request: <value of integer>
+            ie-allow-list-v0v1: <value of string>
+            ie-allow-list-v2: <value of string>
 
 '''
 
@@ -856,14 +2466,44 @@ def main():
             'options': {
                 'addr-notify': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'apn': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'list',
                     'options': {
                         'action': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'choices': [
                                 'allow',
                                 'deny'
@@ -872,14 +2512,44 @@ def main():
                         },
                         'apnmember': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'str'
                         },
                         'id': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'int'
                         },
                         'selection-mode': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'list',
                             'choices': [
                                 'ms',
@@ -891,6 +2561,16 @@ def main():
                 },
                 'apn-filter': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -899,26 +2579,86 @@ def main():
                 },
                 'authorized-ggsns': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'authorized-sgsns': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'comment': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'context-id': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'control-plane-message-rate-limit': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'default-apn-action': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'allow',
                         'deny'
@@ -927,6 +2667,16 @@ def main():
                 },
                 'default-imsi-action': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'allow',
                         'deny'
@@ -935,6 +2685,16 @@ def main():
                 },
                 'default-ip-action': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'allow',
                         'deny'
@@ -943,6 +2703,16 @@ def main():
                 },
                 'default-noip-action': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'allow',
                         'deny'
@@ -951,6 +2721,16 @@ def main():
                 },
                 'default-policy-action': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'allow',
                         'deny'
@@ -959,6 +2739,16 @@ def main():
                 },
                 'denied-log': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -967,10 +2757,30 @@ def main():
                 },
                 'echo-request-interval': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'extension-log': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -979,6 +2789,16 @@ def main():
                 },
                 'forwarded-log': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -987,10 +2807,30 @@ def main():
                 },
                 'global-tunnel-limit': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'gtp-in-gtp': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'allow',
                         'deny'
@@ -999,6 +2839,16 @@ def main():
                 },
                 'gtpu-denied-log': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -1007,6 +2857,16 @@ def main():
                 },
                 'gtpu-forwarded-log': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -1015,30 +2875,100 @@ def main():
                 },
                 'gtpu-log-freq': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'half-close-timeout': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'half-open-timeout': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'handover-group': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'ie-remove-policy': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'list',
                     'options': {
                         'id': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'int'
                         },
                         'remove-ies': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'list',
                             'choices': [
                                 'apn-restriction',
@@ -1050,12 +2980,41 @@ def main():
                         },
                         'sgsn-addr': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'str'
+                        },
+                        'sgsn-addr6': {
+                            'required': False,
+                            'revision': {
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'str'
                         }
                     }
                 },
                 'ie-remover': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -1064,18 +3023,58 @@ def main():
                 },
                 'ie-white-list-v0v1': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': False
+                    },
                     'type': 'str'
                 },
                 'ie-white-list-v2': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': False
+                    },
                     'type': 'str'
                 },
                 'imsi': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'list',
                     'options': {
                         'action': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'choices': [
                                 'allow',
                                 'deny'
@@ -1084,22 +3083,72 @@ def main():
                         },
                         'apnmember': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'str'
                         },
                         'id': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'int'
                         },
                         'mcc-mnc': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'str'
                         },
                         'msisdn-prefix': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'str'
                         },
                         'selection-mode': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'list',
                             'choices': [
                                 'ms',
@@ -1111,6 +3160,16 @@ def main():
                 },
                 'imsi-filter': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -1119,10 +3178,30 @@ def main():
                 },
                 'interface-notify': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'invalid-reserved-field': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'allow',
                         'deny'
@@ -1131,10 +3210,30 @@ def main():
                 },
                 'invalid-sgsns-to-log': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'ip-filter': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -1143,10 +3242,30 @@ def main():
                 },
                 'ip-policy': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'list',
                     'options': {
                         'action': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'choices': [
                                 'allow',
                                 'deny'
@@ -1155,52 +3274,190 @@ def main():
                         },
                         'dstaddr': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'str'
                         },
                         'id': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'int'
                         },
                         'srcaddr': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'str'
+                        },
+                        'dstaddr6': {
+                            'required': False,
+                            'revision': {
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'str'
+                        },
+                        'srcaddr6': {
+                            'required': False,
+                            'revision': {
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'str'
                         }
                     }
                 },
                 'log-freq': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'log-gtpu-limit': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'log-imsi-prefix': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'log-msisdn-prefix': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'max-message-length': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'message-filter-v0v1': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'message-filter-v2': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'min-message-length': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'miss-must-ie': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'allow',
                         'deny'
@@ -1209,6 +3466,16 @@ def main():
                 },
                 'monitor-mode': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable',
@@ -1218,10 +3485,30 @@ def main():
                 },
                 'name': {
                     'required': True,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'noip-filter': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -1230,10 +3517,30 @@ def main():
                 },
                 'noip-policy': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'list',
                     'options': {
                         'action': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'choices': [
                                 'allow',
                                 'deny'
@@ -1242,18 +3549,58 @@ def main():
                         },
                         'end': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'int'
                         },
                         'id': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'int'
                         },
                         'start': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'int'
                         },
                         'type': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'choices': [
                                 'etsi',
                                 'ietf'
@@ -1264,6 +3611,16 @@ def main():
                 },
                 'out-of-state-ie': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'allow',
                         'deny'
@@ -1272,6 +3629,16 @@ def main():
                 },
                 'out-of-state-message': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'allow',
                         'deny'
@@ -1280,32 +3647,102 @@ def main():
                 },
                 'per-apn-shaper': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'list',
                     'options': {
                         'apn': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'str'
                         },
                         'id': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'int'
                         },
                         'rate-limit': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'int'
                         },
                         'version': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'int'
                         }
                     }
                 },
                 'policy': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'list',
                     'options': {
                         'action': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'choices': [
                                 'allow',
                                 'deny'
@@ -1314,6 +3751,16 @@ def main():
                         },
                         'apn-sel-mode': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'list',
                             'choices': [
                                 'ms',
@@ -1323,22 +3770,72 @@ def main():
                         },
                         'apnmember': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'str'
                         },
                         'id': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'int'
                         },
                         'imei': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'str'
                         },
                         'imsi': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': False,
+                                '6.2.3': False,
+                                '6.2.5': False,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
                             'type': 'str'
                         },
                         'max-apn-restriction': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'choices': [
                                 'all',
                                 'public-1',
@@ -1350,6 +3847,16 @@ def main():
                         },
                         'messages': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'list',
                             'choices': [
                                 'create-req',
@@ -1360,14 +3867,44 @@ def main():
                         },
                         'msisdn': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': False,
+                                '6.2.3': False,
+                                '6.2.5': False,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
                             'type': 'str'
                         },
                         'rai': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'str'
                         },
                         'rat-type': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'list',
                             'choices': [
                                 'any',
@@ -1383,12 +3920,58 @@ def main():
                         },
                         'uli': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'str'
+                        },
+                        'imsi-prefix': {
+                            'required': False,
+                            'revision': {
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'str'
+                        },
+                        'msisdn-prefix': {
+                            'required': False,
+                            'revision': {
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'str'
                         }
                     }
                 },
                 'policy-filter': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -1397,10 +3980,30 @@ def main():
                 },
                 'port-notify': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'rate-limit-mode': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'per-profile',
                         'per-stream',
@@ -1410,6 +4013,16 @@ def main():
                 },
                 'rate-limited-log': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -1418,10 +4031,30 @@ def main():
                 },
                 'rate-sampling-interval': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'remove-if-echo-expires': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -1430,6 +4063,16 @@ def main():
                 },
                 'remove-if-recovery-differ': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -1438,6 +4081,16 @@ def main():
                 },
                 'reserved-ie': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'allow',
                         'deny'
@@ -1446,6 +4099,16 @@ def main():
                 },
                 'send-delete-when-timeout': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -1454,6 +4117,16 @@ def main():
                 },
                 'send-delete-when-timeout-v2': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -1462,6 +4135,16 @@ def main():
                 },
                 'spoof-src-addr': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'allow',
                         'deny'
@@ -1470,6 +4153,16 @@ def main():
                 },
                 'state-invalid-log': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -1478,6 +4171,16 @@ def main():
                 },
                 'traffic-count-log': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -1486,10 +4189,30 @@ def main():
                 },
                 'tunnel-limit': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'tunnel-limit-log': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'disable',
                         'enable'
@@ -1498,10 +4221,30 @@ def main():
                 },
                 'tunnel-timeout': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'unknown-version-action': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'choices': [
                         'allow',
                         'deny'
@@ -1510,11 +4253,1612 @@ def main():
                 },
                 'user-plane-message-rate-limit': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
                 },
                 'warning-threshold': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'int'
+                },
+                'policy-v2': {
+                    'required': False,
+                    'revision': {
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'type': 'list',
+                    'options': {
+                        'action': {
+                            'required': False,
+                            'revision': {
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'deny',
+                                'allow'
+                            ],
+                            'type': 'str'
+                        },
+                        'apn-sel-mode': {
+                            'required': False,
+                            'revision': {
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'list',
+                            'choices': [
+                                'ms',
+                                'net',
+                                'vrf'
+                            ]
+                        },
+                        'apnmember': {
+                            'required': False,
+                            'revision': {
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'str'
+                        },
+                        'id': {
+                            'required': False,
+                            'revision': {
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'int'
+                        },
+                        'imsi-prefix': {
+                            'required': False,
+                            'revision': {
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'str'
+                        },
+                        'max-apn-restriction': {
+                            'required': False,
+                            'revision': {
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'all',
+                                'public-1',
+                                'public-2',
+                                'private-1',
+                                'private-2'
+                            ],
+                            'type': 'str'
+                        },
+                        'mei': {
+                            'required': False,
+                            'revision': {
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'str'
+                        },
+                        'messages': {
+                            'required': False,
+                            'revision': {
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'list',
+                            'choices': [
+                                'create-ses-req',
+                                'create-ses-res',
+                                'modify-bearer-req',
+                                'modify-bearer-res'
+                            ]
+                        },
+                        'msisdn-prefix': {
+                            'required': False,
+                            'revision': {
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'str'
+                        },
+                        'rat-type': {
+                            'required': False,
+                            'revision': {
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'list',
+                            'choices': [
+                                'any',
+                                'utran',
+                                'geran',
+                                'wlan',
+                                'gan',
+                                'hspa',
+                                'eutran',
+                                'virtual',
+                                'nbiot',
+                                'any',
+                                'utran',
+                                'geran',
+                                'wlan',
+                                'gan',
+                                'hspa',
+                                'eutran',
+                                'virtual',
+                                'nbiot',
+                                'ltem',
+                                'nr',
+                                'any',
+                                'utran',
+                                'geran',
+                                'wlan',
+                                'gan',
+                                'hspa',
+                                'eutran',
+                                'virtual',
+                                'nbiot',
+                                'ltem',
+                                'nr',
+                                'any',
+                                'utran',
+                                'geran',
+                                'wlan',
+                                'gan',
+                                'hspa',
+                                'eutran',
+                                'virtual',
+                                'nbiot',
+                                'ltem',
+                                'nr',
+                                'any',
+                                'utran',
+                                'geran',
+                                'wlan',
+                                'gan',
+                                'hspa',
+                                'eutran',
+                                'virtual',
+                                'nbiot',
+                                'any',
+                                'utran',
+                                'geran',
+                                'wlan',
+                                'gan',
+                                'hspa',
+                                'eutran',
+                                'virtual',
+                                'nbiot',
+                                'any',
+                                'utran',
+                                'geran',
+                                'wlan',
+                                'gan',
+                                'hspa',
+                                'eutran',
+                                'virtual',
+                                'nbiot',
+                                'any',
+                                'utran',
+                                'geran',
+                                'wlan',
+                                'gan',
+                                'hspa',
+                                'eutran',
+                                'virtual',
+                                'nbiot',
+                                'ltem',
+                                'nr',
+                                'any',
+                                'utran',
+                                'geran',
+                                'wlan',
+                                'gan',
+                                'hspa',
+                                'eutran',
+                                'virtual',
+                                'nbiot',
+                                'ltem',
+                                'nr',
+                                'any',
+                                'utran',
+                                'geran',
+                                'wlan',
+                                'gan',
+                                'hspa',
+                                'eutran',
+                                'virtual',
+                                'nbiot',
+                                'ltem',
+                                'nr',
+                                'any',
+                                'utran',
+                                'geran',
+                                'wlan',
+                                'gan',
+                                'hspa',
+                                'eutran',
+                                'virtual',
+                                'nbiot',
+                                'any',
+                                'utran',
+                                'geran',
+                                'wlan',
+                                'gan',
+                                'hspa',
+                                'eutran',
+                                'virtual',
+                                'nbiot',
+                                'any',
+                                'utran',
+                                'geran',
+                                'wlan',
+                                'gan',
+                                'hspa',
+                                'eutran',
+                                'virtual',
+                                'nbiot',
+                                'any',
+                                'utran',
+                                'geran',
+                                'wlan',
+                                'gan',
+                                'hspa',
+                                'eutran',
+                                'virtual',
+                                'nbiot',
+                                'ltem',
+                                'nr',
+                                'any',
+                                'utran',
+                                'geran',
+                                'wlan',
+                                'gan',
+                                'hspa',
+                                'eutran',
+                                'virtual',
+                                'nbiot',
+                                'ltem',
+                                'nr',
+                                'any',
+                                'utran',
+                                'geran',
+                                'wlan',
+                                'gan',
+                                'hspa',
+                                'eutran',
+                                'virtual',
+                                'nbiot',
+                                'ltem',
+                                'nr',
+                                'any',
+                                'utran',
+                                'geran',
+                                'wlan',
+                                'gan',
+                                'hspa',
+                                'eutran',
+                                'virtual',
+                                'nbiot',
+                                'any',
+                                'utran',
+                                'geran',
+                                'wlan',
+                                'gan',
+                                'hspa',
+                                'eutran',
+                                'virtual',
+                                'nbiot',
+                                'any',
+                                'utran',
+                                'geran',
+                                'wlan',
+                                'gan',
+                                'hspa',
+                                'eutran',
+                                'virtual',
+                                'nbiot',
+                                'any',
+                                'utran',
+                                'geran',
+                                'wlan',
+                                'gan',
+                                'hspa',
+                                'eutran',
+                                'virtual',
+                                'nbiot',
+                                'ltem',
+                                'nr',
+                                'any',
+                                'utran',
+                                'geran',
+                                'wlan',
+                                'gan',
+                                'hspa',
+                                'eutran',
+                                'virtual',
+                                'nbiot',
+                                'ltem',
+                                'nr',
+                                'any',
+                                'utran',
+                                'geran',
+                                'wlan',
+                                'gan',
+                                'hspa',
+                                'eutran',
+                                'virtual',
+                                'nbiot',
+                                'ltem',
+                                'nr',
+                                'any',
+                                'utran',
+                                'geran',
+                                'wlan',
+                                'gan',
+                                'hspa',
+                                'eutran',
+                                'virtual',
+                                'nbiot',
+                                'any',
+                                'utran',
+                                'geran',
+                                'wlan',
+                                'gan',
+                                'hspa',
+                                'eutran',
+                                'virtual',
+                                'nbiot',
+                                'any',
+                                'utran',
+                                'geran',
+                                'wlan',
+                                'gan',
+                                'hspa',
+                                'eutran',
+                                'virtual',
+                                'nbiot',
+                                'any',
+                                'utran',
+                                'geran',
+                                'wlan',
+                                'gan',
+                                'hspa',
+                                'eutran',
+                                'virtual',
+                                'nbiot',
+                                'ltem',
+                                'nr',
+                                'any',
+                                'utran',
+                                'geran',
+                                'wlan',
+                                'gan',
+                                'hspa',
+                                'eutran',
+                                'virtual',
+                                'nbiot',
+                                'ltem',
+                                'nr',
+                                'any',
+                                'utran',
+                                'geran',
+                                'wlan',
+                                'gan',
+                                'hspa',
+                                'eutran',
+                                'virtual',
+                                'nbiot',
+                                'ltem',
+                                'nr',
+                                'any',
+                                'utran',
+                                'geran',
+                                'wlan',
+                                'gan',
+                                'hspa',
+                                'eutran',
+                                'virtual',
+                                'nbiot',
+                                'any',
+                                'utran',
+                                'geran',
+                                'wlan',
+                                'gan',
+                                'hspa',
+                                'eutran',
+                                'virtual',
+                                'nbiot',
+                                'any',
+                                'utran',
+                                'geran',
+                                'wlan',
+                                'gan',
+                                'hspa',
+                                'eutran',
+                                'virtual',
+                                'nbiot',
+                                'any',
+                                'utran',
+                                'geran',
+                                'wlan',
+                                'gan',
+                                'hspa',
+                                'eutran',
+                                'virtual',
+                                'nbiot',
+                                'ltem',
+                                'nr',
+                                'any',
+                                'utran',
+                                'geran',
+                                'wlan',
+                                'gan',
+                                'hspa',
+                                'eutran',
+                                'virtual',
+                                'nbiot',
+                                'ltem',
+                                'nr',
+                                'any',
+                                'utran',
+                                'geran',
+                                'wlan',
+                                'gan',
+                                'hspa',
+                                'eutran',
+                                'virtual',
+                                'nbiot',
+                                'ltem',
+                                'nr',
+                                'any',
+                                'utran',
+                                'geran',
+                                'wlan',
+                                'gan',
+                                'hspa',
+                                'eutran',
+                                'virtual',
+                                'nbiot',
+                                'any',
+                                'utran',
+                                'geran',
+                                'wlan',
+                                'gan',
+                                'hspa',
+                                'eutran',
+                                'virtual',
+                                'nbiot',
+                                'any',
+                                'utran',
+                                'geran',
+                                'wlan',
+                                'gan',
+                                'hspa',
+                                'eutran',
+                                'virtual',
+                                'nbiot',
+                                'any',
+                                'utran',
+                                'geran',
+                                'wlan',
+                                'gan',
+                                'hspa',
+                                'eutran',
+                                'virtual',
+                                'nbiot',
+                                'ltem',
+                                'nr',
+                                'any',
+                                'utran',
+                                'geran',
+                                'wlan',
+                                'gan',
+                                'hspa',
+                                'eutran',
+                                'virtual',
+                                'nbiot',
+                                'ltem',
+                                'nr',
+                                'any',
+                                'utran',
+                                'geran',
+                                'wlan',
+                                'gan',
+                                'hspa',
+                                'eutran',
+                                'virtual',
+                                'nbiot',
+                                'ltem',
+                                'nr',
+                                'any',
+                                'utran',
+                                'geran',
+                                'wlan',
+                                'gan',
+                                'hspa',
+                                'eutran',
+                                'virtual',
+                                'nbiot',
+                                'any',
+                                'utran',
+                                'geran',
+                                'wlan',
+                                'gan',
+                                'hspa',
+                                'eutran',
+                                'virtual',
+                                'nbiot',
+                                'any',
+                                'utran',
+                                'geran',
+                                'wlan',
+                                'gan',
+                                'hspa',
+                                'eutran',
+                                'virtual',
+                                'nbiot',
+                                'any',
+                                'utran',
+                                'geran',
+                                'wlan',
+                                'gan',
+                                'hspa',
+                                'eutran',
+                                'virtual',
+                                'nbiot',
+                                'ltem',
+                                'nr',
+                                'any',
+                                'utran',
+                                'geran',
+                                'wlan',
+                                'gan',
+                                'hspa',
+                                'eutran',
+                                'virtual',
+                                'nbiot',
+                                'ltem',
+                                'nr',
+                                'any',
+                                'utran',
+                                'geran',
+                                'wlan',
+                                'gan',
+                                'hspa',
+                                'eutran',
+                                'virtual',
+                                'nbiot',
+                                'ltem',
+                                'nr',
+                                'any',
+                                'utran',
+                                'geran',
+                                'wlan',
+                                'gan',
+                                'hspa',
+                                'eutran',
+                                'virtual',
+                                'nbiot',
+                                'any',
+                                'utran',
+                                'geran',
+                                'wlan',
+                                'gan',
+                                'hspa',
+                                'eutran',
+                                'virtual',
+                                'nbiot',
+                                'any',
+                                'utran',
+                                'geran',
+                                'wlan',
+                                'gan',
+                                'hspa',
+                                'eutran',
+                                'virtual',
+                                'nbiot',
+                                'any',
+                                'utran',
+                                'geran',
+                                'wlan',
+                                'gan',
+                                'hspa',
+                                'eutran',
+                                'virtual',
+                                'nbiot',
+                                'ltem',
+                                'nr',
+                                'any',
+                                'utran',
+                                'geran',
+                                'wlan',
+                                'gan',
+                                'hspa',
+                                'eutran',
+                                'virtual',
+                                'nbiot',
+                                'ltem',
+                                'nr',
+                                'any',
+                                'utran',
+                                'geran',
+                                'wlan',
+                                'gan',
+                                'hspa',
+                                'eutran',
+                                'virtual',
+                                'nbiot',
+                                'ltem',
+                                'nr'
+                            ]
+                        },
+                        'uli': {
+                            'required': False,
+                            'revision': {
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'str'
+                        }
+                    }
+                },
+                'sub-second-interval': {
+                    'required': False,
+                    'revision': {
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'choices': [
+                        '0.1',
+                        '0.25',
+                        '0.5'
+                    ],
+                    'type': 'str'
+                },
+                'sub-second-sampling': {
+                    'required': False,
+                    'revision': {
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'choices': [
+                        'disable',
+                        'enable'
+                    ],
+                    'type': 'str'
+                },
+                'authorized-ggsns6': {
+                    'required': False,
+                    'revision': {
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'type': 'str'
+                },
+                'authorized-sgsns6': {
+                    'required': False,
+                    'revision': {
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'type': 'str'
+                },
+                'handover-group6': {
+                    'required': False,
+                    'revision': {
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'type': 'str'
+                },
+                'invalid-sgsns6-to-log': {
+                    'required': False,
+                    'revision': {
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'type': 'str'
+                },
+                'ie-validation': {
+                    'required': False,
+                    'type': 'dict',
+                    'options': {
+                        'apn-restriction': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'disable',
+                                'enable'
+                            ],
+                            'type': 'str'
+                        },
+                        'charging-ID': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'disable',
+                                'enable'
+                            ],
+                            'type': 'str'
+                        },
+                        'charging-gateway-addr': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'disable',
+                                'enable'
+                            ],
+                            'type': 'str'
+                        },
+                        'end-user-addr': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'disable',
+                                'enable'
+                            ],
+                            'type': 'str'
+                        },
+                        'gsn-addr': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'disable',
+                                'enable'
+                            ],
+                            'type': 'str'
+                        },
+                        'imei': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'disable',
+                                'enable'
+                            ],
+                            'type': 'str'
+                        },
+                        'imsi': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'disable',
+                                'enable'
+                            ],
+                            'type': 'str'
+                        },
+                        'mm-context': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'disable',
+                                'enable'
+                            ],
+                            'type': 'str'
+                        },
+                        'ms-tzone': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'disable',
+                                'enable'
+                            ],
+                            'type': 'str'
+                        },
+                        'ms-validated': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'disable',
+                                'enable'
+                            ],
+                            'type': 'str'
+                        },
+                        'msisdn': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'disable',
+                                'enable'
+                            ],
+                            'type': 'str'
+                        },
+                        'nsapi': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'disable',
+                                'enable'
+                            ],
+                            'type': 'str'
+                        },
+                        'pdp-context': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'disable',
+                                'enable'
+                            ],
+                            'type': 'str'
+                        },
+                        'qos-profile': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'disable',
+                                'enable'
+                            ],
+                            'type': 'str'
+                        },
+                        'rai': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'disable',
+                                'enable'
+                            ],
+                            'type': 'str'
+                        },
+                        'rat-type': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'disable',
+                                'enable'
+                            ],
+                            'type': 'str'
+                        },
+                        'reordering-required': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'disable',
+                                'enable'
+                            ],
+                            'type': 'str'
+                        },
+                        'selection-mode': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'disable',
+                                'enable'
+                            ],
+                            'type': 'str'
+                        },
+                        'uli': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'disable',
+                                'enable'
+                            ],
+                            'type': 'str'
+                        }
+                    }
+                },
+                'message-rate-limit': {
+                    'required': False,
+                    'type': 'dict',
+                    'options': {
+                        'create-aa-pdp-request': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'int'
+                        },
+                        'create-aa-pdp-response': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'int'
+                        },
+                        'create-mbms-request': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'int'
+                        },
+                        'create-mbms-response': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'int'
+                        },
+                        'create-pdp-request': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'int'
+                        },
+                        'create-pdp-response': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'int'
+                        },
+                        'delete-aa-pdp-request': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'int'
+                        },
+                        'delete-aa-pdp-response': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'int'
+                        },
+                        'delete-mbms-request': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'int'
+                        },
+                        'delete-mbms-response': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'int'
+                        },
+                        'delete-pdp-request': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'int'
+                        },
+                        'delete-pdp-response': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'int'
+                        },
+                        'echo-reponse': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'int'
+                        },
+                        'echo-request': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'int'
+                        },
+                        'error-indication': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'int'
+                        },
+                        'failure-report-request': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'int'
+                        },
+                        'failure-report-response': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'int'
+                        },
+                        'fwd-reloc-complete-ack': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'int'
+                        },
+                        'fwd-relocation-complete': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'int'
+                        },
+                        'fwd-relocation-request': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'int'
+                        },
+                        'fwd-relocation-response': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'int'
+                        },
+                        'fwd-srns-context': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'int'
+                        },
+                        'fwd-srns-context-ack': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'int'
+                        },
+                        'g-pdu': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'int'
+                        },
+                        'identification-request': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'int'
+                        },
+                        'identification-response': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'int'
+                        },
+                        'mbms-de-reg-request': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'int'
+                        },
+                        'mbms-de-reg-response': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'int'
+                        },
+                        'mbms-notify-rej-request': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'int'
+                        },
+                        'mbms-notify-rej-response': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'int'
+                        },
+                        'mbms-notify-request': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'int'
+                        },
+                        'mbms-notify-response': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'int'
+                        },
+                        'mbms-reg-request': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'int'
+                        },
+                        'mbms-reg-response': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'int'
+                        },
+                        'mbms-ses-start-request': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'int'
+                        },
+                        'mbms-ses-start-response': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'int'
+                        },
+                        'mbms-ses-stop-request': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'int'
+                        },
+                        'mbms-ses-stop-response': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'int'
+                        },
+                        'note-ms-request': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'int'
+                        },
+                        'note-ms-response': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'int'
+                        },
+                        'pdu-notify-rej-request': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'int'
+                        },
+                        'pdu-notify-rej-response': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'int'
+                        },
+                        'pdu-notify-request': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'int'
+                        },
+                        'pdu-notify-response': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'int'
+                        },
+                        'ran-info': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'int'
+                        },
+                        'relocation-cancel-request': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'int'
+                        },
+                        'relocation-cancel-response': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'int'
+                        },
+                        'send-route-request': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'int'
+                        },
+                        'send-route-response': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'int'
+                        },
+                        'sgsn-context-ack': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'int'
+                        },
+                        'sgsn-context-request': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'int'
+                        },
+                        'sgsn-context-response': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'int'
+                        },
+                        'support-ext-hdr-notify': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'int'
+                        },
+                        'update-mbms-request': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'int'
+                        },
+                        'update-mbms-response': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'int'
+                        },
+                        'update-pdp-request': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'int'
+                        },
+                        'update-pdp-response': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'int'
+                        },
+                        'version-not-support': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'int'
+                        }
+                    }
+                },
+                'message-rate-limit-v0': {
+                    'required': False,
+                    'type': 'dict',
+                    'options': {
+                        'create-pdp-request': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'int'
+                        },
+                        'delete-pdp-request': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'int'
+                        },
+                        'echo-request': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'int'
+                        }
+                    }
+                },
+                'message-rate-limit-v1': {
+                    'required': False,
+                    'type': 'dict',
+                    'options': {
+                        'create-pdp-request': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'int'
+                        },
+                        'delete-pdp-request': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'int'
+                        },
+                        'echo-request': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'int'
+                        }
+                    }
+                },
+                'message-rate-limit-v2': {
+                    'required': False,
+                    'type': 'dict',
+                    'options': {
+                        'create-session-request': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'int'
+                        },
+                        'delete-session-request': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'int'
+                        },
+                        'echo-request': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'int'
+                        }
+                    }
+                },
+                'ie-allow-list-v0v1': {
+                    'required': False,
+                    'revision': {
+                        '7.0.0': True
+                    },
+                    'type': 'str'
+                },
+                'ie-allow-list-v2': {
+                    'required': False,
+                    'revision': {
+                        '7.0.0': True
+                    },
+                    'type': 'str'
                 }
             }
 

@@ -318,9 +318,390 @@ options:
                     vlan:
                         type: str
                         description: 'Assign switch ports to a VLAN.'
+                    export-to-pool-flag:
+                        type: int
+                        description: 'Switch controller export port to pool-list.'
+                    mac-addr:
+                        type: str
+                        description: 'Port/Trunk MAC.'
+                    packet-sample-rate:
+                        type: int
+                        description: 'Packet sampling rate (0 - 99999 p/sec).'
+                    packet-sampler:
+                        type: str
+                        description: 'Enable/disable packet sampling on this interface.'
+                        choices:
+                            - 'disabled'
+                            - 'enabled'
+                    sticky-mac:
+                        type: str
+                        description: 'Enable or disable sticky-mac on the interface.'
+                        choices:
+                            - 'disable'
+                            - 'enable'
+                    storm-control-policy:
+                        type: str
+                        description: 'Switch controller storm control policy from available options.'
+                    access-mode:
+                        type: str
+                        description: 'Access mode of the port.'
+                        choices:
+                            - 'normal'
+                            - 'nac'
+                            - 'dynamic'
+                            - 'static'
+                    ip-source-guard:
+                        type: str
+                        description: 'Enable/disable IP source guard.'
+                        choices:
+                            - 'disable'
+                            - 'enable'
+                    mclag-icl-port:
+                        type: int
+                        description: no description
+                    p2p-port:
+                        type: int
+                        description: no description
+                    aggregator-mode:
+                        type: str
+                        description: 'LACP member select mode.'
+                        choices:
+                            - 'bandwidth'
+                            - 'count'
+                    rpvst-port:
+                        type: str
+                        description: 'Enable/disable inter-operability with rapid PVST on this interface.'
+                        choices:
+                            - 'disabled'
+                            - 'enabled'
+                    flow-control:
+                        type: str
+                        description: 'Flow control direction.'
+                        choices:
+                            - 'disable'
+                            - 'tx'
+                            - 'rx'
+                            - 'both'
+                    media-type:
+                        type: str
+                        description: no description
+                    pause-meter:
+                        type: int
+                        description: 'Configure ingress pause metering rate, in kbps (default = 0, disabled).'
+                    pause-meter-resume:
+                        type: str
+                        description: 'Resume threshold for resuming traffic on ingress port.'
+                        choices:
+                            - '25%'
+                            - '50%'
+                            - '75%'
+                    trunk-member:
+                        type: int
+                        description: 'Trunk member.'
+                    fec-capable:
+                        type: int
+                        description: 'FEC capable.'
+                    fec-state:
+                        type: str
+                        description: 'State of forward error correction.'
+                        choices:
+                            - 'disabled'
+                            - 'cl74'
+                            - 'cl91'
+                    matched-dpp-intf-tags:
+                        type: str
+                        description: 'Matched interface tags in the dynamic port policy.'
+                    matched-dpp-policy:
+                        type: str
+                        description: 'Matched child policy in the dynamic port policy.'
+                    port-policy:
+                        type: str
+                        description: 'Switch controller dynamic port policy from available options.'
+                    status:
+                        type: str
+                        description: 'Switch port admin status: up or down.'
+                        choices:
+                            - 'down'
+                            - 'up'
             switch-id:
                 type: str
                 description: 'Managed-switch id.'
+            override-snmp-community:
+                type: str
+                description: 'Enable/disable overriding the global SNMP communities.'
+                choices:
+                    - 'disable'
+                    - 'enable'
+            override-snmp-sysinfo:
+                type: str
+                description: 'Enable/disable overriding the global SNMP system information.'
+                choices:
+                    - 'disable'
+                    - 'enable'
+            override-snmp-trap-threshold:
+                type: str
+                description: 'Enable/disable overriding the global SNMP trap threshold values.'
+                choices:
+                    - 'disable'
+                    - 'enable'
+            override-snmp-user:
+                type: str
+                description: 'Enable/disable overriding the global SNMP users.'
+                choices:
+                    - 'disable'
+                    - 'enable'
+            poe-detection-type:
+                type: int
+                description: no description
+            remote-log:
+                description: no description
+                type: list
+                suboptions:
+                    csv:
+                        type: str
+                        description: 'Enable/disable comma-separated value (CSV) strings.'
+                        choices:
+                            - 'disable'
+                            - 'enable'
+                    facility:
+                        type: str
+                        description: 'Facility to log to remote syslog server.'
+                        choices:
+                            - 'kernel'
+                            - 'user'
+                            - 'mail'
+                            - 'daemon'
+                            - 'auth'
+                            - 'syslog'
+                            - 'lpr'
+                            - 'news'
+                            - 'uucp'
+                            - 'cron'
+                            - 'authpriv'
+                            - 'ftp'
+                            - 'ntp'
+                            - 'audit'
+                            - 'alert'
+                            - 'clock'
+                            - 'local0'
+                            - 'local1'
+                            - 'local2'
+                            - 'local3'
+                            - 'local4'
+                            - 'local5'
+                            - 'local6'
+                            - 'local7'
+                    name:
+                        type: str
+                        description: 'Remote log name.'
+                    port:
+                        type: int
+                        description: 'Remote syslog server listening port.'
+                    server:
+                        type: str
+                        description: 'IPv4 address of the remote syslog server.'
+                    severity:
+                        type: str
+                        description: 'Severity of logs to be transferred to remote log server.'
+                        choices:
+                            - 'emergency'
+                            - 'alert'
+                            - 'critical'
+                            - 'error'
+                            - 'warning'
+                            - 'notification'
+                            - 'information'
+                            - 'debug'
+                    status:
+                        type: str
+                        description: 'Enable/disable logging by FortiSwitch device to a remote syslog server.'
+                        choices:
+                            - 'disable'
+                            - 'enable'
+            snmp-community:
+                description: no description
+                type: list
+                suboptions:
+                    events:
+                        description: no description
+                        type: list
+                        choices:
+                         - cpu-high
+                         - mem-low
+                         - log-full
+                         - intf-ip
+                         - ent-conf-change
+                    hosts:
+                        description: no description
+                        type: list
+                        suboptions:
+                            id:
+                                type: int
+                                description: 'Host entry ID.'
+                            ip:
+                                type: str
+                                description: 'IPv4 address of the SNMP manager (host).'
+                    id:
+                        type: int
+                        description: 'SNMP community ID.'
+                    name:
+                        type: str
+                        description: 'SNMP community name.'
+                    query-v1-port:
+                        type: int
+                        description: 'SNMP v1 query port (default = 161).'
+                    query-v1-status:
+                        type: str
+                        description: 'Enable/disable SNMP v1 queries.'
+                        choices:
+                            - 'disable'
+                            - 'enable'
+                    query-v2c-port:
+                        type: int
+                        description: 'SNMP v2c query port (default = 161).'
+                    query-v2c-status:
+                        type: str
+                        description: 'Enable/disable SNMP v2c queries.'
+                        choices:
+                            - 'disable'
+                            - 'enable'
+                    status:
+                        type: str
+                        description: 'Enable/disable this SNMP community.'
+                        choices:
+                            - 'disable'
+                            - 'enable'
+                    trap-v1-lport:
+                        type: int
+                        description: 'SNMP v2c trap local port (default = 162).'
+                    trap-v1-rport:
+                        type: int
+                        description: 'SNMP v2c trap remote port (default = 162).'
+                    trap-v1-status:
+                        type: str
+                        description: 'Enable/disable SNMP v1 traps.'
+                        choices:
+                            - 'disable'
+                            - 'enable'
+                    trap-v2c-lport:
+                        type: int
+                        description: 'SNMP v2c trap local port (default = 162).'
+                    trap-v2c-rport:
+                        type: int
+                        description: 'SNMP v2c trap remote port (default = 162).'
+                    trap-v2c-status:
+                        type: str
+                        description: 'Enable/disable SNMP v2c traps.'
+                        choices:
+                            - 'disable'
+                            - 'enable'
+            snmp-user:
+                description: no description
+                type: list
+                suboptions:
+                    auth-proto:
+                        type: str
+                        description: 'Authentication protocol.'
+                        choices:
+                            - 'md5'
+                            - 'sha'
+                    auth-pwd:
+                        description: no description
+                        type: str
+                    name:
+                        type: str
+                        description: 'SNMP user name.'
+                    priv-proto:
+                        type: str
+                        description: 'Privacy (encryption) protocol.'
+                        choices:
+                            - 'des'
+                            - 'aes'
+                    priv-pwd:
+                        description: no description
+                        type: str
+                    queries:
+                        type: str
+                        description: 'Enable/disable SNMP queries for this user.'
+                        choices:
+                            - 'disable'
+                            - 'enable'
+                    query-port:
+                        type: int
+                        description: 'SNMPv3 query port (default = 161).'
+                    security-level:
+                        type: str
+                        description: 'Security level for message authentication and encryption.'
+                        choices:
+                            - 'no-auth-no-priv'
+                            - 'auth-no-priv'
+                            - 'auth-priv'
+            mclag-igmp-snooping-aware:
+                type: str
+                description: 'Enable/disable MCLAG IGMP-snooping awareness.'
+                choices:
+                    - 'disable'
+                    - 'enable'
+            ip-source-guard:
+                description: no description
+                type: list
+                suboptions:
+                    binding-entry:
+                        description: no description
+                        type: list
+                        suboptions:
+                            entry-name:
+                                type: str
+                                description: 'Configure binding pair.'
+                            ip:
+                                type: str
+                                description: 'Source IP for this rule.'
+                            mac:
+                                type: str
+                                description: 'MAC address for this rule.'
+                    description:
+                        type: str
+                        description: 'Description.'
+                    port:
+                        type: str
+                        description: 'Ingress interface to which source guard is bound.'
+            l3-discovered:
+                type: int
+                description: no description
+            qos-drop-policy:
+                type: str
+                description: 'Set QoS drop-policy.'
+                choices:
+                    - 'taildrop'
+                    - 'random-early-detection'
+            qos-red-probability:
+                type: int
+                description: 'Set QoS RED/WRED drop probability.'
+            switch-dhcp_opt43_key:
+                type: str
+                description: 'DHCP option43 key.'
+            tdr-supported:
+                type: str
+                description: no description
+            custom-command:
+                description: no description
+                type: list
+                suboptions:
+                    command-entry:
+                        type: str
+                        description: 'List of FortiSwitch commands.'
+                    command-name:
+                        type: str
+                        description: 'Names of commands to be pushed to this FortiSwitch device, as configured under config switch-controller custom-command.'
+            firmware-provision:
+                type: str
+                description: 'Enable/disable provisioning of firmware to FortiSwitches on join connection.'
+                choices:
+                    - 'disable'
+                    - 'enable'
+            firmware-provision-version:
+                type: str
+                description: 'Firmware version to provision to this FortiSwitch on bootup (major.minor.build, i.e. 6.2.1234).'
 
 '''
 
@@ -391,7 +772,100 @@ EXAMPLES = '''
                   type: <value in [physical, trunk]>
                   untagged-vlans: <value of string>
                   vlan: <value of string>
+                  export-to-pool-flag: <value of integer>
+                  mac-addr: <value of string>
+                  packet-sample-rate: <value of integer>
+                  packet-sampler: <value in [disabled, enabled]>
+                  sticky-mac: <value in [disable, enable]>
+                  storm-control-policy: <value of string>
+                  access-mode: <value in [normal, nac, dynamic, ...]>
+                  ip-source-guard: <value in [disable, enable]>
+                  mclag-icl-port: <value of integer>
+                  p2p-port: <value of integer>
+                  aggregator-mode: <value in [bandwidth, count]>
+                  rpvst-port: <value in [disabled, enabled]>
+                  flow-control: <value in [disable, tx, rx, ...]>
+                  media-type: <value of string>
+                  pause-meter: <value of integer>
+                  pause-meter-resume: <value in [25%, 50%, 75%]>
+                  trunk-member: <value of integer>
+                  fec-capable: <value of integer>
+                  fec-state: <value in [disabled, cl74, cl91]>
+                  matched-dpp-intf-tags: <value of string>
+                  matched-dpp-policy: <value of string>
+                  port-policy: <value of string>
+                  status: <value in [down, up]>
             switch-id: <value of string>
+            override-snmp-community: <value in [disable, enable]>
+            override-snmp-sysinfo: <value in [disable, enable]>
+            override-snmp-trap-threshold: <value in [disable, enable]>
+            override-snmp-user: <value in [disable, enable]>
+            poe-detection-type: <value of integer>
+            remote-log:
+              -
+                  csv: <value in [disable, enable]>
+                  facility: <value in [kernel, user, mail, ...]>
+                  name: <value of string>
+                  port: <value of integer>
+                  server: <value of string>
+                  severity: <value in [emergency, alert, critical, ...]>
+                  status: <value in [disable, enable]>
+            snmp-community:
+              -
+                  events:
+                    - cpu-high
+                    - mem-low
+                    - log-full
+                    - intf-ip
+                    - ent-conf-change
+                  hosts:
+                    -
+                        id: <value of integer>
+                        ip: <value of string>
+                  id: <value of integer>
+                  name: <value of string>
+                  query-v1-port: <value of integer>
+                  query-v1-status: <value in [disable, enable]>
+                  query-v2c-port: <value of integer>
+                  query-v2c-status: <value in [disable, enable]>
+                  status: <value in [disable, enable]>
+                  trap-v1-lport: <value of integer>
+                  trap-v1-rport: <value of integer>
+                  trap-v1-status: <value in [disable, enable]>
+                  trap-v2c-lport: <value of integer>
+                  trap-v2c-rport: <value of integer>
+                  trap-v2c-status: <value in [disable, enable]>
+            snmp-user:
+              -
+                  auth-proto: <value in [md5, sha]>
+                  auth-pwd: <value of string>
+                  name: <value of string>
+                  priv-proto: <value in [des, aes]>
+                  priv-pwd: <value of string>
+                  queries: <value in [disable, enable]>
+                  query-port: <value of integer>
+                  security-level: <value in [no-auth-no-priv, auth-no-priv, auth-priv]>
+            mclag-igmp-snooping-aware: <value in [disable, enable]>
+            ip-source-guard:
+              -
+                  binding-entry:
+                    -
+                        entry-name: <value of string>
+                        ip: <value of string>
+                        mac: <value of string>
+                  description: <value of string>
+                  port: <value of string>
+            l3-discovered: <value of integer>
+            qos-drop-policy: <value in [taildrop, random-early-detection]>
+            qos-red-probability: <value of integer>
+            switch-dhcp_opt43_key: <value of string>
+            tdr-supported: <value of string>
+            custom-command:
+              -
+                  command-entry: <value of string>
+                  command-name: <value of string>
+            firmware-provision: <value in [disable, enable]>
+            firmware-provision-version: <value of string>
 
 '''
 
@@ -488,26 +962,86 @@ def main():
             'options': {
                 '_platform': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'description': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'name': {
                     'required': True,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'ports': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'list',
                     'options': {
                         'allowed-vlans': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'str'
                         },
                         'allowed-vlans-all': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'choices': [
                                 'disable',
                                 'enable'
@@ -516,6 +1050,16 @@ def main():
                         },
                         'arp-inspection-trust': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'choices': [
                                 'untrusted',
                                 'trusted'
@@ -524,6 +1068,16 @@ def main():
                         },
                         'bundle': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'choices': [
                                 'disable',
                                 'enable'
@@ -532,10 +1086,30 @@ def main():
                         },
                         'description': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'str'
                         },
                         'dhcp-snoop-option82-trust': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'choices': [
                                 'disable',
                                 'enable'
@@ -544,6 +1118,16 @@ def main():
                         },
                         'dhcp-snooping': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'choices': [
                                 'trusted',
                                 'untrusted'
@@ -552,6 +1136,16 @@ def main():
                         },
                         'discard-mode': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'choices': [
                                 'none',
                                 'all-untagged',
@@ -561,6 +1155,16 @@ def main():
                         },
                         'edge-port': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'choices': [
                                 'disable',
                                 'enable'
@@ -569,6 +1173,16 @@ def main():
                         },
                         'igmp-snooping': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
                             'choices': [
                                 'disable',
                                 'enable'
@@ -577,6 +1191,16 @@ def main():
                         },
                         'igmps-flood-reports': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'choices': [
                                 'disable',
                                 'enable'
@@ -585,6 +1209,16 @@ def main():
                         },
                         'igmps-flood-traffic': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'choices': [
                                 'disable',
                                 'enable'
@@ -593,6 +1227,16 @@ def main():
                         },
                         'lacp-speed': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'choices': [
                                 'slow',
                                 'fast'
@@ -601,14 +1245,44 @@ def main():
                         },
                         'learning-limit': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'int'
                         },
                         'lldp-profile': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'str'
                         },
                         'lldp-status': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'choices': [
                                 'disable',
                                 'rx-only',
@@ -619,6 +1293,16 @@ def main():
                         },
                         'loop-guard': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'choices': [
                                 'disabled',
                                 'enabled'
@@ -627,14 +1311,44 @@ def main():
                         },
                         'loop-guard-timeout': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'int'
                         },
                         'max-bundle': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'int'
                         },
                         'mclag': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'choices': [
                                 'disable',
                                 'enable'
@@ -643,6 +1357,16 @@ def main():
                         },
                         'member-withdrawal-behavior': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'choices': [
                                 'forward',
                                 'block'
@@ -651,14 +1375,44 @@ def main():
                         },
                         'members': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'str'
                         },
                         'min-bundle': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'int'
                         },
                         'mode': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'choices': [
                                 'static',
                                 'lacp-passive',
@@ -668,6 +1422,16 @@ def main():
                         },
                         'poe-pre-standard-detection': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'choices': [
                                 'disable',
                                 'enable'
@@ -676,6 +1440,16 @@ def main():
                         },
                         'poe-status': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'choices': [
                                 'disable',
                                 'enable'
@@ -684,18 +1458,58 @@ def main():
                         },
                         'port-name': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'str'
                         },
                         'port-owner': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'str'
                         },
                         'port-security-policy': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'str'
                         },
                         'port-selection-criteria': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'choices': [
                                 'src-mac',
                                 'dst-mac',
@@ -708,10 +1522,30 @@ def main():
                         },
                         'qos-policy': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'str'
                         },
                         'sample-direction': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'choices': [
                                 'rx',
                                 'tx',
@@ -721,14 +1555,44 @@ def main():
                         },
                         'sflow-counter-interval': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'int'
                         },
                         'sflow-sample-rate': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': False,
+                                '6.2.3': False,
+                                '6.2.5': False,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
                             'type': 'int'
                         },
                         'sflow-sampler': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': False,
+                                '6.2.3': False,
+                                '6.2.5': False,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
                             'choices': [
                                 'disabled',
                                 'enabled'
@@ -737,6 +1601,16 @@ def main():
                         },
                         'stp-bpdu-guard': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'choices': [
                                 'disabled',
                                 'enabled'
@@ -745,10 +1619,30 @@ def main():
                         },
                         'stp-bpdu-guard-timeout': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'int'
                         },
                         'stp-root-guard': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'choices': [
                                 'disabled',
                                 'enabled'
@@ -757,6 +1651,16 @@ def main():
                         },
                         'stp-state': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'choices': [
                                 'disabled',
                                 'enabled'
@@ -765,6 +1669,16 @@ def main():
                         },
                         'type': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'choices': [
                                 'physical',
                                 'trunk'
@@ -773,16 +1687,1125 @@ def main():
                         },
                         'untagged-vlans': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'str'
                         },
                         'vlan': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'str'
+                        },
+                        'export-to-pool-flag': {
+                            'required': False,
+                            'revision': {
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': False,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
+                            'type': 'int'
+                        },
+                        'mac-addr': {
+                            'required': False,
+                            'revision': {
+                                '6.2.1': True,
+                                '6.2.3': False,
+                                '6.2.5': False,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
+                            'type': 'str'
+                        },
+                        'packet-sample-rate': {
+                            'required': False,
+                            'revision': {
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'int'
+                        },
+                        'packet-sampler': {
+                            'required': False,
+                            'revision': {
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'disabled',
+                                'enabled'
+                            ],
+                            'type': 'str'
+                        },
+                        'sticky-mac': {
+                            'required': False,
+                            'revision': {
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'disable',
+                                'enable'
+                            ],
+                            'type': 'str'
+                        },
+                        'storm-control-policy': {
+                            'required': False,
+                            'revision': {
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': False,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
+                            'type': 'str'
+                        },
+                        'access-mode': {
+                            'required': False,
+                            'revision': {
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'normal',
+                                'nac',
+                                'dynamic',
+                                'static'
+                            ],
+                            'type': 'str'
+                        },
+                        'ip-source-guard': {
+                            'required': False,
+                            'revision': {
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'disable',
+                                'enable'
+                            ],
+                            'type': 'str'
+                        },
+                        'mclag-icl-port': {
+                            'required': False,
+                            'revision': {
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'int'
+                        },
+                        'p2p-port': {
+                            'required': False,
+                            'revision': {
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'int'
+                        },
+                        'aggregator-mode': {
+                            'required': False,
+                            'revision': {
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'bandwidth',
+                                'count'
+                            ],
+                            'type': 'str'
+                        },
+                        'rpvst-port': {
+                            'required': False,
+                            'revision': {
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'disabled',
+                                'enabled'
+                            ],
+                            'type': 'str'
+                        },
+                        'flow-control': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'disable',
+                                'tx',
+                                'rx',
+                                'both'
+                            ],
+                            'type': 'str'
+                        },
+                        'media-type': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'str'
+                        },
+                        'pause-meter': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'int'
+                        },
+                        'pause-meter-resume': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                '25%',
+                                '50%',
+                                '75%'
+                            ],
+                            'type': 'str'
+                        },
+                        'trunk-member': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'int'
+                        },
+                        'fec-capable': {
+                            'required': False,
+                            'revision': {
+                                '7.0.0': True
+                            },
+                            'type': 'int'
+                        },
+                        'fec-state': {
+                            'required': False,
+                            'revision': {
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'disabled',
+                                'cl74',
+                                'cl91'
+                            ],
+                            'type': 'str'
+                        },
+                        'matched-dpp-intf-tags': {
+                            'required': False,
+                            'revision': {
+                                '7.0.0': True
+                            },
+                            'type': 'str'
+                        },
+                        'matched-dpp-policy': {
+                            'required': False,
+                            'revision': {
+                                '7.0.0': True
+                            },
+                            'type': 'str'
+                        },
+                        'port-policy': {
+                            'required': False,
+                            'revision': {
+                                '7.0.0': True
+                            },
+                            'type': 'str'
+                        },
+                        'status': {
+                            'required': False,
+                            'revision': {
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'down',
+                                'up'
+                            ],
                             'type': 'str'
                         }
                     }
                 },
                 'switch-id': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'type': 'str'
+                },
+                'override-snmp-community': {
+                    'required': False,
+                    'revision': {
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'choices': [
+                        'disable',
+                        'enable'
+                    ],
+                    'type': 'str'
+                },
+                'override-snmp-sysinfo': {
+                    'required': False,
+                    'revision': {
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'choices': [
+                        'disable',
+                        'enable'
+                    ],
+                    'type': 'str'
+                },
+                'override-snmp-trap-threshold': {
+                    'required': False,
+                    'revision': {
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'choices': [
+                        'disable',
+                        'enable'
+                    ],
+                    'type': 'str'
+                },
+                'override-snmp-user': {
+                    'required': False,
+                    'revision': {
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'choices': [
+                        'disable',
+                        'enable'
+                    ],
+                    'type': 'str'
+                },
+                'poe-detection-type': {
+                    'required': False,
+                    'revision': {
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'type': 'int'
+                },
+                'remote-log': {
+                    'required': False,
+                    'revision': {
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': False,
+                        '6.4.0': False,
+                        '6.4.2': False,
+                        '6.4.5': False,
+                        '7.0.0': False
+                    },
+                    'type': 'list',
+                    'options': {
+                        'csv': {
+                            'required': False,
+                            'revision': {
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': False,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
+                            'choices': [
+                                'disable',
+                                'enable'
+                            ],
+                            'type': 'str'
+                        },
+                        'facility': {
+                            'required': False,
+                            'revision': {
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': False,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
+                            'choices': [
+                                'kernel',
+                                'user',
+                                'mail',
+                                'daemon',
+                                'auth',
+                                'syslog',
+                                'lpr',
+                                'news',
+                                'uucp',
+                                'cron',
+                                'authpriv',
+                                'ftp',
+                                'ntp',
+                                'audit',
+                                'alert',
+                                'clock',
+                                'local0',
+                                'local1',
+                                'local2',
+                                'local3',
+                                'local4',
+                                'local5',
+                                'local6',
+                                'local7'
+                            ],
+                            'type': 'str'
+                        },
+                        'name': {
+                            'required': False,
+                            'revision': {
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': False,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
+                            'type': 'str'
+                        },
+                        'port': {
+                            'required': False,
+                            'revision': {
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': False,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
+                            'type': 'int'
+                        },
+                        'server': {
+                            'required': False,
+                            'revision': {
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': False,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
+                            'type': 'str'
+                        },
+                        'severity': {
+                            'required': False,
+                            'revision': {
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': False,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
+                            'choices': [
+                                'emergency',
+                                'alert',
+                                'critical',
+                                'error',
+                                'warning',
+                                'notification',
+                                'information',
+                                'debug'
+                            ],
+                            'type': 'str'
+                        },
+                        'status': {
+                            'required': False,
+                            'revision': {
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': False,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
+                            'choices': [
+                                'disable',
+                                'enable'
+                            ],
+                            'type': 'str'
+                        }
+                    }
+                },
+                'snmp-community': {
+                    'required': False,
+                    'revision': {
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': False,
+                        '6.4.0': False,
+                        '6.4.2': False,
+                        '6.4.5': False,
+                        '7.0.0': False
+                    },
+                    'type': 'list',
+                    'options': {
+                        'events': {
+                            'required': False,
+                            'revision': {
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': False,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
+                            'type': 'list',
+                            'choices': [
+                                'cpu-high',
+                                'mem-low',
+                                'log-full',
+                                'intf-ip',
+                                'ent-conf-change'
+                            ]
+                        },
+                        'hosts': {
+                            'required': False,
+                            'revision': {
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': False,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
+                            'type': 'list',
+                            'options': {
+                                'id': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.2.1': True,
+                                        '6.2.3': True,
+                                        '6.2.5': False,
+                                        '6.4.0': False,
+                                        '6.4.2': False,
+                                        '6.4.5': False,
+                                        '7.0.0': False
+                                    },
+                                    'type': 'int'
+                                },
+                                'ip': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.2.1': True,
+                                        '6.2.3': True,
+                                        '6.2.5': False,
+                                        '6.4.0': False,
+                                        '6.4.2': False,
+                                        '6.4.5': False,
+                                        '7.0.0': False
+                                    },
+                                    'type': 'str'
+                                }
+                            }
+                        },
+                        'id': {
+                            'required': False,
+                            'revision': {
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': False,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
+                            'type': 'int'
+                        },
+                        'name': {
+                            'required': False,
+                            'revision': {
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': False,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
+                            'type': 'str'
+                        },
+                        'query-v1-port': {
+                            'required': False,
+                            'revision': {
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': False,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
+                            'type': 'int'
+                        },
+                        'query-v1-status': {
+                            'required': False,
+                            'revision': {
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': False,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
+                            'choices': [
+                                'disable',
+                                'enable'
+                            ],
+                            'type': 'str'
+                        },
+                        'query-v2c-port': {
+                            'required': False,
+                            'revision': {
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': False,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
+                            'type': 'int'
+                        },
+                        'query-v2c-status': {
+                            'required': False,
+                            'revision': {
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': False,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
+                            'choices': [
+                                'disable',
+                                'enable'
+                            ],
+                            'type': 'str'
+                        },
+                        'status': {
+                            'required': False,
+                            'revision': {
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': False,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
+                            'choices': [
+                                'disable',
+                                'enable'
+                            ],
+                            'type': 'str'
+                        },
+                        'trap-v1-lport': {
+                            'required': False,
+                            'revision': {
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': False,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
+                            'type': 'int'
+                        },
+                        'trap-v1-rport': {
+                            'required': False,
+                            'revision': {
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': False,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
+                            'type': 'int'
+                        },
+                        'trap-v1-status': {
+                            'required': False,
+                            'revision': {
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': False,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
+                            'choices': [
+                                'disable',
+                                'enable'
+                            ],
+                            'type': 'str'
+                        },
+                        'trap-v2c-lport': {
+                            'required': False,
+                            'revision': {
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': False,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
+                            'type': 'int'
+                        },
+                        'trap-v2c-rport': {
+                            'required': False,
+                            'revision': {
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': False,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
+                            'type': 'int'
+                        },
+                        'trap-v2c-status': {
+                            'required': False,
+                            'revision': {
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': False,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
+                            'choices': [
+                                'disable',
+                                'enable'
+                            ],
+                            'type': 'str'
+                        }
+                    }
+                },
+                'snmp-user': {
+                    'required': False,
+                    'revision': {
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': False,
+                        '6.4.0': False,
+                        '6.4.2': False,
+                        '6.4.5': False,
+                        '7.0.0': False
+                    },
+                    'type': 'list',
+                    'options': {
+                        'auth-proto': {
+                            'required': False,
+                            'revision': {
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': False,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
+                            'choices': [
+                                'md5',
+                                'sha'
+                            ],
+                            'type': 'str'
+                        },
+                        'auth-pwd': {
+                            'required': False,
+                            'revision': {
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': False,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
+                            'type': 'str'
+                        },
+                        'name': {
+                            'required': False,
+                            'revision': {
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': False,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
+                            'type': 'str'
+                        },
+                        'priv-proto': {
+                            'required': False,
+                            'revision': {
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': False,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
+                            'choices': [
+                                'des',
+                                'aes'
+                            ],
+                            'type': 'str'
+                        },
+                        'priv-pwd': {
+                            'required': False,
+                            'revision': {
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': False,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
+                            'type': 'str'
+                        },
+                        'queries': {
+                            'required': False,
+                            'revision': {
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': False,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
+                            'choices': [
+                                'disable',
+                                'enable'
+                            ],
+                            'type': 'str'
+                        },
+                        'query-port': {
+                            'required': False,
+                            'revision': {
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': False,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
+                            'type': 'int'
+                        },
+                        'security-level': {
+                            'required': False,
+                            'revision': {
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': False,
+                                '6.4.0': False,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
+                            'choices': [
+                                'no-auth-no-priv',
+                                'auth-no-priv',
+                                'auth-priv'
+                            ],
+                            'type': 'str'
+                        }
+                    }
+                },
+                'mclag-igmp-snooping-aware': {
+                    'required': False,
+                    'revision': {
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'choices': [
+                        'disable',
+                        'enable'
+                    ],
+                    'type': 'str'
+                },
+                'ip-source-guard': {
+                    'required': False,
+                    'revision': {
+                        '6.4.0': True,
+                        '6.4.2': False,
+                        '6.4.5': False,
+                        '7.0.0': False
+                    },
+                    'type': 'list',
+                    'options': {
+                        'binding-entry': {
+                            'required': False,
+                            'revision': {
+                                '6.4.0': True,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
+                            'type': 'list',
+                            'options': {
+                                'entry-name': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.4.0': True,
+                                        '6.4.2': False,
+                                        '6.4.5': False,
+                                        '7.0.0': False
+                                    },
+                                    'type': 'str'
+                                },
+                                'ip': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.4.0': True,
+                                        '6.4.2': False,
+                                        '6.4.5': False,
+                                        '7.0.0': False
+                                    },
+                                    'type': 'str'
+                                },
+                                'mac': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.4.0': True,
+                                        '6.4.2': False,
+                                        '6.4.5': False,
+                                        '7.0.0': False
+                                    },
+                                    'type': 'str'
+                                }
+                            }
+                        },
+                        'description': {
+                            'required': False,
+                            'revision': {
+                                '6.4.0': True,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
+                            'type': 'str'
+                        },
+                        'port': {
+                            'required': False,
+                            'revision': {
+                                '6.4.0': True,
+                                '6.4.2': False,
+                                '6.4.5': False,
+                                '7.0.0': False
+                            },
+                            'type': 'str'
+                        }
+                    }
+                },
+                'l3-discovered': {
+                    'required': False,
+                    'revision': {
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'type': 'int'
+                },
+                'qos-drop-policy': {
+                    'required': False,
+                    'revision': {
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'choices': [
+                        'taildrop',
+                        'random-early-detection'
+                    ],
+                    'type': 'str'
+                },
+                'qos-red-probability': {
+                    'required': False,
+                    'revision': {
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'type': 'int'
+                },
+                'switch-dhcp_opt43_key': {
+                    'required': False,
+                    'revision': {
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'type': 'str'
+                },
+                'tdr-supported': {
+                    'required': False,
+                    'revision': {
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
+                    'type': 'str'
+                },
+                'custom-command': {
+                    'required': False,
+                    'revision': {
+                        '7.0.0': True
+                    },
+                    'type': 'list',
+                    'options': {
+                        'command-entry': {
+                            'required': False,
+                            'revision': {
+                                '7.0.0': True
+                            },
+                            'type': 'str'
+                        },
+                        'command-name': {
+                            'required': False,
+                            'revision': {
+                                '7.0.0': True
+                            },
+                            'type': 'str'
+                        }
+                    }
+                },
+                'firmware-provision': {
+                    'required': False,
+                    'revision': {
+                        '7.0.0': True
+                    },
+                    'choices': [
+                        'disable',
+                        'enable'
+                    ],
+                    'type': 'str'
+                },
+                'firmware-provision-version': {
+                    'required': False,
+                    'revision': {
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 }
             }

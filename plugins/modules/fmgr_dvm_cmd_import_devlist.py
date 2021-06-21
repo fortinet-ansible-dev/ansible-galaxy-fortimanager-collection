@@ -122,6 +122,172 @@ options:
                          - policy_check_on_install
                          - install_on_policy_check_fail
                          - auto_push_cfg
+                         - migration
+                         - db_export
+                         - no_vpn_console
+                         - backup
+                         - other_devices
+                         - central_sdwan
+                         - is_autosync
+                         - per_device_wtp
+                         - policy_check_on_install
+                         - install_on_policy_check_fail
+                         - auto_push_cfg
+                         - per_device_fsw
+                         - migration
+                         - db_export
+                         - no_vpn_console
+                         - backup
+                         - other_devices
+                         - central_sdwan
+                         - is_autosync
+                         - per_device_wtp
+                         - policy_check_on_install
+                         - install_on_policy_check_fail
+                         - auto_push_cfg
+                         - per_device_fsw
+                         - migration
+                         - db_export
+                         - no_vpn_console
+                         - backup
+                         - other_devices
+                         - central_sdwan
+                         - is_autosync
+                         - per_device_wtp
+                         - policy_check_on_install
+                         - install_on_policy_check_fail
+                         - auto_push_cfg
+                         - per_device_fsw
+                         - migration
+                         - db_export
+                         - no_vpn_console
+                         - backup
+                         - other_devices
+                         - central_sdwan
+                         - is_autosync
+                         - per_device_wtp
+                         - policy_check_on_install
+                         - install_on_policy_check_fail
+                         - auto_push_cfg
+                         - per_device_fsw
+                         - migration
+                         - db_export
+                         - no_vpn_console
+                         - backup
+                         - other_devices
+                         - central_sdwan
+                         - is_autosync
+                         - per_device_wtp
+                         - policy_check_on_install
+                         - install_on_policy_check_fail
+                         - auto_push_cfg
+                         - per_device_fsw
+                         - migration
+                         - db_export
+                         - no_vpn_console
+                         - backup
+                         - other_devices
+                         - central_sdwan
+                         - is_autosync
+                         - per_device_wtp
+                         - policy_check_on_install
+                         - install_on_policy_check_fail
+                         - auto_push_cfg
+                         - per_device_fsw
+                         - migration
+                         - db_export
+                         - no_vpn_console
+                         - backup
+                         - other_devices
+                         - is_autosync
+                         - per_device_wtp
+                         - policy_check_on_install
+                         - install_on_policy_check_fail
+                         - auto_push_cfg
+                         - per_device_fsw
+                         - migration
+                         - db_export
+                         - no_vpn_console
+                         - backup
+                         - other_devices
+                         - central_sdwan
+                         - is_autosync
+                         - per_device_wtp
+                         - policy_check_on_install
+                         - install_on_policy_check_fail
+                         - auto_push_cfg
+                         - per_device_fsw
+                         - migration
+                         - db_export
+                         - no_vpn_console
+                         - backup
+                         - other_devices
+                         - central_sdwan
+                         - is_autosync
+                         - per_device_wtp
+                         - policy_check_on_install
+                         - install_on_policy_check_fail
+                         - auto_push_cfg
+                         - per_device_fsw
+                         - migration
+                         - db_export
+                         - no_vpn_console
+                         - backup
+                         - other_devices
+                         - central_sdwan
+                         - is_autosync
+                         - per_device_wtp
+                         - policy_check_on_install
+                         - install_on_policy_check_fail
+                         - auto_push_cfg
+                         - per_device_fsw
+                         - migration
+                         - db_export
+                         - no_vpn_console
+                         - backup
+                         - other_devices
+                         - central_sdwan
+                         - is_autosync
+                         - per_device_wtp
+                         - policy_check_on_install
+                         - install_on_policy_check_fail
+                         - auto_push_cfg
+                         - per_device_fsw
+                         - migration
+                         - db_export
+                         - no_vpn_console
+                         - backup
+                         - other_devices
+                         - central_sdwan
+                         - is_autosync
+                         - per_device_wtp
+                         - policy_check_on_install
+                         - install_on_policy_check_fail
+                         - auto_push_cfg
+                         - per_device_fsw
+                         - migration
+                         - db_export
+                         - no_vpn_console
+                         - backup
+                         - other_devices
+                         - central_sdwan
+                         - is_autosync
+                         - per_device_wtp
+                         - policy_check_on_install
+                         - install_on_policy_check_fail
+                         - auto_push_cfg
+                         - per_device_fsw
+                         - migration
+                         - db_export
+                         - no_vpn_console
+                         - backup
+                         - other_devices
+                         - is_autosync
+                         - per_device_wtp
+                         - policy_check_on_install
+                         - install_on_policy_check_fail
+                         - auto_push_cfg
+                         - per_device_fsw
                     log_db_retention_hours:
                         type: int
                         default: 1440
@@ -161,6 +327,8 @@ options:
                             - '4.0'
                             - '5.0'
                             - '6.0'
+                            - '7.0'
+                            - '8.0'
                     mode:
                         type: str
                         default: 'gms'
@@ -191,6 +359,8 @@ options:
                             - '4.0'
                             - '5.0'
                             - '6.0'
+                            - '7.0'
+                            - '8.0'
                     restricted_prds:
                         description: no description
                         type: list
@@ -209,12 +379,252 @@ options:
                          - fdd
                          - fac
                          - fpx
+                         - fos
+                         - foc
+                         - fml
+                         - fch
+                         - fwb
+                         - log
+                         - fct
+                         - faz
+                         - fsa
+                         - fsw
+                         - fmg
+                         - fdd
+                         - fac
+                         - fpx
+                         - fna
+                         - fos
+                         - foc
+                         - fml
+                         - fch
+                         - fwb
+                         - log
+                         - fct
+                         - faz
+                         - fsa
+                         - fsw
+                         - fmg
+                         - fdd
+                         - fac
+                         - fpx
+                         - fna
+                         - fos
+                         - foc
+                         - fml
+                         - fch
+                         - fwb
+                         - log
+                         - fct
+                         - faz
+                         - fsa
+                         - fsw
+                         - fmg
+                         - fdd
+                         - fac
+                         - fpx
+                         - fna
+                         - fos
+                         - foc
+                         - fml
+                         - fch
+                         - fwb
+                         - log
+                         - fct
+                         - faz
+                         - fsa
+                         - fsw
+                         - fmg
+                         - fdd
+                         - fac
+                         - fpx
+                         - fna
+                         - fdc
+                         - fos
+                         - foc
+                         - fml
+                         - fch
+                         - fwb
+                         - log
+                         - fct
+                         - faz
+                         - fsa
+                         - fsw
+                         - fmg
+                         - fdd
+                         - fac
+                         - fpx
+                         - fna
+                         - fdc
+                         - fos
+                         - foc
+                         - fml
+                         - fch
+                         - fwb
+                         - log
+                         - fct
+                         - faz
+                         - fsa
+                         - fsw
+                         - fmg
+                         - fdd
+                         - fac
+                         - fpx
+                         - fna
+                         - ffw
+                         - fsr
+                         - fad
+                         - fdc
+                         - fos
+                         - foc
+                         - fml
+                         - fch
+                         - fwb
+                         - log
+                         - fct
+                         - faz
+                         - fsa
+                         - fsw
+                         - fmg
+                         - fdd
+                         - fac
+                         - fpx
+                         - fna
+                         - ffw
+                         - fsr
+                         - fad
+                         - fdc
+                         - fap
+                         - fxt
+                         - fos
+                         - foc
+                         - fml
+                         - fch
+                         - fwb
+                         - log
+                         - fct
+                         - faz
+                         - fsa
+                         - fsw
+                         - fmg
+                         - fdd
+                         - fac
+                         - fpx
+                         - fna
+                         - fos
+                         - foc
+                         - fml
+                         - fch
+                         - fwb
+                         - log
+                         - fct
+                         - faz
+                         - fsa
+                         - fsw
+                         - fmg
+                         - fdd
+                         - fac
+                         - fpx
+                         - fna
+                         - fos
+                         - foc
+                         - fml
+                         - fch
+                         - fwb
+                         - log
+                         - fct
+                         - faz
+                         - fsa
+                         - fsw
+                         - fmg
+                         - fdd
+                         - fac
+                         - fpx
+                         - fna
+                         - fos
+                         - foc
+                         - fml
+                         - fch
+                         - fwb
+                         - log
+                         - fct
+                         - faz
+                         - fsa
+                         - fsw
+                         - fmg
+                         - fdd
+                         - fac
+                         - fpx
+                         - fna
+                         - fdc
+                         - fos
+                         - foc
+                         - fml
+                         - fch
+                         - fwb
+                         - log
+                         - fct
+                         - faz
+                         - fsa
+                         - fsw
+                         - fmg
+                         - fdd
+                         - fac
+                         - fpx
+                         - fna
+                         - fdc
+                         - fos
+                         - foc
+                         - fml
+                         - fch
+                         - fwb
+                         - log
+                         - fct
+                         - faz
+                         - fsa
+                         - fsw
+                         - fmg
+                         - fdd
+                         - fac
+                         - fpx
+                         - fna
+                         - ffw
+                         - fsr
+                         - fad
+                         - fdc
+                         - fos
+                         - foc
+                         - fml
+                         - fch
+                         - fwb
+                         - log
+                         - fct
+                         - faz
+                         - fsa
+                         - fsw
+                         - fmg
+                         - fdd
+                         - fac
+                         - fpx
+                         - fna
+                         - ffw
+                         - fsr
+                         - fad
+                         - fdc
+                         - fap
+                         - fxt
                     state:
                         type: int
                         default: 1
                         description: no description
                     uuid:
                         type: str
+                        description: no description
+                    create_time:
+                        type: int
+                        description: no description
+                    workspace_mode:
+                        type: int
                         description: no description
             import-devices:
                 description: no description
@@ -392,6 +802,8 @@ options:
                             - 'DUAL'
                             - 'enabled'
                             - 'unknown'
+                            - 'fmg-enabled'
+                            - 'autoscale'
                     ha_slave:
                         description: no description
                         type: list
@@ -515,6 +927,13 @@ options:
                             - 'fdd'
                             - 'fac'
                             - 'fpx'
+                            - 'fna'
+                            - 'fdc'
+                            - 'ffw'
+                            - 'fsr'
+                            - 'fad'
+                            - 'fap'
+                            - 'fxt'
                     os_ver:
                         type: str
                         default: 'unknown'
@@ -528,6 +947,8 @@ options:
                             - '4.0'
                             - '5.0'
                             - '6.0'
+                            - '7.0'
+                            - '8.0'
                     patch:
                         type: int
                         description: no description
@@ -563,6 +984,12 @@ options:
                             status:
                                 type: str
                                 description: no description
+                            meta fields:
+                                description: no description
+                                type: dict
+                            vpn_id:
+                                type: int
+                                description: no description
                     version:
                         type: int
                         description: no description
@@ -582,6 +1009,35 @@ options:
                         type: int
                         description: no description
                     vm_status:
+                        type: int
+                        description: no description
+                    module_sn:
+                        type: str
+                        description: no description
+                    prefer_img_ver:
+                        type: str
+                        description: no description
+                    prio:
+                        type: int
+                        description: no description
+                    role:
+                        type: str
+                        default: 'master'
+                        description: no description
+                        choices:
+                            - 'master'
+                            - 'ha-slave'
+                            - 'autoscale-slave'
+                    hyperscale:
+                        type: int
+                        description: no description
+                    nsxt_service_name:
+                        type: str
+                        description: no description
+                    private_key:
+                        type: str
+                        description: no description
+                    private_key_status:
                         type: int
                         description: no description
             import-group-members:
@@ -647,6 +1103,172 @@ EXAMPLES = '''
                     - policy_check_on_install
                     - install_on_policy_check_fail
                     - auto_push_cfg
+                    - migration
+                    - db_export
+                    - no_vpn_console
+                    - backup
+                    - other_devices
+                    - central_sdwan
+                    - is_autosync
+                    - per_device_wtp
+                    - policy_check_on_install
+                    - install_on_policy_check_fail
+                    - auto_push_cfg
+                    - per_device_fsw
+                    - migration
+                    - db_export
+                    - no_vpn_console
+                    - backup
+                    - other_devices
+                    - central_sdwan
+                    - is_autosync
+                    - per_device_wtp
+                    - policy_check_on_install
+                    - install_on_policy_check_fail
+                    - auto_push_cfg
+                    - per_device_fsw
+                    - migration
+                    - db_export
+                    - no_vpn_console
+                    - backup
+                    - other_devices
+                    - central_sdwan
+                    - is_autosync
+                    - per_device_wtp
+                    - policy_check_on_install
+                    - install_on_policy_check_fail
+                    - auto_push_cfg
+                    - per_device_fsw
+                    - migration
+                    - db_export
+                    - no_vpn_console
+                    - backup
+                    - other_devices
+                    - central_sdwan
+                    - is_autosync
+                    - per_device_wtp
+                    - policy_check_on_install
+                    - install_on_policy_check_fail
+                    - auto_push_cfg
+                    - per_device_fsw
+                    - migration
+                    - db_export
+                    - no_vpn_console
+                    - backup
+                    - other_devices
+                    - central_sdwan
+                    - is_autosync
+                    - per_device_wtp
+                    - policy_check_on_install
+                    - install_on_policy_check_fail
+                    - auto_push_cfg
+                    - per_device_fsw
+                    - migration
+                    - db_export
+                    - no_vpn_console
+                    - backup
+                    - other_devices
+                    - central_sdwan
+                    - is_autosync
+                    - per_device_wtp
+                    - policy_check_on_install
+                    - install_on_policy_check_fail
+                    - auto_push_cfg
+                    - per_device_fsw
+                    - migration
+                    - db_export
+                    - no_vpn_console
+                    - backup
+                    - other_devices
+                    - is_autosync
+                    - per_device_wtp
+                    - policy_check_on_install
+                    - install_on_policy_check_fail
+                    - auto_push_cfg
+                    - per_device_fsw
+                    - migration
+                    - db_export
+                    - no_vpn_console
+                    - backup
+                    - other_devices
+                    - central_sdwan
+                    - is_autosync
+                    - per_device_wtp
+                    - policy_check_on_install
+                    - install_on_policy_check_fail
+                    - auto_push_cfg
+                    - per_device_fsw
+                    - migration
+                    - db_export
+                    - no_vpn_console
+                    - backup
+                    - other_devices
+                    - central_sdwan
+                    - is_autosync
+                    - per_device_wtp
+                    - policy_check_on_install
+                    - install_on_policy_check_fail
+                    - auto_push_cfg
+                    - per_device_fsw
+                    - migration
+                    - db_export
+                    - no_vpn_console
+                    - backup
+                    - other_devices
+                    - central_sdwan
+                    - is_autosync
+                    - per_device_wtp
+                    - policy_check_on_install
+                    - install_on_policy_check_fail
+                    - auto_push_cfg
+                    - per_device_fsw
+                    - migration
+                    - db_export
+                    - no_vpn_console
+                    - backup
+                    - other_devices
+                    - central_sdwan
+                    - is_autosync
+                    - per_device_wtp
+                    - policy_check_on_install
+                    - install_on_policy_check_fail
+                    - auto_push_cfg
+                    - per_device_fsw
+                    - migration
+                    - db_export
+                    - no_vpn_console
+                    - backup
+                    - other_devices
+                    - central_sdwan
+                    - is_autosync
+                    - per_device_wtp
+                    - policy_check_on_install
+                    - install_on_policy_check_fail
+                    - auto_push_cfg
+                    - per_device_fsw
+                    - migration
+                    - db_export
+                    - no_vpn_console
+                    - backup
+                    - other_devices
+                    - central_sdwan
+                    - is_autosync
+                    - per_device_wtp
+                    - policy_check_on_install
+                    - install_on_policy_check_fail
+                    - auto_push_cfg
+                    - per_device_fsw
+                    - migration
+                    - db_export
+                    - no_vpn_console
+                    - backup
+                    - other_devices
+                    - is_autosync
+                    - per_device_wtp
+                    - policy_check_on_install
+                    - install_on_policy_check_fail
+                    - auto_push_cfg
+                    - per_device_fsw
                   log_db_retention_hours: <value of integer>
                   log_disk_quota: <value of integer>
                   log_disk_quota_alert_thres: <value of integer>
@@ -674,8 +1296,244 @@ EXAMPLES = '''
                     - fdd
                     - fac
                     - fpx
+                    - fos
+                    - foc
+                    - fml
+                    - fch
+                    - fwb
+                    - log
+                    - fct
+                    - faz
+                    - fsa
+                    - fsw
+                    - fmg
+                    - fdd
+                    - fac
+                    - fpx
+                    - fna
+                    - fos
+                    - foc
+                    - fml
+                    - fch
+                    - fwb
+                    - log
+                    - fct
+                    - faz
+                    - fsa
+                    - fsw
+                    - fmg
+                    - fdd
+                    - fac
+                    - fpx
+                    - fna
+                    - fos
+                    - foc
+                    - fml
+                    - fch
+                    - fwb
+                    - log
+                    - fct
+                    - faz
+                    - fsa
+                    - fsw
+                    - fmg
+                    - fdd
+                    - fac
+                    - fpx
+                    - fna
+                    - fos
+                    - foc
+                    - fml
+                    - fch
+                    - fwb
+                    - log
+                    - fct
+                    - faz
+                    - fsa
+                    - fsw
+                    - fmg
+                    - fdd
+                    - fac
+                    - fpx
+                    - fna
+                    - fdc
+                    - fos
+                    - foc
+                    - fml
+                    - fch
+                    - fwb
+                    - log
+                    - fct
+                    - faz
+                    - fsa
+                    - fsw
+                    - fmg
+                    - fdd
+                    - fac
+                    - fpx
+                    - fna
+                    - fdc
+                    - fos
+                    - foc
+                    - fml
+                    - fch
+                    - fwb
+                    - log
+                    - fct
+                    - faz
+                    - fsa
+                    - fsw
+                    - fmg
+                    - fdd
+                    - fac
+                    - fpx
+                    - fna
+                    - ffw
+                    - fsr
+                    - fad
+                    - fdc
+                    - fos
+                    - foc
+                    - fml
+                    - fch
+                    - fwb
+                    - log
+                    - fct
+                    - faz
+                    - fsa
+                    - fsw
+                    - fmg
+                    - fdd
+                    - fac
+                    - fpx
+                    - fna
+                    - ffw
+                    - fsr
+                    - fad
+                    - fdc
+                    - fap
+                    - fxt
+                    - fos
+                    - foc
+                    - fml
+                    - fch
+                    - fwb
+                    - log
+                    - fct
+                    - faz
+                    - fsa
+                    - fsw
+                    - fmg
+                    - fdd
+                    - fac
+                    - fpx
+                    - fna
+                    - fos
+                    - foc
+                    - fml
+                    - fch
+                    - fwb
+                    - log
+                    - fct
+                    - faz
+                    - fsa
+                    - fsw
+                    - fmg
+                    - fdd
+                    - fac
+                    - fpx
+                    - fna
+                    - fos
+                    - foc
+                    - fml
+                    - fch
+                    - fwb
+                    - log
+                    - fct
+                    - faz
+                    - fsa
+                    - fsw
+                    - fmg
+                    - fdd
+                    - fac
+                    - fpx
+                    - fna
+                    - fos
+                    - foc
+                    - fml
+                    - fch
+                    - fwb
+                    - log
+                    - fct
+                    - faz
+                    - fsa
+                    - fsw
+                    - fmg
+                    - fdd
+                    - fac
+                    - fpx
+                    - fna
+                    - fdc
+                    - fos
+                    - foc
+                    - fml
+                    - fch
+                    - fwb
+                    - log
+                    - fct
+                    - faz
+                    - fsa
+                    - fsw
+                    - fmg
+                    - fdd
+                    - fac
+                    - fpx
+                    - fna
+                    - fdc
+                    - fos
+                    - foc
+                    - fml
+                    - fch
+                    - fwb
+                    - log
+                    - fct
+                    - faz
+                    - fsa
+                    - fsw
+                    - fmg
+                    - fdd
+                    - fac
+                    - fpx
+                    - fna
+                    - ffw
+                    - fsr
+                    - fad
+                    - fdc
+                    - fos
+                    - foc
+                    - fml
+                    - fch
+                    - fwb
+                    - log
+                    - fct
+                    - faz
+                    - fsa
+                    - fsw
+                    - fmg
+                    - fdd
+                    - fac
+                    - fpx
+                    - fna
+                    - ffw
+                    - fsr
+                    - fad
+                    - fdc
+                    - fap
+                    - fxt
                   state: <value of integer>
                   uuid: <value of string>
+                  create_time: <value of integer>
+                  workspace_mode: <value of integer>
             import-devices:
               -
                   adm_pass: <value of string>
@@ -772,6 +1630,8 @@ EXAMPLES = '''
                         opmode: <value in [nat, transparent]>
                         rtm_prof_id: <value of integer>
                         status: <value of string>
+                        meta fields: <value of dict>
+                        vpn_id: <value of integer>
                   version: <value of integer>
                   vm_cpu: <value of integer>
                   vm_cpu_limit: <value of integer>
@@ -779,6 +1639,14 @@ EXAMPLES = '''
                   vm_mem: <value of integer>
                   vm_mem_limit: <value of integer>
                   vm_status: <value of integer>
+                  module_sn: <value of string>
+                  prefer_img_ver: <value of string>
+                  prio: <value of integer>
+                  role: <value in [master, ha-slave, autoscale-slave]>
+                  hyperscale: <value of integer>
+                  nsxt_service_name: <value of string>
+                  private_key: <value of string>
+                  private_key_status: <value of integer>
             import-group-members:
               -
                   adom: <value of string>
@@ -815,12 +1683,10 @@ from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import 
 
 def main():
     jrpc_urls = [
-        '/dvm/cmd/import/dev-list',
         '/dvm/cmd/import/dev-list'
     ]
 
     perobject_jrpc_urls = [
-        '/dvm/cmd/import/dev-list/{dev-list}',
         '/dvm/cmd/import/dev-list/{dev-list}'
     ]
 
@@ -859,10 +1725,30 @@ def main():
             'options': {
                 'adom': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'str'
                 },
                 'flags': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'list',
                     'choices': [
                         'none',
@@ -873,32 +1759,102 @@ def main():
                 },
                 'import-adom-members': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'list',
                     'options': {
                         'adom': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'str'
                         },
                         'dev': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'str'
                         },
                         'vdom': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'str'
                         }
                     }
                 },
                 'import-adoms': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'list',
                     'options': {
                         'desc': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'str'
                         },
                         'flags': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'list',
                             'choices': [
                                 'migration',
@@ -911,39 +1867,285 @@ def main():
                                 'per_device_wtp',
                                 'policy_check_on_install',
                                 'install_on_policy_check_fail',
-                                'auto_push_cfg'
+                                'auto_push_cfg',
+                                'migration',
+                                'db_export',
+                                'no_vpn_console',
+                                'backup',
+                                'other_devices',
+                                'central_sdwan',
+                                'is_autosync',
+                                'per_device_wtp',
+                                'policy_check_on_install',
+                                'install_on_policy_check_fail',
+                                'auto_push_cfg',
+                                'per_device_fsw',
+                                'migration',
+                                'db_export',
+                                'no_vpn_console',
+                                'backup',
+                                'other_devices',
+                                'central_sdwan',
+                                'is_autosync',
+                                'per_device_wtp',
+                                'policy_check_on_install',
+                                'install_on_policy_check_fail',
+                                'auto_push_cfg',
+                                'per_device_fsw',
+                                'migration',
+                                'db_export',
+                                'no_vpn_console',
+                                'backup',
+                                'other_devices',
+                                'central_sdwan',
+                                'is_autosync',
+                                'per_device_wtp',
+                                'policy_check_on_install',
+                                'install_on_policy_check_fail',
+                                'auto_push_cfg',
+                                'per_device_fsw',
+                                'migration',
+                                'db_export',
+                                'no_vpn_console',
+                                'backup',
+                                'other_devices',
+                                'central_sdwan',
+                                'is_autosync',
+                                'per_device_wtp',
+                                'policy_check_on_install',
+                                'install_on_policy_check_fail',
+                                'auto_push_cfg',
+                                'per_device_fsw',
+                                'migration',
+                                'db_export',
+                                'no_vpn_console',
+                                'backup',
+                                'other_devices',
+                                'central_sdwan',
+                                'is_autosync',
+                                'per_device_wtp',
+                                'policy_check_on_install',
+                                'install_on_policy_check_fail',
+                                'auto_push_cfg',
+                                'per_device_fsw',
+                                'migration',
+                                'db_export',
+                                'no_vpn_console',
+                                'backup',
+                                'other_devices',
+                                'central_sdwan',
+                                'is_autosync',
+                                'per_device_wtp',
+                                'policy_check_on_install',
+                                'install_on_policy_check_fail',
+                                'auto_push_cfg',
+                                'per_device_fsw',
+                                'migration',
+                                'db_export',
+                                'no_vpn_console',
+                                'backup',
+                                'other_devices',
+                                'is_autosync',
+                                'per_device_wtp',
+                                'policy_check_on_install',
+                                'install_on_policy_check_fail',
+                                'auto_push_cfg',
+                                'per_device_fsw',
+                                'migration',
+                                'db_export',
+                                'no_vpn_console',
+                                'backup',
+                                'other_devices',
+                                'central_sdwan',
+                                'is_autosync',
+                                'per_device_wtp',
+                                'policy_check_on_install',
+                                'install_on_policy_check_fail',
+                                'auto_push_cfg',
+                                'per_device_fsw',
+                                'migration',
+                                'db_export',
+                                'no_vpn_console',
+                                'backup',
+                                'other_devices',
+                                'central_sdwan',
+                                'is_autosync',
+                                'per_device_wtp',
+                                'policy_check_on_install',
+                                'install_on_policy_check_fail',
+                                'auto_push_cfg',
+                                'per_device_fsw',
+                                'migration',
+                                'db_export',
+                                'no_vpn_console',
+                                'backup',
+                                'other_devices',
+                                'central_sdwan',
+                                'is_autosync',
+                                'per_device_wtp',
+                                'policy_check_on_install',
+                                'install_on_policy_check_fail',
+                                'auto_push_cfg',
+                                'per_device_fsw',
+                                'migration',
+                                'db_export',
+                                'no_vpn_console',
+                                'backup',
+                                'other_devices',
+                                'central_sdwan',
+                                'is_autosync',
+                                'per_device_wtp',
+                                'policy_check_on_install',
+                                'install_on_policy_check_fail',
+                                'auto_push_cfg',
+                                'per_device_fsw',
+                                'migration',
+                                'db_export',
+                                'no_vpn_console',
+                                'backup',
+                                'other_devices',
+                                'central_sdwan',
+                                'is_autosync',
+                                'per_device_wtp',
+                                'policy_check_on_install',
+                                'install_on_policy_check_fail',
+                                'auto_push_cfg',
+                                'per_device_fsw',
+                                'migration',
+                                'db_export',
+                                'no_vpn_console',
+                                'backup',
+                                'other_devices',
+                                'central_sdwan',
+                                'is_autosync',
+                                'per_device_wtp',
+                                'policy_check_on_install',
+                                'install_on_policy_check_fail',
+                                'auto_push_cfg',
+                                'per_device_fsw',
+                                'migration',
+                                'db_export',
+                                'no_vpn_console',
+                                'backup',
+                                'other_devices',
+                                'is_autosync',
+                                'per_device_wtp',
+                                'policy_check_on_install',
+                                'install_on_policy_check_fail',
+                                'auto_push_cfg',
+                                'per_device_fsw'
                             ]
                         },
                         'log_db_retention_hours': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'int'
                         },
                         'log_disk_quota': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'int'
                         },
                         'log_disk_quota_alert_thres': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'int'
                         },
                         'log_disk_quota_split_ratio': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'int'
                         },
                         'log_file_retention_hours': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'int'
                         },
                         'meta fields': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'dict'
                         },
                         'mig_mr': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'int'
                         },
                         'mig_os_ver': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'choices': [
                                 'unknown',
                                 '0.0',
@@ -952,12 +2154,24 @@ def main():
                                 '3.0',
                                 '4.0',
                                 '5.0',
-                                '6.0'
+                                '6.0',
+                                '7.0',
+                                '8.0'
                             ],
                             'type': 'str'
                         },
                         'mode': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'choices': [
                                 'ems',
                                 'gms',
@@ -967,14 +2181,44 @@ def main():
                         },
                         'mr': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'int'
                         },
                         'name': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'str'
                         },
                         'os_ver': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'choices': [
                                 'unknown',
                                 '0.0',
@@ -983,12 +2227,24 @@ def main():
                                 '3.0',
                                 '4.0',
                                 '5.0',
-                                '6.0'
+                                '6.0',
+                                '7.0',
+                                '8.0'
                             ],
                             'type': 'str'
                         },
                         'restricted_prds': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'list',
                             'choices': [
                                 'fos',
@@ -1004,57 +2260,428 @@ def main():
                                 'fmg',
                                 'fdd',
                                 'fac',
-                                'fpx'
+                                'fpx',
+                                'fos',
+                                'foc',
+                                'fml',
+                                'fch',
+                                'fwb',
+                                'log',
+                                'fct',
+                                'faz',
+                                'fsa',
+                                'fsw',
+                                'fmg',
+                                'fdd',
+                                'fac',
+                                'fpx',
+                                'fna',
+                                'fos',
+                                'foc',
+                                'fml',
+                                'fch',
+                                'fwb',
+                                'log',
+                                'fct',
+                                'faz',
+                                'fsa',
+                                'fsw',
+                                'fmg',
+                                'fdd',
+                                'fac',
+                                'fpx',
+                                'fna',
+                                'fos',
+                                'foc',
+                                'fml',
+                                'fch',
+                                'fwb',
+                                'log',
+                                'fct',
+                                'faz',
+                                'fsa',
+                                'fsw',
+                                'fmg',
+                                'fdd',
+                                'fac',
+                                'fpx',
+                                'fna',
+                                'fos',
+                                'foc',
+                                'fml',
+                                'fch',
+                                'fwb',
+                                'log',
+                                'fct',
+                                'faz',
+                                'fsa',
+                                'fsw',
+                                'fmg',
+                                'fdd',
+                                'fac',
+                                'fpx',
+                                'fna',
+                                'fdc',
+                                'fos',
+                                'foc',
+                                'fml',
+                                'fch',
+                                'fwb',
+                                'log',
+                                'fct',
+                                'faz',
+                                'fsa',
+                                'fsw',
+                                'fmg',
+                                'fdd',
+                                'fac',
+                                'fpx',
+                                'fna',
+                                'fdc',
+                                'fos',
+                                'foc',
+                                'fml',
+                                'fch',
+                                'fwb',
+                                'log',
+                                'fct',
+                                'faz',
+                                'fsa',
+                                'fsw',
+                                'fmg',
+                                'fdd',
+                                'fac',
+                                'fpx',
+                                'fna',
+                                'ffw',
+                                'fsr',
+                                'fad',
+                                'fdc',
+                                'fos',
+                                'foc',
+                                'fml',
+                                'fch',
+                                'fwb',
+                                'log',
+                                'fct',
+                                'faz',
+                                'fsa',
+                                'fsw',
+                                'fmg',
+                                'fdd',
+                                'fac',
+                                'fpx',
+                                'fna',
+                                'ffw',
+                                'fsr',
+                                'fad',
+                                'fdc',
+                                'fap',
+                                'fxt',
+                                'fos',
+                                'foc',
+                                'fml',
+                                'fch',
+                                'fwb',
+                                'log',
+                                'fct',
+                                'faz',
+                                'fsa',
+                                'fsw',
+                                'fmg',
+                                'fdd',
+                                'fac',
+                                'fpx',
+                                'fna',
+                                'fos',
+                                'foc',
+                                'fml',
+                                'fch',
+                                'fwb',
+                                'log',
+                                'fct',
+                                'faz',
+                                'fsa',
+                                'fsw',
+                                'fmg',
+                                'fdd',
+                                'fac',
+                                'fpx',
+                                'fna',
+                                'fos',
+                                'foc',
+                                'fml',
+                                'fch',
+                                'fwb',
+                                'log',
+                                'fct',
+                                'faz',
+                                'fsa',
+                                'fsw',
+                                'fmg',
+                                'fdd',
+                                'fac',
+                                'fpx',
+                                'fna',
+                                'fos',
+                                'foc',
+                                'fml',
+                                'fch',
+                                'fwb',
+                                'log',
+                                'fct',
+                                'faz',
+                                'fsa',
+                                'fsw',
+                                'fmg',
+                                'fdd',
+                                'fac',
+                                'fpx',
+                                'fna',
+                                'fdc',
+                                'fos',
+                                'foc',
+                                'fml',
+                                'fch',
+                                'fwb',
+                                'log',
+                                'fct',
+                                'faz',
+                                'fsa',
+                                'fsw',
+                                'fmg',
+                                'fdd',
+                                'fac',
+                                'fpx',
+                                'fna',
+                                'fdc',
+                                'fos',
+                                'foc',
+                                'fml',
+                                'fch',
+                                'fwb',
+                                'log',
+                                'fct',
+                                'faz',
+                                'fsa',
+                                'fsw',
+                                'fmg',
+                                'fdd',
+                                'fac',
+                                'fpx',
+                                'fna',
+                                'ffw',
+                                'fsr',
+                                'fad',
+                                'fdc',
+                                'fos',
+                                'foc',
+                                'fml',
+                                'fch',
+                                'fwb',
+                                'log',
+                                'fct',
+                                'faz',
+                                'fsa',
+                                'fsw',
+                                'fmg',
+                                'fdd',
+                                'fac',
+                                'fpx',
+                                'fna',
+                                'ffw',
+                                'fsr',
+                                'fad',
+                                'fdc',
+                                'fap',
+                                'fxt'
                             ]
                         },
                         'state': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'int'
                         },
                         'uuid': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'str'
+                        },
+                        'create_time': {
+                            'required': False,
+                            'revision': {
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'int'
+                        },
+                        'workspace_mode': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'int'
                         }
                     }
                 },
                 'import-devices': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'list',
                     'options': {
                         'adm_pass': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'str'
                         },
                         'adm_usr': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'str'
                         },
                         'app_ver': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'str'
                         },
                         'av_ver': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'str'
                         },
                         'beta': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'int'
                         },
                         'branch_pt': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'int'
                         },
                         'build': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'int'
                         },
                         'checksum': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'str'
                         },
                         'conf_status': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'choices': [
                                 'unknown',
                                 'insync',
@@ -1064,6 +2691,16 @@ def main():
                         },
                         'conn_mode': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'choices': [
                                 'active',
                                 'passive'
@@ -1072,6 +2709,16 @@ def main():
                         },
                         'conn_status': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'choices': [
                                 'UNKNOWN',
                                 'up',
@@ -1081,6 +2728,16 @@ def main():
                         },
                         'db_status': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'choices': [
                                 'unknown',
                                 'nomod',
@@ -1090,10 +2747,30 @@ def main():
                         },
                         'desc': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'str'
                         },
                         'dev_status': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'choices': [
                                 'none',
                                 'unknown',
@@ -1116,30 +2793,100 @@ def main():
                         },
                         'fap_cnt': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'int'
                         },
                         'faz.full_act': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'int'
                         },
                         'faz.perm': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'int'
                         },
                         'faz.quota': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'int'
                         },
                         'faz.used': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'int'
                         },
                         'fex_cnt': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'int'
                         },
                         'flags': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'list',
                             'choices': [
                                 'has_hdd',
@@ -1157,10 +2904,30 @@ def main():
                         },
                         'foslic_cpu': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'int'
                         },
                         'foslic_dr_site': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'choices': [
                                 'disable',
                                 'enable'
@@ -1169,18 +2936,58 @@ def main():
                         },
                         'foslic_inst_time': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'int'
                         },
                         'foslic_last_sync': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'int'
                         },
                         'foslic_ram': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'int'
                         },
                         'foslic_type': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'choices': [
                                 'temporary',
                                 'trial',
@@ -1191,6 +2998,16 @@ def main():
                         },
                         'foslic_utm': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'list',
                             'choices': [
                                 'fw',
@@ -1204,18 +3021,58 @@ def main():
                         },
                         'fsw_cnt': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'int'
                         },
                         'ha_group_id': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'int'
                         },
                         'ha_group_name': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'str'
                         },
                         'ha_mode': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'choices': [
                                 'standalone',
                                 'AP',
@@ -1223,28 +3080,80 @@ def main():
                                 'ELBC',
                                 'DUAL',
                                 'enabled',
-                                'unknown'
+                                'unknown',
+                                'fmg-enabled',
+                                'autoscale'
                             ],
                             'type': 'str'
                         },
                         'ha_slave': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'list',
                             'options': {
                                 'idx': {
                                     'required': False,
+                                    'revision': {
+                                        '6.0.0': True,
+                                        '6.2.1': True,
+                                        '6.2.3': True,
+                                        '6.2.5': True,
+                                        '6.4.0': True,
+                                        '6.4.2': True,
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
                                     'type': 'int'
                                 },
                                 'name': {
                                     'required': False,
+                                    'revision': {
+                                        '6.0.0': True,
+                                        '6.2.1': True,
+                                        '6.2.3': True,
+                                        '6.2.5': True,
+                                        '6.4.0': True,
+                                        '6.4.2': True,
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
                                     'type': 'str'
                                 },
                                 'prio': {
                                     'required': False,
+                                    'revision': {
+                                        '6.0.0': True,
+                                        '6.2.1': True,
+                                        '6.2.3': True,
+                                        '6.2.5': True,
+                                        '6.4.0': True,
+                                        '6.4.2': True,
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
                                     'type': 'int'
                                 },
                                 'role': {
                                     'required': False,
+                                    'revision': {
+                                        '6.0.0': True,
+                                        '6.2.1': True,
+                                        '6.2.3': True,
+                                        '6.2.5': True,
+                                        '6.4.0': True,
+                                        '6.4.2': True,
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
                                     'choices': [
                                         'slave',
                                         'master'
@@ -1253,92 +3162,312 @@ def main():
                                 },
                                 'sn': {
                                     'required': False,
+                                    'revision': {
+                                        '6.0.0': True,
+                                        '6.2.1': True,
+                                        '6.2.3': True,
+                                        '6.2.5': True,
+                                        '6.4.0': True,
+                                        '6.4.2': True,
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
                                     'type': 'str'
                                 },
                                 'status': {
                                     'required': False,
+                                    'revision': {
+                                        '6.0.0': True,
+                                        '6.2.1': True,
+                                        '6.2.3': True,
+                                        '6.2.5': True,
+                                        '6.4.0': True,
+                                        '6.4.2': True,
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
                                     'type': 'int'
                                 }
                             }
                         },
                         'hdisk_size': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'int'
                         },
                         'hostname': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'str'
                         },
                         'hw_rev_major': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'int'
                         },
                         'hw_rev_minor': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'int'
                         },
                         'ip': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'str'
                         },
                         'ips_ext': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'int'
                         },
                         'ips_ver': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'str'
                         },
                         'last_checked': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'int'
                         },
                         'last_resync': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'int'
                         },
                         'latitude': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'str'
                         },
                         'lic_flags': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'int'
                         },
                         'lic_region': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'str'
                         },
                         'location_from': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'str'
                         },
                         'logdisk_size': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'int'
                         },
                         'longitude': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'str'
                         },
                         'maxvdom': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'int'
                         },
                         'meta fields': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'dict'
                         },
                         'mgmt_id': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'int'
                         },
                         'mgmt_if': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'str'
                         },
                         'mgmt_mode': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'choices': [
                                 'unreg',
                                 'fmg',
@@ -1349,18 +3478,58 @@ def main():
                         },
                         'mgt_vdom': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'str'
                         },
                         'mr': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'int'
                         },
                         'name': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'str'
                         },
                         'os_type': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'choices': [
                                 'unknown',
                                 'fos',
@@ -1376,12 +3545,29 @@ def main():
                                 'fsa',
                                 'fdd',
                                 'fac',
-                                'fpx'
+                                'fpx',
+                                'fna',
+                                'fdc',
+                                'ffw',
+                                'fsr',
+                                'fad',
+                                'fap',
+                                'fxt'
                             ],
                             'type': 'str'
                         },
                         'os_ver': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'choices': [
                                 'unknown',
                                 '0.0',
@@ -1390,40 +3576,122 @@ def main():
                                 '3.0',
                                 '4.0',
                                 '5.0',
-                                '6.0'
+                                '6.0',
+                                '7.0',
+                                '8.0'
                             ],
                             'type': 'str'
                         },
                         'patch': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'int'
                         },
                         'platform_str': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'str'
                         },
                         'psk': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'str'
                         },
                         'sn': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'str'
                         },
                         'vdom': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'list',
                             'options': {
                                 'comments': {
                                     'required': False,
+                                    'revision': {
+                                        '6.0.0': True,
+                                        '6.2.1': True,
+                                        '6.2.3': True,
+                                        '6.2.5': True,
+                                        '6.4.0': True,
+                                        '6.4.2': True,
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
                                     'type': 'str'
                                 },
                                 'name': {
                                     'required': False,
+                                    'revision': {
+                                        '6.0.0': True,
+                                        '6.2.1': True,
+                                        '6.2.3': True,
+                                        '6.2.5': True,
+                                        '6.4.0': True,
+                                        '6.4.2': True,
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
                                     'type': 'str'
                                 },
                                 'opmode': {
                                     'required': False,
+                                    'revision': {
+                                        '6.0.0': True,
+                                        '6.2.1': True,
+                                        '6.2.3': True,
+                                        '6.2.5': True,
+                                        '6.4.0': True,
+                                        '6.4.2': True,
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
                                     'choices': [
                                         'nat',
                                         'transparent'
@@ -1432,62 +3700,309 @@ def main():
                                 },
                                 'rtm_prof_id': {
                                     'required': False,
+                                    'revision': {
+                                        '6.0.0': True,
+                                        '6.2.1': True,
+                                        '6.2.3': True,
+                                        '6.2.5': True,
+                                        '6.4.0': True,
+                                        '6.4.2': True,
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
                                     'type': 'int'
                                 },
                                 'status': {
                                     'required': False,
+                                    'revision': {
+                                        '6.0.0': True,
+                                        '6.2.1': True,
+                                        '6.2.3': True,
+                                        '6.2.5': True,
+                                        '6.4.0': True,
+                                        '6.4.2': True,
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
                                     'type': 'str'
+                                },
+                                'meta fields': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.2.1': True,
+                                        '6.2.3': True,
+                                        '6.2.5': True,
+                                        '6.4.0': True,
+                                        '6.4.2': True,
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'type': 'dict'
+                                },
+                                'vpn_id': {
+                                    'required': False,
+                                    'revision': {
+                                        '6.2.1': True,
+                                        '6.2.3': True,
+                                        '6.2.5': True,
+                                        '6.4.0': True,
+                                        '6.4.2': True,
+                                        '6.4.5': True,
+                                        '7.0.0': True
+                                    },
+                                    'type': 'int'
                                 }
                             }
                         },
                         'version': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'int'
                         },
                         'vm_cpu': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'int'
                         },
                         'vm_cpu_limit': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'int'
                         },
                         'vm_lic_expire': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'int'
                         },
                         'vm_mem': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'int'
                         },
                         'vm_mem_limit': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'int'
                         },
                         'vm_status': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'int'
+                        },
+                        'module_sn': {
+                            'required': False,
+                            'revision': {
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'str'
+                        },
+                        'prefer_img_ver': {
+                            'required': False,
+                            'revision': {
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'str'
+                        },
+                        'prio': {
+                            'required': False,
+                            'revision': {
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'int'
+                        },
+                        'role': {
+                            'required': False,
+                            'revision': {
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'choices': [
+                                'master',
+                                'ha-slave',
+                                'autoscale-slave'
+                            ],
+                            'type': 'str'
+                        },
+                        'hyperscale': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'int'
+                        },
+                        'nsxt_service_name': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'str'
+                        },
+                        'private_key': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
+                            'type': 'str'
+                        },
+                        'private_key_status': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'int'
                         }
                     }
                 },
                 'import-group-members': {
                     'required': False,
+                    'revision': {
+                        '6.0.0': True,
+                        '6.2.1': True,
+                        '6.2.3': True,
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True
+                    },
                     'type': 'list',
                     'options': {
                         'adom': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'str'
                         },
                         'dev': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'str'
                         },
                         'grp': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'str'
                         },
                         'vdom': {
                             'required': False,
+                            'revision': {
+                                '6.0.0': True,
+                                '6.2.1': True,
+                                '6.2.3': True,
+                                '6.2.5': True,
+                                '6.4.0': True,
+                                '6.4.2': True,
+                                '6.4.5': True,
+                                '7.0.0': True
+                            },
                             'type': 'str'
                         }
                     }
