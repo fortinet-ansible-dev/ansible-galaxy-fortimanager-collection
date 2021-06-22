@@ -277,7 +277,7 @@ def main():
         connection.set_option('enable_log', module.params['enable_log'] if 'enable_log' in module.params else False)
         fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, None, url_params, module, connection, top_level_schema_name='data')
         fmgr.validate_parameters(params_validation_blob)
-        fmgr.process_exec()
+        fmgr.process_exec(argument_specs=module_arg_spec)
     else:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     module.exit_json(meta=module.params)

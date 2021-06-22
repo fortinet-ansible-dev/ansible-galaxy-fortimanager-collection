@@ -84,6 +84,8 @@ class NAPIManager(object):
         self.module_name = self.module._name
         self.module_level2_name = self.module_name.split('.')[-1][5:]
         self.top_level_schema_name = top_level_schema_name
+        self.system_status = self.get_system_status()
+        self.version_check_warnings = list()
 
     def process_workspace_lock(self):
         self.conn.process_workspace_locking(self.module.params)
@@ -92,6 +94,39 @@ class NAPIManager(object):
         if 'proposed_method' in self.module.params and self.module.params['proposed_method']:
             return self.module.params['proposed_method']
         return default_method
+
+    def _version_matched(self, revisions):
+        if not revisions or not self.system_status:
+            # if system version is not determined, give up version checking
+            return True, None
+
+        sys_version_value = int(self.system_status['Major']) * 10000 + int(self.system_status['Minor']) * 100 + int(self.system_status['Patch'])
+        versions = list(revisions.keys())
+        versions.sort(key=lambda x: int(x.split('.')[0]) * 10000 + int(x.split('.')[1]) * 100 + int(x.split('.')[2]))
+        nearest_index = -1
+        for i in range(len(versions)):
+            version_value = int(versions[i].split('.')[0]) * 10000 + int(versions[i].split('.')[1]) * 100 + int(versions[i].split('.')[2])
+            if version_value <= sys_version_value:
+                nearest_index = i
+        if nearest_index == -1:
+            return False, 'not supported until in v%s' % (versions[0])
+        if revisions[versions[nearest_index]] is True:
+            return True, None
+        latest_index = -1
+        for i in range(nearest_index + 1, len(versions)):
+            if revisions[versions[i]] is True:
+                latest_index = i
+                break
+        earliest_index = nearest_index
+        while earliest_index >= 0:
+            if revisions[versions[earliest_index]] is True:
+                break
+            earliest_index -= 1
+        earliest_index = 0 if earliest_index < 0 else earliest_index
+        if latest_index == -1:
+            return False, 'not supported since v%s' % (versions[earliest_index])
+        else:
+            return False, 'not supported since %s, before %s' % (versions[earliest_index], versions[latest_index])
 
     def _get_basic_url(self, is_perobject):
         url_libs = None
@@ -175,6 +210,14 @@ class NAPIManager(object):
         params = [{'url': url_deleting}]
         return self.conn.send_request('delete', params)
 
+    def get_system_status(self):
+        params = [{'url': '/cli/global/system/status'}]
+        response = self.conn.send_request('get', params)
+        if response[0] == 0:
+            assert('data' in response[1])
+            return response[1]['data']
+        return None
+
     def _process_with_mkey(self, mvalue):
         mobject = self.get_object(mvalue)
         if self.module.params['state'] == 'present':
@@ -200,7 +243,11 @@ class NAPIManager(object):
         response = self.conn.send_request(method, param)
         self.do_exit(response)
 
-    def process_exec(self):
+    def process_exec(self, argument_specs=None):
+        track = [self.module_level2_name]
+        self.check_versioning_mismatch(track,
+                                       argument_specs[self.module_level2_name] if self.module_level2_name in argument_specs else None,
+                                       self.module.params[self.module_level2_name] if self.module_level2_name in self.module.params else None)
         the_url = self.jrpc_urls[0]
         if 'adom' in self.url_params and not self.jrpc_urls[0].endswith('{adom}'):
             if self.module.params['adom'] == 'global':
@@ -233,11 +280,15 @@ class NAPIManager(object):
         selector = self.module.params['clone']['selector']
         clone_params_schema = metadata[selector]['params']
         clone_urls = metadata[selector]['urls']
+        clone_revisions = metadata[selector]['revision']
+        matched, checking_message = self._version_matched(clone_revisions)
+        if not matched:
+            self.version_check_warnings.append('selector:%s %s' % (selector, checking_message))
         real_params_keys = set()
         if self.module.params['clone']['self']:
             real_params_keys = set(self.module.params['clone']['self'].keys())
         if real_params_keys != set(clone_params_schema):
-            self.module.fail_json(msg='expect params in self:%s, real params:%s' % (list(clone_params_schema), list(real_params_keys)))
+            self.module.fail_json(msg='expect params in self:%s, given params:%s' % (list(clone_params_schema), list(real_params_keys)))
         url = None
         if 'adom' in clone_params_schema and not clone_urls[0].endswith('{adom}'):
             if self.module.params['clone']['self']['adom'] == 'global':
@@ -282,13 +333,17 @@ class NAPIManager(object):
         selector = self.module.params['move']['selector']
         move_params = metadata[selector]['params']
         move_urls = metadata[selector]['urls']
+        move_revisions = metadata[selector]['revision']
+        matched, checking_message = self._version_matched(move_revisions)
+        if not matched:
+            self.version_check_warnings.append('selector:%s %s' % (selector, checking_message))
         if not len(move_urls):
             raise AssertionError('unexpected move urls set')
         real_params_keys = set()
         if self.module.params['move']['self']:
             real_params_keys = set(self.module.params['move']['self'].keys())
         if real_params_keys != set(move_params):
-            self.module.fail_json(msg='expect params in self:%s, real params:%s' % (list(move_params), list(real_params_keys)))
+            self.module.fail_json(msg='expect params in self:%s, given params:%s' % (list(move_params), list(real_params_keys)))
 
         url = None
         if 'adom' in move_params and not move_urls[0].endswith('{adom}'):
@@ -332,13 +387,17 @@ class NAPIManager(object):
         selector = self.module.params['facts']['selector']
         fact_params = metadata[selector]['params']
         fact_urls = metadata[selector]['urls']
+        fact_revisions = metadata[selector]['revision']
+        matched, checking_message = self._version_matched(fact_revisions)
+        if not matched:
+            self.version_check_warnings.append('selector:%s %s' % (selector, checking_message))
         if not len(fact_urls):
             raise AssertionError('unexpected fact urls set')
         real_params_keys = set()
         if self.module.params['facts']['params']:
             real_params_keys = set(self.module.params['facts']['params'].keys())
         if real_params_keys != set(fact_params):
-            self.module.fail_json(msg='expect params:%s, real params:%s' % (list(fact_params), list(real_params_keys)))
+            self.module.fail_json(msg='expect params:%s, given params:%s' % (list(fact_params), list(real_params_keys)))
         url = None
         if 'adom' in fact_params and not fact_urls[0].endswith('{adom}'):
             if self.module.params['facts']['params']['adom'] == 'global':
@@ -398,10 +457,14 @@ class NAPIManager(object):
         response = self.conn.send_request('get', api_params)
         self.do_exit(response)
 
-    def process_curd(self):
+    def process_curd(self, argument_specs=None):
         if 'state' not in self.module.params:
             raise AssertionError('parameter state is expected')
-        has_mkey = self.module_primary_key is not None
+        track = [self.module_level2_name]
+        self.check_versioning_mismatch(track,
+                                       argument_specs[self.module_level2_name] if self.module_level2_name in argument_specs else None,
+                                       self.module.params[self.module_level2_name] if self.module_level2_name in self.module.params else None)
+        has_mkey = self.module_primary_key is not None and type(self.module.params[self.module_level2_name]) is dict
         if has_mkey:
             mvalue = ''
             if self.module_primary_key.startswith('complex:'):
@@ -438,7 +501,11 @@ class NAPIManager(object):
                 raise AssertionError('data is expected to be not none')
             return data
 
-    def process_partial_curd(self):
+    def process_partial_curd(self, argument_specs=None):
+        track = [self.module_level2_name]
+        self.check_versioning_mismatch(track,
+                                       argument_specs[self.module_level2_name] if self.module_level2_name in argument_specs else None,
+                                       self.module.params[self.module_level2_name] if self.module_level2_name in self.module.params else None)
         the_url = self.jrpc_urls[0]
         if 'adom' in self.url_params and not self.jrpc_urls[0].endswith('{adom}'):
             if self.module.params['adom'] == 'global':
@@ -463,6 +530,42 @@ class NAPIManager(object):
             api_params[0][self.top_level_schema_name] = self.__tailor_attributes(self.module.params[self.module_level2_name])
         response = self.conn.send_request(self._propose_method('set'), api_params)
         self.do_exit(response)
+
+    def check_versioning_mismatch(self, track, schema, params):
+        if not params or not schema:
+            return
+        if 'bypass_validation' in params and params['bypass_validation'] is True:
+            # ignore checking when the bypass_validation is switched on
+            return
+        param_type = schema['type'] if 'type' in schema else None
+        revisions = schema['revision'] if 'revision' in schema else None
+
+        matched, checking_message = self._version_matched(revisions)
+        if not matched:
+            param_path = track[0]
+            for _param in track[1:]:
+                param_path += '-->%s' % (_param)
+            self.version_check_warnings.append('param: %s %s' % (param_path, checking_message))
+        if param_type == 'dict' and 'options' in schema:
+            assert(type(params) is dict)
+            for sub_param_key in params:
+                sub_param = params[sub_param_key]
+                if sub_param_key in schema['options']:
+                    sub_schema = schema['options'][sub_param_key]
+                    track.append(sub_param_key)
+                    self.check_versioning_mismatch(track, sub_schema, sub_param)
+                    del track[-1]
+        elif param_type == 'list' and 'options' in schema:
+            assert(type(params) is list)
+            for grouped_param in params:
+                assert(type(grouped_param) is dict)
+                for sub_param_key in grouped_param:
+                    sub_param = params[sub_param_key]
+                    if sub_param_key in schema['options']:
+                        sub_schema = schema['options'][sub_param_key]
+                        track.append(sub_param_key)
+                        self.check_versioning_mismatch(track, sub_schema, sub_param)
+                        del track[-1]
 
     def validate_parameters(self, pvb):
         for blob in pvb:
@@ -505,7 +608,19 @@ class NAPIManager(object):
                 if str(result['response_code']) == str(rc_code):
                     failed = False
                     result['result_code_overriding'] = 'rc code:%s is overridden to success' % (rc_code)
-        self.module.exit_json(rc=rc, meta=result, failed=failed, changed=changed)
+        if self.system_status:
+            result['system_information'] = self.system_status
+        if len(self.version_check_warnings):
+            version_check_warning = dict()
+            version_check_warning['mismatches'] = self.version_check_warnings
+            assert(self.system_status)
+            version_check_warning['system_version'] = 'v%s.%s.%s' % (self.system_status['Major'],
+                                                                     self.system_status['Minor'],
+                                                                     self.system_status['Patch'])
+            self.module.warn('Ansible has detected version mismatch between FortiManager and your playbook, see more details by appending option -vvv')
+            self.module.exit_json(rc=rc, meta=result, version_check_warning=version_check_warning, failed=failed, changed=changed)
+        else:
+            self.module.exit_json(rc=rc, meta=result, failed=failed, changed=changed)
 
     def do_nonexist_exit(self):
         rc = 0
