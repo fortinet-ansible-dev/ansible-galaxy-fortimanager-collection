@@ -242,6 +242,9 @@ def main():
         'firewall_accessproxy_serverpubkeyauthsettings_certextension': {
             'required': False,
             'type': 'dict',
+            'revision': {
+                '7.0.0': True
+            },
             'options': {
                 'critical': {
                     'required': False,

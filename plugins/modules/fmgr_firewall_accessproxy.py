@@ -649,6 +649,9 @@ def main():
         'firewall_accessproxy': {
             'required': False,
             'type': 'dict',
+            'revision': {
+                '7.0.0': True
+            },
             'options': {
                 'api-gateway': {
                     'required': False,

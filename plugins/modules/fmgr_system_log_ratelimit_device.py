@@ -223,6 +223,9 @@ def main():
         'system_log_ratelimit_device': {
             'required': False,
             'type': 'dict',
+            'revision': {
+                '7.0.0': True
+            },
             'options': {
                 'device': {
                     'required': False,

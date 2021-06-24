@@ -254,6 +254,10 @@ def main():
         'firewall_profileprotocoloptions_cifs_filefilter_entries': {
             'required': False,
             'type': 'dict',
+            'revision': {
+                '6.4.2': True,
+                '6.4.5': True
+            },
             'options': {
                 'action': {
                     'required': False,

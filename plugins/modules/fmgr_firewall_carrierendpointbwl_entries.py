@@ -259,6 +259,12 @@ def main():
         'firewall_carrierendpointbwl_entries': {
             'required': False,
             'type': 'dict',
+            'revision': {
+                '6.0.0': True,
+                '6.2.1': True,
+                '6.2.3': True,
+                '6.2.5': True
+            },
             'options': {
                 'action': {
                     'required': False,

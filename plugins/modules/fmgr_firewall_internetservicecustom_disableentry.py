@@ -250,6 +250,9 @@ def main():
         'firewall_internetservicecustom_disableentry': {
             'required': False,
             'type': 'dict',
+            'revision': {
+                '6.0.0': True
+            },
             'options': {
                 'id': {
                     'required': True,

@@ -225,6 +225,10 @@ def main():
         'switchcontroller_securitypolicy_captiveportal': {
             'required': False,
             'type': 'dict',
+            'revision': {
+                '6.0.0': True,
+                '6.2.1': True
+            },
             'options': {
                 'name': {
                     'required': True,

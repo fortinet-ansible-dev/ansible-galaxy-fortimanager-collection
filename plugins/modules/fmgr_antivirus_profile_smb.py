@@ -285,6 +285,9 @@ def main():
         'antivirus_profile_smb': {
             'required': False,
             'type': 'dict',
+            'revision': {
+                '6.0.0': True
+            },
             'options': {
                 'archive-block': {
                     'required': False,

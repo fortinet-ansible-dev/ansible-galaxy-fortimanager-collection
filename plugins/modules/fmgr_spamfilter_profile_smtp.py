@@ -255,6 +255,9 @@ def main():
         'spamfilter_profile_smtp': {
             'required': False,
             'type': 'dict',
+            'revision': {
+                '6.0.0': True
+            },
             'options': {
                 'action': {
                     'required': False,

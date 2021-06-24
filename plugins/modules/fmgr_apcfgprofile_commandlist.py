@@ -243,6 +243,9 @@ def main():
         'apcfgprofile_commandlist': {
             'required': False,
             'type': 'dict',
+            'revision': {
+                '7.0.0': True
+            },
             'options': {
                 'id': {
                     'required': True,

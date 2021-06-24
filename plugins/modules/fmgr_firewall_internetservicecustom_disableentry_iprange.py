@@ -241,6 +241,9 @@ def main():
         'firewall_internetservicecustom_disableentry_iprange': {
             'required': False,
             'type': 'dict',
+            'revision': {
+                '6.0.0': True
+            },
             'options': {
                 'end-ip': {
                     'required': False,

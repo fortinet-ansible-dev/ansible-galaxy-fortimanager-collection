@@ -237,6 +237,10 @@ def main():
         'switchcontroller_managedswitch_snmpcommunity_hosts': {
             'required': False,
             'type': 'dict',
+            'revision': {
+                '6.2.1': True,
+                '6.2.3': True
+            },
             'options': {
                 'id': {
                     'required': True,

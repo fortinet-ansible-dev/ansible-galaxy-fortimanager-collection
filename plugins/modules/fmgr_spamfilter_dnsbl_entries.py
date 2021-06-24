@@ -242,6 +242,9 @@ def main():
         'spamfilter_dnsbl_entries': {
             'required': False,
             'type': 'dict',
+            'revision': {
+                '6.0.0': True
+            },
             'options': {
                 'action': {
                     'required': False,

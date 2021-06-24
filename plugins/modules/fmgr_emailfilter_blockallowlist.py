@@ -281,6 +281,9 @@ def main():
         'emailfilter_blockallowlist': {
             'required': False,
             'type': 'dict',
+            'revision': {
+                '7.0.0': True
+            },
             'options': {
                 'comment': {
                     'required': False,

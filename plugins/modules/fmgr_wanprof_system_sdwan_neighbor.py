@@ -242,6 +242,11 @@ def main():
         'wanprof_system_sdwan_neighbor': {
             'required': False,
             'type': 'dict',
+            'revision': {
+                '6.4.2': True,
+                '6.4.5': True,
+                '7.0.0': True
+            },
             'options': {
                 'health-check': {
                     'required': False,

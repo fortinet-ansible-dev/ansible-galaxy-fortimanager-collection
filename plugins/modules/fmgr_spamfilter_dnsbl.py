@@ -251,6 +251,9 @@ def main():
         'spamfilter_dnsbl': {
             'required': False,
             'type': 'dict',
+            'revision': {
+                '6.0.0': True
+            },
             'options': {
                 'comment': {
                     'required': False,

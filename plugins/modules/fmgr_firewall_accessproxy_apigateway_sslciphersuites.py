@@ -321,6 +321,9 @@ def main():
         'firewall_accessproxy_apigateway_sslciphersuites': {
             'required': False,
             'type': 'dict',
+            'revision': {
+                '7.0.0': True
+            },
             'options': {
                 'cipher': {
                     'required': False,

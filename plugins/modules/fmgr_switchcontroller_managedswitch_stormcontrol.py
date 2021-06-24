@@ -212,6 +212,9 @@ def main():
         'switchcontroller_managedswitch_stormcontrol': {
             'required': False,
             'type': 'dict',
+            'revision': {
+                '6.0.0': True
+            },
             'options': {
             }
 

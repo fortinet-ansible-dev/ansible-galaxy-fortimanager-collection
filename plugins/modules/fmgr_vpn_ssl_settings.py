@@ -679,6 +679,9 @@ def main():
         'vpn_ssl_settings': {
             'required': False,
             'type': 'dict',
+            'revision': {
+                '6.4.2': True
+            },
             'options': {
                 'algorithm': {
                     'required': False,

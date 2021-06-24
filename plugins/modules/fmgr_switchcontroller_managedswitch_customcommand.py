@@ -228,6 +228,9 @@ def main():
         'switchcontroller_managedswitch_customcommand': {
             'required': False,
             'type': 'dict',
+            'revision': {
+                '7.0.0': True
+            },
             'options': {
                 'command-entry': {
                     'required': False,

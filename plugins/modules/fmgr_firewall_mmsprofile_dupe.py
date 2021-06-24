@@ -323,6 +323,12 @@ def main():
         'firewall_mmsprofile_dupe': {
             'required': False,
             'type': 'dict',
+            'revision': {
+                '6.0.0': True,
+                '6.2.1': True,
+                '6.2.3': True,
+                '6.2.5': True
+            },
             'options': {
                 'action1': {
                     'required': False,

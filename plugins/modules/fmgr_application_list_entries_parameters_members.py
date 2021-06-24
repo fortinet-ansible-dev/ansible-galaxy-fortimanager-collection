@@ -250,6 +250,12 @@ def main():
         'application_list_entries_parameters_members': {
             'required': False,
             'type': 'dict',
+            'revision': {
+                '6.4.0': True,
+                '6.4.2': True,
+                '6.4.5': True,
+                '7.0.0': True
+            },
             'options': {
                 'id': {
                     'required': True,

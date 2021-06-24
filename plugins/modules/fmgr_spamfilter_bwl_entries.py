@@ -272,6 +272,9 @@ def main():
         'spamfilter_bwl_entries': {
             'required': False,
             'type': 'dict',
+            'revision': {
+                '6.0.0': True
+            },
             'options': {
                 'action': {
                     'required': False,

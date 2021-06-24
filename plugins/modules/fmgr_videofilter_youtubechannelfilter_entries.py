@@ -240,6 +240,9 @@ def main():
         'videofilter_youtubechannelfilter_entries': {
             'required': False,
             'type': 'dict',
+            'revision': {
+                '7.0.0': True
+            },
             'options': {
                 'action': {
                     'required': False,

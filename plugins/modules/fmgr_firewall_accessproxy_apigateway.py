@@ -502,6 +502,9 @@ def main():
         'firewall_accessproxy_apigateway': {
             'required': False,
             'type': 'dict',
+            'revision': {
+                '7.0.0': True
+            },
             'options': {
                 'http-cookie-age': {
                     'required': False,

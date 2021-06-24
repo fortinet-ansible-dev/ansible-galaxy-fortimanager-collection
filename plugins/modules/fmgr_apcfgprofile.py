@@ -268,6 +268,9 @@ def main():
         'apcfgprofile': {
             'required': False,
             'type': 'dict',
+            'revision': {
+                '7.0.0': True
+            },
             'options': {
                 'ac-ip': {
                     'required': False,

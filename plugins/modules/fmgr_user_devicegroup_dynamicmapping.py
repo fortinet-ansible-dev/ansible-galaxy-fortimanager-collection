@@ -246,6 +246,9 @@ def main():
         'user_devicegroup_dynamicmapping': {
             'required': False,
             'type': 'dict',
+            'revision': {
+                '6.0.0': True
+            },
             'options': {
                 '_if_unmanaged': {
                     'required': False,

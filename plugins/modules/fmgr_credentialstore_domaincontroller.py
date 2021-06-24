@@ -243,6 +243,11 @@ def main():
         'credentialstore_domaincontroller': {
             'required': False,
             'type': 'dict',
+            'revision': {
+                '6.4.0': True,
+                '6.4.2': True,
+                '6.4.5': True
+            },
             'options': {
                 'domain-name': {
                     'required': False,

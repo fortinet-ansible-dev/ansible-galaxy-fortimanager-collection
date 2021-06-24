@@ -261,6 +261,11 @@ def main():
         'dynamic_input_interface': {
             'required': False,
             'type': 'dict',
+            'revision': {
+                '6.2.3': True,
+                '6.2.5': True,
+                '6.4.0': True
+            },
             'options': {
                 'default-mapping': {
                     'required': False,

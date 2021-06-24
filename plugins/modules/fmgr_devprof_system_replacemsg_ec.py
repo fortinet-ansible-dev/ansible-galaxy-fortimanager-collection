@@ -234,6 +234,9 @@ def main():
         'devprof_system_replacemsg_ec': {
             'required': False,
             'type': 'dict',
+            'revision': {
+                '6.0.0': True
+            },
             'options': {
                 'buffer': {
                     'required': False,

@@ -318,6 +318,12 @@ def main():
         'system_replacemsggroup_mm4': {
             'required': False,
             'type': 'dict',
+            'revision': {
+                '6.0.0': True,
+                '6.2.1': True,
+                '6.2.3': True,
+                '6.2.5': True
+            },
             'options': {
                 'add-smil': {
                     'required': False,

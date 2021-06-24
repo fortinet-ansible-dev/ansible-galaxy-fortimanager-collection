@@ -280,6 +280,9 @@ def main():
         'firewall_accessproxy_apigateway_realservers': {
             'required': False,
             'type': 'dict',
+            'revision': {
+                '7.0.0': True
+            },
             'options': {
                 'address': {
                     'required': False,

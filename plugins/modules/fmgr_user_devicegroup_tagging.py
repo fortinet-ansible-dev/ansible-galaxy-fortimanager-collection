@@ -232,6 +232,9 @@ def main():
         'user_devicegroup_tagging': {
             'required': False,
             'type': 'dict',
+            'revision': {
+                '6.0.0': True
+            },
             'options': {
                 'category': {
                     'required': False,

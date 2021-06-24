@@ -224,6 +224,14 @@ def main():
         'fsp_vlan_interface_ipv6_ip6extraaddr': {
             'required': False,
             'type': 'dict',
+            'revision': {
+                '6.2.3': True,
+                '6.2.5': True,
+                '6.4.0': True,
+                '6.4.2': True,
+                '6.4.5': True,
+                '7.0.0': True
+            },
             'options': {
                 'prefix': {
                     'required': False,

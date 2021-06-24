@@ -231,6 +231,12 @@ def main():
         'system_saml_fabricidp': {
             'required': False,
             'type': 'dict',
+            'revision': {
+                '6.4.0': True,
+                '6.4.2': True,
+                '6.4.5': True,
+                '7.0.0': True
+            },
             'options': {
                 'dev-id': {
                     'required': False,

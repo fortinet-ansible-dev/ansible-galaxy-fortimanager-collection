@@ -268,6 +268,11 @@ def main():
         'user_radius_dynamicmapping_accountingserver': {
             'required': False,
             'type': 'dict',
+            'revision': {
+                '6.4.2': True,
+                '6.4.5': True,
+                '7.0.0': True
+            },
             'options': {
                 'id': {
                     'required': True,

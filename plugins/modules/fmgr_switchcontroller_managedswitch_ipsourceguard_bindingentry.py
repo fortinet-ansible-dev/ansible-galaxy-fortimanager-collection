@@ -241,6 +241,9 @@ def main():
         'switchcontroller_managedswitch_ipsourceguard_bindingentry': {
             'required': False,
             'type': 'dict',
+            'revision': {
+                '6.4.0': True
+            },
             'options': {
                 'entry-name': {
                     'required': False,

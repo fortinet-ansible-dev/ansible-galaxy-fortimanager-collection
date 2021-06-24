@@ -291,6 +291,9 @@ def main():
         'videofilter_profile': {
             'required': False,
             'type': 'dict',
+            'revision': {
+                '7.0.0': True
+            },
             'options': {
                 'comment': {
                     'required': False,

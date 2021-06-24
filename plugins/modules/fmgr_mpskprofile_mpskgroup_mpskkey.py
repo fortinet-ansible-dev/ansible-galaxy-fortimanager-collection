@@ -265,6 +265,11 @@ def main():
         'mpskprofile_mpskgroup_mpskkey': {
             'required': False,
             'type': 'dict',
+            'revision': {
+                '6.4.2': True,
+                '6.4.5': True,
+                '7.0.0': True
+            },
             'options': {
                 'comment': {
                     'required': False,

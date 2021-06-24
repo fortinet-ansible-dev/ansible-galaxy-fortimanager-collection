@@ -677,6 +677,11 @@ def main():
         'pkg_firewall_consolidated_policy_sectionvalue': {
             'required': False,
             'type': 'dict',
+            'revision': {
+                '6.2.1': True,
+                '6.2.3': True,
+                '6.2.5': True
+            },
             'options': {
                 'action': {
                     'required': False,

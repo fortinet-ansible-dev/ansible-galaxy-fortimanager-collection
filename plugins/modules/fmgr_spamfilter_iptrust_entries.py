@@ -246,6 +246,9 @@ def main():
         'spamfilter_iptrust_entries': {
             'required': False,
             'type': 'dict',
+            'revision': {
+                '6.0.0': True
+            },
             'options': {
                 'addr-type': {
                     'required': False,

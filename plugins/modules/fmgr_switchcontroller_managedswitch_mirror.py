@@ -221,6 +221,9 @@ def main():
         'switchcontroller_managedswitch_mirror': {
             'required': False,
             'type': 'dict',
+            'revision': {
+                '6.0.0': True
+            },
             'options': {
             }
 

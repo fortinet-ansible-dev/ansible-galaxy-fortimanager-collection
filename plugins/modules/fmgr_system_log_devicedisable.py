@@ -213,6 +213,10 @@ def main():
         'system_log_devicedisable': {
             'required': False,
             'type': 'dict',
+            'revision': {
+                '6.4.5': True,
+                '7.0.0': True
+            },
             'options': {
                 'TTL': {
                     'required': False,

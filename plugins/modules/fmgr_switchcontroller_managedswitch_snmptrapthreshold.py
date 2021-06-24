@@ -223,6 +223,10 @@ def main():
         'switchcontroller_managedswitch_snmptrapthreshold': {
             'required': False,
             'type': 'dict',
+            'revision': {
+                '6.2.1': True,
+                '6.2.3': True
+            },
             'options': {
                 'trap-high-cpu-threshold': {
                     'required': False,

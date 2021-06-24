@@ -243,6 +243,9 @@ def main():
         'videofilter_profile_fortiguardcategory_filters': {
             'required': False,
             'type': 'dict',
+            'revision': {
+                '7.0.0': True
+            },
             'options': {
                 'action': {
                     'required': False,

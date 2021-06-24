@@ -293,6 +293,9 @@ def main():
         'vpn_ssl_settings_authenticationrule': {
             'required': False,
             'type': 'dict',
+            'revision': {
+                '6.4.2': True
+            },
             'options': {
                 'auth': {
                     'required': False,

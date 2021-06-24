@@ -240,6 +240,15 @@ def main():
         'vap_mpskkey': {
             'required': False,
             'type': 'dict',
+            'revision': {
+                '6.0.0': True,
+                '6.2.1': True,
+                '6.2.3': True,
+                '6.2.5': True,
+                '6.4.0': True,
+                '6.4.2': True,
+                '6.4.5': True
+            },
             'options': {
                 'comment': {
                     'required': False,

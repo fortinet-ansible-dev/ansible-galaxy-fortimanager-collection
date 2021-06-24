@@ -362,6 +362,10 @@ def main():
         'extendercontroller_simprofile': {
             'required': False,
             'type': 'dict',
+            'revision': {
+                '6.4.5': True,
+                '7.0.0': True
+            },
             'options': {
                 'auto-switch_profile': {
                     'required': False,

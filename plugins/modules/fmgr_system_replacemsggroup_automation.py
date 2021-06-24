@@ -244,6 +244,9 @@ def main():
         'system_replacemsggroup_automation': {
             'required': False,
             'type': 'dict',
+            'revision': {
+                '7.0.0': True
+            },
             'options': {
                 'buffer': {
                     'required': False,

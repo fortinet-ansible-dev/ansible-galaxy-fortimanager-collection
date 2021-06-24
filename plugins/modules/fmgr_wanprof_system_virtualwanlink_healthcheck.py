@@ -413,6 +413,13 @@ def main():
         'wanprof_system_virtualwanlink_healthcheck': {
             'required': False,
             'type': 'dict',
+            'revision': {
+                '6.0.0': True,
+                '6.2.1': True,
+                '6.2.3': True,
+                '6.2.5': True,
+                '6.4.0': True
+            },
             'options': {
                 '_dynamic-server': {
                     'required': False,
