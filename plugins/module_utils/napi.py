@@ -534,7 +534,7 @@ class NAPIManager(object):
     def check_versioning_mismatch(self, track, schema, params):
         if not params or not schema:
             return
-        if 'bypass_validation' in params and params['bypass_validation'] is True:
+        if type(params) is dict and 'bypass_validation' in params and params['bypass_validation'] is True:
             # ignore checking when the bypass_validation is switched on
             return
         param_type = schema['type'] if 'type' in schema else None
@@ -560,7 +560,7 @@ class NAPIManager(object):
             for grouped_param in params:
                 assert(type(grouped_param) is dict)
                 for sub_param_key in grouped_param:
-                    sub_param = params[sub_param_key]
+                    sub_param = grouped_param[sub_param_key]
                     if sub_param_key in schema['options']:
                         sub_schema = schema['options'][sub_param_key]
                         track.append(sub_param_key)

@@ -193,17 +193,26 @@ class HttpApi(HttpApiBase):
             "verbose": 1
         }
         data = json.dumps(json_request, ensure_ascii=False).replace('\\\\', '\\')
-        self.log('raw data: %s' % (data))
+        self.log('request: %s' % (data))
         try:
             # Sending URL and Data in Unicode, per Ansible Specifications for Connection Plugins
             response, response_data = self.connection.send(path=to_text(self._url), data=to_text(data),
                                                            headers=BASE_HEADERS)
             # Get Unicode Response - Must convert from StringIO to unicode first so we can do a replace function below
             result = json.loads(to_text(response_data.getvalue()))
+            self.log('response: %s' % (str(self._jsonize(result))))
             self._update_self_from_response(result, self._url, data)
             return self._handle_response(result)
         except Exception as err:
             raise FMGBaseException(err)
+
+    def _jsonize(self, data):
+        ret = None
+        try:
+            ret = json.dumps(data, indent=3)
+        except:
+            pass
+        return ret
 
     def _handle_response(self, response):
         self._set_sid(response)
