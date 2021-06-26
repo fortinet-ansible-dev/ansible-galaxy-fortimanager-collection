@@ -1,6 +1,6 @@
 # Ansible Collection - fortinet.fortimanager
 
-[Documentation](https://ansible-galaxy-fortimanager-docs.readthedocs.io/en/galaxy-2.1.0) for the collection.
+[Documentation](https://ansible-galaxy-fortimanager-docs.readthedocs.io/en/galaxy-2.1.1) for the collection.
 
 ## Modules
 The collection provides the following modules:
@@ -389,7 +389,7 @@ The collection provides the following modules:
 * `fmgr_fsp_vlan_interface_ipv6_vrrp6`  IPv6 VRRP configuration.
 * `fmgr_fsp_vlan_interface_secondaryip`  Second IP address of interface.
 * `fmgr_fsp_vlan_interface_vrrp`  VRRP configuration.
-* `fmgr_generic`  HttpApi Plugin for Fortinet FortiManager Appliance or VM.
+* `fmgr_generic`  Build and send generic FortiManager API request.
 * `fmgr_gtp_apn`  Configure APN for GTP.
 * `fmgr_gtp_apngrp`  Configure APN groups for GTP.
 * `fmgr_gtp_iewhitelist`  IE white list.
