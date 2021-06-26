@@ -24,7 +24,7 @@ ANSIBLE_METADATA = {'status': ['preview'],
 DOCUMENTATION = '''
 ---
 module: fmgr_devprof_system_snmp_community_hosts
-short_description: Configure IPv4 SNMP managers (hosts).
+short_description: Configure IPv4 SNMP managers
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
@@ -138,7 +138,7 @@ EXAMPLES = '''
       ansible_httpapi_validate_certs: False
       ansible_httpapi_port: 443
    tasks:
-    - name: Configure IPv4 SNMP managers (hosts).
+    - name: Configure IPv4 SNMP managers
       fmgr_devprof_system_snmp_community_hosts:
          bypass_validation: False
          workspace_locking_adom: <value in [global, custom adom including root]>

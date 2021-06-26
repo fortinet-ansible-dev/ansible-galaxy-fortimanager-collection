@@ -253,7 +253,7 @@ options:
                     - 'enable'
             encode-2f-sequence:
                 type: str
-                description: 'Encode \2F sequence to forward slash in URLs.'
+                description: 'Encode 2F sequence to forward slash in URLs.'
                 choices:
                     - 'disable'
                     - 'enable'

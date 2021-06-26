@@ -24,7 +24,7 @@ ANSIBLE_METADATA = {'status': ['preview'],
 DOCUMENTATION = '''
 ---
 module: fmgr_user_fsso_dynamicmapping
-short_description: Configure Fortinet Single Sign On (FSSO) agents.
+short_description: Configure Fortinet Single Sign On
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
@@ -224,7 +224,7 @@ EXAMPLES = '''
       ansible_httpapi_validate_certs: False
       ansible_httpapi_port: 443
    tasks:
-    - name: Configure Fortinet Single Sign On (FSSO) agents.
+    - name: Configure Fortinet Single Sign On
       fmgr_user_fsso_dynamicmapping:
          bypass_validation: False
          workspace_locking_adom: <value in [global, custom adom including root]>

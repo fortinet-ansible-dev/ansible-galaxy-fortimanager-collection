@@ -24,7 +24,7 @@ ANSIBLE_METADATA = {'status': ['preview'],
 DOCUMENTATION = '''
 ---
 module: fmgr_hotspot20_qosmap_dscpexcept
-short_description: Differentiated Services Code Point (DSCP) exceptions.
+short_description: Differentiated Services Code Point
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
@@ -121,7 +121,7 @@ EXAMPLES = '''
       ansible_httpapi_validate_certs: False
       ansible_httpapi_port: 443
    tasks:
-    - name: Differentiated Services Code Point (DSCP) exceptions.
+    - name: Differentiated Services Code Point
       fmgr_hotspot20_qosmap_dscpexcept:
          bypass_validation: False
          workspace_locking_adom: <value in [global, custom adom including root]>

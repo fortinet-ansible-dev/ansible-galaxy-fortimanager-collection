@@ -24,7 +24,7 @@ ANSIBLE_METADATA = {'status': ['preview'],
 DOCUMENTATION = '''
 ---
 module: fmgr_switchcontroller_managedswitch_switchlog
-short_description: Configuration method to edit FortiSwitch logging settings (logs are transferred to and inserted into the FortiGate event log).
+short_description: Configuration method to edit FortiSwitch logging settings
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
@@ -111,7 +111,7 @@ EXAMPLES = '''
       ansible_httpapi_validate_certs: False
       ansible_httpapi_port: 443
    tasks:
-    - name: Configuration method to edit FortiSwitch logging settings (logs are transferred to and inserted into the FortiGate event log).
+    - name: Configuration method to edit FortiSwitch logging settings
       fmgr_switchcontroller_managedswitch_switchlog:
          bypass_validation: False
          workspace_locking_adom: <value in [global, custom adom including root]>

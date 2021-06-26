@@ -24,7 +24,7 @@ ANSIBLE_METADATA = {'status': ['preview'],
 DOCUMENTATION = '''
 ---
 module: fmgr_sys_login_user
-short_description: Log into the device with user name and password. A new session cookies will be generated and returned as a property of the response object.
+short_description: Log into the device with user name and password.
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
@@ -95,7 +95,7 @@ EXAMPLES = '''
       ansible_httpapi_validate_certs: False
       ansible_httpapi_port: 443
    tasks:
-    - name: Log into the device with user name and password. A new session cookies will be generated and returned as a property of the response object.
+    - name: Log into the device with user name and password.
       fmgr_sys_login_user:
          bypass_validation: False
          workspace_locking_adom: <value in [global, custom adom including root]>

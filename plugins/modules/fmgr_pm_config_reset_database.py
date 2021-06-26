@@ -24,7 +24,7 @@ ANSIBLE_METADATA = {'status': ['preview'],
 DOCUMENTATION = '''
 ---
 module: fmgr_pm_config_reset_database
-short_description: Reset Global ADOM to a specific version.<br/><br/>NOTE: This operation will erase all data in Global database!
+short_description: Reset Global ADOM to a specific version.
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
@@ -95,7 +95,7 @@ EXAMPLES = '''
       ansible_httpapi_validate_certs: False
       ansible_httpapi_port: 443
    tasks:
-    - name: Reset Global ADOM to a specific version.<br/><br/>NOTE: This operation will erase all data in Global database!
+    - name: Reset Global ADOM to a specific version.
       fmgr_pm_config_reset_database:
          bypass_validation: False
          workspace_locking_adom: <value in [global, custom adom including root]>

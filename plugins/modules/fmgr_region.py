@@ -24,7 +24,7 @@ ANSIBLE_METADATA = {'status': ['preview'],
 DOCUMENTATION = '''
 ---
 module: fmgr_region
-short_description: Configure FortiAP regions (for floor plans and maps).
+short_description: Configure FortiAP regions
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
@@ -130,7 +130,7 @@ EXAMPLES = '''
       ansible_httpapi_validate_certs: False
       ansible_httpapi_port: 443
    tasks:
-    - name: Configure FortiAP regions (for floor plans and maps).
+    - name: Configure FortiAP regions
       fmgr_region:
          bypass_validation: False
          workspace_locking_adom: <value in [global, custom adom including root]>

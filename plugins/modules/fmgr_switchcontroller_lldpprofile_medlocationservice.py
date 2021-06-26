@@ -24,7 +24,7 @@ ANSIBLE_METADATA = {'status': ['preview'],
 DOCUMENTATION = '''
 ---
 module: fmgr_switchcontroller_lldpprofile_medlocationservice
-short_description: Configuration method to edit Media Endpoint Discovery (MED) location service type-length-value (TLV) categories.
+short_description: Configuration method to edit Media Endpoint Discovery
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
@@ -124,7 +124,7 @@ EXAMPLES = '''
       ansible_httpapi_validate_certs: False
       ansible_httpapi_port: 443
    tasks:
-    - name: Configuration method to edit Media Endpoint Discovery (MED) location service type-length-value (TLV) categories.
+    - name: Configuration method to edit Media Endpoint Discovery
       fmgr_switchcontroller_lldpprofile_medlocationservice:
          bypass_validation: False
          workspace_locking_adom: <value in [global, custom adom including root]>

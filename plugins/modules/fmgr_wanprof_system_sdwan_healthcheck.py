@@ -24,7 +24,7 @@ ANSIBLE_METADATA = {'status': ['preview'],
 DOCUMENTATION = '''
 ---
 module: fmgr_wanprof_system_sdwan_healthcheck
-short_description: SD-WAN status checking or health checking. Identify a server on the Internet and determine how SD-WAN verifies that the FortiGate can co...
+short_description: SD-WAN status checking or health checking.
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
@@ -290,7 +290,7 @@ EXAMPLES = '''
       ansible_httpapi_validate_certs: False
       ansible_httpapi_port: 443
    tasks:
-    - name: SD-WAN status checking or health checking. Identify a server on the Internet and determine how SD-WAN verifies that the FortiGate can co...
+    - name: SD-WAN status checking or health checking.
       fmgr_wanprof_system_sdwan_healthcheck:
          bypass_validation: False
          workspace_locking_adom: <value in [global, custom adom including root]>

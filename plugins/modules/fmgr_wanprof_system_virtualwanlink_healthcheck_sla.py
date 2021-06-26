@@ -24,7 +24,7 @@ ANSIBLE_METADATA = {'status': ['preview'],
 DOCUMENTATION = '''
 ---
 module: fmgr_wanprof_system_virtualwanlink_healthcheck_sla
-short_description: Service level agreement (SLA).
+short_description: Service level agreement
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
@@ -135,7 +135,7 @@ EXAMPLES = '''
       ansible_httpapi_validate_certs: False
       ansible_httpapi_port: 443
    tasks:
-    - name: Service level agreement (SLA).
+    - name: Service level agreement
       fmgr_wanprof_system_virtualwanlink_healthcheck_sla:
          bypass_validation: False
          workspace_locking_adom: <value in [global, custom adom including root]>

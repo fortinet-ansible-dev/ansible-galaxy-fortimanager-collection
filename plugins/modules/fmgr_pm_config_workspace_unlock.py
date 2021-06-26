@@ -24,7 +24,7 @@ ANSIBLE_METADATA = {'status': ['preview'],
 DOCUMENTATION = '''
 ---
 module: fmgr_pm_config_workspace_unlock
-short_description: Unlock an ADOM. If this command is used before a commit, all changes will be discarded.
+short_description: Unlock an ADOM.
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
@@ -88,7 +88,7 @@ EXAMPLES = '''
       ansible_httpapi_validate_certs: False
       ansible_httpapi_port: 443
    tasks:
-    - name: Unlock an ADOM. If this command is used before a commit, all changes will be discarded.
+    - name: Unlock an ADOM.
       fmgr_pm_config_workspace_unlock:
          bypass_validation: False
          workspace_locking_adom: <value in [global, custom adom including root]>

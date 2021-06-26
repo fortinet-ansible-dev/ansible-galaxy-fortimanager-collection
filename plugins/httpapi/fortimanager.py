@@ -210,7 +210,7 @@ class HttpApi(HttpApiBase):
         ret = None
         try:
             ret = json.dumps(data, indent=3)
-        except:
+        except Exception as e:
             pass
         return ret
 

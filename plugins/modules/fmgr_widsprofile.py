@@ -24,7 +24,7 @@ ANSIBLE_METADATA = {'status': ['preview'],
 DOCUMENTATION = '''
 ---
 module: fmgr_widsprofile
-short_description: Configure wireless intrusion detection system (WIDS) profiles.
+short_description: Configure wireless intrusion detection system
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
@@ -330,7 +330,7 @@ EXAMPLES = '''
       ansible_httpapi_validate_certs: False
       ansible_httpapi_port: 443
    tasks:
-    - name: Configure wireless intrusion detection system (WIDS) profiles.
+    - name: Configure wireless intrusion detection system
       fmgr_widsprofile:
          bypass_validation: False
          workspace_locking_adom: <value in [global, custom adom including root]>

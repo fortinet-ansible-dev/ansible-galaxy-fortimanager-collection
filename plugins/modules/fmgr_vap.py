@@ -24,7 +24,7 @@ ANSIBLE_METADATA = {'status': ['preview'],
 DOCUMENTATION = '''
 ---
 module: fmgr_vap
-short_description: Configure Virtual Access Points (VAPs).
+short_description: Configure Virtual Access Points
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
@@ -2111,7 +2111,7 @@ EXAMPLES = '''
       ansible_httpapi_validate_certs: False
       ansible_httpapi_port: 443
    tasks:
-    - name: Configure Virtual Access Points (VAPs).
+    - name: Configure Virtual Access Points
       fmgr_vap:
          bypass_validation: False
          workspace_locking_adom: <value in [global, custom adom including root]>

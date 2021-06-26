@@ -24,7 +24,7 @@ ANSIBLE_METADATA = {'status': ['preview'],
 DOCUMENTATION = '''
 ---
 module: fmgr_switchcontroller_managedswitch_snmptrapthreshold
-short_description: Configuration method to edit Simple Network Management Protocol (SNMP) trap threshold values.
+short_description: Configuration method to edit Simple Network Management Protocol
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
@@ -121,7 +121,7 @@ EXAMPLES = '''
       ansible_httpapi_validate_certs: False
       ansible_httpapi_port: 443
    tasks:
-    - name: Configuration method to edit Simple Network Management Protocol (SNMP) trap threshold values.
+    - name: Configuration method to edit Simple Network Management Protocol
       fmgr_switchcontroller_managedswitch_snmptrapthreshold:
          bypass_validation: False
          workspace_locking_adom: <value in [global, custom adom including root]>

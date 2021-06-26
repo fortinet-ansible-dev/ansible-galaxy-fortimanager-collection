@@ -24,7 +24,7 @@ ANSIBLE_METADATA = {'status': ['preview'],
 DOCUMENTATION = '''
 ---
 module: fmgr_utmprofile
-short_description: Configure UTM (Unified Threat Management) profile.
+short_description: Configure UTM
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
@@ -139,7 +139,7 @@ EXAMPLES = '''
       ansible_httpapi_validate_certs: False
       ansible_httpapi_port: 443
    tasks:
-    - name: Configure UTM (Unified Threat Management) profile.
+    - name: Configure UTM
       fmgr_utmprofile:
          bypass_validation: False
          workspace_locking_adom: <value in [global, custom adom including root]>

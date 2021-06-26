@@ -24,7 +24,7 @@ ANSIBLE_METADATA = {'status': ['preview'],
 DOCUMENTATION = '''
 ---
 module: fmgr_dvmdb_workspace_lock_pkg
-short_description: Lock a specific package, where the url includes both the folder(s) and name of the policy package.
+short_description: Lock a specific package, where the url includes both the folder
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
@@ -92,7 +92,7 @@ EXAMPLES = '''
       ansible_httpapi_validate_certs: False
       ansible_httpapi_port: 443
    tasks:
-    - name: Lock a specific package, where the url includes both the folder(s) and name of the policy package.
+    - name: Lock a specific package, where the url includes both the folder
       fmgr_dvmdb_workspace_lock_pkg:
          bypass_validation: False
          workspace_locking_adom: <value in [global, custom adom including root]>

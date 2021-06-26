@@ -214,7 +214,8 @@ class NAPIManager(object):
         params = [{'url': '/cli/global/system/status'}]
         response = self.conn.send_request('get', params)
         if response[0] == 0:
-            assert('data' in response[1])
+            if 'data' not in response[1]:
+                raise AssertionError()
             return response[1]['data']
         return None
 
@@ -547,7 +548,8 @@ class NAPIManager(object):
                 param_path += '-->%s' % (_param)
             self.version_check_warnings.append('param: %s %s' % (param_path, checking_message))
         if param_type == 'dict' and 'options' in schema:
-            assert(type(params) is dict)
+            if type(params) is not dict:
+                raise AssertionError()
             for sub_param_key in params:
                 sub_param = params[sub_param_key]
                 if sub_param_key in schema['options']:
@@ -556,9 +558,11 @@ class NAPIManager(object):
                     self.check_versioning_mismatch(track, sub_schema, sub_param)
                     del track[-1]
         elif param_type == 'list' and 'options' in schema:
-            assert(type(params) is list)
+            if type(params) is not list:
+                raise AssertionError()
             for grouped_param in params:
-                assert(type(grouped_param) is dict)
+                if type(grouped_param) is not dict:
+                    raise AssertionError()
                 for sub_param_key in grouped_param:
                     sub_param = grouped_param[sub_param_key]
                     if sub_param_key in schema['options']:
@@ -613,7 +617,8 @@ class NAPIManager(object):
         if len(self.version_check_warnings):
             version_check_warning = dict()
             version_check_warning['mismatches'] = self.version_check_warnings
-            assert(self.system_status)
+            if not self.system_status:
+                raise AssertionError()
             version_check_warning['system_version'] = 'v%s.%s.%s' % (self.system_status['Major'],
                                                                      self.system_status['Minor'],
                                                                      self.system_status['Patch'])

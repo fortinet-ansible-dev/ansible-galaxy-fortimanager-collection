@@ -24,7 +24,7 @@ ANSIBLE_METADATA = {'status': ['preview'],
 DOCUMENTATION = '''
 ---
 module: fmgr_wanprof_system_sdwan_service
-short_description: Create SD-WAN rules (also called services) to control how sessions are distributed to interfaces in the SD-WAN.
+short_description: Create SD-WAN rules
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
@@ -343,7 +343,7 @@ EXAMPLES = '''
       ansible_httpapi_validate_certs: False
       ansible_httpapi_port: 443
    tasks:
-    - name: Create SD-WAN rules (also called services) to control how sessions are distributed to interfaces in the SD-WAN.
+    - name: Create SD-WAN rules
       fmgr_wanprof_system_sdwan_service:
          bypass_validation: False
          workspace_locking_adom: <value in [global, custom adom including root]>

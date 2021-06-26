@@ -24,7 +24,7 @@ ANSIBLE_METADATA = {'status': ['preview'],
 DOCUMENTATION = '''
 ---
 module: fmgr_devprof_system_emailserver
-short_description: Configure the email server used by the FortiGate various things. For example, for sending email messages to users to support user authen...
+short_description: Configure the email server used by the FortiGate various things.
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
@@ -176,7 +176,7 @@ EXAMPLES = '''
       ansible_httpapi_validate_certs: False
       ansible_httpapi_port: 443
    tasks:
-    - name: Configure the email server used by the FortiGate various things. For example, for sending email messages to users to support user authen...
+    - name: Configure the email server used by the FortiGate various things.
       fmgr_devprof_system_emailserver:
          bypass_validation: False
          workspace_locking_adom: <value in [global, custom adom including root]>

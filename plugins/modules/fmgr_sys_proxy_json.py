@@ -24,7 +24,7 @@ ANSIBLE_METADATA = {'status': ['preview'],
 DOCUMENTATION = '''
 ---
 module: fmgr_sys_proxy_json
-short_description: Send and receive JSON request to/from managed devices. The response will be an array of data, one for each queried device.
+short_description: Send and receive JSON request to/from managed devices.
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
@@ -106,7 +106,7 @@ EXAMPLES = '''
       ansible_httpapi_validate_certs: False
       ansible_httpapi_port: 443
    tasks:
-    - name: Send and receive JSON request to/from managed devices. The response will be an array of data, one for each queried device.
+    - name: Send and receive JSON request to/from managed devices.
       fmgr_sys_proxy_json:
          bypass_validation: False
          workspace_locking_adom: <value in [global, custom adom including root]>

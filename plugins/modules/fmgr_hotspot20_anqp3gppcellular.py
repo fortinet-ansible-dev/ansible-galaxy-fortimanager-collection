@@ -24,7 +24,7 @@ ANSIBLE_METADATA = {'status': ['preview'],
 DOCUMENTATION = '''
 ---
 module: fmgr_hotspot20_anqp3gppcellular
-short_description: Configure 3GPP public land mobile network (PLMN).
+short_description: Configure 3GPP public land mobile network
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
@@ -124,7 +124,7 @@ EXAMPLES = '''
       ansible_httpapi_validate_certs: False
       ansible_httpapi_port: 443
    tasks:
-    - name: Configure 3GPP public land mobile network (PLMN).
+    - name: Configure 3GPP public land mobile network
       fmgr_hotspot20_anqp3gppcellular:
          bypass_validation: False
          workspace_locking_adom: <value in [global, custom adom including root]>

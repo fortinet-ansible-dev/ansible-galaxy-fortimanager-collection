@@ -24,7 +24,7 @@ ANSIBLE_METADATA = {'status': ['preview'],
 DOCUMENTATION = '''
 ---
 module: fmgr_system_geoipoverride
-short_description: Configure geographical location mapping for IP address(es) to override mappings from FortiGuard.
+short_description: Configure geographical location mapping for IP address
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
@@ -140,7 +140,7 @@ EXAMPLES = '''
       ansible_httpapi_validate_certs: False
       ansible_httpapi_port: 443
    tasks:
-    - name: Configure geographical location mapping for IP address(es) to override mappings from FortiGuard.
+    - name: Configure geographical location mapping for IP address
       fmgr_system_geoipoverride:
          bypass_validation: False
          workspace_locking_adom: <value in [global, custom adom including root]>

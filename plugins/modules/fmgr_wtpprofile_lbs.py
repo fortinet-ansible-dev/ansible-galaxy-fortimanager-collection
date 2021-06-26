@@ -24,7 +24,7 @@ ANSIBLE_METADATA = {'status': ['preview'],
 DOCUMENTATION = '''
 ---
 module: fmgr_wtpprofile_lbs
-short_description: Set various location based service (LBS) options.
+short_description: Set various location based service
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
@@ -211,7 +211,7 @@ EXAMPLES = '''
       ansible_httpapi_validate_certs: False
       ansible_httpapi_port: 443
    tasks:
-    - name: Set various location based service (LBS) options.
+    - name: Set various location based service
       fmgr_wtpprofile_lbs:
          bypass_validation: False
          workspace_locking_adom: <value in [global, custom adom including root]>

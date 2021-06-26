@@ -24,7 +24,7 @@ ANSIBLE_METADATA = {'status': ['preview'],
 DOCUMENTATION = '''
 ---
 module: fmgr_gtp_iewhitelist_entries
-short_description: Entries of white list (to allow) for unknown or out-of-state IEs.
+short_description: Entries of white list
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
@@ -121,7 +121,7 @@ EXAMPLES = '''
       ansible_httpapi_validate_certs: False
       ansible_httpapi_port: 443
    tasks:
-    - name: Entries of white list (to allow) for unknown or out-of-state IEs.
+    - name: Entries of white list
       fmgr_gtp_iewhitelist_entries:
          bypass_validation: False
          workspace_locking_adom: <value in [global, custom adom including root]>

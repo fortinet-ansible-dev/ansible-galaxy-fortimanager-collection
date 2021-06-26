@@ -24,7 +24,7 @@ ANSIBLE_METADATA = {'status': ['preview'],
 DOCUMENTATION = '''
 ---
 module: fmgr_switchcontroller_qos_dot1pmap
-short_description: Configure FortiSwitch QoS 802.1p.
+short_description: Configure FortiSwitch QoS 802.
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
@@ -216,7 +216,7 @@ EXAMPLES = '''
       ansible_httpapi_validate_certs: False
       ansible_httpapi_port: 443
    tasks:
-    - name: Configure FortiSwitch QoS 802.1p.
+    - name: Configure FortiSwitch QoS 802.
       fmgr_switchcontroller_qos_dot1pmap:
          bypass_validation: False
          workspace_locking_adom: <value in [global, custom adom including root]>

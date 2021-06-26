@@ -24,7 +24,7 @@ ANSIBLE_METADATA = {'status': ['preview'],
 DOCUMENTATION = '''
 ---
 module: fmgr_wagprofile
-short_description: Configure wireless access gateway (WAG) profiles used for tunnels on AP.
+short_description: Configure wireless access gateway
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
@@ -138,7 +138,7 @@ EXAMPLES = '''
       ansible_httpapi_validate_certs: False
       ansible_httpapi_port: 443
    tasks:
-    - name: Configure wireless access gateway (WAG) profiles used for tunnels on AP.
+    - name: Configure wireless access gateway
       fmgr_wagprofile:
          bypass_validation: False
          workspace_locking_adom: <value in [global, custom adom including root]>

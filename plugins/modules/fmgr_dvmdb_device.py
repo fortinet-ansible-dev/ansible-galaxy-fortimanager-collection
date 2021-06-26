@@ -24,7 +24,7 @@ ANSIBLE_METADATA = {'status': ['preview'],
 DOCUMENTATION = '''
 ---
 module: fmgr_dvmdb_device
-short_description: Device table, most attributes are read-only and can only be changed internally. Refer to Device Manager Command module for API to add, d...
+short_description: Device table, most attributes are read-only and can only be changed internally.
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
@@ -496,7 +496,7 @@ EXAMPLES = '''
       ansible_httpapi_validate_certs: False
       ansible_httpapi_port: 443
    tasks:
-    - name: Device table, most attributes are read-only and can only be changed internally. Refer to Device Manager Command module for API to add, d...
+    - name: Device table, most attributes are read-only and can only be changed internally.
       fmgr_dvmdb_device:
          bypass_validation: False
          workspace_locking_adom: <value in [global, custom adom including root]>

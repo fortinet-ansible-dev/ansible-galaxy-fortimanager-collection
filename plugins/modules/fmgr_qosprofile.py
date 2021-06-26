@@ -24,7 +24,7 @@ ANSIBLE_METADATA = {'status': ['preview'],
 DOCUMENTATION = '''
 ---
 module: fmgr_qosprofile
-short_description: Configure WiFi quality of service (QoS) profiles.
+short_description: Configure WiFi quality of service
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
@@ -198,7 +198,7 @@ EXAMPLES = '''
       ansible_httpapi_validate_certs: False
       ansible_httpapi_port: 443
    tasks:
-    - name: Configure WiFi quality of service (QoS) profiles.
+    - name: Configure WiFi quality of service
       fmgr_qosprofile:
          bypass_validation: False
          workspace_locking_adom: <value in [global, custom adom including root]>

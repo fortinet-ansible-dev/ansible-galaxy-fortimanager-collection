@@ -24,7 +24,7 @@ ANSIBLE_METADATA = {'status': ['preview'],
 DOCUMENTATION = '''
 ---
 module: fmgr_hotspot20_anqpnairealm
-short_description: Configure network access identifier (NAI) realm.
+short_description: Configure network access identifier
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
@@ -195,7 +195,7 @@ EXAMPLES = '''
       ansible_httpapi_validate_certs: False
       ansible_httpapi_port: 443
    tasks:
-    - name: Configure network access identifier (NAI) realm.
+    - name: Configure network access identifier
       fmgr_hotspot20_anqpnairealm:
          bypass_validation: False
          workspace_locking_adom: <value in [global, custom adom including root]>
