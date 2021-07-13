@@ -198,9 +198,9 @@ options:
                 description: no description
                 type: list
                 choices:
-                 - >=
-                 - =
-                 - <=
+                 - '>='
+                 - '='
+                 - '<='
             severity-level-logs:
                 description: no description
                 type: list
@@ -255,9 +255,9 @@ EXAMPLES = '''
             num-events: <value in [1, 5, 10, ...]>
             severity-filter: <value in [high, medium-high, medium, ...]>
             severity-level-comp:
-              - >=
-              - =
-              - <=
+              - '>='
+              - '='
+              - '<='
             severity-level-logs:
               - no-check
               - information
