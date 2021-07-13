@@ -198,8 +198,8 @@ options:
                 type: int
                 description: 'Maximum number of guest accounts that can be created for this group (0 means unlimited).'
             member:
-                type: str
-                description: 'Names of users, peers, LDAP severs, or RADIUS servers to add to the user group.'
+                description: no description
+                type: list
             mobile-phone:
                 type: str
                 description: 'Enable/disable the guest user mobile phone number field.'
@@ -306,7 +306,7 @@ EXAMPLES = '''
                   id: <value of integer>
                   server-name: <value of string>
             max-accounts: <value of integer>
-            member: <value of string>
+            member: <value of list>
             mobile-phone: <value in [disable, enable]>
             multiple-guest-add: <value in [disable, enable]>
             name: <value of string>
@@ -837,7 +837,7 @@ def main():
                         '6.4.5': True,
                         '7.0.0': True
                     },
-                    'type': 'str'
+                    'type': 'list'
                 },
                 'mobile-phone': {
                     'required': False,

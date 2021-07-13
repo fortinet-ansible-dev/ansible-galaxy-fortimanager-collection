@@ -267,7 +267,7 @@ def main():
                     'type': 'str'
                 },
                 'id': {
-                    'required': True,
+                    'required': False,
                     'revision': {
                         '6.2.1': True,
                         '6.2.3': True,

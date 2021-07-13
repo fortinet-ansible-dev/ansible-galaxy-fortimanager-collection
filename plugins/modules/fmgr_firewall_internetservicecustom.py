@@ -602,7 +602,7 @@ def main():
                     'type': 'int'
                 },
                 'id': {
-                    'required': True,
+                    'required': False,
                     'revision': {
                         '6.4.2': True,
                         '6.4.5': True,
