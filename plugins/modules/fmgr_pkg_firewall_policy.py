@@ -222,7 +222,7 @@ options:
                     - 'disable'
                     - 'enable'
             dstaddr:
-                type: str
+                type: list
                 description: 'Destination address and address group names.'
             dstaddr-negate:
                 type: str
@@ -231,7 +231,7 @@ options:
                     - 'disable'
                     - 'enable'
             dstintf:
-                type: str
+                type: list
                 description: 'Outgoing (egress) interface.'
             firewall-session-dirty:
                 type: str
@@ -477,7 +477,7 @@ options:
                 type: str
                 description: 'Name of an existing Spam filter profile.'
             srcaddr:
-                type: str
+                type: list
                 description: 'Source address and address group names.'
             srcaddr-negate:
                 type: str
@@ -486,7 +486,7 @@ options:
                     - 'disable'
                     - 'enable'
             srcintf:
-                type: str
+                type: list
                 description: 'Incoming (ingress) interface.'
             ssl-mirror:
                 type: str
@@ -778,7 +778,7 @@ options:
                 type: str
                 description: 'Decrypted traffic mirror.'
             dstaddr6:
-                type: str
+                type: list
                 description: 'Destination IPv6 address name and address group names.'
             geoip-match:
                 type: str
@@ -799,7 +799,7 @@ options:
                 type: str
                 description: 'Vendor MAC source ID.'
             srcaddr6:
-                type: str
+                type: list
                 description: 'Source IPv6 address name and address group names.'
             file-filter-profile:
                 type: str
@@ -885,9 +885,9 @@ EXAMPLES = '''
             dscp-negate: <value in [disable, enable]>
             dscp-value: <value of string>
             dsri: <value in [disable, enable]>
-            dstaddr: <value of string>
+            dstaddr: <list>
             dstaddr-negate: <value in [disable, enable]>
-            dstintf: <value of string>
+            dstintf: <[list]>
             firewall-session-dirty: <value in [check-all, check-new]>
             fixedport: <value in [disable, enable]>
             fsso: <value in [disable, enable]>
@@ -941,9 +941,9 @@ EXAMPLES = '''
             service-negate: <value in [disable, enable]>
             session-ttl: <value of integer>
             spamfilter-profile: <value of string>
-            srcaddr: <value of string>
+            srcaddr: <[list]>
             srcaddr-negate: <value in [disable, enable]>
-            srcintf: <value of string>
+            srcintf: <[list]>
             ssl-mirror: <value in [disable, enable]>
             ssl-mirror-intf: <value of string>
             ssl-ssh-profile: <value of string>
@@ -1015,13 +1015,13 @@ EXAMPLES = '''
             webproxy-profile: <value of string>
             best-route: <value in [disable, enable]>
             decrypted-traffic-mirror: <value of string>
-            dstaddr6: <value of string>
+            dstaddr6: <list>
             geoip-match: <value in [physical-location, registered-location]>
             internet-service-name: <value of string>
             internet-service-src-name: <value of string>
             poolname6: <value of string>
             src-vendor-mac: <value of string>
-            srcaddr6: <value of string>
+            srcaddr6: <list>
             file-filter-profile: <value of string>
             dynamic-shaping: <value in [disable, enable]>
             passive-wan-health-measurement: <value in [disable, enable]>
@@ -1570,7 +1570,7 @@ def main():
                         '6.4.5': True,
                         '7.0.0': True
                     },
-                    'type': 'str'
+                    'type': 'list'
                 },
                 'dstaddr-negate': {
                     'required': False,
@@ -1602,7 +1602,7 @@ def main():
                         '6.4.5': True,
                         '7.0.0': True
                     },
-                    'type': 'str'
+                    'type': 'list'
                 },
                 'firewall-session-dirty': {
                     'required': False,
@@ -2409,7 +2409,7 @@ def main():
                         '6.4.5': True,
                         '7.0.0': True
                     },
-                    'type': 'str'
+                    'type': 'list'
                 },
                 'service-negate': {
                     'required': False,
@@ -2469,7 +2469,7 @@ def main():
                         '6.4.5': True,
                         '7.0.0': True
                     },
-                    'type': 'str'
+                    'type': 'list'
                 },
                 'srcaddr-negate': {
                     'required': False,
@@ -2501,7 +2501,7 @@ def main():
                         '6.4.5': True,
                         '7.0.0': True
                     },
-                    'type': 'str'
+                    'type': 'list'
                 },
                 'ssl-mirror': {
                     'required': False,
@@ -3551,7 +3551,7 @@ def main():
                         '6.4.5': True,
                         '7.0.0': True
                     },
-                    'type': 'str'
+                    'type': 'list'
                 },
                 'geoip-match': {
                     'required': False,
@@ -3615,7 +3615,7 @@ def main():
                         '6.4.5': True,
                         '7.0.0': True
                     },
-                    'type': 'str'
+                    'type': 'list'
                 },
                 'file-filter-profile': {
                     'required': False,
