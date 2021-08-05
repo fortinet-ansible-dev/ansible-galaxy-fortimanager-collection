@@ -38,7 +38,7 @@ def check_galaxy_version(schema):
         error_message = 'Legacy playbook detected, please revise the playbook or install latest legacy'
         error_message += ' fortimanager galaxy collection: #ansible-galaxy collection install -f fortinet.fortimanager:1.0.5'
         sys.stderr.write(error_message)
-        sys.exit(1)
+        # sys.exit(1)
 
 
 def check_parameter_bypass(schema, module_level2_name):
@@ -131,9 +131,9 @@ class NAPIManager(object):
     def _get_basic_url(self, is_perobject):
         url_libs = None
         if is_perobject:
-            url_libs = [i for i in self.perobject_jrpc_urls]
+            url_libs = list(self.perobject_jrpc_urls)
         else:
-            url_libs = [i for i in self.jrpc_urls]
+            url_libs = list(self.jrpc_urls)
         for uparam in self.url_params:
             if not self.module.params[uparam]:
                 raise AssertionError('param %s MUST NOT be empty' % (uparam))
