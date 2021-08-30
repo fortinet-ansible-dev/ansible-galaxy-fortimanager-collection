@@ -470,7 +470,7 @@ def main():
                 'vdom'
             ],
             'urls': [
-                '/pm/config/device{device}/vdom/{vdom}/router6/static'
+                '/pm/config/device/{device}/vdom/{vdom}/router6/static'
             ],
             'revision': {
                 '6.0.0': True,
