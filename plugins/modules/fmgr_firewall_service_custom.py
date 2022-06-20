@@ -188,7 +188,7 @@ options:
                     - 'disable'
                     - 'enable'
             sctp-portrange:
-                type: str
+                type: list
                 description: 'Multiple SCTP port ranges.'
             session-ttl:
                 type: int
@@ -200,7 +200,7 @@ options:
                 type: int
                 description: 'Wait time to close a TCP session waiting for an unanswered open session packet (1 - 86400 sec, 0 = default).'
             tcp-portrange:
-                type: str
+                type: list
                 description: 'Multiple TCP port ranges.'
             tcp-timewait-timer:
                 type: int
@@ -209,7 +209,7 @@ options:
                 type: int
                 description: 'UDP half close timeout (0 - 86400 sec, 0 = default).'
             udp-portrange:
-                type: str
+                type: list
                 description: 'Multiple UDP port ranges.'
             visibility:
                 type: str
@@ -657,7 +657,7 @@ def main():
                         '6.4.5': True,
                         '7.0.0': True
                     },
-                    'type': 'str'
+                    'type': 'list'
                 },
                 'session-ttl': {
                     'required': False,
@@ -713,7 +713,7 @@ def main():
                         '6.4.5': True,
                         '7.0.0': True
                     },
-                    'type': 'str'
+                    'type': 'list'
                 },
                 'tcp-timewait-timer': {
                     'required': False,
@@ -755,7 +755,7 @@ def main():
                         '6.4.5': True,
                         '7.0.0': True
                     },
-                    'type': 'str'
+                    'type': 'list'
                 },
                 'visibility': {
                     'required': False,
