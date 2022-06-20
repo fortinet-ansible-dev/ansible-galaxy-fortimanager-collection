@@ -28,6 +28,7 @@ short_description: Configure service groups.
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
+    - A custom service needs to be present and referred as a member.
 
 version_added: "2.10"
 author:
@@ -102,7 +103,7 @@ options:
                 type: str
                 description: no description
             member:
-                type: str
+                type: list
                 description: 'Service objects contained within the group.'
             name:
                 type: str
@@ -145,6 +146,8 @@ EXAMPLES = '''
             comment: 'ansible-comment'
             name: 'ansible-test-group'
             proxy: disable
+            member:
+            - ansible-test
  - name: gathering fortimanager facts
    hosts: fortimanager00
    gather_facts: no
@@ -301,7 +304,7 @@ def main():
                         '6.4.5': True,
                         '7.0.0': True
                     },
-                    'type': 'str'
+                    'type': 'list'
                 },
                 'name': {
                     'required': True,
