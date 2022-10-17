@@ -102,7 +102,7 @@ options:
                 type: str
                 description: no description
             member:
-                type: str
+                type: list
                 description: 'Service objects contained within the group.'
             name:
                 type: str
