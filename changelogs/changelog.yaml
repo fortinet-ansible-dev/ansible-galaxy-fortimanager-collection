@@ -1,0 +1,14 @@
+ancestor: null
+releases:
+  2.1.6:
+    changes:
+      major_changes:
+      - 98 New Ansible modules
+      - Supported FortiManager API schema 7.2.0
+      minor_changes:
+      - Added best practice notes.
+      - Many fixes for Ansible sanity test warnings & errors.
+      release_summary: Minor Release of FortiManager Ansible 2.1.6
+    fragments:
+    - release_2.1.6.yaml
+    release_date: '2022-11-07'
