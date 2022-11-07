@@ -39,7 +39,7 @@ license_file: ''
 
 # A list of tags you want to associate with the collection for indexing/searching. A tag name has the same character
 # requirements as 'namespace' and 'name'
-tags: [fortinet, fortimanager, ansible]
+tags: [fortinet, fortimanager, networking, security, cloud]
 
 # Collections that this collection requires to be installed for it to be usable. The key of the dict is the
 # collection label 'namespace.name'. The value is a version range
@@ -50,7 +50,7 @@ dependencies: {
 }
 
 # The URL of the originating SCM repository
-repository: https://github.com/fortinet-ansible-dev/ansible-galaxy-fortimanager-collection/tree/galaxy/2.1.6
+repository: https://github.com/fortinet-ansible-dev/ansible-galaxy-fortimanager-collection/tree/ah/galaxy/2.1.6
 
 # The URL to any online docs
 documentation: https://ansible-galaxy-fortimanager-docs.readthedocs.io/en/galaxy-2.1.6
