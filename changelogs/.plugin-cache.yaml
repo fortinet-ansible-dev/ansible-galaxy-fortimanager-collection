@@ -1,0 +1,4991 @@
+objects:
+  role: {}
+plugins:
+  become: {}
+  cache: {}
+  callback: {}
+  cliconf: {}
+  connection: {}
+  httpapi:
+    fortimanager:
+      description: HttpApi Plugin for Fortinet FortiManager Appliance or VM.
+      name: fortimanager
+      version_added: '2.8'
+  inventory: {}
+  lookup: {}
+  module:
+    fmgr_adom_options:
+      description: no description
+      name: fmgr_adom_options
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_antivirus_mmschecksum:
+      description: no description
+      name: fmgr_antivirus_mmschecksum
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_antivirus_mmschecksum_entries:
+      description: no description
+      name: fmgr_antivirus_mmschecksum_entries
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_antivirus_notification:
+      description: no description
+      name: fmgr_antivirus_notification
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_antivirus_notification_entries:
+      description: no description
+      name: fmgr_antivirus_notification_entries
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_antivirus_profile:
+      description: no description
+      name: fmgr_antivirus_profile
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_antivirus_profile_cifs:
+      description: no description
+      name: fmgr_antivirus_profile_cifs
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_antivirus_profile_contentdisarm:
+      description: no description
+      name: fmgr_antivirus_profile_contentdisarm
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_antivirus_profile_ftp:
+      description: no description
+      name: fmgr_antivirus_profile_ftp
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_antivirus_profile_http:
+      description: no description
+      name: fmgr_antivirus_profile_http
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_antivirus_profile_imap:
+      description: no description
+      name: fmgr_antivirus_profile_imap
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_antivirus_profile_mapi:
+      description: no description
+      name: fmgr_antivirus_profile_mapi
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_antivirus_profile_nacquar:
+      description: no description
+      name: fmgr_antivirus_profile_nacquar
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_antivirus_profile_nntp:
+      description: no description
+      name: fmgr_antivirus_profile_nntp
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_antivirus_profile_outbreakprevention:
+      description: no description
+      name: fmgr_antivirus_profile_outbreakprevention
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_antivirus_profile_pop3:
+      description: no description
+      name: fmgr_antivirus_profile_pop3
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_antivirus_profile_smb:
+      description: no description
+      name: fmgr_antivirus_profile_smb
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_antivirus_profile_smtp:
+      description: no description
+      name: fmgr_antivirus_profile_smtp
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_antivirus_profile_ssh:
+      description: no description
+      name: fmgr_antivirus_profile_ssh
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_apcfgprofile:
+      description: no description
+      name: fmgr_apcfgprofile
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_apcfgprofile_commandlist:
+      description: no description
+      name: fmgr_apcfgprofile_commandlist
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_application_categories:
+      description: no description
+      name: fmgr_application_categories
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_application_custom:
+      description: no description
+      name: fmgr_application_custom
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_application_group:
+      description: no description
+      name: fmgr_application_group
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_application_list:
+      description: no description
+      name: fmgr_application_list
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_application_list_defaultnetworkservices:
+      description: no description
+      name: fmgr_application_list_defaultnetworkservices
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_application_list_entries:
+      description: no description
+      name: fmgr_application_list_entries
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_application_list_entries_parameters:
+      description: no description
+      name: fmgr_application_list_entries_parameters
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_application_list_entries_parameters_members:
+      description: no description
+      name: fmgr_application_list_entries_parameters_members
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_arrpprofile:
+      description: no description
+      name: fmgr_arrpprofile
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_authentication_scheme:
+      description: no description
+      name: fmgr_authentication_scheme
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_bleprofile:
+      description: no description
+      name: fmgr_bleprofile
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_bonjourprofile:
+      description: no description
+      name: fmgr_bonjourprofile
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_bonjourprofile_policylist:
+      description: no description
+      name: fmgr_bonjourprofile_policylist
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_certificate_template:
+      description: no description
+      name: fmgr_certificate_template
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_cifs_domaincontroller:
+      description: no description
+      name: fmgr_cifs_domaincontroller
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_cifs_profile:
+      description: no description
+      name: fmgr_cifs_profile
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_cifs_profile_filefilter:
+      description: no description
+      name: fmgr_cifs_profile_filefilter
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_cifs_profile_filefilter_entries:
+      description: no description
+      name: fmgr_cifs_profile_filefilter_entries
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_cifs_profile_serverkeytab:
+      description: no description
+      name: fmgr_cifs_profile_serverkeytab
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_clone:
+      description: Clone an object in FortiManager.
+      name: fmgr_clone
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_credentialstore_domaincontroller:
+      description: no description
+      name: fmgr_credentialstore_domaincontroller
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_devprof_device_profile_fortianalyzer:
+      description: no description
+      name: fmgr_devprof_device_profile_fortianalyzer
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_devprof_device_profile_fortiguard:
+      description: no description
+      name: fmgr_devprof_device_profile_fortiguard
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_devprof_import:
+      description: no description
+      name: fmgr_devprof_import
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_devprof_log_fortianalyzer_setting:
+      description: no description
+      name: fmgr_devprof_log_fortianalyzer_setting
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_devprof_log_fortianalyzercloud_setting:
+      description: no description
+      name: fmgr_devprof_log_fortianalyzercloud_setting
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_devprof_log_syslogd_filter:
+      description: no description
+      name: fmgr_devprof_log_syslogd_filter
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_devprof_log_syslogd_setting:
+      description: no description
+      name: fmgr_devprof_log_syslogd_setting
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_devprof_system_centralmanagement:
+      description: no description
+      name: fmgr_devprof_system_centralmanagement
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_devprof_system_centralmanagement_serverlist:
+      description: no description
+      name: fmgr_devprof_system_centralmanagement_serverlist
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_devprof_system_dns:
+      description: no description
+      name: fmgr_devprof_system_dns
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_devprof_system_emailserver:
+      description: no description
+      name: fmgr_devprof_system_emailserver
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_devprof_system_global:
+      description: no description
+      name: fmgr_devprof_system_global
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_devprof_system_ntp:
+      description: no description
+      name: fmgr_devprof_system_ntp
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_devprof_system_ntp_ntpserver:
+      description: no description
+      name: fmgr_devprof_system_ntp_ntpserver
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_devprof_system_replacemsg_admin:
+      description: no description
+      name: fmgr_devprof_system_replacemsg_admin
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_devprof_system_replacemsg_alertmail:
+      description: no description
+      name: fmgr_devprof_system_replacemsg_alertmail
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_devprof_system_replacemsg_auth:
+      description: no description
+      name: fmgr_devprof_system_replacemsg_auth
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_devprof_system_replacemsg_devicedetectionportal:
+      description: no description
+      name: fmgr_devprof_system_replacemsg_devicedetectionportal
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_devprof_system_replacemsg_ec:
+      description: no description
+      name: fmgr_devprof_system_replacemsg_ec
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_devprof_system_replacemsg_fortiguardwf:
+      description: no description
+      name: fmgr_devprof_system_replacemsg_fortiguardwf
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_devprof_system_replacemsg_ftp:
+      description: no description
+      name: fmgr_devprof_system_replacemsg_ftp
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_devprof_system_replacemsg_http:
+      description: no description
+      name: fmgr_devprof_system_replacemsg_http
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_devprof_system_replacemsg_mail:
+      description: no description
+      name: fmgr_devprof_system_replacemsg_mail
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_devprof_system_replacemsg_mms:
+      description: no description
+      name: fmgr_devprof_system_replacemsg_mms
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_devprof_system_replacemsg_nacquar:
+      description: no description
+      name: fmgr_devprof_system_replacemsg_nacquar
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_devprof_system_replacemsg_nntp:
+      description: no description
+      name: fmgr_devprof_system_replacemsg_nntp
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_devprof_system_replacemsg_spam:
+      description: no description
+      name: fmgr_devprof_system_replacemsg_spam
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_devprof_system_replacemsg_sslvpn:
+      description: no description
+      name: fmgr_devprof_system_replacemsg_sslvpn
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_devprof_system_replacemsg_trafficquota:
+      description: no description
+      name: fmgr_devprof_system_replacemsg_trafficquota
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_devprof_system_replacemsg_utm:
+      description: no description
+      name: fmgr_devprof_system_replacemsg_utm
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_devprof_system_replacemsg_webproxy:
+      description: no description
+      name: fmgr_devprof_system_replacemsg_webproxy
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_devprof_system_snmp_community:
+      description: no description
+      name: fmgr_devprof_system_snmp_community
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_devprof_system_snmp_community_hosts:
+      description: no description
+      name: fmgr_devprof_system_snmp_community_hosts
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_devprof_system_snmp_community_hosts6:
+      description: no description
+      name: fmgr_devprof_system_snmp_community_hosts6
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_devprof_system_snmp_sysinfo:
+      description: no description
+      name: fmgr_devprof_system_snmp_sysinfo
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_devprof_system_snmp_user:
+      description: no description
+      name: fmgr_devprof_system_snmp_user
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_dlp_datatype:
+      description: no description
+      name: fmgr_dlp_datatype
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_dlp_dictionary:
+      description: no description
+      name: fmgr_dlp_dictionary
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_dlp_dictionary_entries:
+      description: no description
+      name: fmgr_dlp_dictionary_entries
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_dlp_filepattern:
+      description: no description
+      name: fmgr_dlp_filepattern
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_dlp_filepattern_entries:
+      description: no description
+      name: fmgr_dlp_filepattern_entries
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_dlp_fpsensitivity:
+      description: no description
+      name: fmgr_dlp_fpsensitivity
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_dlp_profile:
+      description: no description
+      name: fmgr_dlp_profile
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_dlp_profile_rule:
+      description: no description
+      name: fmgr_dlp_profile_rule
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_dlp_sensitivity:
+      description: no description
+      name: fmgr_dlp_sensitivity
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_dlp_sensor:
+      description: no description
+      name: fmgr_dlp_sensor
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_dlp_sensor_entries:
+      description: no description
+      name: fmgr_dlp_sensor_entries
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_dlp_sensor_filter:
+      description: no description
+      name: fmgr_dlp_sensor_filter
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_dnsfilter_domainfilter:
+      description: no description
+      name: fmgr_dnsfilter_domainfilter
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_dnsfilter_domainfilter_entries:
+      description: no description
+      name: fmgr_dnsfilter_domainfilter_entries
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_dnsfilter_profile:
+      description: no description
+      name: fmgr_dnsfilter_profile
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_dnsfilter_profile_dnstranslation:
+      description: no description
+      name: fmgr_dnsfilter_profile_dnstranslation
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_dnsfilter_profile_domainfilter:
+      description: no description
+      name: fmgr_dnsfilter_profile_domainfilter
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_dnsfilter_profile_ftgddns:
+      description: no description
+      name: fmgr_dnsfilter_profile_ftgddns
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_dnsfilter_profile_ftgddns_filters:
+      description: no description
+      name: fmgr_dnsfilter_profile_ftgddns_filters
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_dvm_cmd_add_device:
+      description: no description
+      name: fmgr_dvm_cmd_add_device
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_dvm_cmd_add_devlist:
+      description: no description
+      name: fmgr_dvm_cmd_add_devlist
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_dvm_cmd_changehaseq:
+      description: no description
+      name: fmgr_dvm_cmd_changehaseq
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_dvm_cmd_del_device:
+      description: no description
+      name: fmgr_dvm_cmd_del_device
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_dvm_cmd_del_devlist:
+      description: no description
+      name: fmgr_dvm_cmd_del_devlist
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_dvm_cmd_discover_device:
+      description: no description
+      name: fmgr_dvm_cmd_discover_device
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_dvm_cmd_import_devlist:
+      description: no description
+      name: fmgr_dvm_cmd_import_devlist
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_dvm_cmd_reload_devlist:
+      description: no description
+      name: fmgr_dvm_cmd_reload_devlist
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_dvm_cmd_update_device:
+      description: no description
+      name: fmgr_dvm_cmd_update_device
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_dvm_cmd_update_devlist:
+      description: no description
+      name: fmgr_dvm_cmd_update_devlist
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_dvmdb_adom:
+      description: no description
+      name: fmgr_dvmdb_adom
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_dvmdb_adom_objectmember:
+      description: no description
+      name: fmgr_dvmdb_adom_objectmember
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_dvmdb_device:
+      description: no description
+      name: fmgr_dvmdb_device
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_dvmdb_device_replace_sn:
+      description: no description
+      name: fmgr_dvmdb_device_replace_sn
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_dvmdb_device_vdom:
+      description: no description
+      name: fmgr_dvmdb_device_vdom
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_dvmdb_folder:
+      description: no description
+      name: fmgr_dvmdb_folder
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_dvmdb_group:
+      description: no description
+      name: fmgr_dvmdb_group
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_dvmdb_group_objectmember:
+      description: no description
+      name: fmgr_dvmdb_group_objectmember
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_dvmdb_metafields_adom:
+      description: no description
+      name: fmgr_dvmdb_metafields_adom
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_dvmdb_metafields_device:
+      description: no description
+      name: fmgr_dvmdb_metafields_device
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_dvmdb_metafields_group:
+      description: no description
+      name: fmgr_dvmdb_metafields_group
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_dvmdb_revision:
+      description: no description
+      name: fmgr_dvmdb_revision
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_dvmdb_script:
+      description: no description
+      name: fmgr_dvmdb_script
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_dvmdb_script_execute:
+      description: no description
+      name: fmgr_dvmdb_script_execute
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_dvmdb_script_objectmember:
+      description: no description
+      name: fmgr_dvmdb_script_objectmember
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_dvmdb_script_scriptschedule:
+      description: no description
+      name: fmgr_dvmdb_script_scriptschedule
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_dvmdb_workflow_approve:
+      description: no description
+      name: fmgr_dvmdb_workflow_approve
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_dvmdb_workflow_discard:
+      description: no description
+      name: fmgr_dvmdb_workflow_discard
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_dvmdb_workflow_drop:
+      description: no description
+      name: fmgr_dvmdb_workflow_drop
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_dvmdb_workflow_reject:
+      description: no description
+      name: fmgr_dvmdb_workflow_reject
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_dvmdb_workflow_repair:
+      description: no description
+      name: fmgr_dvmdb_workflow_repair
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_dvmdb_workflow_revert:
+      description: no description
+      name: fmgr_dvmdb_workflow_revert
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_dvmdb_workflow_review:
+      description: no description
+      name: fmgr_dvmdb_workflow_review
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_dvmdb_workflow_save:
+      description: no description
+      name: fmgr_dvmdb_workflow_save
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_dvmdb_workflow_start:
+      description: no description
+      name: fmgr_dvmdb_workflow_start
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_dvmdb_workflow_submit:
+      description: no description
+      name: fmgr_dvmdb_workflow_submit
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_dvmdb_workspace_commit:
+      description: no description
+      name: fmgr_dvmdb_workspace_commit
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_dvmdb_workspace_commit_dev:
+      description: no description
+      name: fmgr_dvmdb_workspace_commit_dev
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_dvmdb_workspace_commit_obj:
+      description: no description
+      name: fmgr_dvmdb_workspace_commit_obj
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_dvmdb_workspace_commit_pkg:
+      description: no description
+      name: fmgr_dvmdb_workspace_commit_pkg
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_dvmdb_workspace_lock:
+      description: no description
+      name: fmgr_dvmdb_workspace_lock
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_dvmdb_workspace_lock_dev:
+      description: no description
+      name: fmgr_dvmdb_workspace_lock_dev
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_dvmdb_workspace_lock_obj:
+      description: no description
+      name: fmgr_dvmdb_workspace_lock_obj
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_dvmdb_workspace_lock_pkg:
+      description: no description
+      name: fmgr_dvmdb_workspace_lock_pkg
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_dvmdb_workspace_unlock:
+      description: no description
+      name: fmgr_dvmdb_workspace_unlock
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_dvmdb_workspace_unlock_dev:
+      description: no description
+      name: fmgr_dvmdb_workspace_unlock_dev
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_dvmdb_workspace_unlock_obj:
+      description: no description
+      name: fmgr_dvmdb_workspace_unlock_obj
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_dvmdb_workspace_unlock_pkg:
+      description: no description
+      name: fmgr_dvmdb_workspace_unlock_pkg
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_dynamic_address:
+      description: no description
+      name: fmgr_dynamic_address
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_dynamic_address_dynamicaddrmapping:
+      description: no description
+      name: fmgr_dynamic_address_dynamicaddrmapping
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_dynamic_certificate_local:
+      description: no description
+      name: fmgr_dynamic_certificate_local
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_dynamic_certificate_local_dynamicmapping:
+      description: no description
+      name: fmgr_dynamic_certificate_local_dynamicmapping
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_dynamic_input_interface:
+      description: no description
+      name: fmgr_dynamic_input_interface
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_dynamic_input_interface_dynamicmapping:
+      description: no description
+      name: fmgr_dynamic_input_interface_dynamicmapping
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_dynamic_interface:
+      description: no description
+      name: fmgr_dynamic_interface
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_dynamic_interface_dynamicmapping:
+      description: no description
+      name: fmgr_dynamic_interface_dynamicmapping
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_dynamic_interface_platformmapping:
+      description: no description
+      name: fmgr_dynamic_interface_platformmapping
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_dynamic_ippool:
+      description: no description
+      name: fmgr_dynamic_ippool
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_dynamic_multicast_interface:
+      description: no description
+      name: fmgr_dynamic_multicast_interface
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_dynamic_multicast_interface_dynamicmapping:
+      description: no description
+      name: fmgr_dynamic_multicast_interface_dynamicmapping
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_dynamic_vip:
+      description: no description
+      name: fmgr_dynamic_vip
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_dynamic_virtualwanlink_members:
+      description: no description
+      name: fmgr_dynamic_virtualwanlink_members
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_dynamic_virtualwanlink_members_dynamicmapping:
+      description: no description
+      name: fmgr_dynamic_virtualwanlink_members_dynamicmapping
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_dynamic_virtualwanlink_neighbor:
+      description: no description
+      name: fmgr_dynamic_virtualwanlink_neighbor
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_dynamic_virtualwanlink_neighbor_dynamicmapping:
+      description: no description
+      name: fmgr_dynamic_virtualwanlink_neighbor_dynamicmapping
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_dynamic_virtualwanlink_server:
+      description: no description
+      name: fmgr_dynamic_virtualwanlink_server
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_dynamic_virtualwanlink_server_dynamicmapping:
+      description: no description
+      name: fmgr_dynamic_virtualwanlink_server_dynamicmapping
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_dynamic_vpntunnel:
+      description: no description
+      name: fmgr_dynamic_vpntunnel
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_dynamic_vpntunnel_dynamicmapping:
+      description: no description
+      name: fmgr_dynamic_vpntunnel_dynamicmapping
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_emailfilter_blockallowlist:
+      description: no description
+      name: fmgr_emailfilter_blockallowlist
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_emailfilter_blockallowlist_entries:
+      description: no description
+      name: fmgr_emailfilter_blockallowlist_entries
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_emailfilter_bwl:
+      description: no description
+      name: fmgr_emailfilter_bwl
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_emailfilter_bwl_entries:
+      description: no description
+      name: fmgr_emailfilter_bwl_entries
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_emailfilter_bword:
+      description: no description
+      name: fmgr_emailfilter_bword
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_emailfilter_bword_entries:
+      description: no description
+      name: fmgr_emailfilter_bword_entries
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_emailfilter_dnsbl:
+      description: no description
+      name: fmgr_emailfilter_dnsbl
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_emailfilter_dnsbl_entries:
+      description: no description
+      name: fmgr_emailfilter_dnsbl_entries
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_emailfilter_fortishield:
+      description: no description
+      name: fmgr_emailfilter_fortishield
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_emailfilter_iptrust:
+      description: no description
+      name: fmgr_emailfilter_iptrust
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_emailfilter_iptrust_entries:
+      description: no description
+      name: fmgr_emailfilter_iptrust_entries
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_emailfilter_mheader:
+      description: no description
+      name: fmgr_emailfilter_mheader
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_emailfilter_mheader_entries:
+      description: no description
+      name: fmgr_emailfilter_mheader_entries
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_emailfilter_options:
+      description: no description
+      name: fmgr_emailfilter_options
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_emailfilter_profile:
+      description: no description
+      name: fmgr_emailfilter_profile
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_emailfilter_profile_filefilter:
+      description: no description
+      name: fmgr_emailfilter_profile_filefilter
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_emailfilter_profile_filefilter_entries:
+      description: no description
+      name: fmgr_emailfilter_profile_filefilter_entries
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_emailfilter_profile_gmail:
+      description: no description
+      name: fmgr_emailfilter_profile_gmail
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_emailfilter_profile_imap:
+      description: no description
+      name: fmgr_emailfilter_profile_imap
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_emailfilter_profile_mapi:
+      description: no description
+      name: fmgr_emailfilter_profile_mapi
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_emailfilter_profile_msnhotmail:
+      description: no description
+      name: fmgr_emailfilter_profile_msnhotmail
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_emailfilter_profile_otherwebmails:
+      description: no description
+      name: fmgr_emailfilter_profile_otherwebmails
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_emailfilter_profile_pop3:
+      description: no description
+      name: fmgr_emailfilter_profile_pop3
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_emailfilter_profile_smtp:
+      description: no description
+      name: fmgr_emailfilter_profile_smtp
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_endpointcontrol_fctems:
+      description: no description
+      name: fmgr_endpointcontrol_fctems
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_exec_fgfm_reclaimdevtunnel:
+      description: no description
+      name: fmgr_exec_fgfm_reclaimdevtunnel
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_export_playbooks:
+      description: Export fortimanager configuration as playbooks.
+      name: fmgr_export_playbooks
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_extendercontroller_dataplan:
+      description: no description
+      name: fmgr_extendercontroller_dataplan
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_extendercontroller_extenderprofile:
+      description: no description
+      name: fmgr_extendercontroller_extenderprofile
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_extendercontroller_extenderprofile_cellular:
+      description: no description
+      name: fmgr_extendercontroller_extenderprofile_cellular
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_extendercontroller_extenderprofile_cellular_controllerreport:
+      description: no description
+      name: fmgr_extendercontroller_extenderprofile_cellular_controllerreport
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_extendercontroller_extenderprofile_cellular_modem1:
+      description: no description
+      name: fmgr_extendercontroller_extenderprofile_cellular_modem1
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_extendercontroller_extenderprofile_cellular_modem1_autoswitch:
+      description: no description
+      name: fmgr_extendercontroller_extenderprofile_cellular_modem1_autoswitch
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_extendercontroller_extenderprofile_cellular_modem2:
+      description: no description
+      name: fmgr_extendercontroller_extenderprofile_cellular_modem2
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_extendercontroller_extenderprofile_cellular_modem2_autoswitch:
+      description: no description
+      name: fmgr_extendercontroller_extenderprofile_cellular_modem2_autoswitch
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_extendercontroller_extenderprofile_cellular_smsnotification:
+      description: no description
+      name: fmgr_extendercontroller_extenderprofile_cellular_smsnotification
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_extendercontroller_extenderprofile_cellular_smsnotification_alert:
+      description: no description
+      name: fmgr_extendercontroller_extenderprofile_cellular_smsnotification_alert
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_extendercontroller_extenderprofile_cellular_smsnotification_receiver:
+      description: no description
+      name: fmgr_extendercontroller_extenderprofile_cellular_smsnotification_receiver
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_extendercontroller_extenderprofile_lanextension:
+      description: no description
+      name: fmgr_extendercontroller_extenderprofile_lanextension
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_extendercontroller_extenderprofile_lanextension_backhaul:
+      description: no description
+      name: fmgr_extendercontroller_extenderprofile_lanextension_backhaul
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_extendercontroller_simprofile:
+      description: no description
+      name: fmgr_extendercontroller_simprofile
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_extendercontroller_simprofile_autoswitchprofile:
+      description: no description
+      name: fmgr_extendercontroller_simprofile_autoswitchprofile
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_extendercontroller_template:
+      description: no description
+      name: fmgr_extendercontroller_template
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_fact:
+      description: Gather fortimanager facts.
+      name: fmgr_fact
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_filefilter_profile:
+      description: no description
+      name: fmgr_filefilter_profile
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_filefilter_profile_rules:
+      description: no description
+      name: fmgr_filefilter_profile_rules
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_firewall_accessproxy:
+      description: no description
+      name: fmgr_firewall_accessproxy
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_firewall_accessproxy_apigateway:
+      description: no description
+      name: fmgr_firewall_accessproxy_apigateway
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_firewall_accessproxy_apigateway6:
+      description: no description
+      name: fmgr_firewall_accessproxy_apigateway6
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_firewall_accessproxy_apigateway6_realservers:
+      description: no description
+      name: fmgr_firewall_accessproxy_apigateway6_realservers
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_firewall_accessproxy_apigateway6_sslciphersuites:
+      description: no description
+      name: fmgr_firewall_accessproxy_apigateway6_sslciphersuites
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_firewall_accessproxy_apigateway_realservers:
+      description: no description
+      name: fmgr_firewall_accessproxy_apigateway_realservers
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_firewall_accessproxy_apigateway_sslciphersuites:
+      description: no description
+      name: fmgr_firewall_accessproxy_apigateway_sslciphersuites
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_firewall_accessproxy_realservers:
+      description: no description
+      name: fmgr_firewall_accessproxy_realservers
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_firewall_accessproxy_serverpubkeyauthsettings:
+      description: no description
+      name: fmgr_firewall_accessproxy_serverpubkeyauthsettings
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_firewall_accessproxy_serverpubkeyauthsettings_certextension:
+      description: no description
+      name: fmgr_firewall_accessproxy_serverpubkeyauthsettings_certextension
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_firewall_accessproxyvirtualhost:
+      description: no description
+      name: fmgr_firewall_accessproxyvirtualhost
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_firewall_address:
+      description: no description
+      name: fmgr_firewall_address
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_firewall_address6:
+      description: no description
+      name: fmgr_firewall_address6
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_firewall_address6_dynamicmapping:
+      description: no description
+      name: fmgr_firewall_address6_dynamicmapping
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_firewall_address6_dynamicmapping_subnetsegment:
+      description: no description
+      name: fmgr_firewall_address6_dynamicmapping_subnetsegment
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_firewall_address6_list:
+      description: no description
+      name: fmgr_firewall_address6_list
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_firewall_address6_subnetsegment:
+      description: no description
+      name: fmgr_firewall_address6_subnetsegment
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_firewall_address6_tagging:
+      description: no description
+      name: fmgr_firewall_address6_tagging
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_firewall_address6template:
+      description: no description
+      name: fmgr_firewall_address6template
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_firewall_address6template_subnetsegment:
+      description: no description
+      name: fmgr_firewall_address6template_subnetsegment
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_firewall_address6template_subnetsegment_values:
+      description: no description
+      name: fmgr_firewall_address6template_subnetsegment_values
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_firewall_address_dynamicmapping:
+      description: no description
+      name: fmgr_firewall_address_dynamicmapping
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_firewall_address_list:
+      description: no description
+      name: fmgr_firewall_address_list
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_firewall_address_tagging:
+      description: no description
+      name: fmgr_firewall_address_tagging
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_firewall_addrgrp:
+      description: no description
+      name: fmgr_firewall_addrgrp
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_firewall_addrgrp6:
+      description: no description
+      name: fmgr_firewall_addrgrp6
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_firewall_addrgrp6_dynamicmapping:
+      description: no description
+      name: fmgr_firewall_addrgrp6_dynamicmapping
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_firewall_addrgrp6_tagging:
+      description: no description
+      name: fmgr_firewall_addrgrp6_tagging
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_firewall_addrgrp_dynamicmapping:
+      description: no description
+      name: fmgr_firewall_addrgrp_dynamicmapping
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_firewall_addrgrp_tagging:
+      description: no description
+      name: fmgr_firewall_addrgrp_tagging
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_firewall_carrierendpointbwl:
+      description: no description
+      name: fmgr_firewall_carrierendpointbwl
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_firewall_carrierendpointbwl_entries:
+      description: no description
+      name: fmgr_firewall_carrierendpointbwl_entries
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_firewall_decryptedtrafficmirror:
+      description: no description
+      name: fmgr_firewall_decryptedtrafficmirror
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_firewall_gtp:
+      description: no description
+      name: fmgr_firewall_gtp
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_firewall_gtp_apn:
+      description: no description
+      name: fmgr_firewall_gtp_apn
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_firewall_gtp_ieremovepolicy:
+      description: no description
+      name: fmgr_firewall_gtp_ieremovepolicy
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_firewall_gtp_ievalidation:
+      description: no description
+      name: fmgr_firewall_gtp_ievalidation
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_firewall_gtp_imsi:
+      description: no description
+      name: fmgr_firewall_gtp_imsi
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_firewall_gtp_ippolicy:
+      description: no description
+      name: fmgr_firewall_gtp_ippolicy
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_firewall_gtp_messageratelimit:
+      description: no description
+      name: fmgr_firewall_gtp_messageratelimit
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_firewall_gtp_messageratelimitv0:
+      description: no description
+      name: fmgr_firewall_gtp_messageratelimitv0
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_firewall_gtp_messageratelimitv1:
+      description: no description
+      name: fmgr_firewall_gtp_messageratelimitv1
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_firewall_gtp_messageratelimitv2:
+      description: no description
+      name: fmgr_firewall_gtp_messageratelimitv2
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_firewall_gtp_noippolicy:
+      description: no description
+      name: fmgr_firewall_gtp_noippolicy
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_firewall_gtp_perapnshaper:
+      description: no description
+      name: fmgr_firewall_gtp_perapnshaper
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_firewall_gtp_policy:
+      description: no description
+      name: fmgr_firewall_gtp_policy
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_firewall_gtp_policyv2:
+      description: no description
+      name: fmgr_firewall_gtp_policyv2
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_firewall_identitybasedroute:
+      description: no description
+      name: fmgr_firewall_identitybasedroute
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_firewall_identitybasedroute_rule:
+      description: no description
+      name: fmgr_firewall_identitybasedroute_rule
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_firewall_internetservice:
+      description: no description
+      name: fmgr_firewall_internetservice
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_firewall_internetservice_entry:
+      description: no description
+      name: fmgr_firewall_internetservice_entry
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_firewall_internetserviceaddition:
+      description: no description
+      name: fmgr_firewall_internetserviceaddition
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_firewall_internetserviceaddition_entry:
+      description: no description
+      name: fmgr_firewall_internetserviceaddition_entry
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_firewall_internetserviceaddition_entry_portrange:
+      description: no description
+      name: fmgr_firewall_internetserviceaddition_entry_portrange
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_firewall_internetservicecustom:
+      description: no description
+      name: fmgr_firewall_internetservicecustom
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_firewall_internetservicecustom_disableentry:
+      description: no description
+      name: fmgr_firewall_internetservicecustom_disableentry
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_firewall_internetservicecustom_disableentry_iprange:
+      description: no description
+      name: fmgr_firewall_internetservicecustom_disableentry_iprange
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_firewall_internetservicecustom_entry:
+      description: no description
+      name: fmgr_firewall_internetservicecustom_entry
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_firewall_internetservicecustom_entry_portrange:
+      description: no description
+      name: fmgr_firewall_internetservicecustom_entry_portrange
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_firewall_internetservicecustomgroup:
+      description: no description
+      name: fmgr_firewall_internetservicecustomgroup
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_firewall_internetservicegroup:
+      description: no description
+      name: fmgr_firewall_internetservicegroup
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_firewall_internetservicename:
+      description: no description
+      name: fmgr_firewall_internetservicename
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_firewall_ippool:
+      description: no description
+      name: fmgr_firewall_ippool
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_firewall_ippool6:
+      description: no description
+      name: fmgr_firewall_ippool6
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_firewall_ippool6_dynamicmapping:
+      description: no description
+      name: fmgr_firewall_ippool6_dynamicmapping
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_firewall_ippool_dynamicmapping:
+      description: no description
+      name: fmgr_firewall_ippool_dynamicmapping
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_firewall_ldbmonitor:
+      description: no description
+      name: fmgr_firewall_ldbmonitor
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_firewall_mmsprofile:
+      description: no description
+      name: fmgr_firewall_mmsprofile
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_firewall_mmsprofile_dupe:
+      description: no description
+      name: fmgr_firewall_mmsprofile_dupe
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_firewall_mmsprofile_flood:
+      description: no description
+      name: fmgr_firewall_mmsprofile_flood
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_firewall_mmsprofile_notification:
+      description: no description
+      name: fmgr_firewall_mmsprofile_notification
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_firewall_mmsprofile_notifmsisdn:
+      description: no description
+      name: fmgr_firewall_mmsprofile_notifmsisdn
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_firewall_mmsprofile_outbreakprevention:
+      description: no description
+      name: fmgr_firewall_mmsprofile_outbreakprevention
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_firewall_multicastaddress:
+      description: no description
+      name: fmgr_firewall_multicastaddress
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_firewall_multicastaddress6:
+      description: no description
+      name: fmgr_firewall_multicastaddress6
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_firewall_multicastaddress6_tagging:
+      description: no description
+      name: fmgr_firewall_multicastaddress6_tagging
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_firewall_multicastaddress_tagging:
+      description: no description
+      name: fmgr_firewall_multicastaddress_tagging
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_firewall_profilegroup:
+      description: no description
+      name: fmgr_firewall_profilegroup
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_firewall_profileprotocoloptions:
+      description: no description
+      name: fmgr_firewall_profileprotocoloptions
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_firewall_profileprotocoloptions_cifs:
+      description: no description
+      name: fmgr_firewall_profileprotocoloptions_cifs
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_firewall_profileprotocoloptions_cifs_filefilter:
+      description: no description
+      name: fmgr_firewall_profileprotocoloptions_cifs_filefilter
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_firewall_profileprotocoloptions_cifs_filefilter_entries:
+      description: no description
+      name: fmgr_firewall_profileprotocoloptions_cifs_filefilter_entries
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_firewall_profileprotocoloptions_cifs_serverkeytab:
+      description: no description
+      name: fmgr_firewall_profileprotocoloptions_cifs_serverkeytab
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_firewall_profileprotocoloptions_dns:
+      description: no description
+      name: fmgr_firewall_profileprotocoloptions_dns
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_firewall_profileprotocoloptions_ftp:
+      description: no description
+      name: fmgr_firewall_profileprotocoloptions_ftp
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_firewall_profileprotocoloptions_http:
+      description: no description
+      name: fmgr_firewall_profileprotocoloptions_http
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_firewall_profileprotocoloptions_imap:
+      description: no description
+      name: fmgr_firewall_profileprotocoloptions_imap
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_firewall_profileprotocoloptions_mailsignature:
+      description: no description
+      name: fmgr_firewall_profileprotocoloptions_mailsignature
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_firewall_profileprotocoloptions_mapi:
+      description: no description
+      name: fmgr_firewall_profileprotocoloptions_mapi
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_firewall_profileprotocoloptions_nntp:
+      description: no description
+      name: fmgr_firewall_profileprotocoloptions_nntp
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_firewall_profileprotocoloptions_pop3:
+      description: no description
+      name: fmgr_firewall_profileprotocoloptions_pop3
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_firewall_profileprotocoloptions_smtp:
+      description: no description
+      name: fmgr_firewall_profileprotocoloptions_smtp
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_firewall_profileprotocoloptions_ssh:
+      description: no description
+      name: fmgr_firewall_profileprotocoloptions_ssh
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_firewall_proxyaddress:
+      description: no description
+      name: fmgr_firewall_proxyaddress
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_firewall_proxyaddress_headergroup:
+      description: no description
+      name: fmgr_firewall_proxyaddress_headergroup
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_firewall_proxyaddress_tagging:
+      description: no description
+      name: fmgr_firewall_proxyaddress_tagging
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_firewall_proxyaddrgrp:
+      description: no description
+      name: fmgr_firewall_proxyaddrgrp
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_firewall_proxyaddrgrp_tagging:
+      description: no description
+      name: fmgr_firewall_proxyaddrgrp_tagging
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_firewall_schedule_group:
+      description: no description
+      name: fmgr_firewall_schedule_group
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_firewall_schedule_onetime:
+      description: no description
+      name: fmgr_firewall_schedule_onetime
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_firewall_schedule_recurring:
+      description: no description
+      name: fmgr_firewall_schedule_recurring
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_firewall_service_category:
+      description: no description
+      name: fmgr_firewall_service_category
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_firewall_service_custom:
+      description: no description
+      name: fmgr_firewall_service_custom
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_firewall_service_group:
+      description: no description
+      name: fmgr_firewall_service_group
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_firewall_shaper_peripshaper:
+      description: no description
+      name: fmgr_firewall_shaper_peripshaper
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_firewall_shaper_trafficshaper:
+      description: no description
+      name: fmgr_firewall_shaper_trafficshaper
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_firewall_shapingprofile:
+      description: no description
+      name: fmgr_firewall_shapingprofile
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_firewall_shapingprofile_shapingentries:
+      description: no description
+      name: fmgr_firewall_shapingprofile_shapingentries
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_firewall_ssh_localca:
+      description: no description
+      name: fmgr_firewall_ssh_localca
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_firewall_sslsshprofile:
+      description: no description
+      name: fmgr_firewall_sslsshprofile
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_firewall_sslsshprofile_dot:
+      description: no description
+      name: fmgr_firewall_sslsshprofile_dot
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_firewall_sslsshprofile_ftps:
+      description: no description
+      name: fmgr_firewall_sslsshprofile_ftps
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_firewall_sslsshprofile_https:
+      description: no description
+      name: fmgr_firewall_sslsshprofile_https
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_firewall_sslsshprofile_imaps:
+      description: no description
+      name: fmgr_firewall_sslsshprofile_imaps
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_firewall_sslsshprofile_pop3s:
+      description: no description
+      name: fmgr_firewall_sslsshprofile_pop3s
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_firewall_sslsshprofile_smtps:
+      description: no description
+      name: fmgr_firewall_sslsshprofile_smtps
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_firewall_sslsshprofile_ssh:
+      description: no description
+      name: fmgr_firewall_sslsshprofile_ssh
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_firewall_sslsshprofile_ssl:
+      description: no description
+      name: fmgr_firewall_sslsshprofile_ssl
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_firewall_sslsshprofile_sslexempt:
+      description: no description
+      name: fmgr_firewall_sslsshprofile_sslexempt
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_firewall_sslsshprofile_sslserver:
+      description: no description
+      name: fmgr_firewall_sslsshprofile_sslserver
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_firewall_trafficclass:
+      description: no description
+      name: fmgr_firewall_trafficclass
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_firewall_vip:
+      description: no description
+      name: fmgr_firewall_vip
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_firewall_vip46:
+      description: no description
+      name: fmgr_firewall_vip46
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_firewall_vip46_dynamicmapping:
+      description: no description
+      name: fmgr_firewall_vip46_dynamicmapping
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_firewall_vip46_realservers:
+      description: no description
+      name: fmgr_firewall_vip46_realservers
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_firewall_vip6:
+      description: no description
+      name: fmgr_firewall_vip6
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_firewall_vip64:
+      description: no description
+      name: fmgr_firewall_vip64
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_firewall_vip64_dynamicmapping:
+      description: no description
+      name: fmgr_firewall_vip64_dynamicmapping
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_firewall_vip64_realservers:
+      description: no description
+      name: fmgr_firewall_vip64_realservers
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_firewall_vip6_dynamicmapping:
+      description: no description
+      name: fmgr_firewall_vip6_dynamicmapping
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_firewall_vip6_dynamicmapping_realservers:
+      description: no description
+      name: fmgr_firewall_vip6_dynamicmapping_realservers
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_firewall_vip6_dynamicmapping_sslciphersuites:
+      description: no description
+      name: fmgr_firewall_vip6_dynamicmapping_sslciphersuites
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_firewall_vip6_realservers:
+      description: no description
+      name: fmgr_firewall_vip6_realservers
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_firewall_vip6_sslciphersuites:
+      description: no description
+      name: fmgr_firewall_vip6_sslciphersuites
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_firewall_vip6_sslserverciphersuites:
+      description: no description
+      name: fmgr_firewall_vip6_sslserverciphersuites
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_firewall_vip_dynamicmapping:
+      description: no description
+      name: fmgr_firewall_vip_dynamicmapping
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_firewall_vip_dynamicmapping_realservers:
+      description: no description
+      name: fmgr_firewall_vip_dynamicmapping_realservers
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_firewall_vip_dynamicmapping_sslciphersuites:
+      description: no description
+      name: fmgr_firewall_vip_dynamicmapping_sslciphersuites
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_firewall_vip_realservers:
+      description: no description
+      name: fmgr_firewall_vip_realservers
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_firewall_vip_sslciphersuites:
+      description: no description
+      name: fmgr_firewall_vip_sslciphersuites
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_firewall_vip_sslserverciphersuites:
+      description: no description
+      name: fmgr_firewall_vip_sslserverciphersuites
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_firewall_vipgrp:
+      description: no description
+      name: fmgr_firewall_vipgrp
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_firewall_vipgrp46:
+      description: no description
+      name: fmgr_firewall_vipgrp46
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_firewall_vipgrp6:
+      description: no description
+      name: fmgr_firewall_vipgrp6
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_firewall_vipgrp64:
+      description: no description
+      name: fmgr_firewall_vipgrp64
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_firewall_vipgrp_dynamicmapping:
+      description: no description
+      name: fmgr_firewall_vipgrp_dynamicmapping
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_firewall_wildcardfqdn_custom:
+      description: no description
+      name: fmgr_firewall_wildcardfqdn_custom
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_firewall_wildcardfqdn_group:
+      description: no description
+      name: fmgr_firewall_wildcardfqdn_group
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_fmg_device_blueprint:
+      description: no description
+      name: fmgr_fmg_device_blueprint
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_fmg_variable:
+      description: no description
+      name: fmgr_fmg_variable
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_fmg_variable_dynamicmapping:
+      description: no description
+      name: fmgr_fmg_variable_dynamicmapping
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_fmupdate_analyzer_virusreport:
+      description: no description
+      name: fmgr_fmupdate_analyzer_virusreport
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_fmupdate_avips_advancedlog:
+      description: no description
+      name: fmgr_fmupdate_avips_advancedlog
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_fmupdate_avips_webproxy:
+      description: no description
+      name: fmgr_fmupdate_avips_webproxy
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_fmupdate_customurllist:
+      description: no description
+      name: fmgr_fmupdate_customurllist
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_fmupdate_diskquota:
+      description: no description
+      name: fmgr_fmupdate_diskquota
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_fmupdate_fctservices:
+      description: no description
+      name: fmgr_fmupdate_fctservices
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_fmupdate_fdssetting:
+      description: no description
+      name: fmgr_fmupdate_fdssetting
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_fmupdate_fdssetting_pushoverride:
+      description: no description
+      name: fmgr_fmupdate_fdssetting_pushoverride
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_fmupdate_fdssetting_pushoverridetoclient:
+      description: no description
+      name: fmgr_fmupdate_fdssetting_pushoverridetoclient
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_fmupdate_fdssetting_pushoverridetoclient_announceip:
+      description: no description
+      name: fmgr_fmupdate_fdssetting_pushoverridetoclient_announceip
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_fmupdate_fdssetting_serveroverride:
+      description: no description
+      name: fmgr_fmupdate_fdssetting_serveroverride
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_fmupdate_fdssetting_serveroverride_servlist:
+      description: no description
+      name: fmgr_fmupdate_fdssetting_serveroverride_servlist
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_fmupdate_fdssetting_updateschedule:
+      description: no description
+      name: fmgr_fmupdate_fdssetting_updateschedule
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_fmupdate_fwmsetting:
+      description: no description
+      name: fmgr_fmupdate_fwmsetting
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_fmupdate_multilayer:
+      description: no description
+      name: fmgr_fmupdate_multilayer
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_fmupdate_publicnetwork:
+      description: no description
+      name: fmgr_fmupdate_publicnetwork
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_fmupdate_serveraccesspriorities:
+      description: no description
+      name: fmgr_fmupdate_serveraccesspriorities
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_fmupdate_serveraccesspriorities_privateserver:
+      description: no description
+      name: fmgr_fmupdate_serveraccesspriorities_privateserver
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_fmupdate_serveroverridestatus:
+      description: no description
+      name: fmgr_fmupdate_serveroverridestatus
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_fmupdate_service:
+      description: no description
+      name: fmgr_fmupdate_service
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_fmupdate_webspam_fgdsetting:
+      description: no description
+      name: fmgr_fmupdate_webspam_fgdsetting
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_fmupdate_webspam_fgdsetting_serveroverride:
+      description: no description
+      name: fmgr_fmupdate_webspam_fgdsetting_serveroverride
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_fmupdate_webspam_fgdsetting_serveroverride_servlist:
+      description: no description
+      name: fmgr_fmupdate_webspam_fgdsetting_serveroverride_servlist
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_fmupdate_webspam_webproxy:
+      description: no description
+      name: fmgr_fmupdate_webspam_webproxy
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_fsp_vlan:
+      description: no description
+      name: fmgr_fsp_vlan
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_fsp_vlan_dhcpserver:
+      description: no description
+      name: fmgr_fsp_vlan_dhcpserver
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_fsp_vlan_dhcpserver_excluderange:
+      description: no description
+      name: fmgr_fsp_vlan_dhcpserver_excluderange
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_fsp_vlan_dhcpserver_iprange:
+      description: no description
+      name: fmgr_fsp_vlan_dhcpserver_iprange
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_fsp_vlan_dhcpserver_options:
+      description: no description
+      name: fmgr_fsp_vlan_dhcpserver_options
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_fsp_vlan_dhcpserver_reservedaddress:
+      description: no description
+      name: fmgr_fsp_vlan_dhcpserver_reservedaddress
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_fsp_vlan_dynamicmapping:
+      description: no description
+      name: fmgr_fsp_vlan_dynamicmapping
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_fsp_vlan_dynamicmapping_dhcpserver:
+      description: no description
+      name: fmgr_fsp_vlan_dynamicmapping_dhcpserver
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_fsp_vlan_dynamicmapping_dhcpserver_excluderange:
+      description: no description
+      name: fmgr_fsp_vlan_dynamicmapping_dhcpserver_excluderange
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_fsp_vlan_dynamicmapping_dhcpserver_iprange:
+      description: no description
+      name: fmgr_fsp_vlan_dynamicmapping_dhcpserver_iprange
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_fsp_vlan_dynamicmapping_dhcpserver_options:
+      description: no description
+      name: fmgr_fsp_vlan_dynamicmapping_dhcpserver_options
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_fsp_vlan_dynamicmapping_dhcpserver_reservedaddress:
+      description: no description
+      name: fmgr_fsp_vlan_dynamicmapping_dhcpserver_reservedaddress
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_fsp_vlan_dynamicmapping_interface:
+      description: no description
+      name: fmgr_fsp_vlan_dynamicmapping_interface
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_fsp_vlan_dynamicmapping_interface_ipv6:
+      description: no description
+      name: fmgr_fsp_vlan_dynamicmapping_interface_ipv6
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_fsp_vlan_dynamicmapping_interface_ipv6_ip6delegatedprefixlist:
+      description: no description
+      name: fmgr_fsp_vlan_dynamicmapping_interface_ipv6_ip6delegatedprefixlist
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_fsp_vlan_dynamicmapping_interface_ipv6_ip6extraaddr:
+      description: no description
+      name: fmgr_fsp_vlan_dynamicmapping_interface_ipv6_ip6extraaddr
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_fsp_vlan_dynamicmapping_interface_ipv6_ip6prefixlist:
+      description: no description
+      name: fmgr_fsp_vlan_dynamicmapping_interface_ipv6_ip6prefixlist
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_fsp_vlan_dynamicmapping_interface_ipv6_vrrp6:
+      description: no description
+      name: fmgr_fsp_vlan_dynamicmapping_interface_ipv6_vrrp6
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_fsp_vlan_dynamicmapping_interface_secondaryip:
+      description: no description
+      name: fmgr_fsp_vlan_dynamicmapping_interface_secondaryip
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_fsp_vlan_interface:
+      description: no description
+      name: fmgr_fsp_vlan_interface
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_fsp_vlan_interface_ipv6:
+      description: no description
+      name: fmgr_fsp_vlan_interface_ipv6
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_fsp_vlan_interface_ipv6_ip6delegatedprefixlist:
+      description: no description
+      name: fmgr_fsp_vlan_interface_ipv6_ip6delegatedprefixlist
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_fsp_vlan_interface_ipv6_ip6extraaddr:
+      description: no description
+      name: fmgr_fsp_vlan_interface_ipv6_ip6extraaddr
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_fsp_vlan_interface_ipv6_ip6prefixlist:
+      description: no description
+      name: fmgr_fsp_vlan_interface_ipv6_ip6prefixlist
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_fsp_vlan_interface_ipv6_vrrp6:
+      description: no description
+      name: fmgr_fsp_vlan_interface_ipv6_vrrp6
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_fsp_vlan_interface_secondaryip:
+      description: no description
+      name: fmgr_fsp_vlan_interface_secondaryip
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_fsp_vlan_interface_vrrp:
+      description: no description
+      name: fmgr_fsp_vlan_interface_vrrp
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_generic:
+      description: Build and send generic FortiManager API request.
+      name: fmgr_generic
+      namespace: ''
+      version_added: '2.10'
+    fmgr_gtp_apn:
+      description: no description
+      name: fmgr_gtp_apn
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_gtp_apngrp:
+      description: no description
+      name: fmgr_gtp_apngrp
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_gtp_iewhitelist:
+      description: no description
+      name: fmgr_gtp_iewhitelist
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_gtp_iewhitelist_entries:
+      description: no description
+      name: fmgr_gtp_iewhitelist_entries
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_gtp_messagefilterv0v1:
+      description: no description
+      name: fmgr_gtp_messagefilterv0v1
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_gtp_messagefilterv2:
+      description: no description
+      name: fmgr_gtp_messagefilterv2
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_gtp_tunnellimit:
+      description: no description
+      name: fmgr_gtp_tunnellimit
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_hotspot20_anqp3gppcellular:
+      description: no description
+      name: fmgr_hotspot20_anqp3gppcellular
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_hotspot20_anqp3gppcellular_mccmnclist:
+      description: no description
+      name: fmgr_hotspot20_anqp3gppcellular_mccmnclist
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_hotspot20_anqpipaddresstype:
+      description: no description
+      name: fmgr_hotspot20_anqpipaddresstype
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_hotspot20_anqpnairealm:
+      description: no description
+      name: fmgr_hotspot20_anqpnairealm
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_hotspot20_anqpnairealm_nailist:
+      description: no description
+      name: fmgr_hotspot20_anqpnairealm_nailist
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_hotspot20_anqpnairealm_nailist_eapmethod:
+      description: no description
+      name: fmgr_hotspot20_anqpnairealm_nailist_eapmethod
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_hotspot20_anqpnairealm_nailist_eapmethod_authparam:
+      description: no description
+      name: fmgr_hotspot20_anqpnairealm_nailist_eapmethod_authparam
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_hotspot20_anqpnetworkauthtype:
+      description: no description
+      name: fmgr_hotspot20_anqpnetworkauthtype
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_hotspot20_anqproamingconsortium:
+      description: no description
+      name: fmgr_hotspot20_anqproamingconsortium
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_hotspot20_anqproamingconsortium_oilist:
+      description: no description
+      name: fmgr_hotspot20_anqproamingconsortium_oilist
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_hotspot20_anqpvenuename:
+      description: no description
+      name: fmgr_hotspot20_anqpvenuename
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_hotspot20_anqpvenuename_valuelist:
+      description: no description
+      name: fmgr_hotspot20_anqpvenuename_valuelist
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_hotspot20_anqpvenueurl:
+      description: no description
+      name: fmgr_hotspot20_anqpvenueurl
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_hotspot20_anqpvenueurl_valuelist:
+      description: no description
+      name: fmgr_hotspot20_anqpvenueurl_valuelist
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_hotspot20_h2qpadviceofcharge:
+      description: no description
+      name: fmgr_hotspot20_h2qpadviceofcharge
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_hotspot20_h2qpadviceofcharge_aoclist:
+      description: no description
+      name: fmgr_hotspot20_h2qpadviceofcharge_aoclist
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_hotspot20_h2qpadviceofcharge_aoclist_planinfo:
+      description: no description
+      name: fmgr_hotspot20_h2qpadviceofcharge_aoclist_planinfo
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_hotspot20_h2qpconncapability:
+      description: no description
+      name: fmgr_hotspot20_h2qpconncapability
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_hotspot20_h2qpoperatorname:
+      description: no description
+      name: fmgr_hotspot20_h2qpoperatorname
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_hotspot20_h2qpoperatorname_valuelist:
+      description: no description
+      name: fmgr_hotspot20_h2qpoperatorname_valuelist
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_hotspot20_h2qposuprovider:
+      description: no description
+      name: fmgr_hotspot20_h2qposuprovider
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_hotspot20_h2qposuprovider_friendlyname:
+      description: no description
+      name: fmgr_hotspot20_h2qposuprovider_friendlyname
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_hotspot20_h2qposuprovider_servicedescription:
+      description: no description
+      name: fmgr_hotspot20_h2qposuprovider_servicedescription
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_hotspot20_h2qposuprovidernai:
+      description: no description
+      name: fmgr_hotspot20_h2qposuprovidernai
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_hotspot20_h2qposuprovidernai_nailist:
+      description: no description
+      name: fmgr_hotspot20_h2qposuprovidernai_nailist
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_hotspot20_h2qptermsandconditions:
+      description: no description
+      name: fmgr_hotspot20_h2qptermsandconditions
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_hotspot20_h2qpwanmetric:
+      description: no description
+      name: fmgr_hotspot20_h2qpwanmetric
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_hotspot20_hsprofile:
+      description: no description
+      name: fmgr_hotspot20_hsprofile
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_hotspot20_icon:
+      description: no description
+      name: fmgr_hotspot20_icon
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_hotspot20_icon_iconlist:
+      description: no description
+      name: fmgr_hotspot20_icon_iconlist
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_hotspot20_qosmap:
+      description: no description
+      name: fmgr_hotspot20_qosmap
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_hotspot20_qosmap_dscpexcept:
+      description: no description
+      name: fmgr_hotspot20_qosmap_dscpexcept
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_hotspot20_qosmap_dscprange:
+      description: no description
+      name: fmgr_hotspot20_qosmap_dscprange
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_icap_profile:
+      description: no description
+      name: fmgr_icap_profile
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_icap_profile_icapheaders:
+      description: no description
+      name: fmgr_icap_profile_icapheaders
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_icap_profile_respmodforwardrules:
+      description: no description
+      name: fmgr_icap_profile_respmodforwardrules
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_icap_profile_respmodforwardrules_headergroup:
+      description: no description
+      name: fmgr_icap_profile_respmodforwardrules_headergroup
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_icap_server:
+      description: no description
+      name: fmgr_icap_server
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_ips_custom:
+      description: no description
+      name: fmgr_ips_custom
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_ips_sensor:
+      description: no description
+      name: fmgr_ips_sensor
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_ips_sensor_entries:
+      description: no description
+      name: fmgr_ips_sensor_entries
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_ips_sensor_entries_exemptip:
+      description: no description
+      name: fmgr_ips_sensor_entries_exemptip
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_log_customfield:
+      description: no description
+      name: fmgr_log_customfield
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_metafields_system_admin_user:
+      description: no description
+      name: fmgr_metafields_system_admin_user
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_move:
+      description: Move fortimanager defined Object.
+      name: fmgr_move
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_mpskprofile:
+      description: no description
+      name: fmgr_mpskprofile
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_mpskprofile_mpskgroup:
+      description: no description
+      name: fmgr_mpskprofile_mpskgroup
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_mpskprofile_mpskgroup_mpskkey:
+      description: no description
+      name: fmgr_mpskprofile_mpskgroup_mpskkey
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_nacprofile:
+      description: no description
+      name: fmgr_nacprofile
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_pkg_authentication_rule:
+      description: no description
+      name: fmgr_pkg_authentication_rule
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_pkg_authentication_setting:
+      description: no description
+      name: fmgr_pkg_authentication_setting
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_pkg_central_dnat:
+      description: no description
+      name: fmgr_pkg_central_dnat
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_pkg_central_dnat6:
+      description: no description
+      name: fmgr_pkg_central_dnat6
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_pkg_firewall_acl:
+      description: no description
+      name: fmgr_pkg_firewall_acl
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_pkg_firewall_acl6:
+      description: no description
+      name: fmgr_pkg_firewall_acl6
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_pkg_firewall_centralsnatmap:
+      description: no description
+      name: fmgr_pkg_firewall_centralsnatmap
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_pkg_firewall_consolidated_policy:
+      description: no description
+      name: fmgr_pkg_firewall_consolidated_policy
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_pkg_firewall_consolidated_policy_sectionvalue:
+      description: no description
+      name: fmgr_pkg_firewall_consolidated_policy_sectionvalue
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_pkg_firewall_dospolicy:
+      description: no description
+      name: fmgr_pkg_firewall_dospolicy
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_pkg_firewall_dospolicy6:
+      description: no description
+      name: fmgr_pkg_firewall_dospolicy6
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_pkg_firewall_dospolicy6_anomaly:
+      description: no description
+      name: fmgr_pkg_firewall_dospolicy6_anomaly
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_pkg_firewall_dospolicy_anomaly:
+      description: no description
+      name: fmgr_pkg_firewall_dospolicy_anomaly
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_pkg_firewall_interfacepolicy:
+      description: no description
+      name: fmgr_pkg_firewall_interfacepolicy
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_pkg_firewall_interfacepolicy6:
+      description: no description
+      name: fmgr_pkg_firewall_interfacepolicy6
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_pkg_firewall_interfacepolicy6_sectionvalue:
+      description: no description
+      name: fmgr_pkg_firewall_interfacepolicy6_sectionvalue
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_pkg_firewall_interfacepolicy_sectionvalue:
+      description: no description
+      name: fmgr_pkg_firewall_interfacepolicy_sectionvalue
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_pkg_firewall_localinpolicy:
+      description: no description
+      name: fmgr_pkg_firewall_localinpolicy
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_pkg_firewall_localinpolicy6:
+      description: no description
+      name: fmgr_pkg_firewall_localinpolicy6
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_pkg_firewall_multicastpolicy:
+      description: no description
+      name: fmgr_pkg_firewall_multicastpolicy
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_pkg_firewall_multicastpolicy6:
+      description: no description
+      name: fmgr_pkg_firewall_multicastpolicy6
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_pkg_firewall_policy:
+      description: no description
+      name: fmgr_pkg_firewall_policy
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_pkg_firewall_policy46:
+      description: no description
+      name: fmgr_pkg_firewall_policy46
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_pkg_firewall_policy6:
+      description: no description
+      name: fmgr_pkg_firewall_policy6
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_pkg_firewall_policy64:
+      description: no description
+      name: fmgr_pkg_firewall_policy64
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_pkg_firewall_policy6_sectionvalue:
+      description: no description
+      name: fmgr_pkg_firewall_policy6_sectionvalue
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_pkg_firewall_policy_sectionvalue:
+      description: no description
+      name: fmgr_pkg_firewall_policy_sectionvalue
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_pkg_firewall_policy_vpndstnode:
+      description: no description
+      name: fmgr_pkg_firewall_policy_vpndstnode
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_pkg_firewall_policy_vpnsrcnode:
+      description: no description
+      name: fmgr_pkg_firewall_policy_vpnsrcnode
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_pkg_firewall_proxypolicy:
+      description: no description
+      name: fmgr_pkg_firewall_proxypolicy
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_pkg_firewall_proxypolicy_sectionvalue:
+      description: no description
+      name: fmgr_pkg_firewall_proxypolicy_sectionvalue
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_pkg_firewall_securitypolicy:
+      description: no description
+      name: fmgr_pkg_firewall_securitypolicy
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_pkg_firewall_securitypolicy_sectionvalue:
+      description: no description
+      name: fmgr_pkg_firewall_securitypolicy_sectionvalue
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_pkg_firewall_shapingpolicy:
+      description: no description
+      name: fmgr_pkg_firewall_shapingpolicy
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_pkg_footer_policy:
+      description: no description
+      name: fmgr_pkg_footer_policy
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_pkg_footer_policy6:
+      description: no description
+      name: fmgr_pkg_footer_policy6
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_pkg_footer_shapingpolicy:
+      description: no description
+      name: fmgr_pkg_footer_shapingpolicy
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_pkg_header_policy:
+      description: no description
+      name: fmgr_pkg_header_policy
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_pkg_header_policy6:
+      description: no description
+      name: fmgr_pkg_header_policy6
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_pkg_header_shapingpolicy:
+      description: no description
+      name: fmgr_pkg_header_shapingpolicy
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_pm_config_metafields_firewall_address:
+      description: no description
+      name: fmgr_pm_config_metafields_firewall_address
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_pm_config_metafields_firewall_addrgrp:
+      description: no description
+      name: fmgr_pm_config_metafields_firewall_addrgrp
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_pm_config_metafields_firewall_centralsnatmap:
+      description: no description
+      name: fmgr_pm_config_metafields_firewall_centralsnatmap
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_pm_config_metafields_firewall_policy:
+      description: no description
+      name: fmgr_pm_config_metafields_firewall_policy
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_pm_config_metafields_firewall_service_custom:
+      description: no description
+      name: fmgr_pm_config_metafields_firewall_service_custom
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_pm_config_metafields_firewall_service_group:
+      description: no description
+      name: fmgr_pm_config_metafields_firewall_service_group
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_pm_config_pblock_firewall_policy:
+      description: no description
+      name: fmgr_pm_config_pblock_firewall_policy
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_pm_config_pblock_firewall_policy_sectionvalue:
+      description: no description
+      name: fmgr_pm_config_pblock_firewall_policy_sectionvalue
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_pm_config_pblock_firewall_securitypolicy:
+      description: no description
+      name: fmgr_pm_config_pblock_firewall_securitypolicy
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_pm_config_pblock_firewall_securitypolicy_sectionvalue:
+      description: no description
+      name: fmgr_pm_config_pblock_firewall_securitypolicy_sectionvalue
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_pm_config_reset_database:
+      description: no description
+      name: fmgr_pm_config_reset_database
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_pm_config_upgrade:
+      description: no description
+      name: fmgr_pm_config_upgrade
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_pm_config_workspace_commit:
+      description: no description
+      name: fmgr_pm_config_workspace_commit
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_pm_config_workspace_lock:
+      description: no description
+      name: fmgr_pm_config_workspace_lock
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_pm_config_workspace_unlock:
+      description: no description
+      name: fmgr_pm_config_workspace_unlock
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_pm_devprof_adom:
+      description: no description
+      name: fmgr_pm_devprof_adom
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_pm_devprof_pkg:
+      description: no description
+      name: fmgr_pm_devprof_pkg
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_pm_pblock_adom:
+      description: no description
+      name: fmgr_pm_pblock_adom
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_pm_pblock_obj:
+      description: no description
+      name: fmgr_pm_pblock_obj
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_pm_pkg:
+      description: no description
+      name: fmgr_pm_pkg
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_pm_pkg_adom:
+      description: no description
+      name: fmgr_pm_pkg_adom
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_pm_pkg_global:
+      description: no description
+      name: fmgr_pm_pkg_global
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_pm_wanprof_adom:
+      description: no description
+      name: fmgr_pm_wanprof_adom
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_pm_wanprof_pkg:
+      description: no description
+      name: fmgr_pm_wanprof_pkg
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_qosprofile:
+      description: no description
+      name: fmgr_qosprofile
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_region:
+      description: no description
+      name: fmgr_region
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_rename:
+      description: Rename an object in FortiManager.
+      name: fmgr_rename
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_router_accesslist:
+      description: no description
+      name: fmgr_router_accesslist
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_router_accesslist6:
+      description: no description
+      name: fmgr_router_accesslist6
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_router_accesslist6_rule:
+      description: no description
+      name: fmgr_router_accesslist6_rule
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_router_accesslist_rule:
+      description: no description
+      name: fmgr_router_accesslist_rule
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_router_aspathlist:
+      description: no description
+      name: fmgr_router_aspathlist
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_router_aspathlist_rule:
+      description: no description
+      name: fmgr_router_aspathlist_rule
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_router_communitylist:
+      description: no description
+      name: fmgr_router_communitylist
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_router_communitylist_rule:
+      description: no description
+      name: fmgr_router_communitylist_rule
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_router_prefixlist:
+      description: no description
+      name: fmgr_router_prefixlist
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_router_prefixlist6:
+      description: no description
+      name: fmgr_router_prefixlist6
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_router_prefixlist6_rule:
+      description: no description
+      name: fmgr_router_prefixlist6_rule
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_router_prefixlist_rule:
+      description: no description
+      name: fmgr_router_prefixlist_rule
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_router_routemap:
+      description: no description
+      name: fmgr_router_routemap
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_router_routemap_rule:
+      description: no description
+      name: fmgr_router_routemap_rule
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_securityconsole_abort:
+      description: no description
+      name: fmgr_securityconsole_abort
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_securityconsole_assign_package:
+      description: no description
+      name: fmgr_securityconsole_assign_package
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_securityconsole_cliprof_check:
+      description: no description
+      name: fmgr_securityconsole_cliprof_check
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_securityconsole_import_dev_objs:
+      description: no description
+      name: fmgr_securityconsole_import_dev_objs
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_securityconsole_install_device:
+      description: no description
+      name: fmgr_securityconsole_install_device
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_securityconsole_install_package:
+      description: no description
+      name: fmgr_securityconsole_install_package
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_securityconsole_install_preview:
+      description: no description
+      name: fmgr_securityconsole_install_preview
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_securityconsole_package_cancel_install:
+      description: no description
+      name: fmgr_securityconsole_package_cancel_install
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_securityconsole_package_clone:
+      description: no description
+      name: fmgr_securityconsole_package_clone
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_securityconsole_package_commit:
+      description: no description
+      name: fmgr_securityconsole_package_commit
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_securityconsole_package_move:
+      description: no description
+      name: fmgr_securityconsole_package_move
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_securityconsole_pblock_clone:
+      description: no description
+      name: fmgr_securityconsole_pblock_clone
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_securityconsole_preview_result:
+      description: no description
+      name: fmgr_securityconsole_preview_result
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_securityconsole_reinstall_package:
+      description: no description
+      name: fmgr_securityconsole_reinstall_package
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_securityconsole_sign_certificate_template:
+      description: no description
+      name: fmgr_securityconsole_sign_certificate_template
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_spamfilter_bwl:
+      description: no description
+      name: fmgr_spamfilter_bwl
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_spamfilter_bwl_entries:
+      description: no description
+      name: fmgr_spamfilter_bwl_entries
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_spamfilter_bword:
+      description: no description
+      name: fmgr_spamfilter_bword
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_spamfilter_bword_entries:
+      description: no description
+      name: fmgr_spamfilter_bword_entries
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_spamfilter_dnsbl:
+      description: no description
+      name: fmgr_spamfilter_dnsbl
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_spamfilter_dnsbl_entries:
+      description: no description
+      name: fmgr_spamfilter_dnsbl_entries
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_spamfilter_iptrust:
+      description: no description
+      name: fmgr_spamfilter_iptrust
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_spamfilter_iptrust_entries:
+      description: no description
+      name: fmgr_spamfilter_iptrust_entries
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_spamfilter_mheader:
+      description: no description
+      name: fmgr_spamfilter_mheader
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_spamfilter_mheader_entries:
+      description: no description
+      name: fmgr_spamfilter_mheader_entries
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_spamfilter_profile:
+      description: no description
+      name: fmgr_spamfilter_profile
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_spamfilter_profile_gmail:
+      description: no description
+      name: fmgr_spamfilter_profile_gmail
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_spamfilter_profile_imap:
+      description: no description
+      name: fmgr_spamfilter_profile_imap
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_spamfilter_profile_mapi:
+      description: no description
+      name: fmgr_spamfilter_profile_mapi
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_spamfilter_profile_msnhotmail:
+      description: no description
+      name: fmgr_spamfilter_profile_msnhotmail
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_spamfilter_profile_pop3:
+      description: no description
+      name: fmgr_spamfilter_profile_pop3
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_spamfilter_profile_smtp:
+      description: no description
+      name: fmgr_spamfilter_profile_smtp
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_spamfilter_profile_yahoomail:
+      description: no description
+      name: fmgr_spamfilter_profile_yahoomail
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_sshfilter_profile:
+      description: no description
+      name: fmgr_sshfilter_profile
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_sshfilter_profile_filefilter:
+      description: no description
+      name: fmgr_sshfilter_profile_filefilter
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_sshfilter_profile_filefilter_entries:
+      description: no description
+      name: fmgr_sshfilter_profile_filefilter_entries
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_sshfilter_profile_shellcommands:
+      description: no description
+      name: fmgr_sshfilter_profile_shellcommands
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_switchcontroller_customcommand:
+      description: no description
+      name: fmgr_switchcontroller_customcommand
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_switchcontroller_dsl_policy:
+      description: no description
+      name: fmgr_switchcontroller_dsl_policy
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_switchcontroller_lldpprofile:
+      description: no description
+      name: fmgr_switchcontroller_lldpprofile
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_switchcontroller_lldpprofile_customtlvs:
+      description: no description
+      name: fmgr_switchcontroller_lldpprofile_customtlvs
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_switchcontroller_lldpprofile_medlocationservice:
+      description: no description
+      name: fmgr_switchcontroller_lldpprofile_medlocationservice
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_switchcontroller_lldpprofile_mednetworkpolicy:
+      description: no description
+      name: fmgr_switchcontroller_lldpprofile_mednetworkpolicy
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_switchcontroller_managedswitch:
+      description: no description
+      name: fmgr_switchcontroller_managedswitch
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_switchcontroller_managedswitch_8021xsettings:
+      description: no description
+      name: fmgr_switchcontroller_managedswitch_8021xsettings
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_switchcontroller_managedswitch_customcommand:
+      description: no description
+      name: fmgr_switchcontroller_managedswitch_customcommand
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_switchcontroller_managedswitch_igmpsnooping:
+      description: no description
+      name: fmgr_switchcontroller_managedswitch_igmpsnooping
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_switchcontroller_managedswitch_ipsourceguard:
+      description: no description
+      name: fmgr_switchcontroller_managedswitch_ipsourceguard
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_switchcontroller_managedswitch_ipsourceguard_bindingentry:
+      description: no description
+      name: fmgr_switchcontroller_managedswitch_ipsourceguard_bindingentry
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_switchcontroller_managedswitch_mirror:
+      description: no description
+      name: fmgr_switchcontroller_managedswitch_mirror
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_switchcontroller_managedswitch_ports:
+      description: no description
+      name: fmgr_switchcontroller_managedswitch_ports
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_switchcontroller_managedswitch_remotelog:
+      description: no description
+      name: fmgr_switchcontroller_managedswitch_remotelog
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_switchcontroller_managedswitch_snmpcommunity:
+      description: no description
+      name: fmgr_switchcontroller_managedswitch_snmpcommunity
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_switchcontroller_managedswitch_snmpcommunity_hosts:
+      description: no description
+      name: fmgr_switchcontroller_managedswitch_snmpcommunity_hosts
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_switchcontroller_managedswitch_snmpsysinfo:
+      description: no description
+      name: fmgr_switchcontroller_managedswitch_snmpsysinfo
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_switchcontroller_managedswitch_snmptrapthreshold:
+      description: no description
+      name: fmgr_switchcontroller_managedswitch_snmptrapthreshold
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_switchcontroller_managedswitch_snmpuser:
+      description: no description
+      name: fmgr_switchcontroller_managedswitch_snmpuser
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_switchcontroller_managedswitch_stormcontrol:
+      description: no description
+      name: fmgr_switchcontroller_managedswitch_stormcontrol
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_switchcontroller_managedswitch_stpsettings:
+      description: no description
+      name: fmgr_switchcontroller_managedswitch_stpsettings
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_switchcontroller_managedswitch_switchlog:
+      description: no description
+      name: fmgr_switchcontroller_managedswitch_switchlog
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_switchcontroller_managedswitch_switchstpsettings:
+      description: no description
+      name: fmgr_switchcontroller_managedswitch_switchstpsettings
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_switchcontroller_qos_dot1pmap:
+      description: no description
+      name: fmgr_switchcontroller_qos_dot1pmap
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_switchcontroller_qos_ipdscpmap:
+      description: no description
+      name: fmgr_switchcontroller_qos_ipdscpmap
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_switchcontroller_qos_ipdscpmap_map:
+      description: no description
+      name: fmgr_switchcontroller_qos_ipdscpmap_map
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_switchcontroller_qos_qospolicy:
+      description: no description
+      name: fmgr_switchcontroller_qos_qospolicy
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_switchcontroller_qos_queuepolicy:
+      description: no description
+      name: fmgr_switchcontroller_qos_queuepolicy
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_switchcontroller_qos_queuepolicy_cosqueue:
+      description: no description
+      name: fmgr_switchcontroller_qos_queuepolicy_cosqueue
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_switchcontroller_securitypolicy_8021x:
+      description: no description
+      name: fmgr_switchcontroller_securitypolicy_8021x
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_switchcontroller_securitypolicy_captiveportal:
+      description: no description
+      name: fmgr_switchcontroller_securitypolicy_captiveportal
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_sys_api_sdnconnector:
+      description: no description
+      name: fmgr_sys_api_sdnconnector
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_sys_generate_wsdl:
+      description: no description
+      name: fmgr_sys_generate_wsdl
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_sys_hitcount:
+      description: no description
+      name: fmgr_sys_hitcount
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_sys_login_challenge:
+      description: no description
+      name: fmgr_sys_login_challenge
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_sys_login_user:
+      description: no description
+      name: fmgr_sys_login_user
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_sys_logout:
+      description: no description
+      name: fmgr_sys_logout
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_sys_proxy_json:
+      description: no description
+      name: fmgr_sys_proxy_json
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_sys_reboot:
+      description: no description
+      name: fmgr_sys_reboot
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_sys_task_result:
+      description: no description
+      name: fmgr_sys_task_result
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_admin_group:
+      description: no description
+      name: fmgr_system_admin_group
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_admin_group_member:
+      description: no description
+      name: fmgr_system_admin_group_member
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_admin_ldap:
+      description: no description
+      name: fmgr_system_admin_ldap
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_admin_ldap_adom:
+      description: no description
+      name: fmgr_system_admin_ldap_adom
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_admin_profile:
+      description: no description
+      name: fmgr_system_admin_profile
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_admin_profile_datamaskcustomfields:
+      description: no description
+      name: fmgr_system_admin_profile_datamaskcustomfields
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_admin_radius:
+      description: no description
+      name: fmgr_system_admin_radius
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_admin_setting:
+      description: no description
+      name: fmgr_system_admin_setting
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_admin_tacacs:
+      description: no description
+      name: fmgr_system_admin_tacacs
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_admin_user:
+      description: no description
+      name: fmgr_system_admin_user
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_admin_user_adom:
+      description: no description
+      name: fmgr_system_admin_user_adom
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_admin_user_adomexclude:
+      description: no description
+      name: fmgr_system_admin_user_adomexclude
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_admin_user_appfilter:
+      description: no description
+      name: fmgr_system_admin_user_appfilter
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_admin_user_dashboard:
+      description: no description
+      name: fmgr_system_admin_user_dashboard
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_admin_user_dashboardtabs:
+      description: no description
+      name: fmgr_system_admin_user_dashboardtabs
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_admin_user_ipsfilter:
+      description: no description
+      name: fmgr_system_admin_user_ipsfilter
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_admin_user_metadata:
+      description: no description
+      name: fmgr_system_admin_user_metadata
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_admin_user_policypackage:
+      description: no description
+      name: fmgr_system_admin_user_policypackage
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_admin_user_restrictdevvdom:
+      description: no description
+      name: fmgr_system_admin_user_restrictdevvdom
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_admin_user_webfilter:
+      description: no description
+      name: fmgr_system_admin_user_webfilter
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_alertconsole:
+      description: no description
+      name: fmgr_system_alertconsole
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_alertemail:
+      description: no description
+      name: fmgr_system_alertemail
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_alertevent:
+      description: no description
+      name: fmgr_system_alertevent
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_alertevent_alertdestination:
+      description: no description
+      name: fmgr_system_alertevent_alertdestination
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_autodelete:
+      description: no description
+      name: fmgr_system_autodelete
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_autodelete_dlpfilesautodeletion:
+      description: no description
+      name: fmgr_system_autodelete_dlpfilesautodeletion
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_autodelete_logautodeletion:
+      description: no description
+      name: fmgr_system_autodelete_logautodeletion
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_autodelete_quarantinefilesautodeletion:
+      description: no description
+      name: fmgr_system_autodelete_quarantinefilesautodeletion
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_autodelete_reportautodeletion:
+      description: no description
+      name: fmgr_system_autodelete_reportautodeletion
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_backup_allsettings:
+      description: no description
+      name: fmgr_system_backup_allsettings
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_certificate_ca:
+      description: no description
+      name: fmgr_system_certificate_ca
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_certificate_crl:
+      description: no description
+      name: fmgr_system_certificate_crl
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_certificate_local:
+      description: no description
+      name: fmgr_system_certificate_local
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_certificate_oftp:
+      description: no description
+      name: fmgr_system_certificate_oftp
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_certificate_remote:
+      description: no description
+      name: fmgr_system_certificate_remote
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_certificate_ssh:
+      description: no description
+      name: fmgr_system_certificate_ssh
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_connector:
+      description: no description
+      name: fmgr_system_connector
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_customlanguage:
+      description: no description
+      name: fmgr_system_customlanguage
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_dhcp_server:
+      description: no description
+      name: fmgr_system_dhcp_server
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_dhcp_server_excluderange:
+      description: no description
+      name: fmgr_system_dhcp_server_excluderange
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_dhcp_server_iprange:
+      description: no description
+      name: fmgr_system_dhcp_server_iprange
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_dhcp_server_options:
+      description: no description
+      name: fmgr_system_dhcp_server_options
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_dhcp_server_reservedaddress:
+      description: no description
+      name: fmgr_system_dhcp_server_reservedaddress
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_dm:
+      description: no description
+      name: fmgr_system_dm
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_dns:
+      description: no description
+      name: fmgr_system_dns
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_docker:
+      description: no description
+      name: fmgr_system_docker
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_externalresource:
+      description: no description
+      name: fmgr_system_externalresource
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_fips:
+      description: no description
+      name: fmgr_system_fips
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_fortiguard:
+      description: no description
+      name: fmgr_system_fortiguard
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_fortiview_autocache:
+      description: no description
+      name: fmgr_system_fortiview_autocache
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_fortiview_setting:
+      description: no description
+      name: fmgr_system_fortiview_setting
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_geoipcountry:
+      description: no description
+      name: fmgr_system_geoipcountry
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_geoipoverride:
+      description: no description
+      name: fmgr_system_geoipoverride
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_geoipoverride_ip6range:
+      description: no description
+      name: fmgr_system_geoipoverride_ip6range
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_geoipoverride_iprange:
+      description: no description
+      name: fmgr_system_geoipoverride_iprange
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_global:
+      description: no description
+      name: fmgr_system_global
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_guiact:
+      description: no description
+      name: fmgr_system_guiact
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_ha:
+      description: no description
+      name: fmgr_system_ha
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_ha_monitoredinterfaces:
+      description: no description
+      name: fmgr_system_ha_monitoredinterfaces
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_ha_monitoredips:
+      description: no description
+      name: fmgr_system_ha_monitoredips
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_ha_peer:
+      description: no description
+      name: fmgr_system_ha_peer
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_hascheduledcheck:
+      description: no description
+      name: fmgr_system_hascheduledcheck
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_interface:
+      description: no description
+      name: fmgr_system_interface
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_interface_ipv6:
+      description: no description
+      name: fmgr_system_interface_ipv6
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_interface_member:
+      description: no description
+      name: fmgr_system_interface_member
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_localinpolicy:
+      description: no description
+      name: fmgr_system_localinpolicy
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_localinpolicy6:
+      description: no description
+      name: fmgr_system_localinpolicy6
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_locallog_disk_filter:
+      description: no description
+      name: fmgr_system_locallog_disk_filter
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_locallog_disk_setting:
+      description: no description
+      name: fmgr_system_locallog_disk_setting
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_locallog_fortianalyzer2_filter:
+      description: no description
+      name: fmgr_system_locallog_fortianalyzer2_filter
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_locallog_fortianalyzer2_setting:
+      description: no description
+      name: fmgr_system_locallog_fortianalyzer2_setting
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_locallog_fortianalyzer3_filter:
+      description: no description
+      name: fmgr_system_locallog_fortianalyzer3_filter
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_locallog_fortianalyzer3_setting:
+      description: no description
+      name: fmgr_system_locallog_fortianalyzer3_setting
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_locallog_fortianalyzer_filter:
+      description: no description
+      name: fmgr_system_locallog_fortianalyzer_filter
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_locallog_fortianalyzer_setting:
+      description: no description
+      name: fmgr_system_locallog_fortianalyzer_setting
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_locallog_memory_filter:
+      description: no description
+      name: fmgr_system_locallog_memory_filter
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_locallog_memory_setting:
+      description: no description
+      name: fmgr_system_locallog_memory_setting
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_locallog_setting:
+      description: no description
+      name: fmgr_system_locallog_setting
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_locallog_syslogd2_filter:
+      description: no description
+      name: fmgr_system_locallog_syslogd2_filter
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_locallog_syslogd2_setting:
+      description: no description
+      name: fmgr_system_locallog_syslogd2_setting
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_locallog_syslogd3_filter:
+      description: no description
+      name: fmgr_system_locallog_syslogd3_filter
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_locallog_syslogd3_setting:
+      description: no description
+      name: fmgr_system_locallog_syslogd3_setting
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_locallog_syslogd_filter:
+      description: no description
+      name: fmgr_system_locallog_syslogd_filter
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_locallog_syslogd_setting:
+      description: no description
+      name: fmgr_system_locallog_syslogd_setting
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_log_alert:
+      description: no description
+      name: fmgr_system_log_alert
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_log_devicedisable:
+      description: no description
+      name: fmgr_system_log_devicedisable
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_log_fospolicystats:
+      description: no description
+      name: fmgr_system_log_fospolicystats
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_log_interfacestats:
+      description: no description
+      name: fmgr_system_log_interfacestats
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_log_ioc:
+      description: no description
+      name: fmgr_system_log_ioc
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_log_maildomain:
+      description: no description
+      name: fmgr_system_log_maildomain
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_log_ratelimit:
+      description: no description
+      name: fmgr_system_log_ratelimit
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_log_ratelimit_device:
+      description: no description
+      name: fmgr_system_log_ratelimit_device
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_log_ratelimit_ratelimits:
+      description: no description
+      name: fmgr_system_log_ratelimit_ratelimits
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_log_settings:
+      description: no description
+      name: fmgr_system_log_settings
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_log_settings_rollinganalyzer:
+      description: no description
+      name: fmgr_system_log_settings_rollinganalyzer
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_log_settings_rollinglocal:
+      description: no description
+      name: fmgr_system_log_settings_rollinglocal
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_log_settings_rollingregular:
+      description: no description
+      name: fmgr_system_log_settings_rollingregular
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_log_topology:
+      description: no description
+      name: fmgr_system_log_topology
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_logfetch_clientprofile:
+      description: no description
+      name: fmgr_system_logfetch_clientprofile
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_logfetch_clientprofile_devicefilter:
+      description: no description
+      name: fmgr_system_logfetch_clientprofile_devicefilter
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_logfetch_clientprofile_logfilter:
+      description: no description
+      name: fmgr_system_logfetch_clientprofile_logfilter
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_logfetch_serversettings:
+      description: no description
+      name: fmgr_system_logfetch_serversettings
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_mail:
+      description: no description
+      name: fmgr_system_mail
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_mcpolicydisabledadoms:
+      description: no description
+      name: fmgr_system_mcpolicydisabledadoms
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_meta:
+      description: no description
+      name: fmgr_system_meta
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_meta_sysmetafields:
+      description: no description
+      name: fmgr_system_meta_sysmetafields
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_metadata_admins:
+      description: no description
+      name: fmgr_system_metadata_admins
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_npu:
+      description: no description
+      name: fmgr_system_npu
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_npu_fpanomaly:
+      description: no description
+      name: fmgr_system_npu_fpanomaly
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_npu_isfnpqueues:
+      description: no description
+      name: fmgr_system_npu_isfnpqueues
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_npu_portcpumap:
+      description: no description
+      name: fmgr_system_npu_portcpumap
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_npu_portnpumap:
+      description: no description
+      name: fmgr_system_npu_portnpumap
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_npu_priorityprotocol:
+      description: no description
+      name: fmgr_system_npu_priorityprotocol
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_npu_swehhash:
+      description: no description
+      name: fmgr_system_npu_swehhash
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_ntp:
+      description: no description
+      name: fmgr_system_ntp
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_ntp_ntpserver:
+      description: no description
+      name: fmgr_system_ntp_ntpserver
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_objecttagging:
+      description: no description
+      name: fmgr_system_objecttagging
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_passwordpolicy:
+      description: no description
+      name: fmgr_system_passwordpolicy
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_replacemsggroup:
+      description: no description
+      name: fmgr_system_replacemsggroup
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_replacemsggroup_admin:
+      description: no description
+      name: fmgr_system_replacemsggroup_admin
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_replacemsggroup_alertmail:
+      description: no description
+      name: fmgr_system_replacemsggroup_alertmail
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_replacemsggroup_auth:
+      description: no description
+      name: fmgr_system_replacemsggroup_auth
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_replacemsggroup_automation:
+      description: no description
+      name: fmgr_system_replacemsggroup_automation
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_replacemsggroup_custommessage:
+      description: no description
+      name: fmgr_system_replacemsggroup_custommessage
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_replacemsggroup_devicedetectionportal:
+      description: no description
+      name: fmgr_system_replacemsggroup_devicedetectionportal
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_replacemsggroup_ec:
+      description: no description
+      name: fmgr_system_replacemsggroup_ec
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_replacemsggroup_fortiguardwf:
+      description: no description
+      name: fmgr_system_replacemsggroup_fortiguardwf
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_replacemsggroup_ftp:
+      description: no description
+      name: fmgr_system_replacemsggroup_ftp
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_replacemsggroup_http:
+      description: no description
+      name: fmgr_system_replacemsggroup_http
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_replacemsggroup_icap:
+      description: no description
+      name: fmgr_system_replacemsggroup_icap
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_replacemsggroup_mail:
+      description: no description
+      name: fmgr_system_replacemsggroup_mail
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_replacemsggroup_mm1:
+      description: no description
+      name: fmgr_system_replacemsggroup_mm1
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_replacemsggroup_mm3:
+      description: no description
+      name: fmgr_system_replacemsggroup_mm3
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_replacemsggroup_mm4:
+      description: no description
+      name: fmgr_system_replacemsggroup_mm4
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_replacemsggroup_mm7:
+      description: no description
+      name: fmgr_system_replacemsggroup_mm7
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_replacemsggroup_mms:
+      description: no description
+      name: fmgr_system_replacemsggroup_mms
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_replacemsggroup_nacquar:
+      description: no description
+      name: fmgr_system_replacemsggroup_nacquar
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_replacemsggroup_nntp:
+      description: no description
+      name: fmgr_system_replacemsggroup_nntp
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_replacemsggroup_spam:
+      description: no description
+      name: fmgr_system_replacemsggroup_spam
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_replacemsggroup_sslvpn:
+      description: no description
+      name: fmgr_system_replacemsggroup_sslvpn
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_replacemsggroup_trafficquota:
+      description: no description
+      name: fmgr_system_replacemsggroup_trafficquota
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_replacemsggroup_utm:
+      description: no description
+      name: fmgr_system_replacemsggroup_utm
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_replacemsggroup_webproxy:
+      description: no description
+      name: fmgr_system_replacemsggroup_webproxy
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_replacemsgimage:
+      description: no description
+      name: fmgr_system_replacemsgimage
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_report_autocache:
+      description: no description
+      name: fmgr_system_report_autocache
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_report_estbrowsetime:
+      description: no description
+      name: fmgr_system_report_estbrowsetime
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_report_group:
+      description: no description
+      name: fmgr_system_report_group
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_report_group_chartalternative:
+      description: no description
+      name: fmgr_system_report_group_chartalternative
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_report_group_groupby:
+      description: no description
+      name: fmgr_system_report_group_groupby
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_report_setting:
+      description: no description
+      name: fmgr_system_report_setting
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_route:
+      description: no description
+      name: fmgr_system_route
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_route6:
+      description: no description
+      name: fmgr_system_route6
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_saml:
+      description: no description
+      name: fmgr_system_saml
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_saml_fabricidp:
+      description: no description
+      name: fmgr_system_saml_fabricidp
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_sdnconnector:
+      description: no description
+      name: fmgr_system_sdnconnector
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_sdnconnector_externalaccountlist:
+      description: no description
+      name: fmgr_system_sdnconnector_externalaccountlist
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_sdnconnector_externalip:
+      description: no description
+      name: fmgr_system_sdnconnector_externalip
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_sdnconnector_forwardingrule:
+      description: no description
+      name: fmgr_system_sdnconnector_forwardingrule
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_sdnconnector_gcpprojectlist:
+      description: no description
+      name: fmgr_system_sdnconnector_gcpprojectlist
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_sdnconnector_nic:
+      description: no description
+      name: fmgr_system_sdnconnector_nic
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_sdnconnector_nic_ip:
+      description: no description
+      name: fmgr_system_sdnconnector_nic_ip
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_sdnconnector_route:
+      description: no description
+      name: fmgr_system_sdnconnector_route
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_sdnconnector_routetable:
+      description: no description
+      name: fmgr_system_sdnconnector_routetable
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_sdnconnector_routetable_route:
+      description: no description
+      name: fmgr_system_sdnconnector_routetable_route
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_smsserver:
+      description: no description
+      name: fmgr_system_smsserver
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_sniffer:
+      description: no description
+      name: fmgr_system_sniffer
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_snmp_community:
+      description: no description
+      name: fmgr_system_snmp_community
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_snmp_community_hosts:
+      description: no description
+      name: fmgr_system_snmp_community_hosts
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_snmp_community_hosts6:
+      description: no description
+      name: fmgr_system_snmp_community_hosts6
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_snmp_sysinfo:
+      description: no description
+      name: fmgr_system_snmp_sysinfo
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_snmp_user:
+      description: no description
+      name: fmgr_system_snmp_user
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_socfabric:
+      description: no description
+      name: fmgr_system_socfabric
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_sql:
+      description: no description
+      name: fmgr_system_sql
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_sql_customindex:
+      description: no description
+      name: fmgr_system_sql_customindex
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_sql_customskipidx:
+      description: no description
+      name: fmgr_system_sql_customskipidx
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_sql_tsindexfield:
+      description: no description
+      name: fmgr_system_sql_tsindexfield
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_sslciphersuites:
+      description: no description
+      name: fmgr_system_sslciphersuites
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_syslog:
+      description: no description
+      name: fmgr_system_syslog
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_virtualwirepair:
+      description: no description
+      name: fmgr_system_virtualwirepair
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_webproxy:
+      description: no description
+      name: fmgr_system_webproxy
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_workflow_approvalmatrix:
+      description: no description
+      name: fmgr_system_workflow_approvalmatrix
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_system_workflow_approvalmatrix_approver:
+      description: no description
+      name: fmgr_system_workflow_approvalmatrix_approver
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_template:
+      description: no description
+      name: fmgr_template
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_templategroup:
+      description: no description
+      name: fmgr_templategroup
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_user_adgrp:
+      description: no description
+      name: fmgr_user_adgrp
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_user_clearpass:
+      description: no description
+      name: fmgr_user_clearpass
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_user_connector:
+      description: no description
+      name: fmgr_user_connector
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_user_device:
+      description: no description
+      name: fmgr_user_device
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_user_device_dynamicmapping:
+      description: no description
+      name: fmgr_user_device_dynamicmapping
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_user_device_tagging:
+      description: no description
+      name: fmgr_user_device_tagging
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_user_devicecategory:
+      description: no description
+      name: fmgr_user_devicecategory
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_user_devicegroup:
+      description: no description
+      name: fmgr_user_devicegroup
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_user_devicegroup_dynamicmapping:
+      description: no description
+      name: fmgr_user_devicegroup_dynamicmapping
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_user_devicegroup_tagging:
+      description: no description
+      name: fmgr_user_devicegroup_tagging
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_user_domaincontroller:
+      description: no description
+      name: fmgr_user_domaincontroller
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_user_domaincontroller_extraserver:
+      description: no description
+      name: fmgr_user_domaincontroller_extraserver
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_user_exchange:
+      description: no description
+      name: fmgr_user_exchange
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_user_fortitoken:
+      description: no description
+      name: fmgr_user_fortitoken
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_user_fsso:
+      description: no description
+      name: fmgr_user_fsso
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_user_fsso_dynamicmapping:
+      description: no description
+      name: fmgr_user_fsso_dynamicmapping
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_user_fssopolling:
+      description: no description
+      name: fmgr_user_fssopolling
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_user_fssopolling_adgrp:
+      description: no description
+      name: fmgr_user_fssopolling_adgrp
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_user_group:
+      description: no description
+      name: fmgr_user_group
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_user_group_dynamicmapping:
+      description: no description
+      name: fmgr_user_group_dynamicmapping
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_user_group_dynamicmapping_guest:
+      description: no description
+      name: fmgr_user_group_dynamicmapping_guest
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_user_group_dynamicmapping_match:
+      description: no description
+      name: fmgr_user_group_dynamicmapping_match
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_user_group_dynamicmapping_sslvpnoschecklist:
+      description: no description
+      name: fmgr_user_group_dynamicmapping_sslvpnoschecklist
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_user_group_guest:
+      description: no description
+      name: fmgr_user_group_guest
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_user_group_match:
+      description: no description
+      name: fmgr_user_group_match
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_user_krbkeytab:
+      description: no description
+      name: fmgr_user_krbkeytab
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_user_ldap:
+      description: no description
+      name: fmgr_user_ldap
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_user_ldap_dynamicmapping:
+      description: no description
+      name: fmgr_user_ldap_dynamicmapping
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_user_local:
+      description: no description
+      name: fmgr_user_local
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_user_nsx:
+      description: no description
+      name: fmgr_user_nsx
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_user_nsx_service:
+      description: no description
+      name: fmgr_user_nsx_service
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_user_passwordpolicy:
+      description: no description
+      name: fmgr_user_passwordpolicy
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_user_peer:
+      description: no description
+      name: fmgr_user_peer
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_user_peergrp:
+      description: no description
+      name: fmgr_user_peergrp
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_user_pop3:
+      description: no description
+      name: fmgr_user_pop3
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_user_pxgrid:
+      description: no description
+      name: fmgr_user_pxgrid
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_user_radius:
+      description: no description
+      name: fmgr_user_radius
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_user_radius_accountingserver:
+      description: no description
+      name: fmgr_user_radius_accountingserver
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_user_radius_dynamicmapping:
+      description: no description
+      name: fmgr_user_radius_dynamicmapping
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_user_radius_dynamicmapping_accountingserver:
+      description: no description
+      name: fmgr_user_radius_dynamicmapping_accountingserver
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_user_saml:
+      description: no description
+      name: fmgr_user_saml
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_user_securityexemptlist:
+      description: no description
+      name: fmgr_user_securityexemptlist
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_user_securityexemptlist_rule:
+      description: no description
+      name: fmgr_user_securityexemptlist_rule
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_user_tacacs:
+      description: no description
+      name: fmgr_user_tacacs
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_user_tacacs_dynamicmapping:
+      description: no description
+      name: fmgr_user_tacacs_dynamicmapping
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_user_vcenter:
+      description: no description
+      name: fmgr_user_vcenter
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_user_vcenter_rule:
+      description: no description
+      name: fmgr_user_vcenter_rule
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_utmprofile:
+      description: no description
+      name: fmgr_utmprofile
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_vap:
+      description: no description
+      name: fmgr_vap
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_vap_dynamicmapping:
+      description: no description
+      name: fmgr_vap_dynamicmapping
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_vap_macfilterlist:
+      description: no description
+      name: fmgr_vap_macfilterlist
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_vap_mpskkey:
+      description: no description
+      name: fmgr_vap_mpskkey
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_vap_portalmessageoverrides:
+      description: no description
+      name: fmgr_vap_portalmessageoverrides
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_vap_vlanname:
+      description: no description
+      name: fmgr_vap_vlanname
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_vap_vlanpool:
+      description: no description
+      name: fmgr_vap_vlanpool
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_vapgroup:
+      description: no description
+      name: fmgr_vapgroup
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_videofilter_profile:
+      description: no description
+      name: fmgr_videofilter_profile
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_videofilter_profile_fortiguardcategory:
+      description: no description
+      name: fmgr_videofilter_profile_fortiguardcategory
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_videofilter_profile_fortiguardcategory_filters:
+      description: no description
+      name: fmgr_videofilter_profile_fortiguardcategory_filters
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_videofilter_youtubechannelfilter:
+      description: no description
+      name: fmgr_videofilter_youtubechannelfilter
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_videofilter_youtubechannelfilter_entries:
+      description: no description
+      name: fmgr_videofilter_youtubechannelfilter_entries
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_voip_profile:
+      description: no description
+      name: fmgr_voip_profile
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_voip_profile_msrp:
+      description: no description
+      name: fmgr_voip_profile_msrp
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_voip_profile_sccp:
+      description: no description
+      name: fmgr_voip_profile_sccp
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_voip_profile_sip:
+      description: no description
+      name: fmgr_voip_profile_sip
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_vpn_certificate_ca:
+      description: no description
+      name: fmgr_vpn_certificate_ca
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_vpn_certificate_ocspserver:
+      description: no description
+      name: fmgr_vpn_certificate_ocspserver
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_vpn_certificate_remote:
+      description: no description
+      name: fmgr_vpn_certificate_remote
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_vpn_ipsec_fec:
+      description: no description
+      name: fmgr_vpn_ipsec_fec
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_vpn_ipsec_fec_mappings:
+      description: no description
+      name: fmgr_vpn_ipsec_fec_mappings
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_vpn_ssl_settings:
+      description: no description
+      name: fmgr_vpn_ssl_settings
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_vpn_ssl_settings_authenticationrule:
+      description: no description
+      name: fmgr_vpn_ssl_settings_authenticationrule
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_vpnmgr_node:
+      description: no description
+      name: fmgr_vpnmgr_node
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_vpnmgr_node_iprange:
+      description: no description
+      name: fmgr_vpnmgr_node_iprange
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_vpnmgr_node_ipv4excluderange:
+      description: no description
+      name: fmgr_vpnmgr_node_ipv4excluderange
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_vpnmgr_node_protectedsubnet:
+      description: no description
+      name: fmgr_vpnmgr_node_protectedsubnet
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_vpnmgr_node_summaryaddr:
+      description: no description
+      name: fmgr_vpnmgr_node_summaryaddr
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_vpnmgr_vpntable:
+      description: no description
+      name: fmgr_vpnmgr_vpntable
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_vpnsslweb_hostchecksoftware:
+      description: no description
+      name: fmgr_vpnsslweb_hostchecksoftware
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_vpnsslweb_hostchecksoftware_checkitemlist:
+      description: no description
+      name: fmgr_vpnsslweb_hostchecksoftware_checkitemlist
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_vpnsslweb_portal:
+      description: no description
+      name: fmgr_vpnsslweb_portal
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_vpnsslweb_portal_bookmarkgroup:
+      description: no description
+      name: fmgr_vpnsslweb_portal_bookmarkgroup
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_vpnsslweb_portal_bookmarkgroup_bookmarks:
+      description: no description
+      name: fmgr_vpnsslweb_portal_bookmarkgroup_bookmarks
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_vpnsslweb_portal_bookmarkgroup_bookmarks_formdata:
+      description: no description
+      name: fmgr_vpnsslweb_portal_bookmarkgroup_bookmarks_formdata
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_vpnsslweb_portal_macaddrcheckrule:
+      description: no description
+      name: fmgr_vpnsslweb_portal_macaddrcheckrule
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_vpnsslweb_portal_oschecklist:
+      description: no description
+      name: fmgr_vpnsslweb_portal_oschecklist
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_vpnsslweb_portal_splitdns:
+      description: no description
+      name: fmgr_vpnsslweb_portal_splitdns
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_vpnsslweb_realm:
+      description: no description
+      name: fmgr_vpnsslweb_realm
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_waf_mainclass:
+      description: no description
+      name: fmgr_waf_mainclass
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_waf_profile:
+      description: no description
+      name: fmgr_waf_profile
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_waf_profile_addresslist:
+      description: no description
+      name: fmgr_waf_profile_addresslist
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_waf_profile_constraint:
+      description: no description
+      name: fmgr_waf_profile_constraint
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_waf_profile_constraint_contentlength:
+      description: no description
+      name: fmgr_waf_profile_constraint_contentlength
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_waf_profile_constraint_exception:
+      description: no description
+      name: fmgr_waf_profile_constraint_exception
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_waf_profile_constraint_headerlength:
+      description: no description
+      name: fmgr_waf_profile_constraint_headerlength
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_waf_profile_constraint_hostname:
+      description: no description
+      name: fmgr_waf_profile_constraint_hostname
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_waf_profile_constraint_linelength:
+      description: no description
+      name: fmgr_waf_profile_constraint_linelength
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_waf_profile_constraint_malformed:
+      description: no description
+      name: fmgr_waf_profile_constraint_malformed
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_waf_profile_constraint_maxcookie:
+      description: no description
+      name: fmgr_waf_profile_constraint_maxcookie
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_waf_profile_constraint_maxheaderline:
+      description: no description
+      name: fmgr_waf_profile_constraint_maxheaderline
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_waf_profile_constraint_maxrangesegment:
+      description: no description
+      name: fmgr_waf_profile_constraint_maxrangesegment
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_waf_profile_constraint_maxurlparam:
+      description: no description
+      name: fmgr_waf_profile_constraint_maxurlparam
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_waf_profile_constraint_method:
+      description: no description
+      name: fmgr_waf_profile_constraint_method
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_waf_profile_constraint_paramlength:
+      description: no description
+      name: fmgr_waf_profile_constraint_paramlength
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_waf_profile_constraint_urlparamlength:
+      description: no description
+      name: fmgr_waf_profile_constraint_urlparamlength
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_waf_profile_constraint_version:
+      description: no description
+      name: fmgr_waf_profile_constraint_version
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_waf_profile_method:
+      description: no description
+      name: fmgr_waf_profile_method
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_waf_profile_method_methodpolicy:
+      description: no description
+      name: fmgr_waf_profile_method_methodpolicy
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_waf_profile_signature:
+      description: no description
+      name: fmgr_waf_profile_signature
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_waf_profile_signature_customsignature:
+      description: no description
+      name: fmgr_waf_profile_signature_customsignature
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_waf_profile_signature_mainclass:
+      description: no description
+      name: fmgr_waf_profile_signature_mainclass
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_waf_profile_urlaccess:
+      description: no description
+      name: fmgr_waf_profile_urlaccess
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_waf_profile_urlaccess_accesspattern:
+      description: no description
+      name: fmgr_waf_profile_urlaccess_accesspattern
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_waf_signature:
+      description: no description
+      name: fmgr_waf_signature
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_waf_subclass:
+      description: no description
+      name: fmgr_waf_subclass
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_wagprofile:
+      description: no description
+      name: fmgr_wagprofile
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_wanopt_authgroup:
+      description: no description
+      name: fmgr_wanopt_authgroup
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_wanopt_peer:
+      description: no description
+      name: fmgr_wanopt_peer
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_wanopt_profile:
+      description: no description
+      name: fmgr_wanopt_profile
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_wanopt_profile_cifs:
+      description: no description
+      name: fmgr_wanopt_profile_cifs
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_wanopt_profile_ftp:
+      description: no description
+      name: fmgr_wanopt_profile_ftp
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_wanopt_profile_http:
+      description: no description
+      name: fmgr_wanopt_profile_http
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_wanopt_profile_mapi:
+      description: no description
+      name: fmgr_wanopt_profile_mapi
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_wanopt_profile_tcp:
+      description: no description
+      name: fmgr_wanopt_profile_tcp
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_wanprof_system_sdwan:
+      description: no description
+      name: fmgr_wanprof_system_sdwan
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_wanprof_system_sdwan_duplication:
+      description: no description
+      name: fmgr_wanprof_system_sdwan_duplication
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_wanprof_system_sdwan_healthcheck:
+      description: no description
+      name: fmgr_wanprof_system_sdwan_healthcheck
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_wanprof_system_sdwan_healthcheck_sla:
+      description: no description
+      name: fmgr_wanprof_system_sdwan_healthcheck_sla
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_wanprof_system_sdwan_members:
+      description: no description
+      name: fmgr_wanprof_system_sdwan_members
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_wanprof_system_sdwan_neighbor:
+      description: no description
+      name: fmgr_wanprof_system_sdwan_neighbor
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_wanprof_system_sdwan_service:
+      description: no description
+      name: fmgr_wanprof_system_sdwan_service
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_wanprof_system_sdwan_service_sla:
+      description: no description
+      name: fmgr_wanprof_system_sdwan_service_sla
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_wanprof_system_sdwan_zone:
+      description: no description
+      name: fmgr_wanprof_system_sdwan_zone
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_wanprof_system_virtualwanlink:
+      description: no description
+      name: fmgr_wanprof_system_virtualwanlink
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_wanprof_system_virtualwanlink_healthcheck:
+      description: no description
+      name: fmgr_wanprof_system_virtualwanlink_healthcheck
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_wanprof_system_virtualwanlink_healthcheck_sla:
+      description: no description
+      name: fmgr_wanprof_system_virtualwanlink_healthcheck_sla
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_wanprof_system_virtualwanlink_members:
+      description: no description
+      name: fmgr_wanprof_system_virtualwanlink_members
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_wanprof_system_virtualwanlink_neighbor:
+      description: no description
+      name: fmgr_wanprof_system_virtualwanlink_neighbor
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_wanprof_system_virtualwanlink_service:
+      description: no description
+      name: fmgr_wanprof_system_virtualwanlink_service
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_wanprof_system_virtualwanlink_service_sla:
+      description: no description
+      name: fmgr_wanprof_system_virtualwanlink_service_sla
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_webfilter_categories:
+      description: no description
+      name: fmgr_webfilter_categories
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_webfilter_content:
+      description: no description
+      name: fmgr_webfilter_content
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_webfilter_content_entries:
+      description: no description
+      name: fmgr_webfilter_content_entries
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_webfilter_contentheader:
+      description: no description
+      name: fmgr_webfilter_contentheader
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_webfilter_contentheader_entries:
+      description: no description
+      name: fmgr_webfilter_contentheader_entries
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_webfilter_ftgdlocalcat:
+      description: no description
+      name: fmgr_webfilter_ftgdlocalcat
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_webfilter_ftgdlocalrating:
+      description: no description
+      name: fmgr_webfilter_ftgdlocalrating
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_webfilter_profile:
+      description: no description
+      name: fmgr_webfilter_profile
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_webfilter_profile_antiphish:
+      description: no description
+      name: fmgr_webfilter_profile_antiphish
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_webfilter_profile_antiphish_custompatterns:
+      description: no description
+      name: fmgr_webfilter_profile_antiphish_custompatterns
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_webfilter_profile_antiphish_inspectionentries:
+      description: no description
+      name: fmgr_webfilter_profile_antiphish_inspectionentries
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_webfilter_profile_filefilter:
+      description: no description
+      name: fmgr_webfilter_profile_filefilter
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_webfilter_profile_filefilter_entries:
+      description: no description
+      name: fmgr_webfilter_profile_filefilter_entries
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_webfilter_profile_ftgdwf:
+      description: no description
+      name: fmgr_webfilter_profile_ftgdwf
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_webfilter_profile_ftgdwf_filters:
+      description: no description
+      name: fmgr_webfilter_profile_ftgdwf_filters
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_webfilter_profile_ftgdwf_quota:
+      description: no description
+      name: fmgr_webfilter_profile_ftgdwf_quota
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_webfilter_profile_override:
+      description: no description
+      name: fmgr_webfilter_profile_override
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_webfilter_profile_urlextraction:
+      description: no description
+      name: fmgr_webfilter_profile_urlextraction
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_webfilter_profile_web:
+      description: no description
+      name: fmgr_webfilter_profile_web
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_webfilter_profile_youtubechannelfilter:
+      description: no description
+      name: fmgr_webfilter_profile_youtubechannelfilter
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_webfilter_urlfilter:
+      description: no description
+      name: fmgr_webfilter_urlfilter
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_webfilter_urlfilter_entries:
+      description: no description
+      name: fmgr_webfilter_urlfilter_entries
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_webproxy_forwardserver:
+      description: no description
+      name: fmgr_webproxy_forwardserver
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_webproxy_forwardservergroup:
+      description: no description
+      name: fmgr_webproxy_forwardservergroup
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_webproxy_forwardservergroup_serverlist:
+      description: no description
+      name: fmgr_webproxy_forwardservergroup_serverlist
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_webproxy_profile:
+      description: no description
+      name: fmgr_webproxy_profile
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_webproxy_profile_headers:
+      description: no description
+      name: fmgr_webproxy_profile_headers
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_webproxy_wisp:
+      description: no description
+      name: fmgr_webproxy_wisp
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_widsprofile:
+      description: no description
+      name: fmgr_widsprofile
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_wtpprofile:
+      description: no description
+      name: fmgr_wtpprofile
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_wtpprofile_denymaclist:
+      description: no description
+      name: fmgr_wtpprofile_denymaclist
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_wtpprofile_eslsesdongle:
+      description: no description
+      name: fmgr_wtpprofile_eslsesdongle
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_wtpprofile_lan:
+      description: no description
+      name: fmgr_wtpprofile_lan
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_wtpprofile_lbs:
+      description: no description
+      name: fmgr_wtpprofile_lbs
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_wtpprofile_platform:
+      description: no description
+      name: fmgr_wtpprofile_platform
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_wtpprofile_radio1:
+      description: no description
+      name: fmgr_wtpprofile_radio1
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_wtpprofile_radio2:
+      description: no description
+      name: fmgr_wtpprofile_radio2
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_wtpprofile_radio3:
+      description: no description
+      name: fmgr_wtpprofile_radio3
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_wtpprofile_radio4:
+      description: no description
+      name: fmgr_wtpprofile_radio4
+      namespace: ''
+      version_added: 1.0.0
+    fmgr_wtpprofile_splittunnelingacl:
+      description: no description
+      name: fmgr_wtpprofile_splittunnelingacl
+      namespace: ''
+      version_added: 1.0.0
+  netconf: {}
+  shell: {}
+  strategy: {}
+  vars: {}
+version: 2.1.7

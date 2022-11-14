@@ -1,0 +1,22 @@
+ancestor: null
+releases:
+  2.1.6:
+    changes:
+      major_changes:
+      - Many fixes for Ansible sanity test warnings & errors.
+      - Support FortiManager Schema 7.2.0 , 98 new modules
+      minor_changes:
+      - Best Practice Notes
+      release_summary: release fortinet.fortimanager to support FMG 7.2.x
+    fragments:
+    - release_2.1.6.yaml
+    release_date: '2022-10-31'
+  2.1.7:
+    changes:
+      major_changes:
+      - Fix compatibility issue for ansible 2.9.x and ansible-base 2.10.x.
+      - support Ansible changelogs.
+      release_summary: hotpath for backward-compatibility fix
+    fragments:
+    - release.2.1.7.yaml
+    release_date: '2022-11-12'
