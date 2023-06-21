@@ -1321,5 +1321,12 @@ class NAPIManager(object):
         result["response_code"] = response[1]["status"]["code"]
         result["response_message"] = response[1]["status"]["message"]
         result["request_url"] = response[1]["url"]
+        # Fix for fmgr_sys_hitcount
+        if response[1]["url"] == "/sys/hitcount":
+            if isinstance(result["response_data"], list) and len(result["response_data"]) == 0:
+                result["response_data"] = dict()
+            if "taskid" in response[1] and isinstance(result["response_data"], dict) \
+                    and "task" not in result["response_data"]:
+                result["response_data"]["task"] = response[1]["taskid"]
         # XXX:Do further status mapping
         self._do_final_exit(rc, result)

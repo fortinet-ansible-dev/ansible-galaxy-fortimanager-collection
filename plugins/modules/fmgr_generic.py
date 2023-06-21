@@ -36,8 +36,10 @@ description:
       fill the session later.
     - the username and password is not managed by the module, but by the plugin.
 
-version_added: "2.10"
+version_added: "2.0.0"
 author:
+    - Xinwei Du (@dux-fortinet)
+    - Xing Li (@lix-fortinet)
     - Link Zheng (@zhengl)
     - Jie Xue (@JieX19)
     - Frank Shen (@fshen01)
@@ -49,23 +51,51 @@ notes:
     - method and params should be specified by users if 'json' is not present
     - if all three parameters are provided, the 'json' is preferred.
 options:
-   enable_log:
-      description: Enable/Disable logging for task
-      required: false
-      type: bool
-      default: false
-   method:
-      description:
-        - the method of the json-rpc
-        - it must be in [get, add, set, update, delete, move, clone, exec]
-
-   params:
-      description:
-        - the parameter collection.
-
-   json:
-      description:
-        - the raw json-formatted payload to send to fortimanager
+    enable_log:
+        description: Enable/Disable logging for task
+        required: false
+        type: bool
+        default: false
+    forticloud_access_token:
+        description: authenticate Ansible client with forticloud API access token
+        required: false
+        type: str
+    rc_succeeded:
+        description: the rc codes list with which the conditions to succeed will be overriden
+        type: list
+        required: false
+        elements: int
+    rc_failed:
+        description: the rc codes list with which the conditions to fail will be overriden
+        type: list
+        elements: int
+        required: false
+    workspace_locking_adom:
+        description: no description
+        type: str
+        required: false
+    workspace_locking_timeout:
+        description: no description
+        type: int
+        required: false
+        default: 300
+    method:
+        description:
+            - the method of the json-rpc
+            - it must be in [get, add, set, update, delete, move, clone, exec]
+        type: str
+        required: false
+    params:
+        description:
+            - the parameter collection.
+        type: list
+        elements: dict
+        required: false
+    json:
+        description:
+            - the raw json-formatted payload to send to fortimanager
+        type: str
+        required: false
 
 """
 
@@ -127,10 +157,10 @@ def main():
         "forticloud_access_token": {"type": "str", "required": False, "no_log": True},
         "workspace_locking_adom": {"type": "str", "required": False},
         "workspace_locking_timeout": {"type": "int", "required": False, "default": 300},
-        "rc_succeeded": {"required": False, "type": "list"},
-        "rc_failed": {"required": False, "type": "list"},
+        "rc_succeeded": {"type": "list", "required": False, 'elements': 'int'},
+        "rc_failed": {"type": "list", "required": False, 'elements': 'int'},
         "method": {"type": "str", "required": False},
-        "params": {"type": "list", "required": False},
+        "params": {"type": "list", "required": False, 'elements': 'dict'},
         "json": {"type": "str", "required": False},
     }
 

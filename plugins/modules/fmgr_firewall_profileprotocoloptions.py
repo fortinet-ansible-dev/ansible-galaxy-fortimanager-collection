@@ -1,6 +1,6 @@
 #!/usr/bin/python
 from __future__ import absolute_import, division, print_function
-# Copyright 2019-2021 Fortinet, Inc.
+# Copyright 2019-2023 Fortinet, Inc.
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -24,15 +24,17 @@ ANSIBLE_METADATA = {'status': ['preview'],
 DOCUMENTATION = '''
 ---
 module: fmgr_firewall_profileprotocoloptions
-short_description: no description
+short_description: Configure protocol options.
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
 
-version_added: "1.0.0"
+version_added: "2.0.0"
 author:
-    - Link Zheng (@chillancezen)
+    - Xinwei Du (@dux-fortinet)
+    - Xing Li (@lix-fortinet)
     - Jie Xue (@JieX19)
+    - Link Zheng (@chillancezen)
     - Frank Shen (@fshen01)
     - Hongbin Lu (@fgtdev-hblu)
 notes:
@@ -44,51 +46,58 @@ notes:
       the conditions to fail or succeed with parameters rc_failed and rc_succeeded
 
 options:
-    enable_log:
-        description: Enable/Disable logging for task
+    access_token:
+        description: The token to access FortiManager without using username and password.
+        required: false
+        type: str
+    bypass_validation:
+        description: Only set to True when module schema diffs with FortiManager API structure, module continues to execute without validating parameters.
         required: false
         type: bool
         default: false
+    enable_log:
+        description: Enable/Disable logging for task.
+        required: false
+        type: bool
+        default: false
+    forticloud_access_token:
+        description: Authenticate Ansible client with forticloud API access token.
+        required: false
+        type: str
     proposed_method:
-        description: The overridden method for the underlying Json RPC request
+        description: The overridden method for the underlying Json RPC request.
         required: false
         type: str
         choices:
           - update
           - set
           - add
-    bypass_validation:
-        description: |
-          only set to True when module schema diffs with FortiManager API structure,
-           module continues to execute without validating parameters
+    rc_succeeded:
+        description: The rc codes list with which the conditions to succeed will be overriden.
+        type: list
         required: false
-        type: bool
-        default: false
-    workspace_locking_adom:
-        description: |
-          the adom to lock for FortiManager running in workspace mode, the value can be global and others including root
+        elements: int
+    rc_failed:
+        description: The rc codes list with which the conditions to fail will be overriden.
+        type: list
         required: false
-        type: str
-    workspace_locking_timeout:
-        description: the maximum time in seconds to wait for other user to release the workspace lock
-        required: false
-        type: int
-        default: 300
+        elements: int
     state:
-        description: the directive to create, update or delete an object
+        description: The directive to create, update or delete an object.
         type: str
         required: true
         choices:
           - present
           - absent
-    rc_succeeded:
-        description: the rc codes list with which the conditions to succeed will be overriden
-        type: list
+    workspace_locking_adom:
+        description: The adom to lock for FortiManager running in workspace mode, the value can be global and others including root.
         required: false
-    rc_failed:
-        description: the rc codes list with which the conditions to fail will be overriden
-        type: list
+        type: str
+    workspace_locking_timeout:
+        description: The maximum time in seconds to wait for other user to release the workspace lock.
         required: false
+        type: int
+        default: 300
     adom:
         description: the parameter (adom) in requested url
         type: str
@@ -100,34 +109,34 @@ options:
         suboptions:
             comment:
                 type: str
-                description: no description
+                description: Optional comments.
             name:
                 type: str
-                description: no description
+                description: Name.
             oversize-log:
                 type: str
-                description: no description
+                description: Enable/disable logging for antivirus oversize file blocking.
                 choices:
                     - 'disable'
                     - 'enable'
             replacemsg-group:
                 type: str
-                description: no description
+                description: Name of the replacement message group to be used
             rpc-over-http:
                 type: str
-                description: no description
+                description: Enable/disable inspection of RPC over HTTP.
                 choices:
                     - 'disable'
                     - 'enable'
             switching-protocols-log:
                 type: str
-                description: no description
+                description: Enable/disable logging for HTTP/HTTPS switching protocols.
                 choices:
                     - 'disable'
                     - 'enable'
             feature-set:
                 type: str
-                description: no description
+                description: Flow/proxy feature set.
                 choices:
                     - 'proxy'
                     - 'flow'
@@ -138,110 +147,114 @@ options:
                 suboptions:
                     domain-controller:
                         type: str
-                        description: no description
+                        description: Domain for which to decrypt CIFS traffic.
                     file-filter:
                         description: no description
                         type: dict
                         required: false
                         suboptions:
                             entries:
-                                description: no description
+                                description: Entries.
                                 type: list
+                                elements: dict
                                 suboptions:
                                     action:
                                         type: str
-                                        description: no description
+                                        description: Action taken for matched file.
                                         choices:
                                             - 'log'
                                             - 'block'
                                     comment:
                                         type: str
-                                        description: no description
+                                        description: Comment.
                                     direction:
                                         type: str
-                                        description: no description
+                                        description: Match files transmitted in the sessions originating or reply direction.
                                         choices:
                                             - 'any'
                                             - 'incoming'
                                             - 'outgoing'
                                     file-type:
-                                        description: no description
+                                        description: Select file type.
                                         type: str
                                     filter:
                                         type: str
-                                        description: no description
+                                        description: Add a file filter.
                                     protocol:
-                                        description: no description
+                                        description: Protocols to apply with.
                                         type: list
+                                        elements: str
                                         choices:
-                                         - cifs
+                                            - 'cifs'
                             log:
                                 type: str
-                                description: no description
+                                description: Enable/disable file filter logging.
                                 choices:
                                     - 'disable'
                                     - 'enable'
                             status:
                                 type: str
-                                description: no description
+                                description: Enable/disable file filter.
                                 choices:
                                     - 'disable'
                                     - 'enable'
                     options:
-                        description: no description
+                        description: One or more options that can be applied to the session.
                         type: list
+                        elements: str
                         choices:
-                         - oversize
+                            - 'oversize'
                     oversize-limit:
                         type: int
-                        description: no description
+                        description: Maximum in-memory file size that can be scanned
                     ports:
-                        description: no description
+                        description: Ports to scan for content
                         type: int
                     scan-bzip2:
                         type: str
-                        description: no description
+                        description: Enable/disable scanning of BZip2 compressed files.
                         choices:
                             - 'disable'
                             - 'enable'
                     server-credential-type:
                         type: str
-                        description: no description
+                        description: CIFS server credential type.
                         choices:
                             - 'none'
                             - 'credential-replication'
                             - 'credential-keytab'
                     server-keytab:
-                        description: no description
+                        description: Server-Keytab.
                         type: list
+                        elements: dict
                         suboptions:
                             keytab:
                                 type: str
-                                description: no description
+                                description: Base64 encoded keytab file containing credential of the server.
                             password:
-                                description: no description
+                                description: Password for keytab.
                                 type: str
                             principal:
                                 type: str
-                                description: no description
+                                description: Service principal.
                     status:
                         type: str
-                        description: no description
+                        description: Enable/disable the active status of scanning for this protocol.
                         choices:
                             - 'disable'
                             - 'enable'
                     tcp-window-maximum:
                         type: int
-                        description: no description
+                        description: Maximum dynamic TCP window size
                     tcp-window-minimum:
                         type: int
-                        description: no description
+                        description: Minimum dynamic TCP window size
                     tcp-window-size:
                         type: int
-                        description: no description
+                        description: Set TCP static window size
                     tcp-window-type:
                         type: str
-                        description: no description
+                        description: Specify type of TCP window to use for this protocol.
                         choices:
                             - 'system'
                             - 'static'
@@ -249,21 +262,21 @@ options:
                             - 'auto-tuning'
                     uncompressed-nest-limit:
                         type: int
-                        description: no description
+                        description: Maximum nested levels of compression that can be uncompressed and scanned
                     uncompressed-oversize-limit:
                         type: int
-                        description: no description
+                        description: Maximum in-memory uncompressed file size that can be scanned
             dns:
                 description: no description
                 type: dict
                 required: false
                 suboptions:
                     ports:
-                        description: no description
+                        description: Ports to scan for content
                         type: int
                     status:
                         type: str
-                        description: no description
+                        description: Enable/disable the active status of scanning for this protocol.
                         choices:
                             - 'disable'
                             - 'enable'
@@ -274,76 +287,83 @@ options:
                 suboptions:
                     comfort-amount:
                         type: int
-                        description: no description
+                        description: Amount of data to send in a transmission for client comforting
                     comfort-interval:
                         type: int
-                        description: no description
+                        description: Period of time between start, or last transmission, and the next client comfort transmission of data
                     inspect-all:
                         type: str
-                        description: no description
+                        description: Enable/disable the inspection of all ports for the protocol.
                         choices:
                             - 'disable'
                             - 'enable'
                     options:
-                        description: no description
+                        description: One or more options that can be applied to the session.
                         type: list
+                        elements: str
                         choices:
-                         - clientcomfort
-                         - no-content-summary
-                         - oversize
-                         - splice
-                         - bypass-rest-command
-                         - bypass-mode-command
+                            - 'clientcomfort'
+                            - 'no-content-summary'
+                            - 'oversize'
+                            - 'splice'
+                            - 'bypass-rest-command'
+                            - 'bypass-mode-command'
                     oversize-limit:
                         type: int
-                        description: no description
+                        description: Maximum in-memory file size that can be scanned
                     ports:
-                        description: no description
+                        description: Ports to scan for content
                         type: int
                     scan-bzip2:
                         type: str
-                        description: no description
+                        description: Enable/disable scanning of BZip2 compressed files.
                         choices:
                             - 'disable'
                             - 'enable'
                     ssl-offloaded:
                         type: str
-                        description: no description
+                        description: SSL decryption and encryption performed by an external device.
                         choices:
                             - 'no'
                             - 'yes'
                     status:
                         type: str
-                        description: no description
+                        description: Enable/disable the active status of scanning for this protocol.
                         choices:
                             - 'disable'
                             - 'enable'
                     uncompressed-nest-limit:
                         type: int
-                        description: no description
+                        description: Maximum nested levels of compression that can be uncompressed and scanned
                     uncompressed-oversize-limit:
                         type: int
-                        description: no description
+                        description: Maximum in-memory uncompressed file size that can be scanned
                     stream-based-uncompressed-limit:
                         type: int
-                        description: no description
+                        description: Maximum stream-based uncompressed data size that will be scanned
                     tcp-window-maximum:
                         type: int
-                        description: no description
+                        description: Maximum dynamic TCP window size.
                     tcp-window-minimum:
                         type: int
-                        description: no description
+                        description: Minimum dynamic TCP window size.
                     tcp-window-size:
                         type: int
-                        description: no description
+                        description: Set TCP static window size.
                     tcp-window-type:
                         type: str
-                        description: no description
+                        description: TCP window type to use for this protocol.
                         choices:
                             - 'system'
                             - 'static'
                             - 'dynamic'
                             - 'auto-tuning'
+                    explicit-ftp-tls:
+                        type: str
+                        description: Enable/disable FTP redirection for explicit FTPS.
+                        choices:
+                            - 'disable'
+                            - 'enable'
             http:
                 description: no description
                 type: dict
@@ -351,134 +371,136 @@ options:
                 suboptions:
                     block-page-status-code:
                         type: int
-                        description: no description
+                        description: Code number returned for blocked HTTP pages
                     comfort-amount:
                         type: int
-                        description: no description
+                        description: Amount of data to send in a transmission for client comforting
                     comfort-interval:
                         type: int
-                        description: no description
+                        description: Period of time between start, or last transmission, and the next client comfort transmission of data
                     fortinet-bar:
                         type: str
-                        description: no description
+                        description: Enable/disable Fortinet bar on HTML content.
                         choices:
                             - 'disable'
                             - 'enable'
                     fortinet-bar-port:
                         type: int
-                        description: no description
+                        description: Port for use by Fortinet Bar
                     inspect-all:
                         type: str
-                        description: no description
+                        description: Enable/disable the inspection of all ports for the protocol.
                         choices:
                             - 'disable'
                             - 'enable'
                     options:
-                        description: no description
+                        description: One or more options that can be applied to the session.
                         type: list
+                        elements: str
                         choices:
-                         - oversize
-                         - chunkedbypass
-                         - clientcomfort
-                         - no-content-summary
-                         - servercomfort
+                            - 'oversize'
+                            - 'chunkedbypass'
+                            - 'clientcomfort'
+                            - 'no-content-summary'
+                            - 'servercomfort'
                     oversize-limit:
                         type: int
-                        description: no description
+                        description: Maximum in-memory file size that can be scanned
                     ports:
-                        description: no description
+                        description: Ports to scan for content
                         type: int
                     post-lang:
-                        description: no description
+                        description: ID codes for character sets to be used to convert to UTF-8 for banned words and DLP on HTTP posts
                         type: list
+                        elements: str
                         choices:
-                         - jisx0201
-                         - jisx0208
-                         - jisx0212
-                         - gb2312
-                         - ksc5601-ex
-                         - euc-jp
-                         - sjis
-                         - iso2022-jp
-                         - iso2022-jp-1
-                         - iso2022-jp-2
-                         - euc-cn
-                         - ces-gbk
-                         - hz
-                         - ces-big5
-                         - euc-kr
-                         - iso2022-jp-3
-                         - iso8859-1
-                         - tis620
-                         - cp874
-                         - cp1252
-                         - cp1251
+                            - 'jisx0201'
+                            - 'jisx0208'
+                            - 'jisx0212'
+                            - 'gb2312'
+                            - 'ksc5601-ex'
+                            - 'euc-jp'
+                            - 'sjis'
+                            - 'iso2022-jp'
+                            - 'iso2022-jp-1'
+                            - 'iso2022-jp-2'
+                            - 'euc-cn'
+                            - 'ces-gbk'
+                            - 'hz'
+                            - 'ces-big5'
+                            - 'euc-kr'
+                            - 'iso2022-jp-3'
+                            - 'iso8859-1'
+                            - 'tis620'
+                            - 'cp874'
+                            - 'cp1252'
+                            - 'cp1251'
                     proxy-after-tcp-handshake:
                         type: str
-                        description: no description
+                        description: Proxy traffic after the TCP 3-way handshake has been established
                         choices:
                             - 'disable'
                             - 'enable'
                     range-block:
                         type: str
-                        description: no description
+                        description: Enable/disable blocking of partial downloads.
                         choices:
                             - 'disable'
                             - 'enable'
                     retry-count:
                         type: int
-                        description: no description
+                        description: Number of attempts to retry HTTP connection
                     scan-bzip2:
                         type: str
-                        description: no description
+                        description: Enable/disable scanning of BZip2 compressed files.
                         choices:
                             - 'disable'
                             - 'enable'
                     ssl-offloaded:
                         type: str
-                        description: no description
+                        description: SSL decryption and encryption performed by an external device.
                         choices:
                             - 'no'
                             - 'yes'
                     status:
                         type: str
-                        description: no description
+                        description: Enable/disable the active status of scanning for this protocol.
                         choices:
                             - 'disable'
                             - 'enable'
                     stream-based-uncompressed-limit:
                         type: int
-                        description: no description
+                        description: Maximum stream-based uncompressed data size that will be scanned
                     streaming-content-bypass:
                         type: str
-                        description: no description
+                        description: Enable/disable bypassing of streaming content from buffering.
                         choices:
                             - 'disable'
                             - 'enable'
                     strip-x-forwarded-for:
                         type: str
-                        description: no description
+                        description: Enable/disable stripping of HTTP X-Forwarded-For header.
                         choices:
                             - 'disable'
                             - 'enable'
                     switching-protocols:
                         type: str
-                        description: no description
+                        description: Bypass from scanning, or block a connection that attempts to switch protocol.
                         choices:
                             - 'bypass'
                             - 'block'
                     tcp-window-maximum:
                         type: int
-                        description: no description
+                        description: Maximum dynamic TCP window size
                     tcp-window-minimum:
                         type: int
-                        description: no description
+                        description: Minimum dynamic TCP window size
                     tcp-window-size:
                         type: int
-                        description: no description
+                        description: Set TCP static window size
                     tcp-window-type:
                         type: str
-                        description: no description
+                        description: Specify type of TCP window to use for this protocol.
                         choices:
                             - 'system'
                             - 'static'
@@ -486,35 +508,54 @@ options:
                             - 'auto-tuning'
                     tunnel-non-http:
                         type: str
-                        description: no description
+                        description: Configure how to process non-HTTP traffic when a profile configured for HTTP traffic accepts a non-HTTP session.
                         choices:
                             - 'disable'
                             - 'enable'
                     uncompressed-nest-limit:
                         type: int
-                        description: no description
+                        description: Maximum nested levels of compression that can be uncompressed and scanned
                     uncompressed-oversize-limit:
                         type: int
-                        description: no description
+                        description: Maximum in-memory uncompressed file size that can be scanned
                     unknown-http-version:
                         type: str
-                        description: no description
+                        description: How to handle HTTP sessions that do not comply with HTTP 0.
                         choices:
                             - 'best-effort'
                             - 'reject'
                             - 'tunnel'
+                    http-policy:
+                        type: str
+                        description: Enable/disable HTTP policy check.
+                        choices:
+                            - 'disable'
+                            - 'enable'
                     address-ip-rating:
                         type: str
-                        description: no description
+                        description: Enable/disable IP based URL rating.
                         choices:
                             - 'disable'
                             - 'enable'
                     h2c:
                         type: str
-                        description: no description
+                        description: Enable/disable h2c HTTP connection upgrade.
                         choices:
                             - 'disable'
                             - 'enable'
+                    verify-dns-for-policy-matching:
+                        type: str
+                        description: Enable/disable verification of DNS for policy matching.
+                        choices:
+                            - 'disable'
+                            - 'enable'
+                    unknown-content-encoding:
+                        type: str
+                        description: Configure the action the FortiGate unit will take on unknown content-encoding.
+                        choices:
+                            - 'block'
+                            - 'inspect'
+                            - 'bypass'
             imap:
                 description: no description
                 type: dict
@@ -522,53 +563,54 @@ options:
                 suboptions:
                     inspect-all:
                         type: str
-                        description: no description
+                        description: Enable/disable the inspection of all ports for the protocol.
                         choices:
                             - 'disable'
                             - 'enable'
                     options:
-                        description: no description
+                        description: One or more options that can be applied to the session.
                         type: list
+                        elements: str
                         choices:
-                         - oversize
-                         - fragmail
-                         - no-content-summary
+                            - 'oversize'
+                            - 'fragmail'
+                            - 'no-content-summary'
                     oversize-limit:
                         type: int
-                        description: no description
+                        description: Maximum in-memory file size that can be scanned
                     ports:
-                        description: no description
+                        description: Ports to scan for content
                         type: int
                     proxy-after-tcp-handshake:
                         type: str
-                        description: no description
+                        description: Proxy traffic after the TCP 3-way handshake has been established
                         choices:
                             - 'disable'
                             - 'enable'
                     scan-bzip2:
                         type: str
-                        description: no description
+                        description: Enable/disable scanning of BZip2 compressed files.
                         choices:
                             - 'disable'
                             - 'enable'
                     ssl-offloaded:
                         type: str
-                        description: no description
+                        description: SSL decryption and encryption performed by an external device.
                         choices:
                             - 'no'
                             - 'yes'
                     status:
                         type: str
-                        description: no description
+                        description: Enable/disable the active status of scanning for this protocol.
                         choices:
                             - 'disable'
                             - 'enable'
                     uncompressed-nest-limit:
                         type: int
-                        description: no description
+                        description: Maximum nested levels of compression that can be uncompressed and scanned
                     uncompressed-oversize-limit:
                         type: int
-                        description: no description
+                        description: Maximum in-memory uncompressed file size that can be scanned
             mail-signature:
                 description: no description
                 type: dict
@@ -576,10 +618,10 @@ options:
                 suboptions:
                     signature:
                         type: str
-                        description: no description
+                        description: Email signature to be added to outgoing email
                     status:
                         type: str
-                        description: no description
+                        description: Enable/disable adding an email signature to SMTP email messages as they pass through the FortiGate.
                         choices:
                             - 'disable'
                             - 'enable'
@@ -589,36 +631,37 @@ options:
                 required: false
                 suboptions:
                     options:
-                        description: no description
+                        description: One or more options that can be applied to the session.
                         type: list
+                        elements: str
                         choices:
-                         - fragmail
-                         - oversize
-                         - no-content-summary
+                            - 'fragmail'
+                            - 'oversize'
+                            - 'no-content-summary'
                     oversize-limit:
                         type: int
-                        description: no description
+                        description: Maximum in-memory file size that can be scanned
                     ports:
-                        description: no description
+                        description: Ports to scan for content
                         type: int
                     scan-bzip2:
                         type: str
-                        description: no description
+                        description: Enable/disable scanning of BZip2 compressed files.
                         choices:
                             - 'disable'
                             - 'enable'
                     status:
                         type: str
-                        description: no description
+                        description: Enable/disable the active status of scanning for this protocol.
                         choices:
                             - 'disable'
                             - 'enable'
                     uncompressed-nest-limit:
                         type: int
-                        description: no description
+                        description: Maximum nested levels of compression that can be uncompressed and scanned
                     uncompressed-oversize-limit:
                         type: int
-                        description: no description
+                        description: Maximum in-memory uncompressed file size that can be scanned
             nntp:
                 description: no description
                 type: dict
@@ -626,47 +669,48 @@ options:
                 suboptions:
                     inspect-all:
                         type: str
-                        description: no description
+                        description: Enable/disable the inspection of all ports for the protocol.
                         choices:
                             - 'disable'
                             - 'enable'
                     options:
-                        description: no description
+                        description: One or more options that can be applied to the session.
                         type: list
+                        elements: str
                         choices:
-                         - oversize
-                         - no-content-summary
-                         - splice
+                            - 'oversize'
+                            - 'no-content-summary'
+                            - 'splice'
                     oversize-limit:
                         type: int
-                        description: no description
+                        description: Maximum in-memory file size that can be scanned
                     ports:
-                        description: no description
+                        description: Ports to scan for content
                         type: int
                     proxy-after-tcp-handshake:
                         type: str
-                        description: no description
+                        description: Proxy traffic after the TCP 3-way handshake has been established
                         choices:
                             - 'disable'
                             - 'enable'
                     scan-bzip2:
                         type: str
-                        description: no description
+                        description: Enable/disable scanning of BZip2 compressed files.
                         choices:
                             - 'disable'
                             - 'enable'
                     status:
                         type: str
-                        description: no description
+                        description: Enable/disable the active status of scanning for this protocol.
                         choices:
                             - 'disable'
                             - 'enable'
                     uncompressed-nest-limit:
                         type: int
-                        description: no description
+                        description: Maximum nested levels of compression that can be uncompressed and scanned
                     uncompressed-oversize-limit:
                         type: int
-                        description: no description
+                        description: Maximum in-memory uncompressed file size that can be scanned
             pop3:
                 description: no description
                 type: dict
@@ -674,53 +718,54 @@ options:
                 suboptions:
                     inspect-all:
                         type: str
-                        description: no description
+                        description: Enable/disable the inspection of all ports for the protocol.
                         choices:
                             - 'disable'
                             - 'enable'
                     options:
-                        description: no description
+                        description: One or more options that can be applied to the session.
                         type: list
+                        elements: str
                         choices:
-                         - oversize
-                         - fragmail
-                         - no-content-summary
+                            - 'oversize'
+                            - 'fragmail'
+                            - 'no-content-summary'
                     oversize-limit:
                         type: int
-                        description: no description
+                        description: Maximum in-memory file size that can be scanned
                     ports:
-                        description: no description
+                        description: Ports to scan for content
                         type: int
                     proxy-after-tcp-handshake:
                         type: str
-                        description: no description
+                        description: Proxy traffic after the TCP 3-way handshake has been established
                         choices:
                             - 'disable'
                             - 'enable'
                     scan-bzip2:
                         type: str
-                        description: no description
+                        description: Enable/disable scanning of BZip2 compressed files.
                         choices:
                             - 'disable'
                             - 'enable'
                     ssl-offloaded:
                         type: str
-                        description: no description
+                        description: SSL decryption and encryption performed by an external device.
                         choices:
                             - 'no'
                             - 'yes'
                     status:
                         type: str
-                        description: no description
+                        description: Enable/disable the active status of scanning for this protocol.
                         choices:
                             - 'disable'
                             - 'enable'
                     uncompressed-nest-limit:
                         type: int
-                        description: no description
+                        description: Maximum nested levels of compression that can be uncompressed and scanned
                     uncompressed-oversize-limit:
                         type: int
-                        description: no description
+                        description: Maximum in-memory uncompressed file size that can be scanned
             smtp:
                 description: no description
                 type: dict
@@ -728,60 +773,61 @@ options:
                 suboptions:
                     inspect-all:
                         type: str
-                        description: no description
+                        description: Enable/disable the inspection of all ports for the protocol.
                         choices:
                             - 'disable'
                             - 'enable'
                     options:
-                        description: no description
+                        description: One or more options that can be applied to the session.
                         type: list
+                        elements: str
                         choices:
-                         - oversize
-                         - fragmail
-                         - no-content-summary
-                         - splice
+                            - 'oversize'
+                            - 'fragmail'
+                            - 'no-content-summary'
+                            - 'splice'
                     oversize-limit:
                         type: int
-                        description: no description
+                        description: Maximum in-memory file size that can be scanned
                     ports:
-                        description: no description
+                        description: Ports to scan for content
                         type: int
                     proxy-after-tcp-handshake:
                         type: str
-                        description: no description
+                        description: Proxy traffic after the TCP 3-way handshake has been established
                         choices:
                             - 'disable'
                             - 'enable'
                     scan-bzip2:
                         type: str
-                        description: no description
+                        description: Enable/disable scanning of BZip2 compressed files.
                         choices:
                             - 'disable'
                             - 'enable'
                     server-busy:
                         type: str
-                        description: no description
+                        description: Enable/disable SMTP server busy when server not available.
                         choices:
                             - 'disable'
                             - 'enable'
                     ssl-offloaded:
                         type: str
-                        description: no description
+                        description: SSL decryption and encryption performed by an external device.
                         choices:
                             - 'no'
                             - 'yes'
                     status:
                         type: str
-                        description: no description
+                        description: Enable/disable the active status of scanning for this protocol.
                         choices:
                             - 'disable'
                             - 'enable'
                     uncompressed-nest-limit:
                         type: int
-                        description: no description
+                        description: Maximum nested levels of compression that can be uncompressed and scanned
                     uncompressed-oversize-limit:
                         type: int
-                        description: no description
+                        description: Maximum in-memory uncompressed file size that can be scanned
             ssh:
                 description: no description
                 type: dict
@@ -789,53 +835,54 @@ options:
                 suboptions:
                     comfort-amount:
                         type: int
-                        description: no description
+                        description: Amount of data to send in a transmission for client comforting
                     comfort-interval:
                         type: int
-                        description: no description
+                        description: Period of time between start, or last transmission, and the next client comfort transmission of data
                     options:
-                        description: no description
+                        description: One or more options that can be applied to the session.
                         type: list
+                        elements: str
                         choices:
-                         - oversize
-                         - clientcomfort
-                         - servercomfort
+                            - 'oversize'
+                            - 'clientcomfort'
+                            - 'servercomfort'
                     oversize-limit:
                         type: int
-                        description: no description
+                        description: Maximum in-memory file size that can be scanned
                     scan-bzip2:
                         type: str
-                        description: no description
+                        description: Enable/disable scanning of BZip2 compressed files.
                         choices:
                             - 'disable'
                             - 'enable'
                     uncompressed-nest-limit:
                         type: int
-                        description: no description
+                        description: Maximum nested levels of compression that can be uncompressed and scanned
                     uncompressed-oversize-limit:
                         type: int
-                        description: no description
+                        description: Maximum in-memory uncompressed file size that can be scanned
                     ssl-offloaded:
                         type: str
-                        description: no description
+                        description: SSL decryption and encryption performed by an external device.
                         choices:
                             - 'no'
                             - 'yes'
                     stream-based-uncompressed-limit:
                         type: int
-                        description: no description
+                        description: Maximum stream-based uncompressed data size that will be scanned
                     tcp-window-maximum:
                         type: int
-                        description: no description
+                        description: Maximum dynamic TCP window size.
                     tcp-window-minimum:
                         type: int
-                        description: no description
+                        description: Minimum dynamic TCP window size.
                     tcp-window-size:
                         type: int
-                        description: no description
+                        description: Set TCP static window size.
                     tcp-window-type:
                         type: str
-                        description: no description
+                        description: TCP window type to use for this protocol.
                         choices:
                             - 'system'
                             - 'static'
@@ -884,22 +931,43 @@ EXAMPLES = '''
 '''
 
 RETURN = '''
-request_url:
-    description: The full url requested
+meta:
+    description: The result of the request.
+    type: dict
     returned: always
-    type: str
-    sample: /sys/login/user
-response_code:
-    description: The status of api request
-    returned: always
+    contains:
+        request_url:
+            description: The full url requested.
+            returned: always
+            type: str
+            sample: /sys/login/user
+        response_code:
+            description: The status of api request.
+            returned: always
+            type: int
+            sample: 0
+        response_data:
+            description: The api response.
+            type: list
+            returned: always
+        response_message:
+            description: The descriptive message of the api response.
+            type: str
+            returned: always
+            sample: OK.
+        system_information:
+            description: The information of the target system.
+            type: dict
+            returned: always
+rc:
+    description: The status the request.
     type: int
-    sample: 0
-response_message:
-    description: The descriptive message of the api response
-    type: str
     returned: always
-    sample: OK.
-
+    sample: 0
+version_check_warning:
+    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+    type: list
+    returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
@@ -922,6 +990,16 @@ def main():
     url_params = ['adom']
     module_primary_key = 'name'
     module_arg_spec = {
+        'access_token': {
+            'type': 'str',
+            'required': False,
+            'no_log': True
+        },
+        'bypass_validation': {
+            'type': 'bool',
+            'required': False,
+            'default': False
+        },
         'enable_log': {
             'type': 'bool',
             'required': False,
@@ -941,10 +1019,23 @@ def main():
                 'add'
             ]
         },
-        'bypass_validation': {
-            'type': 'bool',
+        'rc_succeeded': {
             'required': False,
-            'default': False
+            'type': 'list',
+            'elements': 'int'
+        },
+        'rc_failed': {
+            'required': False,
+            'type': 'list',
+            'elements': 'int'
+        },
+        'state': {
+            'type': 'str',
+            'required': True,
+            'choices': [
+                'present',
+                'absent'
+            ]
         },
         'workspace_locking_adom': {
             'type': 'str',
@@ -955,22 +1046,6 @@ def main():
             'required': False,
             'default': 300
         },
-        'rc_succeeded': {
-            'required': False,
-            'type': 'list'
-        },
-        'rc_failed': {
-            'required': False,
-            'type': 'list'
-        },
-        'state': {
-            'type': 'str',
-            'required': True,
-            'choices': [
-                'present',
-                'absent'
-            ]
-        },
         'adom': {
             'required': True,
             'type': 'str'
@@ -980,14 +1055,40 @@ def main():
             'type': 'dict',
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'options': {
                 'comment': {
@@ -1001,7 +1102,33 @@ def main():
                         '6.4.2': True,
                         '6.4.5': True,
                         '7.0.0': True,
-                        '7.2.0': True
+                        '7.2.0': True,
+                        '6.2.0': True,
+                        '6.2.2': True,
+                        '6.2.6': True,
+                        '6.2.7': True,
+                        '6.2.8': True,
+                        '6.2.9': True,
+                        '6.2.10': True,
+                        '6.4.1': True,
+                        '6.4.3': True,
+                        '6.4.4': True,
+                        '6.4.6': True,
+                        '6.4.7': True,
+                        '6.4.8': True,
+                        '6.4.9': True,
+                        '6.4.10': True,
+                        '6.4.11': True,
+                        '7.0.1': True,
+                        '7.0.2': True,
+                        '7.0.3': True,
+                        '7.0.4': True,
+                        '7.0.5': True,
+                        '7.0.6': True,
+                        '7.0.7': True,
+                        '7.2.1': True,
+                        '7.2.2': True,
+                        '7.4.0': True
                     },
                     'type': 'str'
                 },
@@ -1016,7 +1143,33 @@ def main():
                         '6.4.2': True,
                         '6.4.5': True,
                         '7.0.0': True,
-                        '7.2.0': True
+                        '7.2.0': True,
+                        '6.2.0': True,
+                        '6.2.2': True,
+                        '6.2.6': True,
+                        '6.2.7': True,
+                        '6.2.8': True,
+                        '6.2.9': True,
+                        '6.2.10': True,
+                        '6.4.1': True,
+                        '6.4.3': True,
+                        '6.4.4': True,
+                        '6.4.6': True,
+                        '6.4.7': True,
+                        '6.4.8': True,
+                        '6.4.9': True,
+                        '6.4.10': True,
+                        '6.4.11': True,
+                        '7.0.1': True,
+                        '7.0.2': True,
+                        '7.0.3': True,
+                        '7.0.4': True,
+                        '7.0.5': True,
+                        '7.0.6': True,
+                        '7.0.7': True,
+                        '7.2.1': True,
+                        '7.2.2': True,
+                        '7.4.0': True
                     },
                     'type': 'str'
                 },
@@ -1031,7 +1184,33 @@ def main():
                         '6.4.2': True,
                         '6.4.5': True,
                         '7.0.0': True,
-                        '7.2.0': True
+                        '7.2.0': True,
+                        '6.2.0': True,
+                        '6.2.2': True,
+                        '6.2.6': True,
+                        '6.2.7': True,
+                        '6.2.8': True,
+                        '6.2.9': True,
+                        '6.2.10': True,
+                        '6.4.1': True,
+                        '6.4.3': True,
+                        '6.4.4': True,
+                        '6.4.6': True,
+                        '6.4.7': True,
+                        '6.4.8': True,
+                        '6.4.9': True,
+                        '6.4.10': True,
+                        '6.4.11': True,
+                        '7.0.1': True,
+                        '7.0.2': True,
+                        '7.0.3': True,
+                        '7.0.4': True,
+                        '7.0.5': True,
+                        '7.0.6': True,
+                        '7.0.7': True,
+                        '7.2.1': True,
+                        '7.2.2': True,
+                        '7.4.0': True
                     },
                     'choices': [
                         'disable',
@@ -1050,7 +1229,33 @@ def main():
                         '6.4.2': True,
                         '6.4.5': True,
                         '7.0.0': True,
-                        '7.2.0': True
+                        '7.2.0': True,
+                        '6.2.0': True,
+                        '6.2.2': True,
+                        '6.2.6': True,
+                        '6.2.7': True,
+                        '6.2.8': True,
+                        '6.2.9': True,
+                        '6.2.10': True,
+                        '6.4.1': True,
+                        '6.4.3': True,
+                        '6.4.4': True,
+                        '6.4.6': True,
+                        '6.4.7': True,
+                        '6.4.8': True,
+                        '6.4.9': True,
+                        '6.4.10': True,
+                        '6.4.11': True,
+                        '7.0.1': True,
+                        '7.0.2': True,
+                        '7.0.3': True,
+                        '7.0.4': True,
+                        '7.0.5': True,
+                        '7.0.6': True,
+                        '7.0.7': True,
+                        '7.2.1': True,
+                        '7.2.2': True,
+                        '7.4.0': True
                     },
                     'type': 'str'
                 },
@@ -1065,7 +1270,33 @@ def main():
                         '6.4.2': True,
                         '6.4.5': True,
                         '7.0.0': True,
-                        '7.2.0': True
+                        '7.2.0': True,
+                        '6.2.0': True,
+                        '6.2.2': True,
+                        '6.2.6': True,
+                        '6.2.7': True,
+                        '6.2.8': True,
+                        '6.2.9': True,
+                        '6.2.10': True,
+                        '6.4.1': True,
+                        '6.4.3': True,
+                        '6.4.4': True,
+                        '6.4.6': True,
+                        '6.4.7': True,
+                        '6.4.8': True,
+                        '6.4.9': True,
+                        '6.4.10': True,
+                        '6.4.11': True,
+                        '7.0.1': True,
+                        '7.0.2': True,
+                        '7.0.3': True,
+                        '7.0.4': True,
+                        '7.0.5': True,
+                        '7.0.6': True,
+                        '7.0.7': True,
+                        '7.2.1': True,
+                        '7.2.2': True,
+                        '7.4.0': True
                     },
                     'choices': [
                         'disable',
@@ -1084,7 +1315,33 @@ def main():
                         '6.4.2': True,
                         '6.4.5': True,
                         '7.0.0': True,
-                        '7.2.0': True
+                        '7.2.0': True,
+                        '6.2.0': True,
+                        '6.2.2': True,
+                        '6.2.6': True,
+                        '6.2.7': True,
+                        '6.2.8': True,
+                        '6.2.9': True,
+                        '6.2.10': True,
+                        '6.4.1': True,
+                        '6.4.3': True,
+                        '6.4.4': True,
+                        '6.4.6': True,
+                        '6.4.7': True,
+                        '6.4.8': True,
+                        '6.4.9': True,
+                        '6.4.10': True,
+                        '6.4.11': True,
+                        '7.0.1': True,
+                        '7.0.2': True,
+                        '7.0.3': True,
+                        '7.0.4': True,
+                        '7.0.5': True,
+                        '7.0.6': True,
+                        '7.0.7': True,
+                        '7.2.1': True,
+                        '7.2.2': True,
+                        '7.4.0': True
                     },
                     'choices': [
                         'disable',
@@ -1098,8 +1355,34 @@ def main():
                         '6.4.0': True,
                         '6.4.2': True,
                         '6.4.5': True,
-                        '7.0.0': False,
-                        '7.2.0': False
+                        '7.0.0': True,
+                        '7.2.0': True,
+                        '6.2.0': False,
+                        '6.2.2': False,
+                        '6.2.6': False,
+                        '6.2.7': False,
+                        '6.2.8': False,
+                        '6.2.9': False,
+                        '6.2.10': False,
+                        '6.4.1': True,
+                        '6.4.3': True,
+                        '6.4.4': True,
+                        '6.4.6': True,
+                        '6.4.7': True,
+                        '6.4.8': True,
+                        '6.4.9': True,
+                        '6.4.10': True,
+                        '6.4.11': True,
+                        '7.0.1': True,
+                        '7.0.2': True,
+                        '7.0.3': True,
+                        '7.0.4': True,
+                        '7.0.5': True,
+                        '7.0.6': True,
+                        '7.0.7': True,
+                        '7.2.1': True,
+                        '7.2.2': True,
+                        '7.4.0': True
                     },
                     'choices': [
                         'proxy',
@@ -1116,7 +1399,33 @@ def main():
                             'revision': {
                                 '6.4.5': True,
                                 '7.0.0': True,
-                                '7.2.0': True
+                                '7.2.0': True,
+                                '6.2.0': False,
+                                '6.2.2': False,
+                                '6.2.6': False,
+                                '6.2.7': False,
+                                '6.2.8': False,
+                                '6.2.9': False,
+                                '6.2.10': False,
+                                '6.4.1': False,
+                                '6.4.3': False,
+                                '6.4.4': False,
+                                '6.4.6': True,
+                                '6.4.7': True,
+                                '6.4.8': True,
+                                '6.4.9': True,
+                                '6.4.10': True,
+                                '6.4.11': True,
+                                '7.0.1': True,
+                                '7.0.2': True,
+                                '7.0.3': True,
+                                '7.0.4': True,
+                                '7.0.5': True,
+                                '7.0.6': True,
+                                '7.0.7': True,
+                                '7.2.1': True,
+                                '7.2.2': True,
+                                '7.4.0': True
                             },
                             'type': 'str'
                         },
@@ -1128,8 +1437,34 @@ def main():
                                     'required': False,
                                     'revision': {
                                         '6.4.5': True,
-                                        '7.0.0': False,
-                                        '7.2.0': False
+                                        '7.0.0': True,
+                                        '7.2.0': True,
+                                        '6.2.0': False,
+                                        '6.2.2': False,
+                                        '6.2.6': False,
+                                        '6.2.7': False,
+                                        '6.2.8': False,
+                                        '6.2.9': False,
+                                        '6.2.10': False,
+                                        '6.4.1': False,
+                                        '6.4.3': False,
+                                        '6.4.4': False,
+                                        '6.4.6': True,
+                                        '6.4.7': True,
+                                        '6.4.8': True,
+                                        '6.4.9': True,
+                                        '6.4.10': True,
+                                        '6.4.11': True,
+                                        '7.0.1': True,
+                                        '7.0.2': True,
+                                        '7.0.3': True,
+                                        '7.0.4': True,
+                                        '7.0.5': True,
+                                        '7.0.6': True,
+                                        '7.0.7': True,
+                                        '7.2.1': True,
+                                        '7.2.2': True,
+                                        '7.4.0': True
                                     },
                                     'type': 'list',
                                     'options': {
@@ -1137,8 +1472,34 @@ def main():
                                             'required': False,
                                             'revision': {
                                                 '6.4.5': True,
-                                                '7.0.0': False,
-                                                '7.2.0': False
+                                                '7.0.0': True,
+                                                '7.2.0': True,
+                                                '6.2.0': False,
+                                                '6.2.2': False,
+                                                '6.2.6': False,
+                                                '6.2.7': False,
+                                                '6.2.8': False,
+                                                '6.2.9': False,
+                                                '6.2.10': False,
+                                                '6.4.1': False,
+                                                '6.4.3': False,
+                                                '6.4.4': False,
+                                                '6.4.6': True,
+                                                '6.4.7': True,
+                                                '6.4.8': True,
+                                                '6.4.9': True,
+                                                '6.4.10': True,
+                                                '6.4.11': True,
+                                                '7.0.1': True,
+                                                '7.0.2': True,
+                                                '7.0.3': True,
+                                                '7.0.4': True,
+                                                '7.0.5': True,
+                                                '7.0.6': True,
+                                                '7.0.7': True,
+                                                '7.2.1': True,
+                                                '7.2.2': True,
+                                                '7.4.0': True
                                             },
                                             'choices': [
                                                 'log',
@@ -1150,8 +1511,34 @@ def main():
                                             'required': False,
                                             'revision': {
                                                 '6.4.5': True,
-                                                '7.0.0': False,
-                                                '7.2.0': False
+                                                '7.0.0': True,
+                                                '7.2.0': True,
+                                                '6.2.0': False,
+                                                '6.2.2': False,
+                                                '6.2.6': False,
+                                                '6.2.7': False,
+                                                '6.2.8': False,
+                                                '6.2.9': False,
+                                                '6.2.10': False,
+                                                '6.4.1': False,
+                                                '6.4.3': False,
+                                                '6.4.4': False,
+                                                '6.4.6': True,
+                                                '6.4.7': True,
+                                                '6.4.8': True,
+                                                '6.4.9': True,
+                                                '6.4.10': True,
+                                                '6.4.11': True,
+                                                '7.0.1': True,
+                                                '7.0.2': True,
+                                                '7.0.3': True,
+                                                '7.0.4': True,
+                                                '7.0.5': True,
+                                                '7.0.6': True,
+                                                '7.0.7': True,
+                                                '7.2.1': True,
+                                                '7.2.2': True,
+                                                '7.4.0': True
                                             },
                                             'type': 'str'
                                         },
@@ -1159,8 +1546,34 @@ def main():
                                             'required': False,
                                             'revision': {
                                                 '6.4.5': True,
-                                                '7.0.0': False,
-                                                '7.2.0': False
+                                                '7.0.0': True,
+                                                '7.2.0': True,
+                                                '6.2.0': False,
+                                                '6.2.2': False,
+                                                '6.2.6': False,
+                                                '6.2.7': False,
+                                                '6.2.8': False,
+                                                '6.2.9': False,
+                                                '6.2.10': False,
+                                                '6.4.1': False,
+                                                '6.4.3': False,
+                                                '6.4.4': False,
+                                                '6.4.6': True,
+                                                '6.4.7': True,
+                                                '6.4.8': True,
+                                                '6.4.9': True,
+                                                '6.4.10': True,
+                                                '6.4.11': True,
+                                                '7.0.1': True,
+                                                '7.0.2': True,
+                                                '7.0.3': True,
+                                                '7.0.4': True,
+                                                '7.0.5': True,
+                                                '7.0.6': True,
+                                                '7.0.7': True,
+                                                '7.2.1': True,
+                                                '7.2.2': True,
+                                                '7.4.0': True
                                             },
                                             'choices': [
                                                 'any',
@@ -1173,8 +1586,34 @@ def main():
                                             'required': False,
                                             'revision': {
                                                 '6.4.5': True,
-                                                '7.0.0': False,
-                                                '7.2.0': False
+                                                '7.0.0': True,
+                                                '7.2.0': True,
+                                                '6.2.0': False,
+                                                '6.2.2': False,
+                                                '6.2.6': False,
+                                                '6.2.7': False,
+                                                '6.2.8': False,
+                                                '6.2.9': False,
+                                                '6.2.10': False,
+                                                '6.4.1': False,
+                                                '6.4.3': False,
+                                                '6.4.4': False,
+                                                '6.4.6': True,
+                                                '6.4.7': True,
+                                                '6.4.8': True,
+                                                '6.4.9': True,
+                                                '6.4.10': True,
+                                                '6.4.11': True,
+                                                '7.0.1': True,
+                                                '7.0.2': True,
+                                                '7.0.3': True,
+                                                '7.0.4': True,
+                                                '7.0.5': True,
+                                                '7.0.6': True,
+                                                '7.0.7': True,
+                                                '7.2.1': True,
+                                                '7.2.2': True,
+                                                '7.4.0': True
                                             },
                                             'type': 'str'
                                         },
@@ -1182,8 +1621,34 @@ def main():
                                             'required': False,
                                             'revision': {
                                                 '6.4.5': True,
-                                                '7.0.0': False,
-                                                '7.2.0': False
+                                                '7.0.0': True,
+                                                '7.2.0': True,
+                                                '6.2.0': False,
+                                                '6.2.2': False,
+                                                '6.2.6': False,
+                                                '6.2.7': False,
+                                                '6.2.8': False,
+                                                '6.2.9': False,
+                                                '6.2.10': False,
+                                                '6.4.1': False,
+                                                '6.4.3': False,
+                                                '6.4.4': False,
+                                                '6.4.6': True,
+                                                '6.4.7': True,
+                                                '6.4.8': True,
+                                                '6.4.9': True,
+                                                '6.4.10': True,
+                                                '6.4.11': True,
+                                                '7.0.1': True,
+                                                '7.0.2': True,
+                                                '7.0.3': True,
+                                                '7.0.4': True,
+                                                '7.0.5': True,
+                                                '7.0.6': True,
+                                                '7.0.7': True,
+                                                '7.2.1': True,
+                                                '7.2.2': True,
+                                                '7.4.0': True
                                             },
                                             'type': 'str'
                                         },
@@ -1191,22 +1656,76 @@ def main():
                                             'required': False,
                                             'revision': {
                                                 '6.4.5': True,
-                                                '7.0.0': False,
-                                                '7.2.0': False
+                                                '7.0.0': True,
+                                                '7.2.0': True,
+                                                '6.2.0': False,
+                                                '6.2.2': False,
+                                                '6.2.6': False,
+                                                '6.2.7': False,
+                                                '6.2.8': False,
+                                                '6.2.9': False,
+                                                '6.2.10': False,
+                                                '6.4.1': False,
+                                                '6.4.3': False,
+                                                '6.4.4': False,
+                                                '6.4.6': True,
+                                                '6.4.7': True,
+                                                '6.4.8': True,
+                                                '6.4.9': True,
+                                                '6.4.10': True,
+                                                '6.4.11': True,
+                                                '7.0.1': True,
+                                                '7.0.2': True,
+                                                '7.0.3': True,
+                                                '7.0.4': True,
+                                                '7.0.5': True,
+                                                '7.0.6': True,
+                                                '7.0.7': True,
+                                                '7.2.1': True,
+                                                '7.2.2': True,
+                                                '7.4.0': True
                                             },
                                             'type': 'list',
                                             'choices': [
                                                 'cifs'
-                                            ]
+                                            ],
+                                            'elements': 'str'
                                         }
-                                    }
+                                    },
+                                    'elements': 'dict'
                                 },
                                 'log': {
                                     'required': False,
                                     'revision': {
                                         '6.4.5': True,
-                                        '7.0.0': False,
-                                        '7.2.0': False
+                                        '7.0.0': True,
+                                        '7.2.0': True,
+                                        '6.2.0': False,
+                                        '6.2.2': False,
+                                        '6.2.6': False,
+                                        '6.2.7': False,
+                                        '6.2.8': False,
+                                        '6.2.9': False,
+                                        '6.2.10': False,
+                                        '6.4.1': False,
+                                        '6.4.3': False,
+                                        '6.4.4': False,
+                                        '6.4.6': True,
+                                        '6.4.7': True,
+                                        '6.4.8': True,
+                                        '6.4.9': True,
+                                        '6.4.10': True,
+                                        '6.4.11': True,
+                                        '7.0.1': True,
+                                        '7.0.2': True,
+                                        '7.0.3': True,
+                                        '7.0.4': True,
+                                        '7.0.5': True,
+                                        '7.0.6': True,
+                                        '7.0.7': True,
+                                        '7.2.1': True,
+                                        '7.2.2': True,
+                                        '7.4.0': True
                                     },
                                     'choices': [
                                         'disable',
@@ -1218,8 +1737,34 @@ def main():
                                     'required': False,
                                     'revision': {
                                         '6.4.5': True,
-                                        '7.0.0': False,
-                                        '7.2.0': False
+                                        '7.0.0': True,
+                                        '7.2.0': True,
+                                        '6.2.0': False,
+                                        '6.2.2': False,
+                                        '6.2.6': False,
+                                        '6.2.7': False,
+                                        '6.2.8': False,
+                                        '6.2.9': False,
+                                        '6.2.10': False,
+                                        '6.4.1': False,
+                                        '6.4.3': False,
+                                        '6.4.4': False,
+                                        '6.4.6': True,
+                                        '6.4.7': True,
+                                        '6.4.8': True,
+                                        '6.4.9': True,
+                                        '6.4.10': True,
+                                        '6.4.11': True,
+                                        '7.0.1': True,
+                                        '7.0.2': True,
+                                        '7.0.3': True,
+                                        '7.0.4': True,
+                                        '7.0.5': True,
+                                        '7.0.6': True,
+                                        '7.0.7': True,
+                                        '7.2.1': True,
+                                        '7.2.2': True,
+                                        '7.4.0': True
                                     },
                                     'choices': [
                                         'disable',
@@ -1234,19 +1779,72 @@ def main():
                             'revision': {
                                 '6.4.5': True,
                                 '7.0.0': True,
-                                '7.2.0': True
+                                '7.2.0': True,
+                                '6.2.0': False,
+                                '6.2.2': False,
+                                '6.2.6': False,
+                                '6.2.7': False,
+                                '6.2.8': False,
+                                '6.2.9': False,
+                                '6.2.10': False,
+                                '6.4.1': False,
+                                '6.4.3': False,
+                                '6.4.4': False,
+                                '6.4.6': True,
+                                '6.4.7': True,
+                                '6.4.8': True,
+                                '6.4.9': True,
+                                '6.4.10': True,
+                                '6.4.11': True,
+                                '7.0.1': True,
+                                '7.0.2': True,
+                                '7.0.3': True,
+                                '7.0.4': True,
+                                '7.0.5': True,
+                                '7.0.6': True,
+                                '7.0.7': True,
+                                '7.2.1': True,
+                                '7.2.2': True,
+                                '7.4.0': True
                             },
                             'type': 'list',
                             'choices': [
                                 'oversize'
-                            ]
+                            ],
+                            'elements': 'str'
                         },
                         'oversize-limit': {
                             'required': False,
                             'revision': {
                                 '6.4.5': True,
                                 '7.0.0': True,
-                                '7.2.0': True
+                                '7.2.0': True,
+                                '6.2.0': False,
+                                '6.2.2': False,
+                                '6.2.6': False,
+                                '6.2.7': False,
+                                '6.2.8': False,
+                                '6.2.9': False,
+                                '6.2.10': False,
+                                '6.4.1': False,
+                                '6.4.3': False,
+                                '6.4.4': False,
+                                '6.4.6': True,
+                                '6.4.7': True,
+                                '6.4.8': True,
+                                '6.4.9': True,
+                                '6.4.10': True,
+                                '6.4.11': True,
+                                '7.0.1': True,
+                                '7.0.2': True,
+                                '7.0.3': True,
+                                '7.0.4': True,
+                                '7.0.5': True,
+                                '7.0.6': True,
+                                '7.0.7': True,
+                                '7.2.1': True,
+                                '7.2.2': True,
+                                '7.4.0': True
                             },
                             'type': 'int'
                         },
@@ -1255,7 +1853,33 @@ def main():
                             'revision': {
                                 '6.4.5': True,
                                 '7.0.0': True,
-                                '7.2.0': True
+                                '7.2.0': True,
+                                '6.2.0': False,
+                                '6.2.2': False,
+                                '6.2.6': False,
+                                '6.2.7': False,
+                                '6.2.8': True,
+                                '6.2.9': True,
+                                '6.2.10': True,
+                                '6.4.1': False,
+                                '6.4.3': False,
+                                '6.4.4': False,
+                                '6.4.6': True,
+                                '6.4.7': True,
+                                '6.4.8': True,
+                                '6.4.9': True,
+                                '6.4.10': True,
+                                '6.4.11': True,
+                                '7.0.1': True,
+                                '7.0.2': True,
+                                '7.0.3': True,
+                                '7.0.4': True,
+                                '7.0.5': True,
+                                '7.0.6': True,
+                                '7.0.7': True,
+                                '7.2.1': True,
+                                '7.2.2': True,
+                                '7.4.0': True
                             },
                             'type': 'int'
                         },
@@ -1264,7 +1888,33 @@ def main():
                             'revision': {
                                 '6.4.5': True,
                                 '7.0.0': True,
-                                '7.2.0': True
+                                '7.2.0': True,
+                                '6.2.0': False,
+                                '6.2.2': False,
+                                '6.2.6': False,
+                                '6.2.7': False,
+                                '6.2.8': False,
+                                '6.2.9': False,
+                                '6.2.10': False,
+                                '6.4.1': False,
+                                '6.4.3': False,
+                                '6.4.4': False,
+                                '6.4.6': True,
+                                '6.4.7': True,
+                                '6.4.8': True,
+                                '6.4.9': True,
+                                '6.4.10': True,
+                                '6.4.11': True,
+                                '7.0.1': True,
+                                '7.0.2': True,
+                                '7.0.3': True,
+                                '7.0.4': True,
+                                '7.0.5': True,
+                                '7.0.6': True,
+                                '7.0.7': True,
+                                '7.2.1': True,
+                                '7.2.2': True,
+                                '7.4.0': True
                             },
                             'choices': [
                                 'disable',
@@ -1277,7 +1927,33 @@ def main():
                             'revision': {
                                 '6.4.5': True,
                                 '7.0.0': True,
-                                '7.2.0': True
+                                '7.2.0': True,
+                                '6.2.0': False,
+                                '6.2.2': False,
+                                '6.2.6': False,
+                                '6.2.7': False,
+                                '6.2.8': False,
+                                '6.2.9': False,
+                                '6.2.10': False,
+                                '6.4.1': False,
+                                '6.4.3': False,
+                                '6.4.4': False,
+                                '6.4.6': True,
+                                '6.4.7': True,
+                                '6.4.8': True,
+                                '6.4.9': True,
+                                '6.4.10': True,
+                                '6.4.11': True,
+                                '7.0.1': True,
+                                '7.0.2': True,
+                                '7.0.3': True,
+                                '7.0.4': True,
+                                '7.0.5': True,
+                                '7.0.6': True,
+                                '7.0.7': True,
+                                '7.2.1': True,
+                                '7.2.2': True,
+                                '7.4.0': True
                             },
                             'choices': [
                                 'none',
@@ -1291,7 +1967,33 @@ def main():
                             'revision': {
                                 '6.4.5': True,
                                 '7.0.0': True,
-                                '7.2.0': True
+                                '7.2.0': True,
+                                '6.2.0': False,
+                                '6.2.2': False,
+                                '6.2.6': False,
+                                '6.2.7': False,
+                                '6.2.8': False,
+                                '6.2.9': False,
+                                '6.2.10': False,
+                                '6.4.1': False,
+                                '6.4.3': False,
+                                '6.4.4': False,
+                                '6.4.6': True,
+                                '6.4.7': True,
+                                '6.4.8': True,
+                                '6.4.9': True,
+                                '6.4.10': True,
+                                '6.4.11': True,
+                                '7.0.1': True,
+                                '7.0.2': True,
+                                '7.0.3': True,
+                                '7.0.4': True,
+                                '7.0.5': True,
+                                '7.0.6': True,
+                                '7.0.7': True,
+                                '7.2.1': True,
+                                '7.2.2': True,
+                                '7.4.0': True
                             },
                             'type': 'list',
                             'options': {
@@ -1300,7 +2002,33 @@ def main():
                                     'revision': {
                                         '6.4.5': True,
                                         '7.0.0': True,
-                                        '7.2.0': True
+                                        '7.2.0': True,
+                                        '6.2.0': False,
+                                        '6.2.2': False,
+                                        '6.2.6': False,
+                                        '6.2.7': False,
+                                        '6.2.8': False,
+                                        '6.2.9': False,
+                                        '6.2.10': False,
+                                        '6.4.1': False,
+                                        '6.4.3': False,
+                                        '6.4.4': False,
+                                        '6.4.6': True,
+                                        '6.4.7': True,
+                                        '6.4.8': True,
+                                        '6.4.9': True,
+                                        '6.4.10': True,
+                                        '6.4.11': True,
+                                        '7.0.1': True,
+                                        '7.0.2': True,
+                                        '7.0.3': True,
+                                        '7.0.4': True,
+                                        '7.0.5': True,
+                                        '7.0.6': True,
+                                        '7.0.7': True,
+                                        '7.2.1': True,
+                                        '7.2.2': True,
+                                        '7.4.0': True
                                     },
                                     'type': 'str'
                                 },
@@ -1309,8 +2037,35 @@ def main():
                                     'revision': {
                                         '6.4.5': True,
                                         '7.0.0': True,
-                                        '7.2.0': True
+                                        '7.2.0': True,
+                                        '6.2.0': False,
+                                        '6.2.2': False,
+                                        '6.2.6': False,
+                                        '6.2.7': False,
+                                        '6.2.8': False,
+                                        '6.2.9': False,
+                                        '6.2.10': False,
+                                        '6.4.1': False,
+                                        '6.4.3': False,
+                                        '6.4.4': False,
+                                        '6.4.6': True,
+                                        '6.4.7': True,
+                                        '6.4.8': True,
+                                        '6.4.9': True,
+                                        '6.4.10': True,
+                                        '6.4.11': True,
+                                        '7.0.1': True,
+                                        '7.0.2': True,
+                                        '7.0.3': True,
+                                        '7.0.4': True,
+                                        '7.0.5': True,
+                                        '7.0.6': True,
+                                        '7.0.7': True,
+                                        '7.2.1': True,
+                                        '7.2.2': True,
+                                        '7.4.0': True
                                     },
+                                    'no_log': True,
                                     'type': 'str'
                                 },
                                 'principal': {
@@ -1318,18 +2073,71 @@ def main():
                                     'revision': {
                                         '6.4.5': True,
                                         '7.0.0': True,
-                                        '7.2.0': True
+                                        '7.2.0': True,
+                                        '6.2.0': False,
+                                        '6.2.2': False,
+                                        '6.2.6': False,
+                                        '6.2.7': False,
+                                        '6.2.8': False,
+                                        '6.2.9': False,
+                                        '6.2.10': False,
+                                        '6.4.1': False,
+                                        '6.4.3': False,
+                                        '6.4.4': False,
+                                        '6.4.6': True,
+                                        '6.4.7': True,
+                                        '6.4.8': True,
+                                        '6.4.9': True,
+                                        '6.4.10': True,
+                                        '6.4.11': True,
+                                        '7.0.1': True,
+                                        '7.0.2': True,
+                                        '7.0.3': True,
+                                        '7.0.4': True,
+                                        '7.0.5': True,
+                                        '7.0.6': True,
+                                        '7.0.7': True,
+                                        '7.2.1': True,
+                                        '7.2.2': True,
+                                        '7.4.0': True
                                     },
                                     'type': 'str'
                                 }
-                            }
+                            },
+                            'elements': 'dict'
                         },
                         'status': {
                             'required': False,
                             'revision': {
                                 '6.4.5': True,
                                 '7.0.0': True,
-                                '7.2.0': True
+                                '7.2.0': True,
+                                '6.2.0': False,
+                                '6.2.2': False,
+                                '6.2.6': False,
+                                '6.2.7': False,
+                                '6.2.8': True,
+                                '6.2.9': True,
+                                '6.2.10': True,
+                                '6.4.1': False,
+                                '6.4.3': False,
+                                '6.4.4': False,
+                                '6.4.6': True,
+                                '6.4.7': True,
+                                '6.4.8': True,
+                                '6.4.9': True,
+                                '6.4.10': True,
+                                '6.4.11': True,
+                                '7.0.1': True,
+                                '7.0.2': True,
+                                '7.0.3': True,
+                                '7.0.4': True,
+                                '7.0.5': True,
+                                '7.0.6': True,
+                                '7.0.7': True,
+                                '7.2.1': True,
+                                '7.2.2': True,
+                                '7.4.0': True
                             },
                             'choices': [
                                 'disable',
@@ -1342,7 +2150,33 @@ def main():
                             'revision': {
                                 '6.4.5': True,
                                 '7.0.0': True,
-                                '7.2.0': True
+                                '7.2.0': True,
+                                '6.2.0': False,
+                                '6.2.2': False,
+                                '6.2.6': False,
+                                '6.2.7': False,
+                                '6.2.8': False,
+                                '6.2.9': False,
+                                '6.2.10': False,
+                                '6.4.1': False,
+                                '6.4.3': False,
+                                '6.4.4': False,
+                                '6.4.6': True,
+                                '6.4.7': True,
+                                '6.4.8': True,
+                                '6.4.9': True,
+                                '6.4.10': True,
+                                '6.4.11': True,
+                                '7.0.1': True,
+                                '7.0.2': True,
+                                '7.0.3': True,
+                                '7.0.4': True,
+                                '7.0.5': True,
+                                '7.0.6': True,
+                                '7.0.7': True,
+                                '7.2.1': True,
+                                '7.2.2': True,
+                                '7.4.0': True
                             },
                             'type': 'int'
                         },
@@ -1351,7 +2185,33 @@ def main():
                             'revision': {
                                 '6.4.5': True,
                                 '7.0.0': True,
-                                '7.2.0': True
+                                '7.2.0': True,
+                                '6.2.0': False,
+                                '6.2.2': False,
+                                '6.2.6': False,
+                                '6.2.7': False,
+                                '6.2.8': False,
+                                '6.2.9': False,
+                                '6.2.10': False,
+                                '6.4.1': False,
+                                '6.4.3': False,
+                                '6.4.4': False,
+                                '6.4.6': True,
+                                '6.4.7': True,
+                                '6.4.8': True,
+                                '6.4.9': True,
+                                '6.4.10': True,
+                                '6.4.11': True,
+                                '7.0.1': True,
+                                '7.0.2': True,
+                                '7.0.3': True,
+                                '7.0.4': True,
+                                '7.0.5': True,
+                                '7.0.6': True,
+                                '7.0.7': True,
+                                '7.2.1': True,
+                                '7.2.2': True,
+                                '7.4.0': True
                             },
                             'type': 'int'
                         },
@@ -1360,7 +2220,33 @@ def main():
                             'revision': {
                                 '6.4.5': True,
                                 '7.0.0': True,
-                                '7.2.0': True
+                                '7.2.0': True,
+                                '6.2.0': False,
+                                '6.2.2': False,
+                                '6.2.6': False,
+                                '6.2.7': False,
+                                '6.2.8': False,
+                                '6.2.9': False,
+                                '6.2.10': False,
+                                '6.4.1': False,
+                                '6.4.3': False,
+                                '6.4.4': False,
+                                '6.4.6': True,
+                                '6.4.7': True,
+                                '6.4.8': True,
+                                '6.4.9': True,
+                                '6.4.10': True,
+                                '6.4.11': True,
+                                '7.0.1': True,
+                                '7.0.2': True,
+                                '7.0.3': True,
+                                '7.0.4': True,
+                                '7.0.5': True,
+                                '7.0.6': True,
+                                '7.0.7': True,
+                                '7.2.1': True,
+                                '7.2.2': True,
+                                '7.4.0': True
                             },
                             'type': 'int'
                         },
@@ -1369,7 +2255,33 @@ def main():
                             'revision': {
                                 '6.4.5': True,
                                 '7.0.0': True,
-                                '7.2.0': True
+                                '7.2.0': True,
+                                '6.2.0': False,
+                                '6.2.2': False,
+                                '6.2.6': False,
+                                '6.2.7': False,
+                                '6.2.8': False,
+                                '6.2.9': False,
+                                '6.2.10': False,
+                                '6.4.1': False,
+                                '6.4.3': False,
+                                '6.4.4': False,
+                                '6.4.6': True,
+                                '6.4.7': True,
+                                '6.4.8': True,
+                                '6.4.9': True,
+                                '6.4.10': True,
+                                '6.4.11': True,
+                                '7.0.1': True,
+                                '7.0.2': True,
+                                '7.0.3': True,
+                                '7.0.4': True,
+                                '7.0.5': True,
+                                '7.0.6': True,
+                                '7.0.7': True,
+                                '7.2.1': True,
+                                '7.2.2': True,
+                                '7.4.0': True
                             },
                             'choices': [
                                 'system',
@@ -1384,7 +2296,33 @@ def main():
                             'revision': {
                                 '6.4.5': True,
                                 '7.0.0': True,
-                                '7.2.0': True
+                                '7.2.0': True,
+                                '6.2.0': False,
+                                '6.2.2': False,
+                                '6.2.6': False,
+                                '6.2.7': False,
+                                '6.2.8': False,
+                                '6.2.9': False,
+                                '6.2.10': False,
+                                '6.4.1': False,
+                                '6.4.3': False,
+                                '6.4.4': False,
+                                '6.4.6': True,
+                                '6.4.7': True,
+                                '6.4.8': True,
+                                '6.4.9': True,
+                                '6.4.10': True,
+                                '6.4.11': True,
+                                '7.0.1': True,
+                                '7.0.2': True,
+                                '7.0.3': True,
+                                '7.0.4': True,
+                                '7.0.5': True,
+                                '7.0.6': True,
+                                '7.0.7': True,
+                                '7.2.1': True,
+                                '7.2.2': True,
+                                '7.4.0': True
                             },
                             'type': 'int'
                         },
@@ -1393,7 +2331,33 @@ def main():
                             'revision': {
                                 '6.4.5': True,
                                 '7.0.0': True,
-                                '7.2.0': True
+                                '7.2.0': True,
+                                '6.2.0': False,
+                                '6.2.2': False,
+                                '6.2.6': False,
+                                '6.2.7': False,
+                                '6.2.8': False,
+                                '6.2.9': False,
+                                '6.2.10': False,
+                                '6.4.1': False,
+                                '6.4.3': False,
+                                '6.4.4': False,
+                                '6.4.6': True,
+                                '6.4.7': True,
+                                '6.4.8': True,
+                                '6.4.9': True,
+                                '6.4.10': True,
+                                '6.4.11': True,
+                                '7.0.1': True,
+                                '7.0.2': True,
+                                '7.0.3': True,
+                                '7.0.4': True,
+                                '7.0.5': True,
+                                '7.0.6': True,
+                                '7.0.7': True,
+                                '7.2.1': True,
+                                '7.2.2': True,
+                                '7.4.0': True
                             },
                             'type': 'int'
                         }
@@ -1408,7 +2372,33 @@ def main():
                             'revision': {
                                 '6.4.5': True,
                                 '7.0.0': True,
-                                '7.2.0': True
+                                '7.2.0': True,
+                                '6.2.0': False,
+                                '6.2.2': False,
+                                '6.2.6': False,
+                                '6.2.7': False,
+                                '6.2.8': True,
+                                '6.2.9': True,
+                                '6.2.10': True,
+                                '6.4.1': False,
+                                '6.4.3': False,
+                                '6.4.4': False,
+                                '6.4.6': True,
+                                '6.4.7': True,
+                                '6.4.8': True,
+                                '6.4.9': True,
+                                '6.4.10': True,
+                                '6.4.11': True,
+                                '7.0.1': True,
+                                '7.0.2': True,
+                                '7.0.3': True,
+                                '7.0.4': True,
+                                '7.0.5': True,
+                                '7.0.6': True,
+                                '7.0.7': True,
+                                '7.2.1': True,
+                                '7.2.2': True,
+                                '7.4.0': True
                             },
                             'type': 'int'
                         },
@@ -1417,7 +2407,33 @@ def main():
                             'revision': {
                                 '6.4.5': True,
                                 '7.0.0': True,
-                                '7.2.0': True
+                                '7.2.0': True,
+                                '6.2.0': False,
+                                '6.2.2': False,
+                                '6.2.6': False,
+                                '6.2.7': False,
+                                '6.2.8': True,
+                                '6.2.9': True,
+                                '6.2.10': True,
+                                '6.4.1': False,
+                                '6.4.3': False,
+                                '6.4.4': False,
+                                '6.4.6': True,
+                                '6.4.7': True,
+                                '6.4.8': True,
+                                '6.4.9': True,
+                                '6.4.10': True,
+                                '6.4.11': True,
+                                '7.0.1': True,
+                                '7.0.2': True,
+                                '7.0.3': True,
+                                '7.0.4': True,
+                                '7.0.5': True,
+                                '7.0.6': True,
+                                '7.0.7': True,
+                                '7.2.1': True,
+                                '7.2.2': True,
+                                '7.4.0': True
                             },
                             'choices': [
                                 'disable',
@@ -1436,7 +2452,33 @@ def main():
                             'revision': {
                                 '6.4.5': True,
                                 '7.0.0': True,
-                                '7.2.0': True
+                                '7.2.0': True,
+                                '6.2.0': False,
+                                '6.2.2': False,
+                                '6.2.6': False,
+                                '6.2.7': False,
+                                '6.2.8': True,
+                                '6.2.9': True,
+                                '6.2.10': True,
+                                '6.4.1': False,
+                                '6.4.3': False,
+                                '6.4.4': False,
+                                '6.4.6': True,
+                                '6.4.7': True,
+                                '6.4.8': True,
+                                '6.4.9': True,
+                                '6.4.10': True,
+                                '6.4.11': True,
+                                '7.0.1': True,
+                                '7.0.2': True,
+                                '7.0.3': True,
+                                '7.0.4': True,
+                                '7.0.5': True,
+                                '7.0.6': True,
+                                '7.0.7': True,
+                                '7.2.1': True,
+                                '7.2.2': True,
+                                '7.4.0': True
                             },
                             'type': 'int'
                         },
@@ -1445,7 +2487,33 @@ def main():
                             'revision': {
                                 '6.4.5': True,
                                 '7.0.0': True,
-                                '7.2.0': True
+                                '7.2.0': True,
+                                '6.2.0': False,
+                                '6.2.2': False,
+                                '6.2.6': False,
+                                '6.2.7': False,
+                                '6.2.8': True,
+                                '6.2.9': True,
+                                '6.2.10': True,
+                                '6.4.1': False,
+                                '6.4.3': False,
+                                '6.4.4': False,
+                                '6.4.6': True,
+                                '6.4.7': True,
+                                '6.4.8': True,
+                                '6.4.9': True,
+                                '6.4.10': True,
+                                '6.4.11': True,
+                                '7.0.1': True,
+                                '7.0.2': True,
+                                '7.0.3': True,
+                                '7.0.4': True,
+                                '7.0.5': True,
+                                '7.0.6': True,
+                                '7.0.7': True,
+                                '7.2.1': True,
+                                '7.2.2': True,
+                                '7.4.0': True
                             },
                             'type': 'int'
                         },
@@ -1454,7 +2522,33 @@ def main():
                             'revision': {
                                 '6.4.5': True,
                                 '7.0.0': True,
-                                '7.2.0': True
+                                '7.2.0': True,
+                                '6.2.0': False,
+                                '6.2.2': False,
+                                '6.2.6': False,
+                                '6.2.7': False,
+                                '6.2.8': True,
+                                '6.2.9': True,
+                                '6.2.10': True,
+                                '6.4.1': False,
+                                '6.4.3': False,
+                                '6.4.4': False,
+                                '6.4.6': True,
+                                '6.4.7': True,
+                                '6.4.8': True,
+                                '6.4.9': True,
+                                '6.4.10': True,
+                                '6.4.11': True,
+                                '7.0.1': True,
+                                '7.0.2': True,
+                                '7.0.3': True,
+                                '7.0.4': True,
+                                '7.0.5': True,
+                                '7.0.6': True,
+                                '7.0.7': True,
+                                '7.2.1': True,
+                                '7.2.2': True,
+                                '7.4.0': True
                             },
                             'choices': [
                                 'disable',
@@ -1467,7 +2561,33 @@ def main():
                             'revision': {
                                 '6.4.5': True,
                                 '7.0.0': True,
-                                '7.2.0': True
+                                '7.2.0': True,
+                                '6.2.0': False,
+                                '6.2.2': False,
+                                '6.2.6': False,
+                                '6.2.7': False,
+                                '6.2.8': True,
+                                '6.2.9': True,
+                                '6.2.10': True,
+                                '6.4.1': False,
+                                '6.4.3': False,
+                                '6.4.4': False,
+                                '6.4.6': True,
+                                '6.4.7': True,
+                                '6.4.8': True,
+                                '6.4.9': True,
+                                '6.4.10': True,
+                                '6.4.11': True,
+                                '7.0.1': True,
+                                '7.0.2': True,
+                                '7.0.3': True,
+                                '7.0.4': True,
+                                '7.0.5': True,
+                                '7.0.6': True,
+                                '7.0.7': True,
+                                '7.2.1': True,
+                                '7.2.2': True,
+                                '7.4.0': True
                             },
                             'type': 'list',
                             'choices': [
@@ -1477,14 +2597,41 @@ def main():
                                 'splice',
                                 'bypass-rest-command',
                                 'bypass-mode-command'
-                            ]
+                            ],
+                            'elements': 'str'
                         },
                         'oversize-limit': {
                             'required': False,
                             'revision': {
                                 '6.4.5': True,
                                 '7.0.0': True,
-                                '7.2.0': True
+                                '7.2.0': True,
+                                '6.2.0': False,
+                                '6.2.2': False,
+                                '6.2.6': False,
+                                '6.2.7': False,
+                                '6.2.8': True,
+                                '6.2.9': True,
+                                '6.2.10': True,
+                                '6.4.1': False,
+                                '6.4.3': False,
+                                '6.4.4': False,
+                                '6.4.6': True,
+                                '6.4.7': True,
+                                '6.4.8': True,
+                                '6.4.9': True,
+                                '6.4.10': True,
+                                '6.4.11': True,
+                                '7.0.1': True,
+                                '7.0.2': True,
+                                '7.0.3': True,
+                                '7.0.4': True,
+                                '7.0.5': True,
+                                '7.0.6': True,
+                                '7.0.7': True,
+                                '7.2.1': True,
+                                '7.2.2': True,
+                                '7.4.0': True
                             },
                             'type': 'int'
                         },
@@ -1493,7 +2640,33 @@ def main():
                             'revision': {
                                 '6.4.5': True,
                                 '7.0.0': True,
-                                '7.2.0': True
+                                '7.2.0': True,
+                                '6.2.0': False,
+                                '6.2.2': False,
+                                '6.2.6': False,
+                                '6.2.7': False,
+                                '6.2.8': True,
+                                '6.2.9': True,
+                                '6.2.10': True,
+                                '6.4.1': False,
+                                '6.4.3': False,
+                                '6.4.4': False,
+                                '6.4.6': True,
+                                '6.4.7': True,
+                                '6.4.8': True,
+                                '6.4.9': True,
+                                '6.4.10': True,
+                                '6.4.11': True,
+                                '7.0.1': True,
+                                '7.0.2': True,
+                                '7.0.3': True,
+                                '7.0.4': True,
+                                '7.0.5': True,
+                                '7.0.6': True,
+                                '7.0.7': True,
+                                '7.2.1': True,
+                                '7.2.2': True,
+                                '7.4.0': True
                             },
                             'type': 'int'
                         },
@@ -1502,7 +2675,33 @@ def main():
                             'revision': {
                                 '6.4.5': True,
                                 '7.0.0': True,
-                                '7.2.0': True
+                                '7.2.0': True,
+                                '6.2.0': False,
+                                '6.2.2': False,
+                                '6.2.6': False,
+                                '6.2.7': False,
+                                '6.2.8': True,
+                                '6.2.9': True,
+                                '6.2.10': True,
+                                '6.4.1': False,
+                                '6.4.3': False,
+                                '6.4.4': False,
+                                '6.4.6': True,
+                                '6.4.7': True,
+                                '6.4.8': True,
+                                '6.4.9': True,
+                                '6.4.10': True,
+                                '6.4.11': True,
+                                '7.0.1': True,
+                                '7.0.2': True,
+                                '7.0.3': True,
+                                '7.0.4': True,
+                                '7.0.5': True,
+                                '7.0.6': True,
+                                '7.0.7': True,
+                                '7.2.1': True,
+                                '7.2.2': True,
+                                '7.4.0': True
                             },
                             'choices': [
                                 'disable',
@@ -1515,7 +2714,33 @@ def main():
                             'revision': {
                                 '6.4.5': True,
                                 '7.0.0': True,
-                                '7.2.0': True
+                                '7.2.0': True,
+                                '6.2.0': False,
+                                '6.2.2': False,
+                                '6.2.6': False,
+                                '6.2.7': False,
+                                '6.2.8': True,
+                                '6.2.9': True,
+                                '6.2.10': True,
+                                '6.4.1': False,
+                                '6.4.3': False,
+                                '6.4.4': False,
+                                '6.4.6': True,
+                                '6.4.7': True,
+                                '6.4.8': True,
+                                '6.4.9': True,
+                                '6.4.10': True,
+                                '6.4.11': True,
+                                '7.0.1': True,
+                                '7.0.2': True,
+                                '7.0.3': True,
+                                '7.0.4': True,
+                                '7.0.5': True,
+                                '7.0.6': True,
+                                '7.0.7': True,
+                                '7.2.1': True,
+                                '7.2.2': True,
+                                '7.4.0': True
                             },
                             'choices': [
                                 'no',
@@ -1528,7 +2753,33 @@ def main():
                             'revision': {
                                 '6.4.5': True,
                                 '7.0.0': True,
-                                '7.2.0': True
+                                '7.2.0': True,
+                                '6.2.0': False,
+                                '6.2.2': False,
+                                '6.2.6': False,
+                                '6.2.7': False,
+                                '6.2.8': True,
+                                '6.2.9': True,
+                                '6.2.10': True,
+                                '6.4.1': False,
+                                '6.4.3': False,
+                                '6.4.4': False,
+                                '6.4.6': True,
+                                '6.4.7': True,
+                                '6.4.8': True,
+                                '6.4.9': True,
+                                '6.4.10': True,
+                                '6.4.11': True,
+                                '7.0.1': True,
+                                '7.0.2': True,
+                                '7.0.3': True,
+                                '7.0.4': True,
+                                '7.0.5': True,
+                                '7.0.6': True,
+                                '7.0.7': True,
+                                '7.2.1': True,
+                                '7.2.2': True,
+                                '7.4.0': True
                             },
                             'choices': [
                                 'disable',
@@ -1541,7 +2792,33 @@ def main():
                             'revision': {
                                 '6.4.5': True,
                                 '7.0.0': True,
-                                '7.2.0': True
+                                '7.2.0': True,
+                                '6.2.0': False,
+                                '6.2.2': False,
+                                '6.2.6': False,
+                                '6.2.7': False,
+                                '6.2.8': True,
+                                '6.2.9': True,
+                                '6.2.10': True,
+                                '6.4.1': False,
+                                '6.4.3': False,
+                                '6.4.4': False,
+                                '6.4.6': True,
+                                '6.4.7': True,
+                                '6.4.8': True,
+                                '6.4.9': True,
+                                '6.4.10': True,
+                                '6.4.11': True,
+                                '7.0.1': True,
+                                '7.0.2': True,
+                                '7.0.3': True,
+                                '7.0.4': True,
+                                '7.0.5': True,
+                                '7.0.6': True,
+                                '7.0.7': True,
+                                '7.2.1': True,
+                                '7.2.2': True,
+                                '7.4.0': True
                             },
                             'type': 'int'
                         },
@@ -1550,7 +2827,33 @@ def main():
                             'revision': {
                                 '6.4.5': True,
                                 '7.0.0': True,
-                                '7.2.0': True
+                                '7.2.0': True,
+                                '6.2.0': False,
+                                '6.2.2': False,
+                                '6.2.6': False,
+                                '6.2.7': False,
+                                '6.2.8': True,
+                                '6.2.9': True,
+                                '6.2.10': True,
+                                '6.4.1': False,
+                                '6.4.3': False,
+                                '6.4.4': False,
+                                '6.4.6': True,
+                                '6.4.7': True,
+                                '6.4.8': True,
+                                '6.4.9': True,
+                                '6.4.10': True,
+                                '6.4.11': True,
+                                '7.0.1': True,
+                                '7.0.2': True,
+                                '7.0.3': True,
+                                '7.0.4': True,
+                                '7.0.5': True,
+                                '7.0.6': True,
+                                '7.0.7': True,
+                                '7.2.1': True,
+                                '7.2.2': True,
+                                '7.4.0': True
                             },
                             'type': 'int'
                         },
@@ -1558,7 +2861,33 @@ def main():
                             'required': False,
                             'revision': {
                                 '7.0.0': True,
-                                '7.2.0': True
+                                '7.2.0': True,
+                                '6.2.0': False,
+                                '6.2.2': False,
+                                '6.2.6': False,
+                                '6.2.7': False,
+                                '6.2.8': False,
+                                '6.2.9': False,
+                                '6.2.10': False,
+                                '6.4.1': False,
+                                '6.4.3': False,
+                                '6.4.4': False,
+                                '6.4.6': False,
+                                '6.4.7': False,
+                                '6.4.8': False,
+                                '6.4.9': False,
+                                '6.4.10': False,
+                                '6.4.11': False,
+                                '7.0.1': True,
+                                '7.0.2': True,
+                                '7.0.3': True,
+                                '7.0.4': True,
+                                '7.0.5': True,
+                                '7.0.6': True,
+                                '7.0.7': True,
+                                '7.2.1': True,
+                                '7.2.2': True,
+                                '7.4.0': True
                             },
                             'type': 'int'
                         },
@@ -1566,7 +2895,33 @@ def main():
                             'required': False,
                             'revision': {
                                 '7.0.0': True,
-                                '7.2.0': True
+                                '7.2.0': True,
+                                '6.2.0': False,
+                                '6.2.2': False,
+                                '6.2.6': False,
+                                '6.2.7': False,
+                                '6.2.8': False,
+                                '6.2.9': False,
+                                '6.2.10': False,
+                                '6.4.1': False,
+                                '6.4.3': False,
+                                '6.4.4': False,
+                                '6.4.6': False,
+                                '6.4.7': False,
+                                '6.4.8': False,
+                                '6.4.9': False,
+                                '6.4.10': False,
+                                '6.4.11': False,
+                                '7.0.1': True,
+                                '7.0.2': True,
+                                '7.0.3': True,
+                                '7.0.4': True,
+                                '7.0.5': True,
+                                '7.0.6': True,
+                                '7.0.7': True,
+                                '7.2.1': True,
+                                '7.2.2': True,
+                                '7.4.0': True
                             },
                             'type': 'int'
                         },
@@ -1574,7 +2929,33 @@ def main():
                             'required': False,
                             'revision': {
                                 '7.0.0': True,
-                                '7.2.0': True
+                                '7.2.0': True,
+                                '6.2.0': False,
+                                '6.2.2': False,
+                                '6.2.6': False,
+                                '6.2.7': False,
+                                '6.2.8': False,
+                                '6.2.9': False,
+                                '6.2.10': False,
+                                '6.4.1': False,
+                                '6.4.3': False,
+                                '6.4.4': False,
+                                '6.4.6': False,
+                                '6.4.7': False,
+                                '6.4.8': False,
+                                '6.4.9': False,
+                                '6.4.10': False,
+                                '6.4.11': False,
+                                '7.0.1': True,
+                                '7.0.2': True,
+                                '7.0.3': True,
+                                '7.0.4': True,
+                                '7.0.5': True,
+                                '7.0.6': True,
+                                '7.0.7': True,
+                                '7.2.1': True,
+                                '7.2.2': True,
+                                '7.4.0': True
                             },
                             'type': 'int'
                         },
@@ -1582,7 +2963,33 @@ def main():
                             'required': False,
                             'revision': {
                                 '7.0.0': True,
-                                '7.2.0': True
+                                '7.2.0': True,
+                                '6.2.0': False,
+                                '6.2.2': False,
+                                '6.2.6': False,
+                                '6.2.7': False,
+                                '6.2.8': False,
+                                '6.2.9': False,
+                                '6.2.10': False,
+                                '6.4.1': False,
+                                '6.4.3': False,
+                                '6.4.4': False,
+                                '6.4.6': False,
+                                '6.4.7': False,
+                                '6.4.8': False,
+                                '6.4.9': False,
+                                '6.4.10': False,
+                                '6.4.11': False,
+                                '7.0.1': True,
+                                '7.0.2': True,
+                                '7.0.3': True,
+                                '7.0.4': True,
+                                '7.0.5': True,
+                                '7.0.6': True,
+                                '7.0.7': True,
+                                '7.2.1': True,
+                                '7.2.2': True,
+                                '7.4.0': True
                             },
                             'type': 'int'
                         },
@@ -1590,13 +2997,55 @@ def main():
                             'required': False,
                             'revision': {
                                 '7.0.0': True,
-                                '7.2.0': True
+                                '7.2.0': True,
+                                '6.2.0': False,
+                                '6.2.2': False,
+                                '6.2.6': False,
+                                '6.2.7': False,
+                                '6.2.8': False,
+                                '6.2.9': False,
+                                '6.2.10': False,
+                                '6.4.1': False,
+                                '6.4.3': False,
+                                '6.4.4': False,
+                                '6.4.6': False,
+                                '6.4.7': False,
+                                '6.4.8': False,
+                                '6.4.9': False,
+                                '6.4.10': False,
+                                '6.4.11': False,
+                                '7.0.1': True,
+                                '7.0.2': True,
+                                '7.0.3': True,
+                                '7.0.4': True,
+                                '7.0.5': True,
+                                '7.0.6': True,
+                                '7.0.7': True,
+                                '7.2.1': True,
+                                '7.2.2': True,
+                                '7.4.0': True
                             },
                             'choices': [
                                 'system',
                                 'static',
                                 'dynamic',
                                 'auto-tuning'
+                            ],
+                            'type': 'str'
+                        },
+                        'explicit-ftp-tls': {
+                            'required': False,
+                            'revision': {
+                                '7.0.5': True,
+                                '7.0.6': True,
+                                '7.0.7': True,
+                                '7.2.1': True,
+                                '7.2.2': True,
+                                '7.4.0': True
+                            },
+                            'choices': [
+                                'disable',
+                                'enable'
                             ],
                             'type': 'str'
                         }
@@ -1611,7 +3060,33 @@ def main():
                             'revision': {
                                 '6.4.5': True,
                                 '7.0.0': True,
-                                '7.2.0': True
+                                '7.2.0': True,
+                                '6.2.0': False,
+                                '6.2.2': False,
+                                '6.2.6': False,
+                                '6.2.7': False,
+                                '6.2.8': True,
+                                '6.2.9': True,
+                                '6.2.10': True,
+                                '6.4.1': False,
+                                '6.4.3': False,
+                                '6.4.4': False,
+                                '6.4.6': True,
+                                '6.4.7': True,
+                                '6.4.8': True,
+                                '6.4.9': True,
+                                '6.4.10': True,
+                                '6.4.11': True,
+                                '7.0.1': True,
+                                '7.0.2': True,
+                                '7.0.3': True,
+                                '7.0.4': True,
+                                '7.0.5': True,
+                                '7.0.6': True,
+                                '7.0.7': True,
+                                '7.2.1': True,
+                                '7.2.2': True,
+                                '7.4.0': True
                             },
                             'type': 'int'
                         },
@@ -1620,7 +3095,33 @@ def main():
                             'revision': {
                                 '6.4.5': True,
                                 '7.0.0': True,
-                                '7.2.0': True
+                                '7.2.0': True,
+                                '6.2.0': False,
+                                '6.2.2': False,
+                                '6.2.6': False,
+                                '6.2.7': False,
+                                '6.2.8': True,
+                                '6.2.9': True,
+                                '6.2.10': True,
+                                '6.4.1': False,
+                                '6.4.3': False,
+                                '6.4.4': False,
+                                '6.4.6': True,
+                                '6.4.7': True,
+                                '6.4.8': True,
+                                '6.4.9': True,
+                                '6.4.10': True,
+                                '6.4.11': True,
+                                '7.0.1': True,
+                                '7.0.2': True,
+                                '7.0.3': True,
+                                '7.0.4': True,
+                                '7.0.5': True,
+                                '7.0.6': True,
+                                '7.0.7': True,
+                                '7.2.1': True,
+                                '7.2.2': True,
+                                '7.4.0': True
                             },
                             'type': 'int'
                         },
@@ -1629,7 +3130,33 @@ def main():
                             'revision': {
                                 '6.4.5': True,
                                 '7.0.0': True,
-                                '7.2.0': True
+                                '7.2.0': True,
+                                '6.2.0': False,
+                                '6.2.2': False,
+                                '6.2.6': False,
+                                '6.2.7': False,
+                                '6.2.8': True,
+                                '6.2.9': True,
+                                '6.2.10': True,
+                                '6.4.1': False,
+                                '6.4.3': False,
+                                '6.4.4': False,
+                                '6.4.6': True,
+                                '6.4.7': True,
+                                '6.4.8': True,
+                                '6.4.9': True,
+                                '6.4.10': True,
+                                '6.4.11': True,
+                                '7.0.1': True,
+                                '7.0.2': True,
+                                '7.0.3': True,
+                                '7.0.4': True,
+                                '7.0.5': True,
+                                '7.0.6': True,
+                                '7.0.7': True,
+                                '7.2.1': True,
+                                '7.2.2': True,
+                                '7.4.0': True
                             },
                             'type': 'int'
                         },
@@ -1637,8 +3164,34 @@ def main():
                             'required': False,
                             'revision': {
                                 '6.4.5': True,
-                                '7.0.0': False,
-                                '7.2.0': False
+                                '7.0.0': True,
+                                '7.2.0': True,
+                                '6.2.0': False,
+                                '6.2.2': False,
+                                '6.2.6': False,
+                                '6.2.7': False,
+                                '6.2.8': True,
+                                '6.2.9': True,
+                                '6.2.10': True,
+                                '6.4.1': False,
+                                '6.4.3': False,
+                                '6.4.4': False,
+                                '6.4.6': True,
+                                '6.4.7': True,
+                                '6.4.8': True,
+                                '6.4.9': True,
+                                '6.4.10': True,
+                                '6.4.11': True,
+                                '7.0.1': True,
+                                '7.0.2': True,
+                                '7.0.3': True,
+                                '7.0.4': True,
+                                '7.0.5': True,
+                                '7.0.6': True,
+                                '7.0.7': True,
+                                '7.2.1': True,
+                                '7.2.2': True,
+                                '7.4.0': True
                             },
                             'choices': [
                                 'disable',
@@ -1650,8 +3203,34 @@ def main():
                             'required': False,
                             'revision': {
                                 '6.4.5': True,
-                                '7.0.0': False,
-                                '7.2.0': False
+                                '7.0.0': True,
+                                '7.2.0': True,
+                                '6.2.0': False,
+                                '6.2.2': False,
+                                '6.2.6': False,
+                                '6.2.7': False,
+                                '6.2.8': True,
+                                '6.2.9': True,
+                                '6.2.10': True,
+                                '6.4.1': False,
+                                '6.4.3': False,
+                                '6.4.4': False,
+                                '6.4.6': True,
+                                '6.4.7': True,
+                                '6.4.8': True,
+                                '6.4.9': True,
+                                '6.4.10': True,
+                                '6.4.11': True,
+                                '7.0.1': True,
+                                '7.0.2': True,
+                                '7.0.3': True,
+                                '7.0.4': True,
+                                '7.0.5': True,
+                                '7.0.6': True,
+                                '7.0.7': True,
+                                '7.2.1': True,
+                                '7.2.2': True,
+                                '7.4.0': True
                             },
                             'type': 'int'
                         },
@@ -1660,7 +3239,33 @@ def main():
                             'revision': {
                                 '6.4.5': True,
                                 '7.0.0': True,
-                                '7.2.0': True
+                                '7.2.0': True,
+                                '6.2.0': False,
+                                '6.2.2': False,
+                                '6.2.6': False,
+                                '6.2.7': False,
+                                '6.2.8': True,
+                                '6.2.9': True,
+                                '6.2.10': True,
+                                '6.4.1': False,
+                                '6.4.3': False,
+                                '6.4.4': False,
+                                '6.4.6': True,
+                                '6.4.7': True,
+                                '6.4.8': True,
+                                '6.4.9': True,
+                                '6.4.10': True,
+                                '6.4.11': True,
+                                '7.0.1': True,
+                                '7.0.2': True,
+                                '7.0.3': True,
+                                '7.0.4': True,
+                                '7.0.5': True,
+                                '7.0.6': True,
+                                '7.0.7': True,
+                                '7.2.1': True,
+                                '7.2.2': True,
+                                '7.4.0': True
                             },
                             'choices': [
                                 'disable',
@@ -1673,7 +3278,33 @@ def main():
                             'revision': {
                                 '6.4.5': True,
                                 '7.0.0': True,
-                                '7.2.0': True
+                                '7.2.0': True,
+                                '6.2.0': False,
+                                '6.2.2': False,
+                                '6.2.6': False,
+                                '6.2.7': False,
+                                '6.2.8': True,
+                                '6.2.9': True,
+                                '6.2.10': True,
+                                '6.4.1': False,
+                                '6.4.3': False,
+                                '6.4.4': False,
+                                '6.4.6': True,
+                                '6.4.7': True,
+                                '6.4.8': True,
+                                '6.4.9': True,
+                                '6.4.10': True,
+                                '6.4.11': True,
+                                '7.0.1': True,
+                                '7.0.2': True,
+                                '7.0.3': True,
+                                '7.0.4': True,
+                                '7.0.5': True,
+                                '7.0.6': True,
+                                '7.0.7': True,
+                                '7.2.1': True,
+                                '7.2.2': True,
+                                '7.4.0': True
                             },
                             'type': 'list',
                             'choices': [
@@ -1682,14 +3313,41 @@ def main():
                                 'clientcomfort',
                                 'no-content-summary',
                                 'servercomfort'
-                            ]
+                            ],
+                            'elements': 'str'
                         },
                         'oversize-limit': {
                             'required': False,
                             'revision': {
                                 '6.4.5': True,
                                 '7.0.0': True,
-                                '7.2.0': True
+                                '7.2.0': True,
+                                '6.2.0': False,
+                                '6.2.2': False,
+                                '6.2.6': False,
+                                '6.2.7': False,
+                                '6.2.8': True,
+                                '6.2.9': True,
+                                '6.2.10': True,
+                                '6.4.1': False,
+                                '6.4.3': False,
+                                '6.4.4': False,
+                                '6.4.6': True,
+                                '6.4.7': True,
+                                '6.4.8': True,
+                                '6.4.9': True,
+                                '6.4.10': True,
+                                '6.4.11': True,
+                                '7.0.1': True,
+                                '7.0.2': True,
+                                '7.0.3': True,
+                                '7.0.4': True,
+                                '7.0.5': True,
+                                '7.0.6': True,
+                                '7.0.7': True,
+                                '7.2.1': True,
+                                '7.2.2': True,
+                                '7.4.0': True
                             },
                             'type': 'int'
                         },
@@ -1698,7 +3356,33 @@ def main():
                             'revision': {
                                 '6.4.5': True,
                                 '7.0.0': True,
-                                '7.2.0': True
+                                '7.2.0': True,
+                                '6.2.0': False,
+                                '6.2.2': False,
+                                '6.2.6': False,
+                                '6.2.7': False,
+                                '6.2.8': True,
+                                '6.2.9': True,
+                                '6.2.10': True,
+                                '6.4.1': False,
+                                '6.4.3': False,
+                                '6.4.4': False,
+                                '6.4.6': True,
+                                '6.4.7': True,
+                                '6.4.8': True,
+                                '6.4.9': True,
+                                '6.4.10': True,
+                                '6.4.11': True,
+                                '7.0.1': True,
+                                '7.0.2': True,
+                                '7.0.3': True,
+                                '7.0.4': True,
+                                '7.0.5': True,
+                                '7.0.6': True,
+                                '7.0.7': True,
+                                '7.2.1': True,
+                                '7.2.2': True,
+                                '7.4.0': True
                             },
                             'type': 'int'
                         },
@@ -1707,7 +3391,33 @@ def main():
                             'revision': {
                                 '6.4.5': True,
                                 '7.0.0': True,
-                                '7.2.0': True
+                                '7.2.0': True,
+                                '6.2.0': False,
+                                '6.2.2': False,
+                                '6.2.6': False,
+                                '6.2.7': False,
+                                '6.2.8': True,
+                                '6.2.9': True,
+                                '6.2.10': True,
+                                '6.4.1': False,
+                                '6.4.3': False,
+                                '6.4.4': False,
+                                '6.4.6': True,
+                                '6.4.7': True,
+                                '6.4.8': True,
+                                '6.4.9': True,
+                                '6.4.10': True,
+                                '6.4.11': True,
+                                '7.0.1': True,
+                                '7.0.2': True,
+                                '7.0.3': True,
+                                '7.0.4': True,
+                                '7.0.5': True,
+                                '7.0.6': True,
+                                '7.0.7': True,
+                                '7.2.1': True,
+                                '7.2.2': True,
+                                '7.4.0': True
                             },
                             'type': 'list',
                             'choices': [
@@ -1732,14 +3442,41 @@ def main():
                                 'cp874',
                                 'cp1252',
                                 'cp1251'
-                            ]
+                            ],
+                            'elements': 'str'
                         },
                         'proxy-after-tcp-handshake': {
                             'required': False,
                             'revision': {
                                 '6.4.5': True,
                                 '7.0.0': True,
-                                '7.2.0': True
+                                '7.2.0': True,
+                                '6.2.0': False,
+                                '6.2.2': False,
+                                '6.2.6': False,
+                                '6.2.7': False,
+                                '6.2.8': False,
+                                '6.2.9': False,
+                                '6.2.10': False,
+                                '6.4.1': False,
+                                '6.4.3': False,
+                                '6.4.4': False,
+                                '6.4.6': True,
+                                '6.4.7': True,
+                                '6.4.8': True,
+                                '6.4.9': True,
+                                '6.4.10': True,
+                                '6.4.11': True,
+                                '7.0.1': True,
+                                '7.0.2': True,
+                                '7.0.3': True,
+                                '7.0.4': True,
+                                '7.0.5': True,
+                                '7.0.6': True,
+                                '7.0.7': True,
+                                '7.2.1': True,
+                                '7.2.2': True,
+                                '7.4.0': True
                             },
                             'choices': [
                                 'disable',
@@ -1752,7 +3489,33 @@ def main():
                             'revision': {
                                 '6.4.5': True,
                                 '7.0.0': True,
-                                '7.2.0': True
+                                '7.2.0': True,
+                                '6.2.0': False,
+                                '6.2.2': False,
+                                '6.2.6': False,
+                                '6.2.7': False,
+                                '6.2.8': True,
+                                '6.2.9': True,
+                                '6.2.10': True,
+                                '6.4.1': False,
+                                '6.4.3': False,
+                                '6.4.4': False,
+                                '6.4.6': True,
+                                '6.4.7': True,
+                                '6.4.8': True,
+                                '6.4.9': True,
+                                '6.4.10': True,
+                                '6.4.11': True,
+                                '7.0.1': True,
+                                '7.0.2': True,
+                                '7.0.3': True,
+                                '7.0.4': True,
+                                '7.0.5': True,
+                                '7.0.6': True,
+                                '7.0.7': True,
+                                '7.2.1': True,
+                                '7.2.2': True,
+                                '7.4.0': True
                             },
                             'choices': [
                                 'disable',
@@ -1765,7 +3528,33 @@ def main():
                             'revision': {
                                 '6.4.5': True,
                                 '7.0.0': True,
-                                '7.2.0': True
+                                '7.2.0': True,
+                                '6.2.0': False,
+                                '6.2.2': False,
+                                '6.2.6': False,
+                                '6.2.7': False,
+                                '6.2.8': True,
+                                '6.2.9': True,
+                                '6.2.10': True,
+                                '6.4.1': False,
+                                '6.4.3': False,
+                                '6.4.4': False,
+                                '6.4.6': True,
+                                '6.4.7': True,
+                                '6.4.8': True,
+                                '6.4.9': True,
+                                '6.4.10': True,
+                                '6.4.11': True,
+                                '7.0.1': True,
+                                '7.0.2': True,
+                                '7.0.3': True,
+                                '7.0.4': True,
+                                '7.0.5': True,
+                                '7.0.6': True,
+                                '7.0.7': True,
+                                '7.2.1': True,
+                                '7.2.2': True,
+                                '7.4.0': True
                             },
                             'type': 'int'
                         },
@@ -1774,7 +3563,33 @@ def main():
                             'revision': {
                                 '6.4.5': True,
                                 '7.0.0': True,
-                                '7.2.0': True
+                                '7.2.0': True,
+                                '6.2.0': False,
+                                '6.2.2': False,
+                                '6.2.6': False,
+                                '6.2.7': False,
+                                '6.2.8': True,
+                                '6.2.9': True,
+                                '6.2.10': True,
+                                '6.4.1': False,
+                                '6.4.3': False,
+                                '6.4.4': False,
+                                '6.4.6': True,
+                                '6.4.7': True,
+                                '6.4.8': True,
+                                '6.4.9': True,
+                                '6.4.10': True,
+                                '6.4.11': True,
+                                '7.0.1': True,
+                                '7.0.2': True,
+                                '7.0.3': True,
+                                '7.0.4': True,
+                                '7.0.5': True,
+                                '7.0.6': True,
+                                '7.0.7': True,
+                                '7.2.1': True,
+                                '7.2.2': True,
+                                '7.4.0': True
                             },
                             'choices': [
                                 'disable',
@@ -1787,7 +3602,33 @@ def main():
                             'revision': {
                                 '6.4.5': True,
                                 '7.0.0': True,
-                                '7.2.0': True
+                                '7.2.0': True,
+                                '6.2.0': False,
+                                '6.2.2': False,
+                                '6.2.6': False,
+                                '6.2.7': False,
+                                '6.2.8': True,
+                                '6.2.9': True,
+                                '6.2.10': True,
+                                '6.4.1': False,
+                                '6.4.3': False,
+                                '6.4.4': False,
+                                '6.4.6': True,
+                                '6.4.7': True,
+                                '6.4.8': True,
+                                '6.4.9': True,
+                                '6.4.10': True,
+                                '6.4.11': True,
+                                '7.0.1': True,
+                                '7.0.2': True,
+                                '7.0.3': True,
+                                '7.0.4': True,
+                                '7.0.5': True,
+                                '7.0.6': True,
+                                '7.0.7': True,
+                                '7.2.1': True,
+                                '7.2.2': True,
+                                '7.4.0': True
                             },
                             'choices': [
                                 'no',
@@ -1800,7 +3641,33 @@ def main():
                             'revision': {
                                 '6.4.5': True,
                                 '7.0.0': True,
-                                '7.2.0': True
+                                '7.2.0': True,
+                                '6.2.0': False,
+                                '6.2.2': False,
+                                '6.2.6': False,
+                                '6.2.7': False,
+                                '6.2.8': True,
+                                '6.2.9': True,
+                                '6.2.10': True,
+                                '6.4.1': False,
+                                '6.4.3': False,
+                                '6.4.4': False,
+                                '6.4.6': True,
+                                '6.4.7': True,
+                                '6.4.8': True,
+                                '6.4.9': True,
+                                '6.4.10': True,
+                                '6.4.11': True,
+                                '7.0.1': True,
+                                '7.0.2': True,
+                                '7.0.3': True,
+                                '7.0.4': True,
+                                '7.0.5': True,
+                                '7.0.6': True,
+                                '7.0.7': True,
+                                '7.2.1': True,
+                                '7.2.2': True,
+                                '7.4.0': True
                             },
                             'choices': [
                                 'disable',
@@ -1813,7 +3680,33 @@ def main():
                             'revision': {
                                 '6.4.5': True,
                                 '7.0.0': True,
-                                '7.2.0': True
+                                '7.2.0': True,
+                                '6.2.0': False,
+                                '6.2.2': False,
+                                '6.2.6': False,
+                                '6.2.7': False,
+                                '6.2.8': True,
+                                '6.2.9': True,
+                                '6.2.10': True,
+                                '6.4.1': False,
+                                '6.4.3': False,
+                                '6.4.4': False,
+                                '6.4.6': True,
+                                '6.4.7': True,
+                                '6.4.8': True,
+                                '6.4.9': True,
+                                '6.4.10': True,
+                                '6.4.11': True,
+                                '7.0.1': True,
+                                '7.0.2': True,
+                                '7.0.3': True,
+                                '7.0.4': True,
+                                '7.0.5': True,
+                                '7.0.6': True,
+                                '7.0.7': True,
+                                '7.2.1': True,
+                                '7.2.2': True,
+                                '7.4.0': True
                             },
                             'type': 'int'
                         },
@@ -1822,7 +3715,33 @@ def main():
                             'revision': {
                                 '6.4.5': True,
                                 '7.0.0': True,
-                                '7.2.0': True
+                                '7.2.0': True,
+                                '6.2.0': False,
+                                '6.2.2': False,
+                                '6.2.6': False,
+                                '6.2.7': False,
+                                '6.2.8': True,
+                                '6.2.9': True,
+                                '6.2.10': True,
+                                '6.4.1': False,
+                                '6.4.3': False,
+                                '6.4.4': False,
+                                '6.4.6': True,
+                                '6.4.7': True,
+                                '6.4.8': True,
+                                '6.4.9': True,
+                                '6.4.10': True,
+                                '6.4.11': True,
+                                '7.0.1': True,
+                                '7.0.2': True,
+                                '7.0.3': True,
+                                '7.0.4': True,
+                                '7.0.5': True,
+                                '7.0.6': True,
+                                '7.0.7': True,
+                                '7.2.1': True,
+                                '7.2.2': True,
+                                '7.4.0': True
                             },
                             'choices': [
                                 'disable',
@@ -1835,7 +3754,33 @@ def main():
                             'revision': {
                                 '6.4.5': True,
                                 '7.0.0': True,
-                                '7.2.0': True
+                                '7.2.0': True,
+                                '6.2.0': False,
+                                '6.2.2': False,
+                                '6.2.6': False,
+                                '6.2.7': False,
+                                '6.2.8': True,
+                                '6.2.9': True,
+                                '6.2.10': True,
+                                '6.4.1': False,
+                                '6.4.3': False,
+                                '6.4.4': False,
+                                '6.4.6': True,
+                                '6.4.7': True,
+                                '6.4.8': True,
+                                '6.4.9': True,
+                                '6.4.10': True,
+                                '6.4.11': True,
+                                '7.0.1': True,
+                                '7.0.2': True,
+                                '7.0.3': True,
+                                '7.0.4': True,
+                                '7.0.5': True,
+                                '7.0.6': True,
+                                '7.0.7': True,
+                                '7.2.1': True,
+                                '7.2.2': True,
+                                '7.4.0': True
                             },
                             'choices': [
                                 'disable',
@@ -1848,7 +3793,33 @@ def main():
                             'revision': {
                                 '6.4.5': True,
                                 '7.0.0': True,
-                                '7.2.0': True
+                                '7.2.0': True,
+                                '6.2.0': False,
+                                '6.2.2': False,
+                                '6.2.6': False,
+                                '6.2.7': False,
+                                '6.2.8': True,
+                                '6.2.9': True,
+                                '6.2.10': True,
+                                '6.4.1': False,
+                                '6.4.3': False,
+                                '6.4.4': False,
+                                '6.4.6': True,
+                                '6.4.7': True,
+                                '6.4.8': True,
+                                '6.4.9': True,
+                                '6.4.10': True,
+                                '6.4.11': True,
+                                '7.0.1': True,
+                                '7.0.2': True,
+                                '7.0.3': True,
+                                '7.0.4': True,
+                                '7.0.5': True,
+                                '7.0.6': True,
+                                '7.0.7': True,
+                                '7.2.1': True,
+                                '7.2.2': True,
+                                '7.4.0': True
                             },
                             'choices': [
                                 'bypass',
@@ -1861,7 +3832,33 @@ def main():
                             'revision': {
                                 '6.4.5': True,
                                 '7.0.0': True,
-                                '7.2.0': True
+                                '7.2.0': True,
+                                '6.2.0': False,
+                                '6.2.2': False,
+                                '6.2.6': False,
+                                '6.2.7': False,
+                                '6.2.8': True,
+                                '6.2.9': True,
+                                '6.2.10': True,
+                                '6.4.1': False,
+                                '6.4.3': False,
+                                '6.4.4': False,
+                                '6.4.6': True,
+                                '6.4.7': True,
+                                '6.4.8': True,
+                                '6.4.9': True,
+                                '6.4.10': True,
+                                '6.4.11': True,
+                                '7.0.1': True,
+                                '7.0.2': True,
+                                '7.0.3': True,
+                                '7.0.4': True,
+                                '7.0.5': True,
+                                '7.0.6': True,
+                                '7.0.7': True,
+                                '7.2.1': True,
+                                '7.2.2': True,
+                                '7.4.0': True
                             },
                             'type': 'int'
                         },
@@ -1870,7 +3867,33 @@ def main():
                             'revision': {
                                 '6.4.5': True,
                                 '7.0.0': True,
-                                '7.2.0': True
+                                '7.2.0': True,
+                                '6.2.0': False,
+                                '6.2.2': False,
+                                '6.2.6': False,
+                                '6.2.7': False,
+                                '6.2.8': True,
+                                '6.2.9': True,
+                                '6.2.10': True,
+                                '6.4.1': False,
+                                '6.4.3': False,
+                                '6.4.4': False,
+                                '6.4.6': True,
+                                '6.4.7': True,
+                                '6.4.8': True,
+                                '6.4.9': True,
+                                '6.4.10': True,
+                                '6.4.11': True,
+                                '7.0.1': True,
+                                '7.0.2': True,
+                                '7.0.3': True,
+                                '7.0.4': True,
+                                '7.0.5': True,
+                                '7.0.6': True,
+                                '7.0.7': True,
+                                '7.2.1': True,
+                                '7.2.2': True,
+                                '7.4.0': True
                             },
                             'type': 'int'
                         },
@@ -1879,7 +3902,33 @@ def main():
                             'revision': {
                                 '6.4.5': True,
                                 '7.0.0': True,
-                                '7.2.0': True
+                                '7.2.0': True,
+                                '6.2.0': False,
+                                '6.2.2': False,
+                                '6.2.6': False,
+                                '6.2.7': False,
+                                '6.2.8': True,
+                                '6.2.9': True,
+                                '6.2.10': True,
+                                '6.4.1': False,
+                                '6.4.3': False,
+                                '6.4.4': False,
+                                '6.4.6': True,
+                                '6.4.7': True,
+                                '6.4.8': True,
+                                '6.4.9': True,
+                                '6.4.10': True,
+                                '6.4.11': True,
+                                '7.0.1': True,
+                                '7.0.2': True,
+                                '7.0.3': True,
+                                '7.0.4': True,
+                                '7.0.5': True,
+                                '7.0.6': True,
+                                '7.0.7': True,
+                                '7.2.1': True,
+                                '7.2.2': True,
+                                '7.4.0': True
                             },
                             'type': 'int'
                         },
@@ -1888,7 +3937,33 @@ def main():
                             'revision': {
                                 '6.4.5': True,
                                 '7.0.0': True,
-                                '7.2.0': True
+                                '7.2.0': True,
+                                '6.2.0': False,
+                                '6.2.2': False,
+                                '6.2.6': False,
+                                '6.2.7': False,
+                                '6.2.8': True,
+                                '6.2.9': True,
+                                '6.2.10': True,
+                                '6.4.1': False,
+                                '6.4.3': False,
+                                '6.4.4': False,
+                                '6.4.6': True,
+                                '6.4.7': True,
+                                '6.4.8': True,
+                                '6.4.9': True,
+                                '6.4.10': True,
+                                '6.4.11': True,
+                                '7.0.1': True,
+                                '7.0.2': True,
+                                '7.0.3': True,
+                                '7.0.4': True,
+                                '7.0.5': True,
+                                '7.0.6': True,
+                                '7.0.7': True,
+                                '7.2.1': True,
+                                '7.2.2': True,
+                                '7.4.0': True
                             },
                             'choices': [
                                 'system',
@@ -1903,7 +3978,33 @@ def main():
                             'revision': {
                                 '6.4.5': True,
                                 '7.0.0': True,
-                                '7.2.0': True
+                                '7.2.0': True,
+                                '6.2.0': False,
+                                '6.2.2': False,
+                                '6.2.6': False,
+                                '6.2.7': False,
+                                '6.2.8': False,
+                                '6.2.9': False,
+                                '6.2.10': False,
+                                '6.4.1': False,
+                                '6.4.3': False,
+                                '6.4.4': False,
+                                '6.4.6': True,
+                                '6.4.7': True,
+                                '6.4.8': True,
+                                '6.4.9': True,
+                                '6.4.10': True,
+                                '6.4.11': True,
+                                '7.0.1': True,
+                                '7.0.2': True,
+                                '7.0.3': True,
+                                '7.0.4': True,
+                                '7.0.5': True,
+                                '7.0.6': True,
+                                '7.0.7': True,
+                                '7.2.1': True,
+                                '7.2.2': True,
+                                '7.4.0': True
                             },
                             'choices': [
                                 'disable',
@@ -1916,7 +4017,33 @@ def main():
                             'revision': {
                                 '6.4.5': True,
                                 '7.0.0': True,
-                                '7.2.0': True
+                                '7.2.0': True,
+                                '6.2.0': False,
+                                '6.2.2': False,
+                                '6.2.6': False,
+                                '6.2.7': False,
+                                '6.2.8': True,
+                                '6.2.9': True,
+                                '6.2.10': True,
+                                '6.4.1': False,
+                                '6.4.3': False,
+                                '6.4.4': False,
+                                '6.4.6': True,
+                                '6.4.7': True,
+                                '6.4.8': True,
+                                '6.4.9': True,
+                                '6.4.10': True,
+                                '6.4.11': True,
+                                '7.0.1': True,
+                                '7.0.2': True,
+                                '7.0.3': True,
+                                '7.0.4': True,
+                                '7.0.5': True,
+                                '7.0.6': True,
+                                '7.0.7': True,
+                                '7.2.1': True,
+                                '7.2.2': True,
+                                '7.4.0': True
                             },
                             'type': 'int'
                         },
@@ -1925,7 +4052,33 @@ def main():
                             'revision': {
                                 '6.4.5': True,
                                 '7.0.0': True,
-                                '7.2.0': True
+                                '7.2.0': True,
+                                '6.2.0': False,
+                                '6.2.2': False,
+                                '6.2.6': False,
+                                '6.2.7': False,
+                                '6.2.8': True,
+                                '6.2.9': True,
+                                '6.2.10': True,
+                                '6.4.1': False,
+                                '6.4.3': False,
+                                '6.4.4': False,
+                                '6.4.6': True,
+                                '6.4.7': True,
+                                '6.4.8': True,
+                                '6.4.9': True,
+                                '6.4.10': True,
+                                '6.4.11': True,
+                                '7.0.1': True,
+                                '7.0.2': True,
+                                '7.0.3': True,
+                                '7.0.4': True,
+                                '7.0.5': True,
+                                '7.0.6': True,
+                                '7.0.7': True,
+                                '7.2.1': True,
+                                '7.2.2': True,
+                                '7.4.0': True
                             },
                             'type': 'int'
                         },
@@ -1934,7 +4087,33 @@ def main():
                             'revision': {
                                 '6.4.5': True,
                                 '7.0.0': True,
-                                '7.2.0': True
+                                '7.2.0': True,
+                                '6.2.0': False,
+                                '6.2.2': False,
+                                '6.2.6': False,
+                                '6.2.7': False,
+                                '6.2.8': False,
+                                '6.2.9': False,
+                                '6.2.10': False,
+                                '6.4.1': False,
+                                '6.4.3': False,
+                                '6.4.4': False,
+                                '6.4.6': True,
+                                '6.4.7': True,
+                                '6.4.8': True,
+                                '6.4.9': True,
+                                '6.4.10': True,
+                                '6.4.11': True,
+                                '7.0.1': True,
+                                '7.0.2': True,
+                                '7.0.3': True,
+                                '7.0.4': True,
+                                '7.0.5': True,
+                                '7.0.6': True,
+                                '7.0.7': True,
+                                '7.2.1': True,
+                                '7.2.2': True,
+                                '7.4.0': True
                             },
                             'choices': [
                                 'best-effort',
@@ -1943,10 +4122,75 @@ def main():
                             ],
                             'type': 'str'
                         },
+                        'http-policy': {
+                            'required': False,
+                            'revision': {
+                                '6.4.5': True,
+                                '7.0.0': True,
+                                '7.2.0': True,
+                                '6.2.0': False,
+                                '6.2.2': False,
+                                '6.2.6': False,
+                                '6.2.7': False,
+                                '6.2.8': True,
+                                '6.2.9': True,
+                                '6.2.10': True,
+                                '6.4.1': False,
+                                '6.4.3': False,
+                                '6.4.4': False,
+                                '6.4.6': True,
+                                '6.4.7': True,
+                                '6.4.8': True,
+                                '6.4.9': True,
+                                '6.4.10': True,
+                                '6.4.11': True,
+                                '7.0.1': True,
+                                '7.0.2': True,
+                                '7.0.3': True,
+                                '7.0.4': True,
+                                '7.0.5': True,
+                                '7.0.6': True,
+                                '7.0.7': True,
+                                '7.2.1': True,
+                                '7.2.2': False,
+                                '7.4.0': False
+                            },
+                            'choices': [
+                                'disable',
+                                'enable'
+                            ],
+                            'type': 'str'
+                        },
                         'address-ip-rating': {
                             'required': False,
                             'revision': {
-                                '7.2.0': True
+                                '7.2.0': True,
+                                '6.2.0': False,
+                                '6.2.2': False,
+                                '6.2.6': False,
+                                '6.2.7': False,
+                                '6.2.8': False,
+                                '6.2.9': False,
+                                '6.2.10': False,
+                                '6.4.1': False,
+                                '6.4.3': False,
+                                '6.4.4': False,
+                                '6.4.6': False,
+                                '6.4.7': False,
+                                '6.4.8': False,
+                                '6.4.9': False,
+                                '6.4.10': False,
+                                '6.4.11': False,
+                                '7.0.1': False,
+                                '7.0.2': False,
+                                '7.0.3': False,
+                                '7.0.4': True,
+                                '7.0.5': True,
+                                '7.0.6': True,
+                                '7.0.7': True,
+                                '7.2.1': True,
+                                '7.2.2': True,
+                                '7.4.0': True
                             },
                             'choices': [
                                 'disable',
@@ -1957,11 +4201,63 @@ def main():
                         'h2c': {
                             'required': False,
                             'revision': {
-                                '7.2.0': True
+                                '7.2.0': True,
+                                '6.2.0': False,
+                                '6.2.2': False,
+                                '6.2.6': False,
+                                '6.2.7': False,
+                                '6.2.8': False,
+                                '6.2.9': False,
+                                '6.2.10': False,
+                                '6.4.1': False,
+                                '6.4.3': False,
+                                '6.4.4': False,
+                                '6.4.6': False,
+                                '6.4.7': False,
+                                '6.4.8': False,
+                                '6.4.9': False,
+                                '6.4.10': False,
+                                '6.4.11': False,
+                                '7.0.1': False,
+                                '7.0.2': False,
+                                '7.0.3': False,
+                                '7.0.4': False,
+                                '7.0.5': False,
+                                '7.0.6': False,
+                                '7.0.7': False,
+                                '7.2.1': True,
+                                '7.2.2': True,
+                                '7.4.0': True
                             },
                             'choices': [
                                 'disable',
                                 'enable'
+                            ],
+                            'type': 'str'
+                        },
+                        'verify-dns-for-policy-matching': {
+                            'required': False,
+                            'revision': {
+                                '7.2.1': True,
+                                '7.2.2': True,
+                                '7.4.0': True
+                            },
+                            'choices': [
+                                'disable',
+                                'enable'
+                            ],
+                            'type': 'str'
+                        },
+                        'unknown-content-encoding': {
+                            'required': False,
+                            'revision': {
+                                '7.2.2': True,
+                                '7.4.0': True
+                            },
+                            'choices': [
+                                'block',
+                                'inspect',
+                                'bypass'
                             ],
                             'type': 'str'
                         }
@@ -1976,7 +4272,33 @@ def main():
                             'revision': {
                                 '6.4.5': True,
                                 '7.0.0': True,
-                                '7.2.0': True
+                                '7.2.0': True,
+                                '6.2.0': False,
+                                '6.2.2': False,
+                                '6.2.6': False,
+                                '6.2.7': False,
+                                '6.2.8': True,
+                                '6.2.9': True,
+                                '6.2.10': True,
+                                '6.4.1': False,
+                                '6.4.3': False,
+                                '6.4.4': False,
+                                '6.4.6': True,
+                                '6.4.7': True,
+                                '6.4.8': True,
+                                '6.4.9': True,
+                                '6.4.10': True,
+                                '6.4.11': True,
+                                '7.0.1': True,
+                                '7.0.2': True,
+                                '7.0.3': True,
+                                '7.0.4': True,
+                                '7.0.5': True,
+                                '7.0.6': True,
+                                '7.0.7': True,
+                                '7.2.1': True,
+                                '7.2.2': True,
+                                '7.4.0': True
                             },
                             'choices': [
                                 'disable',
@@ -1989,21 +4311,74 @@ def main():
                             'revision': {
                                 '6.4.5': True,
                                 '7.0.0': True,
-                                '7.2.0': True
+                                '7.2.0': True,
+                                '6.2.0': False,
+                                '6.2.2': False,
+                                '6.2.6': False,
+                                '6.2.7': False,
+                                '6.2.8': True,
+                                '6.2.9': True,
+                                '6.2.10': True,
+                                '6.4.1': False,
+                                '6.4.3': False,
+                                '6.4.4': False,
+                                '6.4.6': True,
+                                '6.4.7': True,
+                                '6.4.8': True,
+                                '6.4.9': True,
+                                '6.4.10': True,
+                                '6.4.11': True,
+                                '7.0.1': True,
+                                '7.0.2': True,
+                                '7.0.3': True,
+                                '7.0.4': True,
+                                '7.0.5': True,
+                                '7.0.6': True,
+                                '7.0.7': True,
+                                '7.2.1': True,
+                                '7.2.2': True,
+                                '7.4.0': True
                             },
                             'type': 'list',
                             'choices': [
                                 'oversize',
                                 'fragmail',
                                 'no-content-summary'
-                            ]
+                            ],
+                            'elements': 'str'
                         },
                         'oversize-limit': {
                             'required': False,
                             'revision': {
                                 '6.4.5': True,
                                 '7.0.0': True,
-                                '7.2.0': True
+                                '7.2.0': True,
+                                '6.2.0': False,
+                                '6.2.2': False,
+                                '6.2.6': False,
+                                '6.2.7': False,
+                                '6.2.8': True,
+                                '6.2.9': True,
+                                '6.2.10': True,
+                                '6.4.1': False,
+                                '6.4.3': False,
+                                '6.4.4': False,
+                                '6.4.6': True,
+                                '6.4.7': True,
+                                '6.4.8': True,
+                                '6.4.9': True,
+                                '6.4.10': True,
+                                '6.4.11': True,
+                                '7.0.1': True,
+                                '7.0.2': True,
+                                '7.0.3': True,
+                                '7.0.4': True,
+                                '7.0.5': True,
+                                '7.0.6': True,
+                                '7.0.7': True,
+                                '7.2.1': True,
+                                '7.2.2': True,
+                                '7.4.0': True
                             },
                             'type': 'int'
                         },
@@ -2012,7 +4387,33 @@ def main():
                             'revision': {
                                 '6.4.5': True,
                                 '7.0.0': True,
-                                '7.2.0': True
+                                '7.2.0': True,
+                                '6.2.0': False,
+                                '6.2.2': False,
+                                '6.2.6': False,
+                                '6.2.7': False,
+                                '6.2.8': True,
+                                '6.2.9': True,
+                                '6.2.10': True,
+                                '6.4.1': False,
+                                '6.4.3': False,
+                                '6.4.4': False,
+                                '6.4.6': True,
+                                '6.4.7': True,
+                                '6.4.8': True,
+                                '6.4.9': True,
+                                '6.4.10': True,
+                                '6.4.11': True,
+                                '7.0.1': True,
+                                '7.0.2': True,
+                                '7.0.3': True,
+                                '7.0.4': True,
+                                '7.0.5': True,
+                                '7.0.6': True,
+                                '7.0.7': True,
+                                '7.2.1': True,
+                                '7.2.2': True,
+                                '7.4.0': True
                             },
                             'type': 'int'
                         },
@@ -2021,7 +4422,33 @@ def main():
                             'revision': {
                                 '6.4.5': True,
                                 '7.0.0': True,
-                                '7.2.0': True
+                                '7.2.0': True,
+                                '6.2.0': False,
+                                '6.2.2': False,
+                                '6.2.6': False,
+                                '6.2.7': False,
+                                '6.2.8': False,
+                                '6.2.9': False,
+                                '6.2.10': False,
+                                '6.4.1': False,
+                                '6.4.3': False,
+                                '6.4.4': False,
+                                '6.4.6': True,
+                                '6.4.7': True,
+                                '6.4.8': True,
+                                '6.4.9': True,
+                                '6.4.10': True,
+                                '6.4.11': True,
+                                '7.0.1': True,
+                                '7.0.2': True,
+                                '7.0.3': True,
+                                '7.0.4': True,
+                                '7.0.5': True,
+                                '7.0.6': True,
+                                '7.0.7': True,
+                                '7.2.1': True,
+                                '7.2.2': True,
+                                '7.4.0': True
                             },
                             'choices': [
                                 'disable',
@@ -2034,7 +4461,33 @@ def main():
                             'revision': {
                                 '6.4.5': True,
                                 '7.0.0': True,
-                                '7.2.0': True
+                                '7.2.0': True,
+                                '6.2.0': False,
+                                '6.2.2': False,
+                                '6.2.6': False,
+                                '6.2.7': False,
+                                '6.2.8': True,
+                                '6.2.9': True,
+                                '6.2.10': True,
+                                '6.4.1': False,
+                                '6.4.3': False,
+                                '6.4.4': False,
+                                '6.4.6': True,
+                                '6.4.7': True,
+                                '6.4.8': True,
+                                '6.4.9': True,
+                                '6.4.10': True,
+                                '6.4.11': True,
+                                '7.0.1': True,
+                                '7.0.2': True,
+                                '7.0.3': True,
+                                '7.0.4': True,
+                                '7.0.5': True,
+                                '7.0.6': True,
+                                '7.0.7': True,
+                                '7.2.1': True,
+                                '7.2.2': True,
+                                '7.4.0': True
                             },
                             'choices': [
                                 'disable',
@@ -2047,7 +4500,33 @@ def main():
                             'revision': {
                                 '6.4.5': True,
                                 '7.0.0': True,
-                                '7.2.0': True
+                                '7.2.0': True,
+                                '6.2.0': False,
+                                '6.2.2': False,
+                                '6.2.6': False,
+                                '6.2.7': False,
+                                '6.2.8': True,
+                                '6.2.9': True,
+                                '6.2.10': True,
+                                '6.4.1': False,
+                                '6.4.3': False,
+                                '6.4.4': False,
+                                '6.4.6': True,
+                                '6.4.7': True,
+                                '6.4.8': True,
+                                '6.4.9': True,
+                                '6.4.10': True,
+                                '6.4.11': True,
+                                '7.0.1': True,
+                                '7.0.2': True,
+                                '7.0.3': True,
+                                '7.0.4': True,
+                                '7.0.5': True,
+                                '7.0.6': True,
+                                '7.0.7': True,
+                                '7.2.1': True,
+                                '7.2.2': True,
+                                '7.4.0': True
                             },
                             'choices': [
                                 'no',
@@ -2060,7 +4539,33 @@ def main():
                             'revision': {
                                 '6.4.5': True,
                                 '7.0.0': True,
-                                '7.2.0': True
+                                '7.2.0': True,
+                                '6.2.0': False,
+                                '6.2.2': False,
+                                '6.2.6': False,
+                                '6.2.7': False,
+                                '6.2.8': True,
+                                '6.2.9': True,
+                                '6.2.10': True,
+                                '6.4.1': False,
+                                '6.4.3': False,
+                                '6.4.4': False,
+                                '6.4.6': True,
+                                '6.4.7': True,
+                                '6.4.8': True,
+                                '6.4.9': True,
+                                '6.4.10': True,
+                                '6.4.11': True,
+                                '7.0.1': True,
+                                '7.0.2': True,
+                                '7.0.3': True,
+                                '7.0.4': True,
+                                '7.0.5': True,
+                                '7.0.6': True,
+                                '7.0.7': True,
+                                '7.2.1': True,
+                                '7.2.2': True,
+                                '7.4.0': True
                             },
                             'choices': [
                                 'disable',
@@ -2073,7 +4578,33 @@ def main():
                             'revision': {
                                 '6.4.5': True,
                                 '7.0.0': True,
-                                '7.2.0': True
+                                '7.2.0': True,
+                                '6.2.0': False,
+                                '6.2.2': False,
+                                '6.2.6': False,
+                                '6.2.7': False,
+                                '6.2.8': True,
+                                '6.2.9': True,
+                                '6.2.10': True,
+                                '6.4.1': False,
+                                '6.4.3': False,
+                                '6.4.4': False,
+                                '6.4.6': True,
+                                '6.4.7': True,
+                                '6.4.8': True,
+                                '6.4.9': True,
+                                '6.4.10': True,
+                                '6.4.11': True,
+                                '7.0.1': True,
+                                '7.0.2': True,
+                                '7.0.3': True,
+                                '7.0.4': True,
+                                '7.0.5': True,
+                                '7.0.6': True,
+                                '7.0.7': True,
+                                '7.2.1': True,
+                                '7.2.2': True,
+                                '7.4.0': True
                             },
                             'type': 'int'
                         },
@@ -2082,7 +4613,33 @@ def main():
                             'revision': {
                                 '6.4.5': True,
                                 '7.0.0': True,
-                                '7.2.0': True
+                                '7.2.0': True,
+                                '6.2.0': False,
+                                '6.2.2': False,
+                                '6.2.6': False,
+                                '6.2.7': False,
+                                '6.2.8': True,
+                                '6.2.9': True,
+                                '6.2.10': True,
+                                '6.4.1': False,
+                                '6.4.3': False,
+                                '6.4.4': False,
+                                '6.4.6': True,
+                                '6.4.7': True,
+                                '6.4.8': True,
+                                '6.4.9': True,
+                                '6.4.10': True,
+                                '6.4.11': True,
+                                '7.0.1': True,
+                                '7.0.2': True,
+                                '7.0.3': True,
+                                '7.0.4': True,
+                                '7.0.5': True,
+                                '7.0.6': True,
+                                '7.0.7': True,
+                                '7.2.1': True,
+                                '7.2.2': True,
+                                '7.4.0': True
                             },
                             'type': 'int'
                         }
@@ -2097,7 +4654,33 @@ def main():
                             'revision': {
                                 '6.4.5': True,
                                 '7.0.0': True,
-                                '7.2.0': True
+                                '7.2.0': True,
+                                '6.2.0': False,
+                                '6.2.2': False,
+                                '6.2.6': False,
+                                '6.2.7': False,
+                                '6.2.8': True,
+                                '6.2.9': True,
+                                '6.2.10': True,
+                                '6.4.1': False,
+                                '6.4.3': False,
+                                '6.4.4': False,
+                                '6.4.6': True,
+                                '6.4.7': True,
+                                '6.4.8': True,
+                                '6.4.9': True,
+                                '6.4.10': True,
+                                '6.4.11': True,
+                                '7.0.1': True,
+                                '7.0.2': True,
+                                '7.0.3': True,
+                                '7.0.4': True,
+                                '7.0.5': True,
+                                '7.0.6': True,
+                                '7.0.7': True,
+                                '7.2.1': True,
+                                '7.2.2': True,
+                                '7.4.0': True
                             },
                             'type': 'str'
                         },
@@ -2106,7 +4689,33 @@ def main():
                             'revision': {
                                 '6.4.5': True,
                                 '7.0.0': True,
-                                '7.2.0': True
+                                '7.2.0': True,
+                                '6.2.0': False,
+                                '6.2.2': False,
+                                '6.2.6': False,
+                                '6.2.7': False,
+                                '6.2.8': True,
+                                '6.2.9': True,
+                                '6.2.10': True,
+                                '6.4.1': False,
+                                '6.4.3': False,
+                                '6.4.4': False,
+                                '6.4.6': True,
+                                '6.4.7': True,
+                                '6.4.8': True,
+                                '6.4.9': True,
+                                '6.4.10': True,
+                                '6.4.11': True,
+                                '7.0.1': True,
+                                '7.0.2': True,
+                                '7.0.3': True,
+                                '7.0.4': True,
+                                '7.0.5': True,
+                                '7.0.6': True,
+                                '7.0.7': True,
+                                '7.2.1': True,
+                                '7.2.2': True,
+                                '7.4.0': True
                             },
                             'choices': [
                                 'disable',
@@ -2125,21 +4734,74 @@ def main():
                             'revision': {
                                 '6.4.5': True,
                                 '7.0.0': True,
-                                '7.2.0': True
+                                '7.2.0': True,
+                                '6.2.0': False,
+                                '6.2.2': False,
+                                '6.2.6': False,
+                                '6.2.7': False,
+                                '6.2.8': True,
+                                '6.2.9': True,
+                                '6.2.10': True,
+                                '6.4.1': False,
+                                '6.4.3': False,
+                                '6.4.4': False,
+                                '6.4.6': True,
+                                '6.4.7': True,
+                                '6.4.8': True,
+                                '6.4.9': True,
+                                '6.4.10': True,
+                                '6.4.11': True,
+                                '7.0.1': True,
+                                '7.0.2': True,
+                                '7.0.3': True,
+                                '7.0.4': True,
+                                '7.0.5': True,
+                                '7.0.6': True,
+                                '7.0.7': True,
+                                '7.2.1': True,
+                                '7.2.2': True,
+                                '7.4.0': True
                             },
                             'type': 'list',
                             'choices': [
                                 'fragmail',
                                 'oversize',
                                 'no-content-summary'
-                            ]
+                            ],
+                            'elements': 'str'
                         },
                         'oversize-limit': {
                             'required': False,
                             'revision': {
                                 '6.4.5': True,
                                 '7.0.0': True,
-                                '7.2.0': True
+                                '7.2.0': True,
+                                '6.2.0': False,
+                                '6.2.2': False,
+                                '6.2.6': False,
+                                '6.2.7': False,
+                                '6.2.8': True,
+                                '6.2.9': True,
+                                '6.2.10': True,
+                                '6.4.1': False,
+                                '6.4.3': False,
+                                '6.4.4': False,
+                                '6.4.6': True,
+                                '6.4.7': True,
+                                '6.4.8': True,
+                                '6.4.9': True,
+                                '6.4.10': True,
+                                '6.4.11': True,
+                                '7.0.1': True,
+                                '7.0.2': True,
+                                '7.0.3': True,
+                                '7.0.4': True,
+                                '7.0.5': True,
+                                '7.0.6': True,
+                                '7.0.7': True,
+                                '7.2.1': True,
+                                '7.2.2': True,
+                                '7.4.0': True
                             },
                             'type': 'int'
                         },
@@ -2148,7 +4810,33 @@ def main():
                             'revision': {
                                 '6.4.5': True,
                                 '7.0.0': True,
-                                '7.2.0': True
+                                '7.2.0': True,
+                                '6.2.0': False,
+                                '6.2.2': False,
+                                '6.2.6': False,
+                                '6.2.7': False,
+                                '6.2.8': True,
+                                '6.2.9': True,
+                                '6.2.10': True,
+                                '6.4.1': False,
+                                '6.4.3': False,
+                                '6.4.4': False,
+                                '6.4.6': True,
+                                '6.4.7': True,
+                                '6.4.8': True,
+                                '6.4.9': True,
+                                '6.4.10': True,
+                                '6.4.11': True,
+                                '7.0.1': True,
+                                '7.0.2': True,
+                                '7.0.3': True,
+                                '7.0.4': True,
+                                '7.0.5': True,
+                                '7.0.6': True,
+                                '7.0.7': True,
+                                '7.2.1': True,
+                                '7.2.2': True,
+                                '7.4.0': True
                             },
                             'type': 'int'
                         },
@@ -2157,7 +4845,33 @@ def main():
                             'revision': {
                                 '6.4.5': True,
                                 '7.0.0': True,
-                                '7.2.0': True
+                                '7.2.0': True,
+                                '6.2.0': False,
+                                '6.2.2': False,
+                                '6.2.6': False,
+                                '6.2.7': False,
+                                '6.2.8': True,
+                                '6.2.9': True,
+                                '6.2.10': True,
+                                '6.4.1': False,
+                                '6.4.3': False,
+                                '6.4.4': False,
+                                '6.4.6': True,
+                                '6.4.7': True,
+                                '6.4.8': True,
+                                '6.4.9': True,
+                                '6.4.10': True,
+                                '6.4.11': True,
+                                '7.0.1': True,
+                                '7.0.2': True,
+                                '7.0.3': True,
+                                '7.0.4': True,
+                                '7.0.5': True,
+                                '7.0.6': True,
+                                '7.0.7': True,
+                                '7.2.1': True,
+                                '7.2.2': True,
+                                '7.4.0': True
                             },
                             'choices': [
                                 'disable',
@@ -2170,7 +4884,33 @@ def main():
                             'revision': {
                                 '6.4.5': True,
                                 '7.0.0': True,
-                                '7.2.0': True
+                                '7.2.0': True,
+                                '6.2.0': False,
+                                '6.2.2': False,
+                                '6.2.6': False,
+                                '6.2.7': False,
+                                '6.2.8': True,
+                                '6.2.9': True,
+                                '6.2.10': True,
+                                '6.4.1': False,
+                                '6.4.3': False,
+                                '6.4.4': False,
+                                '6.4.6': True,
+                                '6.4.7': True,
+                                '6.4.8': True,
+                                '6.4.9': True,
+                                '6.4.10': True,
+                                '6.4.11': True,
+                                '7.0.1': True,
+                                '7.0.2': True,
+                                '7.0.3': True,
+                                '7.0.4': True,
+                                '7.0.5': True,
+                                '7.0.6': True,
+                                '7.0.7': True,
+                                '7.2.1': True,
+                                '7.2.2': True,
+                                '7.4.0': True
                             },
                             'choices': [
                                 'disable',
@@ -2183,7 +4923,33 @@ def main():
                             'revision': {
                                 '6.4.5': True,
                                 '7.0.0': True,
-                                '7.2.0': True
+                                '7.2.0': True,
+                                '6.2.0': False,
+                                '6.2.2': False,
+                                '6.2.6': False,
+                                '6.2.7': False,
+                                '6.2.8': True,
+                                '6.2.9': True,
+                                '6.2.10': True,
+                                '6.4.1': False,
+                                '6.4.3': False,
+                                '6.4.4': False,
+                                '6.4.6': True,
+                                '6.4.7': True,
+                                '6.4.8': True,
+                                '6.4.9': True,
+                                '6.4.10': True,
+                                '6.4.11': True,
+                                '7.0.1': True,
+                                '7.0.2': True,
+                                '7.0.3': True,
+                                '7.0.4': True,
+                                '7.0.5': True,
+                                '7.0.6': True,
+                                '7.0.7': True,
+                                '7.2.1': True,
+                                '7.2.2': True,
+                                '7.4.0': True
                             },
                             'type': 'int'
                         },
@@ -2192,7 +4958,33 @@ def main():
                             'revision': {
                                 '6.4.5': True,
                                 '7.0.0': True,
-                                '7.2.0': True
+                                '7.2.0': True,
+                                '6.2.0': False,
+                                '6.2.2': False,
+                                '6.2.6': False,
+                                '6.2.7': False,
+                                '6.2.8': True,
+                                '6.2.9': True,
+                                '6.2.10': True,
+                                '6.4.1': False,
+                                '6.4.3': False,
+                                '6.4.4': False,
+                                '6.4.6': True,
+                                '6.4.7': True,
+                                '6.4.8': True,
+                                '6.4.9': True,
+                                '6.4.10': True,
+                                '6.4.11': True,
+                                '7.0.1': True,
+                                '7.0.2': True,
+                                '7.0.3': True,
+                                '7.0.4': True,
+                                '7.0.5': True,
+                                '7.0.6': True,
+                                '7.0.7': True,
+                                '7.2.1': True,
+                                '7.2.2': True,
+                                '7.4.0': True
                             },
                             'type': 'int'
                         }
@@ -2207,7 +4999,33 @@ def main():
                             'revision': {
                                 '6.4.5': True,
                                 '7.0.0': True,
-                                '7.2.0': True
+                                '7.2.0': True,
+                                '6.2.0': False,
+                                '6.2.2': False,
+                                '6.2.6': False,
+                                '6.2.7': False,
+                                '6.2.8': True,
+                                '6.2.9': True,
+                                '6.2.10': True,
+                                '6.4.1': False,
+                                '6.4.3': False,
+                                '6.4.4': False,
+                                '6.4.6': True,
+                                '6.4.7': True,
+                                '6.4.8': True,
+                                '6.4.9': True,
+                                '6.4.10': True,
+                                '6.4.11': True,
+                                '7.0.1': True,
+                                '7.0.2': True,
+                                '7.0.3': True,
+                                '7.0.4': True,
+                                '7.0.5': True,
+                                '7.0.6': True,
+                                '7.0.7': True,
+                                '7.2.1': True,
+                                '7.2.2': True,
+                                '7.4.0': True
                             },
                             'choices': [
                                 'disable',
@@ -2220,21 +5038,74 @@ def main():
                             'revision': {
                                 '6.4.5': True,
                                 '7.0.0': True,
-                                '7.2.0': True
+                                '7.2.0': True,
+                                '6.2.0': False,
+                                '6.2.2': False,
+                                '6.2.6': False,
+                                '6.2.7': False,
+                                '6.2.8': True,
+                                '6.2.9': True,
+                                '6.2.10': True,
+                                '6.4.1': False,
+                                '6.4.3': False,
+                                '6.4.4': False,
+                                '6.4.6': True,
+                                '6.4.7': True,
+                                '6.4.8': True,
+                                '6.4.9': True,
+                                '6.4.10': True,
+                                '6.4.11': True,
+                                '7.0.1': True,
+                                '7.0.2': True,
+                                '7.0.3': True,
+                                '7.0.4': True,
+                                '7.0.5': True,
+                                '7.0.6': True,
+                                '7.0.7': True,
+                                '7.2.1': True,
+                                '7.2.2': True,
+                                '7.4.0': True
                             },
                             'type': 'list',
                             'choices': [
                                 'oversize',
                                 'no-content-summary',
                                 'splice'
-                            ]
+                            ],
+                            'elements': 'str'
                         },
                         'oversize-limit': {
                             'required': False,
                             'revision': {
                                 '6.4.5': True,
                                 '7.0.0': True,
-                                '7.2.0': True
+                                '7.2.0': True,
+                                '6.2.0': False,
+                                '6.2.2': False,
+                                '6.2.6': False,
+                                '6.2.7': False,
+                                '6.2.8': True,
+                                '6.2.9': True,
+                                '6.2.10': True,
+                                '6.4.1': False,
+                                '6.4.3': False,
+                                '6.4.4': False,
+                                '6.4.6': True,
+                                '6.4.7': True,
+                                '6.4.8': True,
+                                '6.4.9': True,
+                                '6.4.10': True,
+                                '6.4.11': True,
+                                '7.0.1': True,
+                                '7.0.2': True,
+                                '7.0.3': True,
+                                '7.0.4': True,
+                                '7.0.5': True,
+                                '7.0.6': True,
+                                '7.0.7': True,
+                                '7.2.1': True,
+                                '7.2.2': True,
+                                '7.4.0': True
                             },
                             'type': 'int'
                         },
@@ -2243,7 +5114,33 @@ def main():
                             'revision': {
                                 '6.4.5': True,
                                 '7.0.0': True,
-                                '7.2.0': True
+                                '7.2.0': True,
+                                '6.2.0': False,
+                                '6.2.2': False,
+                                '6.2.6': False,
+                                '6.2.7': False,
+                                '6.2.8': True,
+                                '6.2.9': True,
+                                '6.2.10': True,
+                                '6.4.1': False,
+                                '6.4.3': False,
+                                '6.4.4': False,
+                                '6.4.6': True,
+                                '6.4.7': True,
+                                '6.4.8': True,
+                                '6.4.9': True,
+                                '6.4.10': True,
+                                '6.4.11': True,
+                                '7.0.1': True,
+                                '7.0.2': True,
+                                '7.0.3': True,
+                                '7.0.4': True,
+                                '7.0.5': True,
+                                '7.0.6': True,
+                                '7.0.7': True,
+                                '7.2.1': True,
+                                '7.2.2': True,
+                                '7.4.0': True
                             },
                             'type': 'int'
                         },
@@ -2252,7 +5149,33 @@ def main():
                             'revision': {
                                 '6.4.5': True,
                                 '7.0.0': True,
-                                '7.2.0': True
+                                '7.2.0': True,
+                                '6.2.0': False,
+                                '6.2.2': False,
+                                '6.2.6': False,
+                                '6.2.7': False,
+                                '6.2.8': False,
+                                '6.2.9': False,
+                                '6.2.10': False,
+                                '6.4.1': False,
+                                '6.4.3': False,
+                                '6.4.4': False,
+                                '6.4.6': True,
+                                '6.4.7': True,
+                                '6.4.8': True,
+                                '6.4.9': True,
+                                '6.4.10': True,
+                                '6.4.11': True,
+                                '7.0.1': True,
+                                '7.0.2': True,
+                                '7.0.3': True,
+                                '7.0.4': True,
+                                '7.0.5': True,
+                                '7.0.6': True,
+                                '7.0.7': True,
+                                '7.2.1': True,
+                                '7.2.2': True,
+                                '7.4.0': True
                             },
                             'choices': [
                                 'disable',
@@ -2265,7 +5188,33 @@ def main():
                             'revision': {
                                 '6.4.5': True,
                                 '7.0.0': True,
-                                '7.2.0': True
+                                '7.2.0': True,
+                                '6.2.0': False,
+                                '6.2.2': False,
+                                '6.2.6': False,
+                                '6.2.7': False,
+                                '6.2.8': True,
+                                '6.2.9': True,
+                                '6.2.10': True,
+                                '6.4.1': False,
+                                '6.4.3': False,
+                                '6.4.4': False,
+                                '6.4.6': True,
+                                '6.4.7': True,
+                                '6.4.8': True,
+                                '6.4.9': True,
+                                '6.4.10': True,
+                                '6.4.11': True,
+                                '7.0.1': True,
+                                '7.0.2': True,
+                                '7.0.3': True,
+                                '7.0.4': True,
+                                '7.0.5': True,
+                                '7.0.6': True,
+                                '7.0.7': True,
+                                '7.2.1': True,
+                                '7.2.2': True,
+                                '7.4.0': True
                             },
                             'choices': [
                                 'disable',
@@ -2278,7 +5227,33 @@ def main():
                             'revision': {
                                 '6.4.5': True,
                                 '7.0.0': True,
-                                '7.2.0': True
+                                '7.2.0': True,
+                                '6.2.0': False,
+                                '6.2.2': False,
+                                '6.2.6': False,
+                                '6.2.7': False,
+                                '6.2.8': True,
+                                '6.2.9': True,
+                                '6.2.10': True,
+                                '6.4.1': False,
+                                '6.4.3': False,
+                                '6.4.4': False,
+                                '6.4.6': True,
+                                '6.4.7': True,
+                                '6.4.8': True,
+                                '6.4.9': True,
+                                '6.4.10': True,
+                                '6.4.11': True,
+                                '7.0.1': True,
+                                '7.0.2': True,
+                                '7.0.3': True,
+                                '7.0.4': True,
+                                '7.0.5': True,
+                                '7.0.6': True,
+                                '7.0.7': True,
+                                '7.2.1': True,
+                                '7.2.2': True,
+                                '7.4.0': True
                             },
                             'choices': [
                                 'disable',
@@ -2291,7 +5266,33 @@ def main():
                             'revision': {
                                 '6.4.5': True,
                                 '7.0.0': True,
-                                '7.2.0': True
+                                '7.2.0': True,
+                                '6.2.0': False,
+                                '6.2.2': False,
+                                '6.2.6': False,
+                                '6.2.7': False,
+                                '6.2.8': True,
+                                '6.2.9': True,
+                                '6.2.10': True,
+                                '6.4.1': False,
+                                '6.4.3': False,
+                                '6.4.4': False,
+                                '6.4.6': True,
+                                '6.4.7': True,
+                                '6.4.8': True,
+                                '6.4.9': True,
+                                '6.4.10': True,
+                                '6.4.11': True,
+                                '7.0.1': True,
+                                '7.0.2': True,
+                                '7.0.3': True,
+                                '7.0.4': True,
+                                '7.0.5': True,
+                                '7.0.6': True,
+                                '7.0.7': True,
+                                '7.2.1': True,
+                                '7.2.2': True,
+                                '7.4.0': True
                             },
                             'type': 'int'
                         },
@@ -2300,7 +5301,33 @@ def main():
                             'revision': {
                                 '6.4.5': True,
                                 '7.0.0': True,
-                                '7.2.0': True
+                                '7.2.0': True,
+                                '6.2.0': False,
+                                '6.2.2': False,
+                                '6.2.6': False,
+                                '6.2.7': False,
+                                '6.2.8': True,
+                                '6.2.9': True,
+                                '6.2.10': True,
+                                '6.4.1': False,
+                                '6.4.3': False,
+                                '6.4.4': False,
+                                '6.4.6': True,
+                                '6.4.7': True,
+                                '6.4.8': True,
+                                '6.4.9': True,
+                                '6.4.10': True,
+                                '6.4.11': True,
+                                '7.0.1': True,
+                                '7.0.2': True,
+                                '7.0.3': True,
+                                '7.0.4': True,
+                                '7.0.5': True,
+                                '7.0.6': True,
+                                '7.0.7': True,
+                                '7.2.1': True,
+                                '7.2.2': True,
+                                '7.4.0': True
                             },
                             'type': 'int'
                         }
@@ -2315,7 +5342,33 @@ def main():
                             'revision': {
                                 '6.4.5': True,
                                 '7.0.0': True,
-                                '7.2.0': True
+                                '7.2.0': True,
+                                '6.2.0': False,
+                                '6.2.2': False,
+                                '6.2.6': False,
+                                '6.2.7': False,
+                                '6.2.8': True,
+                                '6.2.9': True,
+                                '6.2.10': True,
+                                '6.4.1': False,
+                                '6.4.3': False,
+                                '6.4.4': False,
+                                '6.4.6': True,
+                                '6.4.7': True,
+                                '6.4.8': True,
+                                '6.4.9': True,
+                                '6.4.10': True,
+                                '6.4.11': True,
+                                '7.0.1': True,
+                                '7.0.2': True,
+                                '7.0.3': True,
+                                '7.0.4': True,
+                                '7.0.5': True,
+                                '7.0.6': True,
+                                '7.0.7': True,
+                                '7.2.1': True,
+                                '7.2.2': True,
+                                '7.4.0': True
                             },
                             'choices': [
                                 'disable',
@@ -2328,21 +5381,74 @@ def main():
                             'revision': {
                                 '6.4.5': True,
                                 '7.0.0': True,
-                                '7.2.0': True
+                                '7.2.0': True,
+                                '6.2.0': False,
+                                '6.2.2': False,
+                                '6.2.6': False,
+                                '6.2.7': False,
+                                '6.2.8': True,
+                                '6.2.9': True,
+                                '6.2.10': True,
+                                '6.4.1': False,
+                                '6.4.3': False,
+                                '6.4.4': False,
+                                '6.4.6': True,
+                                '6.4.7': True,
+                                '6.4.8': True,
+                                '6.4.9': True,
+                                '6.4.10': True,
+                                '6.4.11': True,
+                                '7.0.1': True,
+                                '7.0.2': True,
+                                '7.0.3': True,
+                                '7.0.4': True,
+                                '7.0.5': True,
+                                '7.0.6': True,
+                                '7.0.7': True,
+                                '7.2.1': True,
+                                '7.2.2': True,
+                                '7.4.0': True
                             },
                             'type': 'list',
                             'choices': [
                                 'oversize',
                                 'fragmail',
                                 'no-content-summary'
-                            ]
+                            ],
+                            'elements': 'str'
                         },
                         'oversize-limit': {
                             'required': False,
                             'revision': {
                                 '6.4.5': True,
                                 '7.0.0': True,
-                                '7.2.0': True
+                                '7.2.0': True,
+                                '6.2.0': False,
+                                '6.2.2': False,
+                                '6.2.6': False,
+                                '6.2.7': False,
+                                '6.2.8': True,
+                                '6.2.9': True,
+                                '6.2.10': True,
+                                '6.4.1': False,
+                                '6.4.3': False,
+                                '6.4.4': False,
+                                '6.4.6': True,
+                                '6.4.7': True,
+                                '6.4.8': True,
+                                '6.4.9': True,
+                                '6.4.10': True,
+                                '6.4.11': True,
+                                '7.0.1': True,
+                                '7.0.2': True,
+                                '7.0.3': True,
+                                '7.0.4': True,
+                                '7.0.5': True,
+                                '7.0.6': True,
+                                '7.0.7': True,
+                                '7.2.1': True,
+                                '7.2.2': True,
+                                '7.4.0': True
                             },
                             'type': 'int'
                         },
@@ -2351,7 +5457,33 @@ def main():
                             'revision': {
                                 '6.4.5': True,
                                 '7.0.0': True,
-                                '7.2.0': True
+                                '7.2.0': True,
+                                '6.2.0': False,
+                                '6.2.2': False,
+                                '6.2.6': False,
+                                '6.2.7': False,
+                                '6.2.8': True,
+                                '6.2.9': True,
+                                '6.2.10': True,
+                                '6.4.1': False,
+                                '6.4.3': False,
+                                '6.4.4': False,
+                                '6.4.6': True,
+                                '6.4.7': True,
+                                '6.4.8': True,
+                                '6.4.9': True,
+                                '6.4.10': True,
+                                '6.4.11': True,
+                                '7.0.1': True,
+                                '7.0.2': True,
+                                '7.0.3': True,
+                                '7.0.4': True,
+                                '7.0.5': True,
+                                '7.0.6': True,
+                                '7.0.7': True,
+                                '7.2.1': True,
+                                '7.2.2': True,
+                                '7.4.0': True
                             },
                             'type': 'int'
                         },
@@ -2360,7 +5492,33 @@ def main():
                             'revision': {
                                 '6.4.5': True,
                                 '7.0.0': True,
-                                '7.2.0': True
+                                '7.2.0': True,
+                                '6.2.0': False,
+                                '6.2.2': False,
+                                '6.2.6': False,
+                                '6.2.7': False,
+                                '6.2.8': False,
+                                '6.2.9': False,
+                                '6.2.10': False,
+                                '6.4.1': False,
+                                '6.4.3': False,
+                                '6.4.4': False,
+                                '6.4.6': True,
+                                '6.4.7': True,
+                                '6.4.8': True,
+                                '6.4.9': True,
+                                '6.4.10': True,
+                                '6.4.11': True,
+                                '7.0.1': True,
+                                '7.0.2': True,
+                                '7.0.3': True,
+                                '7.0.4': True,
+                                '7.0.5': True,
+                                '7.0.6': True,
+                                '7.0.7': True,
+                                '7.2.1': True,
+                                '7.2.2': True,
+                                '7.4.0': True
                             },
                             'choices': [
                                 'disable',
@@ -2373,7 +5531,33 @@ def main():
                             'revision': {
                                 '6.4.5': True,
                                 '7.0.0': True,
-                                '7.2.0': True
+                                '7.2.0': True,
+                                '6.2.0': False,
+                                '6.2.2': False,
+                                '6.2.6': False,
+                                '6.2.7': False,
+                                '6.2.8': True,
+                                '6.2.9': True,
+                                '6.2.10': True,
+                                '6.4.1': False,
+                                '6.4.3': False,
+                                '6.4.4': False,
+                                '6.4.6': True,
+                                '6.4.7': True,
+                                '6.4.8': True,
+                                '6.4.9': True,
+                                '6.4.10': True,
+                                '6.4.11': True,
+                                '7.0.1': True,
+                                '7.0.2': True,
+                                '7.0.3': True,
+                                '7.0.4': True,
+                                '7.0.5': True,
+                                '7.0.6': True,
+                                '7.0.7': True,
+                                '7.2.1': True,
+                                '7.2.2': True,
+                                '7.4.0': True
                             },
                             'choices': [
                                 'disable',
@@ -2386,7 +5570,33 @@ def main():
                             'revision': {
                                 '6.4.5': True,
                                 '7.0.0': True,
-                                '7.2.0': True
+                                '7.2.0': True,
+                                '6.2.0': False,
+                                '6.2.2': False,
+                                '6.2.6': False,
+                                '6.2.7': False,
+                                '6.2.8': True,
+                                '6.2.9': True,
+                                '6.2.10': True,
+                                '6.4.1': False,
+                                '6.4.3': False,
+                                '6.4.4': False,
+                                '6.4.6': True,
+                                '6.4.7': True,
+                                '6.4.8': True,
+                                '6.4.9': True,
+                                '6.4.10': True,
+                                '6.4.11': True,
+                                '7.0.1': True,
+                                '7.0.2': True,
+                                '7.0.3': True,
+                                '7.0.4': True,
+                                '7.0.5': True,
+                                '7.0.6': True,
+                                '7.0.7': True,
+                                '7.2.1': True,
+                                '7.2.2': True,
+                                '7.4.0': True
                             },
                             'choices': [
                                 'no',
@@ -2399,7 +5609,33 @@ def main():
                             'revision': {
                                 '6.4.5': True,
                                 '7.0.0': True,
-                                '7.2.0': True
+                                '7.2.0': True,
+                                '6.2.0': False,
+                                '6.2.2': False,
+                                '6.2.6': False,
+                                '6.2.7': False,
+                                '6.2.8': True,
+                                '6.2.9': True,
+                                '6.2.10': True,
+                                '6.4.1': False,
+                                '6.4.3': False,
+                                '6.4.4': False,
+                                '6.4.6': True,
+                                '6.4.7': True,
+                                '6.4.8': True,
+                                '6.4.9': True,
+                                '6.4.10': True,
+                                '6.4.11': True,
+                                '7.0.1': True,
+                                '7.0.2': True,
+                                '7.0.3': True,
+                                '7.0.4': True,
+                                '7.0.5': True,
+                                '7.0.6': True,
+                                '7.0.7': True,
+                                '7.2.1': True,
+                                '7.2.2': True,
+                                '7.4.0': True
                             },
                             'choices': [
                                 'disable',
@@ -2412,7 +5648,33 @@ def main():
                             'revision': {
                                 '6.4.5': True,
                                 '7.0.0': True,
-                                '7.2.0': True
+                                '7.2.0': True,
+                                '6.2.0': False,
+                                '6.2.2': False,
+                                '6.2.6': False,
+                                '6.2.7': False,
+                                '6.2.8': True,
+                                '6.2.9': True,
+                                '6.2.10': True,
+                                '6.4.1': False,
+                                '6.4.3': False,
+                                '6.4.4': False,
+                                '6.4.6': True,
+                                '6.4.7': True,
+                                '6.4.8': True,
+                                '6.4.9': True,
+                                '6.4.10': True,
+                                '6.4.11': True,
+                                '7.0.1': True,
+                                '7.0.2': True,
+                                '7.0.3': True,
+                                '7.0.4': True,
+                                '7.0.5': True,
+                                '7.0.6': True,
+                                '7.0.7': True,
+                                '7.2.1': True,
+                                '7.2.2': True,
+                                '7.4.0': True
                             },
                             'type': 'int'
                         },
@@ -2421,7 +5683,33 @@ def main():
                             'revision': {
                                 '6.4.5': True,
                                 '7.0.0': True,
-                                '7.2.0': True
+                                '7.2.0': True,
+                                '6.2.0': False,
+                                '6.2.2': False,
+                                '6.2.6': False,
+                                '6.2.7': False,
+                                '6.2.8': True,
+                                '6.2.9': True,
+                                '6.2.10': True,
+                                '6.4.1': False,
+                                '6.4.3': False,
+                                '6.4.4': False,
+                                '6.4.6': True,
+                                '6.4.7': True,
+                                '6.4.8': True,
+                                '6.4.9': True,
+                                '6.4.10': True,
+                                '6.4.11': True,
+                                '7.0.1': True,
+                                '7.0.2': True,
+                                '7.0.3': True,
+                                '7.0.4': True,
+                                '7.0.5': True,
+                                '7.0.6': True,
+                                '7.0.7': True,
+                                '7.2.1': True,
+                                '7.2.2': True,
+                                '7.4.0': True
                             },
                             'type': 'int'
                         }
@@ -2436,7 +5724,33 @@ def main():
                             'revision': {
                                 '6.4.5': True,
                                 '7.0.0': True,
-                                '7.2.0': True
+                                '7.2.0': True,
+                                '6.2.0': False,
+                                '6.2.2': False,
+                                '6.2.6': False,
+                                '6.2.7': False,
+                                '6.2.8': True,
+                                '6.2.9': True,
+                                '6.2.10': True,
+                                '6.4.1': False,
+                                '6.4.3': False,
+                                '6.4.4': False,
+                                '6.4.6': True,
+                                '6.4.7': True,
+                                '6.4.8': True,
+                                '6.4.9': True,
+                                '6.4.10': True,
+                                '6.4.11': True,
+                                '7.0.1': True,
+                                '7.0.2': True,
+                                '7.0.3': True,
+                                '7.0.4': True,
+                                '7.0.5': True,
+                                '7.0.6': True,
+                                '7.0.7': True,
+                                '7.2.1': True,
+                                '7.2.2': True,
+                                '7.4.0': True
                             },
                             'choices': [
                                 'disable',
@@ -2449,7 +5763,33 @@ def main():
                             'revision': {
                                 '6.4.5': True,
                                 '7.0.0': True,
-                                '7.2.0': True
+                                '7.2.0': True,
+                                '6.2.0': False,
+                                '6.2.2': False,
+                                '6.2.6': False,
+                                '6.2.7': False,
+                                '6.2.8': True,
+                                '6.2.9': True,
+                                '6.2.10': True,
+                                '6.4.1': False,
+                                '6.4.3': False,
+                                '6.4.4': False,
+                                '6.4.6': True,
+                                '6.4.7': True,
+                                '6.4.8': True,
+                                '6.4.9': True,
+                                '6.4.10': True,
+                                '6.4.11': True,
+                                '7.0.1': True,
+                                '7.0.2': True,
+                                '7.0.3': True,
+                                '7.0.4': True,
+                                '7.0.5': True,
+                                '7.0.6': True,
+                                '7.0.7': True,
+                                '7.2.1': True,
+                                '7.2.2': True,
+                                '7.4.0': True
                             },
                             'type': 'list',
                             'choices': [
@@ -2457,14 +5797,41 @@ def main():
                                 'fragmail',
                                 'no-content-summary',
                                 'splice'
-                            ]
+                            ],
+                            'elements': 'str'
                         },
                         'oversize-limit': {
                             'required': False,
                             'revision': {
                                 '6.4.5': True,
                                 '7.0.0': True,
-                                '7.2.0': True
+                                '7.2.0': True,
+                                '6.2.0': False,
+                                '6.2.2': False,
+                                '6.2.6': False,
+                                '6.2.7': False,
+                                '6.2.8': True,
+                                '6.2.9': True,
+                                '6.2.10': True,
+                                '6.4.1': False,
+                                '6.4.3': False,
+                                '6.4.4': False,
+                                '6.4.6': True,
+                                '6.4.7': True,
+                                '6.4.8': True,
+                                '6.4.9': True,
+                                '6.4.10': True,
+                                '6.4.11': True,
+                                '7.0.1': True,
+                                '7.0.2': True,
+                                '7.0.3': True,
+                                '7.0.4': True,
+                                '7.0.5': True,
+                                '7.0.6': True,
+                                '7.0.7': True,
+                                '7.2.1': True,
+                                '7.2.2': True,
+                                '7.4.0': True
                             },
                             'type': 'int'
                         },
@@ -2473,7 +5840,33 @@ def main():
                             'revision': {
                                 '6.4.5': True,
                                 '7.0.0': True,
-                                '7.2.0': True
+                                '7.2.0': True,
+                                '6.2.0': False,
+                                '6.2.2': False,
+                                '6.2.6': False,
+                                '6.2.7': False,
+                                '6.2.8': True,
+                                '6.2.9': True,
+                                '6.2.10': True,
+                                '6.4.1': False,
+                                '6.4.3': False,
+                                '6.4.4': False,
+                                '6.4.6': True,
+                                '6.4.7': True,
+                                '6.4.8': True,
+                                '6.4.9': True,
+                                '6.4.10': True,
+                                '6.4.11': True,
+                                '7.0.1': True,
+                                '7.0.2': True,
+                                '7.0.3': True,
+                                '7.0.4': True,
+                                '7.0.5': True,
+                                '7.0.6': True,
+                                '7.0.7': True,
+                                '7.2.1': True,
+                                '7.2.2': True,
+                                '7.4.0': True
                             },
                             'type': 'int'
                         },
@@ -2482,7 +5875,33 @@ def main():
                             'revision': {
                                 '6.4.5': True,
                                 '7.0.0': True,
-                                '7.2.0': True
+                                '7.2.0': True,
+                                '6.2.0': False,
+                                '6.2.2': False,
+                                '6.2.6': False,
+                                '6.2.7': False,
+                                '6.2.8': False,
+                                '6.2.9': False,
+                                '6.2.10': False,
+                                '6.4.1': False,
+                                '6.4.3': False,
+                                '6.4.4': False,
+                                '6.4.6': True,
+                                '6.4.7': True,
+                                '6.4.8': True,
+                                '6.4.9': True,
+                                '6.4.10': True,
+                                '6.4.11': True,
+                                '7.0.1': True,
+                                '7.0.2': True,
+                                '7.0.3': True,
+                                '7.0.4': True,
+                                '7.0.5': True,
+                                '7.0.6': True,
+                                '7.0.7': True,
+                                '7.2.1': True,
+                                '7.2.2': True,
+                                '7.4.0': True
                             },
                             'choices': [
                                 'disable',
@@ -2495,7 +5914,33 @@ def main():
                             'revision': {
                                 '6.4.5': True,
                                 '7.0.0': True,
-                                '7.2.0': True
+                                '7.2.0': True,
+                                '6.2.0': False,
+                                '6.2.2': False,
+                                '6.2.6': False,
+                                '6.2.7': False,
+                                '6.2.8': True,
+                                '6.2.9': True,
+                                '6.2.10': True,
+                                '6.4.1': False,
+                                '6.4.3': False,
+                                '6.4.4': False,
+                                '6.4.6': True,
+                                '6.4.7': True,
+                                '6.4.8': True,
+                                '6.4.9': True,
+                                '6.4.10': True,
+                                '6.4.11': True,
+                                '7.0.1': True,
+                                '7.0.2': True,
+                                '7.0.3': True,
+                                '7.0.4': True,
+                                '7.0.5': True,
+                                '7.0.6': True,
+                                '7.0.7': True,
+                                '7.2.1': True,
+                                '7.2.2': True,
+                                '7.4.0': True
                             },
                             'choices': [
                                 'disable',
@@ -2508,7 +5953,33 @@ def main():
                             'revision': {
                                 '6.4.5': True,
                                 '7.0.0': True,
-                                '7.2.0': True
+                                '7.2.0': True,
+                                '6.2.0': False,
+                                '6.2.2': False,
+                                '6.2.6': False,
+                                '6.2.7': False,
+                                '6.2.8': True,
+                                '6.2.9': True,
+                                '6.2.10': True,
+                                '6.4.1': False,
+                                '6.4.3': False,
+                                '6.4.4': False,
+                                '6.4.6': True,
+                                '6.4.7': True,
+                                '6.4.8': True,
+                                '6.4.9': True,
+                                '6.4.10': True,
+                                '6.4.11': True,
+                                '7.0.1': True,
+                                '7.0.2': True,
+                                '7.0.3': True,
+                                '7.0.4': True,
+                                '7.0.5': True,
+                                '7.0.6': True,
+                                '7.0.7': True,
+                                '7.2.1': True,
+                                '7.2.2': True,
+                                '7.4.0': True
                             },
                             'choices': [
                                 'disable',
@@ -2521,7 +5992,33 @@ def main():
                             'revision': {
                                 '6.4.5': True,
                                 '7.0.0': True,
-                                '7.2.0': True
+                                '7.2.0': True,
+                                '6.2.0': False,
+                                '6.2.2': False,
+                                '6.2.6': False,
+                                '6.2.7': False,
+                                '6.2.8': True,
+                                '6.2.9': True,
+                                '6.2.10': True,
+                                '6.4.1': False,
+                                '6.4.3': False,
+                                '6.4.4': False,
+                                '6.4.6': True,
+                                '6.4.7': True,
+                                '6.4.8': True,
+                                '6.4.9': True,
+                                '6.4.10': True,
+                                '6.4.11': True,
+                                '7.0.1': True,
+                                '7.0.2': True,
+                                '7.0.3': True,
+                                '7.0.4': True,
+                                '7.0.5': True,
+                                '7.0.6': True,
+                                '7.0.7': True,
+                                '7.2.1': True,
+                                '7.2.2': True,
+                                '7.4.0': True
                             },
                             'choices': [
                                 'no',
@@ -2534,7 +6031,33 @@ def main():
                             'revision': {
                                 '6.4.5': True,
                                 '7.0.0': True,
-                                '7.2.0': True
+                                '7.2.0': True,
+                                '6.2.0': False,
+                                '6.2.2': False,
+                                '6.2.6': False,
+                                '6.2.7': False,
+                                '6.2.8': True,
+                                '6.2.9': True,
+                                '6.2.10': True,
+                                '6.4.1': False,
+                                '6.4.3': False,
+                                '6.4.4': False,
+                                '6.4.6': True,
+                                '6.4.7': True,
+                                '6.4.8': True,
+                                '6.4.9': True,
+                                '6.4.10': True,
+                                '6.4.11': True,
+                                '7.0.1': True,
+                                '7.0.2': True,
+                                '7.0.3': True,
+                                '7.0.4': True,
+                                '7.0.5': True,
+                                '7.0.6': True,
+                                '7.0.7': True,
+                                '7.2.1': True,
+                                '7.2.2': True,
+                                '7.4.0': True
                             },
                             'choices': [
                                 'disable',
@@ -2547,7 +6070,33 @@ def main():
                             'revision': {
                                 '6.4.5': True,
                                 '7.0.0': True,
-                                '7.2.0': True
+                                '7.2.0': True,
+                                '6.2.0': False,
+                                '6.2.2': False,
+                                '6.2.6': False,
+                                '6.2.7': False,
+                                '6.2.8': True,
+                                '6.2.9': True,
+                                '6.2.10': True,
+                                '6.4.1': False,
+                                '6.4.3': False,
+                                '6.4.4': False,
+                                '6.4.6': True,
+                                '6.4.7': True,
+                                '6.4.8': True,
+                                '6.4.9': True,
+                                '6.4.10': True,
+                                '6.4.11': True,
+                                '7.0.1': True,
+                                '7.0.2': True,
+                                '7.0.3': True,
+                                '7.0.4': True,
+                                '7.0.5': True,
+                                '7.0.6': True,
+                                '7.0.7': True,
+                                '7.2.1': True,
+                                '7.2.2': True,
+                                '7.4.0': True
                             },
                             'type': 'int'
                         },
@@ -2556,7 +6105,33 @@ def main():
                             'revision': {
                                 '6.4.5': True,
                                 '7.0.0': True,
-                                '7.2.0': True
+                                '7.2.0': True,
+                                '6.2.0': False,
+                                '6.2.2': False,
+                                '6.2.6': False,
+                                '6.2.7': False,
+                                '6.2.8': True,
+                                '6.2.9': True,
+                                '6.2.10': True,
+                                '6.4.1': False,
+                                '6.4.3': False,
+                                '6.4.4': False,
+                                '6.4.6': True,
+                                '6.4.7': True,
+                                '6.4.8': True,
+                                '6.4.9': True,
+                                '6.4.10': True,
+                                '6.4.11': True,
+                                '7.0.1': True,
+                                '7.0.2': True,
+                                '7.0.3': True,
+                                '7.0.4': True,
+                                '7.0.5': True,
+                                '7.0.6': True,
+                                '7.0.7': True,
+                                '7.2.1': True,
+                                '7.2.2': True,
+                                '7.4.0': True
                             },
                             'type': 'int'
                         }
@@ -2571,7 +6146,33 @@ def main():
                             'revision': {
                                 '6.4.5': True,
                                 '7.0.0': True,
-                                '7.2.0': True
+                                '7.2.0': True,
+                                '6.2.0': False,
+                                '6.2.2': False,
+                                '6.2.6': False,
+                                '6.2.7': False,
+                                '6.2.8': True,
+                                '6.2.9': True,
+                                '6.2.10': True,
+                                '6.4.1': False,
+                                '6.4.3': False,
+                                '6.4.4': False,
+                                '6.4.6': True,
+                                '6.4.7': True,
+                                '6.4.8': True,
+                                '6.4.9': True,
+                                '6.4.10': True,
+                                '6.4.11': True,
+                                '7.0.1': True,
+                                '7.0.2': True,
+                                '7.0.3': True,
+                                '7.0.4': True,
+                                '7.0.5': True,
+                                '7.0.6': True,
+                                '7.0.7': True,
+                                '7.2.1': True,
+                                '7.2.2': True,
+                                '7.4.0': True
                             },
                             'type': 'int'
                         },
@@ -2580,7 +6181,33 @@ def main():
                             'revision': {
                                 '6.4.5': True,
                                 '7.0.0': True,
-                                '7.2.0': True
+                                '7.2.0': True,
+                                '6.2.0': False,
+                                '6.2.2': False,
+                                '6.2.6': False,
+                                '6.2.7': False,
+                                '6.2.8': True,
+                                '6.2.9': True,
+                                '6.2.10': True,
+                                '6.4.1': False,
+                                '6.4.3': False,
+                                '6.4.4': False,
+                                '6.4.6': True,
+                                '6.4.7': True,
+                                '6.4.8': True,
+                                '6.4.9': True,
+                                '6.4.10': True,
+                                '6.4.11': True,
+                                '7.0.1': True,
+                                '7.0.2': True,
+                                '7.0.3': True,
+                                '7.0.4': True,
+                                '7.0.5': True,
+                                '7.0.6': True,
+                                '7.0.7': True,
+                                '7.2.1': True,
+                                '7.2.2': True,
+                                '7.4.0': True
                             },
                             'type': 'int'
                         },
@@ -2589,21 +6216,74 @@ def main():
                             'revision': {
                                 '6.4.5': True,
                                 '7.0.0': True,
-                                '7.2.0': True
+                                '7.2.0': True,
+                                '6.2.0': False,
+                                '6.2.2': False,
+                                '6.2.6': False,
+                                '6.2.7': False,
+                                '6.2.8': True,
+                                '6.2.9': True,
+                                '6.2.10': True,
+                                '6.4.1': False,
+                                '6.4.3': False,
+                                '6.4.4': False,
+                                '6.4.6': True,
+                                '6.4.7': True,
+                                '6.4.8': True,
+                                '6.4.9': True,
+                                '6.4.10': True,
+                                '6.4.11': True,
+                                '7.0.1': True,
+                                '7.0.2': True,
+                                '7.0.3': True,
+                                '7.0.4': True,
+                                '7.0.5': True,
+                                '7.0.6': True,
+                                '7.0.7': True,
+                                '7.2.1': True,
+                                '7.2.2': True,
+                                '7.4.0': True
                             },
                             'type': 'list',
                             'choices': [
                                 'oversize',
                                 'clientcomfort',
                                 'servercomfort'
-                            ]
+                            ],
+                            'elements': 'str'
                         },
                         'oversize-limit': {
                             'required': False,
                             'revision': {
                                 '6.4.5': True,
                                 '7.0.0': True,
-                                '7.2.0': True
+                                '7.2.0': True,
+                                '6.2.0': False,
+                                '6.2.2': False,
+                                '6.2.6': False,
+                                '6.2.7': False,
+                                '6.2.8': True,
+                                '6.2.9': True,
+                                '6.2.10': True,
+                                '6.4.1': False,
+                                '6.4.3': False,
+                                '6.4.4': False,
+                                '6.4.6': True,
+                                '6.4.7': True,
+                                '6.4.8': True,
+                                '6.4.9': True,
+                                '6.4.10': True,
+                                '6.4.11': True,
+                                '7.0.1': True,
+                                '7.0.2': True,
+                                '7.0.3': True,
+                                '7.0.4': True,
+                                '7.0.5': True,
+                                '7.0.6': True,
+                                '7.0.7': True,
+                                '7.2.1': True,
+                                '7.2.2': True,
+                                '7.4.0': True
                             },
                             'type': 'int'
                         },
@@ -2612,7 +6292,33 @@ def main():
                             'revision': {
                                 '6.4.5': True,
                                 '7.0.0': True,
-                                '7.2.0': True
+                                '7.2.0': True,
+                                '6.2.0': False,
+                                '6.2.2': False,
+                                '6.2.6': False,
+                                '6.2.7': False,
+                                '6.2.8': True,
+                                '6.2.9': True,
+                                '6.2.10': True,
+                                '6.4.1': False,
+                                '6.4.3': False,
+                                '6.4.4': False,
+                                '6.4.6': True,
+                                '6.4.7': True,
+                                '6.4.8': True,
+                                '6.4.9': True,
+                                '6.4.10': True,
+                                '6.4.11': True,
+                                '7.0.1': True,
+                                '7.0.2': True,
+                                '7.0.3': True,
+                                '7.0.4': True,
+                                '7.0.5': True,
+                                '7.0.6': True,
+                                '7.0.7': True,
+                                '7.2.1': True,
+                                '7.2.2': True,
+                                '7.4.0': True
                             },
                             'choices': [
                                 'disable',
@@ -2625,7 +6331,33 @@ def main():
                             'revision': {
                                 '6.4.5': True,
                                 '7.0.0': True,
-                                '7.2.0': True
+                                '7.2.0': True,
+                                '6.2.0': False,
+                                '6.2.2': False,
+                                '6.2.6': False,
+                                '6.2.7': False,
+                                '6.2.8': True,
+                                '6.2.9': True,
+                                '6.2.10': True,
+                                '6.4.1': False,
+                                '6.4.3': False,
+                                '6.4.4': False,
+                                '6.4.6': True,
+                                '6.4.7': True,
+                                '6.4.8': True,
+                                '6.4.9': True,
+                                '6.4.10': True,
+                                '6.4.11': True,
+                                '7.0.1': True,
+                                '7.0.2': True,
+                                '7.0.3': True,
+                                '7.0.4': True,
+                                '7.0.5': True,
+                                '7.0.6': True,
+                                '7.0.7': True,
+                                '7.2.1': True,
+                                '7.2.2': True,
+                                '7.4.0': True
                             },
                             'type': 'int'
                         },
@@ -2634,7 +6366,33 @@ def main():
                             'revision': {
                                 '6.4.5': True,
                                 '7.0.0': True,
-                                '7.2.0': True
+                                '7.2.0': True,
+                                '6.2.0': False,
+                                '6.2.2': False,
+                                '6.2.6': False,
+                                '6.2.7': False,
+                                '6.2.8': True,
+                                '6.2.9': True,
+                                '6.2.10': True,
+                                '6.4.1': False,
+                                '6.4.3': False,
+                                '6.4.4': False,
+                                '6.4.6': True,
+                                '6.4.7': True,
+                                '6.4.8': True,
+                                '6.4.9': True,
+                                '6.4.10': True,
+                                '6.4.11': True,
+                                '7.0.1': True,
+                                '7.0.2': True,
+                                '7.0.3': True,
+                                '7.0.4': True,
+                                '7.0.5': True,
+                                '7.0.6': True,
+                                '7.0.7': True,
+                                '7.2.1': True,
+                                '7.2.2': True,
+                                '7.4.0': True
                             },
                             'type': 'int'
                         },
@@ -2642,7 +6400,33 @@ def main():
                             'required': False,
                             'revision': {
                                 '7.0.0': True,
-                                '7.2.0': True
+                                '7.2.0': True,
+                                '6.2.0': False,
+                                '6.2.2': False,
+                                '6.2.6': False,
+                                '6.2.7': False,
+                                '6.2.8': False,
+                                '6.2.9': False,
+                                '6.2.10': False,
+                                '6.4.1': False,
+                                '6.4.3': False,
+                                '6.4.4': False,
+                                '6.4.6': False,
+                                '6.4.7': False,
+                                '6.4.8': False,
+                                '6.4.9': False,
+                                '6.4.10': False,
+                                '6.4.11': False,
+                                '7.0.1': True,
+                                '7.0.2': True,
+                                '7.0.3': True,
+                                '7.0.4': True,
+                                '7.0.5': True,
+                                '7.0.6': True,
+                                '7.0.7': True,
+                                '7.2.1': True,
+                                '7.2.2': True,
+                                '7.4.0': True
                             },
                             'choices': [
                                 'no',
@@ -2654,7 +6438,33 @@ def main():
                             'required': False,
                             'revision': {
                                 '7.0.0': True,
-                                '7.2.0': True
+                                '7.2.0': True,
+                                '6.2.0': False,
+                                '6.2.2': False,
+                                '6.2.6': False,
+                                '6.2.7': False,
+                                '6.2.8': False,
+                                '6.2.9': False,
+                                '6.2.10': False,
+                                '6.4.1': False,
+                                '6.4.3': False,
+                                '6.4.4': False,
+                                '6.4.6': False,
+                                '6.4.7': False,
+                                '6.4.8': False,
+                                '6.4.9': False,
+                                '6.4.10': False,
+                                '6.4.11': False,
+                                '7.0.1': True,
+                                '7.0.2': True,
+                                '7.0.3': True,
+                                '7.0.4': True,
+                                '7.0.5': True,
+                                '7.0.6': True,
+                                '7.0.7': True,
+                                '7.2.1': True,
+                                '7.2.2': True,
+                                '7.4.0': True
                             },
                             'type': 'int'
                         },
@@ -2662,7 +6472,33 @@ def main():
                             'required': False,
                             'revision': {
                                 '7.0.0': True,
-                                '7.2.0': True
+                                '7.2.0': True,
+                                '6.2.0': False,
+                                '6.2.2': False,
+                                '6.2.6': False,
+                                '6.2.7': False,
+                                '6.2.8': False,
+                                '6.2.9': False,
+                                '6.2.10': False,
+                                '6.4.1': False,
+                                '6.4.3': False,
+                                '6.4.4': False,
+                                '6.4.6': False,
+                                '6.4.7': False,
+                                '6.4.8': False,
+                                '6.4.9': False,
+                                '6.4.10': False,
+                                '6.4.11': False,
+                                '7.0.1': True,
+                                '7.0.2': True,
+                                '7.0.3': True,
+                                '7.0.4': True,
+                                '7.0.5': True,
+                                '7.0.6': True,
+                                '7.0.7': True,
+                                '7.2.1': True,
+                                '7.2.2': True,
+                                '7.4.0': True
                             },
                             'type': 'int'
                         },
@@ -2670,7 +6506,33 @@ def main():
                             'required': False,
                             'revision': {
                                 '7.0.0': True,
-                                '7.2.0': True
+                                '7.2.0': True,
+                                '6.2.0': False,
+                                '6.2.2': False,
+                                '6.2.6': False,
+                                '6.2.7': False,
+                                '6.2.8': False,
+                                '6.2.9': False,
+                                '6.2.10': False,
+                                '6.4.1': False,
+                                '6.4.3': False,
+                                '6.4.4': False,
+                                '6.4.6': False,
+                                '6.4.7': False,
+                                '6.4.8': False,
+                                '6.4.9': False,
+                                '6.4.10': False,
+                                '6.4.11': False,
+                                '7.0.1': True,
+                                '7.0.2': True,
+                                '7.0.3': True,
+                                '7.0.4': True,
+                                '7.0.5': True,
+                                '7.0.6': True,
+                                '7.0.7': True,
+                                '7.2.1': True,
+                                '7.2.2': True,
+                                '7.4.0': True
                             },
                             'type': 'int'
                         },
@@ -2678,7 +6540,33 @@ def main():
                             'required': False,
                             'revision': {
                                 '7.0.0': True,
-                                '7.2.0': True
+                                '7.2.0': True,
+                                '6.2.0': False,
+                                '6.2.2': False,
+                                '6.2.6': False,
+                                '6.2.7': False,
+                                '6.2.8': False,
+                                '6.2.9': False,
+                                '6.2.10': False,
+                                '6.4.1': False,
+                                '6.4.3': False,
+                                '6.4.4': False,
+                                '6.4.6': False,
+                                '6.4.7': False,
+                                '6.4.8': False,
+                                '6.4.9': False,
+                                '6.4.10': False,
+                                '6.4.11': False,
+                                '7.0.1': True,
+                                '7.0.2': True,
+                                '7.0.3': True,
+                                '7.0.4': True,
+                                '7.0.5': True,
+                                '7.0.6': True,
+                                '7.0.7': True,
+                                '7.2.1': True,
+                                '7.2.2': True,
+                                '7.4.0': True
                             },
                             'type': 'int'
                         },
@@ -2686,7 +6574,33 @@ def main():
                             'required': False,
                             'revision': {
                                 '7.0.0': True,
-                                '7.2.0': True
+                                '7.2.0': True,
+                                '6.2.0': False,
+                                '6.2.2': False,
+                                '6.2.6': False,
+                                '6.2.7': False,
+                                '6.2.8': False,
+                                '6.2.9': False,
+                                '6.2.10': False,
+                                '6.4.1': False,
+                                '6.4.3': False,
+                                '6.4.4': False,
+                                '6.4.6': False,
+                                '6.4.7': False,
+                                '6.4.8': False,
+                                '6.4.9': False,
+                                '6.4.10': False,
+                                '6.4.11': False,
+                                '7.0.1': True,
+                                '7.0.2': True,
+                                '7.0.3': True,
+                                '7.0.4': True,
+                                '7.0.5': True,
+                                '7.0.6': True,
+                                '7.0.7': True,
+                                '7.2.1': True,
+                                '7.2.2': True,
+                                '7.4.0': True
                             },
                             'choices': [
                                 'system',
@@ -2711,6 +6625,7 @@ def main():
     fmgr = None
     if module._socket_path:
         connection = Connection(module._socket_path)
+        connection.set_option('access_token', module.params['access_token'] if 'access_token' in module.params else None)
         connection.set_option('enable_log', module.params['enable_log'] if 'enable_log' in module.params else False)
         connection.set_option('forticloud_access_token',
                               module.params['forticloud_access_token'] if 'forticloud_access_token' in module.params else None)

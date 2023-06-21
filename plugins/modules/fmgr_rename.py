@@ -1,6 +1,6 @@
 #!/usr/bin/python
 from __future__ import absolute_import, division, print_function
-# Copyright 2021 Fortinet, Inc.
+# Copyright 2021-2023 Fortinet, Inc.
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -28,11 +28,12 @@ short_description: Rename an object in FortiManager.
 description:
     - This module is able to configure a FortiManager device by renaming an object.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
-
-version_added: "1.0.0"
+version_added: "2.1.4"
 author:
-    - Link Zheng (@chillancezen)
+    - Xinwei Du (@dux-fortinet)
+    - Xing Li (@lix-fortinet)
     - Jie Xue (@JieX19)
+    - Link Zheng (@chillancezen)
     - Frank Shen (@fshen01)
     - Hongbin Lu (@fgtdev-hblu)
 notes:
@@ -41,77 +42,791 @@ notes:
     - Normally, running one module can fail when a non-zero rc is returned. you can also override
       the conditions to fail or succeed with parameters rc_failed and rc_succeeded
 options:
+    access_token:
+        description: The token to access FortiManager without using username and password.
+        required: false
+        type: str
     enable_log:
-        description: Enable/Disable logging for task
+        description: Enable/Disable logging for task.
         required: false
         type: bool
         default: false
-    bypass_validation:
-        description: only set to True when module schema diffs with FortiManager API structure, module continues to execute without validating parameters
+    forticloud_access_token:
+        description: Access token of forticloud managed API users, this option is available with FortiManager later than 6.4.0.
         required: false
-        type: bool
-        default: false
+        type: str
     workspace_locking_adom:
-        description: the adom to lock for FortiManager running in workspace mode, the value can be global and others including root
+        description: The adom to lock for FortiManager running in workspace mode, the value can be global and others including root.
         required: false
         type: str
     workspace_locking_timeout:
-        description: the maximum time in seconds to wait for other user to release the workspace lock
+        description: The maximum time in seconds to wait for other user to release the workspace lock.
         required: false
         type: int
         default: 300
     rc_succeeded:
-        description: the rc codes list with which the conditions to succeed will be overriden
+        description: The rc codes list with which the conditions to succeed will be overriden.
         type: list
         required: false
+        elements: int
     rc_failed:
-        description: the rc codes list with which the conditions to fail will be overriden
+        description: The rc codes list with which the conditions to fail will be overriden.
         type: list
         required: false
+        elements: int
     rename:
-        description: the top level parameters set
+        description: Rename An Object.
         type: dict
-        required: false
+        required: true
+        suboptions:
+            selector:
+                required: true
+                description: Selector of the renamed object.
+                type: str
+                choices:
+                    - 'antivirus_mmschecksum'
+                    - 'antivirus_mmschecksum_entries'
+                    - 'antivirus_notification'
+                    - 'antivirus_notification_entries'
+                    - 'antivirus_profile'
+                    - 'apcfgprofile'
+                    - 'apcfgprofile_commandlist'
+                    - 'application_casi_profile'
+                    - 'application_casi_profile_entries'
+                    - 'application_categories'
+                    - 'application_custom'
+                    - 'application_group'
+                    - 'application_internetservice_entry'
+                    - 'application_internetservicecustom'
+                    - 'application_internetservicecustom_disableentry'
+                    - 'application_internetservicecustom_disableentry_iprange'
+                    - 'application_internetservicecustom_entry'
+                    - 'application_internetservicecustom_entry_portrange'
+                    - 'application_list'
+                    - 'application_list_defaultnetworkservices'
+                    - 'application_list_entries'
+                    - 'application_list_entries_parameters'
+                    - 'application_list_entries_parameters_members'
+                    - 'arrpprofile'
+                    - 'authentication_scheme'
+                    - 'bleprofile'
+                    - 'bonjourprofile'
+                    - 'bonjourprofile_policylist'
+                    - 'certificate_template'
+                    - 'cifs_profile'
+                    - 'cloud_orchestaws'
+                    - 'cloud_orchestawsconnector'
+                    - 'cloud_orchestawstemplate_autoscaleexistingvpc'
+                    - 'cloud_orchestawstemplate_autoscalenewvpc'
+                    - 'cloud_orchestawstemplate_autoscaletgwnewvpc'
+                    - 'cloud_orchestration'
+                    - 'devprof_log_syslogd_filter_excludelist'
+                    - 'devprof_log_syslogd_filter_freestyle'
+                    - 'devprof_log_syslogd_setting_customfieldname'
+                    - 'devprof_system_centralmanagement_serverlist'
+                    - 'devprof_system_ntp_ntpserver'
+                    - 'devprof_system_snmp_community'
+                    - 'devprof_system_snmp_community_hosts'
+                    - 'devprof_system_snmp_community_hosts6'
+                    - 'devprof_system_snmp_user'
+                    - 'dlp_datatype'
+                    - 'dlp_dictionary'
+                    - 'dlp_dictionary_entries'
+                    - 'dlp_filepattern'
+                    - 'dlp_fpsensitivity'
+                    - 'dlp_profile'
+                    - 'dlp_profile_rule'
+                    - 'dlp_sensitivity'
+                    - 'dlp_sensor'
+                    - 'dlp_sensor_entries'
+                    - 'dlp_sensor_filter'
+                    - 'dnsfilter_domainfilter'
+                    - 'dnsfilter_domainfilter_entries'
+                    - 'dnsfilter_profile'
+                    - 'dnsfilter_profile_dnstranslation'
+                    - 'dnsfilter_profile_ftgddns_filters'
+                    - 'dnsfilter_urlfilter'
+                    - 'dnsfilter_urlfilter_entries'
+                    - 'dvmdb_adom'
+                    - 'dvmdb_device_vdom'
+                    - 'dvmdb_folder'
+                    - 'dvmdb_group'
+                    - 'dvmdb_revision'
+                    - 'dvmdb_script'
+                    - 'dvmdb_script_scriptschedule'
+                    - 'dynamic_address'
+                    - 'dynamic_address_dynamicaddrmapping'
+                    - 'dynamic_certificate_local'
+                    - 'dynamic_certificate_local_dynamicmapping'
+                    - 'dynamic_input_interface'
+                    - 'dynamic_interface'
+                    - 'dynamic_interface_dynamicmapping'
+                    - 'dynamic_interface_platformmapping'
+                    - 'dynamic_ippool'
+                    - 'dynamic_multicast_interface'
+                    - 'dynamic_multicast_interface_dynamicmapping'
+                    - 'dynamic_vip'
+                    - 'dynamic_virtualwanlink_members'
+                    - 'dynamic_virtualwanlink_members_dynamicmapping'
+                    - 'dynamic_virtualwanlink_neighbor'
+                    - 'dynamic_virtualwanlink_server'
+                    - 'dynamic_virtualwanlink_server_dynamicmapping'
+                    - 'dynamic_vpntunnel'
+                    - 'dynamic_vpntunnel_dynamicmapping'
+                    - 'emailfilter_blockallowlist'
+                    - 'emailfilter_blockallowlist_entries'
+                    - 'emailfilter_bwl'
+                    - 'emailfilter_bwl_entries'
+                    - 'emailfilter_bword'
+                    - 'emailfilter_bword_entries'
+                    - 'emailfilter_dnsbl'
+                    - 'emailfilter_dnsbl_entries'
+                    - 'emailfilter_iptrust'
+                    - 'emailfilter_iptrust_entries'
+                    - 'emailfilter_mheader'
+                    - 'emailfilter_mheader_entries'
+                    - 'emailfilter_profile'
+                    - 'endpointcontrol_fctems'
+                    - 'extendercontroller_dataplan'
+                    - 'extendercontroller_extenderprofile'
+                    - 'extendercontroller_extenderprofile_cellular_smsnotification_receiver'
+                    - 'extendercontroller_extenderprofile_lanextension_backhaul'
+                    - 'extendercontroller_simprofile'
+                    - 'extendercontroller_template'
+                    - 'extensioncontroller_dataplan'
+                    - 'extensioncontroller_extenderprofile'
+                    - 'extensioncontroller_extenderprofile_cellular_smsnotification_receiver'
+                    - 'extensioncontroller_extenderprofile_lanextension_backhaul'
+                    - 'filefilter_profile'
+                    - 'filefilter_profile_rules'
+                    - 'firewall_accessproxy'
+                    - 'firewall_accessproxy6'
+                    - 'firewall_accessproxy6_apigateway'
+                    - 'firewall_accessproxy6_apigateway6'
+                    - 'firewall_accessproxy6_apigateway6_realservers'
+                    - 'firewall_accessproxy6_apigateway_realservers'
+                    - 'firewall_accessproxy_apigateway'
+                    - 'firewall_accessproxy_apigateway6'
+                    - 'firewall_accessproxy_apigateway6_realservers'
+                    - 'firewall_accessproxy_apigateway_realservers'
+                    - 'firewall_accessproxy_realservers'
+                    - 'firewall_accessproxy_serverpubkeyauthsettings_certextension'
+                    - 'firewall_accessproxyvirtualhost'
+                    - 'firewall_address'
+                    - 'firewall_address6'
+                    - 'firewall_address6_dynamicmapping'
+                    - 'firewall_address6_dynamicmapping_subnetsegment'
+                    - 'firewall_address6_list'
+                    - 'firewall_address6_subnetsegment'
+                    - 'firewall_address6_tagging'
+                    - 'firewall_address6template'
+                    - 'firewall_address6template_subnetsegment'
+                    - 'firewall_address6template_subnetsegment_values'
+                    - 'firewall_address_dynamicmapping'
+                    - 'firewall_address_list'
+                    - 'firewall_address_tagging'
+                    - 'firewall_addrgrp'
+                    - 'firewall_addrgrp6'
+                    - 'firewall_addrgrp6_dynamicmapping'
+                    - 'firewall_addrgrp6_tagging'
+                    - 'firewall_addrgrp_dynamicmapping'
+                    - 'firewall_addrgrp_tagging'
+                    - 'firewall_carrierendpointbwl'
+                    - 'firewall_carrierendpointbwl_entries'
+                    - 'firewall_decryptedtrafficmirror'
+                    - 'firewall_explicitproxyaddress'
+                    - 'firewall_explicitproxyaddress_headergroup'
+                    - 'firewall_explicitproxyaddrgrp'
+                    - 'firewall_gtp'
+                    - 'firewall_gtp_apn'
+                    - 'firewall_gtp_ieremovepolicy'
+                    - 'firewall_gtp_imsi'
+                    - 'firewall_gtp_ippolicy'
+                    - 'firewall_gtp_noippolicy'
+                    - 'firewall_gtp_perapnshaper'
+                    - 'firewall_gtp_policy'
+                    - 'firewall_gtp_policyv2'
+                    - 'firewall_identitybasedroute'
+                    - 'firewall_identitybasedroute_rule'
+                    - 'firewall_internetservice_entry'
+                    - 'firewall_internetserviceaddition'
+                    - 'firewall_internetserviceaddition_entry'
+                    - 'firewall_internetserviceaddition_entry_portrange'
+                    - 'firewall_internetservicecustom'
+                    - 'firewall_internetservicecustom_disableentry'
+                    - 'firewall_internetservicecustom_disableentry_iprange'
+                    - 'firewall_internetservicecustom_entry'
+                    - 'firewall_internetservicecustom_entry_portrange'
+                    - 'firewall_internetservicecustomgroup'
+                    - 'firewall_internetservicegroup'
+                    - 'firewall_internetservicename'
+                    - 'firewall_ippool'
+                    - 'firewall_ippool6'
+                    - 'firewall_ippool6_dynamicmapping'
+                    - 'firewall_ippool_dynamicmapping'
+                    - 'firewall_ippoolgrp'
+                    - 'firewall_ldbmonitor'
+                    - 'firewall_mmsprofile'
+                    - 'firewall_mmsprofile_notifmsisdn'
+                    - 'firewall_multicastaddress'
+                    - 'firewall_multicastaddress6'
+                    - 'firewall_multicastaddress6_tagging'
+                    - 'firewall_multicastaddress_tagging'
+                    - 'firewall_networkservicedynamic'
+                    - 'firewall_profilegroup'
+                    - 'firewall_profileprotocoloptions'
+                    - 'firewall_proxyaddress'
+                    - 'firewall_proxyaddress_headergroup'
+                    - 'firewall_proxyaddress_tagging'
+                    - 'firewall_proxyaddrgrp'
+                    - 'firewall_proxyaddrgrp_tagging'
+                    - 'firewall_schedule_group'
+                    - 'firewall_schedule_onetime'
+                    - 'firewall_schedule_recurring'
+                    - 'firewall_service_category'
+                    - 'firewall_service_custom'
+                    - 'firewall_service_group'
+                    - 'firewall_shaper_peripshaper'
+                    - 'firewall_shaper_trafficshaper'
+                    - 'firewall_shapingprofile'
+                    - 'firewall_shapingprofile_shapingentries'
+                    - 'firewall_ssh_localca'
+                    - 'firewall_sslsshprofile'
+                    - 'firewall_sslsshprofile_sslexempt'
+                    - 'firewall_sslsshprofile_sslserver'
+                    - 'firewall_vip'
+                    - 'firewall_vip46'
+                    - 'firewall_vip46_dynamicmapping'
+                    - 'firewall_vip46_realservers'
+                    - 'firewall_vip6'
+                    - 'firewall_vip64'
+                    - 'firewall_vip64_dynamicmapping'
+                    - 'firewall_vip64_realservers'
+                    - 'firewall_vip6_dynamicmapping'
+                    - 'firewall_vip6_dynamicmapping_realservers'
+                    - 'firewall_vip6_realservers'
+                    - 'firewall_vip6_sslciphersuites'
+                    - 'firewall_vip6_sslserverciphersuites'
+                    - 'firewall_vip_dynamicmapping'
+                    - 'firewall_vip_dynamicmapping_realservers'
+                    - 'firewall_vip_dynamicmapping_sslciphersuites'
+                    - 'firewall_vip_realservers'
+                    - 'firewall_vip_sslciphersuites'
+                    - 'firewall_vip_sslserverciphersuites'
+                    - 'firewall_vipgrp'
+                    - 'firewall_vipgrp46'
+                    - 'firewall_vipgrp6'
+                    - 'firewall_vipgrp64'
+                    - 'firewall_vipgrp_dynamicmapping'
+                    - 'firewall_wildcardfqdn_custom'
+                    - 'firewall_wildcardfqdn_group'
+                    - 'fmg_device_blueprint'
+                    - 'fmg_fabric_authorization_template'
+                    - 'fmg_variable'
+                    - 'fmupdate_fdssetting_pushoverridetoclient_announceip'
+                    - 'fmupdate_fdssetting_serveroverride_servlist'
+                    - 'fmupdate_serveraccesspriorities_privateserver'
+                    - 'fmupdate_webspam_fgdsetting_serveroverride_servlist'
+                    - 'fsp_vlan'
+                    - 'fsp_vlan_dhcpserver_excluderange'
+                    - 'fsp_vlan_dhcpserver_iprange'
+                    - 'fsp_vlan_dhcpserver_options'
+                    - 'fsp_vlan_dhcpserver_reservedaddress'
+                    - 'fsp_vlan_dynamicmapping_dhcpserver_excluderange'
+                    - 'fsp_vlan_dynamicmapping_dhcpserver_iprange'
+                    - 'fsp_vlan_dynamicmapping_dhcpserver_options'
+                    - 'fsp_vlan_dynamicmapping_dhcpserver_reservedaddress'
+                    - 'fsp_vlan_dynamicmapping_interface_secondaryip'
+                    - 'fsp_vlan_dynamicmapping_interface_vrrp_proxyarp'
+                    - 'fsp_vlan_interface_secondaryip'
+                    - 'fsp_vlan_interface_vrrp'
+                    - 'fsp_vlan_interface_vrrp_proxyarp'
+                    - 'gtp_apn'
+                    - 'gtp_apngrp'
+                    - 'gtp_iewhitelist'
+                    - 'gtp_iewhitelist_entries'
+                    - 'gtp_messagefilterv0v1'
+                    - 'gtp_messagefilterv2'
+                    - 'gtp_tunnellimit'
+                    - 'hotspot20_anqp3gppcellular'
+                    - 'hotspot20_anqp3gppcellular_mccmnclist'
+                    - 'hotspot20_anqpipaddresstype'
+                    - 'hotspot20_anqpnairealm'
+                    - 'hotspot20_anqpnairealm_nailist'
+                    - 'hotspot20_anqpnairealm_nailist_eapmethod'
+                    - 'hotspot20_anqpnairealm_nailist_eapmethod_authparam'
+                    - 'hotspot20_anqpnetworkauthtype'
+                    - 'hotspot20_anqproamingconsortium'
+                    - 'hotspot20_anqproamingconsortium_oilist'
+                    - 'hotspot20_anqpvenuename'
+                    - 'hotspot20_anqpvenuename_valuelist'
+                    - 'hotspot20_anqpvenueurl'
+                    - 'hotspot20_h2qpadviceofcharge'
+                    - 'hotspot20_h2qpadviceofcharge_aoclist'
+                    - 'hotspot20_h2qpadviceofcharge_aoclist_planinfo'
+                    - 'hotspot20_h2qpconncapability'
+                    - 'hotspot20_h2qpoperatorname'
+                    - 'hotspot20_h2qpoperatorname_valuelist'
+                    - 'hotspot20_h2qposuprovider'
+                    - 'hotspot20_h2qposuprovider_friendlyname'
+                    - 'hotspot20_h2qposuprovider_servicedescription'
+                    - 'hotspot20_h2qposuprovidernai'
+                    - 'hotspot20_h2qposuprovidernai_nailist'
+                    - 'hotspot20_h2qptermsandconditions'
+                    - 'hotspot20_h2qpwanmetric'
+                    - 'hotspot20_hsprofile'
+                    - 'hotspot20_icon'
+                    - 'hotspot20_icon_iconlist'
+                    - 'hotspot20_qosmap'
+                    - 'hotspot20_qosmap_dscpexcept'
+                    - 'hotspot20_qosmap_dscprange'
+                    - 'icap_profile'
+                    - 'icap_profile_icapheaders'
+                    - 'icap_profile_respmodforwardrules'
+                    - 'icap_profile_respmodforwardrules_headergroup'
+                    - 'icap_server'
+                    - 'ips_baseline_sensor'
+                    - 'ips_baseline_sensor_entries'
+                    - 'ips_baseline_sensor_entries_exemptip'
+                    - 'ips_baseline_sensor_filter'
+                    - 'ips_baseline_sensor_override_exemptip'
+                    - 'ips_custom'
+                    - 'ips_sensor'
+                    - 'ips_sensor_entries'
+                    - 'ips_sensor_entries_exemptip'
+                    - 'log_customfield'
+                    - 'log_npuserver_serverinfo'
+                    - 'mpskprofile'
+                    - 'mpskprofile_mpskgroup'
+                    - 'mpskprofile_mpskgroup_mpskkey'
+                    - 'nacprofile'
+                    - 'pkg_authentication_rule'
+                    - 'pkg_central_dnat'
+                    - 'pkg_central_dnat6'
+                    - 'pkg_firewall_acl'
+                    - 'pkg_firewall_acl6'
+                    - 'pkg_firewall_centralsnatmap'
+                    - 'pkg_firewall_consolidated_policy'
+                    - 'pkg_firewall_dospolicy'
+                    - 'pkg_firewall_dospolicy6'
+                    - 'pkg_firewall_dospolicy6_anomaly'
+                    - 'pkg_firewall_dospolicy_anomaly'
+                    - 'pkg_firewall_explicitproxypolicy_identitybasedpolicy'
+                    - 'pkg_firewall_hyperscalepolicy'
+                    - 'pkg_firewall_hyperscalepolicy46'
+                    - 'pkg_firewall_hyperscalepolicy6'
+                    - 'pkg_firewall_hyperscalepolicy64'
+                    - 'pkg_firewall_interfacepolicy'
+                    - 'pkg_firewall_interfacepolicy6'
+                    - 'pkg_firewall_localinpolicy'
+                    - 'pkg_firewall_localinpolicy6'
+                    - 'pkg_firewall_multicastpolicy'
+                    - 'pkg_firewall_multicastpolicy6'
+                    - 'pkg_firewall_policy'
+                    - 'pkg_firewall_policy46'
+                    - 'pkg_firewall_policy6'
+                    - 'pkg_firewall_policy64'
+                    - 'pkg_firewall_policy_vpndstnode'
+                    - 'pkg_firewall_policy_vpnsrcnode'
+                    - 'pkg_firewall_proxypolicy'
+                    - 'pkg_firewall_securitypolicy'
+                    - 'pkg_firewall_shapingpolicy'
+                    - 'pkg_footer_policy'
+                    - 'pkg_footer_policy6'
+                    - 'pkg_footer_shapingpolicy'
+                    - 'pkg_header_policy'
+                    - 'pkg_header_policy6'
+                    - 'pkg_header_shapingpolicy'
+                    - 'pkg_user_nacpolicy'
+                    - 'pm_config_pblock_firewall_consolidated_policy'
+                    - 'pm_config_pblock_firewall_policy'
+                    - 'pm_config_pblock_firewall_policy6'
+                    - 'pm_config_pblock_firewall_securitypolicy'
+                    - 'pm_devprof_pkg'
+                    - 'pm_pblock_obj'
+                    - 'pm_pkg'
+                    - 'pm_wanprof_pkg'
+                    - 'qosprofile'
+                    - 'region'
+                    - 'router_accesslist'
+                    - 'router_accesslist6'
+                    - 'router_accesslist6_rule'
+                    - 'router_accesslist_rule'
+                    - 'router_aspathlist'
+                    - 'router_aspathlist_rule'
+                    - 'router_communitylist'
+                    - 'router_communitylist_rule'
+                    - 'router_prefixlist'
+                    - 'router_prefixlist6'
+                    - 'router_prefixlist6_rule'
+                    - 'router_prefixlist_rule'
+                    - 'router_routemap'
+                    - 'router_routemap_rule'
+                    - 'spamfilter_bwl'
+                    - 'spamfilter_bwl_entries'
+                    - 'spamfilter_bword'
+                    - 'spamfilter_bword_entries'
+                    - 'spamfilter_dnsbl'
+                    - 'spamfilter_dnsbl_entries'
+                    - 'spamfilter_iptrust'
+                    - 'spamfilter_iptrust_entries'
+                    - 'spamfilter_mheader'
+                    - 'spamfilter_mheader_entries'
+                    - 'spamfilter_profile'
+                    - 'sshfilter_profile'
+                    - 'sshfilter_profile_shellcommands'
+                    - 'switchcontroller_acl_group'
+                    - 'switchcontroller_acl_ingress'
+                    - 'switchcontroller_dsl_policy'
+                    - 'switchcontroller_dynamicportpolicy'
+                    - 'switchcontroller_dynamicportpolicy_policy'
+                    - 'switchcontroller_fortilinksettings'
+                    - 'switchcontroller_lldpprofile'
+                    - 'switchcontroller_lldpprofile_customtlvs'
+                    - 'switchcontroller_lldpprofile_medlocationservice'
+                    - 'switchcontroller_lldpprofile_mednetworkpolicy'
+                    - 'switchcontroller_macpolicy'
+                    - 'switchcontroller_managedswitch'
+                    - 'switchcontroller_managedswitch_dhcpsnoopingstaticclient'
+                    - 'switchcontroller_managedswitch_ports'
+                    - 'switchcontroller_managedswitch_remotelog'
+                    - 'switchcontroller_managedswitch_snmpcommunity'
+                    - 'switchcontroller_managedswitch_snmpcommunity_hosts'
+                    - 'switchcontroller_managedswitch_snmpuser'
+                    - 'switchcontroller_qos_dot1pmap'
+                    - 'switchcontroller_qos_ipdscpmap'
+                    - 'switchcontroller_qos_ipdscpmap_map'
+                    - 'switchcontroller_qos_qospolicy'
+                    - 'switchcontroller_qos_queuepolicy'
+                    - 'switchcontroller_qos_queuepolicy_cosqueue'
+                    - 'switchcontroller_securitypolicy_8021x'
+                    - 'switchcontroller_securitypolicy_captiveportal'
+                    - 'switchcontroller_switchinterfacetag'
+                    - 'switchcontroller_trafficpolicy'
+                    - 'switchcontroller_vlanpolicy'
+                    - 'system_admin_group'
+                    - 'system_admin_group_member'
+                    - 'system_admin_ldap'
+                    - 'system_admin_ldap_adom'
+                    - 'system_admin_profile'
+                    - 'system_admin_profile_datamaskcustomfields'
+                    - 'system_admin_radius'
+                    - 'system_admin_tacacs'
+                    - 'system_admin_user'
+                    - 'system_admin_user_adom'
+                    - 'system_admin_user_adomexclude'
+                    - 'system_admin_user_appfilter'
+                    - 'system_admin_user_dashboard'
+                    - 'system_admin_user_dashboardtabs'
+                    - 'system_admin_user_ipsfilter'
+                    - 'system_admin_user_metadata'
+                    - 'system_admin_user_policypackage'
+                    - 'system_admin_user_restrictdevvdom'
+                    - 'system_admin_user_webfilter'
+                    - 'system_alertevent'
+                    - 'system_certificate_ca'
+                    - 'system_certificate_crl'
+                    - 'system_certificate_local'
+                    - 'system_certificate_remote'
+                    - 'system_certificate_ssh'
+                    - 'system_customlanguage'
+                    - 'system_dhcp_server'
+                    - 'system_dhcp_server_excluderange'
+                    - 'system_dhcp_server_iprange'
+                    - 'system_dhcp_server_options'
+                    - 'system_dhcp_server_reservedaddress'
+                    - 'system_externalresource'
+                    - 'system_geoipcountry'
+                    - 'system_geoipoverride'
+                    - 'system_geoipoverride_ip6range'
+                    - 'system_geoipoverride_iprange'
+                    - 'system_ha_monitoredips'
+                    - 'system_ha_peer'
+                    - 'system_interface'
+                    - 'system_localinpolicy'
+                    - 'system_localinpolicy6'
+                    - 'system_log_devicedisable'
+                    - 'system_log_maildomain'
+                    - 'system_log_ratelimit_device'
+                    - 'system_log_ratelimit_ratelimits'
+                    - 'system_logfetch_clientprofile'
+                    - 'system_logfetch_clientprofile_devicefilter'
+                    - 'system_logfetch_clientprofile_logfilter'
+                    - 'system_mail'
+                    - 'system_meta'
+                    - 'system_meta_sysmetafields'
+                    - 'system_metadata_admins'
+                    - 'system_npu_dswqueuedtsprofile'
+                    - 'system_npu_npqueues_ethernettype'
+                    - 'system_npu_npqueues_ipprotocol'
+                    - 'system_npu_npqueues_ipservice'
+                    - 'system_npu_npqueues_profile'
+                    - 'system_npu_npqueues_scheduler'
+                    - 'system_npu_tcptimeoutprofile'
+                    - 'system_npu_udptimeoutprofile'
+                    - 'system_ntp_ntpserver'
+                    - 'system_objecttag'
+                    - 'system_objecttagging'
+                    - 'system_replacemsggroup'
+                    - 'system_replacemsggroup_admin'
+                    - 'system_replacemsggroup_alertmail'
+                    - 'system_replacemsggroup_auth'
+                    - 'system_replacemsggroup_custommessage'
+                    - 'system_replacemsggroup_devicedetectionportal'
+                    - 'system_replacemsggroup_ec'
+                    - 'system_replacemsggroup_fortiguardwf'
+                    - 'system_replacemsggroup_ftp'
+                    - 'system_replacemsggroup_http'
+                    - 'system_replacemsggroup_icap'
+                    - 'system_replacemsggroup_mail'
+                    - 'system_replacemsggroup_mm1'
+                    - 'system_replacemsggroup_mm3'
+                    - 'system_replacemsggroup_mm4'
+                    - 'system_replacemsggroup_mm7'
+                    - 'system_replacemsggroup_mms'
+                    - 'system_replacemsggroup_nacquar'
+                    - 'system_replacemsggroup_nntp'
+                    - 'system_replacemsggroup_spam'
+                    - 'system_replacemsggroup_sslvpn'
+                    - 'system_replacemsggroup_trafficquota'
+                    - 'system_replacemsggroup_utm'
+                    - 'system_replacemsggroup_webproxy'
+                    - 'system_replacemsgimage'
+                    - 'system_report_group'
+                    - 'system_report_group_chartalternative'
+                    - 'system_report_group_groupby'
+                    - 'system_route'
+                    - 'system_route6'
+                    - 'system_sdnconnector'
+                    - 'system_sdnconnector_externalip'
+                    - 'system_sdnconnector_gcpprojectlist'
+                    - 'system_sdnconnector_nic'
+                    - 'system_sdnconnector_nic_ip'
+                    - 'system_sdnconnector_route'
+                    - 'system_sdnconnector_routetable'
+                    - 'system_sdnconnector_routetable_route'
+                    - 'system_smsserver'
+                    - 'system_sniffer'
+                    - 'system_snmp_community'
+                    - 'system_snmp_community_hosts'
+                    - 'system_snmp_community_hosts6'
+                    - 'system_snmp_user'
+                    - 'system_socfabric_trustedlist'
+                    - 'system_sql_customindex'
+                    - 'system_sql_customskipidx'
+                    - 'system_syslog'
+                    - 'system_virtualwirepair'
+                    - 'system_workflow_approvalmatrix'
+                    - 'system_workflow_approvalmatrix_approver'
+                    - 'template'
+                    - 'templategroup'
+                    - 'user_adgrp'
+                    - 'user_certificate'
+                    - 'user_clearpass'
+                    - 'user_connector'
+                    - 'user_device'
+                    - 'user_device_dynamicmapping'
+                    - 'user_device_tagging'
+                    - 'user_deviceaccesslist'
+                    - 'user_deviceaccesslist_devicelist'
+                    - 'user_devicecategory'
+                    - 'user_devicegroup'
+                    - 'user_devicegroup_dynamicmapping'
+                    - 'user_devicegroup_tagging'
+                    - 'user_domaincontroller'
+                    - 'user_domaincontroller_extraserver'
+                    - 'user_exchange'
+                    - 'user_flexvm'
+                    - 'user_fortitoken'
+                    - 'user_fsso'
+                    - 'user_fsso_dynamicmapping'
+                    - 'user_fssopolling'
+                    - 'user_fssopolling_adgrp'
+                    - 'user_group'
+                    - 'user_group_dynamicmapping'
+                    - 'user_group_dynamicmapping_guest'
+                    - 'user_group_dynamicmapping_match'
+                    - 'user_group_guest'
+                    - 'user_group_match'
+                    - 'user_json'
+                    - 'user_krbkeytab'
+                    - 'user_ldap'
+                    - 'user_ldap_dynamicmapping'
+                    - 'user_local'
+                    - 'user_nsx'
+                    - 'user_nsx_service'
+                    - 'user_passwordpolicy'
+                    - 'user_peer'
+                    - 'user_peergrp'
+                    - 'user_pop3'
+                    - 'user_pxgrid'
+                    - 'user_radius'
+                    - 'user_radius_accountingserver'
+                    - 'user_radius_dynamicmapping'
+                    - 'user_radius_dynamicmapping_accountingserver'
+                    - 'user_saml'
+                    - 'user_securityexemptlist'
+                    - 'user_securityexemptlist_rule'
+                    - 'user_tacacs'
+                    - 'user_tacacs_dynamicmapping'
+                    - 'user_vcenter'
+                    - 'user_vcenter_rule'
+                    - 'utmprofile'
+                    - 'vap'
+                    - 'vap_dynamicmapping'
+                    - 'vap_macfilterlist'
+                    - 'vap_mpskkey'
+                    - 'vap_vlanname'
+                    - 'vap_vlanpool'
+                    - 'vapgroup'
+                    - 'videofilter_profile'
+                    - 'videofilter_profile_fortiguardcategory_filters'
+                    - 'videofilter_youtubechannelfilter'
+                    - 'videofilter_youtubechannelfilter_entries'
+                    - 'voip_profile'
+                    - 'vpn_certificate_ca'
+                    - 'vpn_certificate_ocspserver'
+                    - 'vpn_certificate_remote'
+                    - 'vpn_ipsec_fec'
+                    - 'vpn_ssl_settings_authenticationrule'
+                    - 'vpnmgr_node'
+                    - 'vpnmgr_node_iprange'
+                    - 'vpnmgr_node_ipv4excluderange'
+                    - 'vpnmgr_node_protectedsubnet'
+                    - 'vpnmgr_node_summaryaddr'
+                    - 'vpnmgr_vpntable'
+                    - 'vpnsslweb_hostchecksoftware'
+                    - 'vpnsslweb_hostchecksoftware_checkitemlist'
+                    - 'vpnsslweb_portal'
+                    - 'vpnsslweb_portal_bookmarkgroup'
+                    - 'vpnsslweb_portal_bookmarkgroup_bookmarks'
+                    - 'vpnsslweb_portal_bookmarkgroup_bookmarks_formdata'
+                    - 'vpnsslweb_portal_landingpage_formdata'
+                    - 'vpnsslweb_portal_macaddrcheckrule'
+                    - 'vpnsslweb_portal_splitdns'
+                    - 'vpnsslweb_virtualdesktopapplist'
+                    - 'vpnsslweb_virtualdesktopapplist_apps'
+                    - 'waf_mainclass'
+                    - 'waf_profile'
+                    - 'waf_profile_constraint_exception'
+                    - 'waf_profile_method_methodpolicy'
+                    - 'waf_profile_signature_customsignature'
+                    - 'waf_profile_urlaccess'
+                    - 'waf_profile_urlaccess_accesspattern'
+                    - 'waf_signature'
+                    - 'waf_subclass'
+                    - 'wagprofile'
+                    - 'wanopt_authgroup'
+                    - 'wanopt_peer'
+                    - 'wanopt_profile'
+                    - 'wanprof_system_sdwan_duplication'
+                    - 'wanprof_system_sdwan_healthcheck'
+                    - 'wanprof_system_sdwan_healthcheck_sla'
+                    - 'wanprof_system_sdwan_service'
+                    - 'wanprof_system_sdwan_service_sla'
+                    - 'wanprof_system_sdwan_zone'
+                    - 'wanprof_system_virtualwanlink_healthcheck'
+                    - 'wanprof_system_virtualwanlink_healthcheck_sla'
+                    - 'wanprof_system_virtualwanlink_members'
+                    - 'wanprof_system_virtualwanlink_service'
+                    - 'wanprof_system_virtualwanlink_service_sla'
+                    - 'webfilter_categories'
+                    - 'webfilter_content'
+                    - 'webfilter_content_entries'
+                    - 'webfilter_contentheader'
+                    - 'webfilter_ftgdlocalcat'
+                    - 'webfilter_ftgdlocalrating'
+                    - 'webfilter_profile'
+                    - 'webfilter_profile_antiphish_inspectionentries'
+                    - 'webfilter_profile_ftgdwf_filters'
+                    - 'webfilter_profile_ftgdwf_quota'
+                    - 'webfilter_profile_youtubechannelfilter'
+                    - 'webfilter_urlfilter'
+                    - 'webfilter_urlfilter_entries'
+                    - 'webproxy_forwardserver'
+                    - 'webproxy_forwardservergroup'
+                    - 'webproxy_forwardservergroup_serverlist'
+                    - 'webproxy_profile'
+                    - 'webproxy_profile_headers'
+                    - 'webproxy_wisp'
+                    - 'widsprofile'
+                    - 'wireless_accesscontrollist'
+                    - 'wireless_address'
+                    - 'wireless_addrgrp'
+                    - 'wireless_ssidpolicy'
+                    - 'wireless_syslogprofile'
+                    - 'wtpprofile'
+                    - 'wtpprofile_denymaclist'
+                    - 'wtpprofile_splittunnelingacl'
+            self:
+                required: true
+                description: The parameter for each selector.
+                type: dict
+            target:
+                required: true
+                description: Attribute to override for target object.
+                type: dict
 '''
 
 EXAMPLES = '''
 - hosts: fortimanager01
   collections:
-   - fortinet.fortimanager
+    - fortinet.fortimanager
   connection: httpapi
   vars:
     ansible_httpapi_use_ssl: True
     ansible_httpapi_validate_certs: False
     ansible_httpapi_port: 443
   tasks:
-   - name: rename a vip object using fmgr_rename module.
-     fmgr_rename:
-       rename:
-        selector: 'firewall_vip'
-        self:
-          adom: 'root'
-          vip: 'ansible-test-vip_first'
-        target:
-          name: 'ansible-test-vip_fourth'
+    - name: rename a vip object using fmgr_rename module.
+      fmgr_rename:
+        rename:
+          selector: "firewall_vip"
+          self:
+            adom: "root"
+            vip: "ansible-test-vip_first"
+          target:
+            name: "ansible-test-vip_fourth"
 '''
 
 RETURN = '''
-request_url:
-    description: The full url requested
+meta:
+    description: The result of the request.
+    type: dict
     returned: always
-    type: str
-    sample: /sys/login/user
-response_code:
-    description: The status of api request
-    returned: always
+    contains:
+        request_url:
+            description: The full url requested.
+            returned: always
+            type: str
+            sample: /sys/login/user
+        response_code:
+            description: The status of api request.
+            returned: always
+            type: int
+            sample: 0
+        response_data:
+            description: The api response.
+            type: list
+            returned: always
+        response_message:
+            description: The descriptive message of the api response.
+            type: str
+            returned: always
+            sample: OK.
+        system_information:
+            description: The information of the target system.
+            type: dict
+            returned: always
+rc:
+    description: The status the request.
     type: int
-    sample: 0
-response_message:
-    description: The descriptive message of the api response
-    type: str
     returned: always
-    sample: OK.
-
+    sample: 0
+version_check_warning:
+    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+    type: list
+    returned: complex
 '''
 
 from ansible.module_utils.basic import AnsibleModule
@@ -123,7 +838,8 @@ def main():
     rename_metadata = {
         'antivirus_mmschecksum': {
             'params': [
-                'adom'
+                'adom',
+                'mms-checksum'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/antivirus/mms-checksum/{mms-checksum}',
@@ -131,16 +847,48 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
-                '6.2.5': True
+                '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
+                '6.4.0': True,
+                '6.4.1': True,
+                '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
+                '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
+                '7.0.0': True,
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
         'antivirus_mmschecksum_entries': {
             'params': [
                 'adom',
-                'mms-checksum'
+                'mms-checksum',
+                'entries'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/antivirus/mms-checksum/{mms-checksum}/entries/{entries}',
@@ -148,15 +896,47 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
-                '6.2.5': True
+                '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
+                '6.4.0': True,
+                '6.4.1': True,
+                '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
+                '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
+                '7.0.0': True,
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'antivirus_notification': {
             'params': [
-                'adom'
+                'adom',
+                'notification'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/antivirus/notification/{notification}',
@@ -164,16 +944,48 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
-                '6.2.5': True
+                '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
+                '6.4.0': True,
+                '6.4.1': True,
+                '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
+                '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
+                '7.0.0': True,
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
         'antivirus_notification_entries': {
             'params': [
                 'adom',
-                'notification'
+                'notification',
+                'entries'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/antivirus/notification/{notification}/entries/{entries}',
@@ -181,15 +993,47 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
-                '6.2.5': True
+                '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
+                '6.4.0': True,
+                '6.4.1': True,
+                '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
+                '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
+                '7.0.0': True,
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'antivirus_profile': {
             'params': [
-                'adom'
+                'adom',
+                'profile'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/antivirus/profile/{profile}',
@@ -197,49 +1041,157 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'apcfgprofile': {
             'params': [
-                'adom'
+                'adom',
+                'apcfg-profile'
             ],
             'urls': [
                 '/pm/config/global/obj/wireless-controller/apcfg-profile/{apcfg-profile}',
                 '/pm/config/adom/{adom}/obj/wireless-controller/apcfg-profile/{apcfg-profile}'
             ],
             'revision': {
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'apcfgprofile_commandlist': {
             'params': [
                 'adom',
-                'apcfg-profile'
+                'apcfg-profile',
+                'command-list'
             ],
             'urls': [
                 '/pm/config/global/obj/wireless-controller/apcfg-profile/{apcfg-profile}/command-list/{command-list}',
                 '/pm/config/adom/{adom}/obj/wireless-controller/apcfg-profile/{apcfg-profile}/command-list/{command-list}'
             ],
             'revision': {
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
+            },
+            'mkey': 'id'
+        },
+        'application_casi_profile': {
+            'params': [
+                'adom',
+                'profile'
+            ],
+            'urls': [
+                '/pm/config/global/obj/application/casi/profile/{profile}',
+                '/pm/config/adom/{adom}/obj/application/casi/profile/{profile}'
+            ],
+            'revision': {
+                '6.2.0': True,
+                '6.2.1': True,
+                '6.2.2': True,
+                '6.2.3': True,
+                '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True
+            },
+            'mkey': 'name'
+        },
+        'application_casi_profile_entries': {
+            'params': [
+                'adom',
+                'profile',
+                'entries'
+            ],
+            'urls': [
+                '/pm/config/global/obj/application/casi/profile/{profile}/entries/{entries}',
+                '/pm/config/adom/{adom}/obj/application/casi/profile/{profile}/entries/{entries}'
+            ],
+            'revision': {
+                '6.2.0': True,
+                '6.2.1': True,
+                '6.2.2': True,
+                '6.2.3': True,
+                '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True
             },
             'mkey': 'id'
         },
         'application_categories': {
             'params': [
-                'adom'
+                'adom',
+                'categories'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/application/categories/{categories}',
@@ -247,20 +1199,47 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
         'application_custom': {
             'params': [
-                'adom'
+                'adom',
+                'custom'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/application/custom/{custom}',
@@ -268,20 +1247,47 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'tag'
         },
         'application_group': {
             'params': [
-                'adom'
+                'adom',
+                'group'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/application/group/{group}',
@@ -289,20 +1295,191 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
+        'application_internetservice_entry': {
+            'params': [
+                'adom',
+                'entry'
+            ],
+            'urls': [
+                '/pm/config/global/obj/application/internet-service/entry/{entry}',
+                '/pm/config/adom/{adom}/obj/application/internet-service/entry/{entry}'
+            ],
+            'revision': {
+                '6.2.0': True,
+                '6.2.1': True,
+                '6.2.2': True,
+                '6.2.3': True,
+                '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True
+            },
+            'mkey': 'id'
+        },
+        'application_internetservicecustom': {
+            'params': [
+                'adom',
+                'internet-service-custom'
+            ],
+            'urls': [
+                '/pm/config/global/obj/application/internet-service-custom/{internet-service-custom}',
+                '/pm/config/adom/{adom}/obj/application/internet-service-custom/{internet-service-custom}'
+            ],
+            'revision': {
+                '6.2.0': True,
+                '6.2.1': True,
+                '6.2.2': True,
+                '6.2.3': True,
+                '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True
+            },
+            'mkey': 'name'
+        },
+        'application_internetservicecustom_disableentry': {
+            'params': [
+                'adom',
+                'internet-service-custom',
+                'disable-entry'
+            ],
+            'urls': [
+                '/pm/config/global/obj/application/internet-service-custom/{internet-service-custom}/disable-entry/{disable-entry}',
+                '/pm/config/adom/{adom}/obj/application/internet-service-custom/{internet-service-custom}/disable-entry/{disable-entry}'
+            ],
+            'revision': {
+                '6.2.0': True,
+                '6.2.1': True,
+                '6.2.2': True,
+                '6.2.3': True,
+                '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True
+            },
+            'mkey': 'id'
+        },
+        'application_internetservicecustom_disableentry_iprange': {
+            'params': [
+                'adom',
+                'internet-service-custom',
+                'disable-entry',
+                'ip-range'
+            ],
+            'urls': [
+                '/pm/config/global/obj/application/internet-service-custom/{internet-service-custom}/disable-entry/{disable-entry}/ip-range/{ip-range}',
+                '/pm/config/adom/{adom}/obj/application/internet-service-custom/{internet-service-custom}/disable-entry/{disable-entry}/ip-range/{ip-range}'
+            ],
+            'revision': {
+                '6.2.0': True,
+                '6.2.1': True,
+                '6.2.2': True,
+                '6.2.3': True,
+                '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True
+            },
+            'mkey': 'id'
+        },
+        'application_internetservicecustom_entry': {
+            'params': [
+                'adom',
+                'internet-service-custom',
+                'entry'
+            ],
+            'urls': [
+                '/pm/config/global/obj/application/internet-service-custom/{internet-service-custom}/entry/{entry}',
+                '/pm/config/adom/{adom}/obj/application/internet-service-custom/{internet-service-custom}/entry/{entry}'
+            ],
+            'revision': {
+                '6.2.0': True,
+                '6.2.1': True,
+                '6.2.2': True,
+                '6.2.3': True,
+                '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True
+            },
+            'mkey': 'id'
+        },
+        'application_internetservicecustom_entry_portrange': {
+            'params': [
+                'adom',
+                'internet-service-custom',
+                'entry',
+                'port-range'
+            ],
+            'urls': [
+                '/pm/config/global/obj/application/internet-service-custom/{internet-service-custom}/entry/{entry}/port-range/{port-range}',
+                '/pm/config/adom/{adom}/obj/application/internet-service-custom/{internet-service-custom}/entry/{entry}/port-range/{port-range}'
+            ],
+            'revision': {
+                '6.2.0': True,
+                '6.2.1': True,
+                '6.2.2': True,
+                '6.2.3': True,
+                '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True
+            },
+            'mkey': 'id'
+        },
         'application_list': {
             'params': [
-                'adom'
+                'adom',
+                'list'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/application/list/{list}',
@@ -310,42 +1487,96 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'application_list_defaultnetworkservices': {
             'params': [
                 'adom',
-                'list'
+                'list',
+                'default-network-services'
             ],
             'urls': [
                 '/pm/config/global/obj/application/list/{list}/default-network-services/{default-network-services}',
                 '/pm/config/adom/{adom}/obj/application/list/{list}/default-network-services/{default-network-services}'
             ],
             'revision': {
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
         'application_list_entries': {
             'params': [
                 'adom',
-                'list'
+                'list',
+                'entries'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/application/list/{list}/entries/{entries}',
@@ -353,14 +1584,40 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
@@ -368,7 +1625,8 @@ def main():
             'params': [
                 'adom',
                 'list',
-                'entries'
+                'entries',
+                'parameters'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/application/list/{list}/entries/{entries}/parameters/{parameters}',
@@ -376,14 +1634,40 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
@@ -392,7 +1676,8 @@ def main():
                 'adom',
                 'list',
                 'entries',
-                'parameters'
+                'parameters',
+                'members'
             ],
             'urls': [
                 '/pm/config/global/obj/application/list/{list}/entries/{entries}/parameters/{parameters}/members/{members}',
@@ -400,29 +1685,58 @@ def main():
             ],
             'revision': {
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
         'arrpprofile': {
             'params': [
-                'adom'
+                'adom',
+                'arrp-profile'
             ],
             'urls': [
                 '/pm/config/global/obj/wireless-controller/arrp-profile/{arrp-profile}',
                 '/pm/config/adom/{adom}/obj/wireless-controller/arrp-profile/{arrp-profile}'
             ],
             'revision': {
-                '7.2.0': True
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'authentication_scheme': {
             'params': [
-                'adom'
+                'adom',
+                'scheme'
             ],
             'urls': [
                 '/pm/config/global/obj/authentication/scheme/{scheme}',
@@ -430,19 +1744,45 @@ def main():
             ],
             'revision': {
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'bleprofile': {
             'params': [
-                'adom'
+                'adom',
+                'ble-profile'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/wireless-controller/ble-profile/{ble-profile}',
@@ -450,20 +1790,47 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'bonjourprofile': {
             'params': [
-                'adom'
+                'adom',
+                'bonjour-profile'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/wireless-controller/bonjour-profile/{bonjour-profile}',
@@ -471,21 +1838,48 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'bonjourprofile_policylist': {
             'params': [
                 'adom',
-                'bonjour-profile'
+                'bonjour-profile',
+                'policy-list'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/wireless-controller/bonjour-profile/{bonjour-profile}/policy-list/{policy-list}',
@@ -493,20 +1887,47 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'policy-id'
         },
         'certificate_template': {
             'params': [
-                'adom'
+                'adom',
+                'template'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/certificate/template/{template}',
@@ -514,93 +1935,366 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'cifs_profile': {
             'params': [
-                'adom'
+                'adom',
+                'profile'
             ],
             'urls': [
                 '/pm/config/global/obj/cifs/profile/{profile}',
                 '/pm/config/adom/{adom}/obj/cifs/profile/{profile}'
             ],
             'revision': {
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
-                '7.0.0': True
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
+                '7.0.0': True,
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
+        },
+        'cloud_orchestaws': {
+            'params': [
+                'adom',
+                'orchest-aws'
+            ],
+            'urls': [
+                '/pm/config/global/obj/cloud/orchest-aws/{orchest-aws}',
+                '/pm/config/adom/{adom}/obj/cloud/orchest-aws/{orchest-aws}'
+            ],
+            'revision': {
+                '7.4.0': True
+            },
+            'mkey': 'name'
+        },
+        'cloud_orchestawsconnector': {
+            'params': [
+                'adom',
+                'orchest-awsconnector'
+            ],
+            'urls': [
+                '/pm/config/global/obj/cloud/orchest-awsconnector/{orchest-awsconnector}',
+                '/pm/config/adom/{adom}/obj/cloud/orchest-awsconnector/{orchest-awsconnector}'
+            ],
+            'revision': {
+                '7.4.0': True
+            },
+            'mkey': 'name'
+        },
+        'cloud_orchestawstemplate_autoscaleexistingvpc': {
+            'params': [
+                'adom',
+                'autoscale-existing-vpc'
+            ],
+            'urls': [
+                '/pm/config/global/obj/cloud/orchest-awstemplate/autoscale-existing-vpc/{autoscale-existing-vpc}',
+                '/pm/config/adom/{adom}/obj/cloud/orchest-awstemplate/autoscale-existing-vpc/{autoscale-existing-vpc}'
+            ],
+            'revision': {
+                '7.4.0': True
+            },
+            'mkey': 'name'
+        },
+        'cloud_orchestawstemplate_autoscalenewvpc': {
+            'params': [
+                'adom',
+                'autoscale-new-vpc'
+            ],
+            'urls': [
+                '/pm/config/global/obj/cloud/orchest-awstemplate/autoscale-new-vpc/{autoscale-new-vpc}',
+                '/pm/config/adom/{adom}/obj/cloud/orchest-awstemplate/autoscale-new-vpc/{autoscale-new-vpc}'
+            ],
+            'revision': {
+                '7.4.0': True
+            },
+            'mkey': 'name'
+        },
+        'cloud_orchestawstemplate_autoscaletgwnewvpc': {
+            'params': [
+                'adom',
+                'autoscale-tgw-new-vpc'
+            ],
+            'urls': [
+                '/pm/config/global/obj/cloud/orchest-awstemplate/autoscale-tgw-new-vpc/{autoscale-tgw-new-vpc}',
+                '/pm/config/adom/{adom}/obj/cloud/orchest-awstemplate/autoscale-tgw-new-vpc/{autoscale-tgw-new-vpc}'
+            ],
+            'revision': {
+                '7.4.0': True
+            },
+            'mkey': 'name'
+        },
+        'cloud_orchestration': {
+            'params': [
+                'adom',
+                'orchestration'
+            ],
+            'urls': [
+                '/pm/config/global/obj/cloud/orchestration/{orchestration}',
+                '/pm/config/adom/{adom}/obj/cloud/orchestration/{orchestration}'
+            ],
+            'revision': {
+                '7.4.0': True
+            },
+            'mkey': 'name'
+        },
+        'devprof_log_syslogd_filter_excludelist': {
+            'params': [
+                'adom',
+                'devprof',
+                'exclude-list'
+            ],
+            'urls': [
+                '/pm/config/adom/{adom}/devprof/{devprof}/log/syslogd/filter/exclude-list/{exclude-list}'
+            ],
+            'revision': {
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True
+            },
+            'mkey': 'id'
+        },
+        'devprof_log_syslogd_filter_freestyle': {
+            'params': [
+                'adom',
+                'devprof',
+                'free-style'
+            ],
+            'urls': [
+                '/pm/config/adom/{adom}/devprof/{devprof}/log/syslogd/filter/free-style/{free-style}'
+            ],
+            'revision': {
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
+            },
+            'mkey': 'id'
+        },
+        'devprof_log_syslogd_setting_customfieldname': {
+            'params': [
+                'adom',
+                'devprof',
+                'custom-field-name'
+            ],
+            'urls': [
+                '/pm/config/adom/{adom}/devprof/{devprof}/log/syslogd/setting/custom-field-name/{custom-field-name}'
+            ],
+            'revision': {
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
+            },
+            'mkey': 'id'
         },
         'devprof_system_centralmanagement_serverlist': {
             'params': [
                 'adom',
-                'devprof'
+                'devprof',
+                'server-list'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/devprof/{devprof}/system/central-management/server-list/{server-list}'
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
         'devprof_system_ntp_ntpserver': {
             'params': [
                 'adom',
-                'devprof'
+                'devprof',
+                'ntpserver'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/devprof/{devprof}/system/ntp/ntpserver/{ntpserver}'
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
         'devprof_system_snmp_community': {
             'params': [
                 'adom',
-                'devprof'
+                'devprof',
+                'community'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/devprof/{devprof}/system/snmp/community/{community}'
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
@@ -608,20 +2302,46 @@ def main():
             'params': [
                 'adom',
                 'devprof',
-                'community'
+                'community',
+                'hosts'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/devprof/{devprof}/system/snmp/community/{community}/hosts/{hosts}'
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
@@ -629,86 +2349,151 @@ def main():
             'params': [
                 'adom',
                 'devprof',
-                'community'
+                'community',
+                'hosts6'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/devprof/{devprof}/system/snmp/community/{community}/hosts6/{hosts6}'
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
         'devprof_system_snmp_user': {
             'params': [
                 'adom',
-                'devprof'
+                'devprof',
+                'user'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/devprof/{devprof}/system/snmp/user/{user}'
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'dlp_datatype': {
             'params': [
-                'adom'
+                'adom',
+                'data-type'
             ],
             'urls': [
                 '/pm/config/global/obj/dlp/data-type/{data-type}',
                 '/pm/config/adom/{adom}/obj/dlp/data-type/{data-type}'
             ],
             'revision': {
-                '7.2.0': True
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'dlp_dictionary': {
             'params': [
-                'adom'
+                'adom',
+                'dictionary'
             ],
             'urls': [
                 '/pm/config/global/obj/dlp/dictionary/{dictionary}',
                 '/pm/config/adom/{adom}/obj/dlp/dictionary/{dictionary}'
             ],
             'revision': {
-                '7.2.0': True
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'dlp_dictionary_entries': {
             'params': [
                 'adom',
-                'dictionary'
+                'dictionary',
+                'entries'
             ],
             'urls': [
                 '/pm/config/global/obj/dlp/dictionary/{dictionary}/entries/{entries}',
                 '/pm/config/adom/{adom}/obj/dlp/dictionary/{dictionary}/entries/{entries}'
             ],
             'revision': {
-                '7.2.0': True
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
         'dlp_filepattern': {
             'params': [
-                'adom'
+                'adom',
+                'filepattern'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/dlp/filepattern/{filepattern}',
@@ -716,80 +2501,175 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
         'dlp_fpsensitivity': {
             'params': [
-                'adom'
+                'adom',
+                'fp-sensitivity'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/dlp/fp-sensitivity/{fp-sensitivity}',
                 '/pm/config/global/obj/dlp/fp-sensitivity/{fp-sensitivity}'
             ],
             'revision': {
-                '6.0.0': True
+                '6.0.0': True,
+                '6.2.0': True,
+                '6.2.1': True,
+                '6.2.2': True,
+                '6.2.3': True,
+                '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
+                '6.4.0': True,
+                '6.4.1': True,
+                '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
+                '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
+                '7.0.0': True,
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True
             },
             'mkey': 'name'
         },
         'dlp_profile': {
             'params': [
-                'adom'
+                'adom',
+                'profile'
             ],
             'urls': [
                 '/pm/config/global/obj/dlp/profile/{profile}',
                 '/pm/config/adom/{adom}/obj/dlp/profile/{profile}'
             ],
             'revision': {
-                '7.2.0': True
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'dlp_profile_rule': {
             'params': [
                 'adom',
-                'profile'
+                'profile',
+                'rule'
             ],
             'urls': [
                 '/pm/config/global/obj/dlp/profile/{profile}/rule/{rule}',
                 '/pm/config/adom/{adom}/obj/dlp/profile/{profile}/rule/{rule}'
             ],
             'revision': {
-                '7.2.0': True
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
         'dlp_sensitivity': {
             'params': [
-                'adom'
+                'adom',
+                'sensitivity'
             ],
             'urls': [
                 '/pm/config/global/obj/dlp/sensitivity/{sensitivity}',
                 '/pm/config/adom/{adom}/obj/dlp/sensitivity/{sensitivity}'
             ],
             'revision': {
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'dlp_sensor': {
             'params': [
-                'adom'
+                'adom',
+                'sensor'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/dlp/sensor/{sensor}',
@@ -797,35 +2677,66 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'dlp_sensor_entries': {
             'params': [
                 'adom',
-                'sensor'
+                'sensor',
+                'entries'
             ],
             'urls': [
                 '/pm/config/global/obj/dlp/sensor/{sensor}/entries/{entries}',
                 '/pm/config/adom/{adom}/obj/dlp/sensor/{sensor}/entries/{entries}'
             ],
             'revision': {
-                '7.2.0': True
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
         'dlp_sensor_filter': {
             'params': [
                 'adom',
-                'sensor'
+                'sensor',
+                'filter'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/dlp/sensor/{sensor}/filter/{filter}',
@@ -833,19 +2744,47 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
-                '7.0.0': True
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
+                '7.0.0': True,
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
         'dnsfilter_domainfilter': {
             'params': [
-                'adom'
+                'adom',
+                'domain-filter'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/dnsfilter/domain-filter/{domain-filter}',
@@ -853,21 +2792,48 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
         'dnsfilter_domainfilter_entries': {
             'params': [
                 'adom',
-                'domain-filter'
+                'domain-filter',
+                'entries'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/dnsfilter/domain-filter/{domain-filter}/entries/{entries}',
@@ -875,20 +2841,47 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
         'dnsfilter_profile': {
             'params': [
-                'adom'
+                'adom',
+                'profile'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/dnsfilter/profile/{profile}',
@@ -896,42 +2889,96 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'dnsfilter_profile_dnstranslation': {
             'params': [
                 'adom',
-                'profile'
+                'profile',
+                'dns-translation'
             ],
             'urls': [
                 '/pm/config/global/obj/dnsfilter/profile/{profile}/dns-translation/{dns-translation}',
                 '/pm/config/adom/{adom}/obj/dnsfilter/profile/{profile}/dns-translation/{dns-translation}'
             ],
             'revision': {
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
         'dnsfilter_profile_ftgddns_filters': {
             'params': [
                 'adom',
-                'profile'
+                'profile',
+                'filters'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/dnsfilter/profile/{profile}/ftgd-dns/filters/{filters}',
@@ -939,40 +2986,141 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
+            },
+            'mkey': 'id'
+        },
+        'dnsfilter_urlfilter': {
+            'params': [
+                'adom',
+                'urlfilter'
+            ],
+            'urls': [
+                '/pm/config/global/obj/dnsfilter/urlfilter/{urlfilter}',
+                '/pm/config/adom/{adom}/obj/dnsfilter/urlfilter/{urlfilter}'
+            ],
+            'revision': {
+                '6.2.0': True,
+                '6.2.1': True,
+                '6.2.2': True,
+                '6.2.3': True,
+                '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True
+            },
+            'mkey': 'id'
+        },
+        'dnsfilter_urlfilter_entries': {
+            'params': [
+                'adom',
+                'urlfilter',
+                'entries'
+            ],
+            'urls': [
+                '/pm/config/global/obj/dnsfilter/urlfilter/{urlfilter}/entries/{entries}',
+                '/pm/config/adom/{adom}/obj/dnsfilter/urlfilter/{urlfilter}/entries/{entries}'
+            ],
+            'revision': {
+                '6.2.0': True,
+                '6.2.1': True,
+                '6.2.2': True,
+                '6.2.3': True,
+                '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True
             },
             'mkey': 'id'
         },
         'dvmdb_adom': {
             'params': [
+                'adom'
             ],
             'urls': [
                 '/dvmdb/adom/{adom}'
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'dvmdb_device_vdom': {
             'params': [
                 'adom',
-                'device'
+                'device',
+                'vdom'
             ],
             'urls': [
                 '/dvmdb/adom/{adom}/device/{device}/vdom/{vdom}',
@@ -980,20 +3128,47 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'dvmdb_folder': {
             'params': [
-                'adom'
+                'adom',
+                'folder'
             ],
             'urls': [
                 '/dvmdb/folder/{folder}',
@@ -1001,15 +3176,34 @@ def main():
             ],
             'revision': {
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'dvmdb_group': {
             'params': [
-                'adom'
+                'adom',
+                'group'
             ],
             'urls': [
                 '/dvmdb/adom/{adom}/group/{group}',
@@ -1017,20 +3211,47 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'dvmdb_revision': {
             'params': [
-                'adom'
+                'adom',
+                'revision'
             ],
             'urls': [
                 '/dvmdb/adom/{adom}/revision/{revision}',
@@ -1039,20 +3260,47 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'dvmdb_script': {
             'params': [
-                'adom'
+                'adom',
+                'script'
             ],
             'urls': [
                 '/dvmdb/adom/{adom}/script/{script}',
@@ -1061,21 +3309,48 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'dvmdb_script_scriptschedule': {
             'params': [
                 'adom',
-                'script'
+                'script',
+                'script_schedule'
             ],
             'urls': [
                 '/dvmdb/adom/{adom}/script/{script}/script_schedule/{script_schedule}',
@@ -1084,20 +3359,47 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'dynamic_address': {
             'params': [
-                'adom'
+                'adom',
+                'address'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/dynamic/address/{address}',
@@ -1105,21 +3407,48 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'dynamic_address_dynamicaddrmapping': {
             'params': [
                 'adom',
-                'address'
+                'address',
+                'dynamic_addr_mapping'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/dynamic/address/{address}/dynamic_addr_mapping/{dynamic_addr_mapping}',
@@ -1127,20 +3456,47 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
         'dynamic_certificate_local': {
             'params': [
-                'adom'
+                'adom',
+                'local'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/dynamic/certificate/local/{local}',
@@ -1148,21 +3504,48 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'dynamic_certificate_local_dynamicmapping': {
             'params': [
                 'adom',
-                'local'
+                'local',
+                'dynamic_mapping'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/dynamic/certificate/local/{local}/dynamic_mapping/{dynamic_mapping}',
@@ -1170,35 +3553,69 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'complex:{{module}}["_scope"][0]["name"]+"/"+{{module}}["_scope"][0]["vdom"]'
         },
         'dynamic_input_interface': {
             'params': [
-                'adom'
+                'adom',
+                'interface'
             ],
             'urls': [
                 '/pm/config/global/obj/dynamic/input/interface/{interface}',
                 '/pm/config/adom/{adom}/obj/dynamic/input/interface/{interface}'
             ],
             'revision': {
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True
             },
             'mkey': 'name'
         },
         'dynamic_interface': {
             'params': [
-                'adom'
+                'adom',
+                'interface'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/dynamic/interface/{interface}',
@@ -1206,21 +3623,48 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'dynamic_interface_dynamicmapping': {
             'params': [
                 'adom',
-                'interface'
+                'interface',
+                'dynamic_mapping'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/dynamic/interface/{interface}/dynamic_mapping/{dynamic_mapping}',
@@ -1228,37 +3672,84 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'complex:{{module}}["_scope"][0]["name"]+"/"+{{module}}["_scope"][0]["vdom"]'
         },
         'dynamic_interface_platformmapping': {
             'params': [
                 'adom',
-                'interface'
+                'interface',
+                'platform_mapping'
             ],
             'urls': [
                 '/pm/config/global/obj/dynamic/interface/{interface}/platform_mapping/{platform_mapping}',
                 '/pm/config/adom/{adom}/obj/dynamic/interface/{interface}/platform_mapping/{platform_mapping}'
             ],
             'revision': {
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'dynamic_ippool': {
             'params': [
-                'adom'
+                'adom',
+                'ippool'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/dynamic/ippool/{ippool}',
@@ -1266,20 +3757,47 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'dynamic_multicast_interface': {
             'params': [
-                'adom'
+                'adom',
+                'interface'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/dynamic/multicast/interface/{interface}',
@@ -1287,21 +3805,48 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'dynamic_multicast_interface_dynamicmapping': {
             'params': [
                 'adom',
-                'interface'
+                'interface',
+                'dynamic_mapping'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/dynamic/multicast/interface/{interface}/dynamic_mapping/{dynamic_mapping}',
@@ -1309,20 +3854,47 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'complex:{{module}}["_scope"][0]["name"]+"/"+{{module}}["_scope"][0]["vdom"]'
         },
         'dynamic_vip': {
             'params': [
-                'adom'
+                'adom',
+                'vip'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/dynamic/vip/{vip}',
@@ -1330,20 +3902,47 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'dynamic_virtualwanlink_members': {
             'params': [
-                'adom'
+                'adom',
+                'members'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/dynamic/virtual-wan-link/members/{members}',
@@ -1351,19 +3950,36 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
-                '6.4.5': True
+                '6.4.3': True,
+                '6.4.4': True,
+                '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True
             },
             'mkey': 'name'
         },
         'dynamic_virtualwanlink_members_dynamicmapping': {
             'params': [
                 'adom',
-                'members'
+                'members',
+                'dynamic_mapping'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/dynamic/virtual-wan-link/members/{members}/dynamic_mapping/{dynamic_mapping}',
@@ -1371,35 +3987,68 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
-                '6.4.5': True
+                '6.4.3': True,
+                '6.4.4': True,
+                '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True
             },
             'mkey': 'complex:{{module}}["_scope"][0]["name"]+"/"+{{module}}["_scope"][0]["vdom"]'
         },
         'dynamic_virtualwanlink_neighbor': {
             'params': [
-                'adom'
+                'adom',
+                'neighbor'
             ],
             'urls': [
                 '/pm/config/global/obj/dynamic/virtual-wan-link/neighbor/{neighbor}',
                 '/pm/config/adom/{adom}/obj/dynamic/virtual-wan-link/neighbor/{neighbor}'
             ],
             'revision': {
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
-                '6.4.5': True
+                '6.4.3': True,
+                '6.4.4': True,
+                '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True
             },
             'mkey': 'name'
         },
         'dynamic_virtualwanlink_server': {
             'params': [
-                'adom'
+                'adom',
+                'server'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/dynamic/virtual-wan-link/server/{server}',
@@ -1407,19 +4056,36 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
-                '6.4.5': True
+                '6.4.3': True,
+                '6.4.4': True,
+                '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True
             },
             'mkey': 'name'
         },
         'dynamic_virtualwanlink_server_dynamicmapping': {
             'params': [
                 'adom',
-                'server'
+                'server',
+                'dynamic_mapping'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/dynamic/virtual-wan-link/server/{server}/dynamic_mapping/{dynamic_mapping}',
@@ -1427,18 +4093,35 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
-                '6.4.5': True
+                '6.4.3': True,
+                '6.4.4': True,
+                '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True
             },
             'mkey': 'complex:{{module}}["_scope"][0]["name"]+"/"+{{module}}["_scope"][0]["vdom"]'
         },
         'dynamic_vpntunnel': {
             'params': [
-                'adom'
+                'adom',
+                'vpntunnel'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/dynamic/vpntunnel/{vpntunnel}',
@@ -1446,21 +4129,48 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'dynamic_vpntunnel_dynamicmapping': {
             'params': [
                 'adom',
-                'vpntunnel'
+                'vpntunnel',
+                'dynamic_mapping'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/dynamic/vpntunnel/{vpntunnel}/dynamic_mapping/{dynamic_mapping}',
@@ -1468,20 +4178,47 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'complex:{{module}}["_scope"][0]["name"]+"/"+{{module}}["_scope"][0]["vdom"]'
         },
         'emailfilter_blockallowlist': {
             'params': [
-                'adom'
+                'adom',
+                'block-allow-list'
             ],
             'urls': [
                 '/pm/config/global/obj/emailfilter/block-allow-list/{block-allow-list}',
@@ -1489,14 +4226,25 @@ def main():
             ],
             'revision': {
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
         'emailfilter_blockallowlist_entries': {
             'params': [
                 'adom',
-                'block-allow-list'
+                'block-allow-list',
+                'entries'
             ],
             'urls': [
                 '/pm/config/global/obj/emailfilter/block-allow-list/{block-allow-list}/entries/{entries}',
@@ -1504,318 +4252,706 @@ def main():
             ],
             'revision': {
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
         'emailfilter_bwl': {
             'params': [
-                'adom'
+                'adom',
+                'bwl'
             ],
             'urls': [
                 '/pm/config/global/obj/emailfilter/bwl/{bwl}',
                 '/pm/config/adom/{adom}/obj/emailfilter/bwl/{bwl}'
             ],
             'revision': {
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
-                '6.4.5': True
+                '6.4.3': True,
+                '6.4.4': True,
+                '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
+                '7.0.0': True,
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
         'emailfilter_bwl_entries': {
             'params': [
                 'adom',
-                'bwl'
+                'bwl',
+                'entries'
             ],
             'urls': [
                 '/pm/config/global/obj/emailfilter/bwl/{bwl}/entries/{entries}',
                 '/pm/config/adom/{adom}/obj/emailfilter/bwl/{bwl}/entries/{entries}'
             ],
             'revision': {
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
-                '6.4.5': True
+                '6.4.3': True,
+                '6.4.4': True,
+                '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
+                '7.0.0': True,
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
         'emailfilter_bword': {
             'params': [
-                'adom'
+                'adom',
+                'bword'
             ],
             'urls': [
                 '/pm/config/global/obj/emailfilter/bword/{bword}',
                 '/pm/config/adom/{adom}/obj/emailfilter/bword/{bword}'
             ],
             'revision': {
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
         'emailfilter_bword_entries': {
             'params': [
                 'adom',
-                'bword'
+                'bword',
+                'entries'
             ],
             'urls': [
                 '/pm/config/global/obj/emailfilter/bword/{bword}/entries/{entries}',
                 '/pm/config/adom/{adom}/obj/emailfilter/bword/{bword}/entries/{entries}'
             ],
             'revision': {
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
         'emailfilter_dnsbl': {
             'params': [
-                'adom'
+                'adom',
+                'dnsbl'
             ],
             'urls': [
                 '/pm/config/global/obj/emailfilter/dnsbl/{dnsbl}',
                 '/pm/config/adom/{adom}/obj/emailfilter/dnsbl/{dnsbl}'
             ],
             'revision': {
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
         'emailfilter_dnsbl_entries': {
             'params': [
                 'adom',
-                'dnsbl'
+                'dnsbl',
+                'entries'
             ],
             'urls': [
                 '/pm/config/global/obj/emailfilter/dnsbl/{dnsbl}/entries/{entries}',
                 '/pm/config/adom/{adom}/obj/emailfilter/dnsbl/{dnsbl}/entries/{entries}'
             ],
             'revision': {
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
         'emailfilter_iptrust': {
             'params': [
-                'adom'
+                'adom',
+                'iptrust'
             ],
             'urls': [
                 '/pm/config/global/obj/emailfilter/iptrust/{iptrust}',
                 '/pm/config/adom/{adom}/obj/emailfilter/iptrust/{iptrust}'
             ],
             'revision': {
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
         'emailfilter_iptrust_entries': {
             'params': [
                 'adom',
-                'iptrust'
+                'iptrust',
+                'entries'
             ],
             'urls': [
                 '/pm/config/global/obj/emailfilter/iptrust/{iptrust}/entries/{entries}',
                 '/pm/config/adom/{adom}/obj/emailfilter/iptrust/{iptrust}/entries/{entries}'
             ],
             'revision': {
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
         'emailfilter_mheader': {
             'params': [
-                'adom'
+                'adom',
+                'mheader'
             ],
             'urls': [
                 '/pm/config/global/obj/emailfilter/mheader/{mheader}',
                 '/pm/config/adom/{adom}/obj/emailfilter/mheader/{mheader}'
             ],
             'revision': {
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
         'emailfilter_mheader_entries': {
             'params': [
                 'adom',
-                'mheader'
+                'mheader',
+                'entries'
             ],
             'urls': [
                 '/pm/config/global/obj/emailfilter/mheader/{mheader}/entries/{entries}',
                 '/pm/config/adom/{adom}/obj/emailfilter/mheader/{mheader}/entries/{entries}'
             ],
             'revision': {
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
         'emailfilter_profile': {
             'params': [
-                'adom'
+                'adom',
+                'profile'
             ],
             'urls': [
                 '/pm/config/global/obj/emailfilter/profile/{profile}',
                 '/pm/config/adom/{adom}/obj/emailfilter/profile/{profile}'
             ],
             'revision': {
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'endpointcontrol_fctems': {
             'params': [
-                'adom'
+                'adom',
+                'fctems'
             ],
             'urls': [
                 '/pm/config/global/obj/endpoint-control/fctems/{fctems}',
                 '/pm/config/adom/{adom}/obj/endpoint-control/fctems/{fctems}'
             ],
             'revision': {
-                '7.2.0': True
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'extendercontroller_dataplan': {
             'params': [
-                'adom'
+                'adom',
+                'dataplan'
             ],
             'urls': [
                 '/pm/config/global/obj/extender-controller/dataplan/{dataplan}',
                 '/pm/config/adom/{adom}/obj/extender-controller/dataplan/{dataplan}'
             ],
             'revision': {
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'extendercontroller_extenderprofile': {
             'params': [
-                'adom'
+                'adom',
+                'extender-profile'
             ],
             'urls': [
                 '/pm/config/global/obj/extender-controller/extender-profile/{extender-profile}',
                 '/pm/config/adom/{adom}/obj/extender-controller/extender-profile/{extender-profile}'
             ],
             'revision': {
-                '7.2.0': True
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
         'extendercontroller_extenderprofile_cellular_smsnotification_receiver': {
             'params': [
                 'adom',
-                'extender-profile'
+                'extender-profile',
+                'receiver'
             ],
             'urls': [
                 '/pm/config/global/obj/extender-controller/extender-profile/{extender-profile}/cellular/sms-notification/receiver/{receiver}',
                 '/pm/config/adom/{adom}/obj/extender-controller/extender-profile/{extender-profile}/cellular/sms-notification/receiver/{receiver}'
             ],
             'revision': {
-                '7.2.0': True
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'extendercontroller_extenderprofile_lanextension_backhaul': {
             'params': [
                 'adom',
-                'extender-profile'
+                'extender-profile',
+                'backhaul'
             ],
             'urls': [
                 '/pm/config/global/obj/extender-controller/extender-profile/{extender-profile}/lan-extension/backhaul/{backhaul}',
                 '/pm/config/adom/{adom}/obj/extender-controller/extender-profile/{extender-profile}/lan-extension/backhaul/{backhaul}'
             ],
             'revision': {
-                '7.2.0': True
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'extendercontroller_simprofile': {
             'params': [
-                'adom'
+                'adom',
+                'sim_profile'
             ],
             'urls': [
                 '/pm/config/global/obj/extender-controller/sim_profile/{sim_profile}',
                 '/pm/config/adom/{adom}/obj/extender-controller/sim_profile/{sim_profile}'
             ],
             'revision': {
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'extendercontroller_template': {
             'params': [
-                'adom'
+                'adom',
+                'template'
             ],
             'urls': [
                 '/pm/config/global/obj/extender-controller/template/{template}',
@@ -1823,46 +4959,163 @@ def main():
             ],
             'revision': {
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
+            },
+            'mkey': 'name'
+        },
+        'extensioncontroller_dataplan': {
+            'params': [
+                'adom',
+                'dataplan'
+            ],
+            'urls': [
+                '/pm/config/global/obj/extension-controller/dataplan/{dataplan}',
+                '/pm/config/adom/{adom}/obj/extension-controller/dataplan/{dataplan}'
+            ],
+            'revision': {
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
+            },
+            'mkey': 'name'
+        },
+        'extensioncontroller_extenderprofile': {
+            'params': [
+                'adom',
+                'extender-profile'
+            ],
+            'urls': [
+                '/pm/config/global/obj/extension-controller/extender-profile/{extender-profile}',
+                '/pm/config/adom/{adom}/obj/extension-controller/extender-profile/{extender-profile}'
+            ],
+            'revision': {
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
+            },
+            'mkey': 'id'
+        },
+        'extensioncontroller_extenderprofile_cellular_smsnotification_receiver': {
+            'params': [
+                'adom',
+                'extender-profile',
+                'receiver'
+            ],
+            'urls': [
+                '/pm/config/global/obj/extension-controller/extender-profile/{extender-profile}/cellular/sms-notification/receiver/{receiver}',
+                '/pm/config/adom/{adom}/obj/extension-controller/extender-profile/{extender-profile}/cellular/sms-notification/receiver/{receiver}'
+            ],
+            'revision': {
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
+            },
+            'mkey': 'name'
+        },
+        'extensioncontroller_extenderprofile_lanextension_backhaul': {
+            'params': [
+                'adom',
+                'extender-profile',
+                'backhaul'
+            ],
+            'urls': [
+                '/pm/config/global/obj/extension-controller/extender-profile/{extender-profile}/lan-extension/backhaul/{backhaul}',
+                '/pm/config/adom/{adom}/obj/extension-controller/extender-profile/{extender-profile}/lan-extension/backhaul/{backhaul}'
+            ],
+            'revision': {
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'filefilter_profile': {
             'params': [
-                'adom'
+                'adom',
+                'profile'
             ],
             'urls': [
                 '/pm/config/global/obj/file-filter/profile/{profile}',
                 '/pm/config/adom/{adom}/obj/file-filter/profile/{profile}'
             ],
             'revision': {
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'filefilter_profile_rules': {
             'params': [
                 'adom',
-                'profile'
+                'profile',
+                'rules'
             ],
             'urls': [
                 '/pm/config/global/obj/file-filter/profile/{profile}/rules/{rules}',
                 '/pm/config/adom/{adom}/obj/file-filter/profile/{profile}/rules/{rules}'
             ],
             'revision': {
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'firewall_accessproxy': {
             'params': [
-                'adom'
+                'adom',
+                'access-proxy'
             ],
             'urls': [
                 '/pm/config/global/obj/firewall/access-proxy/{access-proxy}',
@@ -1870,14 +5123,111 @@ def main():
             ],
             'revision': {
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
+        },
+        'firewall_accessproxy6': {
+            'params': [
+                'adom',
+                'access-proxy6'
+            ],
+            'urls': [
+                '/pm/config/global/obj/firewall/access-proxy6/{access-proxy6}',
+                '/pm/config/adom/{adom}/obj/firewall/access-proxy6/{access-proxy6}'
+            ],
+            'revision': {
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
+            },
+            'mkey': 'name'
+        },
+        'firewall_accessproxy6_apigateway': {
+            'params': [
+                'adom',
+                'access-proxy6',
+                'api-gateway'
+            ],
+            'urls': [
+                '/pm/config/global/obj/firewall/access-proxy6/{access-proxy6}/api-gateway/{api-gateway}',
+                '/pm/config/adom/{adom}/obj/firewall/access-proxy6/{access-proxy6}/api-gateway/{api-gateway}'
+            ],
+            'revision': {
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
+            },
+            'mkey': 'id'
+        },
+        'firewall_accessproxy6_apigateway6': {
+            'params': [
+                'adom',
+                'access-proxy6',
+                'api-gateway6'
+            ],
+            'urls': [
+                '/pm/config/global/obj/firewall/access-proxy6/{access-proxy6}/api-gateway6/{api-gateway6}',
+                '/pm/config/adom/{adom}/obj/firewall/access-proxy6/{access-proxy6}/api-gateway6/{api-gateway6}'
+            ],
+            'revision': {
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
+            },
+            'mkey': 'id'
+        },
+        'firewall_accessproxy6_apigateway6_realservers': {
+            'params': [
+                'adom',
+                'access-proxy6',
+                'api-gateway6',
+                'realservers'
+            ],
+            'urls': [
+                '/pm/config/global/obj/firewall/access-proxy6/{access-proxy6}/api-gateway6/{api-gateway6}/realservers/{realservers}',
+                '/pm/config/adom/{adom}/obj/firewall/access-proxy6/{access-proxy6}/api-gateway6/{api-gateway6}/realservers/{realservers}'
+            ],
+            'revision': {
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
+            },
+            'mkey': 'id'
+        },
+        'firewall_accessproxy6_apigateway_realservers': {
+            'params': [
+                'adom',
+                'access-proxy6',
+                'api-gateway',
+                'realservers'
+            ],
+            'urls': [
+                '/pm/config/global/obj/firewall/access-proxy6/{access-proxy6}/api-gateway/{api-gateway}/realservers/{realservers}',
+                '/pm/config/adom/{adom}/obj/firewall/access-proxy6/{access-proxy6}/api-gateway/{api-gateway}/realservers/{realservers}'
+            ],
+            'revision': {
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
+            },
+            'mkey': 'id'
         },
         'firewall_accessproxy_apigateway': {
             'params': [
                 'adom',
-                'access-proxy'
+                'access-proxy',
+                'api-gateway'
             ],
             'urls': [
                 '/pm/config/global/obj/firewall/access-proxy/{access-proxy}/api-gateway/{api-gateway}',
@@ -1885,21 +5235,42 @@ def main():
             ],
             'revision': {
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
         'firewall_accessproxy_apigateway6': {
             'params': [
                 'adom',
-                'access-proxy'
+                'access-proxy',
+                'api-gateway6'
             ],
             'urls': [
                 '/pm/config/global/obj/firewall/access-proxy/{access-proxy}/api-gateway6/{api-gateway6}',
                 '/pm/config/adom/{adom}/obj/firewall/access-proxy/{access-proxy}/api-gateway6/{api-gateway6}'
             ],
             'revision': {
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
@@ -1907,14 +5278,25 @@ def main():
             'params': [
                 'adom',
                 'access-proxy',
-                'api-gateway6'
+                'api-gateway6',
+                'realservers'
             ],
             'urls': [
                 '/pm/config/global/obj/firewall/access-proxy/{access-proxy}/api-gateway6/{api-gateway6}/realservers/{realservers}',
                 '/pm/config/adom/{adom}/obj/firewall/access-proxy/{access-proxy}/api-gateway6/{api-gateway6}/realservers/{realservers}'
             ],
             'revision': {
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
@@ -1922,7 +5304,8 @@ def main():
             'params': [
                 'adom',
                 'access-proxy',
-                'api-gateway'
+                'api-gateway',
+                'realservers'
             ],
             'urls': [
                 '/pm/config/global/obj/firewall/access-proxy/{access-proxy}/api-gateway/{api-gateway}/realservers/{realservers}',
@@ -1930,54 +5313,100 @@ def main():
             ],
             'revision': {
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
         'firewall_accessproxy_realservers': {
             'params': [
                 'adom',
-                'access-proxy'
+                'access-proxy',
+                'realservers'
             ],
             'urls': [
                 '/pm/config/global/obj/firewall/access-proxy/{access-proxy}/realservers/{realservers}',
                 '/pm/config/adom/{adom}/obj/firewall/access-proxy/{access-proxy}/realservers/{realservers}'
             ],
             'revision': {
-                '7.0.0': True
+                '7.0.0': True,
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
         'firewall_accessproxy_serverpubkeyauthsettings_certextension': {
             'params': [
                 'adom',
-                'access-proxy'
+                'access-proxy',
+                'cert-extension'
             ],
             'urls': [
                 '/pm/config/global/obj/firewall/access-proxy/{access-proxy}/server-pubkey-auth-settings/cert-extension/{cert-extension}',
                 '/pm/config/adom/{adom}/obj/firewall/access-proxy/{access-proxy}/server-pubkey-auth-settings/cert-extension/{cert-extension}'
             ],
             'revision': {
-                '7.0.0': True
+                '7.0.0': True,
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'firewall_accessproxyvirtualhost': {
             'params': [
-                'adom'
+                'adom',
+                'access-proxy-virtual-host'
             ],
             'urls': [
                 '/pm/config/global/obj/firewall/access-proxy-virtual-host/{access-proxy-virtual-host}',
                 '/pm/config/adom/{adom}/obj/firewall/access-proxy-virtual-host/{access-proxy-virtual-host}'
             ],
             'revision': {
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'firewall_address': {
             'params': [
-                'adom'
+                'adom',
+                'address'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/firewall/address/{address}',
@@ -1985,20 +5414,47 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'firewall_address6': {
             'params': [
-                'adom'
+                'adom',
+                'address6'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/firewall/address6/{address6}',
@@ -2006,21 +5462,48 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'firewall_address6_dynamicmapping': {
             'params': [
                 'adom',
-                'address6'
+                'address6',
+                'dynamic_mapping'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/firewall/address6/{address6}/dynamic_mapping/{dynamic_mapping}',
@@ -2028,14 +5511,40 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'complex:{{module}}["_scope"][0]["name"]+"/"+{{module}}["_scope"][0]["vdom"]'
         },
@@ -2043,7 +5552,8 @@ def main():
             'params': [
                 'adom',
                 'address6',
-                'dynamic_mapping'
+                'dynamic_mapping',
+                'subnet-segment'
             ],
             'urls': [
                 '/pm/config/global/obj/firewall/address6/{address6}/dynamic_mapping/{dynamic_mapping}/subnet-segment/{subnet-segment}',
@@ -2051,20 +5561,46 @@ def main():
             ],
             'revision': {
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'firewall_address6_list': {
             'params': [
                 'adom',
-                'address6'
+                'address6',
+                'list'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/firewall/address6/{address6}/list/{list}',
@@ -2072,21 +5608,48 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'ip'
         },
         'firewall_address6_subnetsegment': {
             'params': [
                 'adom',
-                'address6'
+                'address6',
+                'subnet-segment'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/firewall/address6/{address6}/subnet-segment/{subnet-segment}',
@@ -2094,21 +5657,48 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'firewall_address6_tagging': {
             'params': [
                 'adom',
-                'address6'
+                'address6',
+                'tagging'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/firewall/address6/{address6}/tagging/{tagging}',
@@ -2116,20 +5706,47 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'firewall_address6template': {
             'params': [
-                'adom'
+                'adom',
+                'address6-template'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/firewall/address6-template/{address6-template}',
@@ -2137,21 +5754,48 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'firewall_address6template_subnetsegment': {
             'params': [
                 'adom',
-                'address6-template'
+                'address6-template',
+                'subnet-segment'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/firewall/address6-template/{address6-template}/subnet-segment/{subnet-segment}',
@@ -2159,14 +5803,40 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
@@ -2174,7 +5844,8 @@ def main():
             'params': [
                 'adom',
                 'address6-template',
-                'subnet-segment'
+                'subnet-segment',
+                'values'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/firewall/address6-template/{address6-template}/subnet-segment/{subnet-segment}/values/{values}',
@@ -2182,21 +5853,48 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'firewall_address_dynamicmapping': {
             'params': [
                 'adom',
-                'address'
+                'address',
+                'dynamic_mapping'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/firewall/address/{address}/dynamic_mapping/{dynamic_mapping}',
@@ -2204,21 +5902,48 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'complex:{{module}}["_scope"][0]["name"]+"/"+{{module}}["_scope"][0]["vdom"]'
         },
         'firewall_address_list': {
             'params': [
                 'adom',
-                'address'
+                'address',
+                'list'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/firewall/address/{address}/list/{list}',
@@ -2226,21 +5951,48 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'ip'
         },
         'firewall_address_tagging': {
             'params': [
                 'adom',
-                'address'
+                'address',
+                'tagging'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/firewall/address/{address}/tagging/{tagging}',
@@ -2248,20 +6000,47 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'firewall_addrgrp': {
             'params': [
-                'adom'
+                'adom',
+                'addrgrp'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/firewall/addrgrp/{addrgrp}',
@@ -2269,20 +6048,47 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'firewall_addrgrp6': {
             'params': [
-                'adom'
+                'adom',
+                'addrgrp6'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/firewall/addrgrp6/{addrgrp6}',
@@ -2290,21 +6096,48 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'firewall_addrgrp6_dynamicmapping': {
             'params': [
                 'adom',
-                'addrgrp6'
+                'addrgrp6',
+                'dynamic_mapping'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/firewall/addrgrp6/{addrgrp6}/dynamic_mapping/{dynamic_mapping}',
@@ -2312,21 +6145,48 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'complex:{{module}}["_scope"][0]["name"]+"/"+{{module}}["_scope"][0]["vdom"]'
         },
         'firewall_addrgrp6_tagging': {
             'params': [
                 'adom',
-                'addrgrp6'
+                'addrgrp6',
+                'tagging'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/firewall/addrgrp6/{addrgrp6}/tagging/{tagging}',
@@ -2334,21 +6194,48 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'firewall_addrgrp_dynamicmapping': {
             'params': [
                 'adom',
-                'addrgrp'
+                'addrgrp',
+                'dynamic_mapping'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/firewall/addrgrp/{addrgrp}/dynamic_mapping/{dynamic_mapping}',
@@ -2356,21 +6243,48 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'complex:{{module}}["_scope"][0]["name"]+"/"+{{module}}["_scope"][0]["vdom"]'
         },
         'firewall_addrgrp_tagging': {
             'params': [
                 'adom',
-                'addrgrp'
+                'addrgrp',
+                'tagging'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/firewall/addrgrp/{addrgrp}/tagging/{tagging}',
@@ -2378,20 +6292,47 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'firewall_carrierendpointbwl': {
             'params': [
-                'adom'
+                'adom',
+                'carrier-endpoint-bwl'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/firewall/carrier-endpoint-bwl/{carrier-endpoint-bwl}',
@@ -2399,16 +6340,48 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
-                '6.2.5': True
+                '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
+                '6.4.0': True,
+                '6.4.1': True,
+                '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
+                '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
+                '7.0.0': True,
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
         'firewall_carrierendpointbwl_entries': {
             'params': [
                 'adom',
-                'carrier-endpoint-bwl'
+                'carrier-endpoint-bwl',
+                'entries'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/firewall/carrier-endpoint-bwl/{carrier-endpoint-bwl}/entries/{entries}',
@@ -2416,31 +6389,153 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
-                '6.2.5': True
+                '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
+                '6.4.0': True,
+                '6.4.1': True,
+                '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
+                '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
+                '7.0.0': True,
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'carrier-endpoint'
         },
         'firewall_decryptedtrafficmirror': {
             'params': [
-                'adom'
+                'adom',
+                'decrypted-traffic-mirror'
             ],
             'urls': [
                 '/pm/config/global/obj/firewall/decrypted-traffic-mirror/{decrypted-traffic-mirror}',
                 '/pm/config/adom/{adom}/obj/firewall/decrypted-traffic-mirror/{decrypted-traffic-mirror}'
             ],
             'revision': {
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
+            },
+            'mkey': 'name'
+        },
+        'firewall_explicitproxyaddress': {
+            'params': [
+                'adom',
+                'explicit-proxy-address'
+            ],
+            'urls': [
+                '/pm/config/global/obj/firewall/explicit-proxy-address/{explicit-proxy-address}',
+                '/pm/config/adom/{adom}/obj/firewall/explicit-proxy-address/{explicit-proxy-address}'
+            ],
+            'revision': {
+                '6.2.0': True,
+                '6.2.1': True,
+                '6.2.2': True,
+                '6.2.3': True,
+                '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True
+            },
+            'mkey': 'name'
+        },
+        'firewall_explicitproxyaddress_headergroup': {
+            'params': [
+                'adom',
+                'explicit-proxy-address',
+                'header-group'
+            ],
+            'urls': [
+                '/pm/config/global/obj/firewall/explicit-proxy-address/{explicit-proxy-address}/header-group/{header-group}',
+                '/pm/config/adom/{adom}/obj/firewall/explicit-proxy-address/{explicit-proxy-address}/header-group/{header-group}'
+            ],
+            'revision': {
+                '6.2.0': True,
+                '6.2.1': True,
+                '6.2.2': True,
+                '6.2.3': True,
+                '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True
+            },
+            'mkey': 'id'
+        },
+        'firewall_explicitproxyaddrgrp': {
+            'params': [
+                'adom',
+                'explicit-proxy-addrgrp'
+            ],
+            'urls': [
+                '/pm/config/global/obj/firewall/explicit-proxy-addrgrp/{explicit-proxy-addrgrp}',
+                '/pm/config/adom/{adom}/obj/firewall/explicit-proxy-addrgrp/{explicit-proxy-addrgrp}'
+            ],
+            'revision': {
+                '6.2.0': True,
+                '6.2.1': True,
+                '6.2.2': True,
+                '6.2.3': True,
+                '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True
             },
             'mkey': 'name'
         },
         'firewall_gtp': {
             'params': [
-                'adom'
+                'adom',
+                'gtp'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/firewall/gtp/{gtp}',
@@ -2448,21 +6543,48 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'firewall_gtp_apn': {
             'params': [
                 'adom',
-                'gtp'
+                'gtp',
+                'apn'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/firewall/gtp/{gtp}/apn/{apn}',
@@ -2470,21 +6592,48 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
         'firewall_gtp_ieremovepolicy': {
             'params': [
                 'adom',
-                'gtp'
+                'gtp',
+                'ie-remove-policy'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/firewall/gtp/{gtp}/ie-remove-policy/{ie-remove-policy}',
@@ -2492,21 +6641,48 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
         'firewall_gtp_imsi': {
             'params': [
                 'adom',
-                'gtp'
+                'gtp',
+                'imsi'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/firewall/gtp/{gtp}/imsi/{imsi}',
@@ -2514,21 +6690,48 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
         'firewall_gtp_ippolicy': {
             'params': [
                 'adom',
-                'gtp'
+                'gtp',
+                'ip-policy'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/firewall/gtp/{gtp}/ip-policy/{ip-policy}',
@@ -2536,21 +6739,48 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
         'firewall_gtp_noippolicy': {
             'params': [
                 'adom',
-                'gtp'
+                'gtp',
+                'noip-policy'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/firewall/gtp/{gtp}/noip-policy/{noip-policy}',
@@ -2558,21 +6788,48 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
         'firewall_gtp_perapnshaper': {
             'params': [
                 'adom',
-                'gtp'
+                'gtp',
+                'per-apn-shaper'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/firewall/gtp/{gtp}/per-apn-shaper/{per-apn-shaper}',
@@ -2580,21 +6837,48 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
         'firewall_gtp_policy': {
             'params': [
                 'adom',
-                'gtp'
+                'gtp',
+                'policy'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/firewall/gtp/{gtp}/policy/{policy}',
@@ -2602,21 +6886,48 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
         'firewall_gtp_policyv2': {
             'params': [
                 'adom',
-                'gtp'
+                'gtp',
+                'policy-v2'
             ],
             'urls': [
                 '/pm/config/global/obj/firewall/gtp/{gtp}/policy-v2/{policy-v2}',
@@ -2624,19 +6935,45 @@ def main():
             ],
             'revision': {
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
         'firewall_identitybasedroute': {
             'params': [
-                'adom'
+                'adom',
+                'identity-based-route'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/firewall/identity-based-route/{identity-based-route}',
@@ -2644,21 +6981,48 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'firewall_identitybasedroute_rule': {
             'params': [
                 'adom',
-                'identity-based-route'
+                'identity-based-route',
+                'rule'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/firewall/identity-based-route/{identity-based-route}/rule/{rule}',
@@ -2666,66 +7030,177 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
         'firewall_internetservice_entry': {
             'params': [
-                'adom'
+                'adom',
+                'entry'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/firewall/internet-service/entry/{entry}',
                 '/pm/config/global/obj/firewall/internet-service/entry/{entry}'
             ],
             'revision': {
-                '6.0.0': True
+                '6.0.0': True,
+                '6.2.0': True,
+                '6.2.1': True,
+                '6.2.2': True,
+                '6.2.3': True,
+                '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
+                '6.4.0': True,
+                '6.4.1': True,
+                '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
+                '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
+                '7.0.0': True,
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True
             },
             'mkey': 'id'
         },
         'firewall_internetserviceaddition': {
             'params': [
-                'adom'
+                'adom',
+                'internet-service-addition'
             ],
             'urls': [
                 '/pm/config/global/obj/firewall/internet-service-addition/{internet-service-addition}',
                 '/pm/config/adom/{adom}/obj/firewall/internet-service-addition/{internet-service-addition}'
             ],
             'revision': {
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
         'firewall_internetserviceaddition_entry': {
             'params': [
                 'adom',
-                'internet-service-addition'
+                'internet-service-addition',
+                'entry'
             ],
             'urls': [
                 '/pm/config/global/obj/firewall/internet-service-addition/{internet-service-addition}/entry/{entry}',
                 '/pm/config/adom/{adom}/obj/firewall/internet-service-addition/{internet-service-addition}/entry/{entry}'
             ],
             'revision': {
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
@@ -2733,26 +7208,53 @@ def main():
             'params': [
                 'adom',
                 'internet-service-addition',
-                'entry'
+                'entry',
+                'port-range'
             ],
             'urls': [
                 '/pm/config/global/obj/firewall/internet-service-addition/{internet-service-addition}/entry/{entry}/port-range/{port-range}',
                 '/pm/config/adom/{adom}/obj/firewall/internet-service-addition/{internet-service-addition}/entry/{entry}/port-range/{port-range}'
             ],
             'revision': {
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
         'firewall_internetservicecustom': {
             'params': [
-                'adom'
+                'adom',
+                'internet-service-custom'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/firewall/internet-service-custom/{internet-service-custom}',
@@ -2760,28 +7262,87 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
         'firewall_internetservicecustom_disableentry': {
             'params': [
                 'adom',
-                'internet-service-custom'
+                'internet-service-custom',
+                'disable-entry'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/firewall/internet-service-custom/{internet-service-custom}/disable-entry/{disable-entry}',
                 '/pm/config/global/obj/firewall/internet-service-custom/{internet-service-custom}/disable-entry/{disable-entry}'
             ],
             'revision': {
-                '6.0.0': True
+                '6.0.0': True,
+                '6.2.0': True,
+                '6.2.1': True,
+                '6.2.2': True,
+                '6.2.3': True,
+                '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
+                '6.4.0': True,
+                '6.4.1': True,
+                '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
+                '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
+                '7.0.0': True,
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True
             },
             'mkey': 'id'
         },
@@ -2789,21 +7350,55 @@ def main():
             'params': [
                 'adom',
                 'internet-service-custom',
-                'disable-entry'
+                'disable-entry',
+                'ip-range'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/firewall/internet-service-custom/{internet-service-custom}/disable-entry/{disable-entry}/ip-range/{ip-range}',
                 '/pm/config/global/obj/firewall/internet-service-custom/{internet-service-custom}/disable-entry/{disable-entry}/ip-range/{ip-range}'
             ],
             'revision': {
-                '6.0.0': True
+                '6.0.0': True,
+                '6.2.0': True,
+                '6.2.1': True,
+                '6.2.2': True,
+                '6.2.3': True,
+                '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
+                '6.4.0': True,
+                '6.4.1': True,
+                '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
+                '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
+                '7.0.0': True,
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True
             },
             'mkey': 'id'
         },
         'firewall_internetservicecustom_entry': {
             'params': [
                 'adom',
-                'internet-service-custom'
+                'internet-service-custom',
+                'entry'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/firewall/internet-service-custom/{internet-service-custom}/entry/{entry}',
@@ -2811,14 +7406,40 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
@@ -2826,7 +7447,8 @@ def main():
             'params': [
                 'adom',
                 'internet-service-custom',
-                'entry'
+                'entry',
+                'port-range'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/firewall/internet-service-custom/{internet-service-custom}/entry/{entry}/port-range/{port-range}',
@@ -2834,20 +7456,47 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
         'firewall_internetservicecustomgroup': {
             'params': [
-                'adom'
+                'adom',
+                'internet-service-custom-group'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/firewall/internet-service-custom-group/{internet-service-custom-group}',
@@ -2855,20 +7504,47 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'firewall_internetservicegroup': {
             'params': [
-                'adom'
+                'adom',
+                'internet-service-group'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/firewall/internet-service-group/{internet-service-group}',
@@ -2876,20 +7552,47 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'firewall_internetservicename': {
             'params': [
-                'adom'
+                'adom',
+                'internet-service-name'
             ],
             'urls': [
                 '/pm/config/global/obj/firewall/internet-service-name/{internet-service-name}',
@@ -2897,16 +7600,36 @@ def main():
             ],
             'revision': {
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'firewall_ippool': {
             'params': [
-                'adom'
+                'adom',
+                'ippool'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/firewall/ippool/{ippool}',
@@ -2914,20 +7637,47 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'firewall_ippool6': {
             'params': [
-                'adom'
+                'adom',
+                'ippool6'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/firewall/ippool6/{ippool6}',
@@ -2935,21 +7685,48 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'firewall_ippool6_dynamicmapping': {
             'params': [
                 'adom',
-                'ippool6'
+                'ippool6',
+                'dynamic_mapping'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/firewall/ippool6/{ippool6}/dynamic_mapping/{dynamic_mapping}',
@@ -2957,21 +7734,48 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'complex:{{module}}["_scope"][0]["name"]+"/"+{{module}}["_scope"][0]["vdom"]'
         },
         'firewall_ippool_dynamicmapping': {
             'params': [
                 'adom',
-                'ippool'
+                'ippool',
+                'dynamic_mapping'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/firewall/ippool/{ippool}/dynamic_mapping/{dynamic_mapping}',
@@ -2979,20 +7783,76 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'complex:{{module}}["_scope"][0]["name"]+"/"+{{module}}["_scope"][0]["vdom"]'
         },
+        'firewall_ippoolgrp': {
+            'params': [
+                'adom',
+                'ippool_grp'
+            ],
+            'urls': [
+                '/pm/config/global/obj/firewall/ippool_grp/{ippool_grp}',
+                '/pm/config/adom/{adom}/obj/firewall/ippool_grp/{ippool_grp}'
+            ],
+            'revision': {
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
+            },
+            'mkey': 'name'
+        },
         'firewall_ldbmonitor': {
             'params': [
-                'adom'
+                'adom',
+                'ldb-monitor'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/firewall/ldb-monitor/{ldb-monitor}',
@@ -3000,20 +7860,47 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'firewall_mmsprofile': {
             'params': [
-                'adom'
+                'adom',
+                'mms-profile'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/firewall/mms-profile/{mms-profile}',
@@ -3021,16 +7908,48 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
-                '6.2.5': True
+                '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
+                '6.4.0': True,
+                '6.4.1': True,
+                '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
+                '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
+                '7.0.0': True,
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'firewall_mmsprofile_notifmsisdn': {
             'params': [
                 'adom',
-                'mms-profile'
+                'mms-profile',
+                'notif-msisdn'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/firewall/mms-profile/{mms-profile}/notif-msisdn/{notif-msisdn}',
@@ -3038,15 +7957,47 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
-                '6.2.5': True
+                '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
+                '6.4.0': True,
+                '6.4.1': True,
+                '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
+                '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
+                '7.0.0': True,
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'msisdn'
         },
         'firewall_multicastaddress': {
             'params': [
-                'adom'
+                'adom',
+                'multicast-address'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/firewall/multicast-address/{multicast-address}',
@@ -3054,20 +8005,47 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'firewall_multicastaddress6': {
             'params': [
-                'adom'
+                'adom',
+                'multicast-address6'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/firewall/multicast-address6/{multicast-address6}',
@@ -3075,21 +8053,48 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'firewall_multicastaddress6_tagging': {
             'params': [
                 'adom',
-                'multicast-address6'
+                'multicast-address6',
+                'tagging'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/firewall/multicast-address6/{multicast-address6}/tagging/{tagging}',
@@ -3097,21 +8102,48 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'firewall_multicastaddress_tagging': {
             'params': [
                 'adom',
-                'multicast-address'
+                'multicast-address',
+                'tagging'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/firewall/multicast-address/{multicast-address}/tagging/{tagging}',
@@ -3119,20 +8151,62 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
+        'firewall_networkservicedynamic': {
+            'params': [
+                'adom',
+                'network-service-dynamic'
+            ],
+            'urls': [
+                '/pm/config/global/obj/firewall/network-service-dynamic/{network-service-dynamic}',
+                '/pm/config/adom/{adom}/obj/firewall/network-service-dynamic/{network-service-dynamic}'
+            ],
+            'revision': {
+                '7.2.2': True,
+                '7.4.0': True
+            },
+            'mkey': 'id'
+        },
         'firewall_profilegroup': {
             'params': [
-                'adom'
+                'adom',
+                'profile-group'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/firewall/profile-group/{profile-group}',
@@ -3140,20 +8214,47 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'firewall_profileprotocoloptions': {
             'params': [
-                'adom'
+                'adom',
+                'profile-protocol-options'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/firewall/profile-protocol-options/{profile-protocol-options}',
@@ -3161,20 +8262,47 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'firewall_proxyaddress': {
             'params': [
-                'adom'
+                'adom',
+                'proxy-address'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/firewall/proxy-address/{proxy-address}',
@@ -3182,21 +8310,48 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'firewall_proxyaddress_headergroup': {
             'params': [
                 'adom',
-                'proxy-address'
+                'proxy-address',
+                'header-group'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/firewall/proxy-address/{proxy-address}/header-group/{header-group}',
@@ -3204,21 +8359,48 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
         'firewall_proxyaddress_tagging': {
             'params': [
                 'adom',
-                'proxy-address'
+                'proxy-address',
+                'tagging'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/firewall/proxy-address/{proxy-address}/tagging/{tagging}',
@@ -3226,20 +8408,47 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'firewall_proxyaddrgrp': {
             'params': [
-                'adom'
+                'adom',
+                'proxy-addrgrp'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/firewall/proxy-addrgrp/{proxy-addrgrp}',
@@ -3247,21 +8456,48 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'firewall_proxyaddrgrp_tagging': {
             'params': [
                 'adom',
-                'proxy-addrgrp'
+                'proxy-addrgrp',
+                'tagging'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/firewall/proxy-addrgrp/{proxy-addrgrp}/tagging/{tagging}',
@@ -3269,20 +8505,47 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'firewall_schedule_group': {
             'params': [
-                'adom'
+                'adom',
+                'group'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/firewall/schedule/group/{group}',
@@ -3290,20 +8553,47 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'firewall_schedule_onetime': {
             'params': [
-                'adom'
+                'adom',
+                'onetime'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/firewall/schedule/onetime/{onetime}',
@@ -3311,20 +8601,47 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'firewall_schedule_recurring': {
             'params': [
-                'adom'
+                'adom',
+                'recurring'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/firewall/schedule/recurring/{recurring}',
@@ -3332,20 +8649,47 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'firewall_service_category': {
             'params': [
-                'adom'
+                'adom',
+                'category'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/firewall/service/category/{category}',
@@ -3353,20 +8697,47 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'firewall_service_custom': {
             'params': [
-                'adom'
+                'adom',
+                'custom'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/firewall/service/custom/{custom}',
@@ -3374,20 +8745,47 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'firewall_service_group': {
             'params': [
-                'adom'
+                'adom',
+                'group'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/firewall/service/group/{group}',
@@ -3395,20 +8793,47 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'firewall_shaper_peripshaper': {
             'params': [
-                'adom'
+                'adom',
+                'per-ip-shaper'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/firewall/shaper/per-ip-shaper/{per-ip-shaper}',
@@ -3416,20 +8841,47 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'firewall_shaper_trafficshaper': {
             'params': [
-                'adom'
+                'adom',
+                'traffic-shaper'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/firewall/shaper/traffic-shaper/{traffic-shaper}',
@@ -3437,20 +8889,47 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'firewall_shapingprofile': {
             'params': [
-                'adom'
+                'adom',
+                'shaping-profile'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/firewall/shaping-profile/{shaping-profile}',
@@ -3458,21 +8937,48 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'profile-name'
         },
         'firewall_shapingprofile_shapingentries': {
             'params': [
                 'adom',
-                'shaping-profile'
+                'shaping-profile',
+                'shaping-entries'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/firewall/shaping-profile/{shaping-profile}/shaping-entries/{shaping-entries}',
@@ -3480,20 +8986,47 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
         'firewall_ssh_localca': {
             'params': [
-                'adom'
+                'adom',
+                'local-ca'
             ],
             'urls': [
                 '/pm/config/global/obj/firewall/ssh/local-ca/{local-ca}',
@@ -3501,19 +9034,45 @@ def main():
             ],
             'revision': {
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'firewall_sslsshprofile': {
             'params': [
-                'adom'
+                'adom',
+                'ssl-ssh-profile'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/firewall/ssl-ssh-profile/{ssl-ssh-profile}',
@@ -3521,21 +9080,48 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'firewall_sslsshprofile_sslexempt': {
             'params': [
                 'adom',
-                'ssl-ssh-profile'
+                'ssl-ssh-profile',
+                'ssl-exempt'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/firewall/ssl-ssh-profile/{ssl-ssh-profile}/ssl-exempt/{ssl-exempt}',
@@ -3543,21 +9129,48 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
         'firewall_sslsshprofile_sslserver': {
             'params': [
                 'adom',
-                'ssl-ssh-profile'
+                'ssl-ssh-profile',
+                'ssl-server'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/firewall/ssl-ssh-profile/{ssl-ssh-profile}/ssl-server/{ssl-server}',
@@ -3565,20 +9178,47 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
         'firewall_vip': {
             'params': [
-                'adom'
+                'adom',
+                'vip'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/firewall/vip/{vip}',
@@ -3586,20 +9226,47 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'firewall_vip46': {
             'params': [
-                'adom'
+                'adom',
+                'vip46'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/firewall/vip46/{vip46}',
@@ -3607,20 +9274,48 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
-                '7.0.0': True
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
+                '7.0.0': True,
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'firewall_vip46_dynamicmapping': {
             'params': [
                 'adom',
-                'vip46'
+                'vip46',
+                'dynamic_mapping'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/firewall/vip46/{vip46}/dynamic_mapping/{dynamic_mapping}',
@@ -3628,20 +9323,48 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
-                '7.0.0': True
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
+                '7.0.0': True,
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'complex:{{module}}["_scope"][0]["name"]+"/"+{{module}}["_scope"][0]["vdom"]'
         },
         'firewall_vip46_realservers': {
             'params': [
                 'adom',
-                'vip46'
+                'vip46',
+                'realservers'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/firewall/vip46/{vip46}/realservers/{realservers}',
@@ -3649,19 +9372,47 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
-                '7.0.0': True
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
+                '7.0.0': True,
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
         'firewall_vip6': {
             'params': [
-                'adom'
+                'adom',
+                'vip6'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/firewall/vip6/{vip6}',
@@ -3669,20 +9420,47 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'firewall_vip64': {
             'params': [
-                'adom'
+                'adom',
+                'vip64'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/firewall/vip64/{vip64}',
@@ -3690,20 +9468,48 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
-                '7.0.0': True
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
+                '7.0.0': True,
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'firewall_vip64_dynamicmapping': {
             'params': [
                 'adom',
-                'vip64'
+                'vip64',
+                'dynamic_mapping'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/firewall/vip64/{vip64}/dynamic_mapping/{dynamic_mapping}',
@@ -3711,20 +9517,48 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
-                '7.0.0': True
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
+                '7.0.0': True,
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'complex:{{module}}["_scope"][0]["name"]+"/"+{{module}}["_scope"][0]["vdom"]'
         },
         'firewall_vip64_realservers': {
             'params': [
                 'adom',
-                'vip64'
+                'vip64',
+                'realservers'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/firewall/vip64/{vip64}/realservers/{realservers}',
@@ -3732,20 +9566,48 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
-                '7.0.0': True
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
+                '7.0.0': True,
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
         'firewall_vip6_dynamicmapping': {
             'params': [
                 'adom',
-                'vip6'
+                'vip6',
+                'dynamic_mapping'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/firewall/vip6/{vip6}/dynamic_mapping/{dynamic_mapping}',
@@ -3753,14 +9615,40 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'complex:{{module}}["_scope"][0]["name"]+"/"+{{module}}["_scope"][0]["vdom"]'
         },
@@ -3768,21 +9656,32 @@ def main():
             'params': [
                 'adom',
                 'vip6',
-                'dynamic_mapping'
+                'dynamic_mapping',
+                'realservers'
             ],
             'urls': [
                 '/pm/config/global/obj/firewall/vip6/{vip6}/dynamic_mapping/{dynamic_mapping}/realservers/{realservers}',
                 '/pm/config/adom/{adom}/obj/firewall/vip6/{vip6}/dynamic_mapping/{dynamic_mapping}/realservers/{realservers}'
             ],
             'revision': {
-                '7.2.0': True
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
         'firewall_vip6_realservers': {
             'params': [
                 'adom',
-                'vip6'
+                'vip6',
+                'realservers'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/firewall/vip6/{vip6}/realservers/{realservers}',
@@ -3790,21 +9689,48 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
         'firewall_vip6_sslciphersuites': {
             'params': [
                 'adom',
-                'vip6'
+                'vip6',
+                'ssl-cipher-suites'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/firewall/vip6/{vip6}/ssl-cipher-suites/{ssl-cipher-suites}',
@@ -3812,21 +9738,48 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'priority'
         },
         'firewall_vip6_sslserverciphersuites': {
             'params': [
                 'adom',
-                'vip6'
+                'vip6',
+                'ssl-server-cipher-suites'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/firewall/vip6/{vip6}/ssl-server-cipher-suites/{ssl-server-cipher-suites}',
@@ -3834,21 +9787,48 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'priority'
         },
         'firewall_vip_dynamicmapping': {
             'params': [
                 'adom',
-                'vip'
+                'vip',
+                'dynamic_mapping'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/firewall/vip/{vip}/dynamic_mapping/{dynamic_mapping}',
@@ -3856,14 +9836,40 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'complex:{{module}}["_scope"][0]["name"]+"/"+{{module}}["_scope"][0]["vdom"]'
         },
@@ -3871,7 +9877,8 @@ def main():
             'params': [
                 'adom',
                 'vip',
-                'dynamic_mapping'
+                'dynamic_mapping',
+                'realservers'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/firewall/vip/{vip}/dynamic_mapping/{dynamic_mapping}/realservers/{realservers}',
@@ -3879,14 +9886,40 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'seq'
         },
@@ -3894,7 +9927,8 @@ def main():
             'params': [
                 'adom',
                 'vip',
-                'dynamic_mapping'
+                'dynamic_mapping',
+                'ssl-cipher-suites'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/firewall/vip/{vip}/dynamic_mapping/{dynamic_mapping}/ssl-cipher-suites/{ssl-cipher-suites}',
@@ -3902,21 +9936,48 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
         'firewall_vip_realservers': {
             'params': [
                 'adom',
-                'vip'
+                'vip',
+                'realservers'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/firewall/vip/{vip}/realservers/{realservers}',
@@ -3924,21 +9985,48 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'seq'
         },
         'firewall_vip_sslciphersuites': {
             'params': [
                 'adom',
-                'vip'
+                'vip',
+                'ssl-cipher-suites'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/firewall/vip/{vip}/ssl-cipher-suites/{ssl-cipher-suites}',
@@ -3946,21 +10034,48 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
         'firewall_vip_sslserverciphersuites': {
             'params': [
                 'adom',
-                'vip'
+                'vip',
+                'ssl-server-cipher-suites'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/firewall/vip/{vip}/ssl-server-cipher-suites/{ssl-server-cipher-suites}',
@@ -3968,20 +10083,47 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'priority'
         },
         'firewall_vipgrp': {
             'params': [
-                'adom'
+                'adom',
+                'vipgrp'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/firewall/vipgrp/{vipgrp}',
@@ -3989,20 +10131,47 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'firewall_vipgrp46': {
             'params': [
-                'adom'
+                'adom',
+                'vipgrp46'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/firewall/vipgrp46/{vipgrp46}',
@@ -4010,19 +10179,47 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
-                '7.0.0': True
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
+                '7.0.0': True,
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'firewall_vipgrp6': {
             'params': [
-                'adom'
+                'adom',
+                'vipgrp6'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/firewall/vipgrp6/{vipgrp6}',
@@ -4030,20 +10227,47 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'firewall_vipgrp64': {
             'params': [
-                'adom'
+                'adom',
+                'vipgrp64'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/firewall/vipgrp64/{vipgrp64}',
@@ -4051,20 +10275,48 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
-                '7.0.0': True
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
+                '7.0.0': True,
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'firewall_vipgrp_dynamicmapping': {
             'params': [
                 'adom',
-                'vipgrp'
+                'vipgrp',
+                'dynamic_mapping'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/firewall/vipgrp/{vipgrp}/dynamic_mapping/{dynamic_mapping}',
@@ -4072,20 +10324,47 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'complex:{{module}}["_scope"][0]["name"]+"/"+{{module}}["_scope"][0]["vdom"]'
         },
         'firewall_wildcardfqdn_custom': {
             'params': [
-                'adom'
+                'adom',
+                'custom'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/firewall/wildcard-fqdn/custom/{custom}',
@@ -4093,20 +10372,47 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'firewall_wildcardfqdn_group': {
             'params': [
-                'adom'
+                'adom',
+                'group'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/firewall/wildcard-fqdn/group/{group}',
@@ -4114,122 +10420,281 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'fmg_device_blueprint': {
             'params': [
-                'adom'
+                'adom',
+                'blueprint'
             ],
             'urls': [
                 '/pm/config/global/obj/fmg/device/blueprint/{blueprint}',
                 '/pm/config/adom/{adom}/obj/fmg/device/blueprint/{blueprint}'
             ],
             'revision': {
-                '7.2.0': True
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
+            },
+            'mkey': 'name'
+        },
+        'fmg_fabric_authorization_template': {
+            'params': [
+                'adom',
+                'template'
+            ],
+            'urls': [
+                '/pm/config/global/obj/fmg/fabric/authorization/template/{template}',
+                '/pm/config/adom/{adom}/obj/fmg/fabric/authorization/template/{template}'
+            ],
+            'revision': {
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'fmg_variable': {
             'params': [
-                'adom'
+                'adom',
+                'variable'
             ],
             'urls': [
                 '/pm/config/global/obj/fmg/variable/{variable}',
                 '/pm/config/adom/{adom}/obj/fmg/variable/{variable}'
             ],
             'revision': {
-                '7.2.0': True
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'fmupdate_fdssetting_pushoverridetoclient_announceip': {
             'params': [
+                'announce-ip'
             ],
             'urls': [
                 '/cli/global/fmupdate/fds-setting/push-override-to-client/announce-ip/{announce-ip}'
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
         'fmupdate_fdssetting_serveroverride_servlist': {
             'params': [
+                'servlist'
             ],
             'urls': [
                 '/cli/global/fmupdate/fds-setting/server-override/servlist/{servlist}'
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
         'fmupdate_serveraccesspriorities_privateserver': {
             'params': [
+                'private-server'
             ],
             'urls': [
                 '/cli/global/fmupdate/server-access-priorities/private-server/{private-server}'
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
         'fmupdate_webspam_fgdsetting_serveroverride_servlist': {
             'params': [
+                'servlist'
             ],
             'urls': [
                 '/cli/global/fmupdate/web-spam/fgd-setting/server-override/servlist/{servlist}'
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
         'fsp_vlan': {
             'params': [
-                'adom'
+                'adom',
+                'vlan'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/fsp/vlan/{vlan}',
@@ -4237,21 +10702,48 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'fsp_vlan_dhcpserver_excluderange': {
             'params': [
                 'adom',
-                'vlan'
+                'vlan',
+                'exclude-range'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/fsp/vlan/{vlan}/dhcp-server/exclude-range/{exclude-range}',
@@ -4259,21 +10751,48 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
         'fsp_vlan_dhcpserver_iprange': {
             'params': [
                 'adom',
-                'vlan'
+                'vlan',
+                'ip-range'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/fsp/vlan/{vlan}/dhcp-server/ip-range/{ip-range}',
@@ -4281,21 +10800,48 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
         'fsp_vlan_dhcpserver_options': {
             'params': [
                 'adom',
-                'vlan'
+                'vlan',
+                'options'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/fsp/vlan/{vlan}/dhcp-server/options/{options}',
@@ -4303,21 +10849,48 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
         'fsp_vlan_dhcpserver_reservedaddress': {
             'params': [
                 'adom',
-                'vlan'
+                'vlan',
+                'reserved-address'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/fsp/vlan/{vlan}/dhcp-server/reserved-address/{reserved-address}',
@@ -4325,14 +10898,40 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
@@ -4340,7 +10939,8 @@ def main():
             'params': [
                 'adom',
                 'vlan',
-                'dynamic_mapping'
+                'dynamic_mapping',
+                'exclude-range'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/fsp/vlan/{vlan}/dynamic_mapping/{dynamic_mapping}/dhcp-server/exclude-range/{exclude-range}',
@@ -4348,14 +10948,40 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
@@ -4363,7 +10989,8 @@ def main():
             'params': [
                 'adom',
                 'vlan',
-                'dynamic_mapping'
+                'dynamic_mapping',
+                'ip-range'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/fsp/vlan/{vlan}/dynamic_mapping/{dynamic_mapping}/dhcp-server/ip-range/{ip-range}',
@@ -4371,14 +10998,40 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
@@ -4386,7 +11039,8 @@ def main():
             'params': [
                 'adom',
                 'vlan',
-                'dynamic_mapping'
+                'dynamic_mapping',
+                'options'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/fsp/vlan/{vlan}/dynamic_mapping/{dynamic_mapping}/dhcp-server/options/{options}',
@@ -4394,14 +11048,40 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
@@ -4409,7 +11089,8 @@ def main():
             'params': [
                 'adom',
                 'vlan',
-                'dynamic_mapping'
+                'dynamic_mapping',
+                'reserved-address'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/fsp/vlan/{vlan}/dynamic_mapping/{dynamic_mapping}/dhcp-server/reserved-address/{reserved-address}',
@@ -4417,14 +11098,40 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
@@ -4432,7 +11139,8 @@ def main():
             'params': [
                 'adom',
                 'vlan',
-                'dynamic_mapping'
+                'dynamic_mapping',
+                'secondaryip'
             ],
             'urls': [
                 '/pm/config/global/obj/fsp/vlan/{vlan}/dynamic_mapping/{dynamic_mapping}/interface/secondaryip/{secondaryip}',
@@ -4441,18 +11149,60 @@ def main():
             'revision': {
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
+            },
+            'mkey': 'id'
+        },
+        'fsp_vlan_dynamicmapping_interface_vrrp_proxyarp': {
+            'params': [
+                'adom',
+                'vlan',
+                'dynamic_mapping',
+                'vrrp',
+                'proxy-arp'
+            ],
+            'urls': [
+                '/pm/config/global/obj/fsp/vlan/{vlan}/dynamic_mapping/{dynamic_mapping}/interface/vrrp/{vrrp}/proxy-arp/{proxy-arp}',
+                '/pm/config/adom/{adom}/obj/fsp/vlan/{vlan}/dynamic_mapping/{dynamic_mapping}/interface/vrrp/{vrrp}/proxy-arp/{proxy-arp}'
+            ],
+            'revision': {
+                '7.4.0': True
             },
             'mkey': 'id'
         },
         'fsp_vlan_interface_secondaryip': {
             'params': [
                 'adom',
-                'vlan'
+                'vlan',
+                'secondaryip'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/fsp/vlan/{vlan}/interface/secondaryip/{secondaryip}',
@@ -4460,21 +11210,48 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
         'fsp_vlan_interface_vrrp': {
             'params': [
                 'adom',
-                'vlan'
+                'vlan',
+                'vrrp'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/fsp/vlan/{vlan}/interface/vrrp/{vrrp}',
@@ -4482,20 +11259,63 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'vrid'
         },
+        'fsp_vlan_interface_vrrp_proxyarp': {
+            'params': [
+                'adom',
+                'vlan',
+                'vrrp',
+                'proxy-arp'
+            ],
+            'urls': [
+                '/pm/config/global/obj/fsp/vlan/{vlan}/interface/vrrp/{vrrp}/proxy-arp/{proxy-arp}',
+                '/pm/config/adom/{adom}/obj/fsp/vlan/{vlan}/interface/vrrp/{vrrp}/proxy-arp/{proxy-arp}'
+            ],
+            'revision': {
+                '7.4.0': True
+            },
+            'mkey': 'id'
+        },
         'gtp_apn': {
             'params': [
-                'adom'
+                'adom',
+                'apn'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/gtp/apn/{apn}',
@@ -4503,20 +11323,47 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'gtp_apngrp': {
             'params': [
-                'adom'
+                'adom',
+                'apngrp'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/gtp/apngrp/{apngrp}',
@@ -4524,20 +11371,47 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'gtp_iewhitelist': {
             'params': [
-                'adom'
+                'adom',
+                'ie-white-list'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/gtp/ie-white-list/{ie-white-list}',
@@ -4545,19 +11419,48 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
-                '6.4.5': True
+                '6.4.3': True,
+                '6.4.4': True,
+                '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
+                '7.0.0': True,
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'gtp_iewhitelist_entries': {
             'params': [
                 'adom',
-                'ie-white-list'
+                'ie-white-list',
+                'entries'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/gtp/ie-white-list/{ie-white-list}/entries/{entries}',
@@ -4565,18 +11468,47 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
-                '6.4.5': True
+                '6.4.3': True,
+                '6.4.4': True,
+                '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
+                '7.0.0': True,
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
         'gtp_messagefilterv0v1': {
             'params': [
-                'adom'
+                'adom',
+                'message-filter-v0v1'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/gtp/message-filter-v0v1/{message-filter-v0v1}',
@@ -4584,20 +11516,47 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'gtp_messagefilterv2': {
             'params': [
-                'adom'
+                'adom',
+                'message-filter-v2'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/gtp/message-filter-v2/{message-filter-v2}',
@@ -4605,20 +11564,47 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'gtp_tunnellimit': {
             'params': [
-                'adom'
+                'adom',
+                'tunnel-limit'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/gtp/tunnel-limit/{tunnel-limit}',
@@ -4626,20 +11612,47 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'hotspot20_anqp3gppcellular': {
             'params': [
-                'adom'
+                'adom',
+                'anqp-3gpp-cellular'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/wireless-controller/hotspot20/anqp-3gpp-cellular/{anqp-3gpp-cellular}',
@@ -4647,21 +11660,48 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'hotspot20_anqp3gppcellular_mccmnclist': {
             'params': [
                 'adom',
-                'anqp-3gpp-cellular'
+                'anqp-3gpp-cellular',
+                'mcc-mnc-list'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/wireless-controller/hotspot20/anqp-3gpp-cellular/{anqp-3gpp-cellular}/mcc-mnc-list/{mcc-mnc-list}',
@@ -4669,20 +11709,47 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
         'hotspot20_anqpipaddresstype': {
             'params': [
-                'adom'
+                'adom',
+                'anqp-ip-address-type'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/wireless-controller/hotspot20/anqp-ip-address-type/{anqp-ip-address-type}',
@@ -4690,20 +11757,47 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'hotspot20_anqpnairealm': {
             'params': [
-                'adom'
+                'adom',
+                'anqp-nai-realm'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/wireless-controller/hotspot20/anqp-nai-realm/{anqp-nai-realm}',
@@ -4711,21 +11805,48 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'hotspot20_anqpnairealm_nailist': {
             'params': [
                 'adom',
-                'anqp-nai-realm'
+                'anqp-nai-realm',
+                'nai-list'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/wireless-controller/hotspot20/anqp-nai-realm/{anqp-nai-realm}/nai-list/{nai-list}',
@@ -4733,14 +11854,40 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
@@ -4748,7 +11895,8 @@ def main():
             'params': [
                 'adom',
                 'anqp-nai-realm',
-                'nai-list'
+                'nai-list',
+                'eap-method'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/wireless-controller/hotspot20/anqp-nai-realm/{anqp-nai-realm}/nai-list/{nai-list}/eap-method/{eap-method}',
@@ -4756,14 +11904,40 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'index'
         },
@@ -4772,7 +11946,8 @@ def main():
                 'adom',
                 'anqp-nai-realm',
                 'nai-list',
-                'eap-method'
+                'eap-method',
+                'auth-param'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/wireless-controller/hotspot20/anqp-nai-realm/{anqp-nai-realm}/nai-list/{nai-list}/eap-method/{eap-method}/auth-param/{auth-param}',
@@ -4780,20 +11955,47 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
         'hotspot20_anqpnetworkauthtype': {
             'params': [
-                'adom'
+                'adom',
+                'anqp-network-auth-type'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/wireless-controller/hotspot20/anqp-network-auth-type/{anqp-network-auth-type}',
@@ -4801,20 +12003,47 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'hotspot20_anqproamingconsortium': {
             'params': [
-                'adom'
+                'adom',
+                'anqp-roaming-consortium'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/wireless-controller/hotspot20/anqp-roaming-consortium/{anqp-roaming-consortium}',
@@ -4822,21 +12051,48 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'hotspot20_anqproamingconsortium_oilist': {
             'params': [
                 'adom',
-                'anqp-roaming-consortium'
+                'anqp-roaming-consortium',
+                'oi-list'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/wireless-controller/hotspot20/anqp-roaming-consortium/{anqp-roaming-consortium}/oi-list/{oi-list}',
@@ -4844,20 +12100,47 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'index'
         },
         'hotspot20_anqpvenuename': {
             'params': [
-                'adom'
+                'adom',
+                'anqp-venue-name'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/wireless-controller/hotspot20/anqp-venue-name/{anqp-venue-name}',
@@ -4865,21 +12148,48 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'hotspot20_anqpvenuename_valuelist': {
             'params': [
                 'adom',
-                'anqp-venue-name'
+                'anqp-venue-name',
+                'value-list'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/wireless-controller/hotspot20/anqp-venue-name/{anqp-venue-name}/value-list/{value-list}',
@@ -4887,54 +12197,107 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'index'
         },
         'hotspot20_anqpvenueurl': {
             'params': [
-                'adom'
+                'adom',
+                'anqp-venue-url'
             ],
             'urls': [
                 '/pm/config/global/obj/wireless-controller/hotspot20/anqp-venue-url/{anqp-venue-url}',
                 '/pm/config/adom/{adom}/obj/wireless-controller/hotspot20/anqp-venue-url/{anqp-venue-url}'
             ],
             'revision': {
-                '7.2.0': True
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'hotspot20_h2qpadviceofcharge': {
             'params': [
-                'adom'
+                'adom',
+                'h2qp-advice-of-charge'
             ],
             'urls': [
                 '/pm/config/global/obj/wireless-controller/hotspot20/h2qp-advice-of-charge/{h2qp-advice-of-charge}',
                 '/pm/config/adom/{adom}/obj/wireless-controller/hotspot20/h2qp-advice-of-charge/{h2qp-advice-of-charge}'
             ],
             'revision': {
-                '7.2.0': True
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'hotspot20_h2qpadviceofcharge_aoclist': {
             'params': [
                 'adom',
-                'h2qp-advice-of-charge'
+                'h2qp-advice-of-charge',
+                'aoc-list'
             ],
             'urls': [
                 '/pm/config/global/obj/wireless-controller/hotspot20/h2qp-advice-of-charge/{h2qp-advice-of-charge}/aoc-list/{aoc-list}',
                 '/pm/config/adom/{adom}/obj/wireless-controller/hotspot20/h2qp-advice-of-charge/{h2qp-advice-of-charge}/aoc-list/{aoc-list}'
             ],
             'revision': {
-                '7.2.0': True
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
@@ -4942,20 +12305,30 @@ def main():
             'params': [
                 'adom',
                 'h2qp-advice-of-charge',
-                'aoc-list'
+                'aoc-list',
+                'plan-info'
             ],
             'urls': [
                 '/pm/config/global/obj/wireless-controller/hotspot20/h2qp-advice-of-charge/{h2qp-advice-of-charge}/aoc-list/{aoc-list}/plan-info/{plan-info}',
                 '/pm/config/adom/{adom}/obj/wireless-controller/hotspot20/h2qp-advice-of-charge/{h2qp-advice-of-charge}/aoc-list/{aoc-list}/plan-info/{plan-info}'
             ],
             'revision': {
-                '7.2.0': True
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'hotspot20_h2qpconncapability': {
             'params': [
-                'adom'
+                'adom',
+                'h2qp-conn-capability'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/wireless-controller/hotspot20/h2qp-conn-capability/{h2qp-conn-capability}',
@@ -4963,20 +12336,47 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'hotspot20_h2qpoperatorname': {
             'params': [
-                'adom'
+                'adom',
+                'h2qp-operator-name'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/wireless-controller/hotspot20/h2qp-operator-name/{h2qp-operator-name}',
@@ -4984,21 +12384,48 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'hotspot20_h2qpoperatorname_valuelist': {
             'params': [
                 'adom',
-                'h2qp-operator-name'
+                'h2qp-operator-name',
+                'value-list'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/wireless-controller/hotspot20/h2qp-operator-name/{h2qp-operator-name}/value-list/{value-list}',
@@ -5006,20 +12433,47 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'index'
         },
         'hotspot20_h2qposuprovider': {
             'params': [
-                'adom'
+                'adom',
+                'h2qp-osu-provider'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/wireless-controller/hotspot20/h2qp-osu-provider/{h2qp-osu-provider}',
@@ -5027,21 +12481,48 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'hotspot20_h2qposuprovider_friendlyname': {
             'params': [
                 'adom',
-                'h2qp-osu-provider'
+                'h2qp-osu-provider',
+                'friendly-name'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/wireless-controller/hotspot20/h2qp-osu-provider/{h2qp-osu-provider}/friendly-name/{friendly-name}',
@@ -5049,21 +12530,48 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'index'
         },
         'hotspot20_h2qposuprovider_servicedescription': {
             'params': [
                 'adom',
-                'h2qp-osu-provider'
+                'h2qp-osu-provider',
+                'service-description'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/wireless-controller/hotspot20/h2qp-osu-provider/{h2qp-osu-provider}/service-description/{service-description}',
@@ -5071,60 +12579,114 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'service-id'
         },
         'hotspot20_h2qposuprovidernai': {
             'params': [
-                'adom'
+                'adom',
+                'h2qp-osu-provider-nai'
             ],
             'urls': [
                 '/pm/config/global/obj/wireless-controller/hotspot20/h2qp-osu-provider-nai/{h2qp-osu-provider-nai}',
                 '/pm/config/adom/{adom}/obj/wireless-controller/hotspot20/h2qp-osu-provider-nai/{h2qp-osu-provider-nai}'
             ],
             'revision': {
-                '7.2.0': True
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'hotspot20_h2qposuprovidernai_nailist': {
             'params': [
                 'adom',
-                'h2qp-osu-provider-nai'
+                'h2qp-osu-provider-nai',
+                'nai-list'
             ],
             'urls': [
                 '/pm/config/global/obj/wireless-controller/hotspot20/h2qp-osu-provider-nai/{h2qp-osu-provider-nai}/nai-list/{nai-list}',
                 '/pm/config/adom/{adom}/obj/wireless-controller/hotspot20/h2qp-osu-provider-nai/{h2qp-osu-provider-nai}/nai-list/{nai-list}'
             ],
             'revision': {
-                '7.2.0': True
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'hotspot20_h2qptermsandconditions': {
             'params': [
-                'adom'
+                'adom',
+                'h2qp-terms-and-conditions'
             ],
             'urls': [
                 '/pm/config/global/obj/wireless-controller/hotspot20/h2qp-terms-and-conditions/{h2qp-terms-and-conditions}',
                 '/pm/config/adom/{adom}/obj/wireless-controller/hotspot20/h2qp-terms-and-conditions/{h2qp-terms-and-conditions}'
             ],
             'revision': {
-                '7.2.0': True
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'hotspot20_h2qpwanmetric': {
             'params': [
-                'adom'
+                'adom',
+                'h2qp-wan-metric'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/wireless-controller/hotspot20/h2qp-wan-metric/{h2qp-wan-metric}',
@@ -5132,20 +12694,47 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'hotspot20_hsprofile': {
             'params': [
-                'adom'
+                'adom',
+                'hs-profile'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/wireless-controller/hotspot20/hs-profile/{hs-profile}',
@@ -5153,47 +12742,92 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'hotspot20_icon': {
             'params': [
-                'adom'
+                'adom',
+                'icon'
             ],
             'urls': [
                 '/pm/config/global/obj/wireless-controller/hotspot20/icon/{icon}',
                 '/pm/config/adom/{adom}/obj/wireless-controller/hotspot20/icon/{icon}'
             ],
             'revision': {
-                '7.2.0': True
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'hotspot20_icon_iconlist': {
             'params': [
                 'adom',
-                'icon'
+                'icon',
+                'icon-list'
             ],
             'urls': [
                 '/pm/config/global/obj/wireless-controller/hotspot20/icon/{icon}/icon-list/{icon-list}',
                 '/pm/config/adom/{adom}/obj/wireless-controller/hotspot20/icon/{icon}/icon-list/{icon-list}'
             ],
             'revision': {
-                '7.2.0': True
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'hotspot20_qosmap': {
             'params': [
-                'adom'
+                'adom',
+                'qos-map'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/wireless-controller/hotspot20/qos-map/{qos-map}',
@@ -5201,21 +12835,48 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'hotspot20_qosmap_dscpexcept': {
             'params': [
                 'adom',
-                'qos-map'
+                'qos-map',
+                'dscp-except'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/wireless-controller/hotspot20/qos-map/{qos-map}/dscp-except/{dscp-except}',
@@ -5223,21 +12884,48 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'index'
         },
         'hotspot20_qosmap_dscprange': {
             'params': [
                 'adom',
-                'qos-map'
+                'qos-map',
+                'dscp-range'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/wireless-controller/hotspot20/qos-map/{qos-map}/dscp-range/{dscp-range}',
@@ -5245,20 +12933,47 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'index'
         },
         'icap_profile': {
             'params': [
-                'adom'
+                'adom',
+                'profile'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/icap/profile/{profile}',
@@ -5266,42 +12981,96 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'icap_profile_icapheaders': {
             'params': [
                 'adom',
-                'profile'
+                'profile',
+                'icap-headers'
             ],
             'urls': [
                 '/pm/config/global/obj/icap/profile/{profile}/icap-headers/{icap-headers}',
                 '/pm/config/adom/{adom}/obj/icap/profile/{profile}/icap-headers/{icap-headers}'
             ],
             'revision': {
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
         'icap_profile_respmodforwardrules': {
             'params': [
                 'adom',
-                'profile'
+                'profile',
+                'respmod-forward-rules'
             ],
             'urls': [
                 '/pm/config/global/obj/icap/profile/{profile}/respmod-forward-rules/{respmod-forward-rules}',
@@ -5309,10 +13078,29 @@ def main():
             ],
             'revision': {
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
@@ -5320,7 +13108,8 @@ def main():
             'params': [
                 'adom',
                 'profile',
-                'respmod-forward-rules'
+                'respmod-forward-rules',
+                'header-group'
             ],
             'urls': [
                 '/pm/config/global/obj/icap/profile/{profile}/respmod-forward-rules/{respmod-forward-rules}/header-group/{header-group}',
@@ -5328,16 +13117,36 @@ def main():
             ],
             'revision': {
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
         'icap_server': {
             'params': [
-                'adom'
+                'adom',
+                'server'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/icap/server/{server}',
@@ -5345,20 +13154,128 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
+        'ips_baseline_sensor': {
+            'params': [
+                'adom',
+                'sensor'
+            ],
+            'urls': [
+                '/pm/config/global/obj/ips/baseline/sensor/{sensor}',
+                '/pm/config/adom/{adom}/obj/ips/baseline/sensor/{sensor}'
+            ],
+            'revision': {
+                '7.0.1': True,
+                '7.0.2': True
+            },
+            'mkey': 'name'
+        },
+        'ips_baseline_sensor_entries': {
+            'params': [
+                'adom',
+                'sensor',
+                'entries'
+            ],
+            'urls': [
+                '/pm/config/global/obj/ips/baseline/sensor/{sensor}/entries/{entries}',
+                '/pm/config/adom/{adom}/obj/ips/baseline/sensor/{sensor}/entries/{entries}'
+            ],
+            'revision': {
+                '7.0.1': True,
+                '7.0.2': True
+            },
+            'mkey': 'id'
+        },
+        'ips_baseline_sensor_entries_exemptip': {
+            'params': [
+                'adom',
+                'sensor',
+                'entries',
+                'exempt-ip'
+            ],
+            'urls': [
+                '/pm/config/global/obj/ips/baseline/sensor/{sensor}/entries/{entries}/exempt-ip/{exempt-ip}',
+                '/pm/config/adom/{adom}/obj/ips/baseline/sensor/{sensor}/entries/{entries}/exempt-ip/{exempt-ip}'
+            ],
+            'revision': {
+                '7.0.1': True,
+                '7.0.2': True
+            },
+            'mkey': 'id'
+        },
+        'ips_baseline_sensor_filter': {
+            'params': [
+                'adom',
+                'sensor',
+                'filter'
+            ],
+            'urls': [
+                '/pm/config/global/obj/ips/baseline/sensor/{sensor}/filter/{filter}',
+                '/pm/config/adom/{adom}/obj/ips/baseline/sensor/{sensor}/filter/{filter}'
+            ],
+            'revision': {
+                '7.0.1': True,
+                '7.0.2': True
+            },
+            'mkey': 'name'
+        },
+        'ips_baseline_sensor_override_exemptip': {
+            'params': [
+                'adom',
+                'sensor',
+                'override',
+                'exempt-ip'
+            ],
+            'urls': [
+                '/pm/config/global/obj/ips/baseline/sensor/{sensor}/override/{override}/exempt-ip/{exempt-ip}',
+                '/pm/config/adom/{adom}/obj/ips/baseline/sensor/{sensor}/override/{override}/exempt-ip/{exempt-ip}'
+            ],
+            'revision': {
+                '7.0.1': True,
+                '7.0.2': True
+            },
+            'mkey': 'id'
+        },
         'ips_custom': {
             'params': [
-                'adom'
+                'adom',
+                'custom'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/ips/custom/{custom}',
@@ -5366,20 +13283,47 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'tag'
         },
         'ips_sensor': {
             'params': [
-                'adom'
+                'adom',
+                'sensor'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/ips/sensor/{sensor}',
@@ -5389,21 +13333,48 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'ips_sensor_entries': {
             'params': [
                 'adom',
-                'sensor'
+                'sensor',
+                'entries'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/ips/sensor/{sensor}/entries/{entries}',
@@ -5413,14 +13384,40 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
@@ -5428,7 +13425,8 @@ def main():
             'params': [
                 'adom',
                 'sensor',
-                'entries'
+                'entries',
+                'exempt-ip'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/ips/sensor/{sensor}/entries/{entries}/exempt-ip/{exempt-ip}',
@@ -5438,20 +13436,47 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
         'log_customfield': {
             'params': [
-                'adom'
+                'adom',
+                'custom-field'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/log/custom-field/{custom-field}',
@@ -5459,20 +13484,76 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
+            },
+            'mkey': 'id'
+        },
+        'log_npuserver_serverinfo': {
+            'params': [
+                'adom',
+                'server-info'
+            ],
+            'urls': [
+                '/pm/config/global/obj/log/npu-server/server-info/{server-info}',
+                '/pm/config/adom/{adom}/obj/log/npu-server/server-info/{server-info}'
+            ],
+            'revision': {
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
         'mpskprofile': {
             'params': [
-                'adom'
+                'adom',
+                'mpsk-profile'
             ],
             'urls': [
                 '/pm/config/global/obj/wireless-controller/mpsk-profile/{mpsk-profile}',
@@ -5480,16 +13561,35 @@ def main():
             ],
             'revision': {
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'mpskprofile_mpskgroup': {
             'params': [
                 'adom',
-                'mpsk-profile'
+                'mpsk-profile',
+                'mpsk-group'
             ],
             'urls': [
                 '/pm/config/global/obj/wireless-controller/mpsk-profile/{mpsk-profile}/mpsk-group/{mpsk-group}',
@@ -5497,9 +13597,27 @@ def main():
             ],
             'revision': {
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
@@ -5507,7 +13625,8 @@ def main():
             'params': [
                 'adom',
                 'mpsk-profile',
-                'mpsk-group'
+                'mpsk-group',
+                'mpsk-key'
             ],
             'urls': [
                 '/pm/config/global/obj/wireless-controller/mpsk-profile/{mpsk-profile}/mpsk-group/{mpsk-group}/mpsk-key/{mpsk-key}',
@@ -5515,86 +13634,186 @@ def main():
             ],
             'revision': {
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'nacprofile': {
             'params': [
-                'adom'
+                'adom',
+                'nac-profile'
             ],
             'urls': [
                 '/pm/config/global/obj/wireless-controller/nac-profile/{nac-profile}',
                 '/pm/config/adom/{adom}/obj/wireless-controller/nac-profile/{nac-profile}'
             ],
             'revision': {
-                '7.2.0': True
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'pkg_authentication_rule': {
             'params': [
                 'adom',
-                'pkg'
+                'pkg',
+                'rule'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/pkg/{pkg}/authentication/rule/{rule}'
             ],
             'revision': {
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'pkg_central_dnat': {
             'params': [
                 'adom',
-                'pkg'
+                'pkg',
+                'dnat'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/pkg/{pkg}/central/dnat/{dnat}'
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'pkg_central_dnat6': {
             'params': [
                 'adom',
-                'pkg'
+                'pkg',
+                'dnat6'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/pkg/{pkg}/central/dnat6/{dnat6}'
             ],
             'revision': {
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'pkg_firewall_acl': {
             'params': [
                 'adom',
-                'pkg'
+                'pkg',
+                'acl'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/pkg/{pkg}/firewall/acl/{acl}'
@@ -5607,7 +13826,8 @@ def main():
         'pkg_firewall_acl6': {
             'params': [
                 'adom',
-                'pkg'
+                'pkg',
+                'acl6'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/pkg/{pkg}/firewall/acl6/{acl6}'
@@ -5620,40 +13840,52 @@ def main():
         'pkg_firewall_centralsnatmap': {
             'params': [
                 'adom',
-                'pkg'
+                'pkg',
+                'central-snat-map'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/pkg/{pkg}/firewall/central-snat-map/{central-snat-map}'
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'policyid'
         },
         'pkg_firewall_consolidated_policy': {
-            'params': [
-                'adom',
-                'pkg'
-            ],
-            'urls': [
-                '/pm/config/adom/{adom}/pkg/{pkg}/firewall/consolidated/policy/{policy}'
-            ],
-            'revision': {
-                '6.2.1': True,
-                '6.2.3': True,
-                '6.2.5': True
-            },
-            'mkey': 'name'
-        },
-        'pkg_firewall_consolidated_policy_sectionvalue': {
             'params': [
                 'adom',
                 'pkg',
@@ -5663,51 +13895,136 @@ def main():
                 '/pm/config/adom/{adom}/pkg/{pkg}/firewall/consolidated/policy/{policy}'
             ],
             'revision': {
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
-                '6.2.5': True
+                '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
+                '6.4.0': True,
+                '6.4.1': True,
+                '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
+                '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
+                '7.0.0': True,
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'pkg_firewall_dospolicy': {
             'params': [
                 'adom',
-                'pkg'
+                'pkg',
+                'DoS-policy'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/pkg/{pkg}/firewall/DoS-policy/{DoS-policy}'
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'policyid'
         },
         'pkg_firewall_dospolicy6': {
             'params': [
                 'adom',
-                'pkg'
+                'pkg',
+                'DoS-policy6'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/pkg/{pkg}/firewall/DoS-policy6/{DoS-policy6}'
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'policyid'
         },
@@ -5715,21 +14032,48 @@ def main():
             'params': [
                 'adom',
                 'pkg',
-                'DoS-policy6'
+                'DoS-policy6',
+                'anomaly'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/pkg/{pkg}/firewall/DoS-policy6/{DoS-policy6}/anomaly/{anomaly}'
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
@@ -5737,89 +14081,180 @@ def main():
             'params': [
                 'adom',
                 'pkg',
-                'DoS-policy'
+                'DoS-policy',
+                'anomaly'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/pkg/{pkg}/firewall/DoS-policy/{DoS-policy}/anomaly/{anomaly}'
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
+            },
+            'mkey': 'name'
+        },
+        'pkg_firewall_explicitproxypolicy_identitybasedpolicy': {
+            'params': [
+                'adom',
+                'pkg',
+                'explicit-proxy-policy',
+                'identity-based-policy'
+            ],
+            'urls': [
+                '/pm/config/adom/{adom}/pkg/{pkg}/firewall/explicit-proxy-policy/{explicit-proxy-policy}/identity-based-policy/{identity-based-policy}'
+            ],
+            'revision': {
+                '6.2.0': True,
+                '6.2.1': True,
+                '6.2.2': True,
+                '6.2.3': True,
+                '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True
+            },
+            'mkey': 'id'
+        },
+        'pkg_firewall_hyperscalepolicy': {
+            'params': [
+                'adom',
+                'pkg',
+                'hyperscale-policy'
+            ],
+            'urls': [
+                '/pm/config/adom/{adom}/pkg/{pkg}/firewall/hyperscale-policy/{hyperscale-policy}'
+            ],
+            'revision': {
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True
+            },
+            'mkey': 'name'
+        },
+        'pkg_firewall_hyperscalepolicy46': {
+            'params': [
+                'adom',
+                'pkg',
+                'hyperscale-policy46'
+            ],
+            'urls': [
+                '/pm/config/adom/{adom}/pkg/{pkg}/firewall/hyperscale-policy46/{hyperscale-policy46}'
+            ],
+            'revision': {
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True
+            },
+            'mkey': 'name'
+        },
+        'pkg_firewall_hyperscalepolicy6': {
+            'params': [
+                'adom',
+                'pkg',
+                'hyperscale-policy6'
+            ],
+            'urls': [
+                '/pm/config/adom/{adom}/pkg/{pkg}/firewall/hyperscale-policy6/{hyperscale-policy6}'
+            ],
+            'revision': {
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True
+            },
+            'mkey': 'name'
+        },
+        'pkg_firewall_hyperscalepolicy64': {
+            'params': [
+                'adom',
+                'pkg',
+                'hyperscale-policy64'
+            ],
+            'urls': [
+                '/pm/config/adom/{adom}/pkg/{pkg}/firewall/hyperscale-policy64/{hyperscale-policy64}'
+            ],
+            'revision': {
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
                 '7.2.0': True
             },
             'mkey': 'name'
         },
         'pkg_firewall_interfacepolicy': {
-            'params': [
-                'adom',
-                'pkg'
-            ],
-            'urls': [
-                '/pm/config/adom/{adom}/pkg/{pkg}/firewall/interface-policy/{interface-policy}'
-            ],
-            'revision': {
-                '6.0.0': True,
-                '6.2.1': True,
-                '6.2.3': True,
-                '6.2.5': True,
-                '6.4.0': True,
-                '6.4.2': True,
-                '6.4.5': True,
-                '7.0.0': True,
-                '7.2.0': True
-            },
-            'mkey': 'policyid'
-        },
-        'pkg_firewall_interfacepolicy6': {
-            'params': [
-                'adom',
-                'pkg'
-            ],
-            'urls': [
-                '/pm/config/adom/{adom}/pkg/{pkg}/firewall/interface-policy6/{interface-policy6}'
-            ],
-            'revision': {
-                '6.0.0': True,
-                '6.2.1': True,
-                '6.2.3': True,
-                '6.2.5': True,
-                '6.4.0': True,
-                '6.4.2': True,
-                '6.4.5': True,
-                '7.0.0': True,
-                '7.2.0': True
-            },
-            'mkey': 'policyid'
-        },
-        'pkg_firewall_interfacepolicy6_sectionvalue': {
-            'params': [
-                'adom',
-                'pkg',
-                'interface-policy6'
-            ],
-            'urls': [
-                '/pm/config/adom/{adom}/pkg/{pkg}/firewall/interface-policy6/{interface-policy6}'
-            ],
-            'revision': {
-                '6.0.0': True,
-                '6.2.1': True,
-                '6.2.3': True,
-                '6.2.5': True,
-                '6.4.0': True,
-                '6.4.2': True,
-                '6.4.5': True,
-                '7.0.0': True,
-                '7.2.0': True
-            },
-            'mkey': 'name'
-        },
-        'pkg_firewall_interfacepolicy_sectionvalue': {
             'params': [
                 'adom',
                 'pkg',
@@ -5830,180 +14265,378 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True
             },
-            'mkey': 'name'
+            'mkey': 'policyid'
+        },
+        'pkg_firewall_interfacepolicy6': {
+            'params': [
+                'adom',
+                'pkg',
+                'interface-policy6'
+            ],
+            'urls': [
+                '/pm/config/adom/{adom}/pkg/{pkg}/firewall/interface-policy6/{interface-policy6}'
+            ],
+            'revision': {
+                '6.0.0': True,
+                '6.2.0': True,
+                '6.2.1': True,
+                '6.2.2': True,
+                '6.2.3': True,
+                '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
+                '6.4.0': True,
+                '6.4.1': True,
+                '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
+                '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
+                '7.0.0': True,
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True
+            },
+            'mkey': 'policyid'
         },
         'pkg_firewall_localinpolicy': {
             'params': [
                 'adom',
-                'pkg'
+                'pkg',
+                'local-in-policy'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/pkg/{pkg}/firewall/local-in-policy/{local-in-policy}'
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'policyid'
         },
         'pkg_firewall_localinpolicy6': {
             'params': [
                 'adom',
-                'pkg'
+                'pkg',
+                'local-in-policy6'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/pkg/{pkg}/firewall/local-in-policy6/{local-in-policy6}'
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'policyid'
         },
         'pkg_firewall_multicastpolicy': {
             'params': [
                 'adom',
-                'pkg'
+                'pkg',
+                'multicast-policy'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/pkg/{pkg}/firewall/multicast-policy/{multicast-policy}'
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
         'pkg_firewall_multicastpolicy6': {
             'params': [
                 'adom',
-                'pkg'
+                'pkg',
+                'multicast-policy6'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/pkg/{pkg}/firewall/multicast-policy6/{multicast-policy6}'
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
         'pkg_firewall_policy': {
             'params': [
                 'adom',
-                'pkg'
+                'pkg',
+                'policy'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/pkg/{pkg}/firewall/policy/{policy}'
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'policyid'
         },
         'pkg_firewall_policy46': {
             'params': [
                 'adom',
-                'pkg'
+                'pkg',
+                'policy46'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/pkg/{pkg}/firewall/policy46/{policy46}'
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
-                '7.0.0': True
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
+                '7.0.0': True,
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'policyid'
         },
         'pkg_firewall_policy6': {
-            'params': [
-                'adom',
-                'pkg'
-            ],
-            'urls': [
-                '/pm/config/adom/{adom}/pkg/{pkg}/firewall/policy6/{policy6}'
-            ],
-            'revision': {
-                '6.0.0': True,
-                '6.2.1': True,
-                '6.2.3': True,
-                '6.2.5': True,
-                '6.4.0': True
-            },
-            'mkey': 'policyid'
-        },
-        'pkg_firewall_policy64': {
-            'params': [
-                'adom',
-                'pkg'
-            ],
-            'urls': [
-                '/pm/config/adom/{adom}/pkg/{pkg}/firewall/policy64/{policy64}'
-            ],
-            'revision': {
-                '6.0.0': True,
-                '6.2.1': True,
-                '6.2.3': True,
-                '6.2.5': True,
-                '6.4.0': True,
-                '6.4.2': True,
-                '6.4.5': True,
-                '7.0.0': True
-            },
-            'mkey': 'policyid'
-        },
-        'pkg_firewall_policy6_sectionvalue': {
             'params': [
                 'adom',
                 'pkg',
@@ -6014,53 +14647,128 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
-                '6.4.0': True
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
+                '6.4.0': True,
+                '6.4.1': True,
+                '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
+                '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
+                '7.0.0': True,
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
-            'mkey': 'name'
+            'mkey': 'policyid'
         },
-        'pkg_firewall_policy_sectionvalue': {
+        'pkg_firewall_policy64': {
             'params': [
                 'adom',
                 'pkg',
-                'policy'
+                'policy64'
             ],
             'urls': [
-                '/pm/config/adom/{adom}/pkg/{pkg}/firewall/policy/{policy}'
+                '/pm/config/adom/{adom}/pkg/{pkg}/firewall/policy64/{policy64}'
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
-            'mkey': 'name'
+            'mkey': 'policyid'
         },
         'pkg_firewall_policy_vpndstnode': {
             'params': [
                 'adom',
                 'pkg',
-                'policy'
+                'policy',
+                'vpn_dst_node'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/pkg/{pkg}/firewall/policy/{policy}/vpn_dst_node/{vpn_dst_node}'
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
-                '7.0.0': True
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
+                '7.0.0': True,
+                '7.0.1': True,
+                '7.0.2': True
             },
             'mkey': 'seq'
         },
@@ -6068,45 +14776,43 @@ def main():
             'params': [
                 'adom',
                 'pkg',
-                'policy'
+                'policy',
+                'vpn_src_node'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/pkg/{pkg}/firewall/policy/{policy}/vpn_src_node/{vpn_src_node}'
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
-                '7.0.0': True
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
+                '7.0.0': True,
+                '7.0.1': True,
+                '7.0.2': True
             },
             'mkey': 'seq'
         },
         'pkg_firewall_proxypolicy': {
-            'params': [
-                'adom',
-                'pkg'
-            ],
-            'urls': [
-                '/pm/config/adom/{adom}/pkg/{pkg}/firewall/proxy-policy/{proxy-policy}'
-            ],
-            'revision': {
-                '6.0.0': True,
-                '6.2.1': True,
-                '6.2.3': True,
-                '6.2.5': True,
-                '6.4.0': True,
-                '6.4.2': True,
-                '6.4.5': True,
-                '7.0.0': True,
-                '7.2.0': True
-            },
-            'mkey': 'policyid'
-        },
-        'pkg_firewall_proxypolicy_sectionvalue': {
             'params': [
                 'adom',
                 'pkg',
@@ -6117,38 +14823,44 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
-            'mkey': 'name'
+            'mkey': 'policyid'
         },
         'pkg_firewall_securitypolicy': {
-            'params': [
-                'adom',
-                'pkg'
-            ],
-            'urls': [
-                '/pm/config/adom/{adom}/pkg/{pkg}/firewall/security-policy/{security-policy}'
-            ],
-            'revision': {
-                '6.2.1': True,
-                '6.2.3': True,
-                '6.2.5': True,
-                '6.4.0': True,
-                '6.4.2': True,
-                '6.4.5': True,
-                '7.0.0': True,
-                '7.2.0': True
-            },
-            'mkey': 'name'
-        },
-        'pkg_firewall_securitypolicy_sectionvalue': {
             'params': [
                 'adom',
                 'pkg',
@@ -6159,171 +14871,410 @@ def main():
             ],
             'revision': {
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'pkg_firewall_shapingpolicy': {
             'params': [
                 'adom',
-                'pkg'
+                'pkg',
+                'shaping-policy'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/pkg/{pkg}/firewall/shaping-policy/{shaping-policy}'
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
         'pkg_footer_policy': {
             'params': [
-                'pkg'
+                'pkg',
+                'policy'
             ],
             'urls': [
                 '/pm/config/global/pkg/{pkg}/global/footer/policy/{policy}'
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'policyid'
         },
         'pkg_footer_policy6': {
             'params': [
-                'pkg'
+                'pkg',
+                'policy6'
             ],
             'urls': [
                 '/pm/config/global/pkg/{pkg}/global/footer/policy6/{policy6}'
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'policyid'
         },
         'pkg_footer_shapingpolicy': {
             'params': [
-                'pkg'
+                'pkg',
+                'shaping-policy'
             ],
             'urls': [
                 '/pm/config/global/pkg/{pkg}/global/footer/shaping-policy/{shaping-policy}'
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
         'pkg_header_policy': {
             'params': [
-                'pkg'
+                'pkg',
+                'policy'
             ],
             'urls': [
                 '/pm/config/global/pkg/{pkg}/global/header/policy/{policy}'
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'policyid'
         },
         'pkg_header_policy6': {
             'params': [
-                'pkg'
+                'pkg',
+                'policy6'
             ],
             'urls': [
                 '/pm/config/global/pkg/{pkg}/global/header/policy6/{policy6}'
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'policyid'
         },
         'pkg_header_shapingpolicy': {
             'params': [
-                'pkg'
+                'pkg',
+                'shaping-policy'
             ],
             'urls': [
                 '/pm/config/global/pkg/{pkg}/global/header/shaping-policy/{shaping-policy}'
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
-        'pm_config_pblock_firewall_policy': {
+        'pkg_user_nacpolicy': {
             'params': [
                 'adom',
-                'pblock'
+                'pkg',
+                'nac-policy'
             ],
             'urls': [
-                '/pm/config/adom/{adom}/pblock/{pblock}/firewall/policy/{policy}'
+                '/pm/config/adom/{adom}/pkg/{pkg}/user/nac-policy/{nac-policy}'
             ],
             'revision': {
-                '7.2.0': True
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
-        'pm_config_pblock_firewall_policy_sectionvalue': {
+        'pm_config_pblock_firewall_consolidated_policy': {
+            'params': [
+                'adom',
+                'pblock',
+                'policy'
+            ],
+            'urls': [
+                '/pm/config/adom/{adom}/pblock/{pblock}/firewall/consolidated/policy/{policy}'
+            ],
+            'revision': {
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
+            },
+            'mkey': 'name'
+        },
+        'pm_config_pblock_firewall_policy': {
             'params': [
                 'adom',
                 'pblock',
@@ -6333,24 +15284,41 @@ def main():
                 '/pm/config/adom/{adom}/pblock/{pblock}/firewall/policy/{policy}'
             ],
             'revision': {
-                '7.2.0': True
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
+            },
+            'mkey': 'name'
+        },
+        'pm_config_pblock_firewall_policy6': {
+            'params': [
+                'adom',
+                'pblock',
+                'policy6'
+            ],
+            'urls': [
+                '/pm/config/adom/{adom}/pblock/{pblock}/firewall/policy6/{policy6}'
+            ],
+            'revision': {
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'pm_config_pblock_firewall_securitypolicy': {
-            'params': [
-                'adom',
-                'pblock'
-            ],
-            'urls': [
-                '/pm/config/adom/{adom}/pblock/{pblock}/firewall/security-policy/{security-policy}'
-            ],
-            'revision': {
-                '7.2.0': True
-            },
-            'mkey': 'name'
-        },
-        'pm_config_pblock_firewall_securitypolicy_sectionvalue': {
             'params': [
                 'adom',
                 'pblock',
@@ -6360,7 +15328,15 @@ def main():
                 '/pm/config/adom/{adom}/pblock/{pblock}/firewall/security-policy/{security-policy}'
             ],
             'revision': {
-                '7.2.0': True
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
@@ -6374,14 +15350,40 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
@@ -6394,7 +15396,15 @@ def main():
                 '/pm/pblock/adom/{adom}/{pkg_path}'
             ],
             'revision': {
-                '7.2.0': True
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
@@ -6409,14 +15419,40 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
@@ -6430,20 +15466,47 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'qosprofile': {
             'params': [
-                'adom'
+                'adom',
+                'qos-profile'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/wireless-controller/qos-profile/{qos-profile}',
@@ -6451,371 +15514,921 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'region': {
             'params': [
-                'adom'
+                'adom',
+                'region'
             ],
             'urls': [
                 '/pm/config/global/obj/wireless-controller/region/{region}',
                 '/pm/config/adom/{adom}/obj/wireless-controller/region/{region}'
             ],
             'revision': {
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'router_accesslist': {
             'params': [
-                'adom'
+                'adom',
+                'access-list'
             ],
             'urls': [
                 '/pm/config/global/obj/router/access-list/{access-list}',
                 '/pm/config/adom/{adom}/obj/router/access-list/{access-list}'
             ],
             'revision': {
-                '7.2.0': True
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'router_accesslist6': {
             'params': [
-                'adom'
+                'adom',
+                'access-list6'
             ],
             'urls': [
                 '/pm/config/global/obj/router/access-list6/{access-list6}',
                 '/pm/config/adom/{adom}/obj/router/access-list6/{access-list6}'
             ],
             'revision': {
-                '7.2.0': True
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'router_accesslist6_rule': {
             'params': [
                 'adom',
-                'access-list6'
+                'access-list6',
+                'rule'
             ],
             'urls': [
                 '/pm/config/global/obj/router/access-list6/{access-list6}/rule/{rule}',
                 '/pm/config/adom/{adom}/obj/router/access-list6/{access-list6}/rule/{rule}'
             ],
             'revision': {
-                '7.2.0': True
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
         'router_accesslist_rule': {
             'params': [
                 'adom',
-                'access-list'
+                'access-list',
+                'rule'
             ],
             'urls': [
                 '/pm/config/global/obj/router/access-list/{access-list}/rule/{rule}',
                 '/pm/config/adom/{adom}/obj/router/access-list/{access-list}/rule/{rule}'
             ],
             'revision': {
-                '7.2.0': True
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
         'router_aspathlist': {
             'params': [
-                'adom'
+                'adom',
+                'aspath-list'
             ],
             'urls': [
                 '/pm/config/global/obj/router/aspath-list/{aspath-list}',
                 '/pm/config/adom/{adom}/obj/router/aspath-list/{aspath-list}'
             ],
             'revision': {
-                '7.2.0': True
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'router_aspathlist_rule': {
             'params': [
                 'adom',
-                'aspath-list'
+                'aspath-list',
+                'rule'
             ],
             'urls': [
                 '/pm/config/global/obj/router/aspath-list/{aspath-list}/rule/{rule}',
                 '/pm/config/adom/{adom}/obj/router/aspath-list/{aspath-list}/rule/{rule}'
             ],
             'revision': {
-                '7.2.0': True
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
         'router_communitylist': {
             'params': [
-                'adom'
+                'adom',
+                'community-list'
             ],
             'urls': [
                 '/pm/config/global/obj/router/community-list/{community-list}',
                 '/pm/config/adom/{adom}/obj/router/community-list/{community-list}'
             ],
             'revision': {
-                '7.2.0': True
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'router_communitylist_rule': {
             'params': [
                 'adom',
-                'community-list'
+                'community-list',
+                'rule'
             ],
             'urls': [
                 '/pm/config/global/obj/router/community-list/{community-list}/rule/{rule}',
                 '/pm/config/adom/{adom}/obj/router/community-list/{community-list}/rule/{rule}'
             ],
             'revision': {
-                '7.2.0': True
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
         'router_prefixlist': {
             'params': [
-                'adom'
+                'adom',
+                'prefix-list'
             ],
             'urls': [
                 '/pm/config/global/obj/router/prefix-list/{prefix-list}',
                 '/pm/config/adom/{adom}/obj/router/prefix-list/{prefix-list}'
             ],
             'revision': {
-                '7.2.0': True
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'router_prefixlist6': {
             'params': [
-                'adom'
+                'adom',
+                'prefix-list6'
             ],
             'urls': [
                 '/pm/config/global/obj/router/prefix-list6/{prefix-list6}',
                 '/pm/config/adom/{adom}/obj/router/prefix-list6/{prefix-list6}'
             ],
             'revision': {
-                '7.2.0': True
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'router_prefixlist6_rule': {
             'params': [
                 'adom',
-                'prefix-list6'
+                'prefix-list6',
+                'rule'
             ],
             'urls': [
                 '/pm/config/global/obj/router/prefix-list6/{prefix-list6}/rule/{rule}',
                 '/pm/config/adom/{adom}/obj/router/prefix-list6/{prefix-list6}/rule/{rule}'
             ],
             'revision': {
-                '7.2.0': True
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
         'router_prefixlist_rule': {
             'params': [
                 'adom',
-                'prefix-list'
+                'prefix-list',
+                'rule'
             ],
             'urls': [
                 '/pm/config/global/obj/router/prefix-list/{prefix-list}/rule/{rule}',
                 '/pm/config/adom/{adom}/obj/router/prefix-list/{prefix-list}/rule/{rule}'
             ],
             'revision': {
-                '7.2.0': True
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
         'router_routemap': {
             'params': [
-                'adom'
+                'adom',
+                'route-map'
             ],
             'urls': [
                 '/pm/config/global/obj/router/route-map/{route-map}',
                 '/pm/config/adom/{adom}/obj/router/route-map/{route-map}'
             ],
             'revision': {
-                '7.2.0': True
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'router_routemap_rule': {
             'params': [
                 'adom',
-                'route-map'
+                'route-map',
+                'rule'
             ],
             'urls': [
                 '/pm/config/global/obj/router/route-map/{route-map}/rule/{rule}',
                 '/pm/config/adom/{adom}/obj/router/route-map/{route-map}/rule/{rule}'
             ],
             'revision': {
-                '7.2.0': True
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
         'spamfilter_bwl': {
             'params': [
-                'adom'
+                'adom',
+                'bwl'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/spamfilter/bwl/{bwl}',
                 '/pm/config/global/obj/spamfilter/bwl/{bwl}'
             ],
             'revision': {
-                '6.0.0': True
+                '6.0.0': True,
+                '6.2.0': True,
+                '6.2.1': True,
+                '6.2.2': True,
+                '6.2.3': True,
+                '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
+                '6.4.0': True,
+                '6.4.1': True,
+                '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
+                '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
+                '7.0.0': True,
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True
             },
             'mkey': 'id'
         },
         'spamfilter_bwl_entries': {
             'params': [
                 'adom',
-                'bwl'
+                'bwl',
+                'entries'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/spamfilter/bwl/{bwl}/entries/{entries}',
                 '/pm/config/global/obj/spamfilter/bwl/{bwl}/entries/{entries}'
             ],
             'revision': {
-                '6.0.0': True
+                '6.0.0': True,
+                '6.2.0': True,
+                '6.2.1': True,
+                '6.2.2': True,
+                '6.2.3': True,
+                '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
+                '6.4.0': True,
+                '6.4.1': True,
+                '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
+                '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
+                '7.0.0': True,
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True
             },
             'mkey': 'id'
         },
         'spamfilter_bword': {
             'params': [
-                'adom'
+                'adom',
+                'bword'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/spamfilter/bword/{bword}',
                 '/pm/config/global/obj/spamfilter/bword/{bword}'
             ],
             'revision': {
-                '6.0.0': True
+                '6.0.0': True,
+                '6.2.0': True,
+                '6.2.1': True,
+                '6.2.2': True,
+                '6.2.3': True,
+                '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
+                '6.4.0': True,
+                '6.4.1': True,
+                '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
+                '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
+                '7.0.0': True,
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True
             },
             'mkey': 'id'
         },
         'spamfilter_bword_entries': {
             'params': [
                 'adom',
-                'bword'
+                'bword',
+                'entries'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/spamfilter/bword/{bword}/entries/{entries}',
                 '/pm/config/global/obj/spamfilter/bword/{bword}/entries/{entries}'
             ],
             'revision': {
-                '6.0.0': True
+                '6.0.0': True,
+                '6.2.0': True,
+                '6.2.1': True,
+                '6.2.2': True,
+                '6.2.3': True,
+                '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
+                '6.4.0': True,
+                '6.4.1': True,
+                '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
+                '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
+                '7.0.0': True,
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True
             },
             'mkey': 'id'
         },
         'spamfilter_dnsbl': {
             'params': [
-                'adom'
+                'adom',
+                'dnsbl'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/spamfilter/dnsbl/{dnsbl}',
                 '/pm/config/global/obj/spamfilter/dnsbl/{dnsbl}'
             ],
             'revision': {
-                '6.0.0': True
+                '6.0.0': True,
+                '6.2.0': True,
+                '6.2.1': True,
+                '6.2.2': True,
+                '6.2.3': True,
+                '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
+                '6.4.0': True,
+                '6.4.1': True,
+                '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
+                '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
+                '7.0.0': True,
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True
             },
             'mkey': 'id'
         },
         'spamfilter_dnsbl_entries': {
             'params': [
                 'adom',
-                'dnsbl'
+                'dnsbl',
+                'entries'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/spamfilter/dnsbl/{dnsbl}/entries/{entries}',
                 '/pm/config/global/obj/spamfilter/dnsbl/{dnsbl}/entries/{entries}'
             ],
             'revision': {
-                '6.0.0': True
+                '6.0.0': True,
+                '6.2.0': True,
+                '6.2.1': True,
+                '6.2.2': True,
+                '6.2.3': True,
+                '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
+                '6.4.0': True,
+                '6.4.1': True,
+                '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
+                '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
+                '7.0.0': True,
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True
             },
             'mkey': 'id'
         },
         'spamfilter_iptrust': {
             'params': [
-                'adom'
+                'adom',
+                'iptrust'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/spamfilter/iptrust/{iptrust}',
                 '/pm/config/global/obj/spamfilter/iptrust/{iptrust}'
             ],
             'revision': {
-                '6.0.0': True
+                '6.0.0': True,
+                '6.2.0': True,
+                '6.2.1': True,
+                '6.2.2': True,
+                '6.2.3': True,
+                '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
+                '6.4.0': True,
+                '6.4.1': True,
+                '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
+                '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
+                '7.0.0': True,
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True
             },
             'mkey': 'id'
         },
         'spamfilter_iptrust_entries': {
             'params': [
                 'adom',
-                'iptrust'
+                'iptrust',
+                'entries'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/spamfilter/iptrust/{iptrust}/entries/{entries}',
                 '/pm/config/global/obj/spamfilter/iptrust/{iptrust}/entries/{entries}'
             ],
             'revision': {
-                '6.0.0': True
+                '6.0.0': True,
+                '6.2.0': True,
+                '6.2.1': True,
+                '6.2.2': True,
+                '6.2.3': True,
+                '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
+                '6.4.0': True,
+                '6.4.1': True,
+                '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
+                '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
+                '7.0.0': True,
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True
             },
             'mkey': 'id'
         },
         'spamfilter_mheader': {
             'params': [
-                'adom'
+                'adom',
+                'mheader'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/spamfilter/mheader/{mheader}',
                 '/pm/config/global/obj/spamfilter/mheader/{mheader}'
             ],
             'revision': {
-                '6.0.0': True
+                '6.0.0': True,
+                '6.2.0': True,
+                '6.2.1': True,
+                '6.2.2': True,
+                '6.2.3': True,
+                '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
+                '6.4.0': True,
+                '6.4.1': True,
+                '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
+                '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
+                '7.0.0': True,
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True
             },
             'mkey': 'id'
         },
         'spamfilter_mheader_entries': {
             'params': [
                 'adom',
-                'mheader'
+                'mheader',
+                'entries'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/spamfilter/mheader/{mheader}/entries/{entries}',
                 '/pm/config/global/obj/spamfilter/mheader/{mheader}/entries/{entries}'
             ],
             'revision': {
-                '6.0.0': True
+                '6.0.0': True,
+                '6.2.0': True,
+                '6.2.1': True,
+                '6.2.2': True,
+                '6.2.3': True,
+                '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
+                '6.4.0': True,
+                '6.4.1': True,
+                '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
+                '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
+                '7.0.0': True,
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True
             },
             'mkey': 'id'
         },
         'spamfilter_profile': {
             'params': [
-                'adom'
+                'adom',
+                'profile'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/spamfilter/profile/{profile}',
                 '/pm/config/global/obj/spamfilter/profile/{profile}'
             ],
             'revision': {
-                '6.0.0': True
+                '6.0.0': True,
+                '6.2.0': True,
+                '6.2.1': True,
+                '6.2.2': True,
+                '6.2.3': True,
+                '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
+                '6.4.0': True,
+                '6.4.1': True,
+                '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
+                '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
+                '7.0.0': True,
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True
             },
             'mkey': 'name'
         },
         'sshfilter_profile': {
             'params': [
-                'adom'
+                'adom',
+                'profile'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/ssh-filter/profile/{profile}',
@@ -6823,21 +16436,48 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'sshfilter_profile_shellcommands': {
             'params': [
                 'adom',
-                'profile'
+                'profile',
+                'shell-commands'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/ssh-filter/profile/{profile}/shell-commands/{shell-commands}',
@@ -6845,33 +16485,146 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
+            },
+            'mkey': 'id'
+        },
+        'switchcontroller_acl_group': {
+            'params': [
+                'adom',
+                'group'
+            ],
+            'urls': [
+                '/pm/config/global/obj/switch-controller/acl/group/{group}',
+                '/pm/config/adom/{adom}/obj/switch-controller/acl/group/{group}'
+            ],
+            'revision': {
+                '7.4.0': True
+            },
+            'mkey': 'name'
+        },
+        'switchcontroller_acl_ingress': {
+            'params': [
+                'adom',
+                'ingress'
+            ],
+            'urls': [
+                '/pm/config/global/obj/switch-controller/acl/ingress/{ingress}',
+                '/pm/config/adom/{adom}/obj/switch-controller/acl/ingress/{ingress}'
+            ],
+            'revision': {
+                '7.4.0': True
             },
             'mkey': 'id'
         },
         'switchcontroller_dsl_policy': {
             'params': [
-                'adom'
+                'adom',
+                'policy'
             ],
             'urls': [
                 '/pm/config/global/obj/switch-controller/dsl/policy/{policy}',
                 '/pm/config/adom/{adom}/obj/switch-controller/dsl/policy/{policy}'
             ],
             'revision': {
-                '7.2.0': True
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
+            },
+            'mkey': 'name'
+        },
+        'switchcontroller_dynamicportpolicy': {
+            'params': [
+                'adom',
+                'dynamic-port-policy'
+            ],
+            'urls': [
+                '/pm/config/global/obj/switch-controller/dynamic-port-policy/{dynamic-port-policy}',
+                '/pm/config/adom/{adom}/obj/switch-controller/dynamic-port-policy/{dynamic-port-policy}'
+            ],
+            'revision': {
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
+            },
+            'mkey': 'name'
+        },
+        'switchcontroller_dynamicportpolicy_policy': {
+            'params': [
+                'adom',
+                'dynamic-port-policy',
+                'policy'
+            ],
+            'urls': [
+                '/pm/config/global/obj/switch-controller/dynamic-port-policy/{dynamic-port-policy}/policy/{policy}',
+                '/pm/config/adom/{adom}/obj/switch-controller/dynamic-port-policy/{dynamic-port-policy}/policy/{policy}'
+            ],
+            'revision': {
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
+            },
+            'mkey': 'name'
+        },
+        'switchcontroller_fortilinksettings': {
+            'params': [
+                'adom',
+                'fortilink-settings'
+            ],
+            'urls': [
+                '/pm/config/global/obj/switch-controller/fortilink-settings/{fortilink-settings}',
+                '/pm/config/adom/{adom}/obj/switch-controller/fortilink-settings/{fortilink-settings}'
+            ],
+            'revision': {
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'switchcontroller_lldpprofile': {
             'params': [
-                'adom'
+                'adom',
+                'lldp-profile'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/switch-controller/lldp-profile/{lldp-profile}',
@@ -6879,21 +16632,48 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'switchcontroller_lldpprofile_customtlvs': {
             'params': [
                 'adom',
-                'lldp-profile'
+                'lldp-profile',
+                'custom-tlvs'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/switch-controller/lldp-profile/{lldp-profile}/custom-tlvs/{custom-tlvs}',
@@ -6901,42 +16681,96 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'switchcontroller_lldpprofile_medlocationservice': {
             'params': [
                 'adom',
-                'lldp-profile'
+                'lldp-profile',
+                'med-location-service'
             ],
             'urls': [
                 '/pm/config/global/obj/switch-controller/lldp-profile/{lldp-profile}/med-location-service/{med-location-service}',
                 '/pm/config/adom/{adom}/obj/switch-controller/lldp-profile/{lldp-profile}/med-location-service/{med-location-service}'
             ],
             'revision': {
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'switchcontroller_lldpprofile_mednetworkpolicy': {
             'params': [
                 'adom',
-                'lldp-profile'
+                'lldp-profile',
+                'med-network-policy'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/switch-controller/lldp-profile/{lldp-profile}/med-network-policy/{med-network-policy}',
@@ -6944,20 +16778,63 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
+            },
+            'mkey': 'name'
+        },
+        'switchcontroller_macpolicy': {
+            'params': [
+                'adom',
+                'mac-policy'
+            ],
+            'urls': [
+                '/pm/config/global/obj/switch-controller/mac-policy/{mac-policy}',
+                '/pm/config/adom/{adom}/obj/switch-controller/mac-policy/{mac-policy}'
+            ],
+            'revision': {
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'switchcontroller_managedswitch': {
             'params': [
-                'adom'
+                'adom',
+                'managed-switch'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/switch-controller/managed-switch/{managed-switch}',
@@ -6965,21 +16842,64 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
+            },
+            'mkey': 'name'
+        },
+        'switchcontroller_managedswitch_dhcpsnoopingstaticclient': {
+            'params': [
+                'adom',
+                'managed-switch',
+                'dhcp-snooping-static-client'
+            ],
+            'urls': [
+                '/pm/config/global/obj/switch-controller/managed-switch/{managed-switch}/dhcp-snooping-static-client/{dhcp-snooping-static-client}',
+                '/pm/config/adom/{adom}/obj/switch-controller/managed-switch/{managed-switch}/dhcp-snooping-static-client/{dhcp-snooping-static-client}'
+            ],
+            'revision': {
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'switchcontroller_managedswitch_ports': {
             'params': [
                 'adom',
-                'managed-switch'
+                'managed-switch',
+                'ports'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/switch-controller/managed-switch/{managed-switch}/ports/{ports}',
@@ -6987,21 +16907,48 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'port-name'
         },
         'switchcontroller_managedswitch_remotelog': {
             'params': [
                 'adom',
-                'managed-switch'
+                'managed-switch',
+                'remote-log'
             ],
             'urls': [
                 '/pm/config/global/obj/switch-controller/managed-switch/{managed-switch}/remote-log/{remote-log}',
@@ -7009,6 +16956,7 @@ def main():
             ],
             'revision': {
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True
             },
             'mkey': 'name'
@@ -7016,7 +16964,8 @@ def main():
         'switchcontroller_managedswitch_snmpcommunity': {
             'params': [
                 'adom',
-                'managed-switch'
+                'managed-switch',
+                'snmp-community'
             ],
             'urls': [
                 '/pm/config/global/obj/switch-controller/managed-switch/{managed-switch}/snmp-community/{snmp-community}',
@@ -7024,6 +16973,7 @@ def main():
             ],
             'revision': {
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True
             },
             'mkey': 'id'
@@ -7032,7 +16982,8 @@ def main():
             'params': [
                 'adom',
                 'managed-switch',
-                'snmp-community'
+                'snmp-community',
+                'hosts'
             ],
             'urls': [
                 '/pm/config/global/obj/switch-controller/managed-switch/{managed-switch}/snmp-community/{snmp-community}/hosts/{hosts}',
@@ -7040,6 +16991,7 @@ def main():
             ],
             'revision': {
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True
             },
             'mkey': 'id'
@@ -7047,7 +16999,8 @@ def main():
         'switchcontroller_managedswitch_snmpuser': {
             'params': [
                 'adom',
-                'managed-switch'
+                'managed-switch',
+                'snmp-user'
             ],
             'urls': [
                 '/pm/config/global/obj/switch-controller/managed-switch/{managed-switch}/snmp-user/{snmp-user}',
@@ -7055,13 +17008,15 @@ def main():
             ],
             'revision': {
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True
             },
             'mkey': 'name'
         },
         'switchcontroller_qos_dot1pmap': {
             'params': [
-                'adom'
+                'adom',
+                'dot1p-map'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/switch-controller/qos/dot1p-map/{dot1p-map}',
@@ -7069,20 +17024,47 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'switchcontroller_qos_ipdscpmap': {
             'params': [
-                'adom'
+                'adom',
+                'ip-dscp-map'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/switch-controller/qos/ip-dscp-map/{ip-dscp-map}',
@@ -7090,21 +17072,48 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'switchcontroller_qos_ipdscpmap_map': {
             'params': [
                 'adom',
-                'ip-dscp-map'
+                'ip-dscp-map',
+                'map'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/switch-controller/qos/ip-dscp-map/{ip-dscp-map}/map/{map}',
@@ -7112,20 +17121,47 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'switchcontroller_qos_qospolicy': {
             'params': [
-                'adom'
+                'adom',
+                'qos-policy'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/switch-controller/qos/qos-policy/{qos-policy}',
@@ -7133,20 +17169,47 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'switchcontroller_qos_queuepolicy': {
             'params': [
-                'adom'
+                'adom',
+                'queue-policy'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/switch-controller/qos/queue-policy/{queue-policy}',
@@ -7154,21 +17217,48 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'switchcontroller_qos_queuepolicy_cosqueue': {
             'params': [
                 'adom',
-                'queue-policy'
+                'queue-policy',
+                'cos-queue'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/switch-controller/qos/queue-policy/{queue-policy}/cos-queue/{cos-queue}',
@@ -7176,20 +17266,47 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'switchcontroller_securitypolicy_8021x': {
             'params': [
-                'adom'
+                'adom',
+                '802-1X'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/switch-controller/security-policy/802-1X/{802-1X}',
@@ -7197,20 +17314,47 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'switchcontroller_securitypolicy_captiveportal': {
             'params': [
-                'adom'
+                'adom',
+                'captive-portal'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/switch-controller/security-policy/captive-portal/{captive-portal}',
@@ -7218,353 +17362,856 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True
+            },
+            'mkey': 'name'
+        },
+        'switchcontroller_switchinterfacetag': {
+            'params': [
+                'adom',
+                'switch-interface-tag'
+            ],
+            'urls': [
+                '/pm/config/global/obj/switch-controller/switch-interface-tag/{switch-interface-tag}',
+                '/pm/config/adom/{adom}/obj/switch-controller/switch-interface-tag/{switch-interface-tag}'
+            ],
+            'revision': {
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
+            },
+            'mkey': 'name'
+        },
+        'switchcontroller_trafficpolicy': {
+            'params': [
+                'adom',
+                'traffic-policy'
+            ],
+            'urls': [
+                '/pm/config/global/obj/switch-controller/traffic-policy/{traffic-policy}',
+                '/pm/config/adom/{adom}/obj/switch-controller/traffic-policy/{traffic-policy}'
+            ],
+            'revision': {
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
+            },
+            'mkey': 'id'
+        },
+        'switchcontroller_vlanpolicy': {
+            'params': [
+                'adom',
+                'vlan-policy'
+            ],
+            'urls': [
+                '/pm/config/global/obj/switch-controller/vlan-policy/{vlan-policy}',
+                '/pm/config/adom/{adom}/obj/switch-controller/vlan-policy/{vlan-policy}'
+            ],
+            'revision': {
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'system_admin_group': {
             'params': [
+                'group'
             ],
             'urls': [
                 '/cli/global/system/admin/group/{group}'
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'system_admin_group_member': {
             'params': [
-                'group'
+                'group',
+                'member'
             ],
             'urls': [
                 '/cli/global/system/admin/group/{group}/member/{member}'
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'system_admin_ldap': {
             'params': [
+                'ldap'
             ],
             'urls': [
                 '/cli/global/system/admin/ldap/{ldap}'
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'system_admin_ldap_adom': {
             'params': [
-                'ldap'
+                'ldap',
+                'adom'
             ],
             'urls': [
                 '/cli/global/system/admin/ldap/{ldap}/adom/{adom}'
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'adom-name'
         },
         'system_admin_profile': {
             'params': [
+                'profile'
             ],
             'urls': [
                 '/cli/global/system/admin/profile/{profile}'
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'profileid'
         },
         'system_admin_profile_datamaskcustomfields': {
             'params': [
-                'profile'
+                'profile',
+                'datamask-custom-fields'
             ],
             'urls': [
                 '/cli/global/system/admin/profile/{profile}/datamask-custom-fields/{datamask-custom-fields}'
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'field-name'
         },
         'system_admin_radius': {
             'params': [
+                'radius'
             ],
             'urls': [
                 '/cli/global/system/admin/radius/{radius}'
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'system_admin_tacacs': {
             'params': [
+                'tacacs'
             ],
             'urls': [
                 '/cli/global/system/admin/tacacs/{tacacs}'
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'system_admin_user': {
             'params': [
+                'user'
             ],
             'urls': [
                 '/cli/global/system/admin/user/{user}'
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'userid'
         },
         'system_admin_user_adom': {
             'params': [
-                'user'
+                'user',
+                'adom'
             ],
             'urls': [
                 '/cli/global/system/admin/user/{user}/adom/{adom}'
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'adom-name'
         },
         'system_admin_user_adomexclude': {
             'params': [
-                'user'
+                'user',
+                'adom-exclude'
             ],
             'urls': [
                 '/cli/global/system/admin/user/{user}/adom-exclude/{adom-exclude}'
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
-                '7.0.0': True
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
+                '7.0.0': True,
+                '7.0.1': True,
+                '7.0.2': True
             },
             'mkey': 'adom-name'
         },
         'system_admin_user_appfilter': {
             'params': [
-                'user'
+                'user',
+                'app-filter'
             ],
             'urls': [
                 '/cli/global/system/admin/user/{user}/app-filter/{app-filter}'
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'app-filter-name'
         },
         'system_admin_user_dashboard': {
             'params': [
-                'user'
+                'user',
+                'dashboard'
             ],
             'urls': [
                 '/cli/global/system/admin/user/{user}/dashboard/{dashboard}'
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'moduleid'
         },
         'system_admin_user_dashboardtabs': {
             'params': [
-                'user'
+                'user',
+                'dashboard-tabs'
             ],
             'urls': [
                 '/cli/global/system/admin/user/{user}/dashboard-tabs/{dashboard-tabs}'
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'system_admin_user_ipsfilter': {
             'params': [
-                'user'
+                'user',
+                'ips-filter'
             ],
             'urls': [
                 '/cli/global/system/admin/user/{user}/ips-filter/{ips-filter}'
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'ips-filter-name'
         },
         'system_admin_user_metadata': {
             'params': [
-                'user'
+                'user',
+                'meta-data'
             ],
             'urls': [
                 '/cli/global/system/admin/user/{user}/meta-data/{meta-data}'
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'fieldname'
         },
         'system_admin_user_policypackage': {
             'params': [
-                'user'
+                'user',
+                'policy-package'
             ],
             'urls': [
                 '/cli/global/system/admin/user/{user}/policy-package/{policy-package}'
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'policy-package-name'
         },
         'system_admin_user_restrictdevvdom': {
             'params': [
-                'user'
+                'user',
+                'restrict-dev-vdom'
             ],
             'urls': [
                 '/cli/global/system/admin/user/{user}/restrict-dev-vdom/{restrict-dev-vdom}'
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.4.0': True
             },
@@ -7572,141 +18219,331 @@ def main():
         },
         'system_admin_user_webfilter': {
             'params': [
-                'user'
+                'user',
+                'web-filter'
             ],
             'urls': [
                 '/cli/global/system/admin/user/{user}/web-filter/{web-filter}'
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'web-filter-name'
         },
         'system_alertevent': {
             'params': [
+                'alert-event'
             ],
             'urls': [
                 '/cli/global/system/alert-event/{alert-event}'
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'system_certificate_ca': {
             'params': [
+                'ca'
             ],
             'urls': [
                 '/cli/global/system/certificate/ca/{ca}'
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'system_certificate_crl': {
             'params': [
+                'crl'
             ],
             'urls': [
                 '/cli/global/system/certificate/crl/{crl}'
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'system_certificate_local': {
             'params': [
+                'local'
             ],
             'urls': [
                 '/cli/global/system/certificate/local/{local}'
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'system_certificate_remote': {
             'params': [
+                'remote'
             ],
             'urls': [
                 '/cli/global/system/certificate/remote/{remote}'
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'system_certificate_ssh': {
             'params': [
+                'ssh'
             ],
             'urls': [
                 '/cli/global/system/certificate/ssh/{ssh}'
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'system_customlanguage': {
             'params': [
-                'adom'
+                'adom',
+                'custom-language'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/system/custom-language/{custom-language}',
@@ -7714,20 +18551,47 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'system_dhcp_server': {
             'params': [
-                'adom'
+                'adom',
+                'server'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/system/dhcp/server/{server}',
@@ -7735,21 +18599,48 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
         'system_dhcp_server_excluderange': {
             'params': [
                 'adom',
-                'server'
+                'server',
+                'exclude-range'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/system/dhcp/server/{server}/exclude-range/{exclude-range}',
@@ -7757,21 +18648,48 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
         'system_dhcp_server_iprange': {
             'params': [
                 'adom',
-                'server'
+                'server',
+                'ip-range'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/system/dhcp/server/{server}/ip-range/{ip-range}',
@@ -7779,21 +18697,48 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
         'system_dhcp_server_options': {
             'params': [
                 'adom',
-                'server'
+                'server',
+                'options'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/system/dhcp/server/{server}/options/{options}',
@@ -7801,21 +18746,48 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
         'system_dhcp_server_reservedaddress': {
             'params': [
                 'adom',
-                'server'
+                'server',
+                'reserved-address'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/system/dhcp/server/{server}/reserved-address/{reserved-address}',
@@ -7823,20 +18795,47 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
         'system_externalresource': {
             'params': [
-                'adom'
+                'adom',
+                'external-resource'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/system/external-resource/{external-resource}',
@@ -7844,20 +18843,47 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'system_geoipcountry': {
             'params': [
-                'adom'
+                'adom',
+                'geoip-country'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/system/geoip-country/{geoip-country}',
@@ -7865,20 +18891,47 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
         'system_geoipoverride': {
             'params': [
-                'adom'
+                'adom',
+                'geoip-override'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/system/geoip-override/{geoip-override}',
@@ -7886,21 +18939,48 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'system_geoipoverride_ip6range': {
             'params': [
                 'adom',
-                'geoip-override'
+                'geoip-override',
+                'ip6-range'
             ],
             'urls': [
                 '/pm/config/global/obj/system/geoip-override/{geoip-override}/ip6-range/{ip6-range}',
@@ -7908,17 +18988,37 @@ def main():
             ],
             'revision': {
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
         'system_geoipoverride_iprange': {
             'params': [
                 'adom',
-                'geoip-override'
+                'geoip-override',
+                'ip-range'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/system/geoip-override/{geoip-override}/ip-range/{ip-range}',
@@ -7926,223 +19026,479 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
         'system_ha_monitoredips': {
             'params': [
+                'monitored-ips'
             ],
             'urls': [
                 '/cli/global/system/ha/monitored-ips/{monitored-ips}'
             ],
             'revision': {
-                '7.2.0': True
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
         'system_ha_peer': {
             'params': [
+                'peer'
             ],
             'urls': [
                 '/cli/global/system/ha/peer/{peer}'
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
         'system_interface': {
             'params': [
+                'interface'
             ],
             'urls': [
                 '/cli/global/system/interface/{interface}'
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'system_localinpolicy': {
             'params': [
+                'local-in-policy'
             ],
             'urls': [
                 '/cli/global/system/local-in-policy/{local-in-policy}'
             ],
             'revision': {
-                '7.2.0': True
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
         'system_localinpolicy6': {
             'params': [
+                'local-in-policy6'
             ],
             'urls': [
                 '/cli/global/system/local-in-policy6/{local-in-policy6}'
             ],
             'revision': {
-                '7.2.0': True
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
         'system_log_devicedisable': {
             'params': [
+                'device-disable'
             ],
             'urls': [
                 '/cli/global/system/log/device-disable/{device-disable}'
             ],
             'revision': {
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
         'system_log_maildomain': {
             'params': [
+                'mail-domain'
             ],
             'urls': [
                 '/cli/global/system/log/mail-domain/{mail-domain}'
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
         'system_log_ratelimit_device': {
             'params': [
+                'device'
             ],
             'urls': [
                 '/cli/global/system/log/ratelimit/device/{device}'
             ],
             'revision': {
-                '7.0.0': True
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
+                '7.0.0': True,
+                '7.0.1': True,
+                '7.0.2': True
             },
             'mkey': 'id'
         },
         'system_log_ratelimit_ratelimits': {
             'params': [
+                'ratelimits'
             ],
             'urls': [
                 '/cli/global/system/log/ratelimit/ratelimits/{ratelimits}'
             ],
             'revision': {
-                '7.2.0': True
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
         'system_logfetch_clientprofile': {
             'params': [
+                'client-profile'
             ],
             'urls': [
                 '/cli/global/system/log-fetch/client-profile/{client-profile}'
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True
             },
             'mkey': 'id'
         },
         'system_logfetch_clientprofile_devicefilter': {
             'params': [
-                'client-profile'
+                'client-profile',
+                'device-filter'
             ],
             'urls': [
                 '/cli/global/system/log-fetch/client-profile/{client-profile}/device-filter/{device-filter}'
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True
             },
             'mkey': 'id'
         },
         'system_logfetch_clientprofile_logfilter': {
             'params': [
-                'client-profile'
+                'client-profile',
+                'log-filter'
             ],
             'urls': [
                 '/cli/global/system/log-fetch/client-profile/{client-profile}/log-filter/{log-filter}'
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True
             },
             'mkey': 'id'
         },
         'system_mail': {
             'params': [
+                'mail'
             ],
             'urls': [
                 '/cli/global/system/mail/{mail}'
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
         'system_meta': {
             'params': [
-                'adom'
+                'adom',
+                'meta'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/system/meta/{meta}',
@@ -8150,21 +19506,48 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'system_meta_sysmetafields': {
             'params': [
                 'adom',
-                'meta'
+                'meta',
+                'sys_meta_fields'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/system/meta/{meta}/sys_meta_fields/{sys_meta_fields}',
@@ -8172,58 +19555,406 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'system_metadata_admins': {
             'params': [
+                'admins'
             ],
             'urls': [
                 '/cli/global/system/metadata/admins/{admins}'
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'fieldname'
         },
+        'system_npu_dswqueuedtsprofile': {
+            'params': [
+                'adom',
+                'dsw-queue-dts-profile'
+            ],
+            'urls': [
+                '/pm/config/global/obj/system/npu/dsw-queue-dts-profile/{dsw-queue-dts-profile}',
+                '/pm/config/adom/{adom}/obj/system/npu/dsw-queue-dts-profile/{dsw-queue-dts-profile}'
+            ],
+            'revision': {
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
+            },
+            'mkey': 'name'
+        },
+        'system_npu_npqueues_ethernettype': {
+            'params': [
+                'adom',
+                'ethernet-type'
+            ],
+            'urls': [
+                '/pm/config/global/obj/system/npu/np-queues/ethernet-type/{ethernet-type}',
+                '/pm/config/adom/{adom}/obj/system/npu/np-queues/ethernet-type/{ethernet-type}'
+            ],
+            'revision': {
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
+            },
+            'mkey': 'name'
+        },
+        'system_npu_npqueues_ipprotocol': {
+            'params': [
+                'adom',
+                'ip-protocol'
+            ],
+            'urls': [
+                '/pm/config/global/obj/system/npu/np-queues/ip-protocol/{ip-protocol}',
+                '/pm/config/adom/{adom}/obj/system/npu/np-queues/ip-protocol/{ip-protocol}'
+            ],
+            'revision': {
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
+            },
+            'mkey': 'name'
+        },
+        'system_npu_npqueues_ipservice': {
+            'params': [
+                'adom',
+                'ip-service'
+            ],
+            'urls': [
+                '/pm/config/global/obj/system/npu/np-queues/ip-service/{ip-service}',
+                '/pm/config/adom/{adom}/obj/system/npu/np-queues/ip-service/{ip-service}'
+            ],
+            'revision': {
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
+            },
+            'mkey': 'name'
+        },
+        'system_npu_npqueues_profile': {
+            'params': [
+                'adom',
+                'profile'
+            ],
+            'urls': [
+                '/pm/config/global/obj/system/npu/np-queues/profile/{profile}',
+                '/pm/config/adom/{adom}/obj/system/npu/np-queues/profile/{profile}'
+            ],
+            'revision': {
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
+            },
+            'mkey': 'id'
+        },
+        'system_npu_npqueues_scheduler': {
+            'params': [
+                'adom',
+                'scheduler'
+            ],
+            'urls': [
+                '/pm/config/global/obj/system/npu/np-queues/scheduler/{scheduler}',
+                '/pm/config/adom/{adom}/obj/system/npu/np-queues/scheduler/{scheduler}'
+            ],
+            'revision': {
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
+            },
+            'mkey': 'name'
+        },
+        'system_npu_tcptimeoutprofile': {
+            'params': [
+                'adom',
+                'tcp-timeout-profile'
+            ],
+            'urls': [
+                '/pm/config/global/obj/system/npu/tcp-timeout-profile/{tcp-timeout-profile}',
+                '/pm/config/adom/{adom}/obj/system/npu/tcp-timeout-profile/{tcp-timeout-profile}'
+            ],
+            'revision': {
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
+            },
+            'mkey': 'id'
+        },
+        'system_npu_udptimeoutprofile': {
+            'params': [
+                'adom',
+                'udp-timeout-profile'
+            ],
+            'urls': [
+                '/pm/config/global/obj/system/npu/udp-timeout-profile/{udp-timeout-profile}',
+                '/pm/config/adom/{adom}/obj/system/npu/udp-timeout-profile/{udp-timeout-profile}'
+            ],
+            'revision': {
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
+            },
+            'mkey': 'id'
+        },
         'system_ntp_ntpserver': {
             'params': [
+                'ntpserver'
             ],
             'urls': [
                 '/cli/global/system/ntp/ntpserver/{ntpserver}'
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
+        'system_objecttag': {
+            'params': [
+                'adom',
+                'object-tag'
+            ],
+            'urls': [
+                '/pm/config/global/obj/system/object-tag/{object-tag}',
+                '/pm/config/adom/{adom}/obj/system/object-tag/{object-tag}'
+            ],
+            'revision': {
+                '6.2.0': True,
+                '6.2.1': True,
+                '6.2.2': True,
+                '6.2.3': True,
+                '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
+                '6.4.0': True,
+                '6.4.1': True,
+                '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
+                '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True
+            },
+            'mkey': 'name'
+        },
         'system_objecttagging': {
             'params': [
-                'adom'
+                'adom',
+                'object-tagging'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/system/object-tagging/{object-tagging}',
@@ -8231,20 +19962,47 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'category'
         },
         'system_replacemsggroup': {
             'params': [
-                'adom'
+                'adom',
+                'replacemsg-group'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/system/replacemsg-group/{replacemsg-group}',
@@ -8252,21 +20010,48 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'system_replacemsggroup_admin': {
             'params': [
                 'adom',
-                'replacemsg-group'
+                'replacemsg-group',
+                'admin'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/system/replacemsg-group/{replacemsg-group}/admin/{admin}',
@@ -8274,21 +20059,48 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'msg-type'
         },
         'system_replacemsggroup_alertmail': {
             'params': [
                 'adom',
-                'replacemsg-group'
+                'replacemsg-group',
+                'alertmail'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/system/replacemsg-group/{replacemsg-group}/alertmail/{alertmail}',
@@ -8296,21 +20108,48 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'msg-type'
         },
         'system_replacemsggroup_auth': {
             'params': [
                 'adom',
-                'replacemsg-group'
+                'replacemsg-group',
+                'auth'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/system/replacemsg-group/{replacemsg-group}/auth/{auth}',
@@ -8318,21 +20157,48 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'msg-type'
         },
         'system_replacemsggroup_custommessage': {
             'params': [
                 'adom',
-                'replacemsg-group'
+                'replacemsg-group',
+                'custom-message'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/system/replacemsg-group/{replacemsg-group}/custom-message/{custom-message}',
@@ -8340,21 +20206,48 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'msg-type'
         },
         'system_replacemsggroup_devicedetectionportal': {
             'params': [
                 'adom',
-                'replacemsg-group'
+                'replacemsg-group',
+                'device-detection-portal'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/system/replacemsg-group/{replacemsg-group}/device-detection-portal/{device-detection-portal}',
@@ -8362,33 +20255,95 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
-                '6.4.5': True
+                '6.4.3': True,
+                '6.4.4': True,
+                '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
+                '7.0.0': True,
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'msg-type'
         },
         'system_replacemsggroup_ec': {
             'params': [
                 'adom',
-                'replacemsg-group'
+                'replacemsg-group',
+                'ec'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/system/replacemsg-group/{replacemsg-group}/ec/{ec}',
                 '/pm/config/global/obj/system/replacemsg-group/{replacemsg-group}/ec/{ec}'
             ],
             'revision': {
-                '6.0.0': True
+                '6.0.0': True,
+                '6.2.0': True,
+                '6.2.1': True,
+                '6.2.2': True,
+                '6.2.3': True,
+                '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
+                '6.4.0': True,
+                '6.4.1': True,
+                '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
+                '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
+                '7.0.0': True,
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True
             },
             'mkey': 'msg-type'
         },
         'system_replacemsggroup_fortiguardwf': {
             'params': [
                 'adom',
-                'replacemsg-group'
+                'replacemsg-group',
+                'fortiguard-wf'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/system/replacemsg-group/{replacemsg-group}/fortiguard-wf/{fortiguard-wf}',
@@ -8396,21 +20351,48 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'msg-type'
         },
         'system_replacemsggroup_ftp': {
             'params': [
                 'adom',
-                'replacemsg-group'
+                'replacemsg-group',
+                'ftp'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/system/replacemsg-group/{replacemsg-group}/ftp/{ftp}',
@@ -8418,21 +20400,48 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'msg-type'
         },
         'system_replacemsggroup_http': {
             'params': [
                 'adom',
-                'replacemsg-group'
+                'replacemsg-group',
+                'http'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/system/replacemsg-group/{replacemsg-group}/http/{http}',
@@ -8440,21 +20449,48 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'msg-type'
         },
         'system_replacemsggroup_icap': {
             'params': [
                 'adom',
-                'replacemsg-group'
+                'replacemsg-group',
+                'icap'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/system/replacemsg-group/{replacemsg-group}/icap/{icap}',
@@ -8462,21 +20498,48 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'msg-type'
         },
         'system_replacemsggroup_mail': {
             'params': [
                 'adom',
-                'replacemsg-group'
+                'replacemsg-group',
+                'mail'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/system/replacemsg-group/{replacemsg-group}/mail/{mail}',
@@ -8484,21 +20547,48 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'msg-type'
         },
         'system_replacemsggroup_mm1': {
             'params': [
                 'adom',
-                'replacemsg-group'
+                'replacemsg-group',
+                'mm1'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/system/replacemsg-group/{replacemsg-group}/mm1/{mm1}',
@@ -8506,16 +20596,48 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
-                '6.2.5': True
+                '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
+                '6.4.0': True,
+                '6.4.1': True,
+                '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
+                '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
+                '7.0.0': True,
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'msg-type'
         },
         'system_replacemsggroup_mm3': {
             'params': [
                 'adom',
-                'replacemsg-group'
+                'replacemsg-group',
+                'mm3'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/system/replacemsg-group/{replacemsg-group}/mm3/{mm3}',
@@ -8523,16 +20645,48 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
-                '6.2.5': True
+                '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
+                '6.4.0': True,
+                '6.4.1': True,
+                '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
+                '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
+                '7.0.0': True,
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'msg-type'
         },
         'system_replacemsggroup_mm4': {
             'params': [
                 'adom',
-                'replacemsg-group'
+                'replacemsg-group',
+                'mm4'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/system/replacemsg-group/{replacemsg-group}/mm4/{mm4}',
@@ -8540,16 +20694,48 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
-                '6.2.5': True
+                '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
+                '6.4.0': True,
+                '6.4.1': True,
+                '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
+                '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
+                '7.0.0': True,
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'msg-type'
         },
         'system_replacemsggroup_mm7': {
             'params': [
                 'adom',
-                'replacemsg-group'
+                'replacemsg-group',
+                'mm7'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/system/replacemsg-group/{replacemsg-group}/mm7/{mm7}',
@@ -8557,16 +20743,48 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
-                '6.2.5': True
+                '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
+                '6.4.0': True,
+                '6.4.1': True,
+                '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
+                '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
+                '7.0.0': True,
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'msg-type'
         },
         'system_replacemsggroup_mms': {
             'params': [
                 'adom',
-                'replacemsg-group'
+                'replacemsg-group',
+                'mms'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/system/replacemsg-group/{replacemsg-group}/mms/{mms}',
@@ -8574,16 +20792,48 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
-                '6.2.5': True
+                '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
+                '6.4.0': True,
+                '6.4.1': True,
+                '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
+                '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
+                '7.0.0': True,
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'msg-type'
         },
         'system_replacemsggroup_nacquar': {
             'params': [
                 'adom',
-                'replacemsg-group'
+                'replacemsg-group',
+                'nac-quar'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/system/replacemsg-group/{replacemsg-group}/nac-quar/{nac-quar}',
@@ -8591,21 +20841,48 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'msg-type'
         },
         'system_replacemsggroup_nntp': {
             'params': [
                 'adom',
-                'replacemsg-group'
+                'replacemsg-group',
+                'nntp'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/system/replacemsg-group/{replacemsg-group}/nntp/{nntp}',
@@ -8613,19 +20890,48 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
-                '6.4.5': True
+                '6.4.3': True,
+                '6.4.4': True,
+                '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
+                '7.0.0': True,
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'msg-type'
         },
         'system_replacemsggroup_spam': {
             'params': [
                 'adom',
-                'replacemsg-group'
+                'replacemsg-group',
+                'spam'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/system/replacemsg-group/{replacemsg-group}/spam/{spam}',
@@ -8633,21 +20939,48 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'msg-type'
         },
         'system_replacemsggroup_sslvpn': {
             'params': [
                 'adom',
-                'replacemsg-group'
+                'replacemsg-group',
+                'sslvpn'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/system/replacemsg-group/{replacemsg-group}/sslvpn/{sslvpn}',
@@ -8655,21 +20988,48 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'msg-type'
         },
         'system_replacemsggroup_trafficquota': {
             'params': [
                 'adom',
-                'replacemsg-group'
+                'replacemsg-group',
+                'traffic-quota'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/system/replacemsg-group/{replacemsg-group}/traffic-quota/{traffic-quota}',
@@ -8677,21 +21037,48 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'msg-type'
         },
         'system_replacemsggroup_utm': {
             'params': [
                 'adom',
-                'replacemsg-group'
+                'replacemsg-group',
+                'utm'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/system/replacemsg-group/{replacemsg-group}/utm/{utm}',
@@ -8699,21 +21086,48 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'msg-type'
         },
         'system_replacemsggroup_webproxy': {
             'params': [
                 'adom',
-                'replacemsg-group'
+                'replacemsg-group',
+                'webproxy'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/system/replacemsg-group/{replacemsg-group}/webproxy/{webproxy}',
@@ -8721,20 +21135,47 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'msg-type'
         },
         'system_replacemsgimage': {
             'params': [
-                'adom'
+                'adom',
+                'replacemsg-image'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/system/replacemsg-image/{replacemsg-image}',
@@ -8742,117 +21183,279 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'system_report_group': {
             'params': [
+                'group'
             ],
             'urls': [
                 '/cli/global/system/report/group/{group}'
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'group-id'
         },
         'system_report_group_chartalternative': {
             'params': [
-                'group'
+                'group',
+                'chart-alternative'
             ],
             'urls': [
                 '/cli/global/system/report/group/{group}/chart-alternative/{chart-alternative}'
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'chart-name'
         },
         'system_report_group_groupby': {
             'params': [
-                'group'
+                'group',
+                'group-by'
             ],
             'urls': [
                 '/cli/global/system/report/group/{group}/group-by/{group-by}'
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'var-name'
         },
         'system_route': {
             'params': [
+                'route'
             ],
             'urls': [
                 '/cli/global/system/route/{route}'
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'seq_num'
         },
         'system_route6': {
             'params': [
+                'route6'
             ],
             'urls': [
                 '/cli/global/system/route6/{route6}'
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'prio'
         },
         'system_sdnconnector': {
             'params': [
-                'adom'
+                'adom',
+                'sdn-connector'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/system/sdn-connector/{sdn-connector}',
@@ -8860,21 +21463,48 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'system_sdnconnector_externalip': {
             'params': [
                 'adom',
-                'sdn-connector'
+                'sdn-connector',
+                'external-ip'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/system/sdn-connector/{sdn-connector}/external-ip/{external-ip}',
@@ -8882,35 +21512,77 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'system_sdnconnector_gcpprojectlist': {
             'params': [
                 'adom',
-                'sdn-connector'
+                'sdn-connector',
+                'gcp-project-list'
             ],
             'urls': [
                 '/pm/config/global/obj/system/sdn-connector/{sdn-connector}/gcp-project-list/{gcp-project-list}',
                 '/pm/config/adom/{adom}/obj/system/sdn-connector/{sdn-connector}/gcp-project-list/{gcp-project-list}'
             ],
             'revision': {
-                '7.2.0': True
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
         'system_sdnconnector_nic': {
             'params': [
                 'adom',
-                'sdn-connector'
+                'sdn-connector',
+                'nic'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/system/sdn-connector/{sdn-connector}/nic/{nic}',
@@ -8918,14 +21590,40 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
@@ -8933,7 +21631,8 @@ def main():
             'params': [
                 'adom',
                 'sdn-connector',
-                'nic'
+                'nic',
+                'ip'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/system/sdn-connector/{sdn-connector}/nic/{nic}/ip/{ip}',
@@ -8941,21 +21640,48 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'system_sdnconnector_route': {
             'params': [
                 'adom',
-                'sdn-connector'
+                'sdn-connector',
+                'route'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/system/sdn-connector/{sdn-connector}/route/{route}',
@@ -8963,21 +21689,48 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'system_sdnconnector_routetable': {
             'params': [
                 'adom',
-                'sdn-connector'
+                'sdn-connector',
+                'route-table'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/system/sdn-connector/{sdn-connector}/route-table/{route-table}',
@@ -8985,14 +21738,40 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
@@ -9000,7 +21779,8 @@ def main():
             'params': [
                 'adom',
                 'sdn-connector',
-                'route-table'
+                'route-table',
+                'route'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/system/sdn-connector/{sdn-connector}/route-table/{route-table}/route/{route}',
@@ -9008,20 +21788,47 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'system_smsserver': {
             'params': [
-                'adom'
+                'adom',
+                'sms-server'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/system/sms-server/{sms-server}',
@@ -9029,133 +21836,333 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'system_sniffer': {
             'params': [
+                'sniffer'
             ],
             'urls': [
                 '/cli/global/system/sniffer/{sniffer}'
             ],
             'revision': {
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
         'system_snmp_community': {
             'params': [
+                'community'
             ],
             'urls': [
                 '/cli/global/system/snmp/community/{community}'
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
         'system_snmp_community_hosts': {
             'params': [
-                'community'
+                'community',
+                'hosts'
             ],
             'urls': [
                 '/cli/global/system/snmp/community/{community}/hosts/{hosts}'
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
         'system_snmp_community_hosts6': {
             'params': [
-                'community'
+                'community',
+                'hosts6'
             ],
             'urls': [
                 '/cli/global/system/snmp/community/{community}/hosts6/{hosts6}'
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
         'system_snmp_user': {
             'params': [
+                'user'
             ],
             'urls': [
                 '/cli/global/system/snmp/user/{user}'
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
+        'system_socfabric_trustedlist': {
+            'params': [
+                'trusted-list'
+            ],
+            'urls': [
+                '/cli/global/system/soc-fabric/trusted-list/{trusted-list}'
+            ],
+            'revision': {
+                '7.4.0': True
+            },
+            'mkey': 'id'
+        },
         'system_sql_customindex': {
             'params': [
+                'custom-index'
             ],
             'urls': [
                 '/cli/global/system/sql/custom-index/{custom-index}'
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
         'system_sql_customskipidx': {
             'params': [
+                'custom-skipidx'
             ],
             'urls': [
                 '/cli/global/system/sql/custom-skipidx/{custom-skipidx}'
@@ -9163,36 +22170,88 @@ def main():
             'revision': {
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
         'system_syslog': {
             'params': [
+                'syslog'
             ],
             'urls': [
                 '/cli/global/system/syslog/{syslog}'
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'system_virtualwirepair': {
             'params': [
-                'adom'
+                'adom',
+                'virtual-wire-pair'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/system/virtual-wire-pair/{virtual-wire-pair}',
@@ -9200,59 +22259,140 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'system_workflow_approvalmatrix': {
             'params': [
+                'approval-matrix'
             ],
             'urls': [
                 '/cli/global/system/workflow/approval-matrix/{approval-matrix}'
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'adom-name'
         },
         'system_workflow_approvalmatrix_approver': {
             'params': [
-                'approval-matrix'
+                'approval-matrix',
+                'approver'
             ],
             'urls': [
                 '/cli/global/system/workflow/approval-matrix/{approval-matrix}/approver/{approver}'
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'seq_num'
         },
         'template': {
             'params': [
-                'adom'
+                'adom',
+                'template'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/cli/template/{template}',
@@ -9260,20 +22400,47 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'templategroup': {
             'params': [
-                'adom'
+                'adom',
+                'template-group'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/cli/template-group/{template-group}',
@@ -9281,20 +22448,47 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'user_adgrp': {
             'params': [
-                'adom'
+                'adom',
+                'adgrp'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/user/adgrp/{adgrp}',
@@ -9302,20 +22496,61 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
+            },
+            'mkey': 'id'
+        },
+        'user_certificate': {
+            'params': [
+                'adom',
+                'certificate'
+            ],
+            'urls': [
+                '/pm/config/global/obj/user/certificate/{certificate}',
+                '/pm/config/adom/{adom}/obj/user/certificate/{certificate}'
+            ],
+            'revision': {
+                '7.4.0': True
             },
             'mkey': 'id'
         },
         'user_clearpass': {
             'params': [
-                'adom'
+                'adom',
+                'clearpass'
             ],
             'urls': [
                 '/pm/config/global/obj/user/clearpass/{clearpass}',
@@ -9323,32 +22558,69 @@ def main():
             ],
             'revision': {
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'user_connector': {
             'params': [
-                'adom'
+                'adom',
+                'connector'
             ],
             'urls': [
                 '/pm/config/global/obj/user/connector/{connector}',
                 '/pm/config/adom/{adom}/obj/user/connector/{connector}'
             ],
             'revision': {
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'user_device': {
             'params': [
-                'adom'
+                'adom',
+                'device'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/user/device/{device}',
@@ -9356,16 +22628,48 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
-                '6.2.5': True
+                '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
+                '6.4.0': True,
+                '6.4.1': True,
+                '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
+                '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
+                '7.0.0': True,
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'alias'
         },
         'user_device_dynamicmapping': {
             'params': [
                 'adom',
-                'device'
+                'device',
+                'dynamic_mapping'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/user/device/{device}/dynamic_mapping/{dynamic_mapping}',
@@ -9373,16 +22677,48 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
-                '6.2.5': True
+                '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
+                '6.4.0': True,
+                '6.4.1': True,
+                '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
+                '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
+                '7.0.0': True,
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'complex:{{module}}["_scope"][0]["name"]+"/"+{{module}}["_scope"][0]["vdom"]'
         },
         'user_device_tagging': {
             'params': [
                 'adom',
-                'device'
+                'device',
+                'tagging'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/user/device/{device}/tagging/{tagging}',
@@ -9390,69 +22726,320 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
-                '6.2.5': True
+                '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
+                '6.4.0': True,
+                '6.4.1': True,
+                '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
+                '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
+                '7.0.0': True,
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
+        'user_deviceaccesslist': {
+            'params': [
+                'adom',
+                'device-access-list'
+            ],
+            'urls': [
+                '/pm/config/global/obj/user/device-access-list/{device-access-list}',
+                '/pm/config/adom/{adom}/obj/user/device-access-list/{device-access-list}'
+            ],
+            'revision': {
+                '6.2.2': True,
+                '6.2.3': True,
+                '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
+                '6.4.0': True,
+                '6.4.1': True,
+                '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
+                '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
+                '7.0.0': True,
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True
+            },
+            'mkey': 'name'
+        },
+        'user_deviceaccesslist_devicelist': {
+            'params': [
+                'adom',
+                'device-access-list',
+                'device-list'
+            ],
+            'urls': [
+                '/pm/config/global/obj/user/device-access-list/{device-access-list}/device-list/{device-list}',
+                '/pm/config/adom/{adom}/obj/user/device-access-list/{device-access-list}/device-list/{device-list}'
+            ],
+            'revision': {
+                '6.2.2': True,
+                '6.2.3': True,
+                '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
+                '6.4.0': True,
+                '6.4.1': True,
+                '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
+                '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
+                '7.0.0': True,
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True
+            },
+            'mkey': 'id'
+        },
         'user_devicecategory': {
             'params': [
-                'adom'
+                'adom',
+                'device-category'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/user/device-category/{device-category}',
                 '/pm/config/global/obj/user/device-category/{device-category}'
             ],
             'revision': {
-                '6.0.0': True
+                '6.0.0': True,
+                '6.2.0': True,
+                '6.2.1': True,
+                '6.2.2': True,
+                '6.2.3': True,
+                '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
+                '6.4.0': True,
+                '6.4.1': True,
+                '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
+                '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
+                '7.0.0': True,
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True
             },
             'mkey': 'name'
         },
         'user_devicegroup': {
             'params': [
-                'adom'
+                'adom',
+                'device-group'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/user/device-group/{device-group}',
                 '/pm/config/global/obj/user/device-group/{device-group}'
             ],
             'revision': {
-                '6.0.0': True
+                '6.0.0': True,
+                '6.2.0': True,
+                '6.2.1': True,
+                '6.2.2': True,
+                '6.2.3': True,
+                '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
+                '6.4.0': True,
+                '6.4.1': True,
+                '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
+                '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
+                '7.0.0': True,
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True
             },
             'mkey': 'name'
         },
         'user_devicegroup_dynamicmapping': {
             'params': [
                 'adom',
-                'device-group'
+                'device-group',
+                'dynamic_mapping'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/user/device-group/{device-group}/dynamic_mapping/{dynamic_mapping}',
                 '/pm/config/global/obj/user/device-group/{device-group}/dynamic_mapping/{dynamic_mapping}'
             ],
             'revision': {
-                '6.0.0': True
+                '6.0.0': True,
+                '6.2.0': True,
+                '6.2.1': True,
+                '6.2.2': True,
+                '6.2.3': True,
+                '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
+                '6.4.0': True,
+                '6.4.1': True,
+                '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
+                '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
+                '7.0.0': True,
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True
             },
             'mkey': 'complex:{{module}}["_scope"][0]["name"]+"/"+{{module}}["_scope"][0]["vdom"]'
         },
         'user_devicegroup_tagging': {
             'params': [
                 'adom',
-                'device-group'
+                'device-group',
+                'tagging'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/user/device-group/{device-group}/tagging/{tagging}',
                 '/pm/config/global/obj/user/device-group/{device-group}/tagging/{tagging}'
             ],
             'revision': {
-                '6.0.0': True
+                '6.0.0': True,
+                '6.2.0': True,
+                '6.2.1': True,
+                '6.2.2': True,
+                '6.2.3': True,
+                '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
+                '6.4.0': True,
+                '6.4.1': True,
+                '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
+                '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
+                '7.0.0': True,
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True
             },
             'mkey': 'name'
         },
         'user_domaincontroller': {
             'params': [
-                'adom'
+                'adom',
+                'domain-controller'
             ],
             'urls': [
                 '/pm/config/global/obj/user/domain-controller/{domain-controller}',
@@ -9460,20 +23047,46 @@ def main():
             ],
             'revision': {
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'user_domaincontroller_extraserver': {
             'params': [
                 'adom',
-                'domain-controller'
+                'domain-controller',
+                'extra-server'
             ],
             'urls': [
                 '/pm/config/global/obj/user/domain-controller/{domain-controller}/extra-server/{extra-server}',
@@ -9481,39 +23094,108 @@ def main():
             ],
             'revision': {
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
         'user_exchange': {
             'params': [
-                'adom'
+                'adom',
+                'exchange'
             ],
             'urls': [
                 '/pm/config/global/obj/user/exchange/{exchange}',
                 '/pm/config/adom/{adom}/obj/user/exchange/{exchange}'
             ],
             'revision': {
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
+            },
+            'mkey': 'name'
+        },
+        'user_flexvm': {
+            'params': [
+                'adom',
+                'flexvm'
+            ],
+            'urls': [
+                '/pm/config/global/obj/user/flexvm/{flexvm}',
+                '/pm/config/adom/{adom}/obj/user/flexvm/{flexvm}'
+            ],
+            'revision': {
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'user_fortitoken': {
             'params': [
-                'adom'
+                'adom',
+                'fortitoken'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/user/fortitoken/{fortitoken}',
@@ -9521,20 +23203,47 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'serial-number'
         },
         'user_fsso': {
             'params': [
-                'adom'
+                'adom',
+                'fsso'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/user/fsso/{fsso}',
@@ -9542,21 +23251,48 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'user_fsso_dynamicmapping': {
             'params': [
                 'adom',
-                'fsso'
+                'fsso',
+                'dynamic_mapping'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/user/fsso/{fsso}/dynamic_mapping/{dynamic_mapping}',
@@ -9564,20 +23300,47 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'complex:{{module}}["_scope"][0]["name"]+"/"+{{module}}["_scope"][0]["vdom"]'
         },
         'user_fssopolling': {
             'params': [
-                'adom'
+                'adom',
+                'fsso-polling'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/user/fsso-polling/{fsso-polling}',
@@ -9585,21 +23348,48 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
         'user_fssopolling_adgrp': {
             'params': [
                 'adom',
-                'fsso-polling'
+                'fsso-polling',
+                'adgrp'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/user/fsso-polling/{fsso-polling}/adgrp/{adgrp}',
@@ -9607,20 +23397,47 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'user_group': {
             'params': [
-                'adom'
+                'adom',
+                'group'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/user/group/{group}',
@@ -9628,28 +23445,64 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'user_group_dynamicmapping': {
             'params': [
                 'adom',
-                'group'
+                'group',
+                'dynamic_mapping'
             ],
             'urls': [
                 '/pm/config/global/obj/user/group/{group}/dynamic_mapping/{dynamic_mapping}',
                 '/pm/config/adom/{adom}/obj/user/group/{group}/dynamic_mapping/{dynamic_mapping}'
             ],
             'revision': {
-                '7.2.0': True
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
@@ -9657,14 +23510,24 @@ def main():
             'params': [
                 'adom',
                 'group',
-                'dynamic_mapping'
+                'dynamic_mapping',
+                'guest'
             ],
             'urls': [
                 '/pm/config/global/obj/user/group/{group}/dynamic_mapping/{dynamic_mapping}/guest/{guest}',
                 '/pm/config/adom/{adom}/obj/user/group/{group}/dynamic_mapping/{dynamic_mapping}/guest/{guest}'
             ],
             'revision': {
-                '7.2.0': True
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
@@ -9672,21 +23535,32 @@ def main():
             'params': [
                 'adom',
                 'group',
-                'dynamic_mapping'
+                'dynamic_mapping',
+                'match'
             ],
             'urls': [
                 '/pm/config/global/obj/user/group/{group}/dynamic_mapping/{dynamic_mapping}/match/{match}',
                 '/pm/config/adom/{adom}/obj/user/group/{group}/dynamic_mapping/{dynamic_mapping}/match/{match}'
             ],
             'revision': {
-                '7.2.0': True
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
         'user_group_guest': {
             'params': [
                 'adom',
-                'group'
+                'group',
+                'guest'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/user/group/{group}/guest/{guest}',
@@ -9694,21 +23568,48 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'user-id'
         },
         'user_group_match': {
             'params': [
                 'adom',
-                'group'
+                'group',
+                'match'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/user/group/{group}/match/{match}',
@@ -9716,20 +23617,63 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
+        'user_json': {
+            'params': [
+                'adom',
+                'json'
+            ],
+            'urls': [
+                '/pm/config/global/obj/user/json/{json}',
+                '/pm/config/adom/{adom}/obj/user/json/{json}'
+            ],
+            'revision': {
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
+            },
+            'mkey': 'name'
+        },
         'user_krbkeytab': {
             'params': [
-                'adom'
+                'adom',
+                'krb-keytab'
             ],
             'urls': [
                 '/pm/config/global/obj/user/krb-keytab/{krb-keytab}',
@@ -9737,19 +23681,45 @@ def main():
             ],
             'revision': {
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'user_ldap': {
             'params': [
-                'adom'
+                'adom',
+                'ldap'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/user/ldap/{ldap}',
@@ -9757,21 +23727,48 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'user_ldap_dynamicmapping': {
             'params': [
                 'adom',
-                'ldap'
+                'ldap',
+                'dynamic_mapping'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/user/ldap/{ldap}/dynamic_mapping/{dynamic_mapping}',
@@ -9779,20 +23776,47 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'complex:{{module}}["_scope"][0]["name"]+"/"+{{module}}["_scope"][0]["vdom"]'
         },
         'user_local': {
             'params': [
-                'adom'
+                'adom',
+                'local'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/user/local/{local}',
@@ -9800,20 +23824,47 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'user_nsx': {
             'params': [
-                'adom'
+                'adom',
+                'nsx'
             ],
             'urls': [
                 '/pm/config/global/obj/user/nsx/{nsx}',
@@ -9821,33 +23872,67 @@ def main():
             ],
             'revision': {
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'user_nsx_service': {
             'params': [
                 'adom',
-                'nsx'
+                'nsx',
+                'service'
             ],
             'urls': [
                 '/pm/config/global/obj/user/nsx/{nsx}/service/{service}',
                 '/pm/config/adom/{adom}/obj/user/nsx/{nsx}/service/{service}'
             ],
             'revision': {
-                '7.2.0': True
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
         'user_passwordpolicy': {
             'params': [
-                'adom'
+                'adom',
+                'password-policy'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/user/password-policy/{password-policy}',
@@ -9855,20 +23940,47 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'user_peer': {
             'params': [
-                'adom'
+                'adom',
+                'peer'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/user/peer/{peer}',
@@ -9876,20 +23988,47 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'user_peergrp': {
             'params': [
-                'adom'
+                'adom',
+                'peergrp'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/user/peergrp/{peergrp}',
@@ -9897,20 +24036,47 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'user_pop3': {
             'params': [
-                'adom'
+                'adom',
+                'pop3'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/user/pop3/{pop3}',
@@ -9918,20 +24084,47 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'user_pxgrid': {
             'params': [
-                'adom'
+                'adom',
+                'pxgrid'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/user/pxgrid/{pxgrid}',
@@ -9939,20 +24132,47 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'user_radius': {
             'params': [
-                'adom'
+                'adom',
+                'radius'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/user/radius/{radius}',
@@ -9960,21 +24180,48 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'user_radius_accountingserver': {
             'params': [
                 'adom',
-                'radius'
+                'radius',
+                'accounting-server'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/user/radius/{radius}/accounting-server/{accounting-server}',
@@ -9982,21 +24229,48 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
         'user_radius_dynamicmapping': {
             'params': [
                 'adom',
-                'radius'
+                'radius',
+                'dynamic_mapping'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/user/radius/{radius}/dynamic_mapping/{dynamic_mapping}',
@@ -10004,14 +24278,40 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'complex:{{module}}["_scope"][0]["name"]+"/"+{{module}}["_scope"][0]["vdom"]'
         },
@@ -10019,23 +24319,48 @@ def main():
             'params': [
                 'adom',
                 'radius',
-                'dynamic_mapping'
+                'dynamic_mapping',
+                'accounting-server'
             ],
             'urls': [
                 '/pm/config/global/obj/user/radius/{radius}/dynamic_mapping/{dynamic_mapping}/accounting-server/{accounting-server}',
                 '/pm/config/adom/{adom}/obj/user/radius/{radius}/dynamic_mapping/{dynamic_mapping}/accounting-server/{accounting-server}'
             ],
             'revision': {
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
         'user_saml': {
             'params': [
-                'adom'
+                'adom',
+                'saml'
             ],
             'urls': [
                 '/pm/config/global/obj/user/saml/{saml}',
@@ -10043,16 +24368,36 @@ def main():
             ],
             'revision': {
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'user_securityexemptlist': {
             'params': [
-                'adom'
+                'adom',
+                'security-exempt-list'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/user/security-exempt-list/{security-exempt-list}',
@@ -10060,21 +24405,48 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'user_securityexemptlist_rule': {
             'params': [
                 'adom',
-                'security-exempt-list'
+                'security-exempt-list',
+                'rule'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/user/security-exempt-list/{security-exempt-list}/rule/{rule}',
@@ -10082,20 +24454,47 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
         'user_tacacs': {
             'params': [
-                'adom'
+                'adom',
+                'tacacs+'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/user/tacacs+/{tacacs+}',
@@ -10103,21 +24502,48 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'user_tacacs_dynamicmapping': {
             'params': [
                 'adom',
-                'tacacs+'
+                'tacacs+',
+                'dynamic_mapping'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/user/tacacs+/{tacacs+}/dynamic_mapping/{dynamic_mapping}',
@@ -10125,20 +24551,47 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'complex:{{module}}["_scope"][0]["name"]+"/"+{{module}}["_scope"][0]["vdom"]'
         },
         'user_vcenter': {
             'params': [
-                'adom'
+                'adom',
+                'vcenter'
             ],
             'urls': [
                 '/pm/config/global/obj/user/vcenter/{vcenter}',
@@ -10146,17 +24599,37 @@ def main():
             ],
             'revision': {
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'user_vcenter_rule': {
             'params': [
                 'adom',
-                'vcenter'
+                'vcenter',
+                'rule'
             ],
             'urls': [
                 '/pm/config/global/obj/user/vcenter/{vcenter}/rule/{rule}',
@@ -10164,35 +24637,81 @@ def main():
             ],
             'revision': {
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'utmprofile': {
             'params': [
-                'adom'
+                'adom',
+                'utm-profile'
             ],
             'urls': [
                 '/pm/config/global/obj/wireless-controller/utm-profile/{utm-profile}',
                 '/pm/config/adom/{adom}/obj/wireless-controller/utm-profile/{utm-profile}'
             ],
             'revision': {
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'vap': {
             'params': [
-                'adom'
+                'adom',
+                'vap'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/wireless-controller/vap/{vap}',
@@ -10200,21 +24719,48 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'vap_dynamicmapping': {
             'params': [
                 'adom',
-                'vap'
+                'vap',
+                'dynamic_mapping'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/wireless-controller/vap/{vap}/dynamic_mapping/{dynamic_mapping}',
@@ -10222,21 +24768,48 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'complex:{{module}}["_scope"][0]["name"]+"/"+{{module}}["_scope"][0]["vdom"]'
         },
         'vap_macfilterlist': {
             'params': [
                 'adom',
-                'vap'
+                'vap',
+                'mac-filter-list'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/wireless-controller/vap/{vap}/mac-filter-list/{mac-filter-list}',
@@ -10244,21 +24817,48 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
         'vap_mpskkey': {
             'params': [
                 'adom',
-                'vap'
+                'vap',
+                'mpsk-key'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/wireless-controller/vap/{vap}/mpsk-key/{mpsk-key}',
@@ -10266,33 +24866,71 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
-                '6.4.5': True
+                '6.4.3': True,
+                '6.4.4': True,
+                '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
+                '7.0.0': True,
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'key-name'
         },
         'vap_vlanname': {
             'params': [
                 'adom',
-                'vap'
+                'vap',
+                'vlan-name'
             ],
             'urls': [
                 '/pm/config/global/obj/wireless-controller/vap/{vap}/vlan-name/{vlan-name}',
                 '/pm/config/adom/{adom}/obj/wireless-controller/vap/{vap}/vlan-name/{vlan-name}'
             ],
             'revision': {
-                '7.2.0': True
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'vap_vlanpool': {
             'params': [
                 'adom',
-                'vap'
+                'vap',
+                'vlan-pool'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/wireless-controller/vap/{vap}/vlan-pool/{vlan-pool}',
@@ -10300,20 +24938,47 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
         'vapgroup': {
             'params': [
-                'adom'
+                'adom',
+                'vap-group'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/wireless-controller/vap-group/{vap-group}',
@@ -10321,20 +24986,47 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'videofilter_profile': {
             'params': [
-                'adom'
+                'adom',
+                'profile'
             ],
             'urls': [
                 '/pm/config/global/obj/videofilter/profile/{profile}',
@@ -10342,14 +25034,25 @@ def main():
             ],
             'revision': {
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'videofilter_profile_fortiguardcategory_filters': {
             'params': [
                 'adom',
-                'profile'
+                'profile',
+                'filters'
             ],
             'urls': [
                 '/pm/config/global/obj/videofilter/profile/{profile}/fortiguard-category/filters/{filters}',
@@ -10357,13 +25060,24 @@ def main():
             ],
             'revision': {
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
         'videofilter_youtubechannelfilter': {
             'params': [
-                'adom'
+                'adom',
+                'youtube-channel-filter'
             ],
             'urls': [
                 '/pm/config/global/obj/videofilter/youtube-channel-filter/{youtube-channel-filter}',
@@ -10371,14 +25085,25 @@ def main():
             ],
             'revision': {
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
         'videofilter_youtubechannelfilter_entries': {
             'params': [
                 'adom',
-                'youtube-channel-filter'
+                'youtube-channel-filter',
+                'entries'
             ],
             'urls': [
                 '/pm/config/global/obj/videofilter/youtube-channel-filter/{youtube-channel-filter}/entries/{entries}',
@@ -10386,13 +25111,24 @@ def main():
             ],
             'revision': {
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
         'voip_profile': {
             'params': [
-                'adom'
+                'adom',
+                'profile'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/voip/profile/{profile}',
@@ -10400,20 +25136,47 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'vpn_certificate_ca': {
             'params': [
-                'adom'
+                'adom',
+                'ca'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/vpn/certificate/ca/{ca}',
@@ -10421,20 +25184,47 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'vpn_certificate_ocspserver': {
             'params': [
-                'adom'
+                'adom',
+                'ocsp-server'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/vpn/certificate/ocsp-server/{ocsp-server}',
@@ -10442,20 +25232,47 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'vpn_certificate_remote': {
             'params': [
-                'adom'
+                'adom',
+                'remote'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/vpn/certificate/remote/{remote}',
@@ -10463,46 +25280,104 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'vpn_ipsec_fec': {
             'params': [
-                'adom'
+                'adom',
+                'fec'
             ],
             'urls': [
                 '/pm/config/global/obj/vpn/ipsec/fec/{fec}',
                 '/pm/config/adom/{adom}/obj/vpn/ipsec/fec/{fec}'
             ],
             'revision': {
-                '7.2.0': True
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'vpn_ssl_settings_authenticationrule': {
             'params': [
                 'device',
-                'vdom'
+                'vdom',
+                'authentication-rule'
             ],
             'urls': [
                 '/pm/config/device/{device}/vdom/{vdom}/vpn/ssl/settings/authentication-rule/{authentication-rule}'
             ],
             'revision': {
-                '6.4.2': True
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
+                '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
+                '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
+                '7.0.0': True,
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
         'vpnmgr_node': {
             'params': [
-                'adom'
+                'adom',
+                'node'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/vpnmgr/node/{node}',
@@ -10510,21 +25385,48 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
         'vpnmgr_node_iprange': {
             'params': [
                 'adom',
-                'node'
+                'node',
+                'ip-range'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/vpnmgr/node/{node}/ip-range/{ip-range}',
@@ -10532,21 +25434,48 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
         'vpnmgr_node_ipv4excluderange': {
             'params': [
                 'adom',
-                'node'
+                'node',
+                'ipv4-exclude-range'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/vpnmgr/node/{node}/ipv4-exclude-range/{ipv4-exclude-range}',
@@ -10554,21 +25483,48 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
         'vpnmgr_node_protectedsubnet': {
             'params': [
                 'adom',
-                'node'
+                'node',
+                'protected_subnet'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/vpnmgr/node/{node}/protected_subnet/{protected_subnet}',
@@ -10576,21 +25532,48 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'seq'
         },
         'vpnmgr_node_summaryaddr': {
             'params': [
                 'adom',
-                'node'
+                'node',
+                'summary_addr'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/vpnmgr/node/{node}/summary_addr/{summary_addr}',
@@ -10598,20 +25581,47 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'seq'
         },
         'vpnmgr_vpntable': {
             'params': [
-                'adom'
+                'adom',
+                'vpntable'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/vpnmgr/vpntable/{vpntable}',
@@ -10619,20 +25629,47 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'vpnsslweb_hostchecksoftware': {
             'params': [
-                'adom'
+                'adom',
+                'host-check-software'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/vpn/ssl/web/host-check-software/{host-check-software}',
@@ -10640,21 +25677,48 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'vpnsslweb_hostchecksoftware_checkitemlist': {
             'params': [
                 'adom',
-                'host-check-software'
+                'host-check-software',
+                'check-item-list'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/vpn/ssl/web/host-check-software/{host-check-software}/check-item-list/{check-item-list}',
@@ -10662,20 +25726,47 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
         'vpnsslweb_portal': {
             'params': [
-                'adom'
+                'adom',
+                'portal'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/vpn/ssl/web/portal/{portal}',
@@ -10683,21 +25774,48 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'vpnsslweb_portal_bookmarkgroup': {
             'params': [
                 'adom',
-                'portal'
+                'portal',
+                'bookmark-group'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/vpn/ssl/web/portal/{portal}/bookmark-group/{bookmark-group}',
@@ -10705,14 +25823,40 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
@@ -10720,7 +25864,8 @@ def main():
             'params': [
                 'adom',
                 'portal',
-                'bookmark-group'
+                'bookmark-group',
+                'bookmarks'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/vpn/ssl/web/portal/{portal}/bookmark-group/{bookmark-group}/bookmarks/{bookmarks}',
@@ -10728,14 +25873,40 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
@@ -10744,7 +25915,8 @@ def main():
                 'adom',
                 'portal',
                 'bookmark-group',
-                'bookmarks'
+                'bookmarks',
+                'form-data'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/vpn/ssl/web/portal/{portal}/bookmark-group/{bookmark-group}/bookmarks/{bookmarks}/form-data/{form-data}',
@@ -10752,21 +25924,63 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
+            },
+            'mkey': 'name'
+        },
+        'vpnsslweb_portal_landingpage_formdata': {
+            'params': [
+                'adom',
+                'portal',
+                'form-data'
+            ],
+            'urls': [
+                '/pm/config/global/obj/vpn/ssl/web/portal/{portal}/landing-page/form-data/{form-data}',
+                '/pm/config/adom/{adom}/obj/vpn/ssl/web/portal/{portal}/landing-page/form-data/{form-data}'
+            ],
+            'revision': {
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'vpnsslweb_portal_macaddrcheckrule': {
             'params': [
                 'adom',
-                'portal'
+                'portal',
+                'mac-addr-check-rule'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/vpn/ssl/web/portal/{portal}/mac-addr-check-rule/{mac-addr-check-rule}',
@@ -10774,21 +25988,48 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'vpnsslweb_portal_splitdns': {
             'params': [
                 'adom',
-                'portal'
+                'portal',
+                'split-dns'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/vpn/ssl/web/portal/{portal}/split-dns/{split-dns}',
@@ -10796,20 +26037,94 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
+        'vpnsslweb_virtualdesktopapplist': {
+            'params': [
+                'adom',
+                'virtual-desktop-app-list'
+            ],
+            'urls': [
+                '/pm/config/global/obj/vpn/ssl/web/virtual-desktop-app-list/{virtual-desktop-app-list}',
+                '/pm/config/adom/{adom}/obj/vpn/ssl/web/virtual-desktop-app-list/{virtual-desktop-app-list}'
+            ],
+            'revision': {
+                '6.2.0': True,
+                '6.2.1': True,
+                '6.2.2': True,
+                '6.2.3': True,
+                '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True
+            },
+            'mkey': 'name'
+        },
+        'vpnsslweb_virtualdesktopapplist_apps': {
+            'params': [
+                'adom',
+                'virtual-desktop-app-list',
+                'apps'
+            ],
+            'urls': [
+                '/pm/config/global/obj/vpn/ssl/web/virtual-desktop-app-list/{virtual-desktop-app-list}/apps/{apps}',
+                '/pm/config/adom/{adom}/obj/vpn/ssl/web/virtual-desktop-app-list/{virtual-desktop-app-list}/apps/{apps}'
+            ],
+            'revision': {
+                '6.2.0': True,
+                '6.2.1': True,
+                '6.2.2': True,
+                '6.2.3': True,
+                '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True
+            },
+            'mkey': 'name'
+        },
         'waf_mainclass': {
             'params': [
-                'adom'
+                'adom',
+                'main-class'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/waf/main-class/{main-class}',
@@ -10817,20 +26132,47 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
         'waf_profile': {
             'params': [
-                'adom'
+                'adom',
+                'profile'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/waf/profile/{profile}',
@@ -10838,21 +26180,48 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'waf_profile_constraint_exception': {
             'params': [
                 'adom',
-                'profile'
+                'profile',
+                'exception'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/waf/profile/{profile}/constraint/exception/{exception}',
@@ -10860,21 +26229,48 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
         'waf_profile_method_methodpolicy': {
             'params': [
                 'adom',
-                'profile'
+                'profile',
+                'method-policy'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/waf/profile/{profile}/method/method-policy/{method-policy}',
@@ -10882,21 +26278,48 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
         'waf_profile_signature_customsignature': {
             'params': [
                 'adom',
-                'profile'
+                'profile',
+                'custom-signature'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/waf/profile/{profile}/signature/custom-signature/{custom-signature}',
@@ -10904,21 +26327,48 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'waf_profile_urlaccess': {
             'params': [
                 'adom',
-                'profile'
+                'profile',
+                'url-access'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/waf/profile/{profile}/url-access/{url-access}',
@@ -10926,14 +26376,40 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
@@ -10941,7 +26417,8 @@ def main():
             'params': [
                 'adom',
                 'profile',
-                'url-access'
+                'url-access',
+                'access-pattern'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/waf/profile/{profile}/url-access/{url-access}/access-pattern/{access-pattern}',
@@ -10949,20 +26426,47 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
         'waf_signature': {
             'params': [
-                'adom'
+                'adom',
+                'signature'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/waf/signature/{signature}',
@@ -10970,20 +26474,47 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
         'waf_subclass': {
             'params': [
-                'adom'
+                'adom',
+                'sub-class'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/waf/sub-class/{sub-class}',
@@ -10991,20 +26522,47 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
         'wagprofile': {
             'params': [
-                'adom'
+                'adom',
+                'wag-profile'
             ],
             'urls': [
                 '/pm/config/global/obj/wireless-controller/wag-profile/{wag-profile}',
@@ -11013,17 +26571,42 @@ def main():
             'revision': {
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'wanopt_authgroup': {
             'params': [
-                'adom'
+                'adom',
+                'auth-group'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/wanopt/auth-group/{auth-group}',
@@ -11031,20 +26614,47 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'wanopt_peer': {
             'params': [
-                'adom'
+                'adom',
+                'peer'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/wanopt/peer/{peer}',
@@ -11052,20 +26662,47 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'peer-host-id'
         },
         'wanopt_profile': {
             'params': [
-                'adom'
+                'adom',
+                'profile'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/wanopt/profile/{profile}',
@@ -11073,46 +26710,111 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'wanprof_system_sdwan_duplication': {
             'params': [
                 'adom',
-                'wanprof'
+                'wanprof',
+                'duplication'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/wanprof/{wanprof}/system/sdwan/duplication/{duplication}'
             ],
             'revision': {
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
         'wanprof_system_sdwan_healthcheck': {
             'params': [
                 'adom',
-                'wanprof'
+                'wanprof',
+                'health-check'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/wanprof/{wanprof}/system/sdwan/health-check/{health-check}'
             ],
             'revision': {
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
@@ -11120,32 +26822,72 @@ def main():
             'params': [
                 'adom',
                 'wanprof',
-                'health-check'
+                'health-check',
+                'sla'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/wanprof/{wanprof}/system/sdwan/health-check/{health-check}/sla/{sla}'
             ],
             'revision': {
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
         'wanprof_system_sdwan_service': {
             'params': [
                 'adom',
-                'wanprof'
+                'wanprof',
+                'service'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/wanprof/{wanprof}/system/sdwan/service/{service}'
             ],
             'revision': {
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
@@ -11153,49 +26895,120 @@ def main():
             'params': [
                 'adom',
                 'wanprof',
-                'service'
+                'service',
+                'sla'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/wanprof/{wanprof}/system/sdwan/service/{service}/sla/{sla}'
             ],
             'revision': {
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
         'wanprof_system_sdwan_zone': {
             'params': [
                 'adom',
-                'wanprof'
+                'wanprof',
+                'zone'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/wanprof/{wanprof}/system/sdwan/zone/{zone}'
             ],
             'revision': {
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'wanprof_system_virtualwanlink_healthcheck': {
             'params': [
                 'adom',
-                'wanprof'
+                'wanprof',
+                'health-check'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/wanprof/{wanprof}/system/virtual-wan-link/health-check/{health-check}'
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
-                '6.4.0': True
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
+                '6.4.0': True,
+                '6.4.1': True,
+                '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
+                '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
+                '7.0.0': True,
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
@@ -11203,51 +27016,144 @@ def main():
             'params': [
                 'adom',
                 'wanprof',
-                'health-check'
+                'health-check',
+                'sla'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/wanprof/{wanprof}/system/virtual-wan-link/health-check/{health-check}/sla/{sla}'
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
-                '6.4.0': True
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
+                '6.4.0': True,
+                '6.4.1': True,
+                '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
+                '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
+                '7.0.0': True,
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
         'wanprof_system_virtualwanlink_members': {
             'params': [
                 'adom',
-                'wanprof'
+                'wanprof',
+                'members'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/wanprof/{wanprof}/system/virtual-wan-link/members/{members}'
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
-                '6.4.0': True
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
+                '6.4.0': True,
+                '6.4.1': True,
+                '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
+                '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
+                '7.0.0': True,
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'seq-num'
         },
         'wanprof_system_virtualwanlink_service': {
             'params': [
                 'adom',
-                'wanprof'
+                'wanprof',
+                'service'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/wanprof/{wanprof}/system/virtual-wan-link/service/{service}'
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
-                '6.4.0': True
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
+                '6.4.0': True,
+                '6.4.1': True,
+                '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
+                '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
+                '7.0.0': True,
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
@@ -11255,23 +27161,55 @@ def main():
             'params': [
                 'adom',
                 'wanprof',
-                'service'
+                'service',
+                'sla'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/wanprof/{wanprof}/system/virtual-wan-link/service/{service}/sla/{sla}'
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
-                '6.4.0': True
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
+                '6.4.0': True,
+                '6.4.1': True,
+                '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
+                '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
+                '7.0.0': True,
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
         'webfilter_categories': {
             'params': [
-                'adom'
+                'adom',
+                'categories'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/webfilter/categories/{categories}',
@@ -11279,20 +27217,47 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
         'webfilter_content': {
             'params': [
-                'adom'
+                'adom',
+                'content'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/webfilter/content/{content}',
@@ -11300,21 +27265,48 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
         'webfilter_content_entries': {
             'params': [
                 'adom',
-                'content'
+                'content',
+                'entries'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/webfilter/content/{content}/entries/{entries}',
@@ -11322,20 +27314,47 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'webfilter_contentheader': {
             'params': [
-                'adom'
+                'adom',
+                'content-header'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/webfilter/content-header/{content-header}',
@@ -11343,20 +27362,47 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
         'webfilter_ftgdlocalcat': {
             'params': [
-                'adom'
+                'adom',
+                'ftgd-local-cat'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/webfilter/ftgd-local-cat/{ftgd-local-cat}',
@@ -11364,20 +27410,47 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
         'webfilter_ftgdlocalrating': {
             'params': [
-                'adom'
+                'adom',
+                'ftgd-local-rating'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/webfilter/ftgd-local-rating/{ftgd-local-rating}',
@@ -11385,20 +27458,47 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'rating'
         },
         'webfilter_profile': {
             'params': [
-                'adom'
+                'adom',
+                'profile'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/webfilter/profile/{profile}',
@@ -11406,21 +27506,48 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'webfilter_profile_antiphish_inspectionentries': {
             'params': [
                 'adom',
-                'profile'
+                'profile',
+                'inspection-entries'
             ],
             'urls': [
                 '/pm/config/global/obj/webfilter/profile/{profile}/antiphish/inspection-entries/{inspection-entries}',
@@ -11428,17 +27555,37 @@ def main():
             ],
             'revision': {
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'webfilter_profile_ftgdwf_filters': {
             'params': [
                 'adom',
-                'profile'
+                'profile',
+                'filters'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/webfilter/profile/{profile}/ftgd-wf/filters/{filters}',
@@ -11446,21 +27593,48 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
         'webfilter_profile_ftgdwf_quota': {
             'params': [
                 'adom',
-                'profile'
+                'profile',
+                'quota'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/webfilter/profile/{profile}/ftgd-wf/quota/{quota}',
@@ -11468,21 +27642,48 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
         'webfilter_profile_youtubechannelfilter': {
             'params': [
                 'adom',
-                'profile'
+                'profile',
+                'youtube-channel-filter'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/webfilter/profile/{profile}/youtube-channel-filter/{youtube-channel-filter}',
@@ -11490,18 +27691,47 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
-                '6.4.5': True
+                '6.4.3': True,
+                '6.4.4': True,
+                '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
+                '7.0.0': True,
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
         'webfilter_urlfilter': {
             'params': [
-                'adom'
+                'adom',
+                'urlfilter'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/webfilter/urlfilter/{urlfilter}',
@@ -11509,21 +27739,48 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
         'webfilter_urlfilter_entries': {
             'params': [
                 'adom',
-                'urlfilter'
+                'urlfilter',
+                'entries'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/webfilter/urlfilter/{urlfilter}/entries/{entries}',
@@ -11531,20 +27788,47 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
         'webproxy_forwardserver': {
             'params': [
-                'adom'
+                'adom',
+                'forward-server'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/web-proxy/forward-server/{forward-server}',
@@ -11552,20 +27836,47 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'webproxy_forwardservergroup': {
             'params': [
-                'adom'
+                'adom',
+                'forward-server-group'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/web-proxy/forward-server-group/{forward-server-group}',
@@ -11573,21 +27884,48 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'webproxy_forwardservergroup_serverlist': {
             'params': [
                 'adom',
-                'forward-server-group'
+                'forward-server-group',
+                'server-list'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/web-proxy/forward-server-group/{forward-server-group}/server-list/{server-list}',
@@ -11595,20 +27933,47 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'webproxy_profile': {
             'params': [
-                'adom'
+                'adom',
+                'profile'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/web-proxy/profile/{profile}',
@@ -11616,21 +27981,48 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'webproxy_profile_headers': {
             'params': [
                 'adom',
-                'profile'
+                'profile',
+                'headers'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/web-proxy/profile/{profile}/headers/{headers}',
@@ -11638,20 +28030,47 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
         'webproxy_wisp': {
             'params': [
-                'adom'
+                'adom',
+                'wisp'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/web-proxy/wisp/{wisp}',
@@ -11659,20 +28078,47 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'widsprofile': {
             'params': [
-                'adom'
+                'adom',
+                'wids-profile'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/wireless-controller/wids-profile/{wids-profile}',
@@ -11680,20 +28126,143 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
+            },
+            'mkey': 'name'
+        },
+        'wireless_accesscontrollist': {
+            'params': [
+                'adom',
+                'access-control-list'
+            ],
+            'urls': [
+                '/pm/config/global/obj/wireless-controller/access-control-list/{access-control-list}',
+                '/pm/config/adom/{adom}/obj/wireless-controller/access-control-list/{access-control-list}'
+            ],
+            'revision': {
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
+            },
+            'mkey': 'name'
+        },
+        'wireless_address': {
+            'params': [
+                'adom',
+                'address'
+            ],
+            'urls': [
+                '/pm/config/global/obj/wireless-controller/address/{address}',
+                '/pm/config/adom/{adom}/obj/wireless-controller/address/{address}'
+            ],
+            'revision': {
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
+            },
+            'mkey': 'id'
+        },
+        'wireless_addrgrp': {
+            'params': [
+                'adom',
+                'addrgrp'
+            ],
+            'urls': [
+                '/pm/config/global/obj/wireless-controller/addrgrp/{addrgrp}',
+                '/pm/config/adom/{adom}/obj/wireless-controller/addrgrp/{addrgrp}'
+            ],
+            'revision': {
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
+            },
+            'mkey': 'id'
+        },
+        'wireless_ssidpolicy': {
+            'params': [
+                'adom',
+                'ssid-policy'
+            ],
+            'urls': [
+                '/pm/config/global/obj/wireless-controller/ssid-policy/{ssid-policy}',
+                '/pm/config/adom/{adom}/obj/wireless-controller/ssid-policy/{ssid-policy}'
+            ],
+            'revision': {
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
+            },
+            'mkey': 'name'
+        },
+        'wireless_syslogprofile': {
+            'params': [
+                'adom',
+                'syslog-profile'
+            ],
+            'urls': [
+                '/pm/config/global/obj/wireless-controller/syslog-profile/{syslog-profile}',
+                '/pm/config/adom/{adom}/obj/wireless-controller/syslog-profile/{syslog-profile}'
+            ],
+            'revision': {
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'wtpprofile': {
             'params': [
-                'adom'
+                'adom',
+                'wtp-profile'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/wireless-controller/wtp-profile/{wtp-profile}',
@@ -11701,21 +28270,48 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'name'
         },
         'wtpprofile_denymaclist': {
             'params': [
                 'adom',
-                'wtp-profile'
+                'wtp-profile',
+                'deny-mac-list'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/wireless-controller/wtp-profile/{wtp-profile}/deny-mac-list/{deny-mac-list}',
@@ -11723,21 +28319,48 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         },
         'wtpprofile_splittunnelingacl': {
             'params': [
                 'adom',
-                'wtp-profile'
+                'wtp-profile',
+                'split-tunneling-acl'
             ],
             'urls': [
                 '/pm/config/adom/{adom}/obj/wireless-controller/wtp-profile/{wtp-profile}/split-tunneling-acl/{split-tunneling-acl}',
@@ -11745,20 +28368,51 @@ def main():
             ],
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.6': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'mkey': 'id'
         }
     }
 
     module_arg_spec = {
+        'access_token': {
+            'type': 'str',
+            'required': False,
+            'no_log': True
+        },
         'enable_log': {
             'type': 'bool',
             'required': False,
@@ -11780,11 +28434,13 @@ def main():
         },
         'rc_succeeded': {
             'required': False,
-            'type': 'list'
+            'type': 'list',
+            'elements': 'int'
         },
         'rc_failed': {
             'required': False,
-            'type': 'list'
+            'type': 'list',
+            'elements': 'int'
         },
         'rename': {
             'required': True,
@@ -11801,9 +28457,17 @@ def main():
                         'antivirus_profile',
                         'apcfgprofile',
                         'apcfgprofile_commandlist',
+                        'application_casi_profile',
+                        'application_casi_profile_entries',
                         'application_categories',
                         'application_custom',
                         'application_group',
+                        'application_internetservice_entry',
+                        'application_internetservicecustom',
+                        'application_internetservicecustom_disableentry',
+                        'application_internetservicecustom_disableentry_iprange',
+                        'application_internetservicecustom_entry',
+                        'application_internetservicecustom_entry_portrange',
                         'application_list',
                         'application_list_defaultnetworkservices',
                         'application_list_entries',
@@ -11816,6 +28480,15 @@ def main():
                         'bonjourprofile_policylist',
                         'certificate_template',
                         'cifs_profile',
+                        'cloud_orchestaws',
+                        'cloud_orchestawsconnector',
+                        'cloud_orchestawstemplate_autoscaleexistingvpc',
+                        'cloud_orchestawstemplate_autoscalenewvpc',
+                        'cloud_orchestawstemplate_autoscaletgwnewvpc',
+                        'cloud_orchestration',
+                        'devprof_log_syslogd_filter_excludelist',
+                        'devprof_log_syslogd_filter_freestyle',
+                        'devprof_log_syslogd_setting_customfieldname',
                         'devprof_system_centralmanagement_serverlist',
                         'devprof_system_ntp_ntpserver',
                         'devprof_system_snmp_community',
@@ -11838,6 +28511,8 @@ def main():
                         'dnsfilter_profile',
                         'dnsfilter_profile_dnstranslation',
                         'dnsfilter_profile_ftgddns_filters',
+                        'dnsfilter_urlfilter',
+                        'dnsfilter_urlfilter_entries',
                         'dvmdb_adom',
                         'dvmdb_device_vdom',
                         'dvmdb_folder',
@@ -11884,9 +28559,18 @@ def main():
                         'extendercontroller_extenderprofile_lanextension_backhaul',
                         'extendercontroller_simprofile',
                         'extendercontroller_template',
+                        'extensioncontroller_dataplan',
+                        'extensioncontroller_extenderprofile',
+                        'extensioncontroller_extenderprofile_cellular_smsnotification_receiver',
+                        'extensioncontroller_extenderprofile_lanextension_backhaul',
                         'filefilter_profile',
                         'filefilter_profile_rules',
                         'firewall_accessproxy',
+                        'firewall_accessproxy6',
+                        'firewall_accessproxy6_apigateway',
+                        'firewall_accessproxy6_apigateway6',
+                        'firewall_accessproxy6_apigateway6_realservers',
+                        'firewall_accessproxy6_apigateway_realservers',
                         'firewall_accessproxy_apigateway',
                         'firewall_accessproxy_apigateway6',
                         'firewall_accessproxy_apigateway6_realservers',
@@ -11916,6 +28600,9 @@ def main():
                         'firewall_carrierendpointbwl',
                         'firewall_carrierendpointbwl_entries',
                         'firewall_decryptedtrafficmirror',
+                        'firewall_explicitproxyaddress',
+                        'firewall_explicitproxyaddress_headergroup',
+                        'firewall_explicitproxyaddrgrp',
                         'firewall_gtp',
                         'firewall_gtp_apn',
                         'firewall_gtp_ieremovepolicy',
@@ -11943,6 +28630,7 @@ def main():
                         'firewall_ippool6',
                         'firewall_ippool6_dynamicmapping',
                         'firewall_ippool_dynamicmapping',
+                        'firewall_ippoolgrp',
                         'firewall_ldbmonitor',
                         'firewall_mmsprofile',
                         'firewall_mmsprofile_notifmsisdn',
@@ -11950,6 +28638,7 @@ def main():
                         'firewall_multicastaddress6',
                         'firewall_multicastaddress6_tagging',
                         'firewall_multicastaddress_tagging',
+                        'firewall_networkservicedynamic',
                         'firewall_profilegroup',
                         'firewall_profileprotocoloptions',
                         'firewall_proxyaddress',
@@ -11998,6 +28687,7 @@ def main():
                         'firewall_wildcardfqdn_custom',
                         'firewall_wildcardfqdn_group',
                         'fmg_device_blueprint',
+                        'fmg_fabric_authorization_template',
                         'fmg_variable',
                         'fmupdate_fdssetting_pushoverridetoclient_announceip',
                         'fmupdate_fdssetting_serveroverride_servlist',
@@ -12013,8 +28703,10 @@ def main():
                         'fsp_vlan_dynamicmapping_dhcpserver_options',
                         'fsp_vlan_dynamicmapping_dhcpserver_reservedaddress',
                         'fsp_vlan_dynamicmapping_interface_secondaryip',
+                        'fsp_vlan_dynamicmapping_interface_vrrp_proxyarp',
                         'fsp_vlan_interface_secondaryip',
                         'fsp_vlan_interface_vrrp',
+                        'fsp_vlan_interface_vrrp_proxyarp',
                         'gtp_apn',
                         'gtp_apngrp',
                         'gtp_iewhitelist',
@@ -12059,11 +28751,17 @@ def main():
                         'icap_profile_respmodforwardrules',
                         'icap_profile_respmodforwardrules_headergroup',
                         'icap_server',
+                        'ips_baseline_sensor',
+                        'ips_baseline_sensor_entries',
+                        'ips_baseline_sensor_entries_exemptip',
+                        'ips_baseline_sensor_filter',
+                        'ips_baseline_sensor_override_exemptip',
                         'ips_custom',
                         'ips_sensor',
                         'ips_sensor_entries',
                         'ips_sensor_entries_exemptip',
                         'log_customfield',
+                        'log_npuserver_serverinfo',
                         'mpskprofile',
                         'mpskprofile_mpskgroup',
                         'mpskprofile_mpskgroup_mpskkey',
@@ -12075,15 +28773,17 @@ def main():
                         'pkg_firewall_acl6',
                         'pkg_firewall_centralsnatmap',
                         'pkg_firewall_consolidated_policy',
-                        'pkg_firewall_consolidated_policy_sectionvalue',
                         'pkg_firewall_dospolicy',
                         'pkg_firewall_dospolicy6',
                         'pkg_firewall_dospolicy6_anomaly',
                         'pkg_firewall_dospolicy_anomaly',
+                        'pkg_firewall_explicitproxypolicy_identitybasedpolicy',
+                        'pkg_firewall_hyperscalepolicy',
+                        'pkg_firewall_hyperscalepolicy46',
+                        'pkg_firewall_hyperscalepolicy6',
+                        'pkg_firewall_hyperscalepolicy64',
                         'pkg_firewall_interfacepolicy',
                         'pkg_firewall_interfacepolicy6',
-                        'pkg_firewall_interfacepolicy6_sectionvalue',
-                        'pkg_firewall_interfacepolicy_sectionvalue',
                         'pkg_firewall_localinpolicy',
                         'pkg_firewall_localinpolicy6',
                         'pkg_firewall_multicastpolicy',
@@ -12092,14 +28792,10 @@ def main():
                         'pkg_firewall_policy46',
                         'pkg_firewall_policy6',
                         'pkg_firewall_policy64',
-                        'pkg_firewall_policy6_sectionvalue',
-                        'pkg_firewall_policy_sectionvalue',
                         'pkg_firewall_policy_vpndstnode',
                         'pkg_firewall_policy_vpnsrcnode',
                         'pkg_firewall_proxypolicy',
-                        'pkg_firewall_proxypolicy_sectionvalue',
                         'pkg_firewall_securitypolicy',
-                        'pkg_firewall_securitypolicy_sectionvalue',
                         'pkg_firewall_shapingpolicy',
                         'pkg_footer_policy',
                         'pkg_footer_policy6',
@@ -12107,10 +28803,11 @@ def main():
                         'pkg_header_policy',
                         'pkg_header_policy6',
                         'pkg_header_shapingpolicy',
+                        'pkg_user_nacpolicy',
+                        'pm_config_pblock_firewall_consolidated_policy',
                         'pm_config_pblock_firewall_policy',
-                        'pm_config_pblock_firewall_policy_sectionvalue',
+                        'pm_config_pblock_firewall_policy6',
                         'pm_config_pblock_firewall_securitypolicy',
-                        'pm_config_pblock_firewall_securitypolicy_sectionvalue',
                         'pm_devprof_pkg',
                         'pm_pblock_obj',
                         'pm_pkg',
@@ -12144,12 +28841,19 @@ def main():
                         'spamfilter_profile',
                         'sshfilter_profile',
                         'sshfilter_profile_shellcommands',
+                        'switchcontroller_acl_group',
+                        'switchcontroller_acl_ingress',
                         'switchcontroller_dsl_policy',
+                        'switchcontroller_dynamicportpolicy',
+                        'switchcontroller_dynamicportpolicy_policy',
+                        'switchcontroller_fortilinksettings',
                         'switchcontroller_lldpprofile',
                         'switchcontroller_lldpprofile_customtlvs',
                         'switchcontroller_lldpprofile_medlocationservice',
                         'switchcontroller_lldpprofile_mednetworkpolicy',
+                        'switchcontroller_macpolicy',
                         'switchcontroller_managedswitch',
+                        'switchcontroller_managedswitch_dhcpsnoopingstaticclient',
                         'switchcontroller_managedswitch_ports',
                         'switchcontroller_managedswitch_remotelog',
                         'switchcontroller_managedswitch_snmpcommunity',
@@ -12163,6 +28867,9 @@ def main():
                         'switchcontroller_qos_queuepolicy_cosqueue',
                         'switchcontroller_securitypolicy_8021x',
                         'switchcontroller_securitypolicy_captiveportal',
+                        'switchcontroller_switchinterfacetag',
+                        'switchcontroller_trafficpolicy',
+                        'switchcontroller_vlanpolicy',
                         'system_admin_group',
                         'system_admin_group_member',
                         'system_admin_ldap',
@@ -12215,7 +28922,16 @@ def main():
                         'system_meta',
                         'system_meta_sysmetafields',
                         'system_metadata_admins',
+                        'system_npu_dswqueuedtsprofile',
+                        'system_npu_npqueues_ethernettype',
+                        'system_npu_npqueues_ipprotocol',
+                        'system_npu_npqueues_ipservice',
+                        'system_npu_npqueues_profile',
+                        'system_npu_npqueues_scheduler',
+                        'system_npu_tcptimeoutprofile',
+                        'system_npu_udptimeoutprofile',
                         'system_ntp_ntpserver',
+                        'system_objecttag',
                         'system_objecttagging',
                         'system_replacemsggroup',
                         'system_replacemsggroup_admin',
@@ -12261,6 +28977,7 @@ def main():
                         'system_snmp_community_hosts',
                         'system_snmp_community_hosts6',
                         'system_snmp_user',
+                        'system_socfabric_trustedlist',
                         'system_sql_customindex',
                         'system_sql_customskipidx',
                         'system_syslog',
@@ -12270,11 +28987,14 @@ def main():
                         'template',
                         'templategroup',
                         'user_adgrp',
+                        'user_certificate',
                         'user_clearpass',
                         'user_connector',
                         'user_device',
                         'user_device_dynamicmapping',
                         'user_device_tagging',
+                        'user_deviceaccesslist',
+                        'user_deviceaccesslist_devicelist',
                         'user_devicecategory',
                         'user_devicegroup',
                         'user_devicegroup_dynamicmapping',
@@ -12282,6 +29002,7 @@ def main():
                         'user_domaincontroller',
                         'user_domaincontroller_extraserver',
                         'user_exchange',
+                        'user_flexvm',
                         'user_fortitoken',
                         'user_fsso',
                         'user_fsso_dynamicmapping',
@@ -12293,6 +29014,7 @@ def main():
                         'user_group_dynamicmapping_match',
                         'user_group_guest',
                         'user_group_match',
+                        'user_json',
                         'user_krbkeytab',
                         'user_ldap',
                         'user_ldap_dynamicmapping',
@@ -12345,8 +29067,11 @@ def main():
                         'vpnsslweb_portal_bookmarkgroup',
                         'vpnsslweb_portal_bookmarkgroup_bookmarks',
                         'vpnsslweb_portal_bookmarkgroup_bookmarks_formdata',
+                        'vpnsslweb_portal_landingpage_formdata',
                         'vpnsslweb_portal_macaddrcheckrule',
                         'vpnsslweb_portal_splitdns',
+                        'vpnsslweb_virtualdesktopapplist',
+                        'vpnsslweb_virtualdesktopapplist_apps',
                         'waf_mainclass',
                         'waf_profile',
                         'waf_profile_constraint_exception',
@@ -12391,6 +29116,11 @@ def main():
                         'webproxy_profile_headers',
                         'webproxy_wisp',
                         'widsprofile',
+                        'wireless_accesscontrollist',
+                        'wireless_address',
+                        'wireless_addrgrp',
+                        'wireless_ssidpolicy',
+                        'wireless_syslogprofile',
                         'wtpprofile',
                         'wtpprofile_denymaclist',
                         'wtpprofile_splittunnelingacl'
@@ -12412,6 +29142,7 @@ def main():
     fmgr = None
     if module._socket_path:
         connection = Connection(module._socket_path)
+        connection.set_option('access_token', module.params['access_token'] if 'access_token' in module.params else None)
         connection.set_option('enable_log', module.params['enable_log'] if 'enable_log' in module.params else False)
         connection.set_option('forticloud_access_token',
                               module.params['forticloud_access_token'] if 'forticloud_access_token' in module.params else None)

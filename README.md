@@ -1,6 +1,6 @@
-# Ansible Collection - fortinet.fortimanager:2.1.7
+# Ansible Collection - fortinet.fortimanager:2.2.0
 
-[Documentation](https://ansible-galaxy-fortimanager-docs.readthedocs.io/en/galaxy-2.1.7) for the collection.
+[Documentation](https://ansible-galaxy-fortimanager-docs.readthedocs.io/en/latest) for the collection.
 
 ## Modules
 The collection provides the following modules:
@@ -26,14 +26,24 @@ The collection provides the following modules:
 * `fmgr_antivirus_profile_ssh`  Configure SFTP and SCP AntiVirus options.
 * `fmgr_apcfgprofile`  Configure AP local configuration profiles.
 * `fmgr_apcfgprofile_commandlist`  AP local configuration command list.
+* `fmgr_application_casi_profile`  Cloud Access Security Inspection.
+* `fmgr_application_casi_profile_entries`  Application entries.
 * `fmgr_application_categories`  no description.
 * `fmgr_application_custom`  Configure custom application signatures.
 * `fmgr_application_group`  Configure firewall application groups.
+* `fmgr_application_internetservice`  Show Internet service application.
+* `fmgr_application_internetservice_entry`  Entries in the Internet service database.
+* `fmgr_application_internetservicecustom`  Configure custom Internet service applications.
+* `fmgr_application_internetservicecustom_disableentry`  Disable entries in the Internet service database.
+* `fmgr_application_internetservicecustom_disableentry_iprange`  IP ranges in the disable entry.
+* `fmgr_application_internetservicecustom_entry`  Entries added to the Internet service database and custom database.
+* `fmgr_application_internetservicecustom_entry_portrange`  Port ranges in the custom entry.
 * `fmgr_application_list`  Configure application control lists.
 * `fmgr_application_list_defaultnetworkservices`  Default network service entries.
 * `fmgr_application_list_entries`  Application list entries.
 * `fmgr_application_list_entries_parameters`  Application parameters.
 * `fmgr_application_list_entries_parameters_members`  Parameter tuple members.
+* `fmgr_arrpprofile`  Configure WiFi Automatic Radio Resource Provisioning.
 * `fmgr_authentication_scheme`  Configure Authentication Schemes.
 * `fmgr_bleprofile`  Configure Bluetooth Low Energy profile.
 * `fmgr_bonjourprofile`  Configure Bonjour profiles.
@@ -44,7 +54,12 @@ The collection provides the following modules:
 * `fmgr_cifs_profile_filefilter`  File filter.
 * `fmgr_cifs_profile_filefilter_entries`  File filter entries.
 * `fmgr_cifs_profile_serverkeytab`  Server keytab.
-* `fmgr_clone`  Clone an object in FortiManager.
+* `fmgr_cloud_orchestaws`  no description.
+* `fmgr_cloud_orchestawsconnector`  no description.
+* `fmgr_cloud_orchestawstemplate_autoscaleexistingvpc`  no description.
+* `fmgr_cloud_orchestawstemplate_autoscalenewvpc`  no description.
+* `fmgr_cloud_orchestawstemplate_autoscaletgwnewvpc`  no description.
+* `fmgr_cloud_orchestration`  no description.
 * `fmgr_credentialstore_domaincontroller`  Define known domain controller servers.
 * `fmgr_devprof_device_profile_fortianalyzer`  no description.
 * `fmgr_devprof_device_profile_fortiguard`  no description.
@@ -52,9 +67,13 @@ The collection provides the following modules:
 * `fmgr_devprof_log_fortianalyzer_setting`  Global FortiAnalyzer settings.
 * `fmgr_devprof_log_fortianalyzercloud_setting`  Global FortiAnalyzer Cloud settings.
 * `fmgr_devprof_log_syslogd_filter`  Filters for remote system server.
+* `fmgr_devprof_log_syslogd_filter_excludelist`  no description.
+* `fmgr_devprof_log_syslogd_filter_excludelist_fields`  no description.
+* `fmgr_devprof_log_syslogd_filter_freestyle`  Free style filters.
 * `fmgr_devprof_log_syslogd_setting`  Global settings for remote syslog server.
+* `fmgr_devprof_log_syslogd_setting_customfieldname`  Custom field name for CEF format logging.
 * `fmgr_devprof_system_centralmanagement`  Configure central management.
-* `fmgr_devprof_system_centralmanagement_serverlist`  Additional severs that the FortiGate can use for updates (for AV, IPS, updates) and ratings (for web filter and antispam ratings) servers.
+* `fmgr_devprof_system_centralmanagement_serverlist`  Additional severs that the FortiGate can use for updates.
 * `fmgr_devprof_system_dns`  Configure DNS.
 * `fmgr_devprof_system_emailserver`  Configure the email server used by the FortiGate various things.
 * `fmgr_devprof_system_global`  Configure global attributes.
@@ -78,15 +97,21 @@ The collection provides the following modules:
 * `fmgr_devprof_system_replacemsg_utm`  Replacement messages.
 * `fmgr_devprof_system_replacemsg_webproxy`  Replacement messages.
 * `fmgr_devprof_system_snmp_community`  SNMP community configuration.
-* `fmgr_devprof_system_snmp_community_hosts`  Configure IPv4 SNMP managers (hosts).
+* `fmgr_devprof_system_snmp_community_hosts`  Configure IPv4 SNMP managers.
 * `fmgr_devprof_system_snmp_community_hosts6`  Configure IPv6 SNMP managers.
 * `fmgr_devprof_system_snmp_sysinfo`  SNMP system info configuration.
 * `fmgr_devprof_system_snmp_user`  SNMP user configuration.
+* `fmgr_dlp_datatype`  Configure predefined data type used by DLP blocking.
+* `fmgr_dlp_dictionary`  Configure dictionaries used by DLP blocking.
+* `fmgr_dlp_dictionary_entries`  DLP dictionary entries.
 * `fmgr_dlp_filepattern`  Configure file patterns used by DLP blocking.
 * `fmgr_dlp_filepattern_entries`  Configure file patterns used by DLP blocking.
 * `fmgr_dlp_fpsensitivity`  Create self-explanatory DLP sensitivity levels to be used when setting sensitivity under config fp-doc-source.
+* `fmgr_dlp_profile`  Configure DLP profiles.
+* `fmgr_dlp_profile_rule`  Set up DLP rules for this profile.
 * `fmgr_dlp_sensitivity`  Create self-explanatory DLP sensitivity levels to be used when setting sensitivity under config fp-doc-source.
 * `fmgr_dlp_sensor`  Configure DLP sensors.
+* `fmgr_dlp_sensor_entries`  DLP sensor entries.
 * `fmgr_dlp_sensor_filter`  Set up DLP filters for this sensor.
 * `fmgr_dnsfilter_domainfilter`  Configure DNS domain filters.
 * `fmgr_dnsfilter_domainfilter_entries`  DNS domain filter entries.
@@ -95,6 +120,9 @@ The collection provides the following modules:
 * `fmgr_dnsfilter_profile_domainfilter`  Domain filter settings.
 * `fmgr_dnsfilter_profile_ftgddns`  FortiGuard DNS Filter settings.
 * `fmgr_dnsfilter_profile_ftgddns_filters`  FortiGuard DNS domain filters.
+* `fmgr_dnsfilter_profile_urlfilter`  URL filter settings.
+* `fmgr_dnsfilter_urlfilter`  Configure URL filter list.
+* `fmgr_dnsfilter_urlfilter_entries`  DNS URL filter.
 * `fmgr_dvm_cmd_add_device`  Add a device to the Device Manager database.
 * `fmgr_dvm_cmd_add_devlist`  Add multiple devices to the Device Manager database.
 * `fmgr_dvm_cmd_changehaseq`  Modify HA sequence to promote a slave to become the master of the cluster.
@@ -131,18 +159,18 @@ The collection provides the following modules:
 * `fmgr_dvmdb_workflow_save`  no description.
 * `fmgr_dvmdb_workflow_start`  Continue a workflow session.
 * `fmgr_dvmdb_workflow_submit`  no description.
-* `fmgr_dvmdb_workspace_commit`  Commit change(s) of an entire ADOM.
-* `fmgr_dvmdb_workspace_commit_dev`  Commit change(s) of a device.
-* `fmgr_dvmdb_workspace_commit_obj`  Commit change(s) of a specific object, where the url contains the full path to the object (eg.
-* `fmgr_dvmdb_workspace_commit_pkg`  Commit change(s) of a specific package, where the url includes both the folder(s) and name of the policy package.
+* `fmgr_dvmdb_workspace_commit`  Commit change.
+* `fmgr_dvmdb_workspace_commit_dev`  Commit change.
+* `fmgr_dvmdb_workspace_commit_obj`  Commit change.
+* `fmgr_dvmdb_workspace_commit_pkg`  Commit change.
 * `fmgr_dvmdb_workspace_lock`  Lock an entire ADOM.
 * `fmgr_dvmdb_workspace_lock_dev`  Lock a device.
-* `fmgr_dvmdb_workspace_lock_obj`  Lock a specific object, where the url contains the full path to the object (eg.
-* `fmgr_dvmdb_workspace_lock_pkg`  Lock a specific package, where the url includes both the folder(s) and name of the policy package.
+* `fmgr_dvmdb_workspace_lock_obj`  Lock a specific object, where the url contains the full path to the object.
+* `fmgr_dvmdb_workspace_lock_pkg`  Lock a specific package, where the url includes both the folder.
 * `fmgr_dvmdb_workspace_unlock`  Unlock an entire ADOM.
 * `fmgr_dvmdb_workspace_unlock_dev`  Unlock a device.
-* `fmgr_dvmdb_workspace_unlock_obj`  Unlock a specific object, where the url contains the full path to the object (eg.
-* `fmgr_dvmdb_workspace_unlock_pkg`  Unlock a specific package, where the url includes both the folder(s) and name of the policy package.
+* `fmgr_dvmdb_workspace_unlock_obj`  Unlock a specific object, where the url contains the full path to the object.
+* `fmgr_dvmdb_workspace_unlock_pkg`  Unlock a specific package, where the url includes both the folder.
 * `fmgr_dynamic_address`  no description.
 * `fmgr_dynamic_address_dynamicaddrmapping`  no description.
 * `fmgr_dynamic_certificate_local`  no description.
@@ -156,8 +184,8 @@ The collection provides the following modules:
 * `fmgr_dynamic_multicast_interface`  no description.
 * `fmgr_dynamic_multicast_interface_dynamicmapping`  no description.
 * `fmgr_dynamic_vip`  no description.
-* `fmgr_dynamic_virtualwanlink_members`  no description.
-* `fmgr_dynamic_virtualwanlink_members_dynamicmapping`  no description.
+* `fmgr_dynamic_virtualwanlink_members`  FortiGate interfaces added to the virtual-wan-link.
+* `fmgr_dynamic_virtualwanlink_members_dynamicmapping`  FortiGate interfaces added to the virtual-wan-link.
 * `fmgr_dynamic_virtualwanlink_neighbor`  no description.
 * `fmgr_dynamic_virtualwanlink_neighbor_dynamicmapping`  no description.
 * `fmgr_dynamic_virtualwanlink_server`  no description.
@@ -188,26 +216,64 @@ The collection provides the following modules:
 * `fmgr_emailfilter_profile_otherwebmails`  Other supported webmails.
 * `fmgr_emailfilter_profile_pop3`  POP3.
 * `fmgr_emailfilter_profile_smtp`  SMTP.
+* `fmgr_emailfilter_profile_yahoomail`  Yahoo! Mail.
+* `fmgr_endpointcontrol_fctems`  Configure FortiClient Enterprise Management Server.
 * `fmgr_exec_fgfm_reclaimdevtunnel`  Reclaim management tunnel to device.
 * `fmgr_extendercontroller_dataplan`  FortiExtender dataplan configuration.
+* `fmgr_extendercontroller_extenderprofile`  FortiExtender extender profile configuration.
+* `fmgr_extendercontroller_extenderprofile_cellular`  FortiExtender cellular configuration.
+* `fmgr_extendercontroller_extenderprofile_cellular_controllerreport`  FortiExtender controller report configuration.
+* `fmgr_extendercontroller_extenderprofile_cellular_modem1`  Configuration options for modem 1.
+* `fmgr_extendercontroller_extenderprofile_cellular_modem1_autoswitch`  FortiExtender auto switch configuration.
+* `fmgr_extendercontroller_extenderprofile_cellular_modem2`  Configuration options for modem 2.
+* `fmgr_extendercontroller_extenderprofile_cellular_modem2_autoswitch`  FortiExtender auto switch configuration.
+* `fmgr_extendercontroller_extenderprofile_cellular_smsnotification`  FortiExtender cellular SMS notification configuration.
+* `fmgr_extendercontroller_extenderprofile_cellular_smsnotification_alert`  SMS alert list.
+* `fmgr_extendercontroller_extenderprofile_cellular_smsnotification_receiver`  SMS notification receiver list.
+* `fmgr_extendercontroller_extenderprofile_lanextension`  FortiExtender lan extension configuration.
+* `fmgr_extendercontroller_extenderprofile_lanextension_backhaul`  LAN extension backhaul tunnel configuration.
 * `fmgr_extendercontroller_simprofile`  no description.
 * `fmgr_extendercontroller_simprofile_autoswitchprofile`  no description.
 * `fmgr_extendercontroller_template`  no description.
-* `fmgr_fact`  Gather fortimanager facts.
+* `fmgr_extensioncontroller_dataplan`  FortiExtender dataplan configuration.
+* `fmgr_extensioncontroller_extenderprofile`  FortiExtender extender profile configuration.
+* `fmgr_extensioncontroller_extenderprofile_cellular`  FortiExtender cellular configuration.
+* `fmgr_extensioncontroller_extenderprofile_cellular_controllerreport`  FortiExtender controller report configuration.
+* `fmgr_extensioncontroller_extenderprofile_cellular_modem1`  Configuration options for modem 1.
+* `fmgr_extensioncontroller_extenderprofile_cellular_modem1_autoswitch`  FortiExtender auto switch configuration.
+* `fmgr_extensioncontroller_extenderprofile_cellular_modem2`  Configuration options for modem 2.
+* `fmgr_extensioncontroller_extenderprofile_cellular_modem2_autoswitch`  FortiExtender auto switch configuration.
+* `fmgr_extensioncontroller_extenderprofile_cellular_smsnotification`  FortiExtender cellular SMS notification configuration.
+* `fmgr_extensioncontroller_extenderprofile_cellular_smsnotification_alert`  SMS alert list.
+* `fmgr_extensioncontroller_extenderprofile_cellular_smsnotification_receiver`  SMS notification receiver list.
+* `fmgr_extensioncontroller_extenderprofile_lanextension`  FortiExtender lan extension configuration.
+* `fmgr_extensioncontroller_extenderprofile_lanextension_backhaul`  LAN extension backhaul tunnel configuration.
 * `fmgr_filefilter_profile`  Configure file-filter profiles.
 * `fmgr_filefilter_profile_rules`  File filter rules.
 * `fmgr_firewall_accessproxy`  Configure Access Proxy.
+* `fmgr_firewall_accessproxy6`  Configure IPv6 access proxy.
+* `fmgr_firewall_accessproxy6_apigateway`  Set IPv4 API Gateway.
+* `fmgr_firewall_accessproxy6_apigateway6`  Set IPv6 API Gateway.
+* `fmgr_firewall_accessproxy6_apigateway6_realservers`  Select the real servers that this Access Proxy will distribute traffic to.
+* `fmgr_firewall_accessproxy6_apigateway6_sslciphersuites`  SSL/TLS cipher suites to offer to a server, ordered by priority.
+* `fmgr_firewall_accessproxy6_apigateway_realservers`  Select the real servers that this Access Proxy will distribute traffic to.
+* `fmgr_firewall_accessproxy6_apigateway_sslciphersuites`  SSL/TLS cipher suites to offer to a server, ordered by priority.
 * `fmgr_firewall_accessproxy_apigateway`  Set API Gateway.
+* `fmgr_firewall_accessproxy_apigateway6`  Set IPv6 API Gateway.
+* `fmgr_firewall_accessproxy_apigateway6_realservers`  Select the real servers that this Access Proxy will distribute traffic to.
+* `fmgr_firewall_accessproxy_apigateway6_sslciphersuites`  SSL/TLS cipher suites to offer to a server, ordered by priority.
 * `fmgr_firewall_accessproxy_apigateway_realservers`  Select the real servers that this Access Proxy will distribute traffic to.
 * `fmgr_firewall_accessproxy_apigateway_sslciphersuites`  SSL/TLS cipher suites to offer to a server, ordered by priority.
 * `fmgr_firewall_accessproxy_realservers`  Select the SSL real servers that this Access Proxy will distribute traffic to.
 * `fmgr_firewall_accessproxy_serverpubkeyauthsettings`  Server SSH public key authentication settings.
 * `fmgr_firewall_accessproxy_serverpubkeyauthsettings_certextension`  Configure certificate extension for user certificate.
+* `fmgr_firewall_accessproxyvirtualhost`  Configure Access Proxy virtual hosts.
 * `fmgr_firewall_address`  Configure IPv4 addresses.
 * `fmgr_firewall_address6`  Configure IPv6 firewall addresses.
 * `fmgr_firewall_address6_dynamicmapping`  Configure IPv6 firewall addresses.
 * `fmgr_firewall_address6_dynamicmapping_subnetsegment`  IPv6 subnet segments.
 * `fmgr_firewall_address6_list`  IP address list.
+* `fmgr_firewall_address6_profilelist`  List of NSX service profiles that use this address.
 * `fmgr_firewall_address6_subnetsegment`  IPv6 subnet segments.
 * `fmgr_firewall_address6_tagging`  Config object tagging.
 * `fmgr_firewall_address6template`  Configure IPv6 address templates.
@@ -215,6 +281,7 @@ The collection provides the following modules:
 * `fmgr_firewall_address6template_subnetsegment_values`  Subnet segment values.
 * `fmgr_firewall_address_dynamicmapping`  Configure IPv4 addresses.
 * `fmgr_firewall_address_list`  IP address list.
+* `fmgr_firewall_address_profilelist`  List of NSX service profiles that use this address.
 * `fmgr_firewall_address_tagging`  Config object tagging.
 * `fmgr_firewall_addrgrp`  Configure IPv4 address groups.
 * `fmgr_firewall_addrgrp6`  Configure IPv6 address groups.
@@ -225,12 +292,16 @@ The collection provides the following modules:
 * `fmgr_firewall_carrierendpointbwl`  Carrier end point black/white list tables.
 * `fmgr_firewall_carrierendpointbwl_entries`  Carrier end point black/white list.
 * `fmgr_firewall_decryptedtrafficmirror`  Configure decrypted traffic mirror.
+* `fmgr_firewall_explicitproxyaddress`  Explicit web proxy address configuration.
+* `fmgr_firewall_explicitproxyaddress_headergroup`  HTTP header group.
+* `fmgr_firewall_explicitproxyaddrgrp`  Explicit web proxy address group configuration.
 * `fmgr_firewall_gtp`  Configure GTP.
 * `fmgr_firewall_gtp_apn`  APN.
 * `fmgr_firewall_gtp_ieremovepolicy`  IE remove policy.
 * `fmgr_firewall_gtp_ievalidation`  IE validation.
 * `fmgr_firewall_gtp_imsi`  IMSI.
 * `fmgr_firewall_gtp_ippolicy`  IP policy.
+* `fmgr_firewall_gtp_messagefilter`  Message filter.
 * `fmgr_firewall_gtp_messageratelimit`  Message rate limiting.
 * `fmgr_firewall_gtp_messageratelimitv0`  Message rate limiting for GTP version 0.
 * `fmgr_firewall_gtp_messageratelimitv1`  Message rate limiting for GTP version 1.
@@ -258,6 +329,7 @@ The collection provides the following modules:
 * `fmgr_firewall_ippool6`  Configure IPv6 IP pools.
 * `fmgr_firewall_ippool6_dynamicmapping`  Configure IPv6 IP pools.
 * `fmgr_firewall_ippool_dynamicmapping`  Configure IPv4 IP pools.
+* `fmgr_firewall_ippoolgrp`  Configure IPv4 pool groups.
 * `fmgr_firewall_ldbmonitor`  Configure server load balancing health monitors.
 * `fmgr_firewall_mmsprofile`  Configure MMS profiles.
 * `fmgr_firewall_mmsprofile_dupe`  Duplicate configuration.
@@ -269,6 +341,7 @@ The collection provides the following modules:
 * `fmgr_firewall_multicastaddress6`  Configure IPv6 multicast address.
 * `fmgr_firewall_multicastaddress6_tagging`  Config object tagging.
 * `fmgr_firewall_multicastaddress_tagging`  Config object tagging.
+* `fmgr_firewall_networkservicedynamic`  Configure Dynamic Network Services.
 * `fmgr_firewall_profilegroup`  Configure profile groups.
 * `fmgr_firewall_profileprotocoloptions`  Configure protocol options.
 * `fmgr_firewall_profileprotocoloptions_cifs`  Configure CIFS protocol options.
@@ -322,6 +395,8 @@ The collection provides the following modules:
 * `fmgr_firewall_vip64_dynamicmapping`  Configure IPv6 to IPv4 virtual IPs.
 * `fmgr_firewall_vip64_realservers`  Real servers.
 * `fmgr_firewall_vip6_dynamicmapping`  Configure virtual IP for IPv6.
+* `fmgr_firewall_vip6_dynamicmapping_realservers`  Select the real servers that this server load balancing VIP will distribute traffic to.
+* `fmgr_firewall_vip6_dynamicmapping_sslciphersuites`  SSL/TLS cipher suites acceptable from a client, ordered by priority.
 * `fmgr_firewall_vip6_realservers`  Select the real servers that this server load balancing VIP will distribute traffic to.
 * `fmgr_firewall_vip6_sslciphersuites`  SSL/TLS cipher suites acceptable from a client, ordered by priority.
 * `fmgr_firewall_vip6_sslserverciphersuites`  SSL/TLS cipher suites to offer to a server, ordered by priority.
@@ -338,6 +413,11 @@ The collection provides the following modules:
 * `fmgr_firewall_vipgrp_dynamicmapping`  Configure IPv4 virtual IP groups.
 * `fmgr_firewall_wildcardfqdn_custom`  Config global/VDOM Wildcard FQDN address.
 * `fmgr_firewall_wildcardfqdn_group`  Config global Wildcard FQDN address groups.
+* `fmgr_fmg_device_blueprint`  no description.
+* `fmgr_fmg_fabric_authorization_template`  no description.
+* `fmgr_fmg_fabric_authorization_template_platforms`  no description.
+* `fmgr_fmg_variable`  no description.
+* `fmgr_fmg_variable_dynamicmapping`  no description.
 * `fmgr_fmupdate_analyzer_virusreport`  Send virus detection notification to FortiGuard.
 * `fmgr_fmupdate_avips_advancedlog`  Enable/disable logging of FortiGuard antivirus and IPS update packages received by FortiManagers built-in FortiGuard.
 * `fmgr_fmupdate_avips_webproxy`  Configure the web proxy for use with FortiGuard antivirus and IPS updates.
@@ -345,13 +425,14 @@ The collection provides the following modules:
 * `fmgr_fmupdate_diskquota`  Configure disk space available for use by the Upgrade Manager.
 * `fmgr_fmupdate_fctservices`  Configure FortiGuard to provide services to FortiClient installations.
 * `fmgr_fmupdate_fdssetting`  Configure FortiGuard settings.
-* `fmgr_fmupdate_fdssetting_pushoverride`  Enable/disable push updates, and override the default IP address and port used by FortiGuard to send antivirus and IPS push messages for.
-* `fmgr_fmupdate_fdssetting_pushoverridetoclient`  Enable/disable push updates, and override the default IP address and port used by FortiGuard to send antivirus and IPS push messages for.
+* `fmgr_fmupdate_fdssetting_pushoverride`  Enable/disable push updates, and override the default IP address and port used by FortiGuard to send antivirus and IPS push messages for ...
+* `fmgr_fmupdate_fdssetting_pushoverridetoclient`  Enable/disable push updates, and override the default IP address and port used by FortiGuard to send antivirus and IPS push messages for ...
 * `fmgr_fmupdate_fdssetting_pushoverridetoclient_announceip`  Announce IP addresses for the device.
 * `fmgr_fmupdate_fdssetting_serveroverride`  Server override configure.
 * `fmgr_fmupdate_fdssetting_serveroverride_servlist`  Override server.
 * `fmgr_fmupdate_fdssetting_updateschedule`  Configure the schedule when built-in FortiGuard retrieves antivirus and IPS updates.
 * `fmgr_fmupdate_fwmsetting`  Configure firmware management settings.
+* `fmgr_fmupdate_fwmsetting_upgradetimeout`  Configure the timeout value of image upgrade process.
 * `fmgr_fmupdate_multilayer`  Configure multilayer mode.
 * `fmgr_fmupdate_publicnetwork`  Enable/disable access to the public FortiGuard.
 * `fmgr_fmupdate_serveraccesspriorities`  Configure priorities for FortiGate units accessing antivirus updates and web filtering services.
@@ -381,6 +462,8 @@ The collection provides the following modules:
 * `fmgr_fsp_vlan_dynamicmapping_interface_ipv6_ip6prefixlist`  Advertised prefix list.
 * `fmgr_fsp_vlan_dynamicmapping_interface_ipv6_vrrp6`  IPv6 VRRP configuration.
 * `fmgr_fsp_vlan_dynamicmapping_interface_secondaryip`  Second IP address of interface.
+* `fmgr_fsp_vlan_dynamicmapping_interface_vrrp`  VRRP configuration.
+* `fmgr_fsp_vlan_dynamicmapping_interface_vrrp_proxyarp`  VRRP Proxy ARP configuration.
 * `fmgr_fsp_vlan_interface`  Configure interfaces.
 * `fmgr_fsp_vlan_interface_ipv6`  IPv6 of interface.
 * `fmgr_fsp_vlan_interface_ipv6_ip6delegatedprefixlist`  Advertised IPv6 delegated prefix list.
@@ -389,18 +472,18 @@ The collection provides the following modules:
 * `fmgr_fsp_vlan_interface_ipv6_vrrp6`  IPv6 VRRP configuration.
 * `fmgr_fsp_vlan_interface_secondaryip`  Second IP address of interface.
 * `fmgr_fsp_vlan_interface_vrrp`  VRRP configuration.
-* `fmgr_generic`  Build and send generic FortiManager API request.
+* `fmgr_fsp_vlan_interface_vrrp_proxyarp`  VRRP Proxy ARP configuration.
 * `fmgr_gtp_apn`  Configure APN for GTP.
 * `fmgr_gtp_apngrp`  Configure APN groups for GTP.
 * `fmgr_gtp_iewhitelist`  IE white list.
-* `fmgr_gtp_iewhitelist_entries`  Entries of white list (to allow) for unknown or out-of-state IEs.
+* `fmgr_gtp_iewhitelist_entries`  Entries of white list.
 * `fmgr_gtp_messagefilterv0v1`  Message filter for GTPv0/v1 messages.
 * `fmgr_gtp_messagefilterv2`  Message filter for GTPv2 messages.
 * `fmgr_gtp_tunnellimit`  GTP tunnel limiter.
-* `fmgr_hotspot20_anqp3gppcellular`  Configure 3GPP public land mobile network (PLMN).
+* `fmgr_hotspot20_anqp3gppcellular`  Configure 3GPP public land mobile network.
 * `fmgr_hotspot20_anqp3gppcellular_mccmnclist`  Mobile Country Code and Mobile Network Code configuration.
 * `fmgr_hotspot20_anqpipaddresstype`  Configure IP address type availability.
-* `fmgr_hotspot20_anqpnairealm`  Configure network access identifier (NAI) realm.
+* `fmgr_hotspot20_anqpnairealm`  Configure network access identifier.
 * `fmgr_hotspot20_anqpnairealm_nailist`  NAI list.
 * `fmgr_hotspot20_anqpnairealm_nailist_eapmethod`  EAP Methods.
 * `fmgr_hotspot20_anqpnairealm_nailist_eapmethod_authparam`  EAP auth param.
@@ -409,36 +492,57 @@ The collection provides the following modules:
 * `fmgr_hotspot20_anqproamingconsortium_oilist`  Organization identifier list.
 * `fmgr_hotspot20_anqpvenuename`  Configure venue name duple.
 * `fmgr_hotspot20_anqpvenuename_valuelist`  Name list.
+* `fmgr_hotspot20_anqpvenueurl`  Configure venue URL.
+* `fmgr_hotspot20_anqpvenueurl_valuelist`  URL list.
+* `fmgr_hotspot20_h2qpadviceofcharge`  Configure advice of charge.
+* `fmgr_hotspot20_h2qpadviceofcharge_aoclist`  AOC list.
+* `fmgr_hotspot20_h2qpadviceofcharge_aoclist_planinfo`  Plan info.
 * `fmgr_hotspot20_h2qpconncapability`  Configure connection capability.
 * `fmgr_hotspot20_h2qpoperatorname`  Configure operator friendly name.
 * `fmgr_hotspot20_h2qpoperatorname_valuelist`  Name list.
-* `fmgr_hotspot20_h2qposuprovider`  Configure online sign up (OSU) provider list.
+* `fmgr_hotspot20_h2qposuprovider`  Configure online sign up.
 * `fmgr_hotspot20_h2qposuprovider_friendlyname`  OSU provider friendly name.
 * `fmgr_hotspot20_h2qposuprovider_servicedescription`  OSU service name.
+* `fmgr_hotspot20_h2qposuprovidernai`  Configure online sign up.
+* `fmgr_hotspot20_h2qposuprovidernai_nailist`  OSU NAI list.
+* `fmgr_hotspot20_h2qptermsandconditions`  Configure terms and conditions.
 * `fmgr_hotspot20_h2qpwanmetric`  Configure WAN metrics.
 * `fmgr_hotspot20_hsprofile`  Configure hotspot profile.
+* `fmgr_hotspot20_icon`  Configure OSU provider icon.
+* `fmgr_hotspot20_icon_iconlist`  Icon list.
 * `fmgr_hotspot20_qosmap`  Configure QoS map set.
-* `fmgr_hotspot20_qosmap_dscpexcept`  Differentiated Services Code Point (DSCP) exceptions.
-* `fmgr_hotspot20_qosmap_dscprange`  Differentiated Services Code Point (DSCP) ranges.
+* `fmgr_hotspot20_qosmap_dscpexcept`  Differentiated Services Code Point.
+* `fmgr_hotspot20_qosmap_dscprange`  Differentiated Services Code Point.
 * `fmgr_icap_profile`  Configure ICAP profiles.
 * `fmgr_icap_profile_icapheaders`  Configure ICAP forwarded request headers.
 * `fmgr_icap_profile_respmodforwardrules`  ICAP response mode forward rules.
 * `fmgr_icap_profile_respmodforwardrules_headergroup`  HTTP header group.
 * `fmgr_icap_server`  Configure ICAP servers.
+* `fmgr_ips_baseline_sensor`  Configure IPS sensor.
+* `fmgr_ips_baseline_sensor_entries`  IPS sensor filter.
+* `fmgr_ips_baseline_sensor_entries_exemptip`  Traffic from selected source or destination IP addresses is exempt from this signature.
+* `fmgr_ips_baseline_sensor_filter`  no description.
+* `fmgr_ips_baseline_sensor_override`  no description.
+* `fmgr_ips_baseline_sensor_override_exemptip`  no description.
 * `fmgr_ips_custom`  Configure IPS custom signature.
 * `fmgr_ips_sensor`  Configure IPS sensor.
 * `fmgr_ips_sensor_entries`  IPS sensor filter.
 * `fmgr_ips_sensor_entries_exemptip`  Traffic from selected source or destination IP addresses is exempt from this signature.
 * `fmgr_log_customfield`  Configure custom log fields.
+* `fmgr_log_npuserver`  Configure all the log servers and create the server groups.
+* `fmgr_log_npuserver_servergroup`  create server group.
+* `fmgr_log_npuserver_serverinfo`  configure server info.
 * `fmgr_metafields_system_admin_user`  no description.
-* `fmgr_move`  Move fortimanager defined Object.
 * `fmgr_mpskprofile`  Configure MPSK profile.
 * `fmgr_mpskprofile_mpskgroup`  List of multiple PSK groups.
 * `fmgr_mpskprofile_mpskgroup_mpskkey`  List of multiple PSK entries.
+* `fmgr_nacprofile`  Configure WiFi network access control.
 * `fmgr_pkg_authentication_rule`  Configure Authentication Rules.
 * `fmgr_pkg_authentication_setting`  Configure authentication setting.
 * `fmgr_pkg_central_dnat`  no description.
 * `fmgr_pkg_central_dnat6`  no description.
+* `fmgr_pkg_firewall_acl`  Configure IPv4 access control list.
+* `fmgr_pkg_firewall_acl6`  Configure IPv6 access control list.
 * `fmgr_pkg_firewall_centralsnatmap`  Configure central SNAT policies.
 * `fmgr_pkg_firewall_consolidated_policy`  Configure consolidated IPv4/IPv6 policies.
 * `fmgr_pkg_firewall_consolidated_policy_sectionvalue`  Configure consolidated IPv4/IPv6 policies.
@@ -446,6 +550,13 @@ The collection provides the following modules:
 * `fmgr_pkg_firewall_dospolicy6`  Configure IPv6 DoS policies.
 * `fmgr_pkg_firewall_dospolicy6_anomaly`  Anomaly name.
 * `fmgr_pkg_firewall_dospolicy_anomaly`  Anomaly name.
+* `fmgr_pkg_firewall_explicitproxypolicy`  Configure Explicit proxy policies.
+* `fmgr_pkg_firewall_explicitproxypolicy_identitybasedpolicy`  Identity-based policy.
+* `fmgr_pkg_firewall_explicitproxypolicy_sectionvalue`  Configure Explicit proxy policies.
+* `fmgr_pkg_firewall_hyperscalepolicy`  Configure IPv4/IPv6 policies.
+* `fmgr_pkg_firewall_hyperscalepolicy46`  Configure IPv4 to IPv6 policies.
+* `fmgr_pkg_firewall_hyperscalepolicy6`  Configure IPv6 policies.
+* `fmgr_pkg_firewall_hyperscalepolicy64`  Configure IPv6 to IPv4 policies.
 * `fmgr_pkg_firewall_interfacepolicy`  Configure IPv4 interface policies.
 * `fmgr_pkg_firewall_interfacepolicy6`  Configure IPv6 interface policies.
 * `fmgr_pkg_firewall_interfacepolicy6_sectionvalue`  Configure IPv6 interface policies.
@@ -473,12 +584,21 @@ The collection provides the following modules:
 * `fmgr_pkg_header_policy`  Configure IPv4/IPv6 policies.
 * `fmgr_pkg_header_policy6`  Configure IPv6 policies.
 * `fmgr_pkg_header_shapingpolicy`  Configure shaping policies.
+* `fmgr_pkg_user_nacpolicy`  Configure NAC policy matching pattern to identify matching NAC devices.
 * `fmgr_pm_config_metafields_firewall_address`  no description.
 * `fmgr_pm_config_metafields_firewall_addrgrp`  no description.
 * `fmgr_pm_config_metafields_firewall_centralsnatmap`  no description.
 * `fmgr_pm_config_metafields_firewall_policy`  no description.
 * `fmgr_pm_config_metafields_firewall_service_custom`  no description.
 * `fmgr_pm_config_metafields_firewall_service_group`  no description.
+* `fmgr_pm_config_pblock_firewall_consolidated_policy`  Configure consolidated IPv4/IPv6 policies.
+* `fmgr_pm_config_pblock_firewall_consolidated_policy_sectionvalue`  Configure consolidated IPv4/IPv6 policies.
+* `fmgr_pm_config_pblock_firewall_policy`  Configure IPv4/IPv6 policies.
+* `fmgr_pm_config_pblock_firewall_policy6`  Configure IPv6 policies.
+* `fmgr_pm_config_pblock_firewall_policy6_sectionvalue`  Configure IPv6 policies.
+* `fmgr_pm_config_pblock_firewall_policy_sectionvalue`  Configure IPv4/IPv6 policies.
+* `fmgr_pm_config_pblock_firewall_securitypolicy`  Configure NGFW IPv4/IPv6 application policies.
+* `fmgr_pm_config_pblock_firewall_securitypolicy_sectionvalue`  Configure NGFW IPv4/IPv6 application policies.
 * `fmgr_pm_config_reset_database`  Reset Global ADOM to a specific version.
 * `fmgr_pm_config_upgrade`  Upgrade an ADOM to the next version.
 * `fmgr_pm_config_workspace_commit`  Commit changes to an ADOM.
@@ -486,15 +606,35 @@ The collection provides the following modules:
 * `fmgr_pm_config_workspace_unlock`  Unlock an ADOM.
 * `fmgr_pm_devprof_adom`  no description.
 * `fmgr_pm_devprof_pkg`  no description.
-* `fmgr_pm_pkg`  no description.
-* `fmgr_pm_pkg_adom`  no description.
-* `fmgr_pm_pkg_global`  no description.
+* `fmgr_pm_devprof_scopemember`  no description.
+* `fmgr_pm_pblock_adom`  no description.
+* `fmgr_pm_pblock_obj`  no description.
+* `fmgr_pm_pkg`  Policy package or folder.
+* `fmgr_pm_pkg_adom`  Policy package or folder.
+* `fmgr_pm_pkg_global`  Policy package or folder.
+* `fmgr_pm_pkg_scopemember`  Policy package or folder.
 * `fmgr_pm_wanprof_adom`  no description.
 * `fmgr_pm_wanprof_pkg`  no description.
-* `fmgr_qosprofile`  Configure WiFi quality of service (QoS) profiles.
-* `fmgr_region`  Configure FortiAP regions (for floor plans and maps).
+* `fmgr_pm_wanprof_scopemember`  no description.
+* `fmgr_qosprofile`  Configure WiFi quality of service.
+* `fmgr_region`  Configure FortiAP regions.
+* `fmgr_router_accesslist`  Configure access lists.
+* `fmgr_router_accesslist6`  Configure IPv6 access lists.
+* `fmgr_router_accesslist6_rule`  Rule.
+* `fmgr_router_accesslist_rule`  Rule.
+* `fmgr_router_aspathlist`  Configure Autonomous System.
+* `fmgr_router_aspathlist_rule`  AS path list rule.
+* `fmgr_router_communitylist`  Configure community lists.
+* `fmgr_router_communitylist_rule`  Community list rule.
+* `fmgr_router_prefixlist`  Configure IPv4 prefix lists.
+* `fmgr_router_prefixlist6`  Configure IPv6 prefix lists.
+* `fmgr_router_prefixlist6_rule`  IPv6 prefix list rule.
+* `fmgr_router_prefixlist_rule`  IPv4 prefix list rule.
+* `fmgr_router_routemap`  Configure route maps.
+* `fmgr_router_routemap_rule`  Rule.
 * `fmgr_securityconsole_abort`  Abort and cancel a security console task.
 * `fmgr_securityconsole_assign_package`  Assign or unassign global policy package to ADOM packages.
+* `fmgr_securityconsole_cliprof_check`  no description.
 * `fmgr_securityconsole_import_dev_objs`  Import objects from device to ADOM, or from ADOM to Global.
 * `fmgr_securityconsole_install_device`  no description.
 * `fmgr_securityconsole_install_package`  Copy and install a policy package to devices.
@@ -507,6 +647,7 @@ The collection provides the following modules:
 * `fmgr_securityconsole_preview_result`  Retrieve the result of previous install/preview command.
 * `fmgr_securityconsole_reinstall_package`  Re-install a policy package that had been previously installed.
 * `fmgr_securityconsole_sign_certificate_template`  Generate and sign certificate on the target device.
+* `fmgr_securityconsole_template_cli_preview`  no description.
 * `fmgr_spamfilter_bwl`  Configure anti-spam black/white list.
 * `fmgr_spamfilter_bwl_entries`  Anti-spam black/white list entries.
 * `fmgr_spamfilter_bword`  Configure AntiSpam banned word list.
@@ -529,29 +670,43 @@ The collection provides the following modules:
 * `fmgr_sshfilter_profile_filefilter`  File filter.
 * `fmgr_sshfilter_profile_filefilter_entries`  File filter entries.
 * `fmgr_sshfilter_profile_shellcommands`  SSH command filter.
+* `fmgr_switchcontroller_acl_group`  Configure ACL groups to be applied on managed FortiSwitch ports.
+* `fmgr_switchcontroller_acl_ingress`  Configure ingress ACL policies to be applied on managed FortiSwitch ports.
+* `fmgr_switchcontroller_acl_ingress_action`  ACL actions.
+* `fmgr_switchcontroller_acl_ingress_classifier`  ACL classifiers.
 * `fmgr_switchcontroller_customcommand`  Configure the FortiGate switch controller to send custom commands to managed FortiSwitch devices.
+* `fmgr_switchcontroller_dsl_policy`  DSL policy.
+* `fmgr_switchcontroller_dynamicportpolicy`  Configure Dynamic port policy to be applied on the managed FortiSwitch ports through DPP device.
+* `fmgr_switchcontroller_dynamicportpolicy_policy`  Port policies with matching criteria and actions.
+* `fmgr_switchcontroller_fortilinksettings`  Configure integrated FortiLink settings for FortiSwitch.
+* `fmgr_switchcontroller_fortilinksettings_nacports`  NAC specific configuration.
 * `fmgr_switchcontroller_lldpprofile`  Configure FortiSwitch LLDP profiles.
 * `fmgr_switchcontroller_lldpprofile_customtlvs`  Configuration method to edit custom TLV entries.
-* `fmgr_switchcontroller_lldpprofile_medlocationservice`  Configuration method to edit Media Endpoint Discovery (MED) location service type-length-value (TLV) categories.
-* `fmgr_switchcontroller_lldpprofile_mednetworkpolicy`  Configuration method to edit Media Endpoint Discovery (MED) network policy type-length-value (TLV) categories.
+* `fmgr_switchcontroller_lldpprofile_medlocationservice`  Configuration method to edit Media Endpoint Discovery.
+* `fmgr_switchcontroller_lldpprofile_mednetworkpolicy`  Configuration method to edit Media Endpoint Discovery.
+* `fmgr_switchcontroller_macpolicy`  Configure MAC policy to be applied on the managed FortiSwitch devices through NAC device.
 * `fmgr_switchcontroller_managedswitch`  Configure FortiSwitch devices that are managed by this FortiGate.
 * `fmgr_switchcontroller_managedswitch_8021xsettings`  Configuration method to edit FortiSwitch 802.
-* `fmgr_switchcontroller_managedswitch_customcommand`  Configuration method to edit FortiSwitch commands to be pushed to this FortiSwitch device upon rebooting the FortiGate switch controller.
+* `fmgr_switchcontroller_managedswitch_customcommand`  Configuration method to edit FortiSwitch commands to be pushed to this FortiSwitch device upon rebooting the FortiGate switch controller ...
+* `fmgr_switchcontroller_managedswitch_dhcpsnoopingstaticclient`  Configure FortiSwitch DHCP snooping static clients.
 * `fmgr_switchcontroller_managedswitch_igmpsnooping`  Configure FortiSwitch IGMP snooping global settings.
 * `fmgr_switchcontroller_managedswitch_ipsourceguard`  IP source guard.
 * `fmgr_switchcontroller_managedswitch_ipsourceguard_bindingentry`  IP and MAC address configuration.
 * `fmgr_switchcontroller_managedswitch_mirror`  Configuration method to edit FortiSwitch packet mirror.
 * `fmgr_switchcontroller_managedswitch_ports`  Managed-switch port list.
+* `fmgr_switchcontroller_managedswitch_ports_dhcpsnoopoption82override`  Configure DHCP snooping option 82 override.
 * `fmgr_switchcontroller_managedswitch_remotelog`  Configure logging by FortiSwitch device to a remote syslog server.
-* `fmgr_switchcontroller_managedswitch_snmpcommunity`  Configuration method to edit Simple Network Management Protocol (SNMP) communities.
-* `fmgr_switchcontroller_managedswitch_snmpcommunity_hosts`  Configure IPv4 SNMP managers (hosts).
-* `fmgr_switchcontroller_managedswitch_snmpsysinfo`  Configuration method to edit Simple Network Management Protocol (SNMP) system info.
-* `fmgr_switchcontroller_managedswitch_snmptrapthreshold`  Configuration method to edit Simple Network Management Protocol (SNMP) trap threshold values.
-* `fmgr_switchcontroller_managedswitch_snmpuser`  Configuration method to edit Simple Network Management Protocol (SNMP) users.
+* `fmgr_switchcontroller_managedswitch_snmpcommunity`  Configuration method to edit Simple Network Management Protocol.
+* `fmgr_switchcontroller_managedswitch_snmpcommunity_hosts`  Configure IPv4 SNMP managers.
+* `fmgr_switchcontroller_managedswitch_snmpsysinfo`  Configuration method to edit Simple Network Management Protocol.
+* `fmgr_switchcontroller_managedswitch_snmptrapthreshold`  Configuration method to edit Simple Network Management Protocol.
+* `fmgr_switchcontroller_managedswitch_snmpuser`  Configuration method to edit Simple Network Management Protocol.
+* `fmgr_switchcontroller_managedswitch_staticmac`  Configuration method to edit FortiSwitch Static and Sticky MAC.
 * `fmgr_switchcontroller_managedswitch_stormcontrol`  Configuration method to edit FortiSwitch storm control for measuring traffic activity using data rates to prevent traffic disruption.
-* `fmgr_switchcontroller_managedswitch_stpsettings`  Configuration method to edit Spanning Tree Protocol (STP) settings used to prevent bridge loops.
-* `fmgr_switchcontroller_managedswitch_switchlog`  Configuration method to edit FortiSwitch logging settings (logs are transferred to and inserted into the FortiGate event log).
-* `fmgr_switchcontroller_managedswitch_switchstpsettings`  Configure spanning tree protocol (STP).
+* `fmgr_switchcontroller_managedswitch_stpinstance`  Configuration method to edit Spanning Tree Protocol.
+* `fmgr_switchcontroller_managedswitch_stpsettings`  Configuration method to edit Spanning Tree Protocol.
+* `fmgr_switchcontroller_managedswitch_switchlog`  Configuration method to edit FortiSwitch logging settings.
+* `fmgr_switchcontroller_managedswitch_switchstpsettings`  Configure spanning tree protocol.
 * `fmgr_switchcontroller_qos_dot1pmap`  Configure FortiSwitch QoS 802.
 * `fmgr_switchcontroller_qos_ipdscpmap`  Configure FortiSwitch QoS IP precedence/DSCP.
 * `fmgr_switchcontroller_qos_ipdscpmap_map`  Maps between IP-DSCP value to COS queue.
@@ -560,13 +715,19 @@ The collection provides the following modules:
 * `fmgr_switchcontroller_qos_queuepolicy_cosqueue`  COS queue configuration.
 * `fmgr_switchcontroller_securitypolicy_8021x`  Configure 802.
 * `fmgr_switchcontroller_securitypolicy_captiveportal`  Names of VLANs that use captive portal authentication.
+* `fmgr_switchcontroller_switchinterfacetag`  Configure switch object tags.
+* `fmgr_switchcontroller_trafficpolicy`  Configure FortiSwitch traffic policy.
+* `fmgr_switchcontroller_vlanpolicy`  Configure VLAN policy to be applied on the managed FortiSwitch ports through dynamic-port-policy.
 * `fmgr_sys_api_sdnconnector`  Query SDN connector data.
+* `fmgr_sys_cloud_orchest`  no description.
 * `fmgr_sys_generate_wsdl`  Generate WSDL for specific module and objects.
+* `fmgr_sys_hitcount`  no description.
 * `fmgr_sys_login_challenge`  Answer a log in challenge question, used following a login/user or login/challenge command.
 * `fmgr_sys_login_user`  Log into the device with user name and password.
 * `fmgr_sys_logout`  Log out a session.
 * `fmgr_sys_proxy_json`  Send and receive JSON request to/from managed devices.
 * `fmgr_sys_reboot`  Restart FortiManager.
+* `fmgr_sys_task_result`  no description.
 * `fmgr_system_admin_group`  User group.
 * `fmgr_system_admin_group_member`  Group members.
 * `fmgr_system_admin_ldap`  LDAP server entry configuration.
@@ -619,15 +780,21 @@ The collection provides the following modules:
 * `fmgr_system_fortiview_autocache`  FortiView auto-cache settings.
 * `fmgr_system_fortiview_setting`  FortiView settings.
 * `fmgr_system_geoipcountry`  no description.
-* `fmgr_system_geoipoverride`  Configure geographical location mapping for IP address(es) to override mappings from FortiGuard.
+* `fmgr_system_geoipoverride`  Configure geographical location mapping for IP address.
 * `fmgr_system_geoipoverride_ip6range`  Table of IPv6 ranges assigned to country.
 * `fmgr_system_geoipoverride_iprange`  Table of IP ranges assigned to country.
 * `fmgr_system_global`  Global range attributes.
 * `fmgr_system_guiact`  System settings through GUI.
 * `fmgr_system_ha`  HA configuration.
+* `fmgr_system_ha_monitoredinterfaces`  Monitored interfaces.
+* `fmgr_system_ha_monitoredips`  Monitored IP addresses.
 * `fmgr_system_ha_peer`  Peer.
+* `fmgr_system_hascheduledcheck`  Scheduled HA integrity check.
 * `fmgr_system_interface`  Interface configuration.
 * `fmgr_system_interface_ipv6`  IPv6 of interface.
+* `fmgr_system_interface_member`  Physical interfaces that belong to the aggregate or redundant interface.
+* `fmgr_system_localinpolicy`  IPv4 local in policy configuration.
+* `fmgr_system_localinpolicy6`  IPv6 local in policy configuration.
 * `fmgr_system_locallog_disk_filter`  Filter for disk logging.
 * `fmgr_system_locallog_disk_setting`  Settings for local disk logging.
 * `fmgr_system_locallog_fortianalyzer2_filter`  Filter for FortiAnalyzer2 logging.
@@ -647,15 +814,18 @@ The collection provides the following modules:
 * `fmgr_system_locallog_syslogd_setting`  Settings for remote syslog server.
 * `fmgr_system_log_alert`  Log based alert settings.
 * `fmgr_system_log_devicedisable`  Disable client device logging.
+* `fmgr_system_log_fospolicystats`  FortiOS policy statistics settings.
 * `fmgr_system_log_interfacestats`  Interface statistics settings.
 * `fmgr_system_log_ioc`  IoC settings.
 * `fmgr_system_log_maildomain`  FortiMail domain setting.
 * `fmgr_system_log_ratelimit`  Logging rate limit.
 * `fmgr_system_log_ratelimit_device`  Device log rate limit.
+* `fmgr_system_log_ratelimit_ratelimits`  Per device or ADOM log rate limits.
 * `fmgr_system_log_settings`  Log settings.
 * `fmgr_system_log_settings_rollinganalyzer`  Log rolling policy for Network Analyzer logs.
 * `fmgr_system_log_settings_rollinglocal`  Log rolling policy for local logs.
 * `fmgr_system_log_settings_rollingregular`  Log rolling policy for device logs.
+* `fmgr_system_log_topology`  Logging topology settings.
 * `fmgr_system_logfetch_clientprofile`  Log-fetch client profile settings.
 * `fmgr_system_logfetch_clientprofile_devicefilter`  List of device filter.
 * `fmgr_system_logfetch_clientprofile_logfilter`  Log content filters.
@@ -665,8 +835,33 @@ The collection provides the following modules:
 * `fmgr_system_meta`  no description.
 * `fmgr_system_meta_sysmetafields`  no description.
 * `fmgr_system_metadata_admins`  Configure admins.
+* `fmgr_system_npu`  Configure NPU attributes.
+* `fmgr_system_npu_backgroundssescan`  Configure driver background scan for SSE.
+* `fmgr_system_npu_dosoptions`  NPU DoS configurations.
+* `fmgr_system_npu_dswdtsprofile`  Configure NPU DSW DTS profile.
+* `fmgr_system_npu_dswqueuedtsprofile`  Configure NPU DSW Queue DTS profile.
+* `fmgr_system_npu_fpanomaly`  NP6Lite anomaly protection.
+* `fmgr_system_npu_hpe`  Host protection engine configuration.
+* `fmgr_system_npu_ipreassembly`  IP reassebmly engine configuration.
+* `fmgr_system_npu_isfnpqueues`  Configure queues of switch port connected to NP6 XAUI on ingress path.
+* `fmgr_system_npu_npqueues`  Configure queue assignment on NP7.
+* `fmgr_system_npu_npqueues_ethernettype`  Configure a NP7 QoS Ethernet Type.
+* `fmgr_system_npu_npqueues_ipprotocol`  Configure a NP7 QoS IP Protocol.
+* `fmgr_system_npu_npqueues_ipservice`  Configure a NP7 QoS IP Service.
+* `fmgr_system_npu_npqueues_profile`  Configure a NP7 class profile.
+* `fmgr_system_npu_npqueues_scheduler`  Configure a NP7 QoS Scheduler.
+* `fmgr_system_npu_portcpumap`  Configure NPU interface to CPU core mapping.
+* `fmgr_system_npu_portnpumap`  Configure port to NPU group mapping.
+* `fmgr_system_npu_portpathoption`  Configure port using NPU or Intel-NIC.
+* `fmgr_system_npu_priorityprotocol`  Configure NPU priority protocol.
+* `fmgr_system_npu_ssehascan`  Configure driver HA scan for SSE.
+* `fmgr_system_npu_swehhash`  Configure switch enhanced hashing.
+* `fmgr_system_npu_swtrhash`  Configure switch traditional hashing.
+* `fmgr_system_npu_tcptimeoutprofile`  Configure TCP timeout profile.
+* `fmgr_system_npu_udptimeoutprofile`  Configure UDP timeout profile.
 * `fmgr_system_ntp`  NTP settings.
 * `fmgr_system_ntp_ntpserver`  NTP server.
+* `fmgr_system_objecttag`  Configure object tags.
 * `fmgr_system_objecttagging`  Configure object tagging.
 * `fmgr_system_passwordpolicy`  Password policy.
 * `fmgr_system_replacemsggroup`  Configure replacement message groups.
@@ -706,9 +901,14 @@ The collection provides the following modules:
 * `fmgr_system_saml`  Global settings for SAML authentication.
 * `fmgr_system_saml_fabricidp`  Authorized identity providers.
 * `fmgr_system_sdnconnector`  Configure connection to SDN Connector.
+* `fmgr_system_sdnconnector_compartmentlist`  Configure OCI compartment list.
+* `fmgr_system_sdnconnector_externalaccountlist`  Configure AWS external account list.
 * `fmgr_system_sdnconnector_externalip`  Configure GCP external IP.
+* `fmgr_system_sdnconnector_forwardingrule`  Configure GCP forwarding rule.
+* `fmgr_system_sdnconnector_gcpprojectlist`  Configure GCP project list.
 * `fmgr_system_sdnconnector_nic`  Configure Azure network interface.
 * `fmgr_system_sdnconnector_nic_ip`  Configure IP configuration.
+* `fmgr_system_sdnconnector_ociregionlist`  Configure OCI region list.
 * `fmgr_system_sdnconnector_route`  Configure GCP route.
 * `fmgr_system_sdnconnector_routetable`  Configure Azure route table.
 * `fmgr_system_sdnconnector_routetable_route`  Configure Azure route.
@@ -720,41 +920,57 @@ The collection provides the following modules:
 * `fmgr_system_snmp_sysinfo`  SNMP configuration.
 * `fmgr_system_snmp_user`  SNMP user configuration.
 * `fmgr_system_socfabric`  SOC Fabric.
+* `fmgr_system_socfabric_trustedlist`  Pre-authorized security fabric nodes.
 * `fmgr_system_sql`  SQL settings.
 * `fmgr_system_sql_customindex`  List of SQL index fields.
 * `fmgr_system_sql_customskipidx`  List of aditional SQL skip index fields.
 * `fmgr_system_sql_tsindexfield`  List of SQL text search index fields.
+* `fmgr_system_sslciphersuites`  Configure preferred SSL/TLS cipher suites.
 * `fmgr_system_syslog`  Syslog servers.
 * `fmgr_system_virtualwirepair`  Configure virtual wire pairs.
+* `fmgr_system_webproxy`  Configure system web proxy.
 * `fmgr_system_workflow_approvalmatrix`  workflow approval matrix.
 * `fmgr_system_workflow_approvalmatrix_approver`  Approver.
 * `fmgr_template`  no description.
 * `fmgr_templategroup`  no description.
+* `fmgr_um_image_upgrade`  The older API for updating the firmware of specific device.
+* `fmgr_um_image_upgrade_ext`  Update the firmware of specific device.
 * `fmgr_user_adgrp`  Configure FSSO groups.
+* `fmgr_user_certificate`  Configure certificate users.
 * `fmgr_user_clearpass`  no description.
+* `fmgr_user_connector`  no description.
 * `fmgr_user_device`  Configure devices.
-* `fmgr_user_device_dynamicmapping`  no description.
+* `fmgr_user_device_dynamicmapping`  Configure devices.
 * `fmgr_user_device_tagging`  Config object tagging.
+* `fmgr_user_deviceaccesslist`  Configure device access control lists.
+* `fmgr_user_deviceaccesslist_devicelist`  Device list.
 * `fmgr_user_devicecategory`  Configure device categories.
 * `fmgr_user_devicegroup`  Configure device groups.
-* `fmgr_user_devicegroup_dynamicmapping`  no description.
+* `fmgr_user_devicegroup_dynamicmapping`  Configure device groups.
 * `fmgr_user_devicegroup_tagging`  Config object tagging.
 * `fmgr_user_domaincontroller`  Configure domain controller entries.
 * `fmgr_user_domaincontroller_extraserver`  extra servers.
 * `fmgr_user_exchange`  Configure MS Exchange server entries.
+* `fmgr_user_flexvm`  no description.
 * `fmgr_user_fortitoken`  Configure FortiToken.
-* `fmgr_user_fsso`  Configure Fortinet Single Sign On (FSSO) agents.
-* `fmgr_user_fsso_dynamicmapping`  Configure Fortinet Single Sign On (FSSO) agents.
+* `fmgr_user_fsso`  Configure Fortinet Single Sign On.
+* `fmgr_user_fsso_dynamicmapping`  Configure Fortinet Single Sign On.
 * `fmgr_user_fssopolling`  Configure FSSO active directory servers for polling mode.
 * `fmgr_user_fssopolling_adgrp`  LDAP Group Info.
 * `fmgr_user_group`  Configure user groups.
+* `fmgr_user_group_dynamicmapping`  Configure user groups.
+* `fmgr_user_group_dynamicmapping_guest`  Guest User.
+* `fmgr_user_group_dynamicmapping_match`  Group matches.
+* `fmgr_user_group_dynamicmapping_sslvpnoschecklist`  no description.
 * `fmgr_user_group_guest`  Guest User.
 * `fmgr_user_group_match`  Group matches.
+* `fmgr_user_json`  no description.
 * `fmgr_user_krbkeytab`  Configure Kerberos keytab entries.
 * `fmgr_user_ldap`  Configure LDAP server entries.
 * `fmgr_user_ldap_dynamicmapping`  Configure LDAP server entries.
 * `fmgr_user_local`  Configure local users.
 * `fmgr_user_nsx`  no description.
+* `fmgr_user_nsx_service`  no description.
 * `fmgr_user_passwordpolicy`  Configure user password policy.
 * `fmgr_user_peer`  Configure peer users.
 * `fmgr_user_peergrp`  Configure peer groups.
@@ -765,31 +981,36 @@ The collection provides the following modules:
 * `fmgr_user_radius_dynamicmapping`  Configure RADIUS server entries.
 * `fmgr_user_radius_dynamicmapping_accountingserver`  Additional accounting servers.
 * `fmgr_user_saml`  SAML server entry configuration.
+* `fmgr_user_saml_dynamicmapping`  SAML server entry configuration.
 * `fmgr_user_securityexemptlist`  Configure security exemption list.
 * `fmgr_user_securityexemptlist_rule`  Configure rules for exempting users from captive portal authentication.
 * `fmgr_user_tacacs`  Configure TACACS+ server entries.
 * `fmgr_user_tacacs_dynamicmapping`  Configure TACACS+ server entries.
 * `fmgr_user_vcenter`  no description.
 * `fmgr_user_vcenter_rule`  no description.
-* `fmgr_utmprofile`  Configure UTM (Unified Threat Management) profile.
-* `fmgr_vap`  Configure Virtual Access Points (VAPs).
-* `fmgr_vap_dynamicmapping`  Configure Virtual Access Points (VAPs).
+* `fmgr_utmprofile`  Configure UTM.
+* `fmgr_vap`  Configure Virtual Access Points.
+* `fmgr_vap_dynamicmapping`  Configure Virtual Access Points.
 * `fmgr_vap_macfilterlist`  Create a list of MAC addresses for MAC address filtering.
 * `fmgr_vap_mpskkey`  Pre-shared keys that can be used to connect to this virtual access point.
 * `fmgr_vap_portalmessageoverrides`  Individual message overrides.
+* `fmgr_vap_vlanname`  Table for mapping VLAN name to VLAN ID.
 * `fmgr_vap_vlanpool`  VLAN pool.
-* `fmgr_vapgroup`  Configure virtual Access Point (VAP) groups.
+* `fmgr_vapgroup`  Configure virtual Access Point.
 * `fmgr_videofilter_profile`  Configure VideoFilter profile.
 * `fmgr_videofilter_profile_fortiguardcategory`  Configure FortiGuard categories.
 * `fmgr_videofilter_profile_fortiguardcategory_filters`  Configure VideoFilter FortiGuard category.
 * `fmgr_videofilter_youtubechannelfilter`  Configure YouTube channel filter.
 * `fmgr_videofilter_youtubechannelfilter_entries`  YouTube filter entries.
 * `fmgr_voip_profile`  Configure VoIP profiles.
+* `fmgr_voip_profile_msrp`  MSRP.
 * `fmgr_voip_profile_sccp`  SCCP.
 * `fmgr_voip_profile_sip`  SIP.
 * `fmgr_vpn_certificate_ca`  CA certificate.
 * `fmgr_vpn_certificate_ocspserver`  OCSP server configuration.
 * `fmgr_vpn_certificate_remote`  Remote certificate as a PEM file.
+* `fmgr_vpn_ipsec_fec`  Configure Forward Error Correction.
+* `fmgr_vpn_ipsec_fec_mappings`  FEC redundancy mapping table.
 * `fmgr_vpn_ssl_settings`  Configure SSL VPN.
 * `fmgr_vpn_ssl_settings_authenticationrule`  Authentication rule for SSL VPN.
 * `fmgr_vpnmgr_node`  VPN node for VPN Manager.
@@ -804,10 +1025,14 @@ The collection provides the following modules:
 * `fmgr_vpnsslweb_portal_bookmarkgroup`  Portal bookmark group.
 * `fmgr_vpnsslweb_portal_bookmarkgroup_bookmarks`  Bookmark table.
 * `fmgr_vpnsslweb_portal_bookmarkgroup_bookmarks_formdata`  Form data.
+* `fmgr_vpnsslweb_portal_landingpage`  Landing page options.
+* `fmgr_vpnsslweb_portal_landingpage_formdata`  Form data.
 * `fmgr_vpnsslweb_portal_macaddrcheckrule`  Client MAC address check rule.
 * `fmgr_vpnsslweb_portal_oschecklist`  SSL VPN OS checks.
 * `fmgr_vpnsslweb_portal_splitdns`  Split DNS for SSL VPN.
 * `fmgr_vpnsslweb_realm`  Realm.
+* `fmgr_vpnsslweb_virtualdesktopapplist`  SSL-VPN virtual desktop application list.
+* `fmgr_vpnsslweb_virtualdesktopapplist_apps`  Applications.
 * `fmgr_waf_mainclass`  Hidden table for datasource.
 * `fmgr_waf_profile`  Web application firewall configuration.
 * `fmgr_waf_profile_addresslist`  Black address list and white address list.
@@ -835,31 +1060,31 @@ The collection provides the following modules:
 * `fmgr_waf_profile_urlaccess_accesspattern`  URL access pattern.
 * `fmgr_waf_signature`  Hidden table for datasource.
 * `fmgr_waf_subclass`  Hidden table for datasource.
-* `fmgr_wagprofile`  Configure wireless access gateway (WAG) profiles used for tunnels on AP.
+* `fmgr_wagprofile`  Configure wireless access gateway.
 * `fmgr_wanopt_authgroup`  Configure WAN optimization authentication groups.
 * `fmgr_wanopt_peer`  Configure WAN optimization peers.
 * `fmgr_wanopt_profile`  Configure WAN optimization profiles.
-* `fmgr_wanopt_profile_cifs`  Enable/disable CIFS (Windows sharing) WAN Optimization and configure CIFS WAN Optimization features.
+* `fmgr_wanopt_profile_cifs`  Enable/disable CIFS.
 * `fmgr_wanopt_profile_ftp`  Enable/disable FTP WAN Optimization and configure FTP WAN Optimization features.
 * `fmgr_wanopt_profile_http`  Enable/disable HTTP WAN Optimization and configure HTTP WAN Optimization features.
 * `fmgr_wanopt_profile_mapi`  Enable/disable MAPI email WAN Optimization and configure MAPI WAN Optimization features.
 * `fmgr_wanopt_profile_tcp`  Enable/disable TCP WAN Optimization and configure TCP WAN Optimization features.
-* `fmgr_wanprof_system_sdwan`  Configure redundant internet connections using SD-WAN (formerly virtual WAN link).
+* `fmgr_wanprof_system_sdwan`  Configure redundant internet connections using SD-WAN.
 * `fmgr_wanprof_system_sdwan_duplication`  Create SD-WAN duplication rule.
 * `fmgr_wanprof_system_sdwan_healthcheck`  SD-WAN status checking or health checking.
-* `fmgr_wanprof_system_sdwan_healthcheck_sla`  Service level agreement (SLA).
+* `fmgr_wanprof_system_sdwan_healthcheck_sla`  Service level agreement.
 * `fmgr_wanprof_system_sdwan_members`  FortiGate interfaces added to the SD-WAN.
 * `fmgr_wanprof_system_sdwan_neighbor`  Create SD-WAN neighbor from BGP neighbor table to control route advertisements according to SLA status.
-* `fmgr_wanprof_system_sdwan_service`  Create SD-WAN rules (also called services) to control how sessions are distributed to interfaces in the SD-WAN.
-* `fmgr_wanprof_system_sdwan_service_sla`  Service level agreement (SLA).
+* `fmgr_wanprof_system_sdwan_service`  Create SD-WAN rules.
+* `fmgr_wanprof_system_sdwan_service_sla`  Service level agreement.
 * `fmgr_wanprof_system_sdwan_zone`  Configure SD-WAN zones.
-* `fmgr_wanprof_system_virtualwanlink`  Configure redundant internet connections using SD-WAN (formerly virtual WAN link).
+* `fmgr_wanprof_system_virtualwanlink`  Configure redundant internet connections using SD-WAN.
 * `fmgr_wanprof_system_virtualwanlink_healthcheck`  SD-WAN status checking or health checking.
-* `fmgr_wanprof_system_virtualwanlink_healthcheck_sla`  Service level agreement (SLA).
+* `fmgr_wanprof_system_virtualwanlink_healthcheck_sla`  Service level agreement.
 * `fmgr_wanprof_system_virtualwanlink_members`  Physical FortiGate interfaces added to the virtual-wan-link.
 * `fmgr_wanprof_system_virtualwanlink_neighbor`  SD-WAN neighbor table.
-* `fmgr_wanprof_system_virtualwanlink_service`  Create SD-WAN rules or priority rules (also called services) to control how sessions are distributed to physical interfaces in the SD-WAN.
-* `fmgr_wanprof_system_virtualwanlink_service_sla`  Service level agreement (SLA).
+* `fmgr_wanprof_system_virtualwanlink_service`  Create SD-WAN rules or priority rules.
+* `fmgr_wanprof_system_virtualwanlink_service_sla`  Service level agreement.
 * `fmgr_webfilter_categories`  no description.
 * `fmgr_webfilter_content`  Configure Web filter banned word table.
 * `fmgr_webfilter_content_entries`  Configure banned word entries.
@@ -887,12 +1112,20 @@ The collection provides the following modules:
 * `fmgr_webproxy_forwardservergroup_serverlist`  Add web forward servers to a list to form a server group.
 * `fmgr_webproxy_profile`  Configure web proxy profiles.
 * `fmgr_webproxy_profile_headers`  Configure HTTP forwarded requests headers.
-* `fmgr_webproxy_wisp`  Configure Wireless Internet service provider (WISP) servers.
-* `fmgr_widsprofile`  Configure wireless intrusion detection system (WIDS) profiles.
+* `fmgr_webproxy_wisp`  Configure Wireless Internet service provider.
+* `fmgr_widsprofile`  Configure wireless intrusion detection system.
+* `fmgr_wireless_accesscontrollist`  Configure WiFi bridge access control list.
+* `fmgr_wireless_accesscontrollist_layer3ipv4rules`  AP ACL layer3 ipv4 rule list.
+* `fmgr_wireless_accesscontrollist_layer3ipv6rules`  AP ACL layer3 ipv6 rule list.
+* `fmgr_wireless_address`  Configure the client with its MAC address.
+* `fmgr_wireless_addrgrp`  Configure the MAC address group.
+* `fmgr_wireless_ssidpolicy`  Configure WiFi SSID policies.
+* `fmgr_wireless_syslogprofile`  Configure Wireless Termination Points.
 * `fmgr_wtpprofile`  Configure WTP profiles or FortiAP profiles that define radio settings for manageable FortiAP platforms.
 * `fmgr_wtpprofile_denymaclist`  List of MAC addresses that are denied access to this WTP, FortiAP, or AP.
+* `fmgr_wtpprofile_eslsesdongle`  ESL SES-imagotag dongle configuration.
 * `fmgr_wtpprofile_lan`  WTP LAN port mapping.
-* `fmgr_wtpprofile_lbs`  Set various location based service (LBS) options.
+* `fmgr_wtpprofile_lbs`  Set various location based service.
 * `fmgr_wtpprofile_platform`  WTP, FortiAP, or AP platform.
 * `fmgr_wtpprofile_radio1`  Configuration options for radio 1.
 * `fmgr_wtpprofile_radio2`  Configuration options for radio 2.

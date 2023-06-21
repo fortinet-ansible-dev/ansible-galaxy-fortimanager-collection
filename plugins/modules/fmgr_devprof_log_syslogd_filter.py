@@ -1,6 +1,6 @@
 #!/usr/bin/python
 from __future__ import absolute_import, division, print_function
-# Copyright 2019-2021 Fortinet, Inc.
+# Copyright 2019-2023 Fortinet, Inc.
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -24,15 +24,17 @@ ANSIBLE_METADATA = {'status': ['preview'],
 DOCUMENTATION = '''
 ---
 module: fmgr_devprof_log_syslogd_filter
-short_description: no description
+short_description: Filters for remote system server.
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
 
 version_added: "1.0.0"
 author:
-    - Link Zheng (@chillancezen)
+    - Xinwei Du (@dux-fortinet)
+    - Xing Li (@lix-fortinet)
     - Jie Xue (@JieX19)
+    - Link Zheng (@chillancezen)
     - Frank Shen (@fshen01)
     - Hongbin Lu (@fgtdev-hblu)
 notes:
@@ -44,51 +46,51 @@ notes:
       the conditions to fail or succeed with parameters rc_failed and rc_succeeded
 
 options:
-    enable_log:
-        description: Enable/Disable logging for task
+    access_token:
+        description: The token to access FortiManager without using username and password.
+        required: false
+        type: str
+    bypass_validation:
+        description: Only set to True when module schema diffs with FortiManager API structure, module continues to execute without validating parameters.
         required: false
         type: bool
         default: false
+    enable_log:
+        description: Enable/Disable logging for task.
+        required: false
+        type: bool
+        default: false
+    forticloud_access_token:
+        description: Authenticate Ansible client with forticloud API access token.
+        required: false
+        type: str
     proposed_method:
-        description: The overridden method for the underlying Json RPC request
+        description: The overridden method for the underlying Json RPC request.
         required: false
         type: str
         choices:
           - update
           - set
           - add
-    bypass_validation:
-        description: |
-          only set to True when module schema diffs with FortiManager API structure,
-           module continues to execute without validating parameters
+    rc_succeeded:
+        description: The rc codes list with which the conditions to succeed will be overriden.
+        type: list
         required: false
-        type: bool
-        default: false
+        elements: int
+    rc_failed:
+        description: The rc codes list with which the conditions to fail will be overriden.
+        type: list
+        required: false
+        elements: int
     workspace_locking_adom:
-        description: |
-          the adom to lock for FortiManager running in workspace mode, the value can be global and others including root
+        description: The adom to lock for FortiManager running in workspace mode, the value can be global and others including root.
         required: false
         type: str
     workspace_locking_timeout:
-        description: the maximum time in seconds to wait for other user to release the workspace lock
+        description: The maximum time in seconds to wait for other user to release the workspace lock.
         required: false
         type: int
         default: 300
-    state:
-        description: the directive to create, update or delete an object
-        type: str
-        required: true
-        choices:
-          - present
-          - absent
-    rc_succeeded:
-        description: the rc codes list with which the conditions to succeed will be overriden
-        type: list
-        required: false
-    rc_failed:
-        description: the rc codes list with which the conditions to fail will be overriden
-        type: list
-        required: false
     adom:
         description: the parameter (adom) in requested url
         type: str
@@ -104,7 +106,7 @@ options:
         suboptions:
             severity:
                 type: str
-                description: no description
+                description: Lowest severity level to log.
                 choices:
                     - 'emergency'
                     - 'alert'
@@ -114,6 +116,179 @@ options:
                     - 'notification'
                     - 'information'
                     - 'debug'
+            anomaly:
+                type: str
+                description: Enable/disable anomaly logging.
+                choices:
+                    - 'disable'
+                    - 'enable'
+            exclude-list:
+                description: description
+                type: list
+                elements: dict
+                suboptions:
+                    category:
+                        type: str
+                        description: no description
+                        choices:
+                            - 'app-ctrl'
+                            - 'attack'
+                            - 'dlp'
+                            - 'event'
+                            - 'traffic'
+                            - 'virus'
+                            - 'voip'
+                            - 'webfilter'
+                            - 'netscan'
+                            - 'spam'
+                            - 'anomaly'
+                            - 'waf'
+                    fields:
+                        description: description
+                        type: list
+                        elements: dict
+                        suboptions:
+                            args:
+                                description: description
+                                type: str
+                            field:
+                                type: str
+                                description: no description
+                            negate:
+                                type: str
+                                description: no description
+                                choices:
+                                    - 'disable'
+                                    - 'enable'
+                    id:
+                        type: int
+                        description: no description
+            forward-traffic:
+                type: str
+                description: Enable/disable forward traffic logging.
+                choices:
+                    - 'disable'
+                    - 'enable'
+            free-style:
+                description: description
+                type: list
+                elements: dict
+                suboptions:
+                    category:
+                        type: str
+                        description: Log category.
+                        choices:
+                            - 'traffic'
+                            - 'event'
+                            - 'virus'
+                            - 'webfilter'
+                            - 'attack'
+                            - 'spam'
+                            - 'voip'
+                            - 'dlp'
+                            - 'app-ctrl'
+                            - 'anomaly'
+                            - 'waf'
+                            - 'gtp'
+                            - 'dns'
+                            - 'ssh'
+                            - 'ssl'
+                            - 'file-filter'
+                            - 'icap'
+                            - 'ztna'
+                    filter:
+                        type: str
+                        description: Free style filter string.
+                    filter-type:
+                        type: str
+                        description: Include/exclude logs that match the filter.
+                        choices:
+                            - 'include'
+                            - 'exclude'
+                    id:
+                        type: int
+                        description: Entry ID.
+            gtp:
+                type: str
+                description: Enable/disable GTP messages logging.
+                choices:
+                    - 'disable'
+                    - 'enable'
+            local-traffic:
+                type: str
+                description: Enable/disable local in or out traffic logging.
+                choices:
+                    - 'disable'
+                    - 'enable'
+            multicast-traffic:
+                type: str
+                description: Enable/disable multicast traffic logging.
+                choices:
+                    - 'disable'
+                    - 'enable'
+            sniffer-traffic:
+                type: str
+                description: Enable/disable sniffer traffic logging.
+                choices:
+                    - 'disable'
+                    - 'enable'
+            voip:
+                type: str
+                description: Enable/disable VoIP logging.
+                choices:
+                    - 'disable'
+                    - 'enable'
+            ztna-traffic:
+                type: str
+                description: Enable/disable ztna traffic logging.
+                choices:
+                    - 'disable'
+                    - 'enable'
+            filter-type:
+                type: str
+                description: Include/exclude logs that match the filter.
+                choices:
+                    - 'include'
+                    - 'exclude'
+            filter:
+                type: str
+                description: Syslog filter.
+            dns:
+                type: str
+                description: Enable/disable detailed DNS event logging.
+                choices:
+                    - 'disable'
+                    - 'enable'
+            cifs:
+                type: str
+                description: no description
+                choices:
+                    - 'disable'
+                    - 'enable'
+            ssh:
+                type: str
+                description: Enable/disable SSH logging.
+                choices:
+                    - 'disable'
+                    - 'enable'
+            ssl:
+                type: str
+                description: no description
+                choices:
+                    - 'disable'
+                    - 'enable'
+            netscan-vulnerability:
+                type: str
+                description: Enable/disable netscan vulnerability event logging.
+                choices:
+                    - 'disable'
+                    - 'enable'
+            netscan-discovery:
+                type: str
+                description: Enable/disable netscan discovery event logging.
+                choices:
+                    - 'disable'
+                    - 'enable'
 
 '''
 
@@ -127,7 +302,7 @@ EXAMPLES = '''
       ansible_httpapi_validate_certs: False
       ansible_httpapi_port: 443
    tasks:
-    - name: no description
+    - name: Filters for remote system server.
       fmgr_devprof_log_syslogd_filter:
          bypass_validation: False
          workspace_locking_adom: <value in [global, custom adom including root]>
@@ -138,26 +313,78 @@ EXAMPLES = '''
          devprof: <your own value>
          devprof_log_syslogd_filter:
             severity: <value in [emergency, alert, critical, ...]>
+            anomaly: <value in [disable, enable]>
+            exclude-list:
+              -
+                  category: <value in [app-ctrl, attack, dlp, ...]>
+                  fields:
+                    -
+                        args: <value of string>
+                        field: <value of string>
+                        negate: <value in [disable, enable]>
+                  id: <value of integer>
+            forward-traffic: <value in [disable, enable]>
+            free-style:
+              -
+                  category: <value in [traffic, event, virus, ...]>
+                  filter: <value of string>
+                  filter-type: <value in [include, exclude]>
+                  id: <value of integer>
+            gtp: <value in [disable, enable]>
+            local-traffic: <value in [disable, enable]>
+            multicast-traffic: <value in [disable, enable]>
+            sniffer-traffic: <value in [disable, enable]>
+            voip: <value in [disable, enable]>
+            ztna-traffic: <value in [disable, enable]>
+            filter-type: <value in [include, exclude]>
+            filter: <value of string>
+            dns: <value in [disable, enable]>
+            cifs: <value in [disable, enable]>
+            ssh: <value in [disable, enable]>
+            ssl: <value in [disable, enable]>
+            netscan-vulnerability: <value in [disable, enable]>
+            netscan-discovery: <value in [disable, enable]>
 
 '''
 
 RETURN = '''
-request_url:
-    description: The full url requested
+meta:
+    description: The result of the request.
+    type: dict
     returned: always
-    type: str
-    sample: /sys/login/user
-response_code:
-    description: The status of api request
-    returned: always
+    contains:
+        request_url:
+            description: The full url requested.
+            returned: always
+            type: str
+            sample: /sys/login/user
+        response_code:
+            description: The status of api request.
+            returned: always
+            type: int
+            sample: 0
+        response_data:
+            description: The api response.
+            type: list
+            returned: always
+        response_message:
+            description: The descriptive message of the api response.
+            type: str
+            returned: always
+            sample: OK.
+        system_information:
+            description: The information of the target system.
+            type: dict
+            returned: always
+rc:
+    description: The status the request.
     type: int
-    sample: 0
-response_message:
-    description: The descriptive message of the api response
-    type: str
     returned: always
-    sample: OK.
-
+    sample: 0
+version_check_warning:
+    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+    type: list
+    returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
@@ -178,6 +405,16 @@ def main():
     url_params = ['adom', 'devprof']
     module_primary_key = None
     module_arg_spec = {
+        'access_token': {
+            'type': 'str',
+            'required': False,
+            'no_log': True
+        },
+        'bypass_validation': {
+            'type': 'bool',
+            'required': False,
+            'default': False
+        },
         'enable_log': {
             'type': 'bool',
             'required': False,
@@ -197,10 +434,15 @@ def main():
                 'add'
             ]
         },
-        'bypass_validation': {
-            'type': 'bool',
+        'rc_succeeded': {
             'required': False,
-            'default': False
+            'type': 'list',
+            'elements': 'int'
+        },
+        'rc_failed': {
+            'required': False,
+            'type': 'list',
+            'elements': 'int'
         },
         'workspace_locking_adom': {
             'type': 'str',
@@ -210,14 +452,6 @@ def main():
             'type': 'int',
             'required': False,
             'default': 300
-        },
-        'rc_succeeded': {
-            'required': False,
-            'type': 'list'
-        },
-        'rc_failed': {
-            'required': False,
-            'type': 'list'
         },
         'adom': {
             'required': True,
@@ -232,13 +466,38 @@ def main():
             'type': 'dict',
             'revision': {
                 '6.0.0': True,
+                '6.2.0': True,
                 '6.2.1': True,
+                '6.2.2': True,
                 '6.2.3': True,
                 '6.2.5': True,
+                '6.2.7': True,
+                '6.2.8': True,
+                '6.2.9': True,
+                '6.2.10': True,
                 '6.4.0': True,
+                '6.4.1': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.4.0': True
             },
             'options': {
                 'severity': {
@@ -252,7 +511,33 @@ def main():
                         '6.4.2': False,
                         '6.4.5': True,
                         '7.0.0': True,
-                        '7.2.0': True
+                        '7.2.0': True,
+                        '6.2.0': True,
+                        '6.2.2': True,
+                        '6.2.6': False,
+                        '6.2.7': True,
+                        '6.2.8': True,
+                        '6.2.9': True,
+                        '6.2.10': True,
+                        '6.4.1': True,
+                        '6.4.3': True,
+                        '6.4.4': True,
+                        '6.4.6': True,
+                        '6.4.7': True,
+                        '6.4.8': True,
+                        '6.4.9': True,
+                        '6.4.10': True,
+                        '6.4.11': True,
+                        '7.0.1': True,
+                        '7.0.2': True,
+                        '7.0.3': True,
+                        '7.0.4': True,
+                        '7.0.5': True,
+                        '7.0.6': True,
+                        '7.0.7': True,
+                        '7.2.1': True,
+                        '7.2.2': True,
+                        '7.4.0': True
                     },
                     'choices': [
                         'emergency',
@@ -263,6 +548,481 @@ def main():
                         'notification',
                         'information',
                         'debug'
+                    ],
+                    'type': 'str'
+                },
+                'anomaly': {
+                    'required': False,
+                    'revision': {
+                        '7.0.4': True,
+                        '7.0.5': True,
+                        '7.0.6': True,
+                        '7.0.7': True,
+                        '7.2.1': True,
+                        '7.2.2': True,
+                        '7.4.0': True
+                    },
+                    'choices': [
+                        'disable',
+                        'enable'
+                    ],
+                    'type': 'str'
+                },
+                'exclude-list': {
+                    'required': False,
+                    'revision': {
+                        '7.0.4': True,
+                        '7.0.5': True,
+                        '7.0.6': True,
+                        '7.0.7': True,
+                        '7.2.1': False,
+                        '7.2.2': False,
+                        '7.4.0': False
+                    },
+                    'type': 'list',
+                    'options': {
+                        'category': {
+                            'required': False,
+                            'revision': {
+                                '7.0.4': True,
+                                '7.0.5': True,
+                                '7.0.6': True,
+                                '7.0.7': True,
+                                '7.2.1': False,
+                                '7.2.2': False,
+                                '7.4.0': False
+                            },
+                            'choices': [
+                                'app-ctrl',
+                                'attack',
+                                'dlp',
+                                'event',
+                                'traffic',
+                                'virus',
+                                'voip',
+                                'webfilter',
+                                'netscan',
+                                'spam',
+                                'anomaly',
+                                'waf'
+                            ],
+                            'type': 'str'
+                        },
+                        'fields': {
+                            'required': False,
+                            'revision': {
+                                '7.0.4': True,
+                                '7.0.5': True,
+                                '7.0.6': True,
+                                '7.0.7': True,
+                                '7.2.1': False,
+                                '7.2.2': False,
+                                '7.4.0': False
+                            },
+                            'type': 'list',
+                            'options': {
+                                'args': {
+                                    'required': False,
+                                    'revision': {
+                                        '7.0.4': True,
+                                        '7.0.5': True,
+                                        '7.0.6': True,
+                                        '7.0.7': True,
+                                        '7.2.1': False,
+                                        '7.2.2': False,
+                                        '7.4.0': False
+                                    },
+                                    'type': 'str'
+                                },
+                                'field': {
+                                    'required': False,
+                                    'revision': {
+                                        '7.0.4': True,
+                                        '7.0.5': True,
+                                        '7.0.6': True,
+                                        '7.0.7': True,
+                                        '7.2.1': False,
+                                        '7.2.2': False,
+                                        '7.4.0': False
+                                    },
+                                    'type': 'str'
+                                },
+                                'negate': {
+                                    'required': False,
+                                    'revision': {
+                                        '7.0.4': True,
+                                        '7.0.5': True,
+                                        '7.0.6': True,
+                                        '7.0.7': True,
+                                        '7.2.1': False,
+                                        '7.2.2': False,
+                                        '7.4.0': False
+                                    },
+                                    'choices': [
+                                        'disable',
+                                        'enable'
+                                    ],
+                                    'type': 'str'
+                                }
+                            },
+                            'elements': 'dict'
+                        },
+                        'id': {
+                            'required': False,
+                            'revision': {
+                                '7.0.4': True,
+                                '7.0.5': True,
+                                '7.0.6': True,
+                                '7.0.7': True,
+                                '7.2.1': False,
+                                '7.2.2': False,
+                                '7.4.0': False
+                            },
+                            'type': 'int'
+                        }
+                    },
+                    'elements': 'dict'
+                },
+                'forward-traffic': {
+                    'required': False,
+                    'revision': {
+                        '7.0.4': True,
+                        '7.0.5': True,
+                        '7.0.6': True,
+                        '7.0.7': True,
+                        '7.2.1': True,
+                        '7.2.2': True,
+                        '7.4.0': True
+                    },
+                    'choices': [
+                        'disable',
+                        'enable'
+                    ],
+                    'type': 'str'
+                },
+                'free-style': {
+                    'required': False,
+                    'revision': {
+                        '7.0.4': True,
+                        '7.0.5': True,
+                        '7.0.6': True,
+                        '7.0.7': True,
+                        '7.2.1': True,
+                        '7.2.2': True,
+                        '7.4.0': True
+                    },
+                    'type': 'list',
+                    'options': {
+                        'category': {
+                            'required': False,
+                            'revision': {
+                                '7.0.4': True,
+                                '7.0.5': True,
+                                '7.0.6': True,
+                                '7.0.7': True,
+                                '7.2.1': True,
+                                '7.2.2': True,
+                                '7.4.0': True
+                            },
+                            'choices': [
+                                'traffic',
+                                'event',
+                                'virus',
+                                'webfilter',
+                                'attack',
+                                'spam',
+                                'voip',
+                                'dlp',
+                                'app-ctrl',
+                                'anomaly',
+                                'waf',
+                                'gtp',
+                                'dns',
+                                'ssh',
+                                'ssl',
+                                'file-filter',
+                                'icap',
+                                'ztna'
+                            ],
+                            'type': 'str'
+                        },
+                        'filter': {
+                            'required': False,
+                            'revision': {
+                                '7.0.4': True,
+                                '7.0.5': True,
+                                '7.0.6': True,
+                                '7.0.7': True,
+                                '7.2.1': True,
+                                '7.2.2': True,
+                                '7.4.0': True
+                            },
+                            'type': 'str'
+                        },
+                        'filter-type': {
+                            'required': False,
+                            'revision': {
+                                '7.0.4': True,
+                                '7.0.5': True,
+                                '7.0.6': True,
+                                '7.0.7': True,
+                                '7.2.1': True,
+                                '7.2.2': True,
+                                '7.4.0': True
+                            },
+                            'choices': [
+                                'include',
+                                'exclude'
+                            ],
+                            'type': 'str'
+                        },
+                        'id': {
+                            'required': False,
+                            'revision': {
+                                '7.0.4': True,
+                                '7.0.5': True,
+                                '7.0.6': True,
+                                '7.0.7': True,
+                                '7.2.1': True,
+                                '7.2.2': True,
+                                '7.4.0': True
+                            },
+                            'type': 'int'
+                        }
+                    },
+                    'elements': 'dict'
+                },
+                'gtp': {
+                    'required': False,
+                    'revision': {
+                        '7.0.4': True,
+                        '7.0.5': True,
+                        '7.0.6': True,
+                        '7.0.7': True,
+                        '7.2.1': True,
+                        '7.2.2': True,
+                        '7.4.0': True
+                    },
+                    'choices': [
+                        'disable',
+                        'enable'
+                    ],
+                    'type': 'str'
+                },
+                'local-traffic': {
+                    'required': False,
+                    'revision': {
+                        '7.0.4': True,
+                        '7.0.5': True,
+                        '7.0.6': True,
+                        '7.0.7': True,
+                        '7.2.1': True,
+                        '7.2.2': True,
+                        '7.4.0': True
+                    },
+                    'choices': [
+                        'disable',
+                        'enable'
+                    ],
+                    'type': 'str'
+                },
+                'multicast-traffic': {
+                    'required': False,
+                    'revision': {
+                        '7.0.4': True,
+                        '7.0.5': True,
+                        '7.0.6': True,
+                        '7.0.7': True,
+                        '7.2.1': True,
+                        '7.2.2': True,
+                        '7.4.0': True
+                    },
+                    'choices': [
+                        'disable',
+                        'enable'
+                    ],
+                    'type': 'str'
+                },
+                'sniffer-traffic': {
+                    'required': False,
+                    'revision': {
+                        '7.0.4': True,
+                        '7.0.5': True,
+                        '7.0.6': True,
+                        '7.0.7': True,
+                        '7.2.1': True,
+                        '7.2.2': True,
+                        '7.4.0': True
+                    },
+                    'choices': [
+                        'disable',
+                        'enable'
+                    ],
+                    'type': 'str'
+                },
+                'voip': {
+                    'required': False,
+                    'revision': {
+                        '7.0.4': True,
+                        '7.0.5': True,
+                        '7.0.6': True,
+                        '7.0.7': True,
+                        '7.2.1': True,
+                        '7.2.2': True,
+                        '7.4.0': True
+                    },
+                    'choices': [
+                        'disable',
+                        'enable'
+                    ],
+                    'type': 'str'
+                },
+                'ztna-traffic': {
+                    'required': False,
+                    'revision': {
+                        '7.0.4': True,
+                        '7.0.5': True,
+                        '7.0.6': True,
+                        '7.0.7': True,
+                        '7.2.1': True,
+                        '7.2.2': True,
+                        '7.4.0': True
+                    },
+                    'choices': [
+                        'disable',
+                        'enable'
+                    ],
+                    'type': 'str'
+                },
+                'filter-type': {
+                    'required': False,
+                    'revision': {
+                        '7.0.4': True,
+                        '7.0.5': True,
+                        '7.0.6': True,
+                        '7.0.7': True,
+                        '7.2.1': True,
+                        '7.2.2': True,
+                        '7.4.0': True
+                    },
+                    'choices': [
+                        'include',
+                        'exclude'
+                    ],
+                    'type': 'str'
+                },
+                'filter': {
+                    'required': False,
+                    'revision': {
+                        '7.0.4': True,
+                        '7.0.5': True,
+                        '7.0.6': True,
+                        '7.0.7': True,
+                        '7.2.1': True,
+                        '7.2.2': True,
+                        '7.4.0': True
+                    },
+                    'type': 'str'
+                },
+                'dns': {
+                    'required': False,
+                    'revision': {
+                        '7.0.4': True,
+                        '7.0.5': True,
+                        '7.0.6': True,
+                        '7.0.7': True,
+                        '7.2.1': True,
+                        '7.2.2': False,
+                        '7.4.0': False
+                    },
+                    'choices': [
+                        'disable',
+                        'enable'
+                    ],
+                    'type': 'str'
+                },
+                'cifs': {
+                    'required': False,
+                    'revision': {
+                        '7.0.4': True,
+                        '7.0.5': True,
+                        '7.0.6': True,
+                        '7.0.7': True,
+                        '7.2.1': False,
+                        '7.2.2': False,
+                        '7.4.0': False
+                    },
+                    'choices': [
+                        'disable',
+                        'enable'
+                    ],
+                    'type': 'str'
+                },
+                'ssh': {
+                    'required': False,
+                    'revision': {
+                        '7.0.4': True,
+                        '7.0.5': True,
+                        '7.0.6': True,
+                        '7.0.7': True,
+                        '7.2.1': True,
+                        '7.2.2': False,
+                        '7.4.0': False
+                    },
+                    'choices': [
+                        'disable',
+                        'enable'
+                    ],
+                    'type': 'str'
+                },
+                'ssl': {
+                    'required': False,
+                    'revision': {
+                        '7.0.4': True,
+                        '7.0.5': True,
+                        '7.0.6': True,
+                        '7.0.7': True,
+                        '7.2.1': False,
+                        '7.2.2': False,
+                        '7.4.0': False
+                    },
+                    'choices': [
+                        'disable',
+                        'enable'
+                    ],
+                    'type': 'str'
+                },
+                'netscan-vulnerability': {
+                    'required': False,
+                    'revision': {
+                        '7.0.4': True,
+                        '7.0.5': True,
+                        '7.0.6': True,
+                        '7.0.7': True,
+                        '7.2.1': False,
+                        '7.2.2': False,
+                        '7.4.0': False
+                    },
+                    'choices': [
+                        'disable',
+                        'enable'
+                    ],
+                    'type': 'str'
+                },
+                'netscan-discovery': {
+                    'required': False,
+                    'revision': {
+                        '7.0.4': True,
+                        '7.0.5': True,
+                        '7.0.6': True,
+                        '7.0.7': True,
+                        '7.2.1': False,
+                        '7.2.2': False,
+                        '7.4.0': False
+                    },
+                    'choices': [
+                        'disable',
+                        'enable'
                     ],
                     'type': 'str'
                 }
@@ -279,6 +1039,7 @@ def main():
     fmgr = None
     if module._socket_path:
         connection = Connection(module._socket_path)
+        connection.set_option('access_token', module.params['access_token'] if 'access_token' in module.params else None)
         connection.set_option('enable_log', module.params['enable_log'] if 'enable_log' in module.params else False)
         connection.set_option('forticloud_access_token',
                               module.params['forticloud_access_token'] if 'forticloud_access_token' in module.params else None)

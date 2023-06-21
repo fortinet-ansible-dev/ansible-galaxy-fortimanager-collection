@@ -1,6 +1,6 @@
 #!/usr/bin/python
 from __future__ import absolute_import, division, print_function
-# Copyright 2019-2021 Fortinet, Inc.
+# Copyright 2019-2023 Fortinet, Inc.
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -24,15 +24,17 @@ ANSIBLE_METADATA = {'status': ['preview'],
 DOCUMENTATION = '''
 ---
 module: fmgr_pkg_firewall_securitypolicy_sectionvalue
-short_description: no description
+short_description: Configure NGFW IPv4/IPv6 application policies.
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
 
-version_added: "1.0.0"
+version_added: "2.1.0"
 author:
-    - Link Zheng (@chillancezen)
+    - Xinwei Du (@dux-fortinet)
+    - Xing Li (@lix-fortinet)
     - Jie Xue (@JieX19)
+    - Link Zheng (@chillancezen)
     - Frank Shen (@fshen01)
     - Hongbin Lu (@fgtdev-hblu)
 notes:
@@ -44,51 +46,58 @@ notes:
       the conditions to fail or succeed with parameters rc_failed and rc_succeeded
 
 options:
-    enable_log:
-        description: Enable/Disable logging for task
+    access_token:
+        description: The token to access FortiManager without using username and password.
+        required: false
+        type: str
+    bypass_validation:
+        description: Only set to True when module schema diffs with FortiManager API structure, module continues to execute without validating parameters.
         required: false
         type: bool
         default: false
+    enable_log:
+        description: Enable/Disable logging for task.
+        required: false
+        type: bool
+        default: false
+    forticloud_access_token:
+        description: Authenticate Ansible client with forticloud API access token.
+        required: false
+        type: str
     proposed_method:
-        description: The overridden method for the underlying Json RPC request
+        description: The overridden method for the underlying Json RPC request.
         required: false
         type: str
         choices:
           - update
           - set
           - add
-    bypass_validation:
-        description: |
-          only set to True when module schema diffs with FortiManager API structure,
-           module continues to execute without validating parameters
+    rc_succeeded:
+        description: The rc codes list with which the conditions to succeed will be overriden.
+        type: list
         required: false
-        type: bool
-        default: false
-    workspace_locking_adom:
-        description: |
-          the adom to lock for FortiManager running in workspace mode, the value can be global and others including root
+        elements: int
+    rc_failed:
+        description: The rc codes list with which the conditions to fail will be overriden.
+        type: list
         required: false
-        type: str
-    workspace_locking_timeout:
-        description: the maximum time in seconds to wait for other user to release the workspace lock
-        required: false
-        type: int
-        default: 300
+        elements: int
     state:
-        description: the directive to create, update or delete an object
+        description: The directive to create, update or delete an object.
         type: str
         required: true
         choices:
           - present
           - absent
-    rc_succeeded:
-        description: the rc codes list with which the conditions to succeed will be overriden
-        type: list
+    workspace_locking_adom:
+        description: The adom to lock for FortiManager running in workspace mode, the value can be global and others including root.
         required: false
-    rc_failed:
-        description: the rc codes list with which the conditions to fail will be overriden
-        type: list
+        type: str
+    workspace_locking_timeout:
+        description: The maximum time in seconds to wait for other user to release the workspace lock.
         required: false
+        type: int
+        default: 300
     adom:
         description: the parameter (adom) in requested url
         type: str
@@ -106,269 +115,13 @@ options:
         required: false
         type: dict
         suboptions:
-            action:
+            attr:
                 type: str
                 description: no description
                 choices:
-                    - 'deny'
-                    - 'accept'
-            app-category:
-                type: str
-                description: no description
-            app-group:
-                type: str
-                description: no description
-            application:
-                description: description
-                type: int
-            application-list:
-                type: str
-                description: no description
-            av-profile:
-                type: str
-                description: no description
-            cifs-profile:
-                type: str
-                description: no description
-            comments:
-                type: str
-                description: no description
-            dlp-sensor:
-                type: str
-                description: no description
-            dnsfilter-profile:
-                type: str
-                description: no description
-            dstaddr4:
-                type: str
-                description: no description
-            dstaddr6:
-                type: str
-                description: no description
-            dstintf:
-                type: str
-                description: no description
-            emailfilter-profile:
-                type: str
-                description: no description
-            enforce-default-app-port:
-                type: str
-                description: no description
-                choices:
-                    - 'disable'
-                    - 'enable'
-            groups:
-                type: str
-                description: no description
-            icap-profile:
-                type: str
-                description: no description
-            internet-service:
-                type: str
-                description: no description
-                choices:
-                    - 'disable'
-                    - 'enable'
-            internet-service-custom:
-                type: str
-                description: no description
-            internet-service-custom-group:
-                type: str
-                description: no description
-            internet-service-group:
-                type: str
-                description: no description
-            internet-service-id:
-                type: str
-                description: no description
-            internet-service-negate:
-                type: str
-                description: no description
-                choices:
-                    - 'disable'
-                    - 'enable'
-            internet-service-src:
-                type: str
-                description: no description
-                choices:
-                    - 'disable'
-                    - 'enable'
-            internet-service-src-custom:
-                type: str
-                description: no description
-            internet-service-src-custom-group:
-                type: str
-                description: no description
-            internet-service-src-group:
-                type: str
-                description: no description
-            internet-service-src-id:
-                type: str
-                description: no description
-            internet-service-src-negate:
-                type: str
-                description: no description
-                choices:
-                    - 'disable'
-                    - 'enable'
-            ips-sensor:
-                type: str
-                description: no description
-            logtraffic:
-                type: str
-                description: no description
-                choices:
-                    - 'disable'
-                    - 'all'
-                    - 'utm'
-            logtraffic-start:
-                type: str
-                description: no description
-                choices:
-                    - 'disable'
-                    - 'enable'
-            mms-profile:
-                type: str
-                description: no description
+                    - 'label'
+                    - 'global-label'
             name:
-                type: str
-                description: no description
-            policyid:
-                type: int
-                description: no description
-            profile-group:
-                type: str
-                description: no description
-            profile-protocol-options:
-                type: str
-                description: no description
-            profile-type:
-                type: str
-                description: no description
-                choices:
-                    - 'single'
-                    - 'group'
-            schedule:
-                type: str
-                description: no description
-            service:
-                type: str
-                description: no description
-            service-negate:
-                type: str
-                description: no description
-                choices:
-                    - 'disable'
-                    - 'enable'
-            srcaddr4:
-                type: str
-                description: no description
-            srcaddr6:
-                type: str
-                description: no description
-            srcintf:
-                type: str
-                description: no description
-            ssh-filter-profile:
-                type: str
-                description: no description
-            ssl-ssh-profile:
-                type: str
-                description: no description
-            status:
-                type: str
-                description: no description
-                choices:
-                    - 'disable'
-                    - 'enable'
-            url-category:
-                type: str
-                description: no description
-            users:
-                type: str
-                description: no description
-            utm-status:
-                type: str
-                description: no description
-                choices:
-                    - 'disable'
-                    - 'enable'
-            uuid:
-                type: str
-                description: no description
-            voip-profile:
-                type: str
-                description: no description
-            webfilter-profile:
-                type: str
-                description: no description
-            fsso-groups:
-                type: str
-                description: no description
-            global-label:
-                type: str
-                description: no description
-            send-deny-packet:
-                type: str
-                description: no description
-                choices:
-                    - 'disable'
-                    - 'enable'
-            dstaddr:
-                type: str
-                description: no description
-            internet-service-name:
-                type: str
-                description: no description
-            internet-service-src-name:
-                type: str
-                description: no description
-            srcaddr:
-                type: str
-                description: no description
-            dstaddr-negate:
-                type: str
-                description: no description
-                choices:
-                    - 'disable'
-                    - 'enable'
-            file-filter-profile:
-                type: str
-                description: no description
-            srcaddr-negate:
-                type: str
-                description: no description
-                choices:
-                    - 'disable'
-                    - 'enable'
-            learning-mode:
-                type: str
-                description: no description
-                choices:
-                    - 'disable'
-                    - 'enable'
-            videofilter-profile:
-                type: str
-                description: no description
-            _policy_block:
-                type: int
-                description: no description
-            dlp-profile:
-                type: str
-                description: no description
-            nat46:
-                type: str
-                description: no description
-                choices:
-                    - 'disable'
-                    - 'enable'
-            nat64:
-                type: str
-                description: no description
-                choices:
-                    - 'disable'
-                    - 'enable'
-            sctp-filter-profile:
                 type: str
                 description: no description
 
@@ -384,7 +137,7 @@ EXAMPLES = '''
       ansible_httpapi_validate_certs: False
       ansible_httpapi_port: 443
    tasks:
-    - name: no description
+    - name: Configure NGFW IPv4/IPv6 application policies.
       fmgr_pkg_firewall_securitypolicy_sectionvalue:
          bypass_validation: False
          workspace_locking_adom: <value in [global, custom adom including root]>
@@ -396,96 +149,49 @@ EXAMPLES = '''
          security-policy: <your own value>
          state: <value in [present, absent]>
          pkg_firewall_securitypolicy_sectionvalue:
-            action: <value in [deny, accept]>
-            app-category: <value of string>
-            app-group: <value of string>
-            application: <value of integer>
-            application-list: <value of string>
-            av-profile: <value of string>
-            cifs-profile: <value of string>
-            comments: <value of string>
-            dlp-sensor: <value of string>
-            dnsfilter-profile: <value of string>
-            dstaddr4: <value of string>
-            dstaddr6: <value of string>
-            dstintf: <value of string>
-            emailfilter-profile: <value of string>
-            enforce-default-app-port: <value in [disable, enable]>
-            groups: <value of string>
-            icap-profile: <value of string>
-            internet-service: <value in [disable, enable]>
-            internet-service-custom: <value of string>
-            internet-service-custom-group: <value of string>
-            internet-service-group: <value of string>
-            internet-service-id: <value of string>
-            internet-service-negate: <value in [disable, enable]>
-            internet-service-src: <value in [disable, enable]>
-            internet-service-src-custom: <value of string>
-            internet-service-src-custom-group: <value of string>
-            internet-service-src-group: <value of string>
-            internet-service-src-id: <value of string>
-            internet-service-src-negate: <value in [disable, enable]>
-            ips-sensor: <value of string>
-            logtraffic: <value in [disable, all, utm]>
-            logtraffic-start: <value in [disable, enable]>
-            mms-profile: <value of string>
+            attr: <value in [label, global-label]>
             name: <value of string>
-            policyid: <value of integer>
-            profile-group: <value of string>
-            profile-protocol-options: <value of string>
-            profile-type: <value in [single, group]>
-            schedule: <value of string>
-            service: <value of string>
-            service-negate: <value in [disable, enable]>
-            srcaddr4: <value of string>
-            srcaddr6: <value of string>
-            srcintf: <value of string>
-            ssh-filter-profile: <value of string>
-            ssl-ssh-profile: <value of string>
-            status: <value in [disable, enable]>
-            url-category: <value of string>
-            users: <value of string>
-            utm-status: <value in [disable, enable]>
-            uuid: <value of string>
-            voip-profile: <value of string>
-            webfilter-profile: <value of string>
-            fsso-groups: <value of string>
-            global-label: <value of string>
-            send-deny-packet: <value in [disable, enable]>
-            dstaddr: <value of string>
-            internet-service-name: <value of string>
-            internet-service-src-name: <value of string>
-            srcaddr: <value of string>
-            dstaddr-negate: <value in [disable, enable]>
-            file-filter-profile: <value of string>
-            srcaddr-negate: <value in [disable, enable]>
-            learning-mode: <value in [disable, enable]>
-            videofilter-profile: <value of string>
-            _policy_block: <value of integer>
-            dlp-profile: <value of string>
-            nat46: <value in [disable, enable]>
-            nat64: <value in [disable, enable]>
-            sctp-filter-profile: <value of string>
 
 '''
 
 RETURN = '''
-request_url:
-    description: The full url requested
+meta:
+    description: The result of the request.
+    type: dict
     returned: always
-    type: str
-    sample: /sys/login/user
-response_code:
-    description: The status of api request
-    returned: always
+    contains:
+        request_url:
+            description: The full url requested.
+            returned: always
+            type: str
+            sample: /sys/login/user
+        response_code:
+            description: The status of api request.
+            returned: always
+            type: int
+            sample: 0
+        response_data:
+            description: The api response.
+            type: list
+            returned: always
+        response_message:
+            description: The descriptive message of the api response.
+            type: str
+            returned: always
+            sample: OK.
+        system_information:
+            description: The information of the target system.
+            type: dict
+            returned: always
+rc:
+    description: The status the request.
     type: int
-    sample: 0
-response_message:
-    description: The descriptive message of the api response
-    type: str
     returned: always
-    sample: OK.
-
+    sample: 0
+version_check_warning:
+    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+    type: list
+    returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
@@ -504,8 +210,18 @@ def main():
     ]
 
     url_params = ['adom', 'pkg', 'security-policy']
-    module_primary_key = 'name'
+    module_primary_key = None
     module_arg_spec = {
+        'access_token': {
+            'type': 'str',
+            'required': False,
+            'no_log': True
+        },
+        'bypass_validation': {
+            'type': 'bool',
+            'required': False,
+            'default': False
+        },
         'enable_log': {
             'type': 'bool',
             'required': False,
@@ -525,10 +241,23 @@ def main():
                 'add'
             ]
         },
-        'bypass_validation': {
-            'type': 'bool',
+        'rc_succeeded': {
             'required': False,
-            'default': False
+            'type': 'list',
+            'elements': 'int'
+        },
+        'rc_failed': {
+            'required': False,
+            'type': 'list',
+            'elements': 'int'
+        },
+        'state': {
+            'type': 'str',
+            'required': True,
+            'choices': [
+                'present',
+                'absent'
+            ]
         },
         'workspace_locking_adom': {
             'type': 'str',
@@ -538,22 +267,6 @@ def main():
             'type': 'int',
             'required': False,
             'default': 300
-        },
-        'rc_succeeded': {
-            'required': False,
-            'type': 'list'
-        },
-        'rc_failed': {
-            'required': False,
-            'type': 'list'
-        },
-        'state': {
-            'type': 'str',
-            'required': True,
-            'choices': [
-                'present',
-                'absent'
-            ]
         },
         'adom': {
             'required': True,
@@ -571,992 +284,106 @@ def main():
             'required': False,
             'type': 'dict',
             'revision': {
-                '6.2.1': True,
-                '6.2.3': True,
-                '6.2.5': True,
                 '6.4.0': True,
+                '6.4.1': True,
                 '6.4.2': True,
+                '6.4.3': True,
+                '6.4.4': True,
                 '6.4.5': True,
+                '6.4.6': True,
+                '6.4.7': True,
+                '6.4.8': True,
+                '6.4.9': True,
+                '6.4.10': True,
+                '6.4.11': True,
                 '7.0.0': True,
-                '7.2.0': True
+                '7.0.1': True,
+                '7.0.2': True,
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True
             },
             'options': {
-                'action': {
+                'attr': {
                     'required': False,
                     'revision': {
-                        '6.2.1': True,
-                        '6.2.3': True,
-                        '6.2.5': True,
                         '6.4.0': True,
                         '6.4.2': True,
                         '6.4.5': True,
                         '7.0.0': True,
-                        '7.2.0': True
+                        '7.2.0': True,
+                        '6.2.0': False,
+                        '6.2.2': False,
+                        '6.2.6': False,
+                        '6.2.7': False,
+                        '6.2.8': False,
+                        '6.2.9': False,
+                        '6.2.10': False,
+                        '6.4.1': True,
+                        '6.4.3': True,
+                        '6.4.4': True,
+                        '6.4.6': True,
+                        '6.4.7': True,
+                        '6.4.8': True,
+                        '6.4.9': True,
+                        '6.4.10': True,
+                        '6.4.11': True,
+                        '7.0.1': True,
+                        '7.0.2': True,
+                        '7.0.3': True,
+                        '7.0.4': True,
+                        '7.0.5': True,
+                        '7.0.6': True,
+                        '7.0.7': True,
+                        '7.2.1': True,
+                        '7.2.2': True,
+                        '7.4.0': False
                     },
                     'choices': [
-                        'deny',
-                        'accept'
+                        'label',
+                        'global-label'
                     ],
-                    'type': 'str'
-                },
-                'app-category': {
-                    'required': False,
-                    'revision': {
-                        '6.2.1': True,
-                        '6.2.3': True,
-                        '6.2.5': True,
-                        '6.4.0': True,
-                        '6.4.2': True,
-                        '6.4.5': True,
-                        '7.0.0': True,
-                        '7.2.0': True
-                    },
-                    'type': 'str'
-                },
-                'app-group': {
-                    'required': False,
-                    'revision': {
-                        '6.2.1': True,
-                        '6.2.3': True,
-                        '6.2.5': True,
-                        '6.4.0': True,
-                        '6.4.2': True,
-                        '6.4.5': True,
-                        '7.0.0': True,
-                        '7.2.0': True
-                    },
-                    'type': 'str'
-                },
-                'application': {
-                    'required': False,
-                    'revision': {
-                        '6.2.1': True,
-                        '6.2.3': True,
-                        '6.2.5': True,
-                        '6.4.0': True,
-                        '6.4.2': True,
-                        '6.4.5': True,
-                        '7.0.0': True,
-                        '7.2.0': True
-                    },
-                    'type': 'int'
-                },
-                'application-list': {
-                    'required': False,
-                    'revision': {
-                        '6.2.1': True,
-                        '6.2.3': True,
-                        '6.2.5': True,
-                        '6.4.0': True,
-                        '6.4.2': True,
-                        '6.4.5': True,
-                        '7.0.0': True,
-                        '7.2.0': True
-                    },
-                    'type': 'str'
-                },
-                'av-profile': {
-                    'required': False,
-                    'revision': {
-                        '6.2.1': True,
-                        '6.2.3': True,
-                        '6.2.5': True,
-                        '6.4.0': True,
-                        '6.4.2': True,
-                        '6.4.5': True,
-                        '7.0.0': True,
-                        '7.2.0': True
-                    },
-                    'type': 'str'
-                },
-                'cifs-profile': {
-                    'required': False,
-                    'revision': {
-                        '6.2.1': True,
-                        '6.2.3': True,
-                        '6.2.5': True,
-                        '6.4.0': True,
-                        '6.4.2': True,
-                        '6.4.5': True,
-                        '7.0.0': True,
-                        '7.2.0': True
-                    },
-                    'type': 'str'
-                },
-                'comments': {
-                    'required': False,
-                    'revision': {
-                        '6.2.1': True,
-                        '6.2.3': True,
-                        '6.2.5': True,
-                        '6.4.0': True,
-                        '6.4.2': True,
-                        '6.4.5': True,
-                        '7.0.0': True,
-                        '7.2.0': True
-                    },
-                    'type': 'str'
-                },
-                'dlp-sensor': {
-                    'required': False,
-                    'revision': {
-                        '6.2.1': True,
-                        '6.2.3': True,
-                        '6.2.5': True,
-                        '6.4.0': True,
-                        '6.4.2': True,
-                        '6.4.5': True,
-                        '7.0.0': True,
-                        '7.2.0': False
-                    },
-                    'type': 'str'
-                },
-                'dnsfilter-profile': {
-                    'required': False,
-                    'revision': {
-                        '6.2.1': True,
-                        '6.2.3': True,
-                        '6.2.5': True,
-                        '6.4.0': True,
-                        '6.4.2': True,
-                        '6.4.5': True,
-                        '7.0.0': True,
-                        '7.2.0': True
-                    },
-                    'type': 'str'
-                },
-                'dstaddr4': {
-                    'required': False,
-                    'revision': {
-                        '6.2.1': True,
-                        '6.2.3': True,
-                        '6.2.5': True,
-                        '6.4.0': False,
-                        '6.4.2': False,
-                        '6.4.5': False,
-                        '7.0.0': False,
-                        '7.2.0': False
-                    },
-                    'type': 'str'
-                },
-                'dstaddr6': {
-                    'required': False,
-                    'revision': {
-                        '6.2.1': True,
-                        '6.2.3': True,
-                        '6.2.5': True,
-                        '6.4.0': True,
-                        '6.4.2': True,
-                        '6.4.5': True,
-                        '7.0.0': True,
-                        '7.2.0': True
-                    },
-                    'type': 'str'
-                },
-                'dstintf': {
-                    'required': False,
-                    'revision': {
-                        '6.2.1': True,
-                        '6.2.3': True,
-                        '6.2.5': True,
-                        '6.4.0': True,
-                        '6.4.2': True,
-                        '6.4.5': True,
-                        '7.0.0': True,
-                        '7.2.0': True
-                    },
-                    'type': 'str'
-                },
-                'emailfilter-profile': {
-                    'required': False,
-                    'revision': {
-                        '6.2.1': True,
-                        '6.2.3': True,
-                        '6.2.5': True,
-                        '6.4.0': True,
-                        '6.4.2': True,
-                        '6.4.5': True,
-                        '7.0.0': True,
-                        '7.2.0': True
-                    },
-                    'type': 'str'
-                },
-                'enforce-default-app-port': {
-                    'required': False,
-                    'revision': {
-                        '6.2.1': True,
-                        '6.2.3': True,
-                        '6.2.5': True,
-                        '6.4.0': True,
-                        '6.4.2': True,
-                        '6.4.5': True,
-                        '7.0.0': True,
-                        '7.2.0': True
-                    },
-                    'choices': [
-                        'disable',
-                        'enable'
-                    ],
-                    'type': 'str'
-                },
-                'groups': {
-                    'required': False,
-                    'revision': {
-                        '6.2.1': True,
-                        '6.2.3': True,
-                        '6.2.5': True,
-                        '6.4.0': True,
-                        '6.4.2': True,
-                        '6.4.5': True,
-                        '7.0.0': True,
-                        '7.2.0': True
-                    },
-                    'type': 'str'
-                },
-                'icap-profile': {
-                    'required': False,
-                    'revision': {
-                        '6.2.1': True,
-                        '6.2.3': True,
-                        '6.2.5': True,
-                        '6.4.0': True,
-                        '6.4.2': True,
-                        '6.4.5': True,
-                        '7.0.0': True,
-                        '7.2.0': True
-                    },
-                    'type': 'str'
-                },
-                'internet-service': {
-                    'required': False,
-                    'revision': {
-                        '6.2.1': True,
-                        '6.2.3': True,
-                        '6.2.5': True,
-                        '6.4.0': True,
-                        '6.4.2': True,
-                        '6.4.5': True,
-                        '7.0.0': True,
-                        '7.2.0': True
-                    },
-                    'choices': [
-                        'disable',
-                        'enable'
-                    ],
-                    'type': 'str'
-                },
-                'internet-service-custom': {
-                    'required': False,
-                    'revision': {
-                        '6.2.1': True,
-                        '6.2.3': True,
-                        '6.2.5': True,
-                        '6.4.0': True,
-                        '6.4.2': True,
-                        '6.4.5': True,
-                        '7.0.0': True,
-                        '7.2.0': True
-                    },
-                    'type': 'str'
-                },
-                'internet-service-custom-group': {
-                    'required': False,
-                    'revision': {
-                        '6.2.1': True,
-                        '6.2.3': True,
-                        '6.2.5': True,
-                        '6.4.0': True,
-                        '6.4.2': True,
-                        '6.4.5': True,
-                        '7.0.0': True,
-                        '7.2.0': True
-                    },
-                    'type': 'str'
-                },
-                'internet-service-group': {
-                    'required': False,
-                    'revision': {
-                        '6.2.1': True,
-                        '6.2.3': True,
-                        '6.2.5': True,
-                        '6.4.0': True,
-                        '6.4.2': True,
-                        '6.4.5': True,
-                        '7.0.0': True,
-                        '7.2.0': True
-                    },
-                    'type': 'str'
-                },
-                'internet-service-id': {
-                    'required': False,
-                    'revision': {
-                        '6.2.1': True,
-                        '6.2.3': True,
-                        '6.2.5': True,
-                        '6.4.0': False,
-                        '6.4.2': False,
-                        '6.4.5': False,
-                        '7.0.0': False,
-                        '7.2.0': False
-                    },
-                    'type': 'str'
-                },
-                'internet-service-negate': {
-                    'required': False,
-                    'revision': {
-                        '6.2.1': True,
-                        '6.2.3': True,
-                        '6.2.5': True,
-                        '6.4.0': True,
-                        '6.4.2': True,
-                        '6.4.5': True,
-                        '7.0.0': True,
-                        '7.2.0': True
-                    },
-                    'choices': [
-                        'disable',
-                        'enable'
-                    ],
-                    'type': 'str'
-                },
-                'internet-service-src': {
-                    'required': False,
-                    'revision': {
-                        '6.2.1': True,
-                        '6.2.3': True,
-                        '6.2.5': True,
-                        '6.4.0': True,
-                        '6.4.2': True,
-                        '6.4.5': True,
-                        '7.0.0': True,
-                        '7.2.0': True
-                    },
-                    'choices': [
-                        'disable',
-                        'enable'
-                    ],
-                    'type': 'str'
-                },
-                'internet-service-src-custom': {
-                    'required': False,
-                    'revision': {
-                        '6.2.1': True,
-                        '6.2.3': True,
-                        '6.2.5': True,
-                        '6.4.0': True,
-                        '6.4.2': True,
-                        '6.4.5': True,
-                        '7.0.0': True,
-                        '7.2.0': True
-                    },
-                    'type': 'str'
-                },
-                'internet-service-src-custom-group': {
-                    'required': False,
-                    'revision': {
-                        '6.2.1': True,
-                        '6.2.3': True,
-                        '6.2.5': True,
-                        '6.4.0': True,
-                        '6.4.2': True,
-                        '6.4.5': True,
-                        '7.0.0': True,
-                        '7.2.0': True
-                    },
-                    'type': 'str'
-                },
-                'internet-service-src-group': {
-                    'required': False,
-                    'revision': {
-                        '6.2.1': True,
-                        '6.2.3': True,
-                        '6.2.5': True,
-                        '6.4.0': True,
-                        '6.4.2': True,
-                        '6.4.5': True,
-                        '7.0.0': True,
-                        '7.2.0': True
-                    },
-                    'type': 'str'
-                },
-                'internet-service-src-id': {
-                    'required': False,
-                    'revision': {
-                        '6.2.1': True,
-                        '6.2.3': True,
-                        '6.2.5': True,
-                        '6.4.0': False,
-                        '6.4.2': False,
-                        '6.4.5': False,
-                        '7.0.0': False,
-                        '7.2.0': False
-                    },
-                    'type': 'str'
-                },
-                'internet-service-src-negate': {
-                    'required': False,
-                    'revision': {
-                        '6.2.1': True,
-                        '6.2.3': True,
-                        '6.2.5': True,
-                        '6.4.0': True,
-                        '6.4.2': True,
-                        '6.4.5': True,
-                        '7.0.0': True,
-                        '7.2.0': True
-                    },
-                    'choices': [
-                        'disable',
-                        'enable'
-                    ],
-                    'type': 'str'
-                },
-                'ips-sensor': {
-                    'required': False,
-                    'revision': {
-                        '6.2.1': True,
-                        '6.2.3': True,
-                        '6.2.5': True,
-                        '6.4.0': True,
-                        '6.4.2': True,
-                        '6.4.5': True,
-                        '7.0.0': True,
-                        '7.2.0': True
-                    },
-                    'type': 'str'
-                },
-                'logtraffic': {
-                    'required': False,
-                    'revision': {
-                        '6.2.1': True,
-                        '6.2.3': True,
-                        '6.2.5': True,
-                        '6.4.0': True,
-                        '6.4.2': True,
-                        '6.4.5': True,
-                        '7.0.0': True,
-                        '7.2.0': True
-                    },
-                    'choices': [
-                        'disable',
-                        'all',
-                        'utm'
-                    ],
-                    'type': 'str'
-                },
-                'logtraffic-start': {
-                    'required': False,
-                    'revision': {
-                        '6.2.1': True,
-                        '6.2.3': True,
-                        '6.2.5': True,
-                        '6.4.0': False,
-                        '6.4.2': False,
-                        '6.4.5': False,
-                        '7.0.0': False,
-                        '7.2.0': False
-                    },
-                    'choices': [
-                        'disable',
-                        'enable'
-                    ],
-                    'type': 'str'
-                },
-                'mms-profile': {
-                    'required': False,
-                    'revision': {
-                        '6.2.1': True,
-                        '6.2.3': True,
-                        '6.2.5': True,
-                        '6.4.0': False,
-                        '6.4.2': False,
-                        '6.4.5': False,
-                        '7.0.0': False,
-                        '7.2.0': False
-                    },
                     'type': 'str'
                 },
                 'name': {
-                    'required': True,
-                    'revision': {
-                        '6.2.1': True,
-                        '6.2.3': True,
-                        '6.2.5': True,
-                        '6.4.0': True,
-                        '6.4.2': True,
-                        '6.4.5': True,
-                        '7.0.0': True,
-                        '7.2.0': True
-                    },
-                    'type': 'str'
-                },
-                'policyid': {
-                    'required': False,
-                    'revision': {
-                        '6.2.1': True,
-                        '6.2.3': True,
-                        '6.2.5': True,
-                        '6.4.0': True,
-                        '6.4.2': True,
-                        '6.4.5': True,
-                        '7.0.0': True,
-                        '7.2.0': True
-                    },
-                    'type': 'int'
-                },
-                'profile-group': {
-                    'required': False,
-                    'revision': {
-                        '6.2.1': True,
-                        '6.2.3': True,
-                        '6.2.5': True,
-                        '6.4.0': True,
-                        '6.4.2': True,
-                        '6.4.5': True,
-                        '7.0.0': True,
-                        '7.2.0': True
-                    },
-                    'type': 'str'
-                },
-                'profile-protocol-options': {
-                    'required': False,
-                    'revision': {
-                        '6.2.1': True,
-                        '6.2.3': True,
-                        '6.2.5': True,
-                        '6.4.0': True,
-                        '6.4.2': True,
-                        '6.4.5': True,
-                        '7.0.0': True,
-                        '7.2.0': True
-                    },
-                    'type': 'str'
-                },
-                'profile-type': {
-                    'required': False,
-                    'revision': {
-                        '6.2.1': True,
-                        '6.2.3': True,
-                        '6.2.5': True,
-                        '6.4.0': True,
-                        '6.4.2': True,
-                        '6.4.5': True,
-                        '7.0.0': True,
-                        '7.2.0': True
-                    },
-                    'choices': [
-                        'single',
-                        'group'
-                    ],
-                    'type': 'str'
-                },
-                'schedule': {
-                    'required': False,
-                    'revision': {
-                        '6.2.1': True,
-                        '6.2.3': True,
-                        '6.2.5': True,
-                        '6.4.0': True,
-                        '6.4.2': True,
-                        '6.4.5': True,
-                        '7.0.0': True,
-                        '7.2.0': True
-                    },
-                    'type': 'str'
-                },
-                'service': {
-                    'required': False,
-                    'revision': {
-                        '6.2.1': True,
-                        '6.2.3': True,
-                        '6.2.5': True,
-                        '6.4.0': True,
-                        '6.4.2': True,
-                        '6.4.5': True,
-                        '7.0.0': True,
-                        '7.2.0': True
-                    },
-                    'type': 'str'
-                },
-                'service-negate': {
-                    'required': False,
-                    'revision': {
-                        '6.2.1': True,
-                        '6.2.3': True,
-                        '6.2.5': True,
-                        '6.4.0': True,
-                        '6.4.2': True,
-                        '6.4.5': True,
-                        '7.0.0': True,
-                        '7.2.0': True
-                    },
-                    'choices': [
-                        'disable',
-                        'enable'
-                    ],
-                    'type': 'str'
-                },
-                'srcaddr4': {
-                    'required': False,
-                    'revision': {
-                        '6.2.1': True,
-                        '6.2.3': True,
-                        '6.2.5': True,
-                        '6.4.0': False,
-                        '6.4.2': False,
-                        '6.4.5': False,
-                        '7.0.0': False,
-                        '7.2.0': False
-                    },
-                    'type': 'str'
-                },
-                'srcaddr6': {
-                    'required': False,
-                    'revision': {
-                        '6.2.1': True,
-                        '6.2.3': True,
-                        '6.2.5': True,
-                        '6.4.0': True,
-                        '6.4.2': True,
-                        '6.4.5': True,
-                        '7.0.0': True,
-                        '7.2.0': True
-                    },
-                    'type': 'str'
-                },
-                'srcintf': {
-                    'required': False,
-                    'revision': {
-                        '6.2.1': True,
-                        '6.2.3': True,
-                        '6.2.5': True,
-                        '6.4.0': True,
-                        '6.4.2': True,
-                        '6.4.5': True,
-                        '7.0.0': True,
-                        '7.2.0': True
-                    },
-                    'type': 'str'
-                },
-                'ssh-filter-profile': {
-                    'required': False,
-                    'revision': {
-                        '6.2.1': True,
-                        '6.2.3': True,
-                        '6.2.5': True,
-                        '6.4.0': True,
-                        '6.4.2': True,
-                        '6.4.5': True,
-                        '7.0.0': True,
-                        '7.2.0': True
-                    },
-                    'type': 'str'
-                },
-                'ssl-ssh-profile': {
-                    'required': False,
-                    'revision': {
-                        '6.2.1': True,
-                        '6.2.3': True,
-                        '6.2.5': True,
-                        '6.4.0': True,
-                        '6.4.2': True,
-                        '6.4.5': True,
-                        '7.0.0': True,
-                        '7.2.0': True
-                    },
-                    'type': 'str'
-                },
-                'status': {
-                    'required': False,
-                    'revision': {
-                        '6.2.1': True,
-                        '6.2.3': True,
-                        '6.2.5': True,
-                        '6.4.0': True,
-                        '6.4.2': True,
-                        '6.4.5': True,
-                        '7.0.0': True,
-                        '7.2.0': True
-                    },
-                    'choices': [
-                        'disable',
-                        'enable'
-                    ],
-                    'type': 'str'
-                },
-                'url-category': {
-                    'required': False,
-                    'revision': {
-                        '6.2.1': True,
-                        '6.2.3': True,
-                        '6.2.5': True,
-                        '6.4.0': True,
-                        '6.4.2': True,
-                        '6.4.5': True,
-                        '7.0.0': True,
-                        '7.2.0': True
-                    },
-                    'type': 'str'
-                },
-                'users': {
-                    'required': False,
-                    'revision': {
-                        '6.2.1': True,
-                        '6.2.3': True,
-                        '6.2.5': True,
-                        '6.4.0': True,
-                        '6.4.2': True,
-                        '6.4.5': True,
-                        '7.0.0': True,
-                        '7.2.0': True
-                    },
-                    'type': 'str'
-                },
-                'utm-status': {
-                    'required': False,
-                    'revision': {
-                        '6.2.1': True,
-                        '6.2.3': True,
-                        '6.2.5': True,
-                        '6.4.0': True,
-                        '6.4.2': True,
-                        '6.4.5': True,
-                        '7.0.0': True,
-                        '7.2.0': True
-                    },
-                    'choices': [
-                        'disable',
-                        'enable'
-                    ],
-                    'type': 'str'
-                },
-                'uuid': {
-                    'required': False,
-                    'revision': {
-                        '6.2.1': True,
-                        '6.2.3': True,
-                        '6.2.5': True,
-                        '6.4.0': True,
-                        '6.4.2': True,
-                        '6.4.5': True,
-                        '7.0.0': True,
-                        '7.2.0': True
-                    },
-                    'type': 'str'
-                },
-                'voip-profile': {
-                    'required': False,
-                    'revision': {
-                        '6.2.1': True,
-                        '6.2.3': True,
-                        '6.2.5': True,
-                        '6.4.0': True,
-                        '6.4.2': True,
-                        '6.4.5': True,
-                        '7.0.0': True,
-                        '7.2.0': True
-                    },
-                    'type': 'str'
-                },
-                'webfilter-profile': {
-                    'required': False,
-                    'revision': {
-                        '6.2.1': True,
-                        '6.2.3': True,
-                        '6.2.5': True,
-                        '6.4.0': True,
-                        '6.4.2': True,
-                        '6.4.5': True,
-                        '7.0.0': True,
-                        '7.2.0': True
-                    },
-                    'type': 'str'
-                },
-                'fsso-groups': {
-                    'required': False,
-                    'revision': {
-                        '6.2.3': True,
-                        '6.2.5': True,
-                        '6.4.0': True,
-                        '6.4.2': True,
-                        '6.4.5': True,
-                        '7.0.0': True,
-                        '7.2.0': True
-                    },
-                    'type': 'str'
-                },
-                'global-label': {
-                    'required': False,
-                    'revision': {
-                        '6.2.3': True,
-                        '6.2.5': True,
-                        '6.4.0': True,
-                        '6.4.2': True,
-                        '6.4.5': True,
-                        '7.0.0': True,
-                        '7.2.0': True
-                    },
-                    'type': 'str'
-                },
-                'send-deny-packet': {
-                    'required': False,
-                    'revision': {
-                        '6.2.3': True,
-                        '6.2.5': True,
-                        '6.4.0': True,
-                        '6.4.2': True,
-                        '6.4.5': True,
-                        '7.0.0': True,
-                        '7.2.0': True
-                    },
-                    'choices': [
-                        'disable',
-                        'enable'
-                    ],
-                    'type': 'str'
-                },
-                'dstaddr': {
                     'required': False,
                     'revision': {
                         '6.4.0': True,
                         '6.4.2': True,
                         '6.4.5': True,
                         '7.0.0': True,
-                        '7.2.0': True
-                    },
-                    'type': 'str'
-                },
-                'internet-service-name': {
-                    'required': False,
-                    'revision': {
-                        '6.4.0': True,
-                        '6.4.2': True,
-                        '6.4.5': True,
-                        '7.0.0': True,
-                        '7.2.0': True
-                    },
-                    'type': 'str'
-                },
-                'internet-service-src-name': {
-                    'required': False,
-                    'revision': {
-                        '6.4.0': True,
-                        '6.4.2': True,
-                        '6.4.5': True,
-                        '7.0.0': True,
-                        '7.2.0': True
-                    },
-                    'type': 'str'
-                },
-                'srcaddr': {
-                    'required': False,
-                    'revision': {
-                        '6.4.0': True,
-                        '6.4.2': True,
-                        '6.4.5': True,
-                        '7.0.0': True,
-                        '7.2.0': True
-                    },
-                    'type': 'str'
-                },
-                'dstaddr-negate': {
-                    'required': False,
-                    'revision': {
-                        '6.4.2': True,
-                        '6.4.5': True,
-                        '7.0.0': True,
-                        '7.2.0': True
-                    },
-                    'choices': [
-                        'disable',
-                        'enable'
-                    ],
-                    'type': 'str'
-                },
-                'file-filter-profile': {
-                    'required': False,
-                    'revision': {
-                        '6.4.2': True,
-                        '6.4.5': True,
-                        '7.0.0': True,
-                        '7.2.0': True
-                    },
-                    'type': 'str'
-                },
-                'srcaddr-negate': {
-                    'required': False,
-                    'revision': {
-                        '6.4.2': True,
-                        '6.4.5': True,
-                        '7.0.0': True,
-                        '7.2.0': True
-                    },
-                    'choices': [
-                        'disable',
-                        'enable'
-                    ],
-                    'type': 'str'
-                },
-                'learning-mode': {
-                    'required': False,
-                    'revision': {
-                        '7.0.0': True,
-                        '7.2.0': True
-                    },
-                    'choices': [
-                        'disable',
-                        'enable'
-                    ],
-                    'type': 'str'
-                },
-                'videofilter-profile': {
-                    'required': False,
-                    'revision': {
-                        '7.0.0': True,
-                        '7.2.0': True
-                    },
-                    'type': 'str'
-                },
-                '_policy_block': {
-                    'required': False,
-                    'revision': {
-                        '7.2.0': True
-                    },
-                    'type': 'int'
-                },
-                'dlp-profile': {
-                    'required': False,
-                    'revision': {
-                        '7.2.0': True
-                    },
-                    'type': 'str'
-                },
-                'nat46': {
-                    'required': False,
-                    'revision': {
-                        '7.2.0': True
-                    },
-                    'choices': [
-                        'disable',
-                        'enable'
-                    ],
-                    'type': 'str'
-                },
-                'nat64': {
-                    'required': False,
-                    'revision': {
-                        '7.2.0': True
-                    },
-                    'choices': [
-                        'disable',
-                        'enable'
-                    ],
-                    'type': 'str'
-                },
-                'sctp-filter-profile': {
-                    'required': False,
-                    'revision': {
-                        '7.2.0': True
+                        '7.2.0': True,
+                        '6.2.0': False,
+                        '6.2.2': False,
+                        '6.2.6': False,
+                        '6.2.7': False,
+                        '6.2.8': False,
+                        '6.2.9': False,
+                        '6.2.10': False,
+                        '6.4.1': True,
+                        '6.4.3': True,
+                        '6.4.4': True,
+                        '6.4.6': True,
+                        '6.4.7': True,
+                        '6.4.8': True,
+                        '6.4.9': True,
+                        '6.4.10': True,
+                        '6.4.11': True,
+                        '7.0.1': True,
+                        '7.0.2': True,
+                        '7.0.3': True,
+                        '7.0.4': True,
+                        '7.0.5': True,
+                        '7.0.6': True,
+                        '7.0.7': True,
+                        '7.2.1': True,
+                        '7.2.2': True,
+                        '7.4.0': False
                     },
                     'type': 'str'
                 }
@@ -1573,6 +400,7 @@ def main():
     fmgr = None
     if module._socket_path:
         connection = Connection(module._socket_path)
+        connection.set_option('access_token', module.params['access_token'] if 'access_token' in module.params else None)
         connection.set_option('enable_log', module.params['enable_log'] if 'enable_log' in module.params else False)
         connection.set_option('forticloud_access_token',
                               module.params['forticloud_access_token'] if 'forticloud_access_token' in module.params else None)

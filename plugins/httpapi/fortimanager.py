@@ -22,16 +22,18 @@ __metaclass__ = type
 
 DOCUMENTATION = """
 ---
+name: fortimanager
 author:
+    - Xinwei Du (@dux-fortinet)
+    - Xing Li (@lix-fortinet)
     - Link Zheng (@chillancezen)
     - Luke Weighall (@lweighall)
     - Andrew Welsh (@Ghilli3)
     - Jim Huber (@p4r4n0y1ng)
-httpapi : fortimanager
 short_description: HttpApi Plugin for Fortinet FortiManager Appliance or VM.
 description:
   - This HttpApi plugin provides methods to connect to Fortinet FortiManager Appliance or VM via JSON RPC API.
-version_added: "2.8"
+version_added: "1.0.0"
 
 """
 
@@ -79,10 +81,18 @@ class HttpApi(HttpApiBase):
         self._logged = False
         self._log = None
         self._prelocking_user_params = list()
+        self._access_token = None
 
     def get_forticloud_access_token(self):
         try:
             token = self.connection.get_option("forticloud_access_token")
+            return token
+        except Exception as e:
+            return None
+
+    def get_access_token(self):
+        try:
+            token = self.connection.get_option("access_token")
             return token
         except Exception as e:
             return None
@@ -143,11 +153,16 @@ class HttpApi(HttpApiBase):
         self.log("login begin, user: %s" % (username))
         self._logged_in_user = username
         forticloud_access_token = self.get_forticloud_access_token()
+        self._access_token = self.get_access_token()
         self.log(
             "forticloud access token: %s"
             % (forticloud_access_token if forticloud_access_token else "(not set)")
         )
-        if not forticloud_access_token:
+        login_method = 'None'
+        if self._access_token:
+            login_method = 'access_token'
+        elif not forticloud_access_token:
+            login_method = 'normal'
             self.send_request(
                 FMGRMethods.EXEC,
                 self._tools.format_request(
@@ -155,8 +170,9 @@ class HttpApi(HttpApiBase):
                 ),
             )
         else:
+            login_method = 'forticloud'
             self.forticloud_login()
-
+        self.log('login method: ' + login_method)
         self.log(self)
         if "FortiManager object connected to FortiManager" in self.__str__():
             # If Login worked, then inspect the FortiManager for Workspace Mode, and it's system information.
@@ -224,21 +240,11 @@ class HttpApi(HttpApiBase):
 
         :return: Dictionary of status, if it logged in or not.
         """
-        try:
-            if self.sid is None and params[0]["url"] != "sys/login/user":
-                if not self.connection._connected:
-                    self.connection._connect()
-        except IndexError:
-            raise FMGBaseException(
-                "An attempt was made at communicating with a FMG with "
-                "no valid session and an incorrectly formatted request."
-            )
-        except Exception:
-            raise FMGBaseException(
-                "An attempt was made at communicating with a FMG with "
-                "no valid session and an unexpected error was discovered."
-            )
-
+        if self.sid is None and params[0]["url"] != "sys/login/user":
+            if not self.connection._connected:
+                self.connection._connect()
+        if params[0]["url"] == "sys/login/user" and "passwd" in params[0]["data"]:
+            params[0]["data"]["passwd"] = str(params[0]["data"]["passwd"])
         self._update_request_id()
         json_request = {
             "method": method,
@@ -248,11 +254,19 @@ class HttpApi(HttpApiBase):
             "verbose": 1,
         }
         data = json.dumps(json_request, ensure_ascii=False).replace("\\\\", "\\")
-        self.log("request: %s" % (data))
+        log_data = data
+        # Don't log sensitive information
+        if params[0]["url"] == "sys/login/user" and "passwd" in params[0]["data"]:
+            json_request["params"][0]["data"]["passwd"] = "******"
+            log_data = json.dumps(json_request, ensure_ascii=False).replace("\\\\", "\\")
+        self.log("request: %s" % (log_data))
         try:
             # Sending URL and Data in Unicode, per Ansible Specifications for Connection Plugins
+            header_data = BASE_HEADERS
+            if self._access_token:
+                header_data["Authorization"] = "Bearer " + self._access_token
             response, response_data = self.connection.send(
-                path=to_text(self._url), data=to_text(data), headers=BASE_HEADERS
+                path=to_text(self._url), data=to_text(data), headers=header_data
             )
             # Get Unicode Response - Must convert from StringIO to unicode first so we can do a replace function below
             result = json.loads(to_text(response_data.getvalue()))
@@ -412,7 +426,7 @@ class HttpApi(HttpApiBase):
         self._sid = val
 
     def __str__(self):
-        if self.sid is not None and self.connection._url is not None:
+        if (self.sid or self._access_token) and self.connection._url is not None:
             return "FortiManager object connected to FortiManager: " + to_text(
                 self.connection._url
             )
@@ -460,7 +474,7 @@ class HttpApi(HttpApiBase):
             ),
         )
         try:
-            if resp_obj["data"]["workspace-mode"] in ["workflow", "normal"]:
+            if resp_obj["data"]["workspace-mode"] in ["workflow", "normal"]:  # per-adom
                 self._uses_workspace = True
             else:
                 self._uses_workspace = False
