@@ -253,21 +253,9 @@ options:
             filter:
                 type: str
                 description: Syslog filter.
-            dns:
-                type: str
-                description: Enable/disable detailed DNS event logging.
-                choices:
-                    - 'disable'
-                    - 'enable'
             cifs:
                 type: str
                 description: no description
-                choices:
-                    - 'disable'
-                    - 'enable'
-            ssh:
-                type: str
-                description: Enable/disable SSH logging.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -277,15 +265,27 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
-            netscan-vulnerability:
+            dns:
                 type: str
-                description: Enable/disable netscan vulnerability event logging.
+                description: Enable/disable detailed DNS event logging.
+                choices:
+                    - 'disable'
+                    - 'enable'
+            ssh:
+                type: str
+                description: Enable/disable SSH logging.
                 choices:
                     - 'disable'
                     - 'enable'
             netscan-discovery:
                 type: str
                 description: Enable/disable netscan discovery event logging.
+                choices:
+                    - 'disable'
+                    - 'enable'
+            netscan-vulnerability:
+                type: str
+                description: Enable/disable netscan vulnerability event logging.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -338,12 +338,12 @@ EXAMPLES = '''
             ztna-traffic: <value in [disable, enable]>
             filter-type: <value in [include, exclude]>
             filter: <value of string>
-            dns: <value in [disable, enable]>
             cifs: <value in [disable, enable]>
-            ssh: <value in [disable, enable]>
             ssl: <value in [disable, enable]>
-            netscan-vulnerability: <value in [disable, enable]>
+            dns: <value in [disable, enable]>
+            ssh: <value in [disable, enable]>
             netscan-discovery: <value in [disable, enable]>
+            netscan-vulnerability: <value in [disable, enable]>
 
 '''
 
@@ -475,6 +475,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.3': True,
@@ -486,6 +487,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -494,9 +496,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'options': {
@@ -519,6 +523,7 @@ def main():
                         '6.2.8': True,
                         '6.2.9': True,
                         '6.2.10': True,
+                        '6.2.11': True,
                         '6.4.1': True,
                         '6.4.3': True,
                         '6.4.4': True,
@@ -528,6 +533,7 @@ def main():
                         '6.4.9': True,
                         '6.4.10': True,
                         '6.4.11': True,
+                        '6.4.12': True,
                         '7.0.1': True,
                         '7.0.2': True,
                         '7.0.3': True,
@@ -535,8 +541,10 @@ def main():
                         '7.0.5': True,
                         '7.0.6': True,
                         '7.0.7': True,
+                        '7.0.8': True,
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'choices': [
@@ -558,8 +566,10 @@ def main():
                         '7.0.5': True,
                         '7.0.6': True,
                         '7.0.7': True,
+                        '7.0.8': True,
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'choices': [
@@ -575,8 +585,10 @@ def main():
                         '7.0.5': True,
                         '7.0.6': True,
                         '7.0.7': True,
+                        '7.0.8': True,
                         '7.2.1': False,
                         '7.2.2': False,
+                        '7.2.3': False,
                         '7.4.0': False
                     },
                     'type': 'list',
@@ -588,8 +600,10 @@ def main():
                                 '7.0.5': True,
                                 '7.0.6': True,
                                 '7.0.7': True,
+                                '7.0.8': True,
                                 '7.2.1': False,
                                 '7.2.2': False,
+                                '7.2.3': False,
                                 '7.4.0': False
                             },
                             'choices': [
@@ -615,8 +629,10 @@ def main():
                                 '7.0.5': True,
                                 '7.0.6': True,
                                 '7.0.7': True,
+                                '7.0.8': True,
                                 '7.2.1': False,
                                 '7.2.2': False,
+                                '7.2.3': False,
                                 '7.4.0': False
                             },
                             'type': 'list',
@@ -628,8 +644,10 @@ def main():
                                         '7.0.5': True,
                                         '7.0.6': True,
                                         '7.0.7': True,
+                                        '7.0.8': True,
                                         '7.2.1': False,
                                         '7.2.2': False,
+                                        '7.2.3': False,
                                         '7.4.0': False
                                     },
                                     'type': 'str'
@@ -641,8 +659,10 @@ def main():
                                         '7.0.5': True,
                                         '7.0.6': True,
                                         '7.0.7': True,
+                                        '7.0.8': True,
                                         '7.2.1': False,
                                         '7.2.2': False,
+                                        '7.2.3': False,
                                         '7.4.0': False
                                     },
                                     'type': 'str'
@@ -654,8 +674,10 @@ def main():
                                         '7.0.5': True,
                                         '7.0.6': True,
                                         '7.0.7': True,
+                                        '7.0.8': True,
                                         '7.2.1': False,
                                         '7.2.2': False,
+                                        '7.2.3': False,
                                         '7.4.0': False
                                     },
                                     'choices': [
@@ -674,8 +696,10 @@ def main():
                                 '7.0.5': True,
                                 '7.0.6': True,
                                 '7.0.7': True,
+                                '7.0.8': True,
                                 '7.2.1': False,
                                 '7.2.2': False,
+                                '7.2.3': False,
                                 '7.4.0': False
                             },
                             'type': 'int'
@@ -690,8 +714,10 @@ def main():
                         '7.0.5': True,
                         '7.0.6': True,
                         '7.0.7': True,
+                        '7.0.8': True,
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'choices': [
@@ -707,8 +733,10 @@ def main():
                         '7.0.5': True,
                         '7.0.6': True,
                         '7.0.7': True,
+                        '7.0.8': True,
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'type': 'list',
@@ -720,8 +748,10 @@ def main():
                                 '7.0.5': True,
                                 '7.0.6': True,
                                 '7.0.7': True,
+                                '7.0.8': True,
                                 '7.2.1': True,
                                 '7.2.2': True,
+                                '7.2.3': True,
                                 '7.4.0': True
                             },
                             'choices': [
@@ -753,8 +783,10 @@ def main():
                                 '7.0.5': True,
                                 '7.0.6': True,
                                 '7.0.7': True,
+                                '7.0.8': True,
                                 '7.2.1': True,
                                 '7.2.2': True,
+                                '7.2.3': True,
                                 '7.4.0': True
                             },
                             'type': 'str'
@@ -766,8 +798,10 @@ def main():
                                 '7.0.5': True,
                                 '7.0.6': True,
                                 '7.0.7': True,
+                                '7.0.8': True,
                                 '7.2.1': True,
                                 '7.2.2': True,
+                                '7.2.3': True,
                                 '7.4.0': True
                             },
                             'choices': [
@@ -783,8 +817,10 @@ def main():
                                 '7.0.5': True,
                                 '7.0.6': True,
                                 '7.0.7': True,
+                                '7.0.8': True,
                                 '7.2.1': True,
                                 '7.2.2': True,
+                                '7.2.3': True,
                                 '7.4.0': True
                             },
                             'type': 'int'
@@ -799,8 +835,10 @@ def main():
                         '7.0.5': True,
                         '7.0.6': True,
                         '7.0.7': True,
+                        '7.0.8': True,
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'choices': [
@@ -816,8 +854,10 @@ def main():
                         '7.0.5': True,
                         '7.0.6': True,
                         '7.0.7': True,
+                        '7.0.8': True,
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'choices': [
@@ -833,8 +873,10 @@ def main():
                         '7.0.5': True,
                         '7.0.6': True,
                         '7.0.7': True,
+                        '7.0.8': True,
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'choices': [
@@ -850,8 +892,10 @@ def main():
                         '7.0.5': True,
                         '7.0.6': True,
                         '7.0.7': True,
+                        '7.0.8': True,
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'choices': [
@@ -867,8 +911,10 @@ def main():
                         '7.0.5': True,
                         '7.0.6': True,
                         '7.0.7': True,
+                        '7.0.8': True,
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'choices': [
@@ -884,8 +930,10 @@ def main():
                         '7.0.5': True,
                         '7.0.6': True,
                         '7.0.7': True,
+                        '7.0.8': True,
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'choices': [
@@ -901,8 +949,10 @@ def main():
                         '7.0.5': True,
                         '7.0.6': True,
                         '7.0.7': True,
+                        '7.0.8': True,
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'choices': [
@@ -918,27 +968,12 @@ def main():
                         '7.0.5': True,
                         '7.0.6': True,
                         '7.0.7': True,
+                        '7.0.8': True,
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
-                    'type': 'str'
-                },
-                'dns': {
-                    'required': False,
-                    'revision': {
-                        '7.0.4': True,
-                        '7.0.5': True,
-                        '7.0.6': True,
-                        '7.0.7': True,
-                        '7.2.1': True,
-                        '7.2.2': False,
-                        '7.4.0': False
-                    },
-                    'choices': [
-                        'disable',
-                        'enable'
-                    ],
                     'type': 'str'
                 },
                 'cifs': {
@@ -948,25 +983,10 @@ def main():
                         '7.0.5': True,
                         '7.0.6': True,
                         '7.0.7': True,
+                        '7.0.8': True,
                         '7.2.1': False,
                         '7.2.2': False,
-                        '7.4.0': False
-                    },
-                    'choices': [
-                        'disable',
-                        'enable'
-                    ],
-                    'type': 'str'
-                },
-                'ssh': {
-                    'required': False,
-                    'revision': {
-                        '7.0.4': True,
-                        '7.0.5': True,
-                        '7.0.6': True,
-                        '7.0.7': True,
-                        '7.2.1': True,
-                        '7.2.2': False,
+                        '7.2.3': False,
                         '7.4.0': False
                     },
                     'choices': [
@@ -982,8 +1002,10 @@ def main():
                         '7.0.5': True,
                         '7.0.6': True,
                         '7.0.7': True,
+                        '7.0.8': True,
                         '7.2.1': False,
                         '7.2.2': False,
+                        '7.2.3': False,
                         '7.4.0': False
                     },
                     'choices': [
@@ -992,15 +1014,36 @@ def main():
                     ],
                     'type': 'str'
                 },
-                'netscan-vulnerability': {
+                'dns': {
                     'required': False,
                     'revision': {
                         '7.0.4': True,
                         '7.0.5': True,
                         '7.0.6': True,
                         '7.0.7': True,
-                        '7.2.1': False,
+                        '7.0.8': True,
+                        '7.2.1': True,
                         '7.2.2': False,
+                        '7.2.3': False,
+                        '7.4.0': False
+                    },
+                    'choices': [
+                        'disable',
+                        'enable'
+                    ],
+                    'type': 'str'
+                },
+                'ssh': {
+                    'required': False,
+                    'revision': {
+                        '7.0.4': True,
+                        '7.0.5': True,
+                        '7.0.6': True,
+                        '7.0.7': True,
+                        '7.0.8': True,
+                        '7.2.1': True,
+                        '7.2.2': False,
+                        '7.2.3': False,
                         '7.4.0': False
                     },
                     'choices': [
@@ -1016,8 +1059,29 @@ def main():
                         '7.0.5': True,
                         '7.0.6': True,
                         '7.0.7': True,
+                        '7.0.8': True,
                         '7.2.1': False,
                         '7.2.2': False,
+                        '7.2.3': False,
+                        '7.4.0': False
+                    },
+                    'choices': [
+                        'disable',
+                        'enable'
+                    ],
+                    'type': 'str'
+                },
+                'netscan-vulnerability': {
+                    'required': False,
+                    'revision': {
+                        '7.0.4': True,
+                        '7.0.5': True,
+                        '7.0.6': True,
+                        '7.0.7': True,
+                        '7.0.8': True,
+                        '7.2.1': False,
+                        '7.2.2': False,
+                        '7.2.3': False,
                         '7.4.0': False
                     },
                     'choices': [

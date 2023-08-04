@@ -252,6 +252,7 @@ def main():
             'revision': {
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'options': {
@@ -260,6 +261,7 @@ def main():
                     'revision': {
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'type': 'str'
@@ -269,6 +271,7 @@ def main():
                     'revision': {
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'type': 'list',
@@ -278,6 +281,7 @@ def main():
                             'revision': {
                                 '7.2.1': True,
                                 '7.2.2': True,
+                                '7.2.3': True,
                                 '7.4.0': True
                             },
                             'type': 'str'
@@ -287,6 +291,7 @@ def main():
                             'revision': {
                                 '7.2.1': True,
                                 '7.2.2': True,
+                                '7.2.3': True,
                                 '7.4.0': True
                             },
                             'type': 'str'
@@ -299,6 +304,7 @@ def main():
                     'revision': {
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'choices': [
@@ -315,6 +321,7 @@ def main():
                     'revision': {
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'type': 'str'
@@ -324,6 +331,7 @@ def main():
                     'revision': {
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'type': 'str'

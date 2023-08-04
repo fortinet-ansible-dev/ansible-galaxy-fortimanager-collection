@@ -29,7 +29,6 @@ from __future__ import absolute_import, division, print_function
 
 __metaclass__ = type
 from ansible.module_utils.basic import _load_params
-import sys
 import datetime
 import copy
 
@@ -234,7 +233,7 @@ class NAPIManager(object):
             adom = self.module.params["adom"]
             if adom == "global":
                 for url in url_libs:
-                    if "/global/" in url:
+                    if "/global/" in url and "/adom/{adom}/" not in url:
                         the_url = url
                         break
                 if not the_url:
@@ -291,12 +290,12 @@ class NAPIManager(object):
         url_updating = self._get_base_perobject_url(mvalue)
         if not self.top_level_schema_name:
             raise AssertionError("top level schema name MUST NOT be NULL")
+        module_name = self.module_level2_name
+        raw_attributes = self.module.params[module_name] if module_name in self.module.params else {}
         params = [
             {
                 "url": url_updating,
-                self.top_level_schema_name: self.__tailor_attributes(
-                    self.module.params[self.module_level2_name]
-                ),
+                self.top_level_schema_name: self.__tailor_attributes(raw_attributes),
             }
         ]
         response = self.conn.send_request(self._propose_method("update"), params)
@@ -306,12 +305,12 @@ class NAPIManager(object):
         url_creating = self._get_basic_url(False)
         if not self.top_level_schema_name:
             raise AssertionError("top level schema name MUST NOT be NULL")
+        module_name = self.module_level2_name
+        raw_attributes = self.module.params[module_name] if module_name in self.module.params else {}
         params = [
             {
                 "url": url_creating,
-                self.top_level_schema_name: self.__tailor_attributes(
-                    self.module.params[self.module_level2_name]
-                ),
+                self.top_level_schema_name: self.__tailor_attributes(raw_attributes),
             }
         ]
         return self.conn.send_request(self._propose_method("set"), params)
@@ -388,7 +387,8 @@ class NAPIManager(object):
         if object_status != 0:
             return False
         object_remote = robject[1]["data"]
-        object_present = self.module.params[self.module_level2_name]
+        module_name = self.module_level2_name
+        object_present = self.module.params[module_name] if module_name in self.module.params else {}
         return self._check_object_difference(object_remote, object_present)
 
     def _process_with_mkey(self, mvalue):
@@ -426,25 +426,22 @@ class NAPIManager(object):
         self.do_exit(response)
 
     def process_exec(self, argument_specs=None):
-        track = [self.module_level2_name]
+        module_name = self.module_level2_name
+        track = [module_name]
         if (
             "bypass_validation" not in self.module.params
             or self.module.params["bypass_validation"] is False
         ):
             self.check_versioning_mismatch(
                 track,
-                argument_specs[self.module_level2_name]
-                if self.module_level2_name in argument_specs
-                else None,
-                self.module.params[self.module_level2_name]
-                if self.module_level2_name in self.module.params
-                else None,
+                argument_specs[module_name] if module_name in argument_specs else None,
+                self.module.params[module_name] if module_name in self.module.params else None,
             )
         the_url = self.jrpc_urls[0]
         if "adom" in self.url_params and not self.jrpc_urls[0].endswith("{adom}"):
             if self.module.params["adom"] == "global":
                 for _url in self.jrpc_urls:
-                    if "/global/" in _url:
+                    if "/global/" in _url and "/adom/{adom}/" not in _url:
                         the_url = _url
                         break
             else:
@@ -458,11 +455,11 @@ class NAPIManager(object):
             the_url = the_url.replace(token_hint, token)
 
         api_params = [{"url": the_url}]
-        if self.module_level2_name in self.module.params:
+        if module_name in self.module.params:
             if not self.top_level_schema_name:
                 raise AssertionError("top level schema name MUST NOT be NULL")
             api_params[0][self.top_level_schema_name] = self.__tailor_attributes(
-                self.module.params[self.module_level2_name]
+                self.module.params[module_name]
             )
 
         response = self.conn.send_request("exec", api_params)
@@ -511,7 +508,7 @@ class NAPIManager(object):
         if "adom" in rename_params and not rename_urls[0].endswith("{adom}"):
             if params["rename"]["self"]["adom"] == "global":
                 for _url in rename_urls:
-                    if "/global/" in _url:
+                    if "/global/" in _url and "/adom/{adom}/" not in _url:
                         url = _url
                         break
             else:
@@ -571,7 +568,7 @@ class NAPIManager(object):
         if "adom" in clone_params_schema and not clone_urls[0].endswith("{adom}"):
             if self.module.params["clone"]["self"]["adom"] == "global":
                 for _url in clone_urls:
-                    if "/global/" in _url:
+                    if "/global/" in _url and "/adom/{adom}/" not in _url:
                         url = _url
                         break
             else:
@@ -636,7 +633,7 @@ class NAPIManager(object):
         if "adom" in move_params and not move_urls[0].endswith("{adom}"):
             if self.module.params["move"]["self"]["adom"] == "global":
                 for _url in move_urls:
-                    if "/global/" in _url:
+                    if "/global/" in _url and "/adom/{adom}/" not in _url:
                         url = _url
                         break
             else:
@@ -850,7 +847,7 @@ class NAPIManager(object):
         if "adom" in param and not export_urls[0].endswith("{adom}"):
             if param["adom"] == "global":
                 for _url in export_urls:
-                    if "/global/" in _url:
+                    if "/global/" in _url and "/adom/{adom}/" not in _url:
                         url = _url
                         break
             else:
@@ -1029,7 +1026,7 @@ class NAPIManager(object):
         if "adom" in fact_params and not fact_urls[0].endswith("{adom}"):
             if self.module.params["facts"]["params"]["adom"] == "global":
                 for _url in fact_urls:
-                    if "/global/" in _url:
+                    if "/global/" in _url and "/adom/{adom}/" not in _url:
                         url = _url
                         break
             elif (
@@ -1097,23 +1094,20 @@ class NAPIManager(object):
     def process_curd(self, argument_specs=None):
         if "state" not in self.module.params:
             raise AssertionError("parameter state is expected")
-        track = [self.module_level2_name]
+        module_name = self.module_level2_name
+        track = [module_name]
         if (
             "bypass_validation" not in self.module.params
             or self.module.params["bypass_validation"] is False
         ):
             self.check_versioning_mismatch(
                 track,
-                argument_specs[self.module_level2_name]
-                if self.module_level2_name in argument_specs
-                else None,
-                self.module.params[self.module_level2_name]
-                if self.module_level2_name in self.module.params
-                else None,
+                argument_specs[module_name] if module_name in argument_specs else None,
+                self.module.params[module_name] if module_name in self.module.params else None,
             )
         has_mkey = (
-            self.module_primary_key is not None
-            and type(self.module.params[self.module_level2_name]) is dict
+            self.module_primary_key is not None and module_name in self.module.params
+            and type(self.module.params[module_name]) is dict
         )
         if has_mkey:
             mvalue = ""
@@ -1127,9 +1121,7 @@ class NAPIManager(object):
                 # On Windows Platform, exec() call doesn't take effect.
                 mvalue = eval(mvalue_exec_string)
             else:
-                mvalue = self.module.params[self.module_level2_name][
-                    self.module_primary_key
-                ]
+                mvalue = self.module.params[module_name][self.module_primary_key]
             self.do_exit(self._process_with_mkey(mvalue))
         else:
             self.do_exit(self._process_without_mkey())
@@ -1156,25 +1148,22 @@ class NAPIManager(object):
             return data
 
     def process_partial_curd(self, argument_specs=None):
-        track = [self.module_level2_name]
+        module_name = self.module_level2_name
+        track = [module_name]
         if (
             "bypass_validation" not in self.module.params
             or self.module.params["bypass_validation"] is False
         ):
             self.check_versioning_mismatch(
                 track,
-                argument_specs[self.module_level2_name]
-                if self.module_level2_name in argument_specs
-                else None,
-                self.module.params[self.module_level2_name]
-                if self.module_level2_name in self.module.params
-                else None,
+                argument_specs[module_name] if module_name in argument_specs else None,
+                self.module.params[module_name] if module_name in self.module.params else None,
             )
         the_url = self.jrpc_urls[0]
         if "adom" in self.url_params and not self.jrpc_urls[0].endswith("{adom}"):
             if self.module.params["adom"] == "global":
                 for _url in self.jrpc_urls:
-                    if "/global/" in _url:
+                    if "/global/" in _url and "/adom/{adom}/" not in _url:
                         the_url = _url
                         break
             else:
@@ -1188,11 +1177,11 @@ class NAPIManager(object):
             the_url = the_url.replace(token_hint, token)
         the_url = the_url.rstrip("/")
         api_params = [{"url": the_url}]
-        if self.module_level2_name in self.module.params:
+        if module_name in self.module.params:
             if not self.top_level_schema_name:
                 raise AssertionError("top level schem name is not supposed to be empty")
             api_params[0][self.top_level_schema_name] = self.__tailor_attributes(
-                self.module.params[self.module_level2_name]
+                self.module.params[module_name]
             )
         response = self.conn.send_request(self._propose_method("set"), api_params)
         self.do_exit(response)

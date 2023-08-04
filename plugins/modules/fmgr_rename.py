@@ -857,6 +857,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -869,6 +870,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -877,9 +879,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -906,6 +910,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -918,6 +923,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -926,9 +932,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -954,6 +962,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -966,6 +975,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -974,9 +984,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -1003,6 +1015,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -1015,6 +1028,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -1023,9 +1037,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -1051,6 +1067,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -1063,6 +1080,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -1071,9 +1089,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -1084,8 +1104,8 @@ def main():
                 'apcfg-profile'
             ],
             'urls': [
-                '/pm/config/global/obj/wireless-controller/apcfg-profile/{apcfg-profile}',
-                '/pm/config/adom/{adom}/obj/wireless-controller/apcfg-profile/{apcfg-profile}'
+                '/pm/config/adom/{adom}/obj/wireless-controller/apcfg-profile/{apcfg-profile}',
+                '/pm/config/global/obj/wireless-controller/apcfg-profile/{apcfg-profile}'
             ],
             'revision': {
                 '6.4.6': True,
@@ -1094,6 +1114,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -1102,9 +1123,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -1116,8 +1139,8 @@ def main():
                 'command-list'
             ],
             'urls': [
-                '/pm/config/global/obj/wireless-controller/apcfg-profile/{apcfg-profile}/command-list/{command-list}',
-                '/pm/config/adom/{adom}/obj/wireless-controller/apcfg-profile/{apcfg-profile}/command-list/{command-list}'
+                '/pm/config/adom/{adom}/obj/wireless-controller/apcfg-profile/{apcfg-profile}/command-list/{command-list}',
+                '/pm/config/global/obj/wireless-controller/apcfg-profile/{apcfg-profile}/command-list/{command-list}'
             ],
             'revision': {
                 '6.4.6': True,
@@ -1126,6 +1149,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -1134,9 +1158,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -1147,8 +1173,8 @@ def main():
                 'profile'
             ],
             'urls': [
-                '/pm/config/global/obj/application/casi/profile/{profile}',
-                '/pm/config/adom/{adom}/obj/application/casi/profile/{profile}'
+                '/pm/config/adom/{adom}/obj/application/casi/profile/{profile}',
+                '/pm/config/global/obj/application/casi/profile/{profile}'
             ],
             'revision': {
                 '6.2.0': True,
@@ -1160,7 +1186,8 @@ def main():
                 '6.2.7': True,
                 '6.2.8': True,
                 '6.2.9': True,
-                '6.2.10': True
+                '6.2.10': True,
+                '6.2.11': True
             },
             'mkey': 'name'
         },
@@ -1171,8 +1198,8 @@ def main():
                 'entries'
             ],
             'urls': [
-                '/pm/config/global/obj/application/casi/profile/{profile}/entries/{entries}',
-                '/pm/config/adom/{adom}/obj/application/casi/profile/{profile}/entries/{entries}'
+                '/pm/config/adom/{adom}/obj/application/casi/profile/{profile}/entries/{entries}',
+                '/pm/config/global/obj/application/casi/profile/{profile}/entries/{entries}'
             ],
             'revision': {
                 '6.2.0': True,
@@ -1184,7 +1211,8 @@ def main():
                 '6.2.7': True,
                 '6.2.8': True,
                 '6.2.9': True,
-                '6.2.10': True
+                '6.2.10': True,
+                '6.2.11': True
             },
             'mkey': 'id'
         },
@@ -1209,6 +1237,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -1221,6 +1250,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -1229,9 +1259,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -1257,6 +1289,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -1269,6 +1302,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -1277,9 +1311,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'tag'
@@ -1305,6 +1341,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -1317,6 +1354,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -1325,9 +1363,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -1338,8 +1378,8 @@ def main():
                 'entry'
             ],
             'urls': [
-                '/pm/config/global/obj/application/internet-service/entry/{entry}',
-                '/pm/config/adom/{adom}/obj/application/internet-service/entry/{entry}'
+                '/pm/config/adom/{adom}/obj/application/internet-service/entry/{entry}',
+                '/pm/config/global/obj/application/internet-service/entry/{entry}'
             ],
             'revision': {
                 '6.2.0': True,
@@ -1351,7 +1391,8 @@ def main():
                 '6.2.7': True,
                 '6.2.8': True,
                 '6.2.9': True,
-                '6.2.10': True
+                '6.2.10': True,
+                '6.2.11': True
             },
             'mkey': 'id'
         },
@@ -1361,8 +1402,8 @@ def main():
                 'internet-service-custom'
             ],
             'urls': [
-                '/pm/config/global/obj/application/internet-service-custom/{internet-service-custom}',
-                '/pm/config/adom/{adom}/obj/application/internet-service-custom/{internet-service-custom}'
+                '/pm/config/adom/{adom}/obj/application/internet-service-custom/{internet-service-custom}',
+                '/pm/config/global/obj/application/internet-service-custom/{internet-service-custom}'
             ],
             'revision': {
                 '6.2.0': True,
@@ -1374,7 +1415,8 @@ def main():
                 '6.2.7': True,
                 '6.2.8': True,
                 '6.2.9': True,
-                '6.2.10': True
+                '6.2.10': True,
+                '6.2.11': True
             },
             'mkey': 'name'
         },
@@ -1385,8 +1427,8 @@ def main():
                 'disable-entry'
             ],
             'urls': [
-                '/pm/config/global/obj/application/internet-service-custom/{internet-service-custom}/disable-entry/{disable-entry}',
-                '/pm/config/adom/{adom}/obj/application/internet-service-custom/{internet-service-custom}/disable-entry/{disable-entry}'
+                '/pm/config/adom/{adom}/obj/application/internet-service-custom/{internet-service-custom}/disable-entry/{disable-entry}',
+                '/pm/config/global/obj/application/internet-service-custom/{internet-service-custom}/disable-entry/{disable-entry}'
             ],
             'revision': {
                 '6.2.0': True,
@@ -1398,7 +1440,8 @@ def main():
                 '6.2.7': True,
                 '6.2.8': True,
                 '6.2.9': True,
-                '6.2.10': True
+                '6.2.10': True,
+                '6.2.11': True
             },
             'mkey': 'id'
         },
@@ -1410,8 +1453,8 @@ def main():
                 'ip-range'
             ],
             'urls': [
-                '/pm/config/global/obj/application/internet-service-custom/{internet-service-custom}/disable-entry/{disable-entry}/ip-range/{ip-range}',
-                '/pm/config/adom/{adom}/obj/application/internet-service-custom/{internet-service-custom}/disable-entry/{disable-entry}/ip-range/{ip-range}'
+                '/pm/config/adom/{adom}/obj/application/internet-service-custom/{internet-service-custom}/disable-entry/{disable-entry}/ip-range/{ip-range}',
+                '/pm/config/global/obj/application/internet-service-custom/{internet-service-custom}/disable-entry/{disable-entry}/ip-range/{ip-range}'
             ],
             'revision': {
                 '6.2.0': True,
@@ -1423,7 +1466,8 @@ def main():
                 '6.2.7': True,
                 '6.2.8': True,
                 '6.2.9': True,
-                '6.2.10': True
+                '6.2.10': True,
+                '6.2.11': True
             },
             'mkey': 'id'
         },
@@ -1434,8 +1478,8 @@ def main():
                 'entry'
             ],
             'urls': [
-                '/pm/config/global/obj/application/internet-service-custom/{internet-service-custom}/entry/{entry}',
-                '/pm/config/adom/{adom}/obj/application/internet-service-custom/{internet-service-custom}/entry/{entry}'
+                '/pm/config/adom/{adom}/obj/application/internet-service-custom/{internet-service-custom}/entry/{entry}',
+                '/pm/config/global/obj/application/internet-service-custom/{internet-service-custom}/entry/{entry}'
             ],
             'revision': {
                 '6.2.0': True,
@@ -1447,7 +1491,8 @@ def main():
                 '6.2.7': True,
                 '6.2.8': True,
                 '6.2.9': True,
-                '6.2.10': True
+                '6.2.10': True,
+                '6.2.11': True
             },
             'mkey': 'id'
         },
@@ -1459,8 +1504,8 @@ def main():
                 'port-range'
             ],
             'urls': [
-                '/pm/config/global/obj/application/internet-service-custom/{internet-service-custom}/entry/{entry}/port-range/{port-range}',
-                '/pm/config/adom/{adom}/obj/application/internet-service-custom/{internet-service-custom}/entry/{entry}/port-range/{port-range}'
+                '/pm/config/adom/{adom}/obj/application/internet-service-custom/{internet-service-custom}/entry/{entry}/port-range/{port-range}',
+                '/pm/config/global/obj/application/internet-service-custom/{internet-service-custom}/entry/{entry}/port-range/{port-range}'
             ],
             'revision': {
                 '6.2.0': True,
@@ -1472,7 +1517,8 @@ def main():
                 '6.2.7': True,
                 '6.2.8': True,
                 '6.2.9': True,
-                '6.2.10': True
+                '6.2.10': True,
+                '6.2.11': True
             },
             'mkey': 'id'
         },
@@ -1497,6 +1543,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -1509,6 +1556,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -1517,9 +1565,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -1531,8 +1581,8 @@ def main():
                 'default-network-services'
             ],
             'urls': [
-                '/pm/config/global/obj/application/list/{list}/default-network-services/{default-network-services}',
-                '/pm/config/adom/{adom}/obj/application/list/{list}/default-network-services/{default-network-services}'
+                '/pm/config/adom/{adom}/obj/application/list/{list}/default-network-services/{default-network-services}',
+                '/pm/config/global/obj/application/list/{list}/default-network-services/{default-network-services}'
             ],
             'revision': {
                 '6.2.0': True,
@@ -1545,6 +1595,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -1557,6 +1608,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -1565,9 +1617,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -1594,6 +1648,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -1606,6 +1661,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -1614,9 +1670,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -1644,6 +1702,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -1656,6 +1715,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -1664,9 +1724,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -1680,8 +1742,8 @@ def main():
                 'members'
             ],
             'urls': [
-                '/pm/config/global/obj/application/list/{list}/entries/{entries}/parameters/{parameters}/members/{members}',
-                '/pm/config/adom/{adom}/obj/application/list/{list}/entries/{entries}/parameters/{parameters}/members/{members}'
+                '/pm/config/adom/{adom}/obj/application/list/{list}/entries/{entries}/parameters/{parameters}/members/{members}',
+                '/pm/config/global/obj/application/list/{list}/entries/{entries}/parameters/{parameters}/members/{members}'
             ],
             'revision': {
                 '6.4.0': True,
@@ -1696,6 +1758,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -1704,9 +1767,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -1717,8 +1782,8 @@ def main():
                 'arrp-profile'
             ],
             'urls': [
-                '/pm/config/global/obj/wireless-controller/arrp-profile/{arrp-profile}',
-                '/pm/config/adom/{adom}/obj/wireless-controller/arrp-profile/{arrp-profile}'
+                '/pm/config/adom/{adom}/obj/wireless-controller/arrp-profile/{arrp-profile}',
+                '/pm/config/global/obj/wireless-controller/arrp-profile/{arrp-profile}'
             ],
             'revision': {
                 '7.0.3': True,
@@ -1726,9 +1791,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -1739,8 +1806,8 @@ def main():
                 'scheme'
             ],
             'urls': [
-                '/pm/config/global/obj/authentication/scheme/{scheme}',
-                '/pm/config/adom/{adom}/obj/authentication/scheme/{scheme}'
+                '/pm/config/adom/{adom}/obj/authentication/scheme/{scheme}',
+                '/pm/config/global/obj/authentication/scheme/{scheme}'
             ],
             'revision': {
                 '6.2.1': True,
@@ -1752,6 +1819,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -1764,6 +1832,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -1772,9 +1841,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -1800,6 +1871,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -1812,6 +1884,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -1820,9 +1893,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -1848,6 +1923,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -1860,6 +1936,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -1868,9 +1945,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -1897,6 +1976,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -1909,6 +1989,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -1917,9 +1998,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'policy-id'
@@ -1945,6 +2028,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -1957,6 +2041,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -1965,9 +2050,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -1978,8 +2065,8 @@ def main():
                 'profile'
             ],
             'urls': [
-                '/pm/config/global/obj/cifs/profile/{profile}',
-                '/pm/config/adom/{adom}/obj/cifs/profile/{profile}'
+                '/pm/config/adom/{adom}/obj/cifs/profile/{profile}',
+                '/pm/config/global/obj/cifs/profile/{profile}'
             ],
             'revision': {
                 '6.2.0': True,
@@ -1992,6 +2079,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -2004,6 +2092,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -2012,9 +2101,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -2025,8 +2116,8 @@ def main():
                 'orchest-aws'
             ],
             'urls': [
-                '/pm/config/global/obj/cloud/orchest-aws/{orchest-aws}',
-                '/pm/config/adom/{adom}/obj/cloud/orchest-aws/{orchest-aws}'
+                '/pm/config/adom/{adom}/obj/cloud/orchest-aws/{orchest-aws}',
+                '/pm/config/global/obj/cloud/orchest-aws/{orchest-aws}'
             ],
             'revision': {
                 '7.4.0': True
@@ -2039,8 +2130,8 @@ def main():
                 'orchest-awsconnector'
             ],
             'urls': [
-                '/pm/config/global/obj/cloud/orchest-awsconnector/{orchest-awsconnector}',
-                '/pm/config/adom/{adom}/obj/cloud/orchest-awsconnector/{orchest-awsconnector}'
+                '/pm/config/adom/{adom}/obj/cloud/orchest-awsconnector/{orchest-awsconnector}',
+                '/pm/config/global/obj/cloud/orchest-awsconnector/{orchest-awsconnector}'
             ],
             'revision': {
                 '7.4.0': True
@@ -2053,8 +2144,8 @@ def main():
                 'autoscale-existing-vpc'
             ],
             'urls': [
-                '/pm/config/global/obj/cloud/orchest-awstemplate/autoscale-existing-vpc/{autoscale-existing-vpc}',
-                '/pm/config/adom/{adom}/obj/cloud/orchest-awstemplate/autoscale-existing-vpc/{autoscale-existing-vpc}'
+                '/pm/config/adom/{adom}/obj/cloud/orchest-awstemplate/autoscale-existing-vpc/{autoscale-existing-vpc}',
+                '/pm/config/global/obj/cloud/orchest-awstemplate/autoscale-existing-vpc/{autoscale-existing-vpc}'
             ],
             'revision': {
                 '7.4.0': True
@@ -2067,8 +2158,8 @@ def main():
                 'autoscale-new-vpc'
             ],
             'urls': [
-                '/pm/config/global/obj/cloud/orchest-awstemplate/autoscale-new-vpc/{autoscale-new-vpc}',
-                '/pm/config/adom/{adom}/obj/cloud/orchest-awstemplate/autoscale-new-vpc/{autoscale-new-vpc}'
+                '/pm/config/adom/{adom}/obj/cloud/orchest-awstemplate/autoscale-new-vpc/{autoscale-new-vpc}',
+                '/pm/config/global/obj/cloud/orchest-awstemplate/autoscale-new-vpc/{autoscale-new-vpc}'
             ],
             'revision': {
                 '7.4.0': True
@@ -2081,8 +2172,8 @@ def main():
                 'autoscale-tgw-new-vpc'
             ],
             'urls': [
-                '/pm/config/global/obj/cloud/orchest-awstemplate/autoscale-tgw-new-vpc/{autoscale-tgw-new-vpc}',
-                '/pm/config/adom/{adom}/obj/cloud/orchest-awstemplate/autoscale-tgw-new-vpc/{autoscale-tgw-new-vpc}'
+                '/pm/config/adom/{adom}/obj/cloud/orchest-awstemplate/autoscale-tgw-new-vpc/{autoscale-tgw-new-vpc}',
+                '/pm/config/global/obj/cloud/orchest-awstemplate/autoscale-tgw-new-vpc/{autoscale-tgw-new-vpc}'
             ],
             'revision': {
                 '7.4.0': True
@@ -2095,8 +2186,8 @@ def main():
                 'orchestration'
             ],
             'urls': [
-                '/pm/config/global/obj/cloud/orchestration/{orchestration}',
-                '/pm/config/adom/{adom}/obj/cloud/orchestration/{orchestration}'
+                '/pm/config/adom/{adom}/obj/cloud/orchestration/{orchestration}',
+                '/pm/config/global/obj/cloud/orchestration/{orchestration}'
             ],
             'revision': {
                 '7.4.0': True
@@ -2116,7 +2207,8 @@ def main():
                 '7.0.4': True,
                 '7.0.5': True,
                 '7.0.6': True,
-                '7.0.7': True
+                '7.0.7': True,
+                '7.0.8': True
             },
             'mkey': 'id'
         },
@@ -2134,8 +2226,10 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -2154,8 +2248,10 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -2180,6 +2276,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.3': True,
@@ -2191,6 +2288,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -2199,9 +2297,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -2226,6 +2326,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.3': True,
@@ -2237,6 +2338,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -2245,9 +2347,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -2272,6 +2376,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.3': True,
@@ -2283,6 +2388,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -2291,9 +2397,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -2319,6 +2427,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.3': True,
@@ -2330,6 +2439,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -2338,9 +2448,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -2366,6 +2478,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.3': True,
@@ -2377,6 +2490,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -2385,9 +2499,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -2412,6 +2528,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.3': True,
@@ -2423,6 +2540,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -2431,9 +2549,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -2444,13 +2564,14 @@ def main():
                 'data-type'
             ],
             'urls': [
-                '/pm/config/global/obj/dlp/data-type/{data-type}',
-                '/pm/config/adom/{adom}/obj/dlp/data-type/{data-type}'
+                '/pm/config/adom/{adom}/obj/dlp/data-type/{data-type}',
+                '/pm/config/global/obj/dlp/data-type/{data-type}'
             ],
             'revision': {
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -2461,13 +2582,14 @@ def main():
                 'dictionary'
             ],
             'urls': [
-                '/pm/config/global/obj/dlp/dictionary/{dictionary}',
-                '/pm/config/adom/{adom}/obj/dlp/dictionary/{dictionary}'
+                '/pm/config/adom/{adom}/obj/dlp/dictionary/{dictionary}',
+                '/pm/config/global/obj/dlp/dictionary/{dictionary}'
             ],
             'revision': {
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -2479,13 +2601,14 @@ def main():
                 'entries'
             ],
             'urls': [
-                '/pm/config/global/obj/dlp/dictionary/{dictionary}/entries/{entries}',
-                '/pm/config/adom/{adom}/obj/dlp/dictionary/{dictionary}/entries/{entries}'
+                '/pm/config/adom/{adom}/obj/dlp/dictionary/{dictionary}/entries/{entries}',
+                '/pm/config/global/obj/dlp/dictionary/{dictionary}/entries/{entries}'
             ],
             'revision': {
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -2511,6 +2634,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -2523,6 +2647,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -2531,9 +2656,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -2559,6 +2686,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -2571,6 +2699,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -2579,6 +2708,7 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True
             },
@@ -2590,13 +2720,14 @@ def main():
                 'profile'
             ],
             'urls': [
-                '/pm/config/global/obj/dlp/profile/{profile}',
-                '/pm/config/adom/{adom}/obj/dlp/profile/{profile}'
+                '/pm/config/adom/{adom}/obj/dlp/profile/{profile}',
+                '/pm/config/global/obj/dlp/profile/{profile}'
             ],
             'revision': {
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -2608,13 +2739,14 @@ def main():
                 'rule'
             ],
             'urls': [
-                '/pm/config/global/obj/dlp/profile/{profile}/rule/{rule}',
-                '/pm/config/adom/{adom}/obj/dlp/profile/{profile}/rule/{rule}'
+                '/pm/config/adom/{adom}/obj/dlp/profile/{profile}/rule/{rule}',
+                '/pm/config/global/obj/dlp/profile/{profile}/rule/{rule}'
             ],
             'revision': {
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -2625,8 +2757,8 @@ def main():
                 'sensitivity'
             ],
             'urls': [
-                '/pm/config/global/obj/dlp/sensitivity/{sensitivity}',
-                '/pm/config/adom/{adom}/obj/dlp/sensitivity/{sensitivity}'
+                '/pm/config/adom/{adom}/obj/dlp/sensitivity/{sensitivity}',
+                '/pm/config/global/obj/dlp/sensitivity/{sensitivity}'
             ],
             'revision': {
                 '6.2.0': True,
@@ -2639,6 +2771,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -2651,6 +2784,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -2659,9 +2793,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -2687,6 +2823,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -2699,6 +2836,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -2707,9 +2845,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -2721,13 +2861,14 @@ def main():
                 'entries'
             ],
             'urls': [
-                '/pm/config/global/obj/dlp/sensor/{sensor}/entries/{entries}',
-                '/pm/config/adom/{adom}/obj/dlp/sensor/{sensor}/entries/{entries}'
+                '/pm/config/adom/{adom}/obj/dlp/sensor/{sensor}/entries/{entries}',
+                '/pm/config/global/obj/dlp/sensor/{sensor}/entries/{entries}'
             ],
             'revision': {
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -2754,6 +2895,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -2766,6 +2908,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -2774,9 +2917,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -2802,6 +2947,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -2814,6 +2960,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -2822,9 +2969,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -2851,6 +3000,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -2863,6 +3013,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -2871,9 +3022,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -2899,6 +3052,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -2911,6 +3065,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -2919,9 +3074,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -2933,8 +3090,8 @@ def main():
                 'dns-translation'
             ],
             'urls': [
-                '/pm/config/global/obj/dnsfilter/profile/{profile}/dns-translation/{dns-translation}',
-                '/pm/config/adom/{adom}/obj/dnsfilter/profile/{profile}/dns-translation/{dns-translation}'
+                '/pm/config/adom/{adom}/obj/dnsfilter/profile/{profile}/dns-translation/{dns-translation}',
+                '/pm/config/global/obj/dnsfilter/profile/{profile}/dns-translation/{dns-translation}'
             ],
             'revision': {
                 '6.2.0': True,
@@ -2947,6 +3104,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -2959,6 +3117,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -2967,9 +3126,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -2996,6 +3157,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -3008,6 +3170,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -3016,9 +3179,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -3029,8 +3194,8 @@ def main():
                 'urlfilter'
             ],
             'urls': [
-                '/pm/config/global/obj/dnsfilter/urlfilter/{urlfilter}',
-                '/pm/config/adom/{adom}/obj/dnsfilter/urlfilter/{urlfilter}'
+                '/pm/config/adom/{adom}/obj/dnsfilter/urlfilter/{urlfilter}',
+                '/pm/config/global/obj/dnsfilter/urlfilter/{urlfilter}'
             ],
             'revision': {
                 '6.2.0': True,
@@ -3042,7 +3207,8 @@ def main():
                 '6.2.7': True,
                 '6.2.8': True,
                 '6.2.9': True,
-                '6.2.10': True
+                '6.2.10': True,
+                '6.2.11': True
             },
             'mkey': 'id'
         },
@@ -3053,8 +3219,8 @@ def main():
                 'entries'
             ],
             'urls': [
-                '/pm/config/global/obj/dnsfilter/urlfilter/{urlfilter}/entries/{entries}',
-                '/pm/config/adom/{adom}/obj/dnsfilter/urlfilter/{urlfilter}/entries/{entries}'
+                '/pm/config/adom/{adom}/obj/dnsfilter/urlfilter/{urlfilter}/entries/{entries}',
+                '/pm/config/global/obj/dnsfilter/urlfilter/{urlfilter}/entries/{entries}'
             ],
             'revision': {
                 '6.2.0': True,
@@ -3066,7 +3232,8 @@ def main():
                 '6.2.7': True,
                 '6.2.8': True,
                 '6.2.9': True,
-                '6.2.10': True
+                '6.2.10': True,
+                '6.2.11': True
             },
             'mkey': 'id'
         },
@@ -3089,6 +3256,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -3101,6 +3269,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -3109,9 +3278,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -3138,6 +3309,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -3150,6 +3322,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -3158,9 +3331,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -3171,8 +3346,8 @@ def main():
                 'folder'
             ],
             'urls': [
-                '/dvmdb/folder/{folder}',
-                '/dvmdb/adom/{adom}/folder/{folder}'
+                '/dvmdb/adom/{adom}/folder/{folder}',
+                '/dvmdb/folder/{folder}'
             ],
             'revision': {
                 '6.4.2': True,
@@ -3185,6 +3360,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -3193,9 +3369,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -3221,6 +3399,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -3233,6 +3412,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -3241,9 +3421,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -3270,6 +3452,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -3282,6 +3465,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -3290,9 +3474,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -3319,6 +3505,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -3331,6 +3518,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -3339,9 +3527,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -3369,6 +3559,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -3381,6 +3572,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -3389,9 +3581,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -3417,6 +3611,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -3429,6 +3624,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -3437,9 +3633,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -3466,6 +3664,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -3478,6 +3677,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -3486,9 +3686,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -3514,6 +3716,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -3526,6 +3729,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -3534,9 +3738,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -3563,6 +3769,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -3575,6 +3782,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -3583,9 +3791,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'complex:{{module}}["_scope"][0]["name"]+"/"+{{module}}["_scope"][0]["vdom"]'
@@ -3596,8 +3806,8 @@ def main():
                 'interface'
             ],
             'urls': [
-                '/pm/config/global/obj/dynamic/input/interface/{interface}',
-                '/pm/config/adom/{adom}/obj/dynamic/input/interface/{interface}'
+                '/pm/config/adom/{adom}/obj/dynamic/input/interface/{interface}',
+                '/pm/config/global/obj/dynamic/input/interface/{interface}'
             ],
             'revision': {
                 '6.2.2': True,
@@ -3608,6 +3818,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True
             },
             'mkey': 'name'
@@ -3633,6 +3844,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -3645,6 +3857,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -3653,9 +3866,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -3682,6 +3897,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -3694,6 +3910,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -3702,9 +3919,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'complex:{{module}}["_scope"][0]["name"]+"/"+{{module}}["_scope"][0]["vdom"]'
@@ -3716,8 +3935,8 @@ def main():
                 'platform_mapping'
             ],
             'urls': [
-                '/pm/config/global/obj/dynamic/interface/{interface}/platform_mapping/{platform_mapping}',
-                '/pm/config/adom/{adom}/obj/dynamic/interface/{interface}/platform_mapping/{platform_mapping}'
+                '/pm/config/adom/{adom}/obj/dynamic/interface/{interface}/platform_mapping/{platform_mapping}',
+                '/pm/config/global/obj/dynamic/interface/{interface}/platform_mapping/{platform_mapping}'
             ],
             'revision': {
                 '6.4.1': True,
@@ -3731,6 +3950,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -3739,9 +3959,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -3767,6 +3989,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -3779,6 +4002,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -3787,9 +4011,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -3815,6 +4041,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -3827,6 +4054,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -3835,9 +4063,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -3864,6 +4094,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -3876,6 +4107,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -3884,9 +4116,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'complex:{{module}}["_scope"][0]["name"]+"/"+{{module}}["_scope"][0]["vdom"]'
@@ -3912,6 +4146,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -3924,6 +4159,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -3932,9 +4168,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -3960,6 +4198,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -3971,7 +4210,8 @@ def main():
                 '6.4.8': True,
                 '6.4.9': True,
                 '6.4.10': True,
-                '6.4.11': True
+                '6.4.11': True,
+                '6.4.12': True
             },
             'mkey': 'name'
         },
@@ -3997,6 +4237,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -4008,7 +4249,8 @@ def main():
                 '6.4.8': True,
                 '6.4.9': True,
                 '6.4.10': True,
-                '6.4.11': True
+                '6.4.11': True,
+                '6.4.12': True
             },
             'mkey': 'complex:{{module}}["_scope"][0]["name"]+"/"+{{module}}["_scope"][0]["vdom"]'
         },
@@ -4018,8 +4260,8 @@ def main():
                 'neighbor'
             ],
             'urls': [
-                '/pm/config/global/obj/dynamic/virtual-wan-link/neighbor/{neighbor}',
-                '/pm/config/adom/{adom}/obj/dynamic/virtual-wan-link/neighbor/{neighbor}'
+                '/pm/config/adom/{adom}/obj/dynamic/virtual-wan-link/neighbor/{neighbor}',
+                '/pm/config/global/obj/dynamic/virtual-wan-link/neighbor/{neighbor}'
             ],
             'revision': {
                 '6.2.2': True,
@@ -4030,6 +4272,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -4041,7 +4284,8 @@ def main():
                 '6.4.8': True,
                 '6.4.9': True,
                 '6.4.10': True,
-                '6.4.11': True
+                '6.4.11': True,
+                '6.4.12': True
             },
             'mkey': 'name'
         },
@@ -4066,6 +4310,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -4077,7 +4322,8 @@ def main():
                 '6.4.8': True,
                 '6.4.9': True,
                 '6.4.10': True,
-                '6.4.11': True
+                '6.4.11': True,
+                '6.4.12': True
             },
             'mkey': 'name'
         },
@@ -4103,6 +4349,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -4114,7 +4361,8 @@ def main():
                 '6.4.8': True,
                 '6.4.9': True,
                 '6.4.10': True,
-                '6.4.11': True
+                '6.4.11': True,
+                '6.4.12': True
             },
             'mkey': 'complex:{{module}}["_scope"][0]["name"]+"/"+{{module}}["_scope"][0]["vdom"]'
         },
@@ -4139,6 +4387,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -4151,6 +4400,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -4159,9 +4409,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -4188,6 +4440,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -4200,6 +4453,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -4208,9 +4462,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'complex:{{module}}["_scope"][0]["name"]+"/"+{{module}}["_scope"][0]["vdom"]'
@@ -4221,8 +4477,8 @@ def main():
                 'block-allow-list'
             ],
             'urls': [
-                '/pm/config/global/obj/emailfilter/block-allow-list/{block-allow-list}',
-                '/pm/config/adom/{adom}/obj/emailfilter/block-allow-list/{block-allow-list}'
+                '/pm/config/adom/{adom}/obj/emailfilter/block-allow-list/{block-allow-list}',
+                '/pm/config/global/obj/emailfilter/block-allow-list/{block-allow-list}'
             ],
             'revision': {
                 '7.0.0': True,
@@ -4233,9 +4489,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -4247,8 +4505,8 @@ def main():
                 'entries'
             ],
             'urls': [
-                '/pm/config/global/obj/emailfilter/block-allow-list/{block-allow-list}/entries/{entries}',
-                '/pm/config/adom/{adom}/obj/emailfilter/block-allow-list/{block-allow-list}/entries/{entries}'
+                '/pm/config/adom/{adom}/obj/emailfilter/block-allow-list/{block-allow-list}/entries/{entries}',
+                '/pm/config/global/obj/emailfilter/block-allow-list/{block-allow-list}/entries/{entries}'
             ],
             'revision': {
                 '7.0.0': True,
@@ -4259,9 +4517,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -4272,8 +4532,8 @@ def main():
                 'bwl'
             ],
             'urls': [
-                '/pm/config/global/obj/emailfilter/bwl/{bwl}',
-                '/pm/config/adom/{adom}/obj/emailfilter/bwl/{bwl}'
+                '/pm/config/adom/{adom}/obj/emailfilter/bwl/{bwl}',
+                '/pm/config/global/obj/emailfilter/bwl/{bwl}'
             ],
             'revision': {
                 '6.2.0': True,
@@ -4286,6 +4546,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -4298,6 +4559,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -4306,9 +4568,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -4320,8 +4584,8 @@ def main():
                 'entries'
             ],
             'urls': [
-                '/pm/config/global/obj/emailfilter/bwl/{bwl}/entries/{entries}',
-                '/pm/config/adom/{adom}/obj/emailfilter/bwl/{bwl}/entries/{entries}'
+                '/pm/config/adom/{adom}/obj/emailfilter/bwl/{bwl}/entries/{entries}',
+                '/pm/config/global/obj/emailfilter/bwl/{bwl}/entries/{entries}'
             ],
             'revision': {
                 '6.2.0': True,
@@ -4334,6 +4598,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -4346,6 +4611,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -4354,9 +4620,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -4367,8 +4635,8 @@ def main():
                 'bword'
             ],
             'urls': [
-                '/pm/config/global/obj/emailfilter/bword/{bword}',
-                '/pm/config/adom/{adom}/obj/emailfilter/bword/{bword}'
+                '/pm/config/adom/{adom}/obj/emailfilter/bword/{bword}',
+                '/pm/config/global/obj/emailfilter/bword/{bword}'
             ],
             'revision': {
                 '6.2.0': True,
@@ -4381,6 +4649,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -4393,6 +4662,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -4401,9 +4671,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -4415,8 +4687,8 @@ def main():
                 'entries'
             ],
             'urls': [
-                '/pm/config/global/obj/emailfilter/bword/{bword}/entries/{entries}',
-                '/pm/config/adom/{adom}/obj/emailfilter/bword/{bword}/entries/{entries}'
+                '/pm/config/adom/{adom}/obj/emailfilter/bword/{bword}/entries/{entries}',
+                '/pm/config/global/obj/emailfilter/bword/{bword}/entries/{entries}'
             ],
             'revision': {
                 '6.2.0': True,
@@ -4429,6 +4701,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -4441,6 +4714,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -4449,9 +4723,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -4462,8 +4738,8 @@ def main():
                 'dnsbl'
             ],
             'urls': [
-                '/pm/config/global/obj/emailfilter/dnsbl/{dnsbl}',
-                '/pm/config/adom/{adom}/obj/emailfilter/dnsbl/{dnsbl}'
+                '/pm/config/adom/{adom}/obj/emailfilter/dnsbl/{dnsbl}',
+                '/pm/config/global/obj/emailfilter/dnsbl/{dnsbl}'
             ],
             'revision': {
                 '6.2.0': True,
@@ -4476,6 +4752,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -4488,6 +4765,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -4496,9 +4774,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -4510,8 +4790,8 @@ def main():
                 'entries'
             ],
             'urls': [
-                '/pm/config/global/obj/emailfilter/dnsbl/{dnsbl}/entries/{entries}',
-                '/pm/config/adom/{adom}/obj/emailfilter/dnsbl/{dnsbl}/entries/{entries}'
+                '/pm/config/adom/{adom}/obj/emailfilter/dnsbl/{dnsbl}/entries/{entries}',
+                '/pm/config/global/obj/emailfilter/dnsbl/{dnsbl}/entries/{entries}'
             ],
             'revision': {
                 '6.2.0': True,
@@ -4524,6 +4804,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -4536,6 +4817,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -4544,9 +4826,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -4557,8 +4841,8 @@ def main():
                 'iptrust'
             ],
             'urls': [
-                '/pm/config/global/obj/emailfilter/iptrust/{iptrust}',
-                '/pm/config/adom/{adom}/obj/emailfilter/iptrust/{iptrust}'
+                '/pm/config/adom/{adom}/obj/emailfilter/iptrust/{iptrust}',
+                '/pm/config/global/obj/emailfilter/iptrust/{iptrust}'
             ],
             'revision': {
                 '6.2.0': True,
@@ -4571,6 +4855,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -4583,6 +4868,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -4591,9 +4877,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -4605,8 +4893,8 @@ def main():
                 'entries'
             ],
             'urls': [
-                '/pm/config/global/obj/emailfilter/iptrust/{iptrust}/entries/{entries}',
-                '/pm/config/adom/{adom}/obj/emailfilter/iptrust/{iptrust}/entries/{entries}'
+                '/pm/config/adom/{adom}/obj/emailfilter/iptrust/{iptrust}/entries/{entries}',
+                '/pm/config/global/obj/emailfilter/iptrust/{iptrust}/entries/{entries}'
             ],
             'revision': {
                 '6.2.0': True,
@@ -4619,6 +4907,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -4631,6 +4920,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -4639,9 +4929,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -4652,8 +4944,8 @@ def main():
                 'mheader'
             ],
             'urls': [
-                '/pm/config/global/obj/emailfilter/mheader/{mheader}',
-                '/pm/config/adom/{adom}/obj/emailfilter/mheader/{mheader}'
+                '/pm/config/adom/{adom}/obj/emailfilter/mheader/{mheader}',
+                '/pm/config/global/obj/emailfilter/mheader/{mheader}'
             ],
             'revision': {
                 '6.2.0': True,
@@ -4666,6 +4958,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -4678,6 +4971,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -4686,9 +4980,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -4700,8 +4996,8 @@ def main():
                 'entries'
             ],
             'urls': [
-                '/pm/config/global/obj/emailfilter/mheader/{mheader}/entries/{entries}',
-                '/pm/config/adom/{adom}/obj/emailfilter/mheader/{mheader}/entries/{entries}'
+                '/pm/config/adom/{adom}/obj/emailfilter/mheader/{mheader}/entries/{entries}',
+                '/pm/config/global/obj/emailfilter/mheader/{mheader}/entries/{entries}'
             ],
             'revision': {
                 '6.2.0': True,
@@ -4714,6 +5010,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -4726,6 +5023,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -4734,9 +5032,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -4747,8 +5047,8 @@ def main():
                 'profile'
             ],
             'urls': [
-                '/pm/config/global/obj/emailfilter/profile/{profile}',
-                '/pm/config/adom/{adom}/obj/emailfilter/profile/{profile}'
+                '/pm/config/adom/{adom}/obj/emailfilter/profile/{profile}',
+                '/pm/config/global/obj/emailfilter/profile/{profile}'
             ],
             'revision': {
                 '6.2.0': True,
@@ -4761,6 +5061,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -4773,6 +5074,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -4781,9 +5083,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -4794,8 +5098,8 @@ def main():
                 'fctems'
             ],
             'urls': [
-                '/pm/config/global/obj/endpoint-control/fctems/{fctems}',
-                '/pm/config/adom/{adom}/obj/endpoint-control/fctems/{fctems}'
+                '/pm/config/adom/{adom}/obj/endpoint-control/fctems/{fctems}',
+                '/pm/config/global/obj/endpoint-control/fctems/{fctems}'
             ],
             'revision': {
                 '7.0.2': True,
@@ -4804,9 +5108,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -4817,8 +5123,8 @@ def main():
                 'dataplan'
             ],
             'urls': [
-                '/pm/config/global/obj/extender-controller/dataplan/{dataplan}',
-                '/pm/config/adom/{adom}/obj/extender-controller/dataplan/{dataplan}'
+                '/pm/config/adom/{adom}/obj/extender-controller/dataplan/{dataplan}',
+                '/pm/config/global/obj/extender-controller/dataplan/{dataplan}'
             ],
             'revision': {
                 '6.4.4': True,
@@ -4829,6 +5135,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -4837,9 +5144,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -4850,8 +5159,8 @@ def main():
                 'extender-profile'
             ],
             'urls': [
-                '/pm/config/global/obj/extender-controller/extender-profile/{extender-profile}',
-                '/pm/config/adom/{adom}/obj/extender-controller/extender-profile/{extender-profile}'
+                '/pm/config/adom/{adom}/obj/extender-controller/extender-profile/{extender-profile}',
+                '/pm/config/global/obj/extender-controller/extender-profile/{extender-profile}'
             ],
             'revision': {
                 '7.0.2': True,
@@ -4860,9 +5169,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -4874,8 +5185,8 @@ def main():
                 'receiver'
             ],
             'urls': [
-                '/pm/config/global/obj/extender-controller/extender-profile/{extender-profile}/cellular/sms-notification/receiver/{receiver}',
-                '/pm/config/adom/{adom}/obj/extender-controller/extender-profile/{extender-profile}/cellular/sms-notification/receiver/{receiver}'
+                '/pm/config/adom/{adom}/obj/extender-controller/extender-profile/{extender-profile}/cellular/sms-notification/receiver/{receiver}',
+                '/pm/config/global/obj/extender-controller/extender-profile/{extender-profile}/cellular/sms-notification/receiver/{receiver}'
             ],
             'revision': {
                 '7.0.2': True,
@@ -4884,9 +5195,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -4898,8 +5211,8 @@ def main():
                 'backhaul'
             ],
             'urls': [
-                '/pm/config/global/obj/extender-controller/extender-profile/{extender-profile}/lan-extension/backhaul/{backhaul}',
-                '/pm/config/adom/{adom}/obj/extender-controller/extender-profile/{extender-profile}/lan-extension/backhaul/{backhaul}'
+                '/pm/config/adom/{adom}/obj/extender-controller/extender-profile/{extender-profile}/lan-extension/backhaul/{backhaul}',
+                '/pm/config/global/obj/extender-controller/extender-profile/{extender-profile}/lan-extension/backhaul/{backhaul}'
             ],
             'revision': {
                 '7.0.2': True,
@@ -4908,9 +5221,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -4921,8 +5236,8 @@ def main():
                 'sim_profile'
             ],
             'urls': [
-                '/pm/config/global/obj/extender-controller/sim_profile/{sim_profile}',
-                '/pm/config/adom/{adom}/obj/extender-controller/sim_profile/{sim_profile}'
+                '/pm/config/adom/{adom}/obj/extender-controller/sim_profile/{sim_profile}',
+                '/pm/config/global/obj/extender-controller/sim_profile/{sim_profile}'
             ],
             'revision': {
                 '6.4.4': True,
@@ -4933,6 +5248,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -4941,9 +5257,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -4954,8 +5272,8 @@ def main():
                 'template'
             ],
             'urls': [
-                '/pm/config/global/obj/extender-controller/template/{template}',
-                '/pm/config/adom/{adom}/obj/extender-controller/template/{template}'
+                '/pm/config/adom/{adom}/obj/extender-controller/template/{template}',
+                '/pm/config/global/obj/extender-controller/template/{template}'
             ],
             'revision': {
                 '7.0.0': True,
@@ -4966,9 +5284,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -4979,12 +5299,13 @@ def main():
                 'dataplan'
             ],
             'urls': [
-                '/pm/config/global/obj/extension-controller/dataplan/{dataplan}',
-                '/pm/config/adom/{adom}/obj/extension-controller/dataplan/{dataplan}'
+                '/pm/config/adom/{adom}/obj/extension-controller/dataplan/{dataplan}',
+                '/pm/config/global/obj/extension-controller/dataplan/{dataplan}'
             ],
             'revision': {
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -4995,12 +5316,13 @@ def main():
                 'extender-profile'
             ],
             'urls': [
-                '/pm/config/global/obj/extension-controller/extender-profile/{extender-profile}',
-                '/pm/config/adom/{adom}/obj/extension-controller/extender-profile/{extender-profile}'
+                '/pm/config/adom/{adom}/obj/extension-controller/extender-profile/{extender-profile}',
+                '/pm/config/global/obj/extension-controller/extender-profile/{extender-profile}'
             ],
             'revision': {
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -5012,12 +5334,13 @@ def main():
                 'receiver'
             ],
             'urls': [
-                '/pm/config/global/obj/extension-controller/extender-profile/{extender-profile}/cellular/sms-notification/receiver/{receiver}',
-                '/pm/config/adom/{adom}/obj/extension-controller/extender-profile/{extender-profile}/cellular/sms-notification/receiver/{receiver}'
+                '/pm/config/adom/{adom}/obj/extension-controller/extender-profile/{extender-profile}/cellular/sms-notification/receiver/{receiver}',
+                '/pm/config/global/obj/extension-controller/extender-profile/{extender-profile}/cellular/sms-notification/receiver/{receiver}'
             ],
             'revision': {
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -5029,12 +5352,13 @@ def main():
                 'backhaul'
             ],
             'urls': [
-                '/pm/config/global/obj/extension-controller/extender-profile/{extender-profile}/lan-extension/backhaul/{backhaul}',
-                '/pm/config/adom/{adom}/obj/extension-controller/extender-profile/{extender-profile}/lan-extension/backhaul/{backhaul}'
+                '/pm/config/adom/{adom}/obj/extension-controller/extender-profile/{extender-profile}/lan-extension/backhaul/{backhaul}',
+                '/pm/config/global/obj/extension-controller/extender-profile/{extender-profile}/lan-extension/backhaul/{backhaul}'
             ],
             'revision': {
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -5045,8 +5369,8 @@ def main():
                 'profile'
             ],
             'urls': [
-                '/pm/config/global/obj/file-filter/profile/{profile}',
-                '/pm/config/adom/{adom}/obj/file-filter/profile/{profile}'
+                '/pm/config/adom/{adom}/obj/file-filter/profile/{profile}',
+                '/pm/config/global/obj/file-filter/profile/{profile}'
             ],
             'revision': {
                 '6.4.1': True,
@@ -5060,6 +5384,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -5068,9 +5393,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -5082,8 +5409,8 @@ def main():
                 'rules'
             ],
             'urls': [
-                '/pm/config/global/obj/file-filter/profile/{profile}/rules/{rules}',
-                '/pm/config/adom/{adom}/obj/file-filter/profile/{profile}/rules/{rules}'
+                '/pm/config/adom/{adom}/obj/file-filter/profile/{profile}/rules/{rules}',
+                '/pm/config/global/obj/file-filter/profile/{profile}/rules/{rules}'
             ],
             'revision': {
                 '6.4.1': True,
@@ -5097,6 +5424,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -5105,9 +5433,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -5118,8 +5448,8 @@ def main():
                 'access-proxy'
             ],
             'urls': [
-                '/pm/config/global/obj/firewall/access-proxy/{access-proxy}',
-                '/pm/config/adom/{adom}/obj/firewall/access-proxy/{access-proxy}'
+                '/pm/config/adom/{adom}/obj/firewall/access-proxy/{access-proxy}',
+                '/pm/config/global/obj/firewall/access-proxy/{access-proxy}'
             ],
             'revision': {
                 '7.0.0': True,
@@ -5130,9 +5460,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -5143,12 +5475,13 @@ def main():
                 'access-proxy6'
             ],
             'urls': [
-                '/pm/config/global/obj/firewall/access-proxy6/{access-proxy6}',
-                '/pm/config/adom/{adom}/obj/firewall/access-proxy6/{access-proxy6}'
+                '/pm/config/adom/{adom}/obj/firewall/access-proxy6/{access-proxy6}',
+                '/pm/config/global/obj/firewall/access-proxy6/{access-proxy6}'
             ],
             'revision': {
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -5160,12 +5493,13 @@ def main():
                 'api-gateway'
             ],
             'urls': [
-                '/pm/config/global/obj/firewall/access-proxy6/{access-proxy6}/api-gateway/{api-gateway}',
-                '/pm/config/adom/{adom}/obj/firewall/access-proxy6/{access-proxy6}/api-gateway/{api-gateway}'
+                '/pm/config/adom/{adom}/obj/firewall/access-proxy6/{access-proxy6}/api-gateway/{api-gateway}',
+                '/pm/config/global/obj/firewall/access-proxy6/{access-proxy6}/api-gateway/{api-gateway}'
             ],
             'revision': {
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -5177,12 +5511,13 @@ def main():
                 'api-gateway6'
             ],
             'urls': [
-                '/pm/config/global/obj/firewall/access-proxy6/{access-proxy6}/api-gateway6/{api-gateway6}',
-                '/pm/config/adom/{adom}/obj/firewall/access-proxy6/{access-proxy6}/api-gateway6/{api-gateway6}'
+                '/pm/config/adom/{adom}/obj/firewall/access-proxy6/{access-proxy6}/api-gateway6/{api-gateway6}',
+                '/pm/config/global/obj/firewall/access-proxy6/{access-proxy6}/api-gateway6/{api-gateway6}'
             ],
             'revision': {
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -5195,12 +5530,13 @@ def main():
                 'realservers'
             ],
             'urls': [
-                '/pm/config/global/obj/firewall/access-proxy6/{access-proxy6}/api-gateway6/{api-gateway6}/realservers/{realservers}',
-                '/pm/config/adom/{adom}/obj/firewall/access-proxy6/{access-proxy6}/api-gateway6/{api-gateway6}/realservers/{realservers}'
+                '/pm/config/adom/{adom}/obj/firewall/access-proxy6/{access-proxy6}/api-gateway6/{api-gateway6}/realservers/{realservers}',
+                '/pm/config/global/obj/firewall/access-proxy6/{access-proxy6}/api-gateway6/{api-gateway6}/realservers/{realservers}'
             ],
             'revision': {
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -5213,12 +5549,13 @@ def main():
                 'realservers'
             ],
             'urls': [
-                '/pm/config/global/obj/firewall/access-proxy6/{access-proxy6}/api-gateway/{api-gateway}/realservers/{realservers}',
-                '/pm/config/adom/{adom}/obj/firewall/access-proxy6/{access-proxy6}/api-gateway/{api-gateway}/realservers/{realservers}'
+                '/pm/config/adom/{adom}/obj/firewall/access-proxy6/{access-proxy6}/api-gateway/{api-gateway}/realservers/{realservers}',
+                '/pm/config/global/obj/firewall/access-proxy6/{access-proxy6}/api-gateway/{api-gateway}/realservers/{realservers}'
             ],
             'revision': {
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -5230,8 +5567,8 @@ def main():
                 'api-gateway'
             ],
             'urls': [
-                '/pm/config/global/obj/firewall/access-proxy/{access-proxy}/api-gateway/{api-gateway}',
-                '/pm/config/adom/{adom}/obj/firewall/access-proxy/{access-proxy}/api-gateway/{api-gateway}'
+                '/pm/config/adom/{adom}/obj/firewall/access-proxy/{access-proxy}/api-gateway/{api-gateway}',
+                '/pm/config/global/obj/firewall/access-proxy/{access-proxy}/api-gateway/{api-gateway}'
             ],
             'revision': {
                 '7.0.0': True,
@@ -5242,9 +5579,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -5256,8 +5595,8 @@ def main():
                 'api-gateway6'
             ],
             'urls': [
-                '/pm/config/global/obj/firewall/access-proxy/{access-proxy}/api-gateway6/{api-gateway6}',
-                '/pm/config/adom/{adom}/obj/firewall/access-proxy/{access-proxy}/api-gateway6/{api-gateway6}'
+                '/pm/config/adom/{adom}/obj/firewall/access-proxy/{access-proxy}/api-gateway6/{api-gateway6}',
+                '/pm/config/global/obj/firewall/access-proxy/{access-proxy}/api-gateway6/{api-gateway6}'
             ],
             'revision': {
                 '7.0.1': True,
@@ -5267,9 +5606,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -5282,8 +5623,8 @@ def main():
                 'realservers'
             ],
             'urls': [
-                '/pm/config/global/obj/firewall/access-proxy/{access-proxy}/api-gateway6/{api-gateway6}/realservers/{realservers}',
-                '/pm/config/adom/{adom}/obj/firewall/access-proxy/{access-proxy}/api-gateway6/{api-gateway6}/realservers/{realservers}'
+                '/pm/config/adom/{adom}/obj/firewall/access-proxy/{access-proxy}/api-gateway6/{api-gateway6}/realservers/{realservers}',
+                '/pm/config/global/obj/firewall/access-proxy/{access-proxy}/api-gateway6/{api-gateway6}/realservers/{realservers}'
             ],
             'revision': {
                 '7.0.1': True,
@@ -5293,9 +5634,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -5308,8 +5651,8 @@ def main():
                 'realservers'
             ],
             'urls': [
-                '/pm/config/global/obj/firewall/access-proxy/{access-proxy}/api-gateway/{api-gateway}/realservers/{realservers}',
-                '/pm/config/adom/{adom}/obj/firewall/access-proxy/{access-proxy}/api-gateway/{api-gateway}/realservers/{realservers}'
+                '/pm/config/adom/{adom}/obj/firewall/access-proxy/{access-proxy}/api-gateway/{api-gateway}/realservers/{realservers}',
+                '/pm/config/global/obj/firewall/access-proxy/{access-proxy}/api-gateway/{api-gateway}/realservers/{realservers}'
             ],
             'revision': {
                 '7.0.0': True,
@@ -5320,9 +5663,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -5334,8 +5679,8 @@ def main():
                 'realservers'
             ],
             'urls': [
-                '/pm/config/global/obj/firewall/access-proxy/{access-proxy}/realservers/{realservers}',
-                '/pm/config/adom/{adom}/obj/firewall/access-proxy/{access-proxy}/realservers/{realservers}'
+                '/pm/config/adom/{adom}/obj/firewall/access-proxy/{access-proxy}/realservers/{realservers}',
+                '/pm/config/global/obj/firewall/access-proxy/{access-proxy}/realservers/{realservers}'
             ],
             'revision': {
                 '7.0.0': True,
@@ -5346,9 +5691,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -5360,8 +5707,8 @@ def main():
                 'cert-extension'
             ],
             'urls': [
-                '/pm/config/global/obj/firewall/access-proxy/{access-proxy}/server-pubkey-auth-settings/cert-extension/{cert-extension}',
-                '/pm/config/adom/{adom}/obj/firewall/access-proxy/{access-proxy}/server-pubkey-auth-settings/cert-extension/{cert-extension}'
+                '/pm/config/adom/{adom}/obj/firewall/access-proxy/{access-proxy}/server-pubkey-auth-settings/cert-extension/{cert-extension}',
+                '/pm/config/global/obj/firewall/access-proxy/{access-proxy}/server-pubkey-auth-settings/cert-extension/{cert-extension}'
             ],
             'revision': {
                 '7.0.0': True,
@@ -5372,9 +5719,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -5385,8 +5734,8 @@ def main():
                 'access-proxy-virtual-host'
             ],
             'urls': [
-                '/pm/config/global/obj/firewall/access-proxy-virtual-host/{access-proxy-virtual-host}',
-                '/pm/config/adom/{adom}/obj/firewall/access-proxy-virtual-host/{access-proxy-virtual-host}'
+                '/pm/config/adom/{adom}/obj/firewall/access-proxy-virtual-host/{access-proxy-virtual-host}',
+                '/pm/config/global/obj/firewall/access-proxy-virtual-host/{access-proxy-virtual-host}'
             ],
             'revision': {
                 '7.0.1': True,
@@ -5396,9 +5745,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -5424,6 +5775,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -5436,6 +5788,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -5444,9 +5797,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -5472,6 +5827,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -5484,6 +5840,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -5492,9 +5849,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -5521,6 +5880,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -5533,6 +5893,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -5541,9 +5902,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'complex:{{module}}["_scope"][0]["name"]+"/"+{{module}}["_scope"][0]["vdom"]'
@@ -5556,8 +5919,8 @@ def main():
                 'subnet-segment'
             ],
             'urls': [
-                '/pm/config/global/obj/firewall/address6/{address6}/dynamic_mapping/{dynamic_mapping}/subnet-segment/{subnet-segment}',
-                '/pm/config/adom/{adom}/obj/firewall/address6/{address6}/dynamic_mapping/{dynamic_mapping}/subnet-segment/{subnet-segment}'
+                '/pm/config/adom/{adom}/obj/firewall/address6/{address6}/dynamic_mapping/{dynamic_mapping}/subnet-segment/{subnet-segment}',
+                '/pm/config/global/obj/firewall/address6/{address6}/dynamic_mapping/{dynamic_mapping}/subnet-segment/{subnet-segment}'
             ],
             'revision': {
                 '6.2.1': True,
@@ -5569,6 +5932,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -5581,6 +5945,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -5589,9 +5954,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -5618,6 +5985,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -5630,6 +5998,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -5638,9 +6007,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'ip'
@@ -5667,6 +6038,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -5679,6 +6051,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -5687,9 +6060,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -5716,6 +6091,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -5728,6 +6104,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -5736,9 +6113,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -5764,6 +6143,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -5776,6 +6156,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -5784,9 +6165,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -5813,6 +6196,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -5825,6 +6209,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -5833,9 +6218,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -5863,6 +6250,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -5875,6 +6263,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -5883,9 +6272,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -5912,6 +6303,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -5924,6 +6316,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -5932,9 +6325,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'complex:{{module}}["_scope"][0]["name"]+"/"+{{module}}["_scope"][0]["vdom"]'
@@ -5961,6 +6356,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -5973,6 +6369,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -5981,9 +6378,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'ip'
@@ -6010,6 +6409,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -6022,6 +6422,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -6030,9 +6431,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -6058,6 +6461,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -6070,6 +6474,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -6078,9 +6483,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -6106,6 +6513,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -6118,6 +6526,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -6126,9 +6535,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -6155,6 +6566,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -6167,6 +6579,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -6175,9 +6588,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'complex:{{module}}["_scope"][0]["name"]+"/"+{{module}}["_scope"][0]["vdom"]'
@@ -6204,6 +6619,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -6216,6 +6632,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -6224,9 +6641,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -6253,6 +6672,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -6265,6 +6685,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -6273,9 +6694,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'complex:{{module}}["_scope"][0]["name"]+"/"+{{module}}["_scope"][0]["vdom"]'
@@ -6302,6 +6725,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -6314,6 +6738,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -6322,9 +6747,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -6350,6 +6777,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -6362,6 +6790,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -6370,9 +6799,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -6399,6 +6830,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -6411,6 +6843,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -6419,9 +6852,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'carrier-endpoint'
@@ -6432,8 +6867,8 @@ def main():
                 'decrypted-traffic-mirror'
             ],
             'urls': [
-                '/pm/config/global/obj/firewall/decrypted-traffic-mirror/{decrypted-traffic-mirror}',
-                '/pm/config/adom/{adom}/obj/firewall/decrypted-traffic-mirror/{decrypted-traffic-mirror}'
+                '/pm/config/adom/{adom}/obj/firewall/decrypted-traffic-mirror/{decrypted-traffic-mirror}',
+                '/pm/config/global/obj/firewall/decrypted-traffic-mirror/{decrypted-traffic-mirror}'
             ],
             'revision': {
                 '6.4.1': True,
@@ -6447,6 +6882,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -6455,9 +6891,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -6468,8 +6906,8 @@ def main():
                 'explicit-proxy-address'
             ],
             'urls': [
-                '/pm/config/global/obj/firewall/explicit-proxy-address/{explicit-proxy-address}',
-                '/pm/config/adom/{adom}/obj/firewall/explicit-proxy-address/{explicit-proxy-address}'
+                '/pm/config/adom/{adom}/obj/firewall/explicit-proxy-address/{explicit-proxy-address}',
+                '/pm/config/global/obj/firewall/explicit-proxy-address/{explicit-proxy-address}'
             ],
             'revision': {
                 '6.2.0': True,
@@ -6481,7 +6919,8 @@ def main():
                 '6.2.7': True,
                 '6.2.8': True,
                 '6.2.9': True,
-                '6.2.10': True
+                '6.2.10': True,
+                '6.2.11': True
             },
             'mkey': 'name'
         },
@@ -6492,8 +6931,8 @@ def main():
                 'header-group'
             ],
             'urls': [
-                '/pm/config/global/obj/firewall/explicit-proxy-address/{explicit-proxy-address}/header-group/{header-group}',
-                '/pm/config/adom/{adom}/obj/firewall/explicit-proxy-address/{explicit-proxy-address}/header-group/{header-group}'
+                '/pm/config/adom/{adom}/obj/firewall/explicit-proxy-address/{explicit-proxy-address}/header-group/{header-group}',
+                '/pm/config/global/obj/firewall/explicit-proxy-address/{explicit-proxy-address}/header-group/{header-group}'
             ],
             'revision': {
                 '6.2.0': True,
@@ -6505,7 +6944,8 @@ def main():
                 '6.2.7': True,
                 '6.2.8': True,
                 '6.2.9': True,
-                '6.2.10': True
+                '6.2.10': True,
+                '6.2.11': True
             },
             'mkey': 'id'
         },
@@ -6515,8 +6955,8 @@ def main():
                 'explicit-proxy-addrgrp'
             ],
             'urls': [
-                '/pm/config/global/obj/firewall/explicit-proxy-addrgrp/{explicit-proxy-addrgrp}',
-                '/pm/config/adom/{adom}/obj/firewall/explicit-proxy-addrgrp/{explicit-proxy-addrgrp}'
+                '/pm/config/adom/{adom}/obj/firewall/explicit-proxy-addrgrp/{explicit-proxy-addrgrp}',
+                '/pm/config/global/obj/firewall/explicit-proxy-addrgrp/{explicit-proxy-addrgrp}'
             ],
             'revision': {
                 '6.2.0': True,
@@ -6528,7 +6968,8 @@ def main():
                 '6.2.7': True,
                 '6.2.8': True,
                 '6.2.9': True,
-                '6.2.10': True
+                '6.2.10': True,
+                '6.2.11': True
             },
             'mkey': 'name'
         },
@@ -6553,6 +6994,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -6565,6 +7007,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -6573,9 +7016,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -6602,6 +7047,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -6614,6 +7060,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -6622,9 +7069,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -6651,6 +7100,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -6663,6 +7113,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -6671,9 +7122,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -6700,6 +7153,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -6712,6 +7166,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -6720,9 +7175,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -6749,6 +7206,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -6761,6 +7219,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -6769,9 +7228,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -6798,6 +7259,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -6810,6 +7272,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -6818,9 +7281,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -6847,6 +7312,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -6859,6 +7325,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -6867,9 +7334,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -6896,6 +7365,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -6908,6 +7378,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -6916,9 +7387,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -6930,8 +7403,8 @@ def main():
                 'policy-v2'
             ],
             'urls': [
-                '/pm/config/global/obj/firewall/gtp/{gtp}/policy-v2/{policy-v2}',
-                '/pm/config/adom/{adom}/obj/firewall/gtp/{gtp}/policy-v2/{policy-v2}'
+                '/pm/config/adom/{adom}/obj/firewall/gtp/{gtp}/policy-v2/{policy-v2}',
+                '/pm/config/global/obj/firewall/gtp/{gtp}/policy-v2/{policy-v2}'
             ],
             'revision': {
                 '6.2.1': True,
@@ -6943,6 +7416,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -6955,6 +7429,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -6963,9 +7438,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -6991,6 +7468,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -7003,6 +7481,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -7011,9 +7490,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -7040,6 +7521,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -7052,6 +7534,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -7060,9 +7543,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -7088,6 +7573,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -7100,6 +7586,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -7108,6 +7595,7 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True
             },
@@ -7119,8 +7607,8 @@ def main():
                 'internet-service-addition'
             ],
             'urls': [
-                '/pm/config/global/obj/firewall/internet-service-addition/{internet-service-addition}',
-                '/pm/config/adom/{adom}/obj/firewall/internet-service-addition/{internet-service-addition}'
+                '/pm/config/adom/{adom}/obj/firewall/internet-service-addition/{internet-service-addition}',
+                '/pm/config/global/obj/firewall/internet-service-addition/{internet-service-addition}'
             ],
             'revision': {
                 '6.2.2': True,
@@ -7131,6 +7619,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -7143,6 +7632,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -7151,9 +7641,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -7165,8 +7657,8 @@ def main():
                 'entry'
             ],
             'urls': [
-                '/pm/config/global/obj/firewall/internet-service-addition/{internet-service-addition}/entry/{entry}',
-                '/pm/config/adom/{adom}/obj/firewall/internet-service-addition/{internet-service-addition}/entry/{entry}'
+                '/pm/config/adom/{adom}/obj/firewall/internet-service-addition/{internet-service-addition}/entry/{entry}',
+                '/pm/config/global/obj/firewall/internet-service-addition/{internet-service-addition}/entry/{entry}'
             ],
             'revision': {
                 '6.2.2': True,
@@ -7177,6 +7669,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -7189,6 +7682,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -7197,9 +7691,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -7212,8 +7708,8 @@ def main():
                 'port-range'
             ],
             'urls': [
-                '/pm/config/global/obj/firewall/internet-service-addition/{internet-service-addition}/entry/{entry}/port-range/{port-range}',
-                '/pm/config/adom/{adom}/obj/firewall/internet-service-addition/{internet-service-addition}/entry/{entry}/port-range/{port-range}'
+                '/pm/config/adom/{adom}/obj/firewall/internet-service-addition/{internet-service-addition}/entry/{entry}/port-range/{port-range}',
+                '/pm/config/global/obj/firewall/internet-service-addition/{internet-service-addition}/entry/{entry}/port-range/{port-range}'
             ],
             'revision': {
                 '6.2.2': True,
@@ -7224,6 +7720,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -7236,6 +7733,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -7244,9 +7742,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -7272,6 +7772,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -7284,6 +7785,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -7292,9 +7794,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -7321,6 +7825,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -7333,6 +7838,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -7341,6 +7847,7 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True
             },
@@ -7369,6 +7876,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -7381,6 +7889,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -7389,6 +7898,7 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True
             },
@@ -7416,6 +7926,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -7428,6 +7939,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -7436,9 +7948,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -7466,6 +7980,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -7478,6 +7993,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -7486,9 +8002,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -7514,6 +8032,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -7526,6 +8045,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -7534,9 +8054,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -7562,6 +8084,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -7574,6 +8097,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -7582,9 +8106,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -7595,8 +8121,8 @@ def main():
                 'internet-service-name'
             ],
             'urls': [
-                '/pm/config/global/obj/firewall/internet-service-name/{internet-service-name}',
-                '/pm/config/adom/{adom}/obj/firewall/internet-service-name/{internet-service-name}'
+                '/pm/config/adom/{adom}/obj/firewall/internet-service-name/{internet-service-name}',
+                '/pm/config/global/obj/firewall/internet-service-name/{internet-service-name}'
             ],
             'revision': {
                 '6.4.0': True,
@@ -7611,6 +8137,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -7619,9 +8146,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -7647,6 +8176,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -7659,6 +8189,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -7667,9 +8198,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -7695,6 +8228,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -7707,6 +8241,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -7715,9 +8250,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -7744,6 +8281,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -7756,6 +8294,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -7764,9 +8303,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'complex:{{module}}["_scope"][0]["name"]+"/"+{{module}}["_scope"][0]["vdom"]'
@@ -7793,6 +8334,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -7805,6 +8347,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -7813,9 +8356,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'complex:{{module}}["_scope"][0]["name"]+"/"+{{module}}["_scope"][0]["vdom"]'
@@ -7826,8 +8371,8 @@ def main():
                 'ippool_grp'
             ],
             'urls': [
-                '/pm/config/global/obj/firewall/ippool_grp/{ippool_grp}',
-                '/pm/config/adom/{adom}/obj/firewall/ippool_grp/{ippool_grp}'
+                '/pm/config/adom/{adom}/obj/firewall/ippool_grp/{ippool_grp}',
+                '/pm/config/global/obj/firewall/ippool_grp/{ippool_grp}'
             ],
             'revision': {
                 '6.4.7': True,
@@ -7835,6 +8380,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.1': True,
                 '7.0.2': True,
                 '7.0.3': True,
@@ -7842,9 +8388,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -7870,6 +8418,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -7882,6 +8431,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -7890,9 +8440,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -7918,6 +8470,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -7930,6 +8483,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -7938,9 +8492,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -7967,6 +8523,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -7979,6 +8536,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -7987,9 +8545,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'msisdn'
@@ -8015,6 +8575,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -8027,6 +8588,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -8035,9 +8597,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -8063,6 +8627,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -8075,6 +8640,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -8083,9 +8649,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -8112,6 +8680,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -8124,6 +8693,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -8132,9 +8702,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -8161,6 +8733,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -8173,6 +8746,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -8181,9 +8755,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -8194,11 +8770,12 @@ def main():
                 'network-service-dynamic'
             ],
             'urls': [
-                '/pm/config/global/obj/firewall/network-service-dynamic/{network-service-dynamic}',
-                '/pm/config/adom/{adom}/obj/firewall/network-service-dynamic/{network-service-dynamic}'
+                '/pm/config/adom/{adom}/obj/firewall/network-service-dynamic/{network-service-dynamic}',
+                '/pm/config/global/obj/firewall/network-service-dynamic/{network-service-dynamic}'
             ],
             'revision': {
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -8224,6 +8801,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -8236,6 +8814,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -8244,9 +8823,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -8272,6 +8853,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -8284,6 +8866,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -8292,9 +8875,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -8320,6 +8905,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -8332,6 +8918,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -8340,9 +8927,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -8369,6 +8958,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -8381,6 +8971,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -8389,9 +8980,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -8418,6 +9011,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -8430,6 +9024,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -8438,9 +9033,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -8466,6 +9063,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -8478,6 +9076,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -8486,9 +9085,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -8515,6 +9116,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -8527,6 +9129,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -8535,9 +9138,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -8563,6 +9168,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -8575,6 +9181,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -8583,9 +9190,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -8611,6 +9220,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -8623,6 +9233,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -8631,9 +9242,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -8659,6 +9272,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -8671,6 +9285,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -8679,9 +9294,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -8707,6 +9324,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -8719,6 +9337,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -8727,9 +9346,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -8755,6 +9376,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -8767,6 +9389,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -8775,9 +9398,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -8803,6 +9428,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -8815,6 +9441,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -8823,9 +9450,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -8851,6 +9480,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -8863,6 +9493,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -8871,9 +9502,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -8899,6 +9532,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -8911,6 +9545,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -8919,9 +9554,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -8947,6 +9584,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -8959,6 +9597,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -8967,9 +9606,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'profile-name'
@@ -8996,6 +9637,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -9008,6 +9650,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -9016,9 +9659,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -9029,8 +9674,8 @@ def main():
                 'local-ca'
             ],
             'urls': [
-                '/pm/config/global/obj/firewall/ssh/local-ca/{local-ca}',
-                '/pm/config/adom/{adom}/obj/firewall/ssh/local-ca/{local-ca}'
+                '/pm/config/adom/{adom}/obj/firewall/ssh/local-ca/{local-ca}',
+                '/pm/config/global/obj/firewall/ssh/local-ca/{local-ca}'
             ],
             'revision': {
                 '6.2.1': True,
@@ -9042,6 +9687,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -9054,6 +9700,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -9062,9 +9709,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -9090,6 +9739,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -9102,6 +9752,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -9110,9 +9761,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -9139,6 +9792,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -9151,6 +9805,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -9159,9 +9814,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -9188,6 +9845,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -9200,6 +9858,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -9208,9 +9867,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -9236,6 +9897,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -9248,6 +9910,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -9256,9 +9919,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -9284,6 +9949,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -9296,6 +9962,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -9304,9 +9971,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -9333,6 +10002,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -9345,6 +10015,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -9353,9 +10024,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'complex:{{module}}["_scope"][0]["name"]+"/"+{{module}}["_scope"][0]["vdom"]'
@@ -9382,6 +10055,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -9394,6 +10068,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -9402,9 +10077,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -9430,6 +10107,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -9442,6 +10120,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -9450,9 +10129,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -9478,6 +10159,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -9490,6 +10172,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -9498,9 +10181,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -9527,6 +10212,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -9539,6 +10225,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -9547,9 +10234,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'complex:{{module}}["_scope"][0]["name"]+"/"+{{module}}["_scope"][0]["vdom"]'
@@ -9576,6 +10265,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -9588,6 +10278,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -9596,9 +10287,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -9625,6 +10318,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -9637,6 +10331,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -9645,9 +10340,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'complex:{{module}}["_scope"][0]["name"]+"/"+{{module}}["_scope"][0]["vdom"]'
@@ -9660,8 +10357,8 @@ def main():
                 'realservers'
             ],
             'urls': [
-                '/pm/config/global/obj/firewall/vip6/{vip6}/dynamic_mapping/{dynamic_mapping}/realservers/{realservers}',
-                '/pm/config/adom/{adom}/obj/firewall/vip6/{vip6}/dynamic_mapping/{dynamic_mapping}/realservers/{realservers}'
+                '/pm/config/adom/{adom}/obj/firewall/vip6/{vip6}/dynamic_mapping/{dynamic_mapping}/realservers/{realservers}',
+                '/pm/config/global/obj/firewall/vip6/{vip6}/dynamic_mapping/{dynamic_mapping}/realservers/{realservers}'
             ],
             'revision': {
                 '7.0.2': True,
@@ -9670,9 +10367,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -9699,6 +10398,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -9711,6 +10411,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -9719,9 +10420,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -9748,6 +10451,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -9760,6 +10464,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -9768,9 +10473,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'priority'
@@ -9797,6 +10504,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -9809,6 +10517,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -9817,9 +10526,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'priority'
@@ -9846,6 +10557,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -9858,6 +10570,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -9866,9 +10579,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'complex:{{module}}["_scope"][0]["name"]+"/"+{{module}}["_scope"][0]["vdom"]'
@@ -9896,6 +10611,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -9908,6 +10624,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -9916,9 +10633,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'seq'
@@ -9946,6 +10665,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -9958,6 +10678,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -9966,9 +10687,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -9995,6 +10718,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -10007,6 +10731,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -10015,9 +10740,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'seq'
@@ -10044,6 +10771,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -10056,6 +10784,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -10064,9 +10793,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -10093,6 +10824,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -10105,6 +10837,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -10113,9 +10846,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'priority'
@@ -10141,6 +10876,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -10153,6 +10889,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -10161,9 +10898,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -10189,6 +10928,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -10201,6 +10941,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -10209,9 +10950,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -10237,6 +10980,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -10249,6 +10993,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -10257,9 +11002,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -10285,6 +11032,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -10297,6 +11045,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -10305,9 +11054,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -10334,6 +11085,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -10346,6 +11098,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -10354,9 +11107,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'complex:{{module}}["_scope"][0]["name"]+"/"+{{module}}["_scope"][0]["vdom"]'
@@ -10382,6 +11137,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -10394,6 +11150,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -10402,9 +11159,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -10430,6 +11189,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -10442,6 +11202,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -10450,9 +11211,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -10463,13 +11226,14 @@ def main():
                 'blueprint'
             ],
             'urls': [
-                '/pm/config/global/obj/fmg/device/blueprint/{blueprint}',
-                '/pm/config/adom/{adom}/obj/fmg/device/blueprint/{blueprint}'
+                '/pm/config/adom/{adom}/obj/fmg/device/blueprint/{blueprint}',
+                '/pm/config/global/obj/fmg/device/blueprint/{blueprint}'
             ],
             'revision': {
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -10480,12 +11244,13 @@ def main():
                 'template'
             ],
             'urls': [
-                '/pm/config/global/obj/fmg/fabric/authorization/template/{template}',
-                '/pm/config/adom/{adom}/obj/fmg/fabric/authorization/template/{template}'
+                '/pm/config/adom/{adom}/obj/fmg/fabric/authorization/template/{template}',
+                '/pm/config/global/obj/fmg/fabric/authorization/template/{template}'
             ],
             'revision': {
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -10496,13 +11261,14 @@ def main():
                 'variable'
             ],
             'urls': [
-                '/pm/config/global/obj/fmg/variable/{variable}',
-                '/pm/config/adom/{adom}/obj/fmg/variable/{variable}'
+                '/pm/config/adom/{adom}/obj/fmg/variable/{variable}',
+                '/pm/config/global/obj/fmg/variable/{variable}'
             ],
             'revision': {
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -10526,6 +11292,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -10538,6 +11305,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -10546,9 +11314,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -10572,6 +11342,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -10584,6 +11355,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -10592,9 +11364,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -10618,6 +11392,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -10630,6 +11405,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -10638,9 +11414,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -10664,6 +11442,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -10676,6 +11455,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -10684,9 +11464,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -10712,6 +11494,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -10724,6 +11507,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -10732,9 +11516,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -10761,6 +11547,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -10773,6 +11560,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -10781,9 +11569,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -10810,6 +11600,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -10822,6 +11613,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -10830,9 +11622,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -10859,6 +11653,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -10871,6 +11666,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -10879,9 +11675,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -10908,6 +11706,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -10920,6 +11719,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -10928,9 +11728,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -10958,6 +11760,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -10970,6 +11773,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -10978,9 +11782,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -11008,6 +11814,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -11020,6 +11827,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -11028,9 +11836,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -11058,6 +11868,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -11070,6 +11881,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -11078,9 +11890,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -11108,6 +11922,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -11120,6 +11935,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -11128,9 +11944,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -11143,8 +11961,8 @@ def main():
                 'secondaryip'
             ],
             'urls': [
-                '/pm/config/global/obj/fsp/vlan/{vlan}/dynamic_mapping/{dynamic_mapping}/interface/secondaryip/{secondaryip}',
-                '/pm/config/adom/{adom}/obj/fsp/vlan/{vlan}/dynamic_mapping/{dynamic_mapping}/interface/secondaryip/{secondaryip}'
+                '/pm/config/adom/{adom}/obj/fsp/vlan/{vlan}/dynamic_mapping/{dynamic_mapping}/interface/secondaryip/{secondaryip}',
+                '/pm/config/global/obj/fsp/vlan/{vlan}/dynamic_mapping/{dynamic_mapping}/interface/secondaryip/{secondaryip}'
             ],
             'revision': {
                 '6.2.3': True,
@@ -11154,6 +11972,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -11166,6 +11985,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -11174,9 +11994,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -11190,8 +12012,8 @@ def main():
                 'proxy-arp'
             ],
             'urls': [
-                '/pm/config/global/obj/fsp/vlan/{vlan}/dynamic_mapping/{dynamic_mapping}/interface/vrrp/{vrrp}/proxy-arp/{proxy-arp}',
-                '/pm/config/adom/{adom}/obj/fsp/vlan/{vlan}/dynamic_mapping/{dynamic_mapping}/interface/vrrp/{vrrp}/proxy-arp/{proxy-arp}'
+                '/pm/config/adom/{adom}/obj/fsp/vlan/{vlan}/dynamic_mapping/{dynamic_mapping}/interface/vrrp/{vrrp}/proxy-arp/{proxy-arp}',
+                '/pm/config/global/obj/fsp/vlan/{vlan}/dynamic_mapping/{dynamic_mapping}/interface/vrrp/{vrrp}/proxy-arp/{proxy-arp}'
             ],
             'revision': {
                 '7.4.0': True
@@ -11220,6 +12042,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -11232,6 +12055,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -11240,9 +12064,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -11269,6 +12095,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -11281,6 +12108,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -11289,9 +12117,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'vrid'
@@ -11304,8 +12134,8 @@ def main():
                 'proxy-arp'
             ],
             'urls': [
-                '/pm/config/global/obj/fsp/vlan/{vlan}/interface/vrrp/{vrrp}/proxy-arp/{proxy-arp}',
-                '/pm/config/adom/{adom}/obj/fsp/vlan/{vlan}/interface/vrrp/{vrrp}/proxy-arp/{proxy-arp}'
+                '/pm/config/adom/{adom}/obj/fsp/vlan/{vlan}/interface/vrrp/{vrrp}/proxy-arp/{proxy-arp}',
+                '/pm/config/global/obj/fsp/vlan/{vlan}/interface/vrrp/{vrrp}/proxy-arp/{proxy-arp}'
             ],
             'revision': {
                 '7.4.0': True
@@ -11333,6 +12163,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -11345,6 +12176,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -11353,9 +12185,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -11381,6 +12215,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -11393,6 +12228,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -11401,9 +12237,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -11429,6 +12267,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -11441,6 +12280,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -11449,9 +12289,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -11478,6 +12320,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -11490,6 +12333,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -11498,9 +12342,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -11526,6 +12372,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -11538,6 +12385,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -11546,9 +12394,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -11574,6 +12424,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -11586,6 +12437,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -11594,9 +12446,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -11622,6 +12476,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -11634,6 +12489,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -11642,9 +12498,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -11670,6 +12528,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -11682,6 +12541,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -11690,9 +12550,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -11719,6 +12581,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -11731,6 +12594,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -11739,9 +12603,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -11767,6 +12633,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -11779,6 +12646,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -11787,9 +12655,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -11815,6 +12685,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -11827,6 +12698,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -11835,9 +12707,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -11864,6 +12738,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -11876,6 +12751,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -11884,9 +12760,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -11914,6 +12792,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -11926,6 +12805,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -11934,9 +12814,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'index'
@@ -11965,6 +12847,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -11977,6 +12860,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -11985,9 +12869,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -12013,6 +12899,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -12025,6 +12912,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -12033,9 +12921,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -12061,6 +12951,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -12073,6 +12964,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -12081,9 +12973,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -12110,6 +13004,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -12122,6 +13017,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -12130,9 +13026,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'index'
@@ -12158,6 +13056,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -12170,6 +13069,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -12178,9 +13078,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -12207,6 +13109,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -12219,6 +13122,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -12227,9 +13131,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'index'
@@ -12240,8 +13146,8 @@ def main():
                 'anqp-venue-url'
             ],
             'urls': [
-                '/pm/config/global/obj/wireless-controller/hotspot20/anqp-venue-url/{anqp-venue-url}',
-                '/pm/config/adom/{adom}/obj/wireless-controller/hotspot20/anqp-venue-url/{anqp-venue-url}'
+                '/pm/config/adom/{adom}/obj/wireless-controller/hotspot20/anqp-venue-url/{anqp-venue-url}',
+                '/pm/config/global/obj/wireless-controller/hotspot20/anqp-venue-url/{anqp-venue-url}'
             ],
             'revision': {
                 '7.0.3': True,
@@ -12249,9 +13155,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -12262,8 +13170,8 @@ def main():
                 'h2qp-advice-of-charge'
             ],
             'urls': [
-                '/pm/config/global/obj/wireless-controller/hotspot20/h2qp-advice-of-charge/{h2qp-advice-of-charge}',
-                '/pm/config/adom/{adom}/obj/wireless-controller/hotspot20/h2qp-advice-of-charge/{h2qp-advice-of-charge}'
+                '/pm/config/adom/{adom}/obj/wireless-controller/hotspot20/h2qp-advice-of-charge/{h2qp-advice-of-charge}',
+                '/pm/config/global/obj/wireless-controller/hotspot20/h2qp-advice-of-charge/{h2qp-advice-of-charge}'
             ],
             'revision': {
                 '7.0.3': True,
@@ -12271,9 +13179,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -12285,8 +13195,8 @@ def main():
                 'aoc-list'
             ],
             'urls': [
-                '/pm/config/global/obj/wireless-controller/hotspot20/h2qp-advice-of-charge/{h2qp-advice-of-charge}/aoc-list/{aoc-list}',
-                '/pm/config/adom/{adom}/obj/wireless-controller/hotspot20/h2qp-advice-of-charge/{h2qp-advice-of-charge}/aoc-list/{aoc-list}'
+                '/pm/config/adom/{adom}/obj/wireless-controller/hotspot20/h2qp-advice-of-charge/{h2qp-advice-of-charge}/aoc-list/{aoc-list}',
+                '/pm/config/global/obj/wireless-controller/hotspot20/h2qp-advice-of-charge/{h2qp-advice-of-charge}/aoc-list/{aoc-list}'
             ],
             'revision': {
                 '7.0.3': True,
@@ -12294,9 +13204,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -12309,8 +13221,8 @@ def main():
                 'plan-info'
             ],
             'urls': [
-                '/pm/config/global/obj/wireless-controller/hotspot20/h2qp-advice-of-charge/{h2qp-advice-of-charge}/aoc-list/{aoc-list}/plan-info/{plan-info}',
-                '/pm/config/adom/{adom}/obj/wireless-controller/hotspot20/h2qp-advice-of-charge/{h2qp-advice-of-charge}/aoc-list/{aoc-list}/plan-info/{plan-info}'
+                '/pm/config/adom/{adom}/obj/wireless-controller/hotspot20/h2qp-advice-of-charge/{h2qp-advice-of-charge}/aoc-list/{aoc-list}/plan-info/{plan-info}',
+                '/pm/config/global/obj/wireless-controller/hotspot20/h2qp-advice-of-charge/{h2qp-advice-of-charge}/aoc-list/{aoc-list}/plan-info/{plan-info}'
             ],
             'revision': {
                 '7.0.3': True,
@@ -12318,9 +13230,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -12346,6 +13260,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -12358,6 +13273,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -12366,9 +13282,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -12394,6 +13312,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -12406,6 +13325,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -12414,9 +13334,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -12443,6 +13365,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -12455,6 +13378,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -12463,9 +13387,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'index'
@@ -12491,6 +13417,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -12503,6 +13430,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -12511,9 +13439,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -12540,6 +13470,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -12552,6 +13483,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -12560,9 +13492,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'index'
@@ -12589,6 +13523,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -12601,6 +13536,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -12609,9 +13545,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'service-id'
@@ -12622,8 +13560,8 @@ def main():
                 'h2qp-osu-provider-nai'
             ],
             'urls': [
-                '/pm/config/global/obj/wireless-controller/hotspot20/h2qp-osu-provider-nai/{h2qp-osu-provider-nai}',
-                '/pm/config/adom/{adom}/obj/wireless-controller/hotspot20/h2qp-osu-provider-nai/{h2qp-osu-provider-nai}'
+                '/pm/config/adom/{adom}/obj/wireless-controller/hotspot20/h2qp-osu-provider-nai/{h2qp-osu-provider-nai}',
+                '/pm/config/global/obj/wireless-controller/hotspot20/h2qp-osu-provider-nai/{h2qp-osu-provider-nai}'
             ],
             'revision': {
                 '7.0.3': True,
@@ -12631,9 +13569,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -12645,8 +13585,8 @@ def main():
                 'nai-list'
             ],
             'urls': [
-                '/pm/config/global/obj/wireless-controller/hotspot20/h2qp-osu-provider-nai/{h2qp-osu-provider-nai}/nai-list/{nai-list}',
-                '/pm/config/adom/{adom}/obj/wireless-controller/hotspot20/h2qp-osu-provider-nai/{h2qp-osu-provider-nai}/nai-list/{nai-list}'
+                '/pm/config/adom/{adom}/obj/wireless-controller/hotspot20/h2qp-osu-provider-nai/{h2qp-osu-provider-nai}/nai-list/{nai-list}',
+                '/pm/config/global/obj/wireless-controller/hotspot20/h2qp-osu-provider-nai/{h2qp-osu-provider-nai}/nai-list/{nai-list}'
             ],
             'revision': {
                 '7.0.3': True,
@@ -12654,9 +13594,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -12667,8 +13609,8 @@ def main():
                 'h2qp-terms-and-conditions'
             ],
             'urls': [
-                '/pm/config/global/obj/wireless-controller/hotspot20/h2qp-terms-and-conditions/{h2qp-terms-and-conditions}',
-                '/pm/config/adom/{adom}/obj/wireless-controller/hotspot20/h2qp-terms-and-conditions/{h2qp-terms-and-conditions}'
+                '/pm/config/adom/{adom}/obj/wireless-controller/hotspot20/h2qp-terms-and-conditions/{h2qp-terms-and-conditions}',
+                '/pm/config/global/obj/wireless-controller/hotspot20/h2qp-terms-and-conditions/{h2qp-terms-and-conditions}'
             ],
             'revision': {
                 '7.0.3': True,
@@ -12676,9 +13618,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -12704,6 +13648,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -12716,6 +13661,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -12724,9 +13670,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -12752,6 +13700,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -12764,6 +13713,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -12772,9 +13722,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -12785,8 +13737,8 @@ def main():
                 'icon'
             ],
             'urls': [
-                '/pm/config/global/obj/wireless-controller/hotspot20/icon/{icon}',
-                '/pm/config/adom/{adom}/obj/wireless-controller/hotspot20/icon/{icon}'
+                '/pm/config/adom/{adom}/obj/wireless-controller/hotspot20/icon/{icon}',
+                '/pm/config/global/obj/wireless-controller/hotspot20/icon/{icon}'
             ],
             'revision': {
                 '7.0.3': True,
@@ -12794,9 +13746,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -12808,8 +13762,8 @@ def main():
                 'icon-list'
             ],
             'urls': [
-                '/pm/config/global/obj/wireless-controller/hotspot20/icon/{icon}/icon-list/{icon-list}',
-                '/pm/config/adom/{adom}/obj/wireless-controller/hotspot20/icon/{icon}/icon-list/{icon-list}'
+                '/pm/config/adom/{adom}/obj/wireless-controller/hotspot20/icon/{icon}/icon-list/{icon-list}',
+                '/pm/config/global/obj/wireless-controller/hotspot20/icon/{icon}/icon-list/{icon-list}'
             ],
             'revision': {
                 '7.0.3': True,
@@ -12817,9 +13771,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -12845,6 +13801,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -12857,6 +13814,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -12865,9 +13823,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -12894,6 +13854,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -12906,6 +13867,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -12914,9 +13876,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'index'
@@ -12943,6 +13907,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -12955,6 +13920,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -12963,9 +13929,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'index'
@@ -12991,6 +13959,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -13003,6 +13972,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -13011,9 +13981,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -13025,8 +13997,8 @@ def main():
                 'icap-headers'
             ],
             'urls': [
-                '/pm/config/global/obj/icap/profile/{profile}/icap-headers/{icap-headers}',
-                '/pm/config/adom/{adom}/obj/icap/profile/{profile}/icap-headers/{icap-headers}'
+                '/pm/config/adom/{adom}/obj/icap/profile/{profile}/icap-headers/{icap-headers}',
+                '/pm/config/global/obj/icap/profile/{profile}/icap-headers/{icap-headers}'
             ],
             'revision': {
                 '6.2.0': True,
@@ -13039,6 +14011,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -13051,6 +14024,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -13059,9 +14033,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -13073,8 +14049,8 @@ def main():
                 'respmod-forward-rules'
             ],
             'urls': [
-                '/pm/config/global/obj/icap/profile/{profile}/respmod-forward-rules/{respmod-forward-rules}',
-                '/pm/config/adom/{adom}/obj/icap/profile/{profile}/respmod-forward-rules/{respmod-forward-rules}'
+                '/pm/config/adom/{adom}/obj/icap/profile/{profile}/respmod-forward-rules/{respmod-forward-rules}',
+                '/pm/config/global/obj/icap/profile/{profile}/respmod-forward-rules/{respmod-forward-rules}'
             ],
             'revision': {
                 '6.4.0': True,
@@ -13089,6 +14065,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -13097,9 +14074,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -13112,8 +14091,8 @@ def main():
                 'header-group'
             ],
             'urls': [
-                '/pm/config/global/obj/icap/profile/{profile}/respmod-forward-rules/{respmod-forward-rules}/header-group/{header-group}',
-                '/pm/config/adom/{adom}/obj/icap/profile/{profile}/respmod-forward-rules/{respmod-forward-rules}/header-group/{header-group}'
+                '/pm/config/adom/{adom}/obj/icap/profile/{profile}/respmod-forward-rules/{respmod-forward-rules}/header-group/{header-group}',
+                '/pm/config/global/obj/icap/profile/{profile}/respmod-forward-rules/{respmod-forward-rules}/header-group/{header-group}'
             ],
             'revision': {
                 '6.4.0': True,
@@ -13128,6 +14107,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -13136,9 +14116,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -13164,6 +14146,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -13176,6 +14159,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -13184,9 +14168,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -13197,8 +14183,8 @@ def main():
                 'sensor'
             ],
             'urls': [
-                '/pm/config/global/obj/ips/baseline/sensor/{sensor}',
-                '/pm/config/adom/{adom}/obj/ips/baseline/sensor/{sensor}'
+                '/pm/config/adom/{adom}/obj/ips/baseline/sensor/{sensor}',
+                '/pm/config/global/obj/ips/baseline/sensor/{sensor}'
             ],
             'revision': {
                 '7.0.1': True,
@@ -13213,8 +14199,8 @@ def main():
                 'entries'
             ],
             'urls': [
-                '/pm/config/global/obj/ips/baseline/sensor/{sensor}/entries/{entries}',
-                '/pm/config/adom/{adom}/obj/ips/baseline/sensor/{sensor}/entries/{entries}'
+                '/pm/config/adom/{adom}/obj/ips/baseline/sensor/{sensor}/entries/{entries}',
+                '/pm/config/global/obj/ips/baseline/sensor/{sensor}/entries/{entries}'
             ],
             'revision': {
                 '7.0.1': True,
@@ -13230,8 +14216,8 @@ def main():
                 'exempt-ip'
             ],
             'urls': [
-                '/pm/config/global/obj/ips/baseline/sensor/{sensor}/entries/{entries}/exempt-ip/{exempt-ip}',
-                '/pm/config/adom/{adom}/obj/ips/baseline/sensor/{sensor}/entries/{entries}/exempt-ip/{exempt-ip}'
+                '/pm/config/adom/{adom}/obj/ips/baseline/sensor/{sensor}/entries/{entries}/exempt-ip/{exempt-ip}',
+                '/pm/config/global/obj/ips/baseline/sensor/{sensor}/entries/{entries}/exempt-ip/{exempt-ip}'
             ],
             'revision': {
                 '7.0.1': True,
@@ -13246,8 +14232,8 @@ def main():
                 'filter'
             ],
             'urls': [
-                '/pm/config/global/obj/ips/baseline/sensor/{sensor}/filter/{filter}',
-                '/pm/config/adom/{adom}/obj/ips/baseline/sensor/{sensor}/filter/{filter}'
+                '/pm/config/adom/{adom}/obj/ips/baseline/sensor/{sensor}/filter/{filter}',
+                '/pm/config/global/obj/ips/baseline/sensor/{sensor}/filter/{filter}'
             ],
             'revision': {
                 '7.0.1': True,
@@ -13263,8 +14249,8 @@ def main():
                 'exempt-ip'
             ],
             'urls': [
-                '/pm/config/global/obj/ips/baseline/sensor/{sensor}/override/{override}/exempt-ip/{exempt-ip}',
-                '/pm/config/adom/{adom}/obj/ips/baseline/sensor/{sensor}/override/{override}/exempt-ip/{exempt-ip}'
+                '/pm/config/adom/{adom}/obj/ips/baseline/sensor/{sensor}/override/{override}/exempt-ip/{exempt-ip}',
+                '/pm/config/global/obj/ips/baseline/sensor/{sensor}/override/{override}/exempt-ip/{exempt-ip}'
             ],
             'revision': {
                 '7.0.1': True,
@@ -13293,6 +14279,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -13305,6 +14292,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -13313,9 +14301,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'tag'
@@ -13326,46 +14316,22 @@ def main():
                 'sensor'
             ],
             'urls': [
+                '/pm/config/adom/{adom}/obj/global/ips/sensor/{sensor}',
                 '/pm/config/adom/{adom}/obj/ips/sensor/{sensor}',
-                '/pm/config/global/obj/ips/sensor/{sensor}',
                 '/pm/config/global/obj/global/ips/sensor/{sensor}',
-                '/pm/config/adom/{adom}/obj/global/ips/sensor/{sensor}'
+                '/pm/config/global/obj/ips/sensor/{sensor}'
             ],
             'revision': {
-                '6.0.0': True,
-                '6.2.0': True,
-                '6.2.1': True,
-                '6.2.2': True,
-                '6.2.3': True,
-                '6.2.5': True,
-                '6.2.6': True,
-                '6.2.7': True,
-                '6.2.8': True,
-                '6.2.9': True,
-                '6.2.10': True,
-                '6.4.0': True,
-                '6.4.1': True,
-                '6.4.2': True,
-                '6.4.3': True,
-                '6.4.4': True,
-                '6.4.5': True,
-                '6.4.6': True,
-                '6.4.7': True,
-                '6.4.8': True,
-                '6.4.9': True,
-                '6.4.10': True,
-                '6.4.11': True,
-                '7.0.0': True,
-                '7.0.1': True,
-                '7.0.2': True,
                 '7.0.3': True,
                 '7.0.4': True,
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -13377,46 +14343,22 @@ def main():
                 'entries'
             ],
             'urls': [
+                '/pm/config/adom/{adom}/obj/global/ips/sensor/{sensor}/entries/{entries}',
                 '/pm/config/adom/{adom}/obj/ips/sensor/{sensor}/entries/{entries}',
-                '/pm/config/global/obj/ips/sensor/{sensor}/entries/{entries}',
                 '/pm/config/global/obj/global/ips/sensor/{sensor}/entries/{entries}',
-                '/pm/config/adom/{adom}/obj/global/ips/sensor/{sensor}/entries/{entries}'
+                '/pm/config/global/obj/ips/sensor/{sensor}/entries/{entries}'
             ],
             'revision': {
-                '6.0.0': True,
-                '6.2.0': True,
-                '6.2.1': True,
-                '6.2.2': True,
-                '6.2.3': True,
-                '6.2.5': True,
-                '6.2.6': True,
-                '6.2.7': True,
-                '6.2.8': True,
-                '6.2.9': True,
-                '6.2.10': True,
-                '6.4.0': True,
-                '6.4.1': True,
-                '6.4.2': True,
-                '6.4.3': True,
-                '6.4.4': True,
-                '6.4.5': True,
-                '6.4.6': True,
-                '6.4.7': True,
-                '6.4.8': True,
-                '6.4.9': True,
-                '6.4.10': True,
-                '6.4.11': True,
-                '7.0.0': True,
-                '7.0.1': True,
-                '7.0.2': True,
                 '7.0.3': True,
                 '7.0.4': True,
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -13429,46 +14371,22 @@ def main():
                 'exempt-ip'
             ],
             'urls': [
+                '/pm/config/adom/{adom}/obj/global/ips/sensor/{sensor}/entries/{entries}/exempt-ip/{exempt-ip}',
                 '/pm/config/adom/{adom}/obj/ips/sensor/{sensor}/entries/{entries}/exempt-ip/{exempt-ip}',
-                '/pm/config/global/obj/ips/sensor/{sensor}/entries/{entries}/exempt-ip/{exempt-ip}',
                 '/pm/config/global/obj/global/ips/sensor/{sensor}/entries/{entries}/exempt-ip/{exempt-ip}',
-                '/pm/config/adom/{adom}/obj/global/ips/sensor/{sensor}/entries/{entries}/exempt-ip/{exempt-ip}'
+                '/pm/config/global/obj/ips/sensor/{sensor}/entries/{entries}/exempt-ip/{exempt-ip}'
             ],
             'revision': {
-                '6.0.0': True,
-                '6.2.0': True,
-                '6.2.1': True,
-                '6.2.2': True,
-                '6.2.3': True,
-                '6.2.5': True,
-                '6.2.6': True,
-                '6.2.7': True,
-                '6.2.8': True,
-                '6.2.9': True,
-                '6.2.10': True,
-                '6.4.0': True,
-                '6.4.1': True,
-                '6.4.2': True,
-                '6.4.3': True,
-                '6.4.4': True,
-                '6.4.5': True,
-                '6.4.6': True,
-                '6.4.7': True,
-                '6.4.8': True,
-                '6.4.9': True,
-                '6.4.10': True,
-                '6.4.11': True,
-                '7.0.0': True,
-                '7.0.1': True,
-                '7.0.2': True,
                 '7.0.3': True,
                 '7.0.4': True,
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -13494,6 +14412,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -13506,6 +14425,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -13514,9 +14434,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -13527,8 +14449,8 @@ def main():
                 'server-info'
             ],
             'urls': [
-                '/pm/config/global/obj/log/npu-server/server-info/{server-info}',
-                '/pm/config/adom/{adom}/obj/log/npu-server/server-info/{server-info}'
+                '/pm/config/adom/{adom}/obj/log/npu-server/server-info/{server-info}',
+                '/pm/config/global/obj/log/npu-server/server-info/{server-info}'
             ],
             'revision': {
                 '6.4.7': True,
@@ -13536,6 +14458,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.1': True,
                 '7.0.2': True,
                 '7.0.3': True,
@@ -13543,9 +14466,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -13556,8 +14481,8 @@ def main():
                 'mpsk-profile'
             ],
             'urls': [
-                '/pm/config/global/obj/wireless-controller/mpsk-profile/{mpsk-profile}',
-                '/pm/config/adom/{adom}/obj/wireless-controller/mpsk-profile/{mpsk-profile}'
+                '/pm/config/adom/{adom}/obj/wireless-controller/mpsk-profile/{mpsk-profile}',
+                '/pm/config/global/obj/wireless-controller/mpsk-profile/{mpsk-profile}'
             ],
             'revision': {
                 '6.4.2': True,
@@ -13570,6 +14495,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -13578,9 +14504,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -13592,8 +14520,8 @@ def main():
                 'mpsk-group'
             ],
             'urls': [
-                '/pm/config/global/obj/wireless-controller/mpsk-profile/{mpsk-profile}/mpsk-group/{mpsk-group}',
-                '/pm/config/adom/{adom}/obj/wireless-controller/mpsk-profile/{mpsk-profile}/mpsk-group/{mpsk-group}'
+                '/pm/config/adom/{adom}/obj/wireless-controller/mpsk-profile/{mpsk-profile}/mpsk-group/{mpsk-group}',
+                '/pm/config/global/obj/wireless-controller/mpsk-profile/{mpsk-profile}/mpsk-group/{mpsk-group}'
             ],
             'revision': {
                 '6.4.2': True,
@@ -13606,6 +14534,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -13614,9 +14543,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -13629,8 +14560,8 @@ def main():
                 'mpsk-key'
             ],
             'urls': [
-                '/pm/config/global/obj/wireless-controller/mpsk-profile/{mpsk-profile}/mpsk-group/{mpsk-group}/mpsk-key/{mpsk-key}',
-                '/pm/config/adom/{adom}/obj/wireless-controller/mpsk-profile/{mpsk-profile}/mpsk-group/{mpsk-group}/mpsk-key/{mpsk-key}'
+                '/pm/config/adom/{adom}/obj/wireless-controller/mpsk-profile/{mpsk-profile}/mpsk-group/{mpsk-group}/mpsk-key/{mpsk-key}',
+                '/pm/config/global/obj/wireless-controller/mpsk-profile/{mpsk-profile}/mpsk-group/{mpsk-group}/mpsk-key/{mpsk-key}'
             ],
             'revision': {
                 '6.4.2': True,
@@ -13643,6 +14574,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -13651,9 +14583,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -13664,8 +14598,8 @@ def main():
                 'nac-profile'
             ],
             'urls': [
-                '/pm/config/global/obj/wireless-controller/nac-profile/{nac-profile}',
-                '/pm/config/adom/{adom}/obj/wireless-controller/nac-profile/{nac-profile}'
+                '/pm/config/adom/{adom}/obj/wireless-controller/nac-profile/{nac-profile}',
+                '/pm/config/global/obj/wireless-controller/nac-profile/{nac-profile}'
             ],
             'revision': {
                 '7.0.3': True,
@@ -13673,9 +14607,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -13699,6 +14635,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -13711,6 +14648,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -13719,9 +14657,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -13747,6 +14687,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -13759,6 +14700,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -13767,9 +14709,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -13794,6 +14738,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -13802,9 +14747,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -13858,6 +14805,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -13870,6 +14818,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -13878,9 +14827,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'policyid'
@@ -13905,6 +14856,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -13917,6 +14869,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -13925,9 +14878,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -13953,6 +14908,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -13965,6 +14921,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -13973,9 +14930,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'policyid'
@@ -14001,6 +14960,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -14013,6 +14973,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -14021,9 +14982,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'policyid'
@@ -14050,6 +15013,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -14062,6 +15026,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -14070,9 +15035,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -14099,6 +15066,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -14111,6 +15079,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -14119,9 +15088,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -14146,7 +15117,8 @@ def main():
                 '6.2.7': True,
                 '6.2.8': True,
                 '6.2.9': True,
-                '6.2.10': True
+                '6.2.10': True,
+                '6.2.11': True
             },
             'mkey': 'id'
         },
@@ -14165,6 +15137,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.1': True,
                 '7.0.2': True,
                 '7.0.3': True,
@@ -14172,6 +15145,7 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True
             },
             'mkey': 'name'
@@ -14191,6 +15165,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.1': True,
                 '7.0.2': True,
                 '7.0.3': True,
@@ -14198,6 +15173,7 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True
             },
             'mkey': 'name'
@@ -14217,6 +15193,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.1': True,
                 '7.0.2': True,
                 '7.0.3': True,
@@ -14224,6 +15201,7 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True
             },
             'mkey': 'name'
@@ -14243,6 +15221,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.1': True,
                 '7.0.2': True,
                 '7.0.3': True,
@@ -14250,6 +15229,7 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True
             },
             'mkey': 'name'
@@ -14275,6 +15255,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -14287,6 +15268,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -14295,6 +15277,7 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True
@@ -14322,6 +15305,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -14334,6 +15318,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -14342,6 +15327,7 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True
@@ -14369,6 +15355,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -14381,6 +15368,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -14389,9 +15377,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'policyid'
@@ -14417,6 +15407,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -14429,6 +15420,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -14437,9 +15429,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'policyid'
@@ -14465,6 +15459,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -14477,6 +15472,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -14485,9 +15481,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -14513,6 +15511,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -14525,6 +15524,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -14533,9 +15533,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -14561,6 +15563,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -14573,6 +15576,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -14581,9 +15585,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'policyid'
@@ -14609,6 +15615,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -14621,6 +15628,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -14629,9 +15637,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'policyid'
@@ -14657,6 +15667,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -14669,6 +15680,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -14677,9 +15689,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'policyid'
@@ -14705,6 +15719,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -14717,6 +15732,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -14725,9 +15741,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'policyid'
@@ -14754,6 +15772,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -14766,6 +15785,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True
@@ -14794,6 +15814,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -14806,6 +15827,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True
@@ -14833,6 +15855,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -14845,6 +15868,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -14853,9 +15877,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'policyid'
@@ -14879,6 +15905,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -14891,6 +15918,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -14899,9 +15927,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -14927,6 +15957,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -14939,6 +15970,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -14947,9 +15979,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -14974,6 +16008,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -14986,6 +16021,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -14994,9 +16030,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'policyid'
@@ -15021,6 +16059,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -15033,6 +16072,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -15041,9 +16081,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'policyid'
@@ -15068,6 +16110,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -15080,6 +16123,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -15088,9 +16132,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -15115,6 +16161,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -15127,6 +16174,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -15135,9 +16183,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'policyid'
@@ -15162,6 +16212,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -15174,6 +16225,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -15182,9 +16234,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'policyid'
@@ -15209,6 +16263,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -15221,6 +16276,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -15229,9 +16285,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -15248,6 +16306,7 @@ def main():
             'revision': {
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -15267,9 +16326,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -15289,9 +16350,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -15311,9 +16374,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -15333,9 +16398,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -15360,6 +16427,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -15372,6 +16440,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -15380,9 +16449,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -15401,9 +16472,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -15429,6 +16502,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -15441,6 +16515,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -15449,9 +16524,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -15476,6 +16553,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -15488,6 +16566,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -15496,9 +16575,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -15524,6 +16605,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -15536,6 +16618,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -15544,9 +16627,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -15557,19 +16642,21 @@ def main():
                 'region'
             ],
             'urls': [
-                '/pm/config/global/obj/wireless-controller/region/{region}',
-                '/pm/config/adom/{adom}/obj/wireless-controller/region/{region}'
+                '/pm/config/adom/{adom}/obj/wireless-controller/region/{region}',
+                '/pm/config/global/obj/wireless-controller/region/{region}'
             ],
             'revision': {
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.6': True,
                 '6.4.7': True,
                 '6.4.8': True,
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -15578,9 +16665,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -15591,8 +16680,8 @@ def main():
                 'access-list'
             ],
             'urls': [
-                '/pm/config/global/obj/router/access-list/{access-list}',
-                '/pm/config/adom/{adom}/obj/router/access-list/{access-list}'
+                '/pm/config/adom/{adom}/obj/router/access-list/{access-list}',
+                '/pm/config/global/obj/router/access-list/{access-list}'
             ],
             'revision': {
                 '7.0.2': True,
@@ -15601,9 +16690,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -15614,8 +16705,8 @@ def main():
                 'access-list6'
             ],
             'urls': [
-                '/pm/config/global/obj/router/access-list6/{access-list6}',
-                '/pm/config/adom/{adom}/obj/router/access-list6/{access-list6}'
+                '/pm/config/adom/{adom}/obj/router/access-list6/{access-list6}',
+                '/pm/config/global/obj/router/access-list6/{access-list6}'
             ],
             'revision': {
                 '7.0.2': True,
@@ -15624,9 +16715,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -15638,8 +16731,8 @@ def main():
                 'rule'
             ],
             'urls': [
-                '/pm/config/global/obj/router/access-list6/{access-list6}/rule/{rule}',
-                '/pm/config/adom/{adom}/obj/router/access-list6/{access-list6}/rule/{rule}'
+                '/pm/config/adom/{adom}/obj/router/access-list6/{access-list6}/rule/{rule}',
+                '/pm/config/global/obj/router/access-list6/{access-list6}/rule/{rule}'
             ],
             'revision': {
                 '7.0.2': True,
@@ -15648,9 +16741,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -15662,8 +16757,8 @@ def main():
                 'rule'
             ],
             'urls': [
-                '/pm/config/global/obj/router/access-list/{access-list}/rule/{rule}',
-                '/pm/config/adom/{adom}/obj/router/access-list/{access-list}/rule/{rule}'
+                '/pm/config/adom/{adom}/obj/router/access-list/{access-list}/rule/{rule}',
+                '/pm/config/global/obj/router/access-list/{access-list}/rule/{rule}'
             ],
             'revision': {
                 '7.0.2': True,
@@ -15672,9 +16767,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -15685,8 +16782,8 @@ def main():
                 'aspath-list'
             ],
             'urls': [
-                '/pm/config/global/obj/router/aspath-list/{aspath-list}',
-                '/pm/config/adom/{adom}/obj/router/aspath-list/{aspath-list}'
+                '/pm/config/adom/{adom}/obj/router/aspath-list/{aspath-list}',
+                '/pm/config/global/obj/router/aspath-list/{aspath-list}'
             ],
             'revision': {
                 '7.0.2': True,
@@ -15695,9 +16792,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -15709,8 +16808,8 @@ def main():
                 'rule'
             ],
             'urls': [
-                '/pm/config/global/obj/router/aspath-list/{aspath-list}/rule/{rule}',
-                '/pm/config/adom/{adom}/obj/router/aspath-list/{aspath-list}/rule/{rule}'
+                '/pm/config/adom/{adom}/obj/router/aspath-list/{aspath-list}/rule/{rule}',
+                '/pm/config/global/obj/router/aspath-list/{aspath-list}/rule/{rule}'
             ],
             'revision': {
                 '7.0.2': True,
@@ -15719,9 +16818,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -15732,8 +16833,8 @@ def main():
                 'community-list'
             ],
             'urls': [
-                '/pm/config/global/obj/router/community-list/{community-list}',
-                '/pm/config/adom/{adom}/obj/router/community-list/{community-list}'
+                '/pm/config/adom/{adom}/obj/router/community-list/{community-list}',
+                '/pm/config/global/obj/router/community-list/{community-list}'
             ],
             'revision': {
                 '7.0.2': True,
@@ -15742,9 +16843,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -15756,8 +16859,8 @@ def main():
                 'rule'
             ],
             'urls': [
-                '/pm/config/global/obj/router/community-list/{community-list}/rule/{rule}',
-                '/pm/config/adom/{adom}/obj/router/community-list/{community-list}/rule/{rule}'
+                '/pm/config/adom/{adom}/obj/router/community-list/{community-list}/rule/{rule}',
+                '/pm/config/global/obj/router/community-list/{community-list}/rule/{rule}'
             ],
             'revision': {
                 '7.0.2': True,
@@ -15766,9 +16869,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -15779,8 +16884,8 @@ def main():
                 'prefix-list'
             ],
             'urls': [
-                '/pm/config/global/obj/router/prefix-list/{prefix-list}',
-                '/pm/config/adom/{adom}/obj/router/prefix-list/{prefix-list}'
+                '/pm/config/adom/{adom}/obj/router/prefix-list/{prefix-list}',
+                '/pm/config/global/obj/router/prefix-list/{prefix-list}'
             ],
             'revision': {
                 '7.0.2': True,
@@ -15789,9 +16894,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -15802,8 +16909,8 @@ def main():
                 'prefix-list6'
             ],
             'urls': [
-                '/pm/config/global/obj/router/prefix-list6/{prefix-list6}',
-                '/pm/config/adom/{adom}/obj/router/prefix-list6/{prefix-list6}'
+                '/pm/config/adom/{adom}/obj/router/prefix-list6/{prefix-list6}',
+                '/pm/config/global/obj/router/prefix-list6/{prefix-list6}'
             ],
             'revision': {
                 '7.0.2': True,
@@ -15812,9 +16919,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -15826,8 +16935,8 @@ def main():
                 'rule'
             ],
             'urls': [
-                '/pm/config/global/obj/router/prefix-list6/{prefix-list6}/rule/{rule}',
-                '/pm/config/adom/{adom}/obj/router/prefix-list6/{prefix-list6}/rule/{rule}'
+                '/pm/config/adom/{adom}/obj/router/prefix-list6/{prefix-list6}/rule/{rule}',
+                '/pm/config/global/obj/router/prefix-list6/{prefix-list6}/rule/{rule}'
             ],
             'revision': {
                 '7.0.2': True,
@@ -15836,9 +16945,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -15850,8 +16961,8 @@ def main():
                 'rule'
             ],
             'urls': [
-                '/pm/config/global/obj/router/prefix-list/{prefix-list}/rule/{rule}',
-                '/pm/config/adom/{adom}/obj/router/prefix-list/{prefix-list}/rule/{rule}'
+                '/pm/config/adom/{adom}/obj/router/prefix-list/{prefix-list}/rule/{rule}',
+                '/pm/config/global/obj/router/prefix-list/{prefix-list}/rule/{rule}'
             ],
             'revision': {
                 '7.0.2': True,
@@ -15860,9 +16971,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -15873,8 +16986,8 @@ def main():
                 'route-map'
             ],
             'urls': [
-                '/pm/config/global/obj/router/route-map/{route-map}',
-                '/pm/config/adom/{adom}/obj/router/route-map/{route-map}'
+                '/pm/config/adom/{adom}/obj/router/route-map/{route-map}',
+                '/pm/config/global/obj/router/route-map/{route-map}'
             ],
             'revision': {
                 '7.0.2': True,
@@ -15883,9 +16996,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -15897,8 +17012,8 @@ def main():
                 'rule'
             ],
             'urls': [
-                '/pm/config/global/obj/router/route-map/{route-map}/rule/{rule}',
-                '/pm/config/adom/{adom}/obj/router/route-map/{route-map}/rule/{rule}'
+                '/pm/config/adom/{adom}/obj/router/route-map/{route-map}/rule/{rule}',
+                '/pm/config/global/obj/router/route-map/{route-map}/rule/{rule}'
             ],
             'revision': {
                 '7.0.2': True,
@@ -15907,9 +17022,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -15935,6 +17052,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -15947,6 +17065,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -15955,6 +17074,7 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True
             },
@@ -15982,6 +17102,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -15994,6 +17115,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -16002,6 +17124,7 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True
             },
@@ -16028,6 +17151,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -16040,6 +17164,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -16048,6 +17173,7 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True
             },
@@ -16075,6 +17201,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -16087,6 +17214,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -16095,6 +17223,7 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True
             },
@@ -16121,6 +17250,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -16133,6 +17263,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -16141,6 +17272,7 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True
             },
@@ -16168,6 +17300,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -16180,6 +17313,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -16188,6 +17322,7 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True
             },
@@ -16214,6 +17349,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -16226,6 +17362,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -16234,6 +17371,7 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True
             },
@@ -16261,6 +17399,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -16273,6 +17412,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -16281,6 +17421,7 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True
             },
@@ -16307,6 +17448,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -16319,6 +17461,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -16327,6 +17470,7 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True
             },
@@ -16354,6 +17498,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -16366,6 +17511,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -16374,6 +17520,7 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True
             },
@@ -16400,6 +17547,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -16412,6 +17560,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -16420,6 +17569,7 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True
             },
@@ -16446,6 +17596,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -16458,6 +17609,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -16466,9 +17618,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -16495,6 +17649,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -16507,6 +17662,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -16515,9 +17671,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -16528,8 +17686,8 @@ def main():
                 'group'
             ],
             'urls': [
-                '/pm/config/global/obj/switch-controller/acl/group/{group}',
-                '/pm/config/adom/{adom}/obj/switch-controller/acl/group/{group}'
+                '/pm/config/adom/{adom}/obj/switch-controller/acl/group/{group}',
+                '/pm/config/global/obj/switch-controller/acl/group/{group}'
             ],
             'revision': {
                 '7.4.0': True
@@ -16542,8 +17700,8 @@ def main():
                 'ingress'
             ],
             'urls': [
-                '/pm/config/global/obj/switch-controller/acl/ingress/{ingress}',
-                '/pm/config/adom/{adom}/obj/switch-controller/acl/ingress/{ingress}'
+                '/pm/config/adom/{adom}/obj/switch-controller/acl/ingress/{ingress}',
+                '/pm/config/global/obj/switch-controller/acl/ingress/{ingress}'
             ],
             'revision': {
                 '7.4.0': True
@@ -16556,8 +17714,8 @@ def main():
                 'policy'
             ],
             'urls': [
-                '/pm/config/global/obj/switch-controller/dsl/policy/{policy}',
-                '/pm/config/adom/{adom}/obj/switch-controller/dsl/policy/{policy}'
+                '/pm/config/adom/{adom}/obj/switch-controller/dsl/policy/{policy}',
+                '/pm/config/global/obj/switch-controller/dsl/policy/{policy}'
             ],
             'revision': {
                 '7.0.3': True,
@@ -16565,9 +17723,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -16578,12 +17738,13 @@ def main():
                 'dynamic-port-policy'
             ],
             'urls': [
-                '/pm/config/global/obj/switch-controller/dynamic-port-policy/{dynamic-port-policy}',
-                '/pm/config/adom/{adom}/obj/switch-controller/dynamic-port-policy/{dynamic-port-policy}'
+                '/pm/config/adom/{adom}/obj/switch-controller/dynamic-port-policy/{dynamic-port-policy}',
+                '/pm/config/global/obj/switch-controller/dynamic-port-policy/{dynamic-port-policy}'
             ],
             'revision': {
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -16595,12 +17756,13 @@ def main():
                 'policy'
             ],
             'urls': [
-                '/pm/config/global/obj/switch-controller/dynamic-port-policy/{dynamic-port-policy}/policy/{policy}',
-                '/pm/config/adom/{adom}/obj/switch-controller/dynamic-port-policy/{dynamic-port-policy}/policy/{policy}'
+                '/pm/config/adom/{adom}/obj/switch-controller/dynamic-port-policy/{dynamic-port-policy}/policy/{policy}',
+                '/pm/config/global/obj/switch-controller/dynamic-port-policy/{dynamic-port-policy}/policy/{policy}'
             ],
             'revision': {
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -16611,12 +17773,13 @@ def main():
                 'fortilink-settings'
             ],
             'urls': [
-                '/pm/config/global/obj/switch-controller/fortilink-settings/{fortilink-settings}',
-                '/pm/config/adom/{adom}/obj/switch-controller/fortilink-settings/{fortilink-settings}'
+                '/pm/config/adom/{adom}/obj/switch-controller/fortilink-settings/{fortilink-settings}',
+                '/pm/config/global/obj/switch-controller/fortilink-settings/{fortilink-settings}'
             ],
             'revision': {
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -16642,6 +17805,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -16654,6 +17818,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -16662,9 +17827,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -16691,6 +17858,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -16703,6 +17871,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -16711,9 +17880,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -16725,8 +17896,8 @@ def main():
                 'med-location-service'
             ],
             'urls': [
-                '/pm/config/global/obj/switch-controller/lldp-profile/{lldp-profile}/med-location-service/{med-location-service}',
-                '/pm/config/adom/{adom}/obj/switch-controller/lldp-profile/{lldp-profile}/med-location-service/{med-location-service}'
+                '/pm/config/adom/{adom}/obj/switch-controller/lldp-profile/{lldp-profile}/med-location-service/{med-location-service}',
+                '/pm/config/global/obj/switch-controller/lldp-profile/{lldp-profile}/med-location-service/{med-location-service}'
             ],
             'revision': {
                 '6.2.0': True,
@@ -16739,6 +17910,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -16751,6 +17923,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -16759,9 +17932,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -16788,6 +17963,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -16800,6 +17976,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -16808,9 +17985,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -16821,12 +18000,13 @@ def main():
                 'mac-policy'
             ],
             'urls': [
-                '/pm/config/global/obj/switch-controller/mac-policy/{mac-policy}',
-                '/pm/config/adom/{adom}/obj/switch-controller/mac-policy/{mac-policy}'
+                '/pm/config/adom/{adom}/obj/switch-controller/mac-policy/{mac-policy}',
+                '/pm/config/global/obj/switch-controller/mac-policy/{mac-policy}'
             ],
             'revision': {
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -16852,6 +18032,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -16864,6 +18045,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -16872,9 +18054,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -16886,11 +18070,12 @@ def main():
                 'dhcp-snooping-static-client'
             ],
             'urls': [
-                '/pm/config/global/obj/switch-controller/managed-switch/{managed-switch}/dhcp-snooping-static-client/{dhcp-snooping-static-client}',
-                '/pm/config/adom/{adom}/obj/switch-controller/managed-switch/{managed-switch}/dhcp-snooping-static-client/{dhcp-snooping-static-client}'
+                '/pm/config/adom/{adom}/obj/switch-controller/managed-switch/{managed-switch}/dhcp-snooping-static-client/{dhcp-snooping-static-client}',
+                '/pm/config/global/obj/switch-controller/managed-switch/{managed-switch}/dhcp-snooping-static-client/{dhcp-snooping-static-client}'
             ],
             'revision': {
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -16917,6 +18102,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -16929,6 +18115,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -16937,9 +18124,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'port-name'
@@ -16951,8 +18140,8 @@ def main():
                 'remote-log'
             ],
             'urls': [
-                '/pm/config/global/obj/switch-controller/managed-switch/{managed-switch}/remote-log/{remote-log}',
-                '/pm/config/adom/{adom}/obj/switch-controller/managed-switch/{managed-switch}/remote-log/{remote-log}'
+                '/pm/config/adom/{adom}/obj/switch-controller/managed-switch/{managed-switch}/remote-log/{remote-log}',
+                '/pm/config/global/obj/switch-controller/managed-switch/{managed-switch}/remote-log/{remote-log}'
             ],
             'revision': {
                 '6.2.1': True,
@@ -16968,8 +18157,8 @@ def main():
                 'snmp-community'
             ],
             'urls': [
-                '/pm/config/global/obj/switch-controller/managed-switch/{managed-switch}/snmp-community/{snmp-community}',
-                '/pm/config/adom/{adom}/obj/switch-controller/managed-switch/{managed-switch}/snmp-community/{snmp-community}'
+                '/pm/config/adom/{adom}/obj/switch-controller/managed-switch/{managed-switch}/snmp-community/{snmp-community}',
+                '/pm/config/global/obj/switch-controller/managed-switch/{managed-switch}/snmp-community/{snmp-community}'
             ],
             'revision': {
                 '6.2.1': True,
@@ -16986,8 +18175,8 @@ def main():
                 'hosts'
             ],
             'urls': [
-                '/pm/config/global/obj/switch-controller/managed-switch/{managed-switch}/snmp-community/{snmp-community}/hosts/{hosts}',
-                '/pm/config/adom/{adom}/obj/switch-controller/managed-switch/{managed-switch}/snmp-community/{snmp-community}/hosts/{hosts}'
+                '/pm/config/adom/{adom}/obj/switch-controller/managed-switch/{managed-switch}/snmp-community/{snmp-community}/hosts/{hosts}',
+                '/pm/config/global/obj/switch-controller/managed-switch/{managed-switch}/snmp-community/{snmp-community}/hosts/{hosts}'
             ],
             'revision': {
                 '6.2.1': True,
@@ -17003,8 +18192,8 @@ def main():
                 'snmp-user'
             ],
             'urls': [
-                '/pm/config/global/obj/switch-controller/managed-switch/{managed-switch}/snmp-user/{snmp-user}',
-                '/pm/config/adom/{adom}/obj/switch-controller/managed-switch/{managed-switch}/snmp-user/{snmp-user}'
+                '/pm/config/adom/{adom}/obj/switch-controller/managed-switch/{managed-switch}/snmp-user/{snmp-user}',
+                '/pm/config/global/obj/switch-controller/managed-switch/{managed-switch}/snmp-user/{snmp-user}'
             ],
             'revision': {
                 '6.2.1': True,
@@ -17034,6 +18223,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -17046,6 +18236,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -17054,9 +18245,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -17082,6 +18275,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -17094,6 +18288,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -17102,9 +18297,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -17131,6 +18328,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -17143,6 +18341,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -17151,9 +18350,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -17179,6 +18380,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -17191,6 +18393,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -17199,9 +18402,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -17227,6 +18432,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -17239,6 +18445,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -17247,9 +18454,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -17276,6 +18485,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -17288,6 +18498,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -17296,9 +18507,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -17324,6 +18537,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -17336,6 +18550,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -17344,9 +18559,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -17373,12 +18590,13 @@ def main():
                 'switch-interface-tag'
             ],
             'urls': [
-                '/pm/config/global/obj/switch-controller/switch-interface-tag/{switch-interface-tag}',
-                '/pm/config/adom/{adom}/obj/switch-controller/switch-interface-tag/{switch-interface-tag}'
+                '/pm/config/adom/{adom}/obj/switch-controller/switch-interface-tag/{switch-interface-tag}',
+                '/pm/config/global/obj/switch-controller/switch-interface-tag/{switch-interface-tag}'
             ],
             'revision': {
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -17389,12 +18607,13 @@ def main():
                 'traffic-policy'
             ],
             'urls': [
-                '/pm/config/global/obj/switch-controller/traffic-policy/{traffic-policy}',
-                '/pm/config/adom/{adom}/obj/switch-controller/traffic-policy/{traffic-policy}'
+                '/pm/config/adom/{adom}/obj/switch-controller/traffic-policy/{traffic-policy}',
+                '/pm/config/global/obj/switch-controller/traffic-policy/{traffic-policy}'
             ],
             'revision': {
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -17405,12 +18624,13 @@ def main():
                 'vlan-policy'
             ],
             'urls': [
-                '/pm/config/global/obj/switch-controller/vlan-policy/{vlan-policy}',
-                '/pm/config/adom/{adom}/obj/switch-controller/vlan-policy/{vlan-policy}'
+                '/pm/config/adom/{adom}/obj/switch-controller/vlan-policy/{vlan-policy}',
+                '/pm/config/global/obj/switch-controller/vlan-policy/{vlan-policy}'
             ],
             'revision': {
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -17434,6 +18654,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -17446,6 +18667,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -17454,9 +18676,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -17481,6 +18705,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -17493,6 +18718,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -17501,9 +18727,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -17527,6 +18755,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -17539,6 +18768,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -17547,9 +18777,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -17574,6 +18806,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -17586,6 +18819,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -17594,9 +18828,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'adom-name'
@@ -17620,6 +18856,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -17632,6 +18869,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -17640,9 +18878,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'profileid'
@@ -17667,6 +18907,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -17679,6 +18920,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -17687,9 +18929,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'field-name'
@@ -17713,6 +18957,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -17725,6 +18970,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -17733,9 +18979,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -17759,6 +19007,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -17771,6 +19020,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -17779,9 +19029,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -17805,6 +19057,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -17817,6 +19070,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -17825,9 +19079,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'userid'
@@ -17852,6 +19108,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -17864,6 +19121,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -17872,9 +19130,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'adom-name'
@@ -17899,6 +19159,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -17911,6 +19172,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True
@@ -17937,6 +19199,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -17949,6 +19212,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -17957,9 +19221,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'app-filter-name'
@@ -17984,6 +19250,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -17996,6 +19263,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -18004,9 +19272,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'moduleid'
@@ -18031,6 +19301,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -18043,6 +19314,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -18051,9 +19323,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -18078,6 +19352,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -18090,6 +19365,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -18098,9 +19374,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'ips-filter-name'
@@ -18125,6 +19403,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -18137,6 +19416,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -18145,9 +19425,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'fieldname'
@@ -18172,6 +19454,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -18184,6 +19467,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -18192,9 +19476,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'policy-package-name'
@@ -18237,6 +19523,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -18249,6 +19536,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -18257,9 +19545,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'web-filter-name'
@@ -18283,6 +19573,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -18295,6 +19586,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -18303,9 +19595,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -18329,6 +19623,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -18341,6 +19636,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -18349,9 +19645,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -18375,6 +19673,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -18387,6 +19686,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -18395,9 +19695,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -18421,6 +19723,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -18433,6 +19736,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -18441,9 +19745,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -18467,6 +19773,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -18479,6 +19786,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -18487,9 +19795,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -18513,6 +19823,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -18525,6 +19836,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -18533,9 +19845,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -18561,6 +19875,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -18573,6 +19888,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -18581,9 +19897,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -18609,6 +19927,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -18621,6 +19940,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -18629,9 +19949,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -18658,6 +19980,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -18670,6 +19993,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -18678,9 +20002,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -18707,6 +20033,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -18719,6 +20046,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -18727,9 +20055,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -18756,6 +20086,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -18768,6 +20099,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -18776,9 +20108,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -18805,6 +20139,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -18817,6 +20152,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -18825,9 +20161,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -18853,6 +20191,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -18865,6 +20204,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -18873,9 +20213,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -18901,6 +20243,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -18913,6 +20256,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -18921,9 +20265,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -18949,6 +20295,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -18961,6 +20308,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -18969,9 +20317,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -18983,8 +20333,8 @@ def main():
                 'ip6-range'
             ],
             'urls': [
-                '/pm/config/global/obj/system/geoip-override/{geoip-override}/ip6-range/{ip6-range}',
-                '/pm/config/adom/{adom}/obj/system/geoip-override/{geoip-override}/ip6-range/{ip6-range}'
+                '/pm/config/adom/{adom}/obj/system/geoip-override/{geoip-override}/ip6-range/{ip6-range}',
+                '/pm/config/global/obj/system/geoip-override/{geoip-override}/ip6-range/{ip6-range}'
             ],
             'revision': {
                 '6.4.0': True,
@@ -18999,6 +20349,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -19007,9 +20358,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -19036,6 +20389,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -19048,6 +20402,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -19056,9 +20411,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -19074,6 +20431,7 @@ def main():
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -19097,6 +20455,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -19109,6 +20468,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -19117,9 +20477,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -19143,6 +20505,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -19155,6 +20518,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -19163,9 +20527,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -19181,6 +20547,7 @@ def main():
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -19196,6 +20563,7 @@ def main():
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -19216,6 +20584,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -19224,9 +20593,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -19250,6 +20621,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -19262,6 +20634,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -19270,9 +20643,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -19289,6 +20664,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True
@@ -19308,9 +20684,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -19334,6 +20712,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -19346,6 +20725,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -19354,6 +20734,7 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True
             },
@@ -19379,6 +20760,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -19391,6 +20773,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -19399,6 +20782,7 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True
             },
@@ -19424,6 +20808,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -19436,6 +20821,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -19444,6 +20830,7 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True
             },
@@ -19468,6 +20855,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -19480,6 +20868,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -19488,9 +20877,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -19516,6 +20907,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -19528,6 +20920,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -19536,9 +20929,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -19565,6 +20960,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -19577,6 +20973,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -19585,9 +20982,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -19611,6 +21010,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -19623,6 +21023,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -19631,9 +21032,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'fieldname'
@@ -19644,8 +21047,8 @@ def main():
                 'dsw-queue-dts-profile'
             ],
             'urls': [
-                '/pm/config/global/obj/system/npu/dsw-queue-dts-profile/{dsw-queue-dts-profile}',
-                '/pm/config/adom/{adom}/obj/system/npu/dsw-queue-dts-profile/{dsw-queue-dts-profile}'
+                '/pm/config/adom/{adom}/obj/system/npu/dsw-queue-dts-profile/{dsw-queue-dts-profile}',
+                '/pm/config/global/obj/system/npu/dsw-queue-dts-profile/{dsw-queue-dts-profile}'
             ],
             'revision': {
                 '6.4.7': True,
@@ -19653,6 +21056,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.1': True,
                 '7.0.2': True,
                 '7.0.3': True,
@@ -19660,9 +21064,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -19673,8 +21079,8 @@ def main():
                 'ethernet-type'
             ],
             'urls': [
-                '/pm/config/global/obj/system/npu/np-queues/ethernet-type/{ethernet-type}',
-                '/pm/config/adom/{adom}/obj/system/npu/np-queues/ethernet-type/{ethernet-type}'
+                '/pm/config/adom/{adom}/obj/system/npu/np-queues/ethernet-type/{ethernet-type}',
+                '/pm/config/global/obj/system/npu/np-queues/ethernet-type/{ethernet-type}'
             ],
             'revision': {
                 '6.4.7': True,
@@ -19682,6 +21088,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.1': True,
                 '7.0.2': True,
                 '7.0.3': True,
@@ -19689,9 +21096,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -19702,8 +21111,8 @@ def main():
                 'ip-protocol'
             ],
             'urls': [
-                '/pm/config/global/obj/system/npu/np-queues/ip-protocol/{ip-protocol}',
-                '/pm/config/adom/{adom}/obj/system/npu/np-queues/ip-protocol/{ip-protocol}'
+                '/pm/config/adom/{adom}/obj/system/npu/np-queues/ip-protocol/{ip-protocol}',
+                '/pm/config/global/obj/system/npu/np-queues/ip-protocol/{ip-protocol}'
             ],
             'revision': {
                 '6.4.7': True,
@@ -19711,6 +21120,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.1': True,
                 '7.0.2': True,
                 '7.0.3': True,
@@ -19718,9 +21128,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -19731,8 +21143,8 @@ def main():
                 'ip-service'
             ],
             'urls': [
-                '/pm/config/global/obj/system/npu/np-queues/ip-service/{ip-service}',
-                '/pm/config/adom/{adom}/obj/system/npu/np-queues/ip-service/{ip-service}'
+                '/pm/config/adom/{adom}/obj/system/npu/np-queues/ip-service/{ip-service}',
+                '/pm/config/global/obj/system/npu/np-queues/ip-service/{ip-service}'
             ],
             'revision': {
                 '6.4.7': True,
@@ -19740,6 +21152,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.1': True,
                 '7.0.2': True,
                 '7.0.3': True,
@@ -19747,9 +21160,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -19760,8 +21175,8 @@ def main():
                 'profile'
             ],
             'urls': [
-                '/pm/config/global/obj/system/npu/np-queues/profile/{profile}',
-                '/pm/config/adom/{adom}/obj/system/npu/np-queues/profile/{profile}'
+                '/pm/config/adom/{adom}/obj/system/npu/np-queues/profile/{profile}',
+                '/pm/config/global/obj/system/npu/np-queues/profile/{profile}'
             ],
             'revision': {
                 '6.4.7': True,
@@ -19769,6 +21184,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.1': True,
                 '7.0.2': True,
                 '7.0.3': True,
@@ -19776,9 +21192,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -19789,8 +21207,8 @@ def main():
                 'scheduler'
             ],
             'urls': [
-                '/pm/config/global/obj/system/npu/np-queues/scheduler/{scheduler}',
-                '/pm/config/adom/{adom}/obj/system/npu/np-queues/scheduler/{scheduler}'
+                '/pm/config/adom/{adom}/obj/system/npu/np-queues/scheduler/{scheduler}',
+                '/pm/config/global/obj/system/npu/np-queues/scheduler/{scheduler}'
             ],
             'revision': {
                 '6.4.7': True,
@@ -19798,6 +21216,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.1': True,
                 '7.0.2': True,
                 '7.0.3': True,
@@ -19805,9 +21224,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -19818,8 +21239,8 @@ def main():
                 'tcp-timeout-profile'
             ],
             'urls': [
-                '/pm/config/global/obj/system/npu/tcp-timeout-profile/{tcp-timeout-profile}',
-                '/pm/config/adom/{adom}/obj/system/npu/tcp-timeout-profile/{tcp-timeout-profile}'
+                '/pm/config/adom/{adom}/obj/system/npu/tcp-timeout-profile/{tcp-timeout-profile}',
+                '/pm/config/global/obj/system/npu/tcp-timeout-profile/{tcp-timeout-profile}'
             ],
             'revision': {
                 '6.4.7': True,
@@ -19827,6 +21248,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.1': True,
                 '7.0.2': True,
                 '7.0.3': True,
@@ -19834,9 +21256,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -19847,8 +21271,8 @@ def main():
                 'udp-timeout-profile'
             ],
             'urls': [
-                '/pm/config/global/obj/system/npu/udp-timeout-profile/{udp-timeout-profile}',
-                '/pm/config/adom/{adom}/obj/system/npu/udp-timeout-profile/{udp-timeout-profile}'
+                '/pm/config/adom/{adom}/obj/system/npu/udp-timeout-profile/{udp-timeout-profile}',
+                '/pm/config/global/obj/system/npu/udp-timeout-profile/{udp-timeout-profile}'
             ],
             'revision': {
                 '6.4.7': True,
@@ -19856,6 +21280,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.1': True,
                 '7.0.2': True,
                 '7.0.3': True,
@@ -19863,9 +21288,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -19889,6 +21316,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -19901,6 +21329,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -19909,9 +21338,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -19922,8 +21353,8 @@ def main():
                 'object-tag'
             ],
             'urls': [
-                '/pm/config/global/obj/system/object-tag/{object-tag}',
-                '/pm/config/adom/{adom}/obj/system/object-tag/{object-tag}'
+                '/pm/config/adom/{adom}/obj/system/object-tag/{object-tag}',
+                '/pm/config/global/obj/system/object-tag/{object-tag}'
             ],
             'revision': {
                 '6.2.0': True,
@@ -19936,6 +21367,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -19947,7 +21379,8 @@ def main():
                 '6.4.8': True,
                 '6.4.9': True,
                 '6.4.10': True,
-                '6.4.11': True
+                '6.4.11': True,
+                '6.4.12': True
             },
             'mkey': 'name'
         },
@@ -19972,6 +21405,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -19984,6 +21418,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -19992,9 +21427,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'category'
@@ -20020,6 +21457,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -20032,6 +21470,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -20040,9 +21479,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -20069,6 +21510,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -20081,6 +21523,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -20089,9 +21532,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'msg-type'
@@ -20118,6 +21563,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -20130,6 +21576,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -20138,9 +21585,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'msg-type'
@@ -20167,6 +21616,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -20179,6 +21629,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -20187,9 +21638,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'msg-type'
@@ -20216,6 +21669,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -20228,6 +21682,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -20236,9 +21691,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'msg-type'
@@ -20265,6 +21722,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -20277,6 +21735,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -20285,9 +21744,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'msg-type'
@@ -20314,6 +21775,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -20326,6 +21788,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -20334,6 +21797,7 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True
             },
@@ -20361,6 +21825,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -20373,6 +21838,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -20381,9 +21847,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'msg-type'
@@ -20410,6 +21878,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -20422,6 +21891,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -20430,9 +21900,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'msg-type'
@@ -20459,6 +21931,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -20471,6 +21944,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -20479,9 +21953,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'msg-type'
@@ -20508,6 +21984,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -20520,6 +21997,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -20528,9 +22006,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'msg-type'
@@ -20557,6 +22037,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -20569,6 +22050,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -20577,9 +22059,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'msg-type'
@@ -20606,6 +22090,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -20618,6 +22103,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -20626,9 +22112,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'msg-type'
@@ -20655,6 +22143,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -20667,6 +22156,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -20675,9 +22165,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'msg-type'
@@ -20704,6 +22196,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -20716,6 +22209,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -20724,9 +22218,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'msg-type'
@@ -20753,6 +22249,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -20765,6 +22262,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -20773,9 +22271,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'msg-type'
@@ -20802,6 +22302,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -20814,6 +22315,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -20822,9 +22324,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'msg-type'
@@ -20851,6 +22355,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -20863,6 +22368,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -20871,9 +22377,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'msg-type'
@@ -20900,6 +22408,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -20912,6 +22421,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -20920,9 +22430,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'msg-type'
@@ -20949,6 +22461,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -20961,6 +22474,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -20969,9 +22483,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'msg-type'
@@ -20998,6 +22514,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -21010,6 +22527,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -21018,9 +22536,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'msg-type'
@@ -21047,6 +22567,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -21059,6 +22580,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -21067,9 +22589,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'msg-type'
@@ -21096,6 +22620,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -21108,6 +22633,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -21116,9 +22642,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'msg-type'
@@ -21145,6 +22673,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -21157,6 +22686,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -21165,9 +22695,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'msg-type'
@@ -21193,6 +22725,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -21205,6 +22738,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -21213,9 +22747,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -21239,6 +22775,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -21251,6 +22788,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -21259,9 +22797,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'group-id'
@@ -21286,6 +22826,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -21298,6 +22839,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -21306,9 +22848,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'chart-name'
@@ -21333,6 +22877,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -21345,6 +22890,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -21353,9 +22899,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'var-name'
@@ -21379,6 +22927,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -21391,6 +22940,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -21399,9 +22949,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'seq_num'
@@ -21425,6 +22977,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -21437,6 +22990,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -21445,9 +22999,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'prio'
@@ -21473,6 +23029,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -21485,6 +23042,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -21493,9 +23051,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -21522,6 +23082,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -21534,6 +23095,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -21542,9 +23104,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -21556,8 +23120,8 @@ def main():
                 'gcp-project-list'
             ],
             'urls': [
-                '/pm/config/global/obj/system/sdn-connector/{sdn-connector}/gcp-project-list/{gcp-project-list}',
-                '/pm/config/adom/{adom}/obj/system/sdn-connector/{sdn-connector}/gcp-project-list/{gcp-project-list}'
+                '/pm/config/adom/{adom}/obj/system/sdn-connector/{sdn-connector}/gcp-project-list/{gcp-project-list}',
+                '/pm/config/global/obj/system/sdn-connector/{sdn-connector}/gcp-project-list/{gcp-project-list}'
             ],
             'revision': {
                 '6.4.7': True,
@@ -21565,15 +23129,18 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.2': True,
                 '7.0.3': True,
                 '7.0.4': True,
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -21600,6 +23167,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -21612,6 +23180,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -21620,9 +23189,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -21650,6 +23221,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -21662,6 +23234,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -21670,9 +23243,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -21699,6 +23274,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -21711,6 +23287,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -21719,9 +23296,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -21748,6 +23327,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -21760,6 +23340,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -21768,9 +23349,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -21798,6 +23381,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -21810,6 +23394,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -21818,9 +23403,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -21846,6 +23433,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -21858,6 +23446,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -21866,9 +23455,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -21889,6 +23480,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -21901,6 +23493,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -21909,9 +23502,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -21935,6 +23530,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -21947,6 +23543,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -21955,9 +23552,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -21982,6 +23581,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -21994,6 +23594,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -22002,9 +23603,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -22029,6 +23632,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -22041,6 +23645,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -22049,9 +23654,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -22075,6 +23682,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -22087,6 +23695,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -22095,9 +23704,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -22133,6 +23744,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -22145,6 +23757,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -22153,9 +23766,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -22175,6 +23790,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -22187,6 +23803,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -22195,9 +23812,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -22221,6 +23840,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -22233,6 +23853,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -22241,9 +23862,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -22269,6 +23892,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -22281,6 +23905,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -22289,9 +23914,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -22315,6 +23942,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -22327,6 +23955,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -22335,9 +23964,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'adom-name'
@@ -22362,6 +23993,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -22374,6 +24006,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -22382,9 +24015,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'seq_num'
@@ -22410,6 +24045,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -22422,6 +24058,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -22430,9 +24067,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -22458,6 +24097,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -22470,6 +24110,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -22478,9 +24119,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -22506,6 +24149,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -22518,6 +24162,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -22526,9 +24171,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -22539,10 +24186,12 @@ def main():
                 'certificate'
             ],
             'urls': [
-                '/pm/config/global/obj/user/certificate/{certificate}',
-                '/pm/config/adom/{adom}/obj/user/certificate/{certificate}'
+                '/pm/config/adom/{adom}/obj/user/certificate/{certificate}',
+                '/pm/config/global/obj/user/certificate/{certificate}'
             ],
             'revision': {
+                '7.0.8': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -22553,8 +24202,8 @@ def main():
                 'clearpass'
             ],
             'urls': [
-                '/pm/config/global/obj/user/clearpass/{clearpass}',
-                '/pm/config/adom/{adom}/obj/user/clearpass/{clearpass}'
+                '/pm/config/adom/{adom}/obj/user/clearpass/{clearpass}',
+                '/pm/config/global/obj/user/clearpass/{clearpass}'
             ],
             'revision': {
                 '6.2.1': True,
@@ -22566,6 +24215,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -22578,6 +24228,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -22586,9 +24237,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -22599,8 +24252,8 @@ def main():
                 'connector'
             ],
             'urls': [
-                '/pm/config/global/obj/user/connector/{connector}',
-                '/pm/config/adom/{adom}/obj/user/connector/{connector}'
+                '/pm/config/adom/{adom}/obj/user/connector/{connector}',
+                '/pm/config/global/obj/user/connector/{connector}'
             ],
             'revision': {
                 '7.0.1': True,
@@ -22610,9 +24263,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -22638,6 +24293,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -22650,6 +24306,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -22658,9 +24315,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'alias'
@@ -22687,6 +24346,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -22699,6 +24359,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -22707,9 +24368,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'complex:{{module}}["_scope"][0]["name"]+"/"+{{module}}["_scope"][0]["vdom"]'
@@ -22736,6 +24399,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -22748,6 +24412,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -22756,9 +24421,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -22769,8 +24436,8 @@ def main():
                 'device-access-list'
             ],
             'urls': [
-                '/pm/config/global/obj/user/device-access-list/{device-access-list}',
-                '/pm/config/adom/{adom}/obj/user/device-access-list/{device-access-list}'
+                '/pm/config/adom/{adom}/obj/user/device-access-list/{device-access-list}',
+                '/pm/config/global/obj/user/device-access-list/{device-access-list}'
             ],
             'revision': {
                 '6.2.2': True,
@@ -22781,6 +24448,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -22793,6 +24461,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -22801,6 +24470,7 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True
             },
@@ -22813,8 +24483,8 @@ def main():
                 'device-list'
             ],
             'urls': [
-                '/pm/config/global/obj/user/device-access-list/{device-access-list}/device-list/{device-list}',
-                '/pm/config/adom/{adom}/obj/user/device-access-list/{device-access-list}/device-list/{device-list}'
+                '/pm/config/adom/{adom}/obj/user/device-access-list/{device-access-list}/device-list/{device-list}',
+                '/pm/config/global/obj/user/device-access-list/{device-access-list}/device-list/{device-list}'
             ],
             'revision': {
                 '6.2.2': True,
@@ -22825,6 +24495,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -22837,6 +24508,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -22845,6 +24517,7 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True
             },
@@ -22871,6 +24544,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -22883,6 +24557,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -22891,6 +24566,7 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True
             },
@@ -22917,6 +24593,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -22929,6 +24606,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -22937,6 +24615,7 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True
             },
@@ -22964,6 +24643,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -22976,6 +24656,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -22984,6 +24665,7 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True
             },
@@ -23011,6 +24693,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -23023,6 +24706,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -23031,6 +24715,7 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True
             },
@@ -23042,8 +24727,8 @@ def main():
                 'domain-controller'
             ],
             'urls': [
-                '/pm/config/global/obj/user/domain-controller/{domain-controller}',
-                '/pm/config/adom/{adom}/obj/user/domain-controller/{domain-controller}'
+                '/pm/config/adom/{adom}/obj/user/domain-controller/{domain-controller}',
+                '/pm/config/global/obj/user/domain-controller/{domain-controller}'
             ],
             'revision': {
                 '6.2.1': True,
@@ -23055,6 +24740,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -23067,6 +24753,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -23075,9 +24762,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -23089,8 +24778,8 @@ def main():
                 'extra-server'
             ],
             'urls': [
-                '/pm/config/global/obj/user/domain-controller/{domain-controller}/extra-server/{extra-server}',
-                '/pm/config/adom/{adom}/obj/user/domain-controller/{domain-controller}/extra-server/{extra-server}'
+                '/pm/config/adom/{adom}/obj/user/domain-controller/{domain-controller}/extra-server/{extra-server}',
+                '/pm/config/global/obj/user/domain-controller/{domain-controller}/extra-server/{extra-server}'
             ],
             'revision': {
                 '6.2.1': True,
@@ -23102,6 +24791,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -23114,6 +24804,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -23122,9 +24813,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -23135,8 +24828,8 @@ def main():
                 'exchange'
             ],
             'urls': [
-                '/pm/config/global/obj/user/exchange/{exchange}',
-                '/pm/config/adom/{adom}/obj/user/exchange/{exchange}'
+                '/pm/config/adom/{adom}/obj/user/exchange/{exchange}',
+                '/pm/config/global/obj/user/exchange/{exchange}'
             ],
             'revision': {
                 '6.2.0': True,
@@ -23149,6 +24842,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -23161,6 +24855,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -23169,9 +24864,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -23182,12 +24879,13 @@ def main():
                 'flexvm'
             ],
             'urls': [
-                '/pm/config/global/obj/user/flexvm/{flexvm}',
-                '/pm/config/adom/{adom}/obj/user/flexvm/{flexvm}'
+                '/pm/config/adom/{adom}/obj/user/flexvm/{flexvm}',
+                '/pm/config/global/obj/user/flexvm/{flexvm}'
             ],
             'revision': {
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -23213,6 +24911,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -23225,6 +24924,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -23233,9 +24933,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'serial-number'
@@ -23261,6 +24963,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -23273,6 +24976,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -23281,9 +24985,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -23310,6 +25016,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -23322,6 +25029,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -23330,9 +25038,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'complex:{{module}}["_scope"][0]["name"]+"/"+{{module}}["_scope"][0]["vdom"]'
@@ -23358,6 +25068,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -23370,6 +25081,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -23378,9 +25090,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -23407,6 +25121,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -23419,6 +25134,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -23427,9 +25143,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -23455,6 +25173,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -23467,6 +25186,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -23475,9 +25195,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -23489,8 +25211,8 @@ def main():
                 'dynamic_mapping'
             ],
             'urls': [
-                '/pm/config/global/obj/user/group/{group}/dynamic_mapping/{dynamic_mapping}',
-                '/pm/config/adom/{adom}/obj/user/group/{group}/dynamic_mapping/{dynamic_mapping}'
+                '/pm/config/adom/{adom}/obj/user/group/{group}/dynamic_mapping/{dynamic_mapping}',
+                '/pm/config/global/obj/user/group/{group}/dynamic_mapping/{dynamic_mapping}'
             ],
             'revision': {
                 '7.0.2': True,
@@ -23499,9 +25221,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -23514,8 +25238,8 @@ def main():
                 'guest'
             ],
             'urls': [
-                '/pm/config/global/obj/user/group/{group}/dynamic_mapping/{dynamic_mapping}/guest/{guest}',
-                '/pm/config/adom/{adom}/obj/user/group/{group}/dynamic_mapping/{dynamic_mapping}/guest/{guest}'
+                '/pm/config/adom/{adom}/obj/user/group/{group}/dynamic_mapping/{dynamic_mapping}/guest/{guest}',
+                '/pm/config/global/obj/user/group/{group}/dynamic_mapping/{dynamic_mapping}/guest/{guest}'
             ],
             'revision': {
                 '7.0.2': True,
@@ -23524,9 +25248,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -23539,8 +25265,8 @@ def main():
                 'match'
             ],
             'urls': [
-                '/pm/config/global/obj/user/group/{group}/dynamic_mapping/{dynamic_mapping}/match/{match}',
-                '/pm/config/adom/{adom}/obj/user/group/{group}/dynamic_mapping/{dynamic_mapping}/match/{match}'
+                '/pm/config/adom/{adom}/obj/user/group/{group}/dynamic_mapping/{dynamic_mapping}/match/{match}',
+                '/pm/config/global/obj/user/group/{group}/dynamic_mapping/{dynamic_mapping}/match/{match}'
             ],
             'revision': {
                 '7.0.2': True,
@@ -23549,9 +25275,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -23578,6 +25306,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -23590,6 +25319,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -23598,9 +25328,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'user-id'
@@ -23627,6 +25359,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -23639,6 +25372,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -23647,9 +25381,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -23660,12 +25396,13 @@ def main():
                 'json'
             ],
             'urls': [
-                '/pm/config/global/obj/user/json/{json}',
-                '/pm/config/adom/{adom}/obj/user/json/{json}'
+                '/pm/config/adom/{adom}/obj/user/json/{json}',
+                '/pm/config/global/obj/user/json/{json}'
             ],
             'revision': {
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -23676,8 +25413,8 @@ def main():
                 'krb-keytab'
             ],
             'urls': [
-                '/pm/config/global/obj/user/krb-keytab/{krb-keytab}',
-                '/pm/config/adom/{adom}/obj/user/krb-keytab/{krb-keytab}'
+                '/pm/config/adom/{adom}/obj/user/krb-keytab/{krb-keytab}',
+                '/pm/config/global/obj/user/krb-keytab/{krb-keytab}'
             ],
             'revision': {
                 '6.2.1': True,
@@ -23689,6 +25426,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -23701,6 +25439,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -23709,9 +25448,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -23737,6 +25478,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -23749,6 +25491,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -23757,9 +25500,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -23786,6 +25531,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -23798,6 +25544,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -23806,9 +25553,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'complex:{{module}}["_scope"][0]["name"]+"/"+{{module}}["_scope"][0]["vdom"]'
@@ -23834,6 +25583,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -23846,6 +25596,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -23854,9 +25605,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -23867,8 +25620,8 @@ def main():
                 'nsx'
             ],
             'urls': [
-                '/pm/config/global/obj/user/nsx/{nsx}',
-                '/pm/config/adom/{adom}/obj/user/nsx/{nsx}'
+                '/pm/config/adom/{adom}/obj/user/nsx/{nsx}',
+                '/pm/config/global/obj/user/nsx/{nsx}'
             ],
             'revision': {
                 '6.2.1': True,
@@ -23880,6 +25633,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -23892,6 +25646,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -23900,9 +25655,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -23914,17 +25671,19 @@ def main():
                 'service'
             ],
             'urls': [
-                '/pm/config/global/obj/user/nsx/{nsx}/service/{service}',
-                '/pm/config/adom/{adom}/obj/user/nsx/{nsx}/service/{service}'
+                '/pm/config/adom/{adom}/obj/user/nsx/{nsx}/service/{service}',
+                '/pm/config/global/obj/user/nsx/{nsx}/service/{service}'
             ],
             'revision': {
                 '7.0.4': True,
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -23950,6 +25709,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -23962,6 +25722,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -23970,9 +25731,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -23998,6 +25761,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -24010,6 +25774,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -24018,9 +25783,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -24046,6 +25813,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -24058,6 +25826,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -24066,9 +25835,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -24094,6 +25865,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -24106,6 +25878,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -24114,9 +25887,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -24142,6 +25917,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -24154,6 +25930,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -24162,9 +25939,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -24190,6 +25969,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -24202,6 +25982,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -24210,9 +25991,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -24239,6 +26022,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -24251,6 +26035,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -24259,9 +26044,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -24288,6 +26075,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -24300,6 +26088,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -24308,9 +26097,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'complex:{{module}}["_scope"][0]["name"]+"/"+{{module}}["_scope"][0]["vdom"]'
@@ -24323,8 +26114,8 @@ def main():
                 'accounting-server'
             ],
             'urls': [
-                '/pm/config/global/obj/user/radius/{radius}/dynamic_mapping/{dynamic_mapping}/accounting-server/{accounting-server}',
-                '/pm/config/adom/{adom}/obj/user/radius/{radius}/dynamic_mapping/{dynamic_mapping}/accounting-server/{accounting-server}'
+                '/pm/config/adom/{adom}/obj/user/radius/{radius}/dynamic_mapping/{dynamic_mapping}/accounting-server/{accounting-server}',
+                '/pm/config/global/obj/user/radius/{radius}/dynamic_mapping/{dynamic_mapping}/accounting-server/{accounting-server}'
             ],
             'revision': {
                 '6.2.6': True,
@@ -24332,6 +26123,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.2': True,
                 '6.4.3': True,
                 '6.4.4': True,
@@ -24342,6 +26134,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -24350,9 +26143,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -24363,8 +26158,8 @@ def main():
                 'saml'
             ],
             'urls': [
-                '/pm/config/global/obj/user/saml/{saml}',
-                '/pm/config/adom/{adom}/obj/user/saml/{saml}'
+                '/pm/config/adom/{adom}/obj/user/saml/{saml}',
+                '/pm/config/global/obj/user/saml/{saml}'
             ],
             'revision': {
                 '6.4.0': True,
@@ -24379,6 +26174,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -24387,9 +26183,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -24415,6 +26213,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -24427,6 +26226,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -24435,9 +26235,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -24464,6 +26266,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -24476,6 +26279,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -24484,9 +26288,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -24512,6 +26318,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -24524,6 +26331,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -24532,9 +26340,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -24561,6 +26371,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -24573,6 +26384,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -24581,9 +26393,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'complex:{{module}}["_scope"][0]["name"]+"/"+{{module}}["_scope"][0]["vdom"]'
@@ -24594,8 +26408,8 @@ def main():
                 'vcenter'
             ],
             'urls': [
-                '/pm/config/global/obj/user/vcenter/{vcenter}',
-                '/pm/config/adom/{adom}/obj/user/vcenter/{vcenter}'
+                '/pm/config/adom/{adom}/obj/user/vcenter/{vcenter}',
+                '/pm/config/global/obj/user/vcenter/{vcenter}'
             ],
             'revision': {
                 '6.4.0': True,
@@ -24610,6 +26424,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -24618,9 +26433,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -24632,8 +26449,8 @@ def main():
                 'rule'
             ],
             'urls': [
-                '/pm/config/global/obj/user/vcenter/{vcenter}/rule/{rule}',
-                '/pm/config/adom/{adom}/obj/user/vcenter/{vcenter}/rule/{rule}'
+                '/pm/config/adom/{adom}/obj/user/vcenter/{vcenter}/rule/{rule}',
+                '/pm/config/global/obj/user/vcenter/{vcenter}/rule/{rule}'
             ],
             'revision': {
                 '6.4.0': True,
@@ -24648,6 +26465,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -24656,9 +26474,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -24669,8 +26489,8 @@ def main():
                 'utm-profile'
             ],
             'urls': [
-                '/pm/config/global/obj/wireless-controller/utm-profile/{utm-profile}',
-                '/pm/config/adom/{adom}/obj/wireless-controller/utm-profile/{utm-profile}'
+                '/pm/config/adom/{adom}/obj/wireless-controller/utm-profile/{utm-profile}',
+                '/pm/config/global/obj/wireless-controller/utm-profile/{utm-profile}'
             ],
             'revision': {
                 '6.2.2': True,
@@ -24681,6 +26501,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -24693,6 +26514,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -24701,9 +26523,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -24729,6 +26553,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -24741,6 +26566,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -24749,9 +26575,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -24778,6 +26606,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -24790,6 +26619,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -24798,9 +26628,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'complex:{{module}}["_scope"][0]["name"]+"/"+{{module}}["_scope"][0]["vdom"]'
@@ -24827,6 +26659,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -24839,6 +26672,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -24847,9 +26681,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -24876,6 +26712,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -24888,6 +26725,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -24896,9 +26734,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'key-name'
@@ -24910,8 +26750,8 @@ def main():
                 'vlan-name'
             ],
             'urls': [
-                '/pm/config/global/obj/wireless-controller/vap/{vap}/vlan-name/{vlan-name}',
-                '/pm/config/adom/{adom}/obj/wireless-controller/vap/{vap}/vlan-name/{vlan-name}'
+                '/pm/config/adom/{adom}/obj/wireless-controller/vap/{vap}/vlan-name/{vlan-name}',
+                '/pm/config/global/obj/wireless-controller/vap/{vap}/vlan-name/{vlan-name}'
             ],
             'revision': {
                 '7.0.3': True,
@@ -24919,9 +26759,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -24948,6 +26790,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -24960,6 +26803,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -24968,9 +26812,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -24996,6 +26842,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -25008,6 +26855,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -25016,9 +26864,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -25029,8 +26879,8 @@ def main():
                 'profile'
             ],
             'urls': [
-                '/pm/config/global/obj/videofilter/profile/{profile}',
-                '/pm/config/adom/{adom}/obj/videofilter/profile/{profile}'
+                '/pm/config/adom/{adom}/obj/videofilter/profile/{profile}',
+                '/pm/config/global/obj/videofilter/profile/{profile}'
             ],
             'revision': {
                 '7.0.0': True,
@@ -25041,9 +26891,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -25055,8 +26907,8 @@ def main():
                 'filters'
             ],
             'urls': [
-                '/pm/config/global/obj/videofilter/profile/{profile}/fortiguard-category/filters/{filters}',
-                '/pm/config/adom/{adom}/obj/videofilter/profile/{profile}/fortiguard-category/filters/{filters}'
+                '/pm/config/adom/{adom}/obj/videofilter/profile/{profile}/fortiguard-category/filters/{filters}',
+                '/pm/config/global/obj/videofilter/profile/{profile}/fortiguard-category/filters/{filters}'
             ],
             'revision': {
                 '7.0.0': True,
@@ -25067,9 +26919,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -25080,8 +26934,8 @@ def main():
                 'youtube-channel-filter'
             ],
             'urls': [
-                '/pm/config/global/obj/videofilter/youtube-channel-filter/{youtube-channel-filter}',
-                '/pm/config/adom/{adom}/obj/videofilter/youtube-channel-filter/{youtube-channel-filter}'
+                '/pm/config/adom/{adom}/obj/videofilter/youtube-channel-filter/{youtube-channel-filter}',
+                '/pm/config/global/obj/videofilter/youtube-channel-filter/{youtube-channel-filter}'
             ],
             'revision': {
                 '7.0.0': True,
@@ -25092,9 +26946,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -25106,8 +26962,8 @@ def main():
                 'entries'
             ],
             'urls': [
-                '/pm/config/global/obj/videofilter/youtube-channel-filter/{youtube-channel-filter}/entries/{entries}',
-                '/pm/config/adom/{adom}/obj/videofilter/youtube-channel-filter/{youtube-channel-filter}/entries/{entries}'
+                '/pm/config/adom/{adom}/obj/videofilter/youtube-channel-filter/{youtube-channel-filter}/entries/{entries}',
+                '/pm/config/global/obj/videofilter/youtube-channel-filter/{youtube-channel-filter}/entries/{entries}'
             ],
             'revision': {
                 '7.0.0': True,
@@ -25118,9 +26974,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -25146,6 +27004,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -25158,6 +27017,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -25166,9 +27026,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -25194,6 +27056,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -25206,6 +27069,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -25214,9 +27078,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -25242,6 +27108,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -25254,6 +27121,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -25262,9 +27130,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -25290,6 +27160,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -25302,6 +27173,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -25310,9 +27182,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -25323,13 +27197,14 @@ def main():
                 'fec'
             ],
             'urls': [
-                '/pm/config/global/obj/vpn/ipsec/fec/{fec}',
-                '/pm/config/adom/{adom}/obj/vpn/ipsec/fec/{fec}'
+                '/pm/config/adom/{adom}/obj/vpn/ipsec/fec/{fec}',
+                '/pm/config/global/obj/vpn/ipsec/fec/{fec}'
             ],
             'revision': {
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -25349,6 +27224,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.2': True,
                 '6.4.3': True,
                 '6.4.4': True,
@@ -25359,6 +27235,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -25367,9 +27244,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -25395,6 +27274,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -25407,6 +27287,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -25415,9 +27296,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -25444,6 +27327,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -25456,6 +27340,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -25464,9 +27349,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -25493,6 +27380,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -25505,6 +27393,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -25513,9 +27402,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -25542,6 +27433,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -25554,6 +27446,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -25562,9 +27455,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'seq'
@@ -25591,6 +27486,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -25603,6 +27499,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -25611,9 +27508,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'seq'
@@ -25639,6 +27538,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -25651,6 +27551,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -25659,9 +27560,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -25687,6 +27590,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -25699,6 +27603,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -25707,9 +27612,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -25736,6 +27643,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -25748,6 +27656,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -25756,9 +27665,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -25784,6 +27695,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -25796,6 +27708,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -25804,9 +27717,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -25833,6 +27748,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -25845,6 +27761,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -25853,9 +27770,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -25883,6 +27802,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -25895,6 +27815,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -25903,9 +27824,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -25934,6 +27857,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -25946,6 +27870,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -25954,9 +27879,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -25968,8 +27895,8 @@ def main():
                 'form-data'
             ],
             'urls': [
-                '/pm/config/global/obj/vpn/ssl/web/portal/{portal}/landing-page/form-data/{form-data}',
-                '/pm/config/adom/{adom}/obj/vpn/ssl/web/portal/{portal}/landing-page/form-data/{form-data}'
+                '/pm/config/adom/{adom}/obj/vpn/ssl/web/portal/{portal}/landing-page/form-data/{form-data}',
+                '/pm/config/global/obj/vpn/ssl/web/portal/{portal}/landing-page/form-data/{form-data}'
             ],
             'revision': {
                 '7.4.0': True
@@ -25998,6 +27925,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -26010,6 +27938,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -26018,9 +27947,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -26047,6 +27978,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -26059,6 +27991,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -26067,9 +28000,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -26080,8 +28015,8 @@ def main():
                 'virtual-desktop-app-list'
             ],
             'urls': [
-                '/pm/config/global/obj/vpn/ssl/web/virtual-desktop-app-list/{virtual-desktop-app-list}',
-                '/pm/config/adom/{adom}/obj/vpn/ssl/web/virtual-desktop-app-list/{virtual-desktop-app-list}'
+                '/pm/config/adom/{adom}/obj/vpn/ssl/web/virtual-desktop-app-list/{virtual-desktop-app-list}',
+                '/pm/config/global/obj/vpn/ssl/web/virtual-desktop-app-list/{virtual-desktop-app-list}'
             ],
             'revision': {
                 '6.2.0': True,
@@ -26093,7 +28028,8 @@ def main():
                 '6.2.7': True,
                 '6.2.8': True,
                 '6.2.9': True,
-                '6.2.10': True
+                '6.2.10': True,
+                '6.2.11': True
             },
             'mkey': 'name'
         },
@@ -26104,8 +28040,8 @@ def main():
                 'apps'
             ],
             'urls': [
-                '/pm/config/global/obj/vpn/ssl/web/virtual-desktop-app-list/{virtual-desktop-app-list}/apps/{apps}',
-                '/pm/config/adom/{adom}/obj/vpn/ssl/web/virtual-desktop-app-list/{virtual-desktop-app-list}/apps/{apps}'
+                '/pm/config/adom/{adom}/obj/vpn/ssl/web/virtual-desktop-app-list/{virtual-desktop-app-list}/apps/{apps}',
+                '/pm/config/global/obj/vpn/ssl/web/virtual-desktop-app-list/{virtual-desktop-app-list}/apps/{apps}'
             ],
             'revision': {
                 '6.2.0': True,
@@ -26117,7 +28053,8 @@ def main():
                 '6.2.7': True,
                 '6.2.8': True,
                 '6.2.9': True,
-                '6.2.10': True
+                '6.2.10': True,
+                '6.2.11': True
             },
             'mkey': 'name'
         },
@@ -26142,6 +28079,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -26154,6 +28092,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -26162,9 +28101,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -26190,6 +28131,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -26202,6 +28144,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -26210,9 +28153,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -26239,6 +28184,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -26251,6 +28197,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -26259,9 +28206,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -26288,6 +28237,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -26300,6 +28250,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -26308,9 +28259,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -26337,6 +28290,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -26349,6 +28303,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -26357,9 +28312,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -26386,6 +28343,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -26398,6 +28356,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -26406,9 +28365,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -26436,6 +28397,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -26448,6 +28410,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -26456,9 +28419,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -26484,6 +28449,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -26496,6 +28462,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -26504,9 +28471,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -26532,6 +28501,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -26544,6 +28514,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -26552,9 +28523,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -26565,8 +28538,8 @@ def main():
                 'wag-profile'
             ],
             'urls': [
-                '/pm/config/global/obj/wireless-controller/wag-profile/{wag-profile}',
-                '/pm/config/adom/{adom}/obj/wireless-controller/wag-profile/{wag-profile}'
+                '/pm/config/adom/{adom}/obj/wireless-controller/wag-profile/{wag-profile}',
+                '/pm/config/global/obj/wireless-controller/wag-profile/{wag-profile}'
             ],
             'revision': {
                 '6.2.3': True,
@@ -26576,6 +28549,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -26588,6 +28562,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -26596,9 +28571,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -26624,6 +28601,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -26636,6 +28614,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -26644,9 +28623,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -26672,6 +28653,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -26684,6 +28666,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -26692,9 +28675,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'peer-host-id'
@@ -26720,6 +28705,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -26732,6 +28718,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -26740,9 +28727,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -26767,6 +28756,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -26775,9 +28765,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -26803,6 +28795,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -26811,9 +28804,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -26840,6 +28835,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -26848,9 +28844,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -26876,6 +28874,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -26884,9 +28883,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -26913,6 +28914,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -26921,9 +28923,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -26949,6 +28953,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -26957,9 +28962,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -26985,6 +28992,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -26997,6 +29005,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -27005,9 +29014,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -27034,6 +29045,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -27046,6 +29058,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -27054,9 +29067,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -27082,6 +29097,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -27094,6 +29110,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -27102,9 +29119,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'seq-num'
@@ -27130,6 +29149,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -27142,6 +29162,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -27150,9 +29171,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -27179,6 +29202,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -27191,6 +29215,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -27199,9 +29224,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -27227,6 +29254,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -27239,6 +29267,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -27247,9 +29276,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -27275,6 +29306,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -27287,6 +29319,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -27295,9 +29328,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -27324,6 +29359,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -27336,6 +29372,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -27344,9 +29381,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -27372,6 +29411,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -27384,6 +29424,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -27392,9 +29433,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -27420,6 +29463,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -27432,6 +29476,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -27440,9 +29485,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -27468,6 +29515,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -27480,6 +29528,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -27488,9 +29537,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'rating'
@@ -27516,6 +29567,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -27528,6 +29580,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -27536,9 +29589,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -27550,8 +29605,8 @@ def main():
                 'inspection-entries'
             ],
             'urls': [
-                '/pm/config/global/obj/webfilter/profile/{profile}/antiphish/inspection-entries/{inspection-entries}',
-                '/pm/config/adom/{adom}/obj/webfilter/profile/{profile}/antiphish/inspection-entries/{inspection-entries}'
+                '/pm/config/adom/{adom}/obj/webfilter/profile/{profile}/antiphish/inspection-entries/{inspection-entries}',
+                '/pm/config/global/obj/webfilter/profile/{profile}/antiphish/inspection-entries/{inspection-entries}'
             ],
             'revision': {
                 '6.4.0': True,
@@ -27566,6 +29621,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -27574,9 +29630,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -27603,6 +29661,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -27615,6 +29674,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -27623,9 +29683,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -27652,6 +29714,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -27664,6 +29727,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -27672,9 +29736,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -27701,6 +29767,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -27713,6 +29780,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -27721,9 +29789,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -27749,6 +29819,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -27761,6 +29832,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -27769,9 +29841,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -27798,6 +29872,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -27810,6 +29885,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -27818,9 +29894,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -27846,6 +29924,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -27858,6 +29937,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -27866,9 +29946,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -27894,6 +29976,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -27906,6 +29989,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -27914,9 +29998,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -27943,6 +30029,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -27955,6 +30042,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -27963,9 +30051,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -27991,6 +30081,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -28003,6 +30094,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -28011,9 +30103,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -28040,6 +30134,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -28052,6 +30147,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -28060,9 +30156,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -28088,6 +30186,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -28100,6 +30199,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -28108,9 +30208,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -28136,6 +30238,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -28148,6 +30251,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -28156,9 +30260,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -28169,12 +30275,13 @@ def main():
                 'access-control-list'
             ],
             'urls': [
-                '/pm/config/global/obj/wireless-controller/access-control-list/{access-control-list}',
-                '/pm/config/adom/{adom}/obj/wireless-controller/access-control-list/{access-control-list}'
+                '/pm/config/adom/{adom}/obj/wireless-controller/access-control-list/{access-control-list}',
+                '/pm/config/global/obj/wireless-controller/access-control-list/{access-control-list}'
             ],
             'revision': {
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -28185,8 +30292,8 @@ def main():
                 'address'
             ],
             'urls': [
-                '/pm/config/global/obj/wireless-controller/address/{address}',
-                '/pm/config/adom/{adom}/obj/wireless-controller/address/{address}'
+                '/pm/config/adom/{adom}/obj/wireless-controller/address/{address}',
+                '/pm/config/global/obj/wireless-controller/address/{address}'
             ],
             'revision': {
                 '7.0.1': True,
@@ -28196,9 +30303,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -28209,8 +30318,8 @@ def main():
                 'addrgrp'
             ],
             'urls': [
-                '/pm/config/global/obj/wireless-controller/addrgrp/{addrgrp}',
-                '/pm/config/adom/{adom}/obj/wireless-controller/addrgrp/{addrgrp}'
+                '/pm/config/adom/{adom}/obj/wireless-controller/addrgrp/{addrgrp}',
+                '/pm/config/global/obj/wireless-controller/addrgrp/{addrgrp}'
             ],
             'revision': {
                 '7.0.1': True,
@@ -28220,9 +30329,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -28233,12 +30344,13 @@ def main():
                 'ssid-policy'
             ],
             'urls': [
-                '/pm/config/global/obj/wireless-controller/ssid-policy/{ssid-policy}',
-                '/pm/config/adom/{adom}/obj/wireless-controller/ssid-policy/{ssid-policy}'
+                '/pm/config/adom/{adom}/obj/wireless-controller/ssid-policy/{ssid-policy}',
+                '/pm/config/global/obj/wireless-controller/ssid-policy/{ssid-policy}'
             ],
             'revision': {
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -28249,12 +30361,13 @@ def main():
                 'syslog-profile'
             ],
             'urls': [
-                '/pm/config/global/obj/wireless-controller/syslog-profile/{syslog-profile}',
-                '/pm/config/adom/{adom}/obj/wireless-controller/syslog-profile/{syslog-profile}'
+                '/pm/config/adom/{adom}/obj/wireless-controller/syslog-profile/{syslog-profile}',
+                '/pm/config/global/obj/wireless-controller/syslog-profile/{syslog-profile}'
             ],
             'revision': {
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -28280,6 +30393,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -28292,6 +30406,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -28300,9 +30415,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'name'
@@ -28329,6 +30446,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -28341,6 +30459,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -28349,9 +30468,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'
@@ -28378,6 +30499,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -28390,6 +30512,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -28398,9 +30521,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'mkey': 'id'

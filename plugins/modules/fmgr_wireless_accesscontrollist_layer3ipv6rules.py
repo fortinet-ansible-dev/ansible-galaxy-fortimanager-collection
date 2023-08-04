@@ -221,13 +221,13 @@ from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import 
 
 def main():
     jrpc_urls = [
-        '/pm/config/global/obj/wireless-controller/access-control-list/{access-control-list}/layer3-ipv6-rules',
-        '/pm/config/adom/{adom}/obj/wireless-controller/access-control-list/{access-control-list}/layer3-ipv6-rules'
+        '/pm/config/adom/{adom}/obj/wireless-controller/access-control-list/{access-control-list}/layer3-ipv6-rules',
+        '/pm/config/global/obj/wireless-controller/access-control-list/{access-control-list}/layer3-ipv6-rules'
     ]
 
     perobject_jrpc_urls = [
-        '/pm/config/global/obj/wireless-controller/access-control-list/{access-control-list}/layer3-ipv6-rules/{layer3-ipv6-rules}',
-        '/pm/config/adom/{adom}/obj/wireless-controller/access-control-list/{access-control-list}/layer3-ipv6-rules/{layer3-ipv6-rules}'
+        '/pm/config/adom/{adom}/obj/wireless-controller/access-control-list/{access-control-list}/layer3-ipv6-rules/{layer3-ipv6-rules}',
+        '/pm/config/global/obj/wireless-controller/access-control-list/{access-control-list}/layer3-ipv6-rules/{layer3-ipv6-rules}'
     ]
 
     url_params = ['adom', 'access-control-list']
@@ -303,6 +303,7 @@ def main():
             'revision': {
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'options': {
@@ -311,6 +312,7 @@ def main():
                     'revision': {
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'choices': [
@@ -324,6 +326,7 @@ def main():
                     'revision': {
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'type': 'str'
@@ -333,6 +336,7 @@ def main():
                     'revision': {
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'type': 'str'
@@ -342,6 +346,7 @@ def main():
                     'revision': {
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'type': 'int'
@@ -351,6 +356,7 @@ def main():
                     'revision': {
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'type': 'int'
@@ -360,6 +366,7 @@ def main():
                     'revision': {
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'type': 'int'
@@ -369,6 +376,7 @@ def main():
                     'revision': {
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'type': 'str'
@@ -378,6 +386,7 @@ def main():
                     'revision': {
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'type': 'int'

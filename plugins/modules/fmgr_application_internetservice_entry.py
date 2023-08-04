@@ -201,13 +201,13 @@ from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import 
 
 def main():
     jrpc_urls = [
-        '/pm/config/global/obj/application/internet-service/entry',
-        '/pm/config/adom/{adom}/obj/application/internet-service/entry'
+        '/pm/config/adom/{adom}/obj/application/internet-service/entry',
+        '/pm/config/global/obj/application/internet-service/entry'
     ]
 
     perobject_jrpc_urls = [
-        '/pm/config/global/obj/application/internet-service/entry/{entry}',
-        '/pm/config/adom/{adom}/obj/application/internet-service/entry/{entry}'
+        '/pm/config/adom/{adom}/obj/application/internet-service/entry/{entry}',
+        '/pm/config/global/obj/application/internet-service/entry/{entry}'
     ]
 
     url_params = ['adom']
@@ -286,7 +286,8 @@ def main():
                 '6.2.7': True,
                 '6.2.8': True,
                 '6.2.9': True,
-                '6.2.10': True
+                '6.2.10': True,
+                '6.2.11': True
             },
             'options': {
                 'id': {
@@ -307,6 +308,7 @@ def main():
                         '6.2.8': True,
                         '6.2.9': True,
                         '6.2.10': True,
+                        '6.2.11': True,
                         '6.4.1': False,
                         '6.4.3': False,
                         '6.4.4': False,
@@ -316,6 +318,7 @@ def main():
                         '6.4.9': False,
                         '6.4.10': False,
                         '6.4.11': False,
+                        '6.4.12': False,
                         '7.0.1': False,
                         '7.0.2': False,
                         '7.0.3': False,
@@ -323,8 +326,10 @@ def main():
                         '7.0.5': False,
                         '7.0.6': False,
                         '7.0.7': False,
+                        '7.0.8': False,
                         '7.2.1': False,
                         '7.2.2': False,
+                        '7.2.3': False,
                         '7.4.0': False
                     },
                     'type': 'int'
@@ -347,6 +352,7 @@ def main():
                         '6.2.8': True,
                         '6.2.9': True,
                         '6.2.10': True,
+                        '6.2.11': True,
                         '6.4.1': False,
                         '6.4.3': False,
                         '6.4.4': False,
@@ -356,6 +362,7 @@ def main():
                         '6.4.9': False,
                         '6.4.10': False,
                         '6.4.11': False,
+                        '6.4.12': False,
                         '7.0.1': False,
                         '7.0.2': False,
                         '7.0.3': False,
@@ -363,8 +370,10 @@ def main():
                         '7.0.5': False,
                         '7.0.6': False,
                         '7.0.7': False,
+                        '7.0.8': False,
                         '7.2.1': False,
                         '7.2.2': False,
+                        '7.2.3': False,
                         '7.4.0': False
                     },
                     'type': 'int'
@@ -387,6 +396,7 @@ def main():
                         '6.2.8': True,
                         '6.2.9': True,
                         '6.2.10': True,
+                        '6.2.11': True,
                         '6.4.1': False,
                         '6.4.3': False,
                         '6.4.4': False,
@@ -396,6 +406,7 @@ def main():
                         '6.4.9': False,
                         '6.4.10': False,
                         '6.4.11': False,
+                        '6.4.12': False,
                         '7.0.1': False,
                         '7.0.2': False,
                         '7.0.3': False,
@@ -403,8 +414,10 @@ def main():
                         '7.0.5': False,
                         '7.0.6': False,
                         '7.0.7': False,
+                        '7.0.8': False,
                         '7.2.1': False,
                         '7.2.2': False,
+                        '7.2.3': False,
                         '7.4.0': False
                     },
                     'type': 'int'
@@ -427,6 +440,7 @@ def main():
                         '6.2.8': True,
                         '6.2.9': True,
                         '6.2.10': True,
+                        '6.2.11': True,
                         '6.4.1': False,
                         '6.4.3': False,
                         '6.4.4': False,
@@ -436,6 +450,7 @@ def main():
                         '6.4.9': False,
                         '6.4.10': False,
                         '6.4.11': False,
+                        '6.4.12': False,
                         '7.0.1': False,
                         '7.0.2': False,
                         '7.0.3': False,
@@ -443,8 +458,10 @@ def main():
                         '7.0.5': False,
                         '7.0.6': False,
                         '7.0.7': False,
+                        '7.0.8': False,
                         '7.2.1': False,
                         '7.2.2': False,
+                        '7.2.3': False,
                         '7.4.0': False
                     },
                     'type': 'int'
@@ -467,6 +484,7 @@ def main():
                         '6.2.8': True,
                         '6.2.9': True,
                         '6.2.10': True,
+                        '6.2.11': True,
                         '6.4.1': False,
                         '6.4.3': False,
                         '6.4.4': False,
@@ -476,6 +494,7 @@ def main():
                         '6.4.9': False,
                         '6.4.10': False,
                         '6.4.11': False,
+                        '6.4.12': False,
                         '7.0.1': False,
                         '7.0.2': False,
                         '7.0.3': False,
@@ -483,8 +502,10 @@ def main():
                         '7.0.5': False,
                         '7.0.6': False,
                         '7.0.7': False,
+                        '7.0.8': False,
                         '7.2.1': False,
                         '7.2.2': False,
+                        '7.2.3': False,
                         '7.4.0': False
                     },
                     'type': 'int'

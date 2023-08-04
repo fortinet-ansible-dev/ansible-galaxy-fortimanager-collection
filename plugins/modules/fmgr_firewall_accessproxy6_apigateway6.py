@@ -554,13 +554,13 @@ from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import 
 
 def main():
     jrpc_urls = [
-        '/pm/config/global/obj/firewall/access-proxy6/{access-proxy6}/api-gateway6',
-        '/pm/config/adom/{adom}/obj/firewall/access-proxy6/{access-proxy6}/api-gateway6'
+        '/pm/config/adom/{adom}/obj/firewall/access-proxy6/{access-proxy6}/api-gateway6',
+        '/pm/config/global/obj/firewall/access-proxy6/{access-proxy6}/api-gateway6'
     ]
 
     perobject_jrpc_urls = [
-        '/pm/config/global/obj/firewall/access-proxy6/{access-proxy6}/api-gateway6/{api-gateway6}',
-        '/pm/config/adom/{adom}/obj/firewall/access-proxy6/{access-proxy6}/api-gateway6/{api-gateway6}'
+        '/pm/config/adom/{adom}/obj/firewall/access-proxy6/{access-proxy6}/api-gateway6/{api-gateway6}',
+        '/pm/config/global/obj/firewall/access-proxy6/{access-proxy6}/api-gateway6/{api-gateway6}'
     ]
 
     url_params = ['adom', 'access-proxy6']
@@ -636,6 +636,7 @@ def main():
             'revision': {
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'options': {
@@ -644,6 +645,7 @@ def main():
                     'revision': {
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'type': 'str'
@@ -653,6 +655,7 @@ def main():
                     'revision': {
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'type': 'int'
@@ -662,6 +665,7 @@ def main():
                     'revision': {
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'type': 'str'
@@ -671,6 +675,7 @@ def main():
                     'revision': {
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'choices': [
@@ -684,6 +689,7 @@ def main():
                     'revision': {
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'type': 'int'
@@ -693,6 +699,7 @@ def main():
                     'revision': {
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'type': 'str'
@@ -702,6 +709,7 @@ def main():
                     'revision': {
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'choices': [
@@ -715,6 +723,7 @@ def main():
                     'revision': {
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'choices': [
@@ -728,6 +737,7 @@ def main():
                     'revision': {
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'type': 'int'
@@ -737,6 +747,7 @@ def main():
                     'revision': {
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'choices': [
@@ -753,6 +764,7 @@ def main():
                     'revision': {
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'choices': [
@@ -766,6 +778,7 @@ def main():
                     'revision': {
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'type': 'list',
@@ -775,6 +788,7 @@ def main():
                             'revision': {
                                 '7.2.1': True,
                                 '7.2.2': True,
+                                '7.2.3': True,
                                 '7.4.0': True
                             },
                             'choices': [
@@ -788,6 +802,7 @@ def main():
                             'revision': {
                                 '7.2.1': True,
                                 '7.2.2': True,
+                                '7.2.3': True,
                                 '7.4.0': True
                             },
                             'type': 'str'
@@ -797,6 +812,7 @@ def main():
                             'revision': {
                                 '7.2.1': True,
                                 '7.2.2': True,
+                                '7.2.3': True,
                                 '7.4.0': True
                             },
                             'type': 'str'
@@ -806,6 +822,7 @@ def main():
                             'revision': {
                                 '7.2.1': True,
                                 '7.2.2': True,
+                                '7.2.3': True,
                                 '7.4.0': True
                             },
                             'choices': [
@@ -819,6 +836,7 @@ def main():
                             'revision': {
                                 '7.2.1': True,
                                 '7.2.2': True,
+                                '7.2.3': True,
                                 '7.4.0': True
                             },
                             'choices': [
@@ -833,6 +851,7 @@ def main():
                             'revision': {
                                 '7.2.1': True,
                                 '7.2.2': True,
+                                '7.2.3': True,
                                 '7.4.0': True
                             },
                             'choices': [
@@ -846,6 +865,7 @@ def main():
                             'revision': {
                                 '7.2.1': True,
                                 '7.2.2': True,
+                                '7.2.3': True,
                                 '7.4.0': True
                             },
                             'type': 'str'
@@ -855,6 +875,7 @@ def main():
                             'revision': {
                                 '7.2.1': True,
                                 '7.2.2': True,
+                                '7.2.3': True,
                                 '7.4.0': True
                             },
                             'type': 'int'
@@ -864,6 +885,7 @@ def main():
                             'revision': {
                                 '7.2.1': True,
                                 '7.2.2': True,
+                                '7.2.3': True,
                                 '7.4.0': True
                             },
                             'type': 'str'
@@ -873,6 +895,7 @@ def main():
                             'revision': {
                                 '7.2.1': True,
                                 '7.2.2': True,
+                                '7.2.3': True,
                                 '7.4.0': True
                             },
                             'type': 'str'
@@ -882,6 +905,7 @@ def main():
                             'revision': {
                                 '7.2.1': True,
                                 '7.2.2': True,
+                                '7.2.3': True,
                                 '7.4.0': True
                             },
                             'type': 'int'
@@ -891,6 +915,7 @@ def main():
                             'revision': {
                                 '7.2.1': True,
                                 '7.2.2': True,
+                                '7.2.3': True,
                                 '7.4.0': True
                             },
                             'type': 'str'
@@ -900,6 +925,7 @@ def main():
                             'revision': {
                                 '7.2.1': True,
                                 '7.2.2': True,
+                                '7.2.3': True,
                                 '7.4.0': True
                             },
                             'type': 'str'
@@ -909,6 +935,7 @@ def main():
                             'revision': {
                                 '7.2.1': True,
                                 '7.2.2': True,
+                                '7.2.3': True,
                                 '7.4.0': True
                             },
                             'choices': [
@@ -922,6 +949,7 @@ def main():
                             'revision': {
                                 '7.2.1': True,
                                 '7.2.2': True,
+                                '7.2.3': True,
                                 '7.4.0': True
                             },
                             'choices': [
@@ -936,6 +964,7 @@ def main():
                             'revision': {
                                 '7.2.1': True,
                                 '7.2.2': True,
+                                '7.2.3': True,
                                 '7.4.0': True
                             },
                             'choices': [
@@ -949,6 +978,7 @@ def main():
                             'revision': {
                                 '7.2.1': True,
                                 '7.2.2': True,
+                                '7.2.3': True,
                                 '7.4.0': True
                             },
                             'type': 'int'
@@ -957,6 +987,7 @@ def main():
                             'required': False,
                             'revision': {
                                 '7.2.2': True,
+                                '7.2.3': True,
                                 '7.4.0': True
                             },
                             'choices': [
@@ -995,6 +1026,7 @@ def main():
                     'revision': {
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'choices': [
@@ -1008,6 +1040,7 @@ def main():
                     'revision': {
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'type': 'str'
@@ -1017,6 +1050,7 @@ def main():
                     'revision': {
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'choices': [
@@ -1034,6 +1068,7 @@ def main():
                     'revision': {
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'choices': [
@@ -1048,6 +1083,7 @@ def main():
                     'revision': {
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'type': 'list',
@@ -1057,6 +1093,7 @@ def main():
                             'revision': {
                                 '7.2.1': True,
                                 '7.2.2': True,
+                                '7.2.3': True,
                                 '7.4.0': True
                             },
                             'choices': [
@@ -1139,6 +1176,7 @@ def main():
                             'revision': {
                                 '7.2.1': True,
                                 '7.2.2': True,
+                                '7.2.3': True,
                                 '7.4.0': True
                             },
                             'type': 'int'
@@ -1148,6 +1186,7 @@ def main():
                             'revision': {
                                 '7.2.1': True,
                                 '7.2.2': True,
+                                '7.2.3': True,
                                 '7.4.0': True
                             },
                             'type': 'list',
@@ -1167,6 +1206,7 @@ def main():
                     'revision': {
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'choices': [
@@ -1184,6 +1224,7 @@ def main():
                     'revision': {
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'choices': [
@@ -1199,6 +1240,7 @@ def main():
                     'revision': {
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'choices': [
@@ -1214,6 +1256,7 @@ def main():
                     'revision': {
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'type': 'str'
@@ -1223,6 +1266,7 @@ def main():
                     'revision': {
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'type': 'str'
@@ -1232,6 +1276,7 @@ def main():
                     'revision': {
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'choices': [
@@ -1246,6 +1291,7 @@ def main():
                     'revision': {
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'type': 'str'
@@ -1254,6 +1300,7 @@ def main():
                     'required': False,
                     'revision': {
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'choices': [

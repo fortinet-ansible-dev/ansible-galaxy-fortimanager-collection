@@ -159,13 +159,13 @@ from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import 
 
 def main():
     jrpc_urls = [
-        '/pm/config/global/_upgrade',
-        '/pm/config/adom/{adom}/_upgrade'
+        '/pm/config/adom/{adom}/_upgrade',
+        '/pm/config/global/_upgrade'
     ]
 
     perobject_jrpc_urls = [
-        '/pm/config/global/_upgrade/{_upgrade}',
-        '/pm/config/adom/{adom}/_upgrade/{_upgrade}'
+        '/pm/config/adom/{adom}/_upgrade/{_upgrade}',
+        '/pm/config/global/_upgrade/{_upgrade}'
     ]
 
     url_params = ['adom']

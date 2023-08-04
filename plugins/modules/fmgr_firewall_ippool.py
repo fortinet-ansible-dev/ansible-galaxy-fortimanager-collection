@@ -300,21 +300,21 @@ options:
                     - 'fixed-port-range'
                     - 'port-block-allocation'
                     - 'cgn-resource-allocation'
+            utilization-alarm-clear:
+                type: int
+                description: Pool utilization alarm clear threshold
             cgn-fixedalloc:
                 type: str
                 description: Enable/disable fixed-allocation mode.
                 choices:
                     - 'disable'
                     - 'enable'
-            cgn-port-end:
-                type: int
-                description: Ending public port can be allocated.
-            cgn-spa:
+            cgn-client-startip:
                 type: str
-                description: Enable/disable single port allocation mode.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                description: First client IPv4 address
+            cgn-client-endip:
+                type: str
+                description: Final client IPv4 address
             cgn-overload:
                 type: str
                 description: Enable/disable overload mode.
@@ -324,21 +324,21 @@ options:
             cgn-block-size:
                 type: int
                 description: Number of ports in a block
-            cgn-client-endip:
-                type: str
-                description: Final client IPv4 address
-            cgn-port-start:
-                type: int
-                description: Starting public port can be allocated.
-            utilization-alarm-clear:
-                type: int
-                description: Pool utilization alarm clear threshold
             utilization-alarm-raise:
                 type: int
                 description: Pool utilization alarm raise threshold
-            cgn-client-startip:
+            cgn-port-start:
+                type: int
+                description: Starting public port can be allocated.
+            cgn-spa:
                 type: str
-                description: First client IPv4 address
+                description: Enable/disable single port allocation mode.
+                choices:
+                    - 'disable'
+                    - 'enable'
+            cgn-port-end:
+                type: int
+                description: Ending public port can be allocated.
             endport:
                 type: int
                 description: Final port number
@@ -551,6 +551,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -563,6 +564,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -571,9 +573,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'options': {
@@ -596,6 +600,7 @@ def main():
                         '6.2.8': True,
                         '6.2.9': True,
                         '6.2.10': True,
+                        '6.2.11': True,
                         '6.4.1': True,
                         '6.4.3': True,
                         '6.4.4': True,
@@ -605,6 +610,7 @@ def main():
                         '6.4.9': True,
                         '6.4.10': True,
                         '6.4.11': True,
+                        '6.4.12': True,
                         '7.0.1': True,
                         '7.0.2': True,
                         '7.0.3': True,
@@ -612,8 +618,10 @@ def main():
                         '7.0.5': True,
                         '7.0.6': True,
                         '7.0.7': True,
+                        '7.0.8': True,
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'type': 'str'
@@ -637,6 +645,7 @@ def main():
                         '6.2.8': True,
                         '6.2.9': True,
                         '6.2.10': True,
+                        '6.2.11': True,
                         '6.4.1': True,
                         '6.4.3': True,
                         '6.4.4': True,
@@ -646,6 +655,7 @@ def main():
                         '6.4.9': True,
                         '6.4.10': True,
                         '6.4.11': True,
+                        '6.4.12': True,
                         '7.0.1': True,
                         '7.0.2': True,
                         '7.0.3': True,
@@ -653,8 +663,10 @@ def main():
                         '7.0.5': True,
                         '7.0.6': True,
                         '7.0.7': True,
+                        '7.0.8': True,
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'choices': [
@@ -682,6 +694,7 @@ def main():
                         '6.2.8': True,
                         '6.2.9': True,
                         '6.2.10': True,
+                        '6.2.11': True,
                         '6.4.1': True,
                         '6.4.3': True,
                         '6.4.4': True,
@@ -691,6 +704,7 @@ def main():
                         '6.4.9': True,
                         '6.4.10': True,
                         '6.4.11': True,
+                        '6.4.12': True,
                         '7.0.1': True,
                         '7.0.2': True,
                         '7.0.3': True,
@@ -698,8 +712,10 @@ def main():
                         '7.0.5': True,
                         '7.0.6': True,
                         '7.0.7': True,
+                        '7.0.8': True,
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'type': 'str'
@@ -723,6 +739,7 @@ def main():
                         '6.2.8': True,
                         '6.2.9': True,
                         '6.2.10': True,
+                        '6.2.11': True,
                         '6.4.1': True,
                         '6.4.3': True,
                         '6.4.4': True,
@@ -732,6 +749,7 @@ def main():
                         '6.4.9': True,
                         '6.4.10': True,
                         '6.4.11': True,
+                        '6.4.12': True,
                         '7.0.1': True,
                         '7.0.2': True,
                         '7.0.3': True,
@@ -739,8 +757,10 @@ def main():
                         '7.0.5': True,
                         '7.0.6': True,
                         '7.0.7': True,
+                        '7.0.8': True,
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'type': 'int'
@@ -764,6 +784,7 @@ def main():
                         '6.2.8': True,
                         '6.2.9': True,
                         '6.2.10': True,
+                        '6.2.11': True,
                         '6.4.1': True,
                         '6.4.3': True,
                         '6.4.4': True,
@@ -773,6 +794,7 @@ def main():
                         '6.4.9': True,
                         '6.4.10': True,
                         '6.4.11': True,
+                        '6.4.12': True,
                         '7.0.1': True,
                         '7.0.2': True,
                         '7.0.3': True,
@@ -780,8 +802,10 @@ def main():
                         '7.0.5': True,
                         '7.0.6': True,
                         '7.0.7': True,
+                        '7.0.8': True,
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'type': 'str'
@@ -805,6 +829,7 @@ def main():
                         '6.2.8': True,
                         '6.2.9': True,
                         '6.2.10': True,
+                        '6.2.11': True,
                         '6.4.1': True,
                         '6.4.3': True,
                         '6.4.4': True,
@@ -814,6 +839,7 @@ def main():
                         '6.4.9': True,
                         '6.4.10': True,
                         '6.4.11': True,
+                        '6.4.12': True,
                         '7.0.1': True,
                         '7.0.2': True,
                         '7.0.3': True,
@@ -821,8 +847,10 @@ def main():
                         '7.0.5': True,
                         '7.0.6': True,
                         '7.0.7': True,
+                        '7.0.8': True,
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'type': 'list',
@@ -846,6 +874,7 @@ def main():
                                 '6.2.8': True,
                                 '6.2.9': True,
                                 '6.2.10': True,
+                                '6.2.11': True,
                                 '6.4.1': True,
                                 '6.4.3': True,
                                 '6.4.4': True,
@@ -855,6 +884,7 @@ def main():
                                 '6.4.9': True,
                                 '6.4.10': True,
                                 '6.4.11': True,
+                                '6.4.12': True,
                                 '7.0.1': True,
                                 '7.0.2': True,
                                 '7.0.3': True,
@@ -862,8 +892,10 @@ def main():
                                 '7.0.5': True,
                                 '7.0.6': True,
                                 '7.0.7': True,
+                                '7.0.8': True,
                                 '7.2.1': True,
                                 '7.2.2': True,
+                                '7.2.3': True,
                                 '7.4.0': True
                             },
                             'type': 'list',
@@ -887,6 +919,7 @@ def main():
                                         '6.2.8': True,
                                         '6.2.9': True,
                                         '6.2.10': True,
+                                        '6.2.11': True,
                                         '6.4.1': True,
                                         '6.4.3': True,
                                         '6.4.4': True,
@@ -896,6 +929,7 @@ def main():
                                         '6.4.9': True,
                                         '6.4.10': True,
                                         '6.4.11': True,
+                                        '6.4.12': True,
                                         '7.0.1': True,
                                         '7.0.2': True,
                                         '7.0.3': True,
@@ -903,8 +937,10 @@ def main():
                                         '7.0.5': True,
                                         '7.0.6': True,
                                         '7.0.7': True,
+                                        '7.0.8': True,
                                         '7.2.1': True,
                                         '7.2.2': True,
+                                        '7.2.3': True,
                                         '7.4.0': True
                                     },
                                     'type': 'str'
@@ -928,6 +964,7 @@ def main():
                                         '6.2.8': True,
                                         '6.2.9': True,
                                         '6.2.10': True,
+                                        '6.2.11': True,
                                         '6.4.1': True,
                                         '6.4.3': True,
                                         '6.4.4': True,
@@ -937,6 +974,7 @@ def main():
                                         '6.4.9': True,
                                         '6.4.10': True,
                                         '6.4.11': True,
+                                        '6.4.12': True,
                                         '7.0.1': True,
                                         '7.0.2': True,
                                         '7.0.3': True,
@@ -944,8 +982,10 @@ def main():
                                         '7.0.5': True,
                                         '7.0.6': True,
                                         '7.0.7': True,
+                                        '7.0.8': True,
                                         '7.2.1': True,
                                         '7.2.2': True,
+                                        '7.2.3': True,
                                         '7.4.0': True
                                     },
                                     'type': 'str'
@@ -972,6 +1012,7 @@ def main():
                                 '6.2.8': True,
                                 '6.2.9': True,
                                 '6.2.10': True,
+                                '6.2.11': True,
                                 '6.4.1': True,
                                 '6.4.3': True,
                                 '6.4.4': True,
@@ -981,6 +1022,7 @@ def main():
                                 '6.4.9': True,
                                 '6.4.10': True,
                                 '6.4.11': True,
+                                '6.4.12': True,
                                 '7.0.1': True,
                                 '7.0.2': True,
                                 '7.0.3': True,
@@ -988,8 +1030,10 @@ def main():
                                 '7.0.5': True,
                                 '7.0.6': True,
                                 '7.0.7': True,
+                                '7.0.8': True,
                                 '7.2.1': True,
                                 '7.2.2': True,
+                                '7.2.3': True,
                                 '7.4.0': True
                             },
                             'type': 'str'
@@ -1013,6 +1057,7 @@ def main():
                                 '6.2.8': True,
                                 '6.2.9': True,
                                 '6.2.10': True,
+                                '6.2.11': True,
                                 '6.4.1': True,
                                 '6.4.3': True,
                                 '6.4.4': True,
@@ -1022,6 +1067,7 @@ def main():
                                 '6.4.9': True,
                                 '6.4.10': True,
                                 '6.4.11': True,
+                                '6.4.12': True,
                                 '7.0.1': True,
                                 '7.0.2': True,
                                 '7.0.3': True,
@@ -1029,8 +1075,10 @@ def main():
                                 '7.0.5': True,
                                 '7.0.6': True,
                                 '7.0.7': True,
+                                '7.0.8': True,
                                 '7.2.1': True,
                                 '7.2.2': True,
+                                '7.2.3': True,
                                 '7.4.0': True
                             },
                             'choices': [
@@ -1058,6 +1106,7 @@ def main():
                                 '6.2.8': True,
                                 '6.2.9': True,
                                 '6.2.10': True,
+                                '6.2.11': True,
                                 '6.4.1': True,
                                 '6.4.3': True,
                                 '6.4.4': True,
@@ -1067,6 +1116,7 @@ def main():
                                 '6.4.9': True,
                                 '6.4.10': True,
                                 '6.4.11': True,
+                                '6.4.12': True,
                                 '7.0.1': True,
                                 '7.0.2': True,
                                 '7.0.3': True,
@@ -1074,8 +1124,10 @@ def main():
                                 '7.0.5': True,
                                 '7.0.6': True,
                                 '7.0.7': True,
+                                '7.0.8': True,
                                 '7.2.1': True,
                                 '7.2.2': True,
+                                '7.2.3': True,
                                 '7.4.0': True
                             },
                             'type': 'str'
@@ -1099,6 +1151,7 @@ def main():
                                 '6.2.8': True,
                                 '6.2.9': True,
                                 '6.2.10': True,
+                                '6.2.11': True,
                                 '6.4.1': True,
                                 '6.4.3': True,
                                 '6.4.4': True,
@@ -1108,6 +1161,7 @@ def main():
                                 '6.4.9': True,
                                 '6.4.10': True,
                                 '6.4.11': True,
+                                '6.4.12': True,
                                 '7.0.1': True,
                                 '7.0.2': True,
                                 '7.0.3': True,
@@ -1115,8 +1169,10 @@ def main():
                                 '7.0.5': True,
                                 '7.0.6': True,
                                 '7.0.7': True,
+                                '7.0.8': True,
                                 '7.2.1': True,
                                 '7.2.2': True,
+                                '7.2.3': True,
                                 '7.4.0': True
                             },
                             'type': 'int'
@@ -1140,6 +1196,7 @@ def main():
                                 '6.2.8': True,
                                 '6.2.9': True,
                                 '6.2.10': True,
+                                '6.2.11': True,
                                 '6.4.1': True,
                                 '6.4.3': True,
                                 '6.4.4': True,
@@ -1149,6 +1206,7 @@ def main():
                                 '6.4.9': True,
                                 '6.4.10': True,
                                 '6.4.11': True,
+                                '6.4.12': True,
                                 '7.0.1': True,
                                 '7.0.2': True,
                                 '7.0.3': True,
@@ -1156,8 +1214,10 @@ def main():
                                 '7.0.5': True,
                                 '7.0.6': True,
                                 '7.0.7': True,
+                                '7.0.8': True,
                                 '7.2.1': True,
                                 '7.2.2': True,
+                                '7.2.3': True,
                                 '7.4.0': True
                             },
                             'type': 'str'
@@ -1181,6 +1241,7 @@ def main():
                                 '6.2.8': True,
                                 '6.2.9': True,
                                 '6.2.10': True,
+                                '6.2.11': True,
                                 '6.4.1': True,
                                 '6.4.3': True,
                                 '6.4.4': True,
@@ -1190,6 +1251,7 @@ def main():
                                 '6.4.9': True,
                                 '6.4.10': True,
                                 '6.4.11': True,
+                                '6.4.12': True,
                                 '7.0.1': True,
                                 '7.0.2': True,
                                 '7.0.3': True,
@@ -1197,8 +1259,10 @@ def main():
                                 '7.0.5': True,
                                 '7.0.6': True,
                                 '7.0.7': True,
+                                '7.0.8': True,
                                 '7.2.1': True,
                                 '7.2.2': True,
+                                '7.2.3': True,
                                 '7.4.0': True
                             },
                             'type': 'str'
@@ -1222,6 +1286,7 @@ def main():
                                 '6.2.8': True,
                                 '6.2.9': True,
                                 '6.2.10': True,
+                                '6.2.11': True,
                                 '6.4.1': True,
                                 '6.4.3': True,
                                 '6.4.4': True,
@@ -1231,6 +1296,7 @@ def main():
                                 '6.4.9': True,
                                 '6.4.10': True,
                                 '6.4.11': True,
+                                '6.4.12': True,
                                 '7.0.1': True,
                                 '7.0.2': True,
                                 '7.0.3': True,
@@ -1238,8 +1304,10 @@ def main():
                                 '7.0.5': True,
                                 '7.0.6': True,
                                 '7.0.7': True,
+                                '7.0.8': True,
                                 '7.2.1': True,
                                 '7.2.2': True,
+                                '7.2.3': True,
                                 '7.4.0': True
                             },
                             'type': 'int'
@@ -1263,6 +1331,7 @@ def main():
                                 '6.2.8': True,
                                 '6.2.9': True,
                                 '6.2.10': True,
+                                '6.2.11': True,
                                 '6.4.1': True,
                                 '6.4.3': True,
                                 '6.4.4': True,
@@ -1272,6 +1341,7 @@ def main():
                                 '6.4.9': True,
                                 '6.4.10': True,
                                 '6.4.11': True,
+                                '6.4.12': True,
                                 '7.0.1': True,
                                 '7.0.2': True,
                                 '7.0.3': True,
@@ -1279,8 +1349,10 @@ def main():
                                 '7.0.5': True,
                                 '7.0.6': True,
                                 '7.0.7': True,
+                                '7.0.8': True,
                                 '7.2.1': True,
                                 '7.2.2': True,
+                                '7.2.3': True,
                                 '7.4.0': True
                             },
                             'type': 'int'
@@ -1304,6 +1376,7 @@ def main():
                                 '6.2.8': True,
                                 '6.2.9': True,
                                 '6.2.10': True,
+                                '6.2.11': True,
                                 '6.4.1': True,
                                 '6.4.3': True,
                                 '6.4.4': True,
@@ -1313,6 +1386,7 @@ def main():
                                 '6.4.9': True,
                                 '6.4.10': True,
                                 '6.4.11': True,
+                                '6.4.12': True,
                                 '7.0.1': True,
                                 '7.0.2': True,
                                 '7.0.3': True,
@@ -1320,8 +1394,10 @@ def main():
                                 '7.0.5': True,
                                 '7.0.6': True,
                                 '7.0.7': True,
+                                '7.0.8': True,
                                 '7.2.1': True,
                                 '7.2.2': True,
+                                '7.2.3': True,
                                 '7.4.0': True
                             },
                             'choices': [
@@ -1349,6 +1425,7 @@ def main():
                                 '6.2.8': True,
                                 '6.2.9': True,
                                 '6.2.10': True,
+                                '6.2.11': True,
                                 '6.4.1': True,
                                 '6.4.3': True,
                                 '6.4.4': True,
@@ -1358,6 +1435,7 @@ def main():
                                 '6.4.9': True,
                                 '6.4.10': True,
                                 '6.4.11': True,
+                                '6.4.12': True,
                                 '7.0.1': True,
                                 '7.0.2': True,
                                 '7.0.3': True,
@@ -1365,8 +1443,10 @@ def main():
                                 '7.0.5': True,
                                 '7.0.6': True,
                                 '7.0.7': True,
+                                '7.0.8': True,
                                 '7.2.1': True,
                                 '7.2.2': True,
+                                '7.2.3': True,
                                 '7.4.0': True
                             },
                             'type': 'str'
@@ -1390,6 +1470,7 @@ def main():
                                 '6.2.8': True,
                                 '6.2.9': True,
                                 '6.2.10': True,
+                                '6.2.11': True,
                                 '6.4.1': True,
                                 '6.4.3': True,
                                 '6.4.4': True,
@@ -1399,6 +1480,7 @@ def main():
                                 '6.4.9': True,
                                 '6.4.10': True,
                                 '6.4.11': True,
+                                '6.4.12': True,
                                 '7.0.1': True,
                                 '7.0.2': True,
                                 '7.0.3': True,
@@ -1406,8 +1488,10 @@ def main():
                                 '7.0.5': True,
                                 '7.0.6': True,
                                 '7.0.7': True,
+                                '7.0.8': True,
                                 '7.2.1': True,
                                 '7.2.2': True,
+                                '7.2.3': True,
                                 '7.4.0': True
                             },
                             'type': 'str'
@@ -1431,6 +1515,7 @@ def main():
                                 '6.2.8': True,
                                 '6.2.9': True,
                                 '6.2.10': True,
+                                '6.2.11': True,
                                 '6.4.1': True,
                                 '6.4.3': True,
                                 '6.4.4': True,
@@ -1440,6 +1525,7 @@ def main():
                                 '6.4.9': True,
                                 '6.4.10': True,
                                 '6.4.11': True,
+                                '6.4.12': True,
                                 '7.0.1': True,
                                 '7.0.2': True,
                                 '7.0.3': True,
@@ -1447,8 +1533,10 @@ def main():
                                 '7.0.5': True,
                                 '7.0.6': True,
                                 '7.0.7': True,
+                                '7.0.8': True,
                                 '7.2.1': True,
                                 '7.2.2': True,
+                                '7.2.3': True,
                                 '7.4.0': True
                             },
                             'type': 'str'
@@ -1472,6 +1560,7 @@ def main():
                                 '6.2.8': True,
                                 '6.2.9': True,
                                 '6.2.10': True,
+                                '6.2.11': True,
                                 '6.4.1': True,
                                 '6.4.3': True,
                                 '6.4.4': True,
@@ -1481,6 +1570,7 @@ def main():
                                 '6.4.9': True,
                                 '6.4.10': True,
                                 '6.4.11': True,
+                                '6.4.12': True,
                                 '7.0.1': True,
                                 '7.0.2': True,
                                 '7.0.3': True,
@@ -1488,8 +1578,10 @@ def main():
                                 '7.0.5': True,
                                 '7.0.6': True,
                                 '7.0.7': True,
+                                '7.0.8': True,
                                 '7.2.1': True,
                                 '7.2.2': True,
+                                '7.2.3': True,
                                 '7.4.0': True
                             },
                             'choices': [
@@ -1515,6 +1607,7 @@ def main():
                                 '6.2.8': True,
                                 '6.2.9': True,
                                 '6.2.10': True,
+                                '6.2.11': True,
                                 '6.4.1': False,
                                 '6.4.3': True,
                                 '6.4.4': True,
@@ -1524,6 +1617,7 @@ def main():
                                 '6.4.9': True,
                                 '6.4.10': True,
                                 '6.4.11': True,
+                                '6.4.12': True,
                                 '7.0.1': True,
                                 '7.0.2': True,
                                 '7.0.3': True,
@@ -1531,8 +1625,10 @@ def main():
                                 '7.0.5': True,
                                 '7.0.6': True,
                                 '7.0.7': True,
+                                '7.0.8': True,
                                 '7.2.1': True,
                                 '7.2.2': True,
+                                '7.2.3': True,
                                 '7.4.0': True
                             },
                             'type': 'int'
@@ -1551,6 +1647,7 @@ def main():
                                 '6.2.8': True,
                                 '6.2.9': True,
                                 '6.2.10': True,
+                                '6.2.11': True,
                                 '6.4.1': False,
                                 '6.4.3': True,
                                 '6.4.4': True,
@@ -1560,6 +1657,7 @@ def main():
                                 '6.4.9': True,
                                 '6.4.10': True,
                                 '6.4.11': True,
+                                '6.4.12': True,
                                 '7.0.1': True,
                                 '7.0.2': True,
                                 '7.0.3': True,
@@ -1567,8 +1665,10 @@ def main():
                                 '7.0.5': True,
                                 '7.0.6': True,
                                 '7.0.7': True,
+                                '7.0.8': True,
                                 '7.2.1': True,
                                 '7.2.2': True,
+                                '7.2.3': True,
                                 '7.4.0': True
                             },
                             'type': 'str'
@@ -1587,6 +1687,7 @@ def main():
                                 '6.2.8': True,
                                 '6.2.9': True,
                                 '6.2.10': True,
+                                '6.2.11': True,
                                 '6.4.1': False,
                                 '6.4.3': True,
                                 '6.4.4': True,
@@ -1596,6 +1697,7 @@ def main():
                                 '6.4.9': True,
                                 '6.4.10': True,
                                 '6.4.11': True,
+                                '6.4.12': True,
                                 '7.0.1': True,
                                 '7.0.2': True,
                                 '7.0.3': True,
@@ -1603,8 +1705,10 @@ def main():
                                 '7.0.5': True,
                                 '7.0.6': True,
                                 '7.0.7': True,
+                                '7.0.8': True,
                                 '7.2.1': True,
                                 '7.2.2': True,
+                                '7.2.3': True,
                                 '7.4.0': True
                             },
                             'type': 'str'
@@ -1623,6 +1727,7 @@ def main():
                                 '6.2.8': True,
                                 '6.2.9': True,
                                 '6.2.10': True,
+                                '6.2.11': True,
                                 '6.4.1': False,
                                 '6.4.3': True,
                                 '6.4.4': True,
@@ -1632,6 +1737,7 @@ def main():
                                 '6.4.9': True,
                                 '6.4.10': True,
                                 '6.4.11': True,
+                                '6.4.12': True,
                                 '7.0.1': True,
                                 '7.0.2': True,
                                 '7.0.3': True,
@@ -1639,8 +1745,10 @@ def main():
                                 '7.0.5': True,
                                 '7.0.6': True,
                                 '7.0.7': True,
+                                '7.0.8': True,
                                 '7.2.1': True,
                                 '7.2.2': True,
+                                '7.2.3': True,
                                 '7.4.0': True
                             },
                             'choices': [
@@ -1663,6 +1771,7 @@ def main():
                                 '6.2.8': True,
                                 '6.2.9': True,
                                 '6.2.10': True,
+                                '6.2.11': True,
                                 '6.4.1': False,
                                 '6.4.3': True,
                                 '6.4.4': True,
@@ -1672,6 +1781,7 @@ def main():
                                 '6.4.9': True,
                                 '6.4.10': True,
                                 '6.4.11': True,
+                                '6.4.12': True,
                                 '7.0.1': True,
                                 '7.0.2': True,
                                 '7.0.3': True,
@@ -1679,8 +1789,10 @@ def main():
                                 '7.0.5': True,
                                 '7.0.6': True,
                                 '7.0.7': True,
+                                '7.0.8': True,
                                 '7.2.1': True,
                                 '7.2.2': True,
+                                '7.2.3': True,
                                 '7.4.0': True
                             },
                             'choices': [
@@ -1703,6 +1815,7 @@ def main():
                                 '6.2.8': True,
                                 '6.2.9': True,
                                 '6.2.10': True,
+                                '6.2.11': True,
                                 '6.4.1': False,
                                 '6.4.3': True,
                                 '6.4.4': True,
@@ -1712,6 +1825,7 @@ def main():
                                 '6.4.9': True,
                                 '6.4.10': True,
                                 '6.4.11': True,
+                                '6.4.12': True,
                                 '7.0.1': True,
                                 '7.0.2': True,
                                 '7.0.3': True,
@@ -1719,8 +1833,10 @@ def main():
                                 '7.0.5': True,
                                 '7.0.6': True,
                                 '7.0.7': True,
+                                '7.0.8': True,
                                 '7.2.1': True,
                                 '7.2.2': True,
+                                '7.2.3': True,
                                 '7.4.0': True
                             },
                             'type': 'int'
@@ -1739,6 +1855,7 @@ def main():
                                 '6.2.8': True,
                                 '6.2.9': True,
                                 '6.2.10': True,
+                                '6.2.11': True,
                                 '6.4.1': False,
                                 '6.4.3': True,
                                 '6.4.4': True,
@@ -1748,6 +1865,7 @@ def main():
                                 '6.4.9': True,
                                 '6.4.10': True,
                                 '6.4.11': True,
+                                '6.4.12': True,
                                 '7.0.1': True,
                                 '7.0.2': True,
                                 '7.0.3': True,
@@ -1755,8 +1873,10 @@ def main():
                                 '7.0.5': True,
                                 '7.0.6': True,
                                 '7.0.7': True,
+                                '7.0.8': True,
                                 '7.2.1': True,
                                 '7.2.2': True,
+                                '7.2.3': True,
                                 '7.4.0': True
                             },
                             'type': 'int'
@@ -1775,6 +1895,7 @@ def main():
                                 '6.2.8': True,
                                 '6.2.9': True,
                                 '6.2.10': True,
+                                '6.2.11': True,
                                 '6.4.1': False,
                                 '6.4.3': True,
                                 '6.4.4': True,
@@ -1784,6 +1905,7 @@ def main():
                                 '6.4.9': True,
                                 '6.4.10': True,
                                 '6.4.11': True,
+                                '6.4.12': True,
                                 '7.0.1': True,
                                 '7.0.2': True,
                                 '7.0.3': True,
@@ -1791,8 +1913,10 @@ def main():
                                 '7.0.5': True,
                                 '7.0.6': True,
                                 '7.0.7': True,
+                                '7.0.8': True,
                                 '7.2.1': True,
                                 '7.2.2': True,
+                                '7.2.3': True,
                                 '7.4.0': True
                             },
                             'choices': [
@@ -1815,6 +1939,7 @@ def main():
                                 '6.2.8': True,
                                 '6.2.9': True,
                                 '6.2.10': True,
+                                '6.2.11': True,
                                 '6.4.1': False,
                                 '6.4.3': True,
                                 '6.4.4': True,
@@ -1824,6 +1949,7 @@ def main():
                                 '6.4.9': True,
                                 '6.4.10': True,
                                 '6.4.11': True,
+                                '6.4.12': True,
                                 '7.0.1': True,
                                 '7.0.2': True,
                                 '7.0.3': True,
@@ -1831,8 +1957,10 @@ def main():
                                 '7.0.5': True,
                                 '7.0.6': True,
                                 '7.0.7': True,
+                                '7.0.8': True,
                                 '7.2.1': True,
                                 '7.2.2': True,
+                                '7.2.3': True,
                                 '7.4.0': True
                             },
                             'type': 'int'
@@ -1851,6 +1979,7 @@ def main():
                                 '6.2.8': True,
                                 '6.2.9': True,
                                 '6.2.10': True,
+                                '6.2.11': True,
                                 '6.4.1': False,
                                 '6.4.3': True,
                                 '6.4.4': True,
@@ -1860,6 +1989,7 @@ def main():
                                 '6.4.9': True,
                                 '6.4.10': True,
                                 '6.4.11': True,
+                                '6.4.12': True,
                                 '7.0.1': True,
                                 '7.0.2': True,
                                 '7.0.3': True,
@@ -1867,8 +1997,10 @@ def main():
                                 '7.0.5': True,
                                 '7.0.6': True,
                                 '7.0.7': True,
+                                '7.0.8': True,
                                 '7.2.1': True,
                                 '7.2.2': True,
+                                '7.2.3': True,
                                 '7.4.0': True
                             },
                             'type': 'int'
@@ -1885,6 +2017,7 @@ def main():
                                 '6.2.8': False,
                                 '6.2.9': False,
                                 '6.2.10': False,
+                                '6.2.11': False,
                                 '6.4.1': False,
                                 '6.4.3': False,
                                 '6.4.4': False,
@@ -1894,6 +2027,7 @@ def main():
                                 '6.4.9': False,
                                 '6.4.10': False,
                                 '6.4.11': False,
+                                '6.4.12': False,
                                 '7.0.1': True,
                                 '7.0.2': True,
                                 '7.0.3': True,
@@ -1901,8 +2035,10 @@ def main():
                                 '7.0.5': True,
                                 '7.0.6': True,
                                 '7.0.7': True,
+                                '7.0.8': True,
                                 '7.2.1': True,
                                 '7.2.2': True,
+                                '7.2.3': True,
                                 '7.4.0': True
                             },
                             'type': 'int'
@@ -1919,6 +2055,7 @@ def main():
                                 '6.2.8': False,
                                 '6.2.9': False,
                                 '6.2.10': False,
+                                '6.2.11': False,
                                 '6.4.1': False,
                                 '6.4.3': False,
                                 '6.4.4': False,
@@ -1928,6 +2065,7 @@ def main():
                                 '6.4.9': False,
                                 '6.4.10': False,
                                 '6.4.11': False,
+                                '6.4.12': False,
                                 '7.0.1': True,
                                 '7.0.2': True,
                                 '7.0.3': True,
@@ -1935,8 +2073,10 @@ def main():
                                 '7.0.5': True,
                                 '7.0.6': True,
                                 '7.0.7': True,
+                                '7.0.8': True,
                                 '7.2.1': True,
                                 '7.2.2': True,
+                                '7.2.3': True,
                                 '7.4.0': True
                             },
                             'type': 'int'
@@ -1953,6 +2093,7 @@ def main():
                                 '6.2.8': False,
                                 '6.2.9': False,
                                 '6.2.10': False,
+                                '6.2.11': False,
                                 '6.4.1': False,
                                 '6.4.3': False,
                                 '6.4.4': False,
@@ -1962,6 +2103,7 @@ def main():
                                 '6.4.9': False,
                                 '6.4.10': False,
                                 '6.4.11': False,
+                                '6.4.12': False,
                                 '7.0.1': True,
                                 '7.0.2': True,
                                 '7.0.3': True,
@@ -1969,8 +2111,10 @@ def main():
                                 '7.0.5': True,
                                 '7.0.6': True,
                                 '7.0.7': True,
+                                '7.0.8': True,
                                 '7.2.1': True,
                                 '7.2.2': True,
+                                '7.2.3': True,
                                 '7.4.0': True
                             },
                             'type': 'int'
@@ -1986,6 +2130,7 @@ def main():
                                 '6.2.8': False,
                                 '6.2.9': False,
                                 '6.2.10': False,
+                                '6.2.11': False,
                                 '6.4.1': False,
                                 '6.4.3': False,
                                 '6.4.4': False,
@@ -1995,6 +2140,7 @@ def main():
                                 '6.4.9': False,
                                 '6.4.10': False,
                                 '6.4.11': False,
+                                '6.4.12': False,
                                 '7.0.1': True,
                                 '7.0.2': True,
                                 '7.0.3': True,
@@ -2002,8 +2148,10 @@ def main():
                                 '7.0.5': True,
                                 '7.0.6': True,
                                 '7.0.7': True,
+                                '7.0.8': True,
                                 '7.2.1': True,
                                 '7.2.2': True,
+                                '7.2.3': True,
                                 '7.4.0': True
                             },
                             'choices': [
@@ -2023,6 +2171,7 @@ def main():
                                 '6.2.8': False,
                                 '6.2.9': True,
                                 '6.2.10': True,
+                                '6.2.11': True,
                                 '6.4.1': False,
                                 '6.4.3': False,
                                 '6.4.4': False,
@@ -2032,6 +2181,7 @@ def main():
                                 '6.4.9': True,
                                 '6.4.10': True,
                                 '6.4.11': True,
+                                '6.4.12': True,
                                 '7.0.1': False,
                                 '7.0.2': True,
                                 '7.0.3': True,
@@ -2039,8 +2189,10 @@ def main():
                                 '7.0.5': True,
                                 '7.0.6': True,
                                 '7.0.7': True,
+                                '7.0.8': True,
                                 '7.2.1': True,
                                 '7.2.2': True,
+                                '7.2.3': True,
                                 '7.4.0': True
                             },
                             'type': 'int'
@@ -2056,6 +2208,7 @@ def main():
                                 '6.2.8': False,
                                 '6.2.9': False,
                                 '6.2.10': False,
+                                '6.2.11': False,
                                 '6.4.1': False,
                                 '6.4.3': False,
                                 '6.4.4': False,
@@ -2065,6 +2218,7 @@ def main():
                                 '6.4.9': False,
                                 '6.4.10': False,
                                 '6.4.11': False,
+                                '6.4.12': False,
                                 '7.0.1': True,
                                 '7.0.2': True,
                                 '7.0.3': True,
@@ -2072,8 +2226,10 @@ def main():
                                 '7.0.5': True,
                                 '7.0.6': True,
                                 '7.0.7': True,
+                                '7.0.8': True,
                                 '7.2.1': True,
                                 '7.2.2': True,
+                                '7.2.3': True,
                                 '7.4.0': True
                             },
                             'choices': [
@@ -2088,8 +2244,10 @@ def main():
                                 '7.0.5': True,
                                 '7.0.6': True,
                                 '7.0.7': True,
+                                '7.0.8': True,
                                 '7.2.1': False,
                                 '7.2.2': True,
+                                '7.2.3': True,
                                 '7.4.0': True
                             },
                             'choices': [
@@ -2102,6 +2260,7 @@ def main():
                             'required': False,
                             'revision': {
                                 '7.2.2': True,
+                                '7.2.3': True,
                                 '7.4.0': True
                             },
                             'type': 'str'
@@ -2128,6 +2287,7 @@ def main():
                         '6.2.8': True,
                         '6.2.9': True,
                         '6.2.10': True,
+                        '6.2.11': True,
                         '6.4.1': True,
                         '6.4.3': True,
                         '6.4.4': True,
@@ -2137,6 +2297,7 @@ def main():
                         '6.4.9': True,
                         '6.4.10': True,
                         '6.4.11': True,
+                        '6.4.12': True,
                         '7.0.1': True,
                         '7.0.2': True,
                         '7.0.3': True,
@@ -2144,8 +2305,10 @@ def main():
                         '7.0.5': True,
                         '7.0.6': True,
                         '7.0.7': True,
+                        '7.0.8': True,
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'type': 'str'
@@ -2169,6 +2332,7 @@ def main():
                         '6.2.8': True,
                         '6.2.9': True,
                         '6.2.10': True,
+                        '6.2.11': True,
                         '6.4.1': True,
                         '6.4.3': True,
                         '6.4.4': True,
@@ -2178,6 +2342,7 @@ def main():
                         '6.4.9': True,
                         '6.4.10': True,
                         '6.4.11': True,
+                        '6.4.12': True,
                         '7.0.1': True,
                         '7.0.2': True,
                         '7.0.3': True,
@@ -2185,8 +2350,10 @@ def main():
                         '7.0.5': True,
                         '7.0.6': True,
                         '7.0.7': True,
+                        '7.0.8': True,
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'type': 'str'
@@ -2210,6 +2377,7 @@ def main():
                         '6.2.8': True,
                         '6.2.9': True,
                         '6.2.10': True,
+                        '6.2.11': True,
                         '6.4.1': True,
                         '6.4.3': True,
                         '6.4.4': True,
@@ -2219,6 +2387,7 @@ def main():
                         '6.4.9': True,
                         '6.4.10': True,
                         '6.4.11': True,
+                        '6.4.12': True,
                         '7.0.1': True,
                         '7.0.2': True,
                         '7.0.3': True,
@@ -2226,8 +2395,10 @@ def main():
                         '7.0.5': True,
                         '7.0.6': True,
                         '7.0.7': True,
+                        '7.0.8': True,
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'type': 'int'
@@ -2251,6 +2422,7 @@ def main():
                         '6.2.8': True,
                         '6.2.9': True,
                         '6.2.10': True,
+                        '6.2.11': True,
                         '6.4.1': True,
                         '6.4.3': True,
                         '6.4.4': True,
@@ -2260,6 +2432,7 @@ def main():
                         '6.4.9': True,
                         '6.4.10': True,
                         '6.4.11': True,
+                        '6.4.12': True,
                         '7.0.1': True,
                         '7.0.2': True,
                         '7.0.3': True,
@@ -2267,8 +2440,10 @@ def main():
                         '7.0.5': True,
                         '7.0.6': True,
                         '7.0.7': True,
+                        '7.0.8': True,
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'type': 'int'
@@ -2292,6 +2467,7 @@ def main():
                         '6.2.8': True,
                         '6.2.9': True,
                         '6.2.10': True,
+                        '6.2.11': True,
                         '6.4.1': True,
                         '6.4.3': True,
                         '6.4.4': True,
@@ -2301,6 +2477,7 @@ def main():
                         '6.4.9': True,
                         '6.4.10': True,
                         '6.4.11': True,
+                        '6.4.12': True,
                         '7.0.1': True,
                         '7.0.2': True,
                         '7.0.3': True,
@@ -2308,8 +2485,10 @@ def main():
                         '7.0.5': True,
                         '7.0.6': True,
                         '7.0.7': True,
+                        '7.0.8': True,
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'choices': [
@@ -2337,6 +2516,7 @@ def main():
                         '6.2.8': True,
                         '6.2.9': True,
                         '6.2.10': True,
+                        '6.2.11': True,
                         '6.4.1': True,
                         '6.4.3': True,
                         '6.4.4': True,
@@ -2346,6 +2526,7 @@ def main():
                         '6.4.9': True,
                         '6.4.10': True,
                         '6.4.11': True,
+                        '6.4.12': True,
                         '7.0.1': True,
                         '7.0.2': True,
                         '7.0.3': True,
@@ -2353,8 +2534,10 @@ def main():
                         '7.0.5': True,
                         '7.0.6': True,
                         '7.0.7': True,
+                        '7.0.8': True,
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'type': 'str'
@@ -2378,6 +2561,7 @@ def main():
                         '6.2.8': True,
                         '6.2.9': True,
                         '6.2.10': True,
+                        '6.2.11': True,
                         '6.4.1': True,
                         '6.4.3': True,
                         '6.4.4': True,
@@ -2387,6 +2571,7 @@ def main():
                         '6.4.9': True,
                         '6.4.10': True,
                         '6.4.11': True,
+                        '6.4.12': True,
                         '7.0.1': True,
                         '7.0.2': True,
                         '7.0.3': True,
@@ -2394,8 +2579,10 @@ def main():
                         '7.0.5': True,
                         '7.0.6': True,
                         '7.0.7': True,
+                        '7.0.8': True,
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'type': 'str'
@@ -2419,6 +2606,7 @@ def main():
                         '6.2.8': True,
                         '6.2.9': True,
                         '6.2.10': True,
+                        '6.2.11': True,
                         '6.4.1': True,
                         '6.4.3': True,
                         '6.4.4': True,
@@ -2428,6 +2616,7 @@ def main():
                         '6.4.9': True,
                         '6.4.10': True,
                         '6.4.11': True,
+                        '6.4.12': True,
                         '7.0.1': True,
                         '7.0.2': True,
                         '7.0.3': True,
@@ -2435,8 +2624,10 @@ def main():
                         '7.0.5': True,
                         '7.0.6': True,
                         '7.0.7': True,
+                        '7.0.8': True,
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'type': 'str'
@@ -2460,6 +2651,7 @@ def main():
                         '6.2.8': True,
                         '6.2.9': True,
                         '6.2.10': True,
+                        '6.2.11': True,
                         '6.4.1': True,
                         '6.4.3': True,
                         '6.4.4': True,
@@ -2469,6 +2661,7 @@ def main():
                         '6.4.9': True,
                         '6.4.10': True,
                         '6.4.11': True,
+                        '6.4.12': True,
                         '7.0.1': True,
                         '7.0.2': True,
                         '7.0.3': True,
@@ -2476,8 +2669,10 @@ def main():
                         '7.0.5': True,
                         '7.0.6': True,
                         '7.0.7': True,
+                        '7.0.8': True,
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'choices': [
@@ -2488,6 +2683,46 @@ def main():
                         'cgn-resource-allocation'
                     ],
                     'type': 'str'
+                },
+                'utilization-alarm-clear': {
+                    'required': False,
+                    'revision': {
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True,
+                        '7.2.0': True,
+                        '6.2.0': False,
+                        '6.2.2': False,
+                        '6.2.6': True,
+                        '6.2.7': True,
+                        '6.2.8': True,
+                        '6.2.9': True,
+                        '6.2.10': True,
+                        '6.2.11': True,
+                        '6.4.1': False,
+                        '6.4.3': True,
+                        '6.4.4': True,
+                        '6.4.6': True,
+                        '6.4.7': True,
+                        '6.4.8': True,
+                        '6.4.9': True,
+                        '6.4.10': True,
+                        '6.4.11': True,
+                        '6.4.12': True,
+                        '7.0.1': True,
+                        '7.0.2': True,
+                        '7.0.3': True,
+                        '7.0.4': True,
+                        '7.0.5': True,
+                        '7.0.6': True,
+                        '7.0.7': True,
+                        '7.0.8': True,
+                        '7.2.1': True,
+                        '7.2.2': True,
+                        '7.2.3': True,
+                        '7.4.0': True
+                    },
+                    'type': 'int'
                 },
                 'cgn-fixedalloc': {
                     'required': False,
@@ -2503,6 +2738,7 @@ def main():
                         '6.2.8': True,
                         '6.2.9': True,
                         '6.2.10': True,
+                        '6.2.11': True,
                         '6.4.1': False,
                         '6.4.3': True,
                         '6.4.4': True,
@@ -2512,6 +2748,7 @@ def main():
                         '6.4.9': True,
                         '6.4.10': True,
                         '6.4.11': True,
+                        '6.4.12': True,
                         '7.0.1': True,
                         '7.0.2': True,
                         '7.0.3': True,
@@ -2519,8 +2756,10 @@ def main():
                         '7.0.5': True,
                         '7.0.6': True,
                         '7.0.7': True,
+                        '7.0.8': True,
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'choices': [
@@ -2529,7 +2768,7 @@ def main():
                     ],
                     'type': 'str'
                 },
-                'cgn-port-end': {
+                'cgn-client-startip': {
                     'required': False,
                     'revision': {
                         '6.4.2': True,
@@ -2543,6 +2782,7 @@ def main():
                         '6.2.8': True,
                         '6.2.9': True,
                         '6.2.10': True,
+                        '6.2.11': True,
                         '6.4.1': False,
                         '6.4.3': True,
                         '6.4.4': True,
@@ -2552,6 +2792,7 @@ def main():
                         '6.4.9': True,
                         '6.4.10': True,
                         '6.4.11': True,
+                        '6.4.12': True,
                         '7.0.1': True,
                         '7.0.2': True,
                         '7.0.3': True,
@@ -2559,13 +2800,15 @@ def main():
                         '7.0.5': True,
                         '7.0.6': True,
                         '7.0.7': True,
+                        '7.0.8': True,
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
-                    'type': 'int'
+                    'type': 'str'
                 },
-                'cgn-spa': {
+                'cgn-client-endip': {
                     'required': False,
                     'revision': {
                         '6.4.2': True,
@@ -2579,6 +2822,7 @@ def main():
                         '6.2.8': True,
                         '6.2.9': True,
                         '6.2.10': True,
+                        '6.2.11': True,
                         '6.4.1': False,
                         '6.4.3': True,
                         '6.4.4': True,
@@ -2588,6 +2832,7 @@ def main():
                         '6.4.9': True,
                         '6.4.10': True,
                         '6.4.11': True,
+                        '6.4.12': True,
                         '7.0.1': True,
                         '7.0.2': True,
                         '7.0.3': True,
@@ -2595,14 +2840,12 @@ def main():
                         '7.0.5': True,
                         '7.0.6': True,
                         '7.0.7': True,
+                        '7.0.8': True,
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
-                    'choices': [
-                        'disable',
-                        'enable'
-                    ],
                     'type': 'str'
                 },
                 'cgn-overload': {
@@ -2619,6 +2862,7 @@ def main():
                         '6.2.8': True,
                         '6.2.9': True,
                         '6.2.10': True,
+                        '6.2.11': True,
                         '6.4.1': False,
                         '6.4.3': True,
                         '6.4.4': True,
@@ -2628,6 +2872,7 @@ def main():
                         '6.4.9': True,
                         '6.4.10': True,
                         '6.4.11': True,
+                        '6.4.12': True,
                         '7.0.1': True,
                         '7.0.2': True,
                         '7.0.3': True,
@@ -2635,8 +2880,10 @@ def main():
                         '7.0.5': True,
                         '7.0.6': True,
                         '7.0.7': True,
+                        '7.0.8': True,
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'choices': [
@@ -2659,6 +2906,7 @@ def main():
                         '6.2.8': True,
                         '6.2.9': True,
                         '6.2.10': True,
+                        '6.2.11': True,
                         '6.4.1': False,
                         '6.4.3': True,
                         '6.4.4': True,
@@ -2668,6 +2916,7 @@ def main():
                         '6.4.9': True,
                         '6.4.10': True,
                         '6.4.11': True,
+                        '6.4.12': True,
                         '7.0.1': True,
                         '7.0.2': True,
                         '7.0.3': True,
@@ -2675,116 +2924,10 @@ def main():
                         '7.0.5': True,
                         '7.0.6': True,
                         '7.0.7': True,
+                        '7.0.8': True,
                         '7.2.1': True,
                         '7.2.2': True,
-                        '7.4.0': True
-                    },
-                    'type': 'int'
-                },
-                'cgn-client-endip': {
-                    'required': False,
-                    'revision': {
-                        '6.4.2': True,
-                        '6.4.5': True,
-                        '7.0.0': True,
-                        '7.2.0': True,
-                        '6.2.0': False,
-                        '6.2.2': False,
-                        '6.2.6': True,
-                        '6.2.7': True,
-                        '6.2.8': True,
-                        '6.2.9': True,
-                        '6.2.10': True,
-                        '6.4.1': False,
-                        '6.4.3': True,
-                        '6.4.4': True,
-                        '6.4.6': True,
-                        '6.4.7': True,
-                        '6.4.8': True,
-                        '6.4.9': True,
-                        '6.4.10': True,
-                        '6.4.11': True,
-                        '7.0.1': True,
-                        '7.0.2': True,
-                        '7.0.3': True,
-                        '7.0.4': True,
-                        '7.0.5': True,
-                        '7.0.6': True,
-                        '7.0.7': True,
-                        '7.2.1': True,
-                        '7.2.2': True,
-                        '7.4.0': True
-                    },
-                    'type': 'str'
-                },
-                'cgn-port-start': {
-                    'required': False,
-                    'revision': {
-                        '6.4.2': True,
-                        '6.4.5': True,
-                        '7.0.0': True,
-                        '7.2.0': True,
-                        '6.2.0': False,
-                        '6.2.2': False,
-                        '6.2.6': True,
-                        '6.2.7': True,
-                        '6.2.8': True,
-                        '6.2.9': True,
-                        '6.2.10': True,
-                        '6.4.1': False,
-                        '6.4.3': True,
-                        '6.4.4': True,
-                        '6.4.6': True,
-                        '6.4.7': True,
-                        '6.4.8': True,
-                        '6.4.9': True,
-                        '6.4.10': True,
-                        '6.4.11': True,
-                        '7.0.1': True,
-                        '7.0.2': True,
-                        '7.0.3': True,
-                        '7.0.4': True,
-                        '7.0.5': True,
-                        '7.0.6': True,
-                        '7.0.7': True,
-                        '7.2.1': True,
-                        '7.2.2': True,
-                        '7.4.0': True
-                    },
-                    'type': 'int'
-                },
-                'utilization-alarm-clear': {
-                    'required': False,
-                    'revision': {
-                        '6.4.2': True,
-                        '6.4.5': True,
-                        '7.0.0': True,
-                        '7.2.0': True,
-                        '6.2.0': False,
-                        '6.2.2': False,
-                        '6.2.6': True,
-                        '6.2.7': True,
-                        '6.2.8': True,
-                        '6.2.9': True,
-                        '6.2.10': True,
-                        '6.4.1': False,
-                        '6.4.3': True,
-                        '6.4.4': True,
-                        '6.4.6': True,
-                        '6.4.7': True,
-                        '6.4.8': True,
-                        '6.4.9': True,
-                        '6.4.10': True,
-                        '6.4.11': True,
-                        '7.0.1': True,
-                        '7.0.2': True,
-                        '7.0.3': True,
-                        '7.0.4': True,
-                        '7.0.5': True,
-                        '7.0.6': True,
-                        '7.0.7': True,
-                        '7.2.1': True,
-                        '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'type': 'int'
@@ -2803,6 +2946,7 @@ def main():
                         '6.2.8': True,
                         '6.2.9': True,
                         '6.2.10': True,
+                        '6.2.11': True,
                         '6.4.1': False,
                         '6.4.3': True,
                         '6.4.4': True,
@@ -2812,6 +2956,7 @@ def main():
                         '6.4.9': True,
                         '6.4.10': True,
                         '6.4.11': True,
+                        '6.4.12': True,
                         '7.0.1': True,
                         '7.0.2': True,
                         '7.0.3': True,
@@ -2819,13 +2964,15 @@ def main():
                         '7.0.5': True,
                         '7.0.6': True,
                         '7.0.7': True,
+                        '7.0.8': True,
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'type': 'int'
                 },
-                'cgn-client-startip': {
+                'cgn-port-start': {
                     'required': False,
                     'revision': {
                         '6.4.2': True,
@@ -2839,6 +2986,7 @@ def main():
                         '6.2.8': True,
                         '6.2.9': True,
                         '6.2.10': True,
+                        '6.2.11': True,
                         '6.4.1': False,
                         '6.4.3': True,
                         '6.4.4': True,
@@ -2848,6 +2996,7 @@ def main():
                         '6.4.9': True,
                         '6.4.10': True,
                         '6.4.11': True,
+                        '6.4.12': True,
                         '7.0.1': True,
                         '7.0.2': True,
                         '7.0.3': True,
@@ -2855,11 +3004,97 @@ def main():
                         '7.0.5': True,
                         '7.0.6': True,
                         '7.0.7': True,
+                        '7.0.8': True,
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
+                    'type': 'int'
+                },
+                'cgn-spa': {
+                    'required': False,
+                    'revision': {
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True,
+                        '7.2.0': True,
+                        '6.2.0': False,
+                        '6.2.2': False,
+                        '6.2.6': True,
+                        '6.2.7': True,
+                        '6.2.8': True,
+                        '6.2.9': True,
+                        '6.2.10': True,
+                        '6.2.11': True,
+                        '6.4.1': False,
+                        '6.4.3': True,
+                        '6.4.4': True,
+                        '6.4.6': True,
+                        '6.4.7': True,
+                        '6.4.8': True,
+                        '6.4.9': True,
+                        '6.4.10': True,
+                        '6.4.11': True,
+                        '6.4.12': True,
+                        '7.0.1': True,
+                        '7.0.2': True,
+                        '7.0.3': True,
+                        '7.0.4': True,
+                        '7.0.5': True,
+                        '7.0.6': True,
+                        '7.0.7': True,
+                        '7.0.8': True,
+                        '7.2.1': True,
+                        '7.2.2': True,
+                        '7.2.3': True,
+                        '7.4.0': True
+                    },
+                    'choices': [
+                        'disable',
+                        'enable'
+                    ],
                     'type': 'str'
+                },
+                'cgn-port-end': {
+                    'required': False,
+                    'revision': {
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True,
+                        '7.2.0': True,
+                        '6.2.0': False,
+                        '6.2.2': False,
+                        '6.2.6': True,
+                        '6.2.7': True,
+                        '6.2.8': True,
+                        '6.2.9': True,
+                        '6.2.10': True,
+                        '6.2.11': True,
+                        '6.4.1': False,
+                        '6.4.3': True,
+                        '6.4.4': True,
+                        '6.4.6': True,
+                        '6.4.7': True,
+                        '6.4.8': True,
+                        '6.4.9': True,
+                        '6.4.10': True,
+                        '6.4.11': True,
+                        '6.4.12': True,
+                        '7.0.1': True,
+                        '7.0.2': True,
+                        '7.0.3': True,
+                        '7.0.4': True,
+                        '7.0.5': True,
+                        '7.0.6': True,
+                        '7.0.7': True,
+                        '7.0.8': True,
+                        '7.2.1': True,
+                        '7.2.2': True,
+                        '7.2.3': True,
+                        '7.4.0': True
+                    },
+                    'type': 'int'
                 },
                 'endport': {
                     'required': False,
@@ -2873,6 +3108,7 @@ def main():
                         '6.2.8': False,
                         '6.2.9': False,
                         '6.2.10': False,
+                        '6.2.11': False,
                         '6.4.1': False,
                         '6.4.3': False,
                         '6.4.4': False,
@@ -2882,6 +3118,7 @@ def main():
                         '6.4.9': False,
                         '6.4.10': False,
                         '6.4.11': False,
+                        '6.4.12': False,
                         '7.0.1': True,
                         '7.0.2': True,
                         '7.0.3': True,
@@ -2889,8 +3126,10 @@ def main():
                         '7.0.5': True,
                         '7.0.6': True,
                         '7.0.7': True,
+                        '7.0.8': True,
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'type': 'int'
@@ -2907,6 +3146,7 @@ def main():
                         '6.2.8': False,
                         '6.2.9': False,
                         '6.2.10': False,
+                        '6.2.11': False,
                         '6.4.1': False,
                         '6.4.3': False,
                         '6.4.4': False,
@@ -2916,6 +3156,7 @@ def main():
                         '6.4.9': False,
                         '6.4.10': False,
                         '6.4.11': False,
+                        '6.4.12': False,
                         '7.0.1': True,
                         '7.0.2': True,
                         '7.0.3': True,
@@ -2923,8 +3164,10 @@ def main():
                         '7.0.5': True,
                         '7.0.6': True,
                         '7.0.7': True,
+                        '7.0.8': True,
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'type': 'int'
@@ -2941,6 +3184,7 @@ def main():
                         '6.2.8': False,
                         '6.2.9': False,
                         '6.2.10': False,
+                        '6.2.11': False,
                         '6.4.1': False,
                         '6.4.3': False,
                         '6.4.4': False,
@@ -2950,6 +3194,7 @@ def main():
                         '6.4.9': False,
                         '6.4.10': False,
                         '6.4.11': False,
+                        '6.4.12': False,
                         '7.0.1': True,
                         '7.0.2': True,
                         '7.0.3': True,
@@ -2957,8 +3202,10 @@ def main():
                         '7.0.5': True,
                         '7.0.6': True,
                         '7.0.7': True,
+                        '7.0.8': True,
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'type': 'int'
@@ -2974,6 +3221,7 @@ def main():
                         '6.2.8': False,
                         '6.2.9': False,
                         '6.2.10': False,
+                        '6.2.11': False,
                         '6.4.1': False,
                         '6.4.3': False,
                         '6.4.4': False,
@@ -2983,6 +3231,7 @@ def main():
                         '6.4.9': False,
                         '6.4.10': False,
                         '6.4.11': False,
+                        '6.4.12': False,
                         '7.0.1': True,
                         '7.0.2': True,
                         '7.0.3': True,
@@ -2990,8 +3239,10 @@ def main():
                         '7.0.5': True,
                         '7.0.6': True,
                         '7.0.7': True,
+                        '7.0.8': True,
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'choices': [
@@ -3011,6 +3262,7 @@ def main():
                         '6.2.8': False,
                         '6.2.9': False,
                         '6.2.10': False,
+                        '6.2.11': False,
                         '6.4.1': False,
                         '6.4.3': False,
                         '6.4.4': False,
@@ -3020,6 +3272,7 @@ def main():
                         '6.4.9': False,
                         '6.4.10': False,
                         '6.4.11': False,
+                        '6.4.12': False,
                         '7.0.1': True,
                         '7.0.2': True,
                         '7.0.3': True,
@@ -3027,8 +3280,10 @@ def main():
                         '7.0.5': True,
                         '7.0.6': True,
                         '7.0.7': True,
+                        '7.0.8': True,
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'choices': [
@@ -3048,6 +3303,7 @@ def main():
                         '6.2.8': False,
                         '6.2.9': True,
                         '6.2.10': True,
+                        '6.2.11': True,
                         '6.4.1': False,
                         '6.4.3': False,
                         '6.4.4': False,
@@ -3057,6 +3313,7 @@ def main():
                         '6.4.9': True,
                         '6.4.10': True,
                         '6.4.11': True,
+                        '6.4.12': True,
                         '7.0.1': False,
                         '7.0.2': True,
                         '7.0.3': True,
@@ -3064,8 +3321,10 @@ def main():
                         '7.0.5': True,
                         '7.0.6': True,
                         '7.0.7': True,
+                        '7.0.8': True,
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'type': 'int'
@@ -3076,8 +3335,10 @@ def main():
                         '7.0.5': True,
                         '7.0.6': True,
                         '7.0.7': True,
+                        '7.0.8': True,
                         '7.2.1': False,
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'choices': [
@@ -3090,6 +3351,7 @@ def main():
                     'required': False,
                     'revision': {
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'type': 'str'

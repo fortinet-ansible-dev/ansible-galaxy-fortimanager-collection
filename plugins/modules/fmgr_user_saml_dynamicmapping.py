@@ -320,13 +320,13 @@ from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import 
 
 def main():
     jrpc_urls = [
-        '/pm/config/global/obj/user/saml/{saml}/dynamic_mapping',
-        '/pm/config/adom/{adom}/obj/user/saml/{saml}/dynamic_mapping'
+        '/pm/config/adom/{adom}/obj/user/saml/{saml}/dynamic_mapping',
+        '/pm/config/global/obj/user/saml/{saml}/dynamic_mapping'
     ]
 
     perobject_jrpc_urls = [
-        '/pm/config/global/obj/user/saml/{saml}/dynamic_mapping/{dynamic_mapping}',
-        '/pm/config/adom/{adom}/obj/user/saml/{saml}/dynamic_mapping/{dynamic_mapping}'
+        '/pm/config/adom/{adom}/obj/user/saml/{saml}/dynamic_mapping/{dynamic_mapping}',
+        '/pm/config/global/obj/user/saml/{saml}/dynamic_mapping/{dynamic_mapping}'
     ]
 
     url_params = ['adom', 'saml']
@@ -403,8 +403,10 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'options': {
@@ -414,8 +416,10 @@ def main():
                         '7.0.5': True,
                         '7.0.6': True,
                         '7.0.7': True,
+                        '7.0.8': True,
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'type': 'list',
@@ -426,8 +430,10 @@ def main():
                                 '7.0.5': True,
                                 '7.0.6': True,
                                 '7.0.7': True,
+                                '7.0.8': True,
                                 '7.2.1': True,
                                 '7.2.2': True,
+                                '7.2.3': True,
                                 '7.4.0': True
                             },
                             'type': 'str'
@@ -438,8 +444,10 @@ def main():
                                 '7.0.5': True,
                                 '7.0.6': True,
                                 '7.0.7': True,
+                                '7.0.8': True,
                                 '7.2.1': True,
                                 '7.2.2': True,
+                                '7.2.3': True,
                                 '7.4.0': True
                             },
                             'type': 'str'
@@ -453,8 +461,10 @@ def main():
                         '7.0.5': True,
                         '7.0.6': True,
                         '7.0.7': True,
+                        '7.0.8': True,
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'choices': [
@@ -469,8 +479,10 @@ def main():
                         '7.0.5': True,
                         '7.0.6': True,
                         '7.0.7': True,
+                        '7.0.8': True,
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'type': 'str'
@@ -481,8 +493,10 @@ def main():
                         '7.0.5': True,
                         '7.0.6': True,
                         '7.0.7': True,
+                        '7.0.8': True,
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'type': 'int'
@@ -493,8 +507,10 @@ def main():
                         '7.0.5': True,
                         '7.0.6': True,
                         '7.0.7': True,
+                        '7.0.8': True,
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'choices': [
@@ -509,8 +525,10 @@ def main():
                         '7.0.5': True,
                         '7.0.6': True,
                         '7.0.7': True,
+                        '7.0.8': True,
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'type': 'str'
@@ -521,8 +539,10 @@ def main():
                         '7.0.5': True,
                         '7.0.6': True,
                         '7.0.7': True,
+                        '7.0.8': True,
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'choices': [
@@ -555,8 +575,10 @@ def main():
                         '7.0.5': True,
                         '7.0.6': True,
                         '7.0.7': True,
+                        '7.0.8': True,
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'type': 'str'
@@ -567,8 +589,10 @@ def main():
                         '7.0.5': True,
                         '7.0.6': True,
                         '7.0.7': True,
+                        '7.0.8': True,
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'type': 'str'
@@ -579,8 +603,10 @@ def main():
                         '7.0.5': True,
                         '7.0.6': True,
                         '7.0.7': True,
+                        '7.0.8': True,
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'type': 'str'
@@ -591,8 +617,10 @@ def main():
                         '7.0.5': True,
                         '7.0.6': True,
                         '7.0.7': True,
+                        '7.0.8': True,
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'type': 'str'
@@ -603,8 +631,10 @@ def main():
                         '7.0.5': True,
                         '7.0.6': True,
                         '7.0.7': True,
+                        '7.0.8': True,
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'type': 'str'
@@ -615,8 +645,10 @@ def main():
                         '7.0.5': True,
                         '7.0.6': True,
                         '7.0.7': True,
+                        '7.0.8': True,
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'choices': [
@@ -631,8 +663,10 @@ def main():
                         '7.0.5': True,
                         '7.0.6': True,
                         '7.0.7': True,
+                        '7.0.8': True,
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'type': 'str'
@@ -643,8 +677,10 @@ def main():
                         '7.0.5': True,
                         '7.0.6': True,
                         '7.0.7': True,
+                        '7.0.8': True,
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'type': 'str'
@@ -655,8 +691,10 @@ def main():
                         '7.0.5': True,
                         '7.0.6': True,
                         '7.0.7': True,
+                        '7.0.8': True,
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'choices': [
@@ -689,8 +727,10 @@ def main():
                         '7.0.5': True,
                         '7.0.6': True,
                         '7.0.7': True,
+                        '7.0.8': True,
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'type': 'str'
@@ -700,6 +740,7 @@ def main():
                     'revision': {
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'type': 'str'

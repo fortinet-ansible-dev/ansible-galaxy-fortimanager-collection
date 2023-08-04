@@ -25,7 +25,7 @@ releases:
       bugfixes:
       - Corrected description of parameters in documentation.
       - Fixed Many sanity test warnings and errors.
-      - Fixed a bug where users might not be able to log in.
+      - Fixed a bug where users might not be able to login.
       - Fixed version_added in the document. The value of this parameter is the version
         each module first supported in the FortiManager Ansible Collection.
       major_changes:
@@ -465,3 +465,13 @@ releases:
       name: fmgr_wireless_syslogprofile
       namespace: ''
     release_date: '2023-06-21'
+  2.2.1:
+    changes:
+      bugfixes:
+      - Fix a bug where the user may not be able to use workspace_locking_adom if
+        the workspace mode is per-adom.
+      - Improve login logic in httpapi plugin.
+      release_summary: release fortinet.fortimanager 2.2.1
+    fragments:
+    - 2.2.1.yml
+    release_date: '2023-08-02'

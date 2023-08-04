@@ -1277,6 +1277,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -1289,6 +1290,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -1297,9 +1299,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -1324,6 +1328,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -1336,6 +1341,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -1344,9 +1350,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -1372,6 +1380,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -1384,6 +1393,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -1392,9 +1402,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -1419,6 +1431,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -1431,6 +1444,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -1439,9 +1453,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -1467,6 +1483,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -1479,6 +1496,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -1487,9 +1505,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -1514,6 +1534,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -1526,6 +1547,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -1534,9 +1556,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -1546,8 +1570,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/antivirus/profile/{profile}/cifs',
-                '/pm/config/adom/{adom}/obj/antivirus/profile/{profile}/cifs'
+                '/pm/config/adom/{adom}/obj/antivirus/profile/{profile}/cifs',
+                '/pm/config/global/obj/antivirus/profile/{profile}/cifs'
             ],
             'revision': {
                 '6.2.0': True,
@@ -1560,6 +1584,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -1572,6 +1597,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -1580,9 +1606,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -1607,6 +1635,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -1619,6 +1648,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -1627,9 +1657,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -1654,6 +1686,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -1666,6 +1699,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -1674,9 +1708,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -1701,6 +1737,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -1713,6 +1750,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -1721,9 +1759,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -1748,6 +1788,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -1760,6 +1801,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -1768,9 +1810,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -1795,6 +1839,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -1807,6 +1852,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -1815,9 +1861,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -1842,6 +1890,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -1854,6 +1903,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -1862,9 +1912,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -1889,6 +1941,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -1901,6 +1954,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -1909,9 +1963,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -1921,8 +1977,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/antivirus/profile/{profile}/outbreak-prevention',
-                '/pm/config/adom/{adom}/obj/antivirus/profile/{profile}/outbreak-prevention'
+                '/pm/config/adom/{adom}/obj/antivirus/profile/{profile}/outbreak-prevention',
+                '/pm/config/global/obj/antivirus/profile/{profile}/outbreak-prevention'
             ],
             'revision': {
                 '6.2.0': True,
@@ -1935,6 +1991,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -1947,6 +2004,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -1955,9 +2013,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -1982,6 +2042,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -1994,6 +2055,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -2002,9 +2064,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -2029,6 +2093,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -2041,6 +2106,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -2049,6 +2115,7 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True
             }
@@ -2074,6 +2141,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -2086,6 +2154,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -2094,9 +2163,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -2106,8 +2177,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/antivirus/profile/{profile}/ssh',
-                '/pm/config/adom/{adom}/obj/antivirus/profile/{profile}/ssh'
+                '/pm/config/adom/{adom}/obj/antivirus/profile/{profile}/ssh',
+                '/pm/config/global/obj/antivirus/profile/{profile}/ssh'
             ],
             'revision': {
                 '6.2.2': True,
@@ -2118,6 +2189,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -2130,6 +2202,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -2138,9 +2211,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -2150,8 +2225,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/wireless-controller/apcfg-profile/{apcfg-profile}',
-                '/pm/config/adom/{adom}/obj/wireless-controller/apcfg-profile/{apcfg-profile}'
+                '/pm/config/adom/{adom}/obj/wireless-controller/apcfg-profile/{apcfg-profile}',
+                '/pm/config/global/obj/wireless-controller/apcfg-profile/{apcfg-profile}'
             ],
             'revision': {
                 '6.4.6': True,
@@ -2160,6 +2235,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -2168,9 +2244,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -2181,8 +2259,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/wireless-controller/apcfg-profile/{apcfg-profile}/command-list/{command-list}',
-                '/pm/config/adom/{adom}/obj/wireless-controller/apcfg-profile/{apcfg-profile}/command-list/{command-list}'
+                '/pm/config/adom/{adom}/obj/wireless-controller/apcfg-profile/{apcfg-profile}/command-list/{command-list}',
+                '/pm/config/global/obj/wireless-controller/apcfg-profile/{apcfg-profile}/command-list/{command-list}'
             ],
             'revision': {
                 '6.4.6': True,
@@ -2191,6 +2269,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -2199,9 +2278,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -2211,8 +2292,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/application/casi/profile/{profile}',
-                '/pm/config/adom/{adom}/obj/application/casi/profile/{profile}'
+                '/pm/config/adom/{adom}/obj/application/casi/profile/{profile}',
+                '/pm/config/global/obj/application/casi/profile/{profile}'
             ],
             'revision': {
                 '6.2.0': True,
@@ -2224,7 +2305,8 @@ def main():
                 '6.2.7': True,
                 '6.2.8': True,
                 '6.2.9': True,
-                '6.2.10': True
+                '6.2.10': True,
+                '6.2.11': True
             }
         },
         'application_casi_profile_entries': {
@@ -2234,8 +2316,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/application/casi/profile/{profile}/entries/{entries}',
-                '/pm/config/adom/{adom}/obj/application/casi/profile/{profile}/entries/{entries}'
+                '/pm/config/adom/{adom}/obj/application/casi/profile/{profile}/entries/{entries}',
+                '/pm/config/global/obj/application/casi/profile/{profile}/entries/{entries}'
             ],
             'revision': {
                 '6.2.0': True,
@@ -2247,7 +2329,8 @@ def main():
                 '6.2.7': True,
                 '6.2.8': True,
                 '6.2.9': True,
-                '6.2.10': True
+                '6.2.10': True,
+                '6.2.11': True
             }
         },
         'application_categories': {
@@ -2271,6 +2354,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -2283,6 +2367,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -2291,9 +2376,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -2318,6 +2405,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -2330,6 +2418,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -2338,9 +2427,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -2365,6 +2456,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -2377,6 +2469,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -2385,9 +2478,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -2396,8 +2491,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/application/internet-service',
-                '/pm/config/adom/{adom}/obj/application/internet-service'
+                '/pm/config/adom/{adom}/obj/application/internet-service',
+                '/pm/config/global/obj/application/internet-service'
             ],
             'revision': {
                 '6.2.0': True,
@@ -2409,7 +2504,8 @@ def main():
                 '6.2.7': True,
                 '6.2.8': True,
                 '6.2.9': True,
-                '6.2.10': True
+                '6.2.10': True,
+                '6.2.11': True
             }
         },
         'application_internetservice_entry': {
@@ -2418,8 +2514,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/application/internet-service/entry/{entry}',
-                '/pm/config/adom/{adom}/obj/application/internet-service/entry/{entry}'
+                '/pm/config/adom/{adom}/obj/application/internet-service/entry/{entry}',
+                '/pm/config/global/obj/application/internet-service/entry/{entry}'
             ],
             'revision': {
                 '6.2.0': True,
@@ -2431,7 +2527,8 @@ def main():
                 '6.2.7': True,
                 '6.2.8': True,
                 '6.2.9': True,
-                '6.2.10': True
+                '6.2.10': True,
+                '6.2.11': True
             }
         },
         'application_internetservicecustom': {
@@ -2440,8 +2537,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/application/internet-service-custom/{internet-service-custom}',
-                '/pm/config/adom/{adom}/obj/application/internet-service-custom/{internet-service-custom}'
+                '/pm/config/adom/{adom}/obj/application/internet-service-custom/{internet-service-custom}',
+                '/pm/config/global/obj/application/internet-service-custom/{internet-service-custom}'
             ],
             'revision': {
                 '6.2.0': True,
@@ -2453,7 +2550,8 @@ def main():
                 '6.2.7': True,
                 '6.2.8': True,
                 '6.2.9': True,
-                '6.2.10': True
+                '6.2.10': True,
+                '6.2.11': True
             }
         },
         'application_internetservicecustom_disableentry': {
@@ -2463,8 +2561,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/application/internet-service-custom/{internet-service-custom}/disable-entry/{disable-entry}',
-                '/pm/config/adom/{adom}/obj/application/internet-service-custom/{internet-service-custom}/disable-entry/{disable-entry}'
+                '/pm/config/adom/{adom}/obj/application/internet-service-custom/{internet-service-custom}/disable-entry/{disable-entry}',
+                '/pm/config/global/obj/application/internet-service-custom/{internet-service-custom}/disable-entry/{disable-entry}'
             ],
             'revision': {
                 '6.2.0': True,
@@ -2476,7 +2574,8 @@ def main():
                 '6.2.7': True,
                 '6.2.8': True,
                 '6.2.9': True,
-                '6.2.10': True
+                '6.2.10': True,
+                '6.2.11': True
             }
         },
         'application_internetservicecustom_disableentry_iprange': {
@@ -2487,8 +2586,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/application/internet-service-custom/{internet-service-custom}/disable-entry/{disable-entry}/ip-range/{ip-range}',
-                '/pm/config/adom/{adom}/obj/application/internet-service-custom/{internet-service-custom}/disable-entry/{disable-entry}/ip-range/{ip-range}'
+                '/pm/config/adom/{adom}/obj/application/internet-service-custom/{internet-service-custom}/disable-entry/{disable-entry}/ip-range/{ip-range}',
+                '/pm/config/global/obj/application/internet-service-custom/{internet-service-custom}/disable-entry/{disable-entry}/ip-range/{ip-range}'
             ],
             'revision': {
                 '6.2.0': True,
@@ -2500,7 +2599,8 @@ def main():
                 '6.2.7': True,
                 '6.2.8': True,
                 '6.2.9': True,
-                '6.2.10': True
+                '6.2.10': True,
+                '6.2.11': True
             }
         },
         'application_internetservicecustom_entry': {
@@ -2510,8 +2610,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/application/internet-service-custom/{internet-service-custom}/entry/{entry}',
-                '/pm/config/adom/{adom}/obj/application/internet-service-custom/{internet-service-custom}/entry/{entry}'
+                '/pm/config/adom/{adom}/obj/application/internet-service-custom/{internet-service-custom}/entry/{entry}',
+                '/pm/config/global/obj/application/internet-service-custom/{internet-service-custom}/entry/{entry}'
             ],
             'revision': {
                 '6.2.0': True,
@@ -2523,7 +2623,8 @@ def main():
                 '6.2.7': True,
                 '6.2.8': True,
                 '6.2.9': True,
-                '6.2.10': True
+                '6.2.10': True,
+                '6.2.11': True
             }
         },
         'application_internetservicecustom_entry_portrange': {
@@ -2534,8 +2635,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/application/internet-service-custom/{internet-service-custom}/entry/{entry}/port-range/{port-range}',
-                '/pm/config/adom/{adom}/obj/application/internet-service-custom/{internet-service-custom}/entry/{entry}/port-range/{port-range}'
+                '/pm/config/adom/{adom}/obj/application/internet-service-custom/{internet-service-custom}/entry/{entry}/port-range/{port-range}',
+                '/pm/config/global/obj/application/internet-service-custom/{internet-service-custom}/entry/{entry}/port-range/{port-range}'
             ],
             'revision': {
                 '6.2.0': True,
@@ -2547,7 +2648,8 @@ def main():
                 '6.2.7': True,
                 '6.2.8': True,
                 '6.2.9': True,
-                '6.2.10': True
+                '6.2.10': True,
+                '6.2.11': True
             }
         },
         'application_list': {
@@ -2571,6 +2673,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -2583,6 +2686,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -2591,9 +2695,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -2604,8 +2710,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/application/list/{list}/default-network-services/{default-network-services}',
-                '/pm/config/adom/{adom}/obj/application/list/{list}/default-network-services/{default-network-services}'
+                '/pm/config/adom/{adom}/obj/application/list/{list}/default-network-services/{default-network-services}',
+                '/pm/config/global/obj/application/list/{list}/default-network-services/{default-network-services}'
             ],
             'revision': {
                 '6.2.0': True,
@@ -2618,6 +2724,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -2630,6 +2737,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -2638,9 +2746,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -2666,6 +2776,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -2678,6 +2789,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -2686,9 +2798,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -2715,6 +2829,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -2727,6 +2842,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -2735,9 +2851,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -2750,8 +2868,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/application/list/{list}/entries/{entries}/parameters/{parameters}/members/{members}',
-                '/pm/config/adom/{adom}/obj/application/list/{list}/entries/{entries}/parameters/{parameters}/members/{members}'
+                '/pm/config/adom/{adom}/obj/application/list/{list}/entries/{entries}/parameters/{parameters}/members/{members}',
+                '/pm/config/global/obj/application/list/{list}/entries/{entries}/parameters/{parameters}/members/{members}'
             ],
             'revision': {
                 '6.4.0': True,
@@ -2766,6 +2884,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -2774,9 +2893,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -2786,8 +2907,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/wireless-controller/arrp-profile/{arrp-profile}',
-                '/pm/config/adom/{adom}/obj/wireless-controller/arrp-profile/{arrp-profile}'
+                '/pm/config/adom/{adom}/obj/wireless-controller/arrp-profile/{arrp-profile}',
+                '/pm/config/global/obj/wireless-controller/arrp-profile/{arrp-profile}'
             ],
             'revision': {
                 '7.0.3': True,
@@ -2795,9 +2916,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -2807,8 +2930,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/authentication/scheme/{scheme}',
-                '/pm/config/adom/{adom}/obj/authentication/scheme/{scheme}'
+                '/pm/config/adom/{adom}/obj/authentication/scheme/{scheme}',
+                '/pm/config/global/obj/authentication/scheme/{scheme}'
             ],
             'revision': {
                 '6.2.1': True,
@@ -2820,6 +2943,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -2832,6 +2956,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -2840,9 +2965,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -2867,6 +2994,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -2879,6 +3007,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -2887,9 +3016,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -2914,6 +3045,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -2926,6 +3058,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -2934,9 +3067,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -2962,6 +3097,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -2974,6 +3110,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -2982,9 +3119,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -3009,6 +3148,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -3021,6 +3161,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -3029,9 +3170,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -3041,8 +3184,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/cifs/domain-controller/{domain-controller}',
-                '/pm/config/adom/{adom}/obj/cifs/domain-controller/{domain-controller}'
+                '/pm/config/adom/{adom}/obj/cifs/domain-controller/{domain-controller}',
+                '/pm/config/global/obj/cifs/domain-controller/{domain-controller}'
             ],
             'revision': {
                 '6.2.0': True,
@@ -3055,6 +3198,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -3067,6 +3211,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -3075,9 +3220,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -3087,8 +3234,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/cifs/profile/{profile}',
-                '/pm/config/adom/{adom}/obj/cifs/profile/{profile}'
+                '/pm/config/adom/{adom}/obj/cifs/profile/{profile}',
+                '/pm/config/global/obj/cifs/profile/{profile}'
             ],
             'revision': {
                 '6.2.0': True,
@@ -3101,6 +3248,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -3113,6 +3261,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -3121,9 +3270,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -3133,8 +3284,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/cifs/profile/{profile}/file-filter',
-                '/pm/config/adom/{adom}/obj/cifs/profile/{profile}/file-filter'
+                '/pm/config/adom/{adom}/obj/cifs/profile/{profile}/file-filter',
+                '/pm/config/global/obj/cifs/profile/{profile}/file-filter'
             ],
             'revision': {
                 '6.2.0': True,
@@ -3147,6 +3298,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -3159,6 +3311,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -3167,9 +3320,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -3180,8 +3335,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/cifs/profile/{profile}/file-filter/entries/{entries}',
-                '/pm/config/adom/{adom}/obj/cifs/profile/{profile}/file-filter/entries/{entries}'
+                '/pm/config/adom/{adom}/obj/cifs/profile/{profile}/file-filter/entries/{entries}',
+                '/pm/config/global/obj/cifs/profile/{profile}/file-filter/entries/{entries}'
             ],
             'revision': {
                 '6.2.0': True,
@@ -3194,6 +3349,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -3206,6 +3362,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -3214,9 +3371,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -3227,8 +3386,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/cifs/profile/{profile}/server-keytab/{server-keytab}',
-                '/pm/config/adom/{adom}/obj/cifs/profile/{profile}/server-keytab/{server-keytab}'
+                '/pm/config/adom/{adom}/obj/cifs/profile/{profile}/server-keytab/{server-keytab}',
+                '/pm/config/global/obj/cifs/profile/{profile}/server-keytab/{server-keytab}'
             ],
             'revision': {
                 '6.2.0': True,
@@ -3241,6 +3400,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -3253,6 +3413,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -3261,9 +3422,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -3273,8 +3436,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/cloud/orchest-aws/{orchest-aws}',
-                '/pm/config/adom/{adom}/obj/cloud/orchest-aws/{orchest-aws}'
+                '/pm/config/adom/{adom}/obj/cloud/orchest-aws/{orchest-aws}',
+                '/pm/config/global/obj/cloud/orchest-aws/{orchest-aws}'
             ],
             'revision': {
                 '7.4.0': True
@@ -3286,8 +3449,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/cloud/orchest-awsconnector/{orchest-awsconnector}',
-                '/pm/config/adom/{adom}/obj/cloud/orchest-awsconnector/{orchest-awsconnector}'
+                '/pm/config/adom/{adom}/obj/cloud/orchest-awsconnector/{orchest-awsconnector}',
+                '/pm/config/global/obj/cloud/orchest-awsconnector/{orchest-awsconnector}'
             ],
             'revision': {
                 '7.4.0': True
@@ -3299,8 +3462,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/cloud/orchest-awstemplate/autoscale-existing-vpc/{autoscale-existing-vpc}',
-                '/pm/config/adom/{adom}/obj/cloud/orchest-awstemplate/autoscale-existing-vpc/{autoscale-existing-vpc}'
+                '/pm/config/adom/{adom}/obj/cloud/orchest-awstemplate/autoscale-existing-vpc/{autoscale-existing-vpc}',
+                '/pm/config/global/obj/cloud/orchest-awstemplate/autoscale-existing-vpc/{autoscale-existing-vpc}'
             ],
             'revision': {
                 '7.4.0': True
@@ -3312,8 +3475,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/cloud/orchest-awstemplate/autoscale-new-vpc/{autoscale-new-vpc}',
-                '/pm/config/adom/{adom}/obj/cloud/orchest-awstemplate/autoscale-new-vpc/{autoscale-new-vpc}'
+                '/pm/config/adom/{adom}/obj/cloud/orchest-awstemplate/autoscale-new-vpc/{autoscale-new-vpc}',
+                '/pm/config/global/obj/cloud/orchest-awstemplate/autoscale-new-vpc/{autoscale-new-vpc}'
             ],
             'revision': {
                 '7.4.0': True
@@ -3325,8 +3488,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/cloud/orchest-awstemplate/autoscale-tgw-new-vpc/{autoscale-tgw-new-vpc}',
-                '/pm/config/adom/{adom}/obj/cloud/orchest-awstemplate/autoscale-tgw-new-vpc/{autoscale-tgw-new-vpc}'
+                '/pm/config/adom/{adom}/obj/cloud/orchest-awstemplate/autoscale-tgw-new-vpc/{autoscale-tgw-new-vpc}',
+                '/pm/config/global/obj/cloud/orchest-awstemplate/autoscale-tgw-new-vpc/{autoscale-tgw-new-vpc}'
             ],
             'revision': {
                 '7.4.0': True
@@ -3338,8 +3501,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/cloud/orchestration/{orchestration}',
-                '/pm/config/adom/{adom}/obj/cloud/orchestration/{orchestration}'
+                '/pm/config/adom/{adom}/obj/cloud/orchestration/{orchestration}',
+                '/pm/config/global/obj/cloud/orchestration/{orchestration}'
             ],
             'revision': {
                 '7.4.0': True
@@ -3351,8 +3514,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/credential-store/domain-controller/{domain-controller}',
-                '/pm/config/adom/{adom}/obj/credential-store/domain-controller/{domain-controller}'
+                '/pm/config/adom/{adom}/obj/credential-store/domain-controller/{domain-controller}',
+                '/pm/config/global/obj/credential-store/domain-controller/{domain-controller}'
             ],
             'revision': {
                 '6.4.0': True,
@@ -3367,6 +3530,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -3375,9 +3539,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -3401,6 +3567,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -3413,6 +3580,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -3421,9 +3589,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -3447,6 +3617,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -3459,6 +3630,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -3467,9 +3639,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -3492,6 +3666,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.3': True,
@@ -3503,6 +3678,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -3511,9 +3687,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -3534,6 +3712,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.3': True,
@@ -3545,6 +3724,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -3553,9 +3733,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -3578,6 +3760,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.3': True,
@@ -3589,6 +3772,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -3597,9 +3781,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -3616,7 +3802,8 @@ def main():
                 '7.0.4': True,
                 '7.0.5': True,
                 '7.0.6': True,
-                '7.0.7': True
+                '7.0.7': True,
+                '7.0.8': True
             }
         },
         'devprof_log_syslogd_filter_excludelist_fields': {
@@ -3633,7 +3820,8 @@ def main():
                 '7.0.4': True,
                 '7.0.5': True,
                 '7.0.6': True,
-                '7.0.7': True
+                '7.0.7': True,
+                '7.0.8': True
             }
         },
         'devprof_log_syslogd_filter_freestyle': {
@@ -3650,8 +3838,10 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -3674,6 +3864,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.3': True,
@@ -3685,6 +3876,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -3693,9 +3885,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -3713,8 +3907,10 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -3737,6 +3933,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.3': True,
@@ -3748,6 +3945,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -3756,9 +3954,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -3782,6 +3982,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.3': True,
@@ -3793,6 +3994,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -3801,9 +4003,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -3826,6 +4030,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True
             }
@@ -3849,6 +4054,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.3': True,
@@ -3860,6 +4066,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -3868,9 +4075,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -3893,6 +4102,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.3': True,
@@ -3904,6 +4114,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -3912,9 +4123,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -3937,6 +4150,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.3': True,
@@ -3948,6 +4162,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -3956,9 +4171,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -3982,6 +4199,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.3': True,
@@ -3993,6 +4211,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -4001,9 +4220,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -4026,6 +4247,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.3': True,
@@ -4037,6 +4259,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -4045,9 +4268,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -4070,6 +4295,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.3': True,
@@ -4081,6 +4307,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -4089,9 +4316,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -4114,6 +4343,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.3': True,
@@ -4125,6 +4355,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -4133,9 +4364,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -4158,6 +4391,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.3': True,
@@ -4169,6 +4403,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -4177,9 +4412,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -4202,6 +4439,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.3': True,
@@ -4213,6 +4451,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -4221,6 +4460,7 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True
             }
@@ -4244,6 +4484,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.3': True,
@@ -4255,6 +4496,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -4263,9 +4505,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -4288,6 +4532,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.3': True,
@@ -4299,6 +4544,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -4307,9 +4553,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -4332,6 +4580,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.3': True,
@@ -4343,6 +4592,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -4351,9 +4601,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -4376,6 +4628,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.3': True,
@@ -4387,6 +4640,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -4395,9 +4649,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -4420,6 +4676,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.3': True,
@@ -4431,6 +4688,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -4439,9 +4697,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -4464,6 +4724,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.3': True,
@@ -4475,6 +4736,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -4483,9 +4745,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -4508,6 +4772,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.3': True,
@@ -4519,6 +4784,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -4527,9 +4793,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -4552,6 +4820,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.3': True,
@@ -4563,6 +4832,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -4571,9 +4841,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -4596,6 +4868,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.3': True,
@@ -4607,6 +4880,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -4615,9 +4889,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -4640,6 +4916,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.3': True,
@@ -4651,6 +4928,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -4659,9 +4937,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -4684,6 +4964,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.3': True,
@@ -4695,6 +4976,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -4703,9 +4985,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -4728,6 +5012,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.3': True,
@@ -4739,6 +5024,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -4747,9 +5033,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -4773,6 +5061,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.3': True,
@@ -4784,6 +5073,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -4792,9 +5082,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -4819,6 +5111,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.3': True,
@@ -4830,6 +5123,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -4838,9 +5132,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -4865,6 +5161,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.3': True,
@@ -4876,6 +5173,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -4884,9 +5182,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -4909,6 +5209,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.3': True,
@@ -4920,6 +5221,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -4928,9 +5230,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -4954,6 +5258,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.3': True,
@@ -4965,6 +5270,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -4973,9 +5279,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -4985,13 +5293,14 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/dlp/data-type/{data-type}',
-                '/pm/config/adom/{adom}/obj/dlp/data-type/{data-type}'
+                '/pm/config/adom/{adom}/obj/dlp/data-type/{data-type}',
+                '/pm/config/global/obj/dlp/data-type/{data-type}'
             ],
             'revision': {
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -5001,13 +5310,14 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/dlp/dictionary/{dictionary}',
-                '/pm/config/adom/{adom}/obj/dlp/dictionary/{dictionary}'
+                '/pm/config/adom/{adom}/obj/dlp/dictionary/{dictionary}',
+                '/pm/config/global/obj/dlp/dictionary/{dictionary}'
             ],
             'revision': {
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -5018,13 +5328,14 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/dlp/dictionary/{dictionary}/entries/{entries}',
-                '/pm/config/adom/{adom}/obj/dlp/dictionary/{dictionary}/entries/{entries}'
+                '/pm/config/adom/{adom}/obj/dlp/dictionary/{dictionary}/entries/{entries}',
+                '/pm/config/global/obj/dlp/dictionary/{dictionary}/entries/{entries}'
             ],
             'revision': {
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -5049,6 +5360,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -5061,6 +5373,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -5069,9 +5382,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -5097,6 +5412,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -5109,6 +5425,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -5117,9 +5434,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -5144,6 +5463,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -5156,6 +5476,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -5164,6 +5485,7 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True
             }
@@ -5174,13 +5496,14 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/dlp/profile/{profile}',
-                '/pm/config/adom/{adom}/obj/dlp/profile/{profile}'
+                '/pm/config/adom/{adom}/obj/dlp/profile/{profile}',
+                '/pm/config/global/obj/dlp/profile/{profile}'
             ],
             'revision': {
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -5191,13 +5514,14 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/dlp/profile/{profile}/rule/{rule}',
-                '/pm/config/adom/{adom}/obj/dlp/profile/{profile}/rule/{rule}'
+                '/pm/config/adom/{adom}/obj/dlp/profile/{profile}/rule/{rule}',
+                '/pm/config/global/obj/dlp/profile/{profile}/rule/{rule}'
             ],
             'revision': {
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -5207,8 +5531,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/dlp/sensitivity/{sensitivity}',
-                '/pm/config/adom/{adom}/obj/dlp/sensitivity/{sensitivity}'
+                '/pm/config/adom/{adom}/obj/dlp/sensitivity/{sensitivity}',
+                '/pm/config/global/obj/dlp/sensitivity/{sensitivity}'
             ],
             'revision': {
                 '6.2.0': True,
@@ -5221,6 +5545,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -5233,6 +5558,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -5241,9 +5567,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -5268,6 +5596,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -5280,6 +5609,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -5288,9 +5618,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -5301,13 +5633,14 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/dlp/sensor/{sensor}/entries/{entries}',
-                '/pm/config/adom/{adom}/obj/dlp/sensor/{sensor}/entries/{entries}'
+                '/pm/config/adom/{adom}/obj/dlp/sensor/{sensor}/entries/{entries}',
+                '/pm/config/global/obj/dlp/sensor/{sensor}/entries/{entries}'
             ],
             'revision': {
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -5333,6 +5666,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -5345,6 +5679,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -5353,9 +5688,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -5380,6 +5717,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -5392,6 +5730,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -5400,9 +5739,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -5428,6 +5769,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -5440,6 +5782,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -5448,9 +5791,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -5475,6 +5820,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -5487,6 +5833,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -5495,9 +5842,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -5508,8 +5857,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/dnsfilter/profile/{profile}/dns-translation/{dns-translation}',
-                '/pm/config/adom/{adom}/obj/dnsfilter/profile/{profile}/dns-translation/{dns-translation}'
+                '/pm/config/adom/{adom}/obj/dnsfilter/profile/{profile}/dns-translation/{dns-translation}',
+                '/pm/config/global/obj/dnsfilter/profile/{profile}/dns-translation/{dns-translation}'
             ],
             'revision': {
                 '6.2.0': True,
@@ -5522,6 +5871,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -5534,6 +5884,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -5542,9 +5893,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -5569,6 +5922,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -5581,6 +5935,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -5589,9 +5944,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -5616,6 +5973,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -5628,6 +5986,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -5636,9 +5995,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -5664,6 +6025,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -5676,6 +6038,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -5684,9 +6047,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -5696,8 +6061,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/dnsfilter/profile/{profile}/urlfilter',
-                '/pm/config/adom/{adom}/obj/dnsfilter/profile/{profile}/urlfilter'
+                '/pm/config/adom/{adom}/obj/dnsfilter/profile/{profile}/urlfilter',
+                '/pm/config/global/obj/dnsfilter/profile/{profile}/urlfilter'
             ],
             'revision': {
                 '6.2.0': True,
@@ -5709,7 +6074,8 @@ def main():
                 '6.2.7': True,
                 '6.2.8': True,
                 '6.2.9': True,
-                '6.2.10': True
+                '6.2.10': True,
+                '6.2.11': True
             }
         },
         'dnsfilter_urlfilter': {
@@ -5718,8 +6084,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/dnsfilter/urlfilter/{urlfilter}',
-                '/pm/config/adom/{adom}/obj/dnsfilter/urlfilter/{urlfilter}'
+                '/pm/config/adom/{adom}/obj/dnsfilter/urlfilter/{urlfilter}',
+                '/pm/config/global/obj/dnsfilter/urlfilter/{urlfilter}'
             ],
             'revision': {
                 '6.2.0': True,
@@ -5731,7 +6097,8 @@ def main():
                 '6.2.7': True,
                 '6.2.8': True,
                 '6.2.9': True,
-                '6.2.10': True
+                '6.2.10': True,
+                '6.2.11': True
             }
         },
         'dnsfilter_urlfilter_entries': {
@@ -5741,8 +6108,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/dnsfilter/urlfilter/{urlfilter}/entries/{entries}',
-                '/pm/config/adom/{adom}/obj/dnsfilter/urlfilter/{urlfilter}/entries/{entries}'
+                '/pm/config/adom/{adom}/obj/dnsfilter/urlfilter/{urlfilter}/entries/{entries}',
+                '/pm/config/global/obj/dnsfilter/urlfilter/{urlfilter}/entries/{entries}'
             ],
             'revision': {
                 '6.2.0': True,
@@ -5754,7 +6121,8 @@ def main():
                 '6.2.7': True,
                 '6.2.8': True,
                 '6.2.9': True,
-                '6.2.10': True
+                '6.2.10': True,
+                '6.2.11': True
             }
         },
         'dvmdb_adom': {
@@ -5776,6 +6144,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -5788,6 +6157,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -5796,9 +6166,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -5823,6 +6195,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -5835,6 +6208,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -5843,9 +6217,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -5871,6 +6247,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -5883,6 +6260,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -5891,9 +6269,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -5919,6 +6299,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -5931,6 +6312,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -5939,9 +6321,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -5951,8 +6335,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/dvmdb/folder/{folder}',
-                '/dvmdb/adom/{adom}/folder/{folder}'
+                '/dvmdb/adom/{adom}/folder/{folder}',
+                '/dvmdb/folder/{folder}'
             ],
             'revision': {
                 '6.4.2': True,
@@ -5965,6 +6349,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -5973,9 +6358,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -6000,6 +6387,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -6012,6 +6400,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -6020,9 +6409,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -6044,6 +6435,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -6056,6 +6448,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -6064,9 +6457,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -6088,6 +6483,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -6100,6 +6496,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -6108,9 +6505,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -6132,6 +6531,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -6144,6 +6544,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -6152,9 +6553,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -6180,6 +6583,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -6192,6 +6596,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -6200,9 +6605,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -6228,6 +6635,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -6240,6 +6648,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -6248,9 +6657,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -6274,6 +6685,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -6286,6 +6698,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -6294,9 +6707,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -6321,6 +6736,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -6333,6 +6749,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -6341,9 +6758,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -6367,6 +6786,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -6379,6 +6799,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -6387,9 +6808,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -6414,6 +6837,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -6426,6 +6850,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -6434,9 +6859,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -6462,6 +6889,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -6474,6 +6902,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -6482,9 +6911,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -6509,6 +6940,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -6521,6 +6953,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -6529,9 +6962,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -6555,6 +6990,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -6567,6 +7003,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -6575,9 +7012,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -6602,6 +7041,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -6614,6 +7054,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -6622,9 +7063,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -6651,6 +7094,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -6663,6 +7107,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -6671,9 +7116,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -6699,6 +7146,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -6711,6 +7159,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -6719,9 +7168,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -6748,6 +7199,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -6760,6 +7212,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -6768,9 +7221,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -6794,6 +7249,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -6806,6 +7262,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -6814,9 +7271,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -6840,6 +7299,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -6852,6 +7312,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -6860,9 +7321,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -6886,6 +7349,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -6898,6 +7362,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -6906,9 +7371,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -6932,6 +7399,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -6944,6 +7412,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -6952,9 +7421,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -6979,6 +7450,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -6991,6 +7463,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -6999,9 +7472,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -7026,6 +7501,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -7038,6 +7514,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -7046,9 +7523,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -7073,6 +7552,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -7085,6 +7565,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -7093,9 +7574,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -7121,6 +7604,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -7133,6 +7617,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -7141,9 +7626,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -7168,6 +7655,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -7180,6 +7668,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -7188,9 +7677,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -7216,6 +7707,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -7228,6 +7720,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -7236,9 +7729,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -7248,8 +7743,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/dynamic/input/interface/{interface}',
-                '/pm/config/adom/{adom}/obj/dynamic/input/interface/{interface}'
+                '/pm/config/adom/{adom}/obj/dynamic/input/interface/{interface}',
+                '/pm/config/global/obj/dynamic/input/interface/{interface}'
             ],
             'revision': {
                 '6.2.2': True,
@@ -7260,6 +7755,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True
             }
         },
@@ -7270,8 +7766,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/dynamic/input/interface/{interface}/dynamic_mapping/{dynamic_mapping}',
-                '/pm/config/adom/{adom}/obj/dynamic/input/interface/{interface}/dynamic_mapping/{dynamic_mapping}'
+                '/pm/config/adom/{adom}/obj/dynamic/input/interface/{interface}/dynamic_mapping/{dynamic_mapping}',
+                '/pm/config/global/obj/dynamic/input/interface/{interface}/dynamic_mapping/{dynamic_mapping}'
             ],
             'revision': {
                 '6.2.2': True,
@@ -7282,6 +7778,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True
             }
         },
@@ -7306,6 +7803,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -7318,6 +7816,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -7326,9 +7825,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -7354,6 +7855,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -7366,6 +7868,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -7374,9 +7877,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -7387,8 +7892,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/dynamic/interface/{interface}/platform_mapping/{platform_mapping}',
-                '/pm/config/adom/{adom}/obj/dynamic/interface/{interface}/platform_mapping/{platform_mapping}'
+                '/pm/config/adom/{adom}/obj/dynamic/interface/{interface}/platform_mapping/{platform_mapping}',
+                '/pm/config/global/obj/dynamic/interface/{interface}/platform_mapping/{platform_mapping}'
             ],
             'revision': {
                 '6.4.1': True,
@@ -7402,6 +7907,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -7410,9 +7916,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -7437,6 +7945,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -7449,6 +7958,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -7457,9 +7967,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -7484,6 +7996,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -7496,6 +8009,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -7504,9 +8018,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -7532,6 +8048,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -7544,6 +8061,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -7552,9 +8070,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -7579,6 +8099,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -7591,6 +8112,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -7599,9 +8121,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -7626,6 +8150,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -7637,7 +8162,8 @@ def main():
                 '6.4.8': True,
                 '6.4.9': True,
                 '6.4.10': True,
-                '6.4.11': True
+                '6.4.11': True,
+                '6.4.12': True
             }
         },
         'dynamic_virtualwanlink_members_dynamicmapping': {
@@ -7662,6 +8188,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -7673,7 +8200,8 @@ def main():
                 '6.4.8': True,
                 '6.4.9': True,
                 '6.4.10': True,
-                '6.4.11': True
+                '6.4.11': True,
+                '6.4.12': True
             }
         },
         'dynamic_virtualwanlink_neighbor': {
@@ -7682,8 +8210,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/dynamic/virtual-wan-link/neighbor/{neighbor}',
-                '/pm/config/adom/{adom}/obj/dynamic/virtual-wan-link/neighbor/{neighbor}'
+                '/pm/config/adom/{adom}/obj/dynamic/virtual-wan-link/neighbor/{neighbor}',
+                '/pm/config/global/obj/dynamic/virtual-wan-link/neighbor/{neighbor}'
             ],
             'revision': {
                 '6.2.2': True,
@@ -7694,6 +8222,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -7705,7 +8234,8 @@ def main():
                 '6.4.8': True,
                 '6.4.9': True,
                 '6.4.10': True,
-                '6.4.11': True
+                '6.4.11': True,
+                '6.4.12': True
             }
         },
         'dynamic_virtualwanlink_neighbor_dynamicmapping': {
@@ -7715,8 +8245,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/dynamic/virtual-wan-link/neighbor/{neighbor}/dynamic_mapping/{dynamic_mapping}',
-                '/pm/config/adom/{adom}/obj/dynamic/virtual-wan-link/neighbor/{neighbor}/dynamic_mapping/{dynamic_mapping}'
+                '/pm/config/adom/{adom}/obj/dynamic/virtual-wan-link/neighbor/{neighbor}/dynamic_mapping/{dynamic_mapping}',
+                '/pm/config/global/obj/dynamic/virtual-wan-link/neighbor/{neighbor}/dynamic_mapping/{dynamic_mapping}'
             ],
             'revision': {
                 '6.2.2': True,
@@ -7727,6 +8257,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -7738,7 +8269,8 @@ def main():
                 '6.4.8': True,
                 '6.4.9': True,
                 '6.4.10': True,
-                '6.4.11': True
+                '6.4.11': True,
+                '6.4.12': True
             }
         },
         'dynamic_virtualwanlink_server': {
@@ -7762,6 +8294,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -7773,7 +8306,8 @@ def main():
                 '6.4.8': True,
                 '6.4.9': True,
                 '6.4.10': True,
-                '6.4.11': True
+                '6.4.11': True,
+                '6.4.12': True
             }
         },
         'dynamic_virtualwanlink_server_dynamicmapping': {
@@ -7798,6 +8332,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -7809,7 +8344,8 @@ def main():
                 '6.4.8': True,
                 '6.4.9': True,
                 '6.4.10': True,
-                '6.4.11': True
+                '6.4.11': True,
+                '6.4.12': True
             }
         },
         'dynamic_vpntunnel': {
@@ -7833,6 +8369,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -7845,6 +8382,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -7853,9 +8391,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -7881,6 +8421,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -7893,6 +8434,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -7901,9 +8443,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -7913,8 +8457,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/emailfilter/block-allow-list/{block-allow-list}',
-                '/pm/config/adom/{adom}/obj/emailfilter/block-allow-list/{block-allow-list}'
+                '/pm/config/adom/{adom}/obj/emailfilter/block-allow-list/{block-allow-list}',
+                '/pm/config/global/obj/emailfilter/block-allow-list/{block-allow-list}'
             ],
             'revision': {
                 '7.0.0': True,
@@ -7925,9 +8469,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -7938,8 +8484,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/emailfilter/block-allow-list/{block-allow-list}/entries/{entries}',
-                '/pm/config/adom/{adom}/obj/emailfilter/block-allow-list/{block-allow-list}/entries/{entries}'
+                '/pm/config/adom/{adom}/obj/emailfilter/block-allow-list/{block-allow-list}/entries/{entries}',
+                '/pm/config/global/obj/emailfilter/block-allow-list/{block-allow-list}/entries/{entries}'
             ],
             'revision': {
                 '7.0.0': True,
@@ -7950,9 +8496,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -7962,8 +8510,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/emailfilter/bwl/{bwl}',
-                '/pm/config/adom/{adom}/obj/emailfilter/bwl/{bwl}'
+                '/pm/config/adom/{adom}/obj/emailfilter/bwl/{bwl}',
+                '/pm/config/global/obj/emailfilter/bwl/{bwl}'
             ],
             'revision': {
                 '6.2.0': True,
@@ -7976,6 +8524,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -7988,6 +8537,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -7996,9 +8546,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -8009,8 +8561,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/emailfilter/bwl/{bwl}/entries/{entries}',
-                '/pm/config/adom/{adom}/obj/emailfilter/bwl/{bwl}/entries/{entries}'
+                '/pm/config/adom/{adom}/obj/emailfilter/bwl/{bwl}/entries/{entries}',
+                '/pm/config/global/obj/emailfilter/bwl/{bwl}/entries/{entries}'
             ],
             'revision': {
                 '6.2.0': True,
@@ -8023,6 +8575,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -8035,6 +8588,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -8043,9 +8597,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -8055,8 +8611,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/emailfilter/bword/{bword}',
-                '/pm/config/adom/{adom}/obj/emailfilter/bword/{bword}'
+                '/pm/config/adom/{adom}/obj/emailfilter/bword/{bword}',
+                '/pm/config/global/obj/emailfilter/bword/{bword}'
             ],
             'revision': {
                 '6.2.0': True,
@@ -8069,6 +8625,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -8081,6 +8638,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -8089,9 +8647,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -8102,8 +8662,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/emailfilter/bword/{bword}/entries/{entries}',
-                '/pm/config/adom/{adom}/obj/emailfilter/bword/{bword}/entries/{entries}'
+                '/pm/config/adom/{adom}/obj/emailfilter/bword/{bword}/entries/{entries}',
+                '/pm/config/global/obj/emailfilter/bword/{bword}/entries/{entries}'
             ],
             'revision': {
                 '6.2.0': True,
@@ -8116,6 +8676,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -8128,6 +8689,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -8136,9 +8698,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -8148,8 +8712,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/emailfilter/dnsbl/{dnsbl}',
-                '/pm/config/adom/{adom}/obj/emailfilter/dnsbl/{dnsbl}'
+                '/pm/config/adom/{adom}/obj/emailfilter/dnsbl/{dnsbl}',
+                '/pm/config/global/obj/emailfilter/dnsbl/{dnsbl}'
             ],
             'revision': {
                 '6.2.0': True,
@@ -8162,6 +8726,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -8174,6 +8739,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -8182,9 +8748,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -8195,8 +8763,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/emailfilter/dnsbl/{dnsbl}/entries/{entries}',
-                '/pm/config/adom/{adom}/obj/emailfilter/dnsbl/{dnsbl}/entries/{entries}'
+                '/pm/config/adom/{adom}/obj/emailfilter/dnsbl/{dnsbl}/entries/{entries}',
+                '/pm/config/global/obj/emailfilter/dnsbl/{dnsbl}/entries/{entries}'
             ],
             'revision': {
                 '6.2.0': True,
@@ -8209,6 +8777,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -8221,6 +8790,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -8229,9 +8799,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -8240,8 +8812,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/emailfilter/fortishield',
-                '/pm/config/adom/{adom}/obj/emailfilter/fortishield'
+                '/pm/config/adom/{adom}/obj/emailfilter/fortishield',
+                '/pm/config/global/obj/emailfilter/fortishield'
             ],
             'revision': {
                 '6.2.0': True,
@@ -8254,6 +8826,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -8266,6 +8839,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -8274,9 +8848,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -8286,8 +8862,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/emailfilter/iptrust/{iptrust}',
-                '/pm/config/adom/{adom}/obj/emailfilter/iptrust/{iptrust}'
+                '/pm/config/adom/{adom}/obj/emailfilter/iptrust/{iptrust}',
+                '/pm/config/global/obj/emailfilter/iptrust/{iptrust}'
             ],
             'revision': {
                 '6.2.0': True,
@@ -8300,6 +8876,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -8312,6 +8889,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -8320,9 +8898,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -8333,8 +8913,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/emailfilter/iptrust/{iptrust}/entries/{entries}',
-                '/pm/config/adom/{adom}/obj/emailfilter/iptrust/{iptrust}/entries/{entries}'
+                '/pm/config/adom/{adom}/obj/emailfilter/iptrust/{iptrust}/entries/{entries}',
+                '/pm/config/global/obj/emailfilter/iptrust/{iptrust}/entries/{entries}'
             ],
             'revision': {
                 '6.2.0': True,
@@ -8347,6 +8927,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -8359,6 +8940,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -8367,9 +8949,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -8379,8 +8963,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/emailfilter/mheader/{mheader}',
-                '/pm/config/adom/{adom}/obj/emailfilter/mheader/{mheader}'
+                '/pm/config/adom/{adom}/obj/emailfilter/mheader/{mheader}',
+                '/pm/config/global/obj/emailfilter/mheader/{mheader}'
             ],
             'revision': {
                 '6.2.0': True,
@@ -8393,6 +8977,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -8405,6 +8990,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -8413,9 +8999,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -8426,8 +9014,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/emailfilter/mheader/{mheader}/entries/{entries}',
-                '/pm/config/adom/{adom}/obj/emailfilter/mheader/{mheader}/entries/{entries}'
+                '/pm/config/adom/{adom}/obj/emailfilter/mheader/{mheader}/entries/{entries}',
+                '/pm/config/global/obj/emailfilter/mheader/{mheader}/entries/{entries}'
             ],
             'revision': {
                 '6.2.0': True,
@@ -8440,6 +9028,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -8452,6 +9041,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -8460,9 +9050,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -8471,8 +9063,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/emailfilter/options',
-                '/pm/config/adom/{adom}/obj/emailfilter/options'
+                '/pm/config/adom/{adom}/obj/emailfilter/options',
+                '/pm/config/global/obj/emailfilter/options'
             ],
             'revision': {
                 '6.2.0': True,
@@ -8485,6 +9077,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -8497,6 +9090,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -8505,9 +9099,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -8517,8 +9113,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/emailfilter/profile/{profile}',
-                '/pm/config/adom/{adom}/obj/emailfilter/profile/{profile}'
+                '/pm/config/adom/{adom}/obj/emailfilter/profile/{profile}',
+                '/pm/config/global/obj/emailfilter/profile/{profile}'
             ],
             'revision': {
                 '6.2.0': True,
@@ -8531,6 +9127,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -8543,6 +9140,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -8551,9 +9149,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -8563,8 +9163,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/emailfilter/profile/{profile}/file-filter',
-                '/pm/config/adom/{adom}/obj/emailfilter/profile/{profile}/file-filter'
+                '/pm/config/adom/{adom}/obj/emailfilter/profile/{profile}/file-filter',
+                '/pm/config/global/obj/emailfilter/profile/{profile}/file-filter'
             ],
             'revision': {
                 '6.2.0': True,
@@ -8577,6 +9177,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -8589,6 +9190,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -8597,9 +9199,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -8610,8 +9214,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/emailfilter/profile/{profile}/file-filter/entries/{entries}',
-                '/pm/config/adom/{adom}/obj/emailfilter/profile/{profile}/file-filter/entries/{entries}'
+                '/pm/config/adom/{adom}/obj/emailfilter/profile/{profile}/file-filter/entries/{entries}',
+                '/pm/config/global/obj/emailfilter/profile/{profile}/file-filter/entries/{entries}'
             ],
             'revision': {
                 '6.2.0': True,
@@ -8624,6 +9228,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -8636,6 +9241,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -8644,9 +9250,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -8656,8 +9264,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/emailfilter/profile/{profile}/gmail',
-                '/pm/config/adom/{adom}/obj/emailfilter/profile/{profile}/gmail'
+                '/pm/config/adom/{adom}/obj/emailfilter/profile/{profile}/gmail',
+                '/pm/config/global/obj/emailfilter/profile/{profile}/gmail'
             ],
             'revision': {
                 '6.2.0': True,
@@ -8670,6 +9278,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -8682,6 +9291,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -8690,9 +9300,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -8702,8 +9314,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/emailfilter/profile/{profile}/imap',
-                '/pm/config/adom/{adom}/obj/emailfilter/profile/{profile}/imap'
+                '/pm/config/adom/{adom}/obj/emailfilter/profile/{profile}/imap',
+                '/pm/config/global/obj/emailfilter/profile/{profile}/imap'
             ],
             'revision': {
                 '6.2.0': True,
@@ -8716,6 +9328,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -8728,6 +9341,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -8736,9 +9350,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -8748,8 +9364,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/emailfilter/profile/{profile}/mapi',
-                '/pm/config/adom/{adom}/obj/emailfilter/profile/{profile}/mapi'
+                '/pm/config/adom/{adom}/obj/emailfilter/profile/{profile}/mapi',
+                '/pm/config/global/obj/emailfilter/profile/{profile}/mapi'
             ],
             'revision': {
                 '6.2.0': True,
@@ -8762,6 +9378,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -8774,6 +9391,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -8782,9 +9400,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -8794,8 +9414,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/emailfilter/profile/{profile}/msn-hotmail',
-                '/pm/config/adom/{adom}/obj/emailfilter/profile/{profile}/msn-hotmail'
+                '/pm/config/adom/{adom}/obj/emailfilter/profile/{profile}/msn-hotmail',
+                '/pm/config/global/obj/emailfilter/profile/{profile}/msn-hotmail'
             ],
             'revision': {
                 '6.2.0': True,
@@ -8808,6 +9428,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -8820,6 +9441,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -8828,9 +9450,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -8840,8 +9464,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/emailfilter/profile/{profile}/other-webmails',
-                '/pm/config/adom/{adom}/obj/emailfilter/profile/{profile}/other-webmails'
+                '/pm/config/adom/{adom}/obj/emailfilter/profile/{profile}/other-webmails',
+                '/pm/config/global/obj/emailfilter/profile/{profile}/other-webmails'
             ],
             'revision': {
                 '6.4.2': True,
@@ -8854,6 +9478,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -8862,9 +9487,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -8874,8 +9501,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/emailfilter/profile/{profile}/pop3',
-                '/pm/config/adom/{adom}/obj/emailfilter/profile/{profile}/pop3'
+                '/pm/config/adom/{adom}/obj/emailfilter/profile/{profile}/pop3',
+                '/pm/config/global/obj/emailfilter/profile/{profile}/pop3'
             ],
             'revision': {
                 '6.2.0': True,
@@ -8888,6 +9515,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -8900,6 +9528,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -8908,9 +9537,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -8920,8 +9551,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/emailfilter/profile/{profile}/smtp',
-                '/pm/config/adom/{adom}/obj/emailfilter/profile/{profile}/smtp'
+                '/pm/config/adom/{adom}/obj/emailfilter/profile/{profile}/smtp',
+                '/pm/config/global/obj/emailfilter/profile/{profile}/smtp'
             ],
             'revision': {
                 '6.2.0': True,
@@ -8934,6 +9565,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -8946,6 +9578,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -8954,9 +9587,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -8966,8 +9601,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/emailfilter/profile/{profile}/yahoo-mail',
-                '/pm/config/adom/{adom}/obj/emailfilter/profile/{profile}/yahoo-mail'
+                '/pm/config/adom/{adom}/obj/emailfilter/profile/{profile}/yahoo-mail',
+                '/pm/config/global/obj/emailfilter/profile/{profile}/yahoo-mail'
             ],
             'revision': {
                 '6.2.0': True
@@ -8979,8 +9614,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/endpoint-control/fctems/{fctems}',
-                '/pm/config/adom/{adom}/obj/endpoint-control/fctems/{fctems}'
+                '/pm/config/adom/{adom}/obj/endpoint-control/fctems/{fctems}',
+                '/pm/config/global/obj/endpoint-control/fctems/{fctems}'
             ],
             'revision': {
                 '7.0.2': True,
@@ -8989,9 +9624,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -9001,8 +9638,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/extender-controller/dataplan/{dataplan}',
-                '/pm/config/adom/{adom}/obj/extender-controller/dataplan/{dataplan}'
+                '/pm/config/adom/{adom}/obj/extender-controller/dataplan/{dataplan}',
+                '/pm/config/global/obj/extender-controller/dataplan/{dataplan}'
             ],
             'revision': {
                 '6.4.4': True,
@@ -9013,6 +9650,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -9021,9 +9659,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -9033,8 +9673,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/extender-controller/extender-profile/{extender-profile}',
-                '/pm/config/adom/{adom}/obj/extender-controller/extender-profile/{extender-profile}'
+                '/pm/config/adom/{adom}/obj/extender-controller/extender-profile/{extender-profile}',
+                '/pm/config/global/obj/extender-controller/extender-profile/{extender-profile}'
             ],
             'revision': {
                 '7.0.2': True,
@@ -9043,9 +9683,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -9055,8 +9697,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/extender-controller/extender-profile/{extender-profile}/cellular',
-                '/pm/config/adom/{adom}/obj/extender-controller/extender-profile/{extender-profile}/cellular'
+                '/pm/config/adom/{adom}/obj/extender-controller/extender-profile/{extender-profile}/cellular',
+                '/pm/config/global/obj/extender-controller/extender-profile/{extender-profile}/cellular'
             ],
             'revision': {
                 '7.0.2': True,
@@ -9065,9 +9707,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -9077,8 +9721,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/extender-controller/extender-profile/{extender-profile}/cellular/controller-report',
-                '/pm/config/adom/{adom}/obj/extender-controller/extender-profile/{extender-profile}/cellular/controller-report'
+                '/pm/config/adom/{adom}/obj/extender-controller/extender-profile/{extender-profile}/cellular/controller-report',
+                '/pm/config/global/obj/extender-controller/extender-profile/{extender-profile}/cellular/controller-report'
             ],
             'revision': {
                 '7.0.2': True,
@@ -9087,9 +9731,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -9099,8 +9745,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/extender-controller/extender-profile/{extender-profile}/cellular/modem1',
-                '/pm/config/adom/{adom}/obj/extender-controller/extender-profile/{extender-profile}/cellular/modem1'
+                '/pm/config/adom/{adom}/obj/extender-controller/extender-profile/{extender-profile}/cellular/modem1',
+                '/pm/config/global/obj/extender-controller/extender-profile/{extender-profile}/cellular/modem1'
             ],
             'revision': {
                 '7.0.2': True,
@@ -9109,9 +9755,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -9121,8 +9769,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/extender-controller/extender-profile/{extender-profile}/cellular/modem1/auto-switch',
-                '/pm/config/adom/{adom}/obj/extender-controller/extender-profile/{extender-profile}/cellular/modem1/auto-switch'
+                '/pm/config/adom/{adom}/obj/extender-controller/extender-profile/{extender-profile}/cellular/modem1/auto-switch',
+                '/pm/config/global/obj/extender-controller/extender-profile/{extender-profile}/cellular/modem1/auto-switch'
             ],
             'revision': {
                 '7.0.2': True,
@@ -9131,9 +9779,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -9143,8 +9793,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/extender-controller/extender-profile/{extender-profile}/cellular/modem2',
-                '/pm/config/adom/{adom}/obj/extender-controller/extender-profile/{extender-profile}/cellular/modem2'
+                '/pm/config/adom/{adom}/obj/extender-controller/extender-profile/{extender-profile}/cellular/modem2',
+                '/pm/config/global/obj/extender-controller/extender-profile/{extender-profile}/cellular/modem2'
             ],
             'revision': {
                 '7.0.2': True,
@@ -9153,9 +9803,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -9165,8 +9817,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/extender-controller/extender-profile/{extender-profile}/cellular/modem2/auto-switch',
-                '/pm/config/adom/{adom}/obj/extender-controller/extender-profile/{extender-profile}/cellular/modem2/auto-switch'
+                '/pm/config/adom/{adom}/obj/extender-controller/extender-profile/{extender-profile}/cellular/modem2/auto-switch',
+                '/pm/config/global/obj/extender-controller/extender-profile/{extender-profile}/cellular/modem2/auto-switch'
             ],
             'revision': {
                 '7.0.2': True,
@@ -9175,9 +9827,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -9187,8 +9841,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/extender-controller/extender-profile/{extender-profile}/cellular/sms-notification',
-                '/pm/config/adom/{adom}/obj/extender-controller/extender-profile/{extender-profile}/cellular/sms-notification'
+                '/pm/config/adom/{adom}/obj/extender-controller/extender-profile/{extender-profile}/cellular/sms-notification',
+                '/pm/config/global/obj/extender-controller/extender-profile/{extender-profile}/cellular/sms-notification'
             ],
             'revision': {
                 '7.0.2': True,
@@ -9197,9 +9851,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -9209,8 +9865,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/extender-controller/extender-profile/{extender-profile}/cellular/sms-notification/alert',
-                '/pm/config/adom/{adom}/obj/extender-controller/extender-profile/{extender-profile}/cellular/sms-notification/alert'
+                '/pm/config/adom/{adom}/obj/extender-controller/extender-profile/{extender-profile}/cellular/sms-notification/alert',
+                '/pm/config/global/obj/extender-controller/extender-profile/{extender-profile}/cellular/sms-notification/alert'
             ],
             'revision': {
                 '7.0.2': True,
@@ -9219,9 +9875,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -9232,8 +9890,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/extender-controller/extender-profile/{extender-profile}/cellular/sms-notification/receiver/{receiver}',
-                '/pm/config/adom/{adom}/obj/extender-controller/extender-profile/{extender-profile}/cellular/sms-notification/receiver/{receiver}'
+                '/pm/config/adom/{adom}/obj/extender-controller/extender-profile/{extender-profile}/cellular/sms-notification/receiver/{receiver}',
+                '/pm/config/global/obj/extender-controller/extender-profile/{extender-profile}/cellular/sms-notification/receiver/{receiver}'
             ],
             'revision': {
                 '7.0.2': True,
@@ -9242,9 +9900,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -9254,8 +9914,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/extender-controller/extender-profile/{extender-profile}/lan-extension',
-                '/pm/config/adom/{adom}/obj/extender-controller/extender-profile/{extender-profile}/lan-extension'
+                '/pm/config/adom/{adom}/obj/extender-controller/extender-profile/{extender-profile}/lan-extension',
+                '/pm/config/global/obj/extender-controller/extender-profile/{extender-profile}/lan-extension'
             ],
             'revision': {
                 '7.0.2': True,
@@ -9264,9 +9924,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -9277,8 +9939,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/extender-controller/extender-profile/{extender-profile}/lan-extension/backhaul/{backhaul}',
-                '/pm/config/adom/{adom}/obj/extender-controller/extender-profile/{extender-profile}/lan-extension/backhaul/{backhaul}'
+                '/pm/config/adom/{adom}/obj/extender-controller/extender-profile/{extender-profile}/lan-extension/backhaul/{backhaul}',
+                '/pm/config/global/obj/extender-controller/extender-profile/{extender-profile}/lan-extension/backhaul/{backhaul}'
             ],
             'revision': {
                 '7.0.2': True,
@@ -9287,9 +9949,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -9299,8 +9963,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/extender-controller/sim_profile/{sim_profile}',
-                '/pm/config/adom/{adom}/obj/extender-controller/sim_profile/{sim_profile}'
+                '/pm/config/adom/{adom}/obj/extender-controller/sim_profile/{sim_profile}',
+                '/pm/config/global/obj/extender-controller/sim_profile/{sim_profile}'
             ],
             'revision': {
                 '6.4.4': True,
@@ -9311,6 +9975,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -9319,9 +9984,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -9331,8 +9998,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/extender-controller/sim_profile/{sim_profile}/auto-switch_profile',
-                '/pm/config/adom/{adom}/obj/extender-controller/sim_profile/{sim_profile}/auto-switch_profile'
+                '/pm/config/adom/{adom}/obj/extender-controller/sim_profile/{sim_profile}/auto-switch_profile',
+                '/pm/config/global/obj/extender-controller/sim_profile/{sim_profile}/auto-switch_profile'
             ],
             'revision': {
                 '6.4.4': True,
@@ -9343,6 +10010,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -9351,9 +10019,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -9363,8 +10033,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/extender-controller/template/{template}',
-                '/pm/config/adom/{adom}/obj/extender-controller/template/{template}'
+                '/pm/config/adom/{adom}/obj/extender-controller/template/{template}',
+                '/pm/config/global/obj/extender-controller/template/{template}'
             ],
             'revision': {
                 '7.0.0': True,
@@ -9375,9 +10045,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -9387,12 +10059,13 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/extension-controller/dataplan/{dataplan}',
-                '/pm/config/adom/{adom}/obj/extension-controller/dataplan/{dataplan}'
+                '/pm/config/adom/{adom}/obj/extension-controller/dataplan/{dataplan}',
+                '/pm/config/global/obj/extension-controller/dataplan/{dataplan}'
             ],
             'revision': {
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -9402,12 +10075,13 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/extension-controller/extender-profile/{extender-profile}',
-                '/pm/config/adom/{adom}/obj/extension-controller/extender-profile/{extender-profile}'
+                '/pm/config/adom/{adom}/obj/extension-controller/extender-profile/{extender-profile}',
+                '/pm/config/global/obj/extension-controller/extender-profile/{extender-profile}'
             ],
             'revision': {
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -9417,12 +10091,13 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/extension-controller/extender-profile/{extender-profile}/cellular',
-                '/pm/config/adom/{adom}/obj/extension-controller/extender-profile/{extender-profile}/cellular'
+                '/pm/config/adom/{adom}/obj/extension-controller/extender-profile/{extender-profile}/cellular',
+                '/pm/config/global/obj/extension-controller/extender-profile/{extender-profile}/cellular'
             ],
             'revision': {
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -9432,12 +10107,13 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/extension-controller/extender-profile/{extender-profile}/cellular/controller-report',
-                '/pm/config/adom/{adom}/obj/extension-controller/extender-profile/{extender-profile}/cellular/controller-report'
+                '/pm/config/adom/{adom}/obj/extension-controller/extender-profile/{extender-profile}/cellular/controller-report',
+                '/pm/config/global/obj/extension-controller/extender-profile/{extender-profile}/cellular/controller-report'
             ],
             'revision': {
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -9447,12 +10123,13 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/extension-controller/extender-profile/{extender-profile}/cellular/modem1',
-                '/pm/config/adom/{adom}/obj/extension-controller/extender-profile/{extender-profile}/cellular/modem1'
+                '/pm/config/adom/{adom}/obj/extension-controller/extender-profile/{extender-profile}/cellular/modem1',
+                '/pm/config/global/obj/extension-controller/extender-profile/{extender-profile}/cellular/modem1'
             ],
             'revision': {
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -9462,12 +10139,13 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/extension-controller/extender-profile/{extender-profile}/cellular/modem1/auto-switch',
-                '/pm/config/adom/{adom}/obj/extension-controller/extender-profile/{extender-profile}/cellular/modem1/auto-switch'
+                '/pm/config/adom/{adom}/obj/extension-controller/extender-profile/{extender-profile}/cellular/modem1/auto-switch',
+                '/pm/config/global/obj/extension-controller/extender-profile/{extender-profile}/cellular/modem1/auto-switch'
             ],
             'revision': {
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -9477,12 +10155,13 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/extension-controller/extender-profile/{extender-profile}/cellular/modem2',
-                '/pm/config/adom/{adom}/obj/extension-controller/extender-profile/{extender-profile}/cellular/modem2'
+                '/pm/config/adom/{adom}/obj/extension-controller/extender-profile/{extender-profile}/cellular/modem2',
+                '/pm/config/global/obj/extension-controller/extender-profile/{extender-profile}/cellular/modem2'
             ],
             'revision': {
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -9492,12 +10171,13 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/extension-controller/extender-profile/{extender-profile}/cellular/modem2/auto-switch',
-                '/pm/config/adom/{adom}/obj/extension-controller/extender-profile/{extender-profile}/cellular/modem2/auto-switch'
+                '/pm/config/adom/{adom}/obj/extension-controller/extender-profile/{extender-profile}/cellular/modem2/auto-switch',
+                '/pm/config/global/obj/extension-controller/extender-profile/{extender-profile}/cellular/modem2/auto-switch'
             ],
             'revision': {
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -9507,12 +10187,13 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/extension-controller/extender-profile/{extender-profile}/cellular/sms-notification',
-                '/pm/config/adom/{adom}/obj/extension-controller/extender-profile/{extender-profile}/cellular/sms-notification'
+                '/pm/config/adom/{adom}/obj/extension-controller/extender-profile/{extender-profile}/cellular/sms-notification',
+                '/pm/config/global/obj/extension-controller/extender-profile/{extender-profile}/cellular/sms-notification'
             ],
             'revision': {
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -9522,12 +10203,13 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/extension-controller/extender-profile/{extender-profile}/cellular/sms-notification/alert',
-                '/pm/config/adom/{adom}/obj/extension-controller/extender-profile/{extender-profile}/cellular/sms-notification/alert'
+                '/pm/config/adom/{adom}/obj/extension-controller/extender-profile/{extender-profile}/cellular/sms-notification/alert',
+                '/pm/config/global/obj/extension-controller/extender-profile/{extender-profile}/cellular/sms-notification/alert'
             ],
             'revision': {
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -9538,12 +10220,13 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/extension-controller/extender-profile/{extender-profile}/cellular/sms-notification/receiver/{receiver}',
-                '/pm/config/adom/{adom}/obj/extension-controller/extender-profile/{extender-profile}/cellular/sms-notification/receiver/{receiver}'
+                '/pm/config/adom/{adom}/obj/extension-controller/extender-profile/{extender-profile}/cellular/sms-notification/receiver/{receiver}',
+                '/pm/config/global/obj/extension-controller/extender-profile/{extender-profile}/cellular/sms-notification/receiver/{receiver}'
             ],
             'revision': {
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -9553,12 +10236,13 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/extension-controller/extender-profile/{extender-profile}/lan-extension',
-                '/pm/config/adom/{adom}/obj/extension-controller/extender-profile/{extender-profile}/lan-extension'
+                '/pm/config/adom/{adom}/obj/extension-controller/extender-profile/{extender-profile}/lan-extension',
+                '/pm/config/global/obj/extension-controller/extender-profile/{extender-profile}/lan-extension'
             ],
             'revision': {
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -9569,12 +10253,13 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/extension-controller/extender-profile/{extender-profile}/lan-extension/backhaul/{backhaul}',
-                '/pm/config/adom/{adom}/obj/extension-controller/extender-profile/{extender-profile}/lan-extension/backhaul/{backhaul}'
+                '/pm/config/adom/{adom}/obj/extension-controller/extender-profile/{extender-profile}/lan-extension/backhaul/{backhaul}',
+                '/pm/config/global/obj/extension-controller/extender-profile/{extender-profile}/lan-extension/backhaul/{backhaul}'
             ],
             'revision': {
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -9584,8 +10269,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/file-filter/profile/{profile}',
-                '/pm/config/adom/{adom}/obj/file-filter/profile/{profile}'
+                '/pm/config/adom/{adom}/obj/file-filter/profile/{profile}',
+                '/pm/config/global/obj/file-filter/profile/{profile}'
             ],
             'revision': {
                 '6.4.1': True,
@@ -9599,6 +10284,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -9607,9 +10293,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -9620,8 +10308,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/file-filter/profile/{profile}/rules/{rules}',
-                '/pm/config/adom/{adom}/obj/file-filter/profile/{profile}/rules/{rules}'
+                '/pm/config/adom/{adom}/obj/file-filter/profile/{profile}/rules/{rules}',
+                '/pm/config/global/obj/file-filter/profile/{profile}/rules/{rules}'
             ],
             'revision': {
                 '6.4.1': True,
@@ -9635,6 +10323,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -9643,9 +10332,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -9655,8 +10346,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/firewall/access-proxy/{access-proxy}',
-                '/pm/config/adom/{adom}/obj/firewall/access-proxy/{access-proxy}'
+                '/pm/config/adom/{adom}/obj/firewall/access-proxy/{access-proxy}',
+                '/pm/config/global/obj/firewall/access-proxy/{access-proxy}'
             ],
             'revision': {
                 '7.0.0': True,
@@ -9667,9 +10358,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -9679,12 +10372,13 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/firewall/access-proxy6/{access-proxy6}',
-                '/pm/config/adom/{adom}/obj/firewall/access-proxy6/{access-proxy6}'
+                '/pm/config/adom/{adom}/obj/firewall/access-proxy6/{access-proxy6}',
+                '/pm/config/global/obj/firewall/access-proxy6/{access-proxy6}'
             ],
             'revision': {
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -9695,12 +10389,13 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/firewall/access-proxy6/{access-proxy6}/api-gateway/{api-gateway}',
-                '/pm/config/adom/{adom}/obj/firewall/access-proxy6/{access-proxy6}/api-gateway/{api-gateway}'
+                '/pm/config/adom/{adom}/obj/firewall/access-proxy6/{access-proxy6}/api-gateway/{api-gateway}',
+                '/pm/config/global/obj/firewall/access-proxy6/{access-proxy6}/api-gateway/{api-gateway}'
             ],
             'revision': {
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -9711,12 +10406,13 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/firewall/access-proxy6/{access-proxy6}/api-gateway6/{api-gateway6}',
-                '/pm/config/adom/{adom}/obj/firewall/access-proxy6/{access-proxy6}/api-gateway6/{api-gateway6}'
+                '/pm/config/adom/{adom}/obj/firewall/access-proxy6/{access-proxy6}/api-gateway6/{api-gateway6}',
+                '/pm/config/global/obj/firewall/access-proxy6/{access-proxy6}/api-gateway6/{api-gateway6}'
             ],
             'revision': {
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -9728,12 +10424,13 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/firewall/access-proxy6/{access-proxy6}/api-gateway6/{api-gateway6}/realservers/{realservers}',
-                '/pm/config/adom/{adom}/obj/firewall/access-proxy6/{access-proxy6}/api-gateway6/{api-gateway6}/realservers/{realservers}'
+                '/pm/config/adom/{adom}/obj/firewall/access-proxy6/{access-proxy6}/api-gateway6/{api-gateway6}/realservers/{realservers}',
+                '/pm/config/global/obj/firewall/access-proxy6/{access-proxy6}/api-gateway6/{api-gateway6}/realservers/{realservers}'
             ],
             'revision': {
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -9745,12 +10442,13 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/firewall/access-proxy6/{access-proxy6}/api-gateway6/{api-gateway6}/ssl-cipher-suites/{ssl-cipher-suites}',
-                '/pm/config/adom/{adom}/obj/firewall/access-proxy6/{access-proxy6}/api-gateway6/{api-gateway6}/ssl-cipher-suites/{ssl-cipher-suites}'
+                '/pm/config/adom/{adom}/obj/firewall/access-proxy6/{access-proxy6}/api-gateway6/{api-gateway6}/ssl-cipher-suites/{ssl-cipher-suites}',
+                '/pm/config/global/obj/firewall/access-proxy6/{access-proxy6}/api-gateway6/{api-gateway6}/ssl-cipher-suites/{ssl-cipher-suites}'
             ],
             'revision': {
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -9762,12 +10460,13 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/firewall/access-proxy6/{access-proxy6}/api-gateway/{api-gateway}/realservers/{realservers}',
-                '/pm/config/adom/{adom}/obj/firewall/access-proxy6/{access-proxy6}/api-gateway/{api-gateway}/realservers/{realservers}'
+                '/pm/config/adom/{adom}/obj/firewall/access-proxy6/{access-proxy6}/api-gateway/{api-gateway}/realservers/{realservers}',
+                '/pm/config/global/obj/firewall/access-proxy6/{access-proxy6}/api-gateway/{api-gateway}/realservers/{realservers}'
             ],
             'revision': {
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -9779,12 +10478,13 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/firewall/access-proxy6/{access-proxy6}/api-gateway/{api-gateway}/ssl-cipher-suites/{ssl-cipher-suites}',
-                '/pm/config/adom/{adom}/obj/firewall/access-proxy6/{access-proxy6}/api-gateway/{api-gateway}/ssl-cipher-suites/{ssl-cipher-suites}'
+                '/pm/config/adom/{adom}/obj/firewall/access-proxy6/{access-proxy6}/api-gateway/{api-gateway}/ssl-cipher-suites/{ssl-cipher-suites}',
+                '/pm/config/global/obj/firewall/access-proxy6/{access-proxy6}/api-gateway/{api-gateway}/ssl-cipher-suites/{ssl-cipher-suites}'
             ],
             'revision': {
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -9795,8 +10495,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/firewall/access-proxy/{access-proxy}/api-gateway/{api-gateway}',
-                '/pm/config/adom/{adom}/obj/firewall/access-proxy/{access-proxy}/api-gateway/{api-gateway}'
+                '/pm/config/adom/{adom}/obj/firewall/access-proxy/{access-proxy}/api-gateway/{api-gateway}',
+                '/pm/config/global/obj/firewall/access-proxy/{access-proxy}/api-gateway/{api-gateway}'
             ],
             'revision': {
                 '7.0.0': True,
@@ -9807,9 +10507,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -9820,8 +10522,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/firewall/access-proxy/{access-proxy}/api-gateway6/{api-gateway6}',
-                '/pm/config/adom/{adom}/obj/firewall/access-proxy/{access-proxy}/api-gateway6/{api-gateway6}'
+                '/pm/config/adom/{adom}/obj/firewall/access-proxy/{access-proxy}/api-gateway6/{api-gateway6}',
+                '/pm/config/global/obj/firewall/access-proxy/{access-proxy}/api-gateway6/{api-gateway6}'
             ],
             'revision': {
                 '7.0.1': True,
@@ -9831,9 +10533,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -9845,8 +10549,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/firewall/access-proxy/{access-proxy}/api-gateway6/{api-gateway6}/realservers/{realservers}',
-                '/pm/config/adom/{adom}/obj/firewall/access-proxy/{access-proxy}/api-gateway6/{api-gateway6}/realservers/{realservers}'
+                '/pm/config/adom/{adom}/obj/firewall/access-proxy/{access-proxy}/api-gateway6/{api-gateway6}/realservers/{realservers}',
+                '/pm/config/global/obj/firewall/access-proxy/{access-proxy}/api-gateway6/{api-gateway6}/realservers/{realservers}'
             ],
             'revision': {
                 '7.0.1': True,
@@ -9856,9 +10560,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -9870,8 +10576,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/firewall/access-proxy/{access-proxy}/api-gateway6/{api-gateway6}/ssl-cipher-suites/{ssl-cipher-suites}',
-                '/pm/config/adom/{adom}/obj/firewall/access-proxy/{access-proxy}/api-gateway6/{api-gateway6}/ssl-cipher-suites/{ssl-cipher-suites}'
+                '/pm/config/adom/{adom}/obj/firewall/access-proxy/{access-proxy}/api-gateway6/{api-gateway6}/ssl-cipher-suites/{ssl-cipher-suites}',
+                '/pm/config/global/obj/firewall/access-proxy/{access-proxy}/api-gateway6/{api-gateway6}/ssl-cipher-suites/{ssl-cipher-suites}'
             ],
             'revision': {
                 '7.0.1': True,
@@ -9881,9 +10587,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -9895,8 +10603,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/firewall/access-proxy/{access-proxy}/api-gateway/{api-gateway}/realservers/{realservers}',
-                '/pm/config/adom/{adom}/obj/firewall/access-proxy/{access-proxy}/api-gateway/{api-gateway}/realservers/{realservers}'
+                '/pm/config/adom/{adom}/obj/firewall/access-proxy/{access-proxy}/api-gateway/{api-gateway}/realservers/{realservers}',
+                '/pm/config/global/obj/firewall/access-proxy/{access-proxy}/api-gateway/{api-gateway}/realservers/{realservers}'
             ],
             'revision': {
                 '7.0.0': True,
@@ -9907,9 +10615,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -9921,8 +10631,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/firewall/access-proxy/{access-proxy}/api-gateway/{api-gateway}/ssl-cipher-suites/{ssl-cipher-suites}',
-                '/pm/config/adom/{adom}/obj/firewall/access-proxy/{access-proxy}/api-gateway/{api-gateway}/ssl-cipher-suites/{ssl-cipher-suites}'
+                '/pm/config/adom/{adom}/obj/firewall/access-proxy/{access-proxy}/api-gateway/{api-gateway}/ssl-cipher-suites/{ssl-cipher-suites}',
+                '/pm/config/global/obj/firewall/access-proxy/{access-proxy}/api-gateway/{api-gateway}/ssl-cipher-suites/{ssl-cipher-suites}'
             ],
             'revision': {
                 '7.0.0': True,
@@ -9933,9 +10643,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -9946,8 +10658,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/firewall/access-proxy/{access-proxy}/realservers/{realservers}',
-                '/pm/config/adom/{adom}/obj/firewall/access-proxy/{access-proxy}/realservers/{realservers}'
+                '/pm/config/adom/{adom}/obj/firewall/access-proxy/{access-proxy}/realservers/{realservers}',
+                '/pm/config/global/obj/firewall/access-proxy/{access-proxy}/realservers/{realservers}'
             ],
             'revision': {
                 '7.0.0': True,
@@ -9958,9 +10670,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -9970,8 +10684,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/firewall/access-proxy/{access-proxy}/server-pubkey-auth-settings',
-                '/pm/config/adom/{adom}/obj/firewall/access-proxy/{access-proxy}/server-pubkey-auth-settings'
+                '/pm/config/adom/{adom}/obj/firewall/access-proxy/{access-proxy}/server-pubkey-auth-settings',
+                '/pm/config/global/obj/firewall/access-proxy/{access-proxy}/server-pubkey-auth-settings'
             ],
             'revision': {
                 '7.0.0': True,
@@ -9982,9 +10696,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -9995,8 +10711,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/firewall/access-proxy/{access-proxy}/server-pubkey-auth-settings/cert-extension/{cert-extension}',
-                '/pm/config/adom/{adom}/obj/firewall/access-proxy/{access-proxy}/server-pubkey-auth-settings/cert-extension/{cert-extension}'
+                '/pm/config/adom/{adom}/obj/firewall/access-proxy/{access-proxy}/server-pubkey-auth-settings/cert-extension/{cert-extension}',
+                '/pm/config/global/obj/firewall/access-proxy/{access-proxy}/server-pubkey-auth-settings/cert-extension/{cert-extension}'
             ],
             'revision': {
                 '7.0.0': True,
@@ -10007,9 +10723,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -10019,8 +10737,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/firewall/access-proxy-virtual-host/{access-proxy-virtual-host}',
-                '/pm/config/adom/{adom}/obj/firewall/access-proxy-virtual-host/{access-proxy-virtual-host}'
+                '/pm/config/adom/{adom}/obj/firewall/access-proxy-virtual-host/{access-proxy-virtual-host}',
+                '/pm/config/global/obj/firewall/access-proxy-virtual-host/{access-proxy-virtual-host}'
             ],
             'revision': {
                 '7.0.1': True,
@@ -10030,9 +10748,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -10057,6 +10777,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -10069,6 +10790,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -10077,9 +10799,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -10104,6 +10828,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -10116,6 +10841,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -10124,9 +10850,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -10152,6 +10880,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -10164,6 +10893,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -10172,9 +10902,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -10186,8 +10918,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/firewall/address6/{address6}/dynamic_mapping/{dynamic_mapping}/subnet-segment/{subnet-segment}',
-                '/pm/config/adom/{adom}/obj/firewall/address6/{address6}/dynamic_mapping/{dynamic_mapping}/subnet-segment/{subnet-segment}'
+                '/pm/config/adom/{adom}/obj/firewall/address6/{address6}/dynamic_mapping/{dynamic_mapping}/subnet-segment/{subnet-segment}',
+                '/pm/config/global/obj/firewall/address6/{address6}/dynamic_mapping/{dynamic_mapping}/subnet-segment/{subnet-segment}'
             ],
             'revision': {
                 '6.2.1': True,
@@ -10199,6 +10931,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -10211,6 +10944,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -10219,9 +10953,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -10247,6 +10983,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -10259,6 +10996,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -10267,9 +11005,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -10280,8 +11020,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/firewall/address6/{address6}/profile-list/{profile-list}',
-                '/pm/config/adom/{adom}/obj/firewall/address6/{address6}/profile-list/{profile-list}'
+                '/pm/config/adom/{adom}/obj/firewall/address6/{address6}/profile-list/{profile-list}',
+                '/pm/config/global/obj/firewall/address6/{address6}/profile-list/{profile-list}'
             ],
             'revision': {
                 '6.2.0': True,
@@ -10293,7 +11033,8 @@ def main():
                 '6.2.7': True,
                 '6.2.8': True,
                 '6.2.9': True,
-                '6.2.10': True
+                '6.2.10': True,
+                '6.2.11': True
             }
         },
         'firewall_address6_subnetsegment': {
@@ -10318,6 +11059,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -10330,6 +11072,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -10338,9 +11081,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -10366,6 +11111,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -10378,6 +11124,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -10386,9 +11133,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -10413,6 +11162,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -10425,6 +11175,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -10433,9 +11184,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -10461,6 +11214,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -10473,6 +11227,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -10481,9 +11236,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -10510,6 +11267,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -10522,6 +11280,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -10530,9 +11289,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -10558,6 +11319,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -10570,6 +11332,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -10578,9 +11341,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -10606,6 +11371,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -10618,6 +11384,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -10626,9 +11393,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -10639,8 +11408,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/firewall/address/{address}/profile-list/{profile-list}',
-                '/pm/config/adom/{adom}/obj/firewall/address/{address}/profile-list/{profile-list}'
+                '/pm/config/adom/{adom}/obj/firewall/address/{address}/profile-list/{profile-list}',
+                '/pm/config/global/obj/firewall/address/{address}/profile-list/{profile-list}'
             ],
             'revision': {
                 '6.2.0': True,
@@ -10652,7 +11421,8 @@ def main():
                 '6.2.7': True,
                 '6.2.8': True,
                 '6.2.9': True,
-                '6.2.10': True
+                '6.2.10': True,
+                '6.2.11': True
             }
         },
         'firewall_address_tagging': {
@@ -10677,6 +11447,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -10689,6 +11460,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -10697,9 +11469,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -10724,6 +11498,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -10736,6 +11511,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -10744,9 +11520,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -10771,6 +11549,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -10783,6 +11562,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -10791,9 +11571,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -10819,6 +11601,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -10831,6 +11614,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -10839,9 +11623,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -10867,6 +11653,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -10879,6 +11666,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -10887,9 +11675,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -10915,6 +11705,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -10927,6 +11718,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -10935,9 +11727,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -10963,6 +11757,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -10975,6 +11770,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -10983,9 +11779,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -11010,6 +11808,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -11022,6 +11821,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -11030,9 +11830,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -11058,6 +11860,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -11070,6 +11873,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -11078,9 +11882,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -11090,8 +11896,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/firewall/decrypted-traffic-mirror/{decrypted-traffic-mirror}',
-                '/pm/config/adom/{adom}/obj/firewall/decrypted-traffic-mirror/{decrypted-traffic-mirror}'
+                '/pm/config/adom/{adom}/obj/firewall/decrypted-traffic-mirror/{decrypted-traffic-mirror}',
+                '/pm/config/global/obj/firewall/decrypted-traffic-mirror/{decrypted-traffic-mirror}'
             ],
             'revision': {
                 '6.4.1': True,
@@ -11105,6 +11911,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -11113,9 +11920,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -11125,8 +11934,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/firewall/explicit-proxy-address/{explicit-proxy-address}',
-                '/pm/config/adom/{adom}/obj/firewall/explicit-proxy-address/{explicit-proxy-address}'
+                '/pm/config/adom/{adom}/obj/firewall/explicit-proxy-address/{explicit-proxy-address}',
+                '/pm/config/global/obj/firewall/explicit-proxy-address/{explicit-proxy-address}'
             ],
             'revision': {
                 '6.2.0': True,
@@ -11138,7 +11947,8 @@ def main():
                 '6.2.7': True,
                 '6.2.8': True,
                 '6.2.9': True,
-                '6.2.10': True
+                '6.2.10': True,
+                '6.2.11': True
             }
         },
         'firewall_explicitproxyaddress_headergroup': {
@@ -11148,8 +11958,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/firewall/explicit-proxy-address/{explicit-proxy-address}/header-group/{header-group}',
-                '/pm/config/adom/{adom}/obj/firewall/explicit-proxy-address/{explicit-proxy-address}/header-group/{header-group}'
+                '/pm/config/adom/{adom}/obj/firewall/explicit-proxy-address/{explicit-proxy-address}/header-group/{header-group}',
+                '/pm/config/global/obj/firewall/explicit-proxy-address/{explicit-proxy-address}/header-group/{header-group}'
             ],
             'revision': {
                 '6.2.0': True,
@@ -11161,7 +11971,8 @@ def main():
                 '6.2.7': True,
                 '6.2.8': True,
                 '6.2.9': True,
-                '6.2.10': True
+                '6.2.10': True,
+                '6.2.11': True
             }
         },
         'firewall_explicitproxyaddrgrp': {
@@ -11170,8 +11981,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/firewall/explicit-proxy-addrgrp/{explicit-proxy-addrgrp}',
-                '/pm/config/adom/{adom}/obj/firewall/explicit-proxy-addrgrp/{explicit-proxy-addrgrp}'
+                '/pm/config/adom/{adom}/obj/firewall/explicit-proxy-addrgrp/{explicit-proxy-addrgrp}',
+                '/pm/config/global/obj/firewall/explicit-proxy-addrgrp/{explicit-proxy-addrgrp}'
             ],
             'revision': {
                 '6.2.0': True,
@@ -11183,7 +11994,8 @@ def main():
                 '6.2.7': True,
                 '6.2.8': True,
                 '6.2.9': True,
-                '6.2.10': True
+                '6.2.10': True,
+                '6.2.11': True
             }
         },
         'firewall_gtp': {
@@ -11207,6 +12019,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -11219,6 +12032,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -11227,9 +12041,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -11255,6 +12071,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -11267,6 +12084,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -11275,9 +12093,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -11303,6 +12123,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -11315,6 +12136,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -11323,9 +12145,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -11350,6 +12174,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -11362,6 +12187,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -11370,9 +12196,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -11398,6 +12226,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -11410,6 +12239,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -11418,9 +12248,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -11446,6 +12278,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -11458,6 +12291,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -11466,9 +12300,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -11478,8 +12314,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/firewall/gtp/{gtp}/message-filter',
-                '/pm/config/adom/{adom}/obj/firewall/gtp/{gtp}/message-filter'
+                '/pm/config/adom/{adom}/obj/firewall/gtp/{gtp}/message-filter',
+                '/pm/config/global/obj/firewall/gtp/{gtp}/message-filter'
             ],
             'revision': {
                 '6.2.0': True,
@@ -11491,7 +12327,8 @@ def main():
                 '6.2.7': True,
                 '6.2.8': True,
                 '6.2.9': True,
-                '6.2.10': True
+                '6.2.10': True,
+                '6.2.11': True
             }
         },
         'firewall_gtp_messageratelimit': {
@@ -11515,6 +12352,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -11527,6 +12365,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -11535,9 +12374,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -11562,6 +12403,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -11574,6 +12416,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -11582,9 +12425,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -11609,6 +12454,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -11621,6 +12467,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -11629,9 +12476,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -11656,6 +12505,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -11668,6 +12518,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -11676,9 +12527,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -11704,6 +12557,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -11716,6 +12570,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -11724,9 +12579,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -11752,6 +12609,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -11764,6 +12622,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -11772,9 +12631,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -11800,6 +12661,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -11812,6 +12674,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -11820,9 +12683,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -11833,8 +12698,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/firewall/gtp/{gtp}/policy-v2/{policy-v2}',
-                '/pm/config/adom/{adom}/obj/firewall/gtp/{gtp}/policy-v2/{policy-v2}'
+                '/pm/config/adom/{adom}/obj/firewall/gtp/{gtp}/policy-v2/{policy-v2}',
+                '/pm/config/global/obj/firewall/gtp/{gtp}/policy-v2/{policy-v2}'
             ],
             'revision': {
                 '6.2.1': True,
@@ -11846,6 +12711,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -11858,6 +12724,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -11866,9 +12733,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -11893,6 +12762,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -11905,6 +12775,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -11913,9 +12784,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -11941,6 +12814,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -11953,6 +12827,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -11961,9 +12836,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -11987,6 +12864,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -11999,6 +12877,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -12007,9 +12886,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -12034,6 +12915,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -12046,6 +12928,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -12054,6 +12937,7 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True
             }
@@ -12064,8 +12948,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/firewall/internet-service-addition/{internet-service-addition}',
-                '/pm/config/adom/{adom}/obj/firewall/internet-service-addition/{internet-service-addition}'
+                '/pm/config/adom/{adom}/obj/firewall/internet-service-addition/{internet-service-addition}',
+                '/pm/config/global/obj/firewall/internet-service-addition/{internet-service-addition}'
             ],
             'revision': {
                 '6.2.2': True,
@@ -12076,6 +12960,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -12088,6 +12973,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -12096,9 +12982,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -12109,8 +12997,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/firewall/internet-service-addition/{internet-service-addition}/entry/{entry}',
-                '/pm/config/adom/{adom}/obj/firewall/internet-service-addition/{internet-service-addition}/entry/{entry}'
+                '/pm/config/adom/{adom}/obj/firewall/internet-service-addition/{internet-service-addition}/entry/{entry}',
+                '/pm/config/global/obj/firewall/internet-service-addition/{internet-service-addition}/entry/{entry}'
             ],
             'revision': {
                 '6.2.2': True,
@@ -12121,6 +13009,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -12133,6 +13022,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -12141,9 +13031,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -12155,8 +13047,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/firewall/internet-service-addition/{internet-service-addition}/entry/{entry}/port-range/{port-range}',
-                '/pm/config/adom/{adom}/obj/firewall/internet-service-addition/{internet-service-addition}/entry/{entry}/port-range/{port-range}'
+                '/pm/config/adom/{adom}/obj/firewall/internet-service-addition/{internet-service-addition}/entry/{entry}/port-range/{port-range}',
+                '/pm/config/global/obj/firewall/internet-service-addition/{internet-service-addition}/entry/{entry}/port-range/{port-range}'
             ],
             'revision': {
                 '6.2.2': True,
@@ -12167,6 +13059,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -12179,6 +13072,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -12187,9 +13081,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -12214,6 +13110,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -12226,6 +13123,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -12234,9 +13132,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -12262,6 +13162,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -12274,6 +13175,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -12282,6 +13184,7 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True
             }
@@ -12309,6 +13212,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -12321,6 +13225,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -12329,6 +13234,7 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True
             }
@@ -12355,6 +13261,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -12367,6 +13274,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -12375,9 +13283,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -12404,6 +13314,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -12416,6 +13327,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -12424,9 +13336,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -12451,6 +13365,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -12463,6 +13378,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -12471,9 +13387,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -12498,6 +13416,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -12510,6 +13429,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -12518,9 +13438,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -12530,8 +13452,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/firewall/internet-service-name/{internet-service-name}',
-                '/pm/config/adom/{adom}/obj/firewall/internet-service-name/{internet-service-name}'
+                '/pm/config/adom/{adom}/obj/firewall/internet-service-name/{internet-service-name}',
+                '/pm/config/global/obj/firewall/internet-service-name/{internet-service-name}'
             ],
             'revision': {
                 '6.4.0': True,
@@ -12546,6 +13468,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -12554,9 +13477,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -12581,6 +13506,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -12593,6 +13519,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -12601,9 +13528,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -12628,6 +13557,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -12640,6 +13570,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -12648,9 +13579,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -12676,6 +13609,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -12688,6 +13622,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -12696,9 +13631,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -12724,6 +13661,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -12736,6 +13674,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -12744,9 +13683,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -12756,8 +13697,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/firewall/ippool_grp/{ippool_grp}',
-                '/pm/config/adom/{adom}/obj/firewall/ippool_grp/{ippool_grp}'
+                '/pm/config/adom/{adom}/obj/firewall/ippool_grp/{ippool_grp}',
+                '/pm/config/global/obj/firewall/ippool_grp/{ippool_grp}'
             ],
             'revision': {
                 '6.4.7': True,
@@ -12765,6 +13706,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.1': True,
                 '7.0.2': True,
                 '7.0.3': True,
@@ -12772,9 +13714,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -12799,6 +13743,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -12811,6 +13756,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -12819,9 +13765,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -12846,6 +13794,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -12858,6 +13807,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -12866,9 +13816,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -12893,6 +13845,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -12905,6 +13858,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -12913,9 +13867,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -12940,6 +13896,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -12952,6 +13909,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -12960,9 +13918,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -12987,6 +13947,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -12999,6 +13960,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -13007,9 +13969,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -13035,6 +13999,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -13047,6 +14012,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -13055,9 +14021,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -13067,8 +14035,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/firewall/mms-profile/{mms-profile}/outbreak-prevention',
-                '/pm/config/adom/{adom}/obj/firewall/mms-profile/{mms-profile}/outbreak-prevention'
+                '/pm/config/adom/{adom}/obj/firewall/mms-profile/{mms-profile}/outbreak-prevention',
+                '/pm/config/global/obj/firewall/mms-profile/{mms-profile}/outbreak-prevention'
             ],
             'revision': {
                 '6.2.0': True,
@@ -13081,6 +14049,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -13093,6 +14062,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -13101,9 +14071,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -13128,6 +14100,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -13140,6 +14113,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -13148,9 +14122,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -13175,6 +14151,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -13187,6 +14164,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -13195,9 +14173,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -13223,6 +14203,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -13235,6 +14216,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -13243,9 +14225,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -13271,6 +14255,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -13283,6 +14268,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -13291,9 +14277,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -13303,11 +14291,12 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/firewall/network-service-dynamic/{network-service-dynamic}',
-                '/pm/config/adom/{adom}/obj/firewall/network-service-dynamic/{network-service-dynamic}'
+                '/pm/config/adom/{adom}/obj/firewall/network-service-dynamic/{network-service-dynamic}',
+                '/pm/config/global/obj/firewall/network-service-dynamic/{network-service-dynamic}'
             ],
             'revision': {
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -13332,6 +14321,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -13344,6 +14334,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -13352,9 +14343,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -13379,6 +14372,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -13391,6 +14385,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -13399,9 +14394,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -13411,8 +14408,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/firewall/profile-protocol-options/{profile-protocol-options}/cifs',
-                '/pm/config/adom/{adom}/obj/firewall/profile-protocol-options/{profile-protocol-options}/cifs'
+                '/pm/config/adom/{adom}/obj/firewall/profile-protocol-options/{profile-protocol-options}/cifs',
+                '/pm/config/global/obj/firewall/profile-protocol-options/{profile-protocol-options}/cifs'
             ],
             'revision': {
                 '6.2.0': True,
@@ -13425,6 +14422,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -13437,6 +14435,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -13445,9 +14444,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -13457,8 +14458,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/firewall/profile-protocol-options/{profile-protocol-options}/cifs/file-filter',
-                '/pm/config/adom/{adom}/obj/firewall/profile-protocol-options/{profile-protocol-options}/cifs/file-filter'
+                '/pm/config/adom/{adom}/obj/firewall/profile-protocol-options/{profile-protocol-options}/cifs/file-filter',
+                '/pm/config/global/obj/firewall/profile-protocol-options/{profile-protocol-options}/cifs/file-filter'
             ],
             'revision': {
                 '6.4.2': True,
@@ -13471,6 +14472,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -13479,9 +14481,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -13492,8 +14496,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/firewall/profile-protocol-options/{profile-protocol-options}/cifs/file-filter/entries/{entries}',
-                '/pm/config/adom/{adom}/obj/firewall/profile-protocol-options/{profile-protocol-options}/cifs/file-filter/entries/{entries}'
+                '/pm/config/adom/{adom}/obj/firewall/profile-protocol-options/{profile-protocol-options}/cifs/file-filter/entries/{entries}',
+                '/pm/config/global/obj/firewall/profile-protocol-options/{profile-protocol-options}/cifs/file-filter/entries/{entries}'
             ],
             'revision': {
                 '6.4.2': True,
@@ -13506,6 +14510,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -13514,9 +14519,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -13527,8 +14534,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/firewall/profile-protocol-options/{profile-protocol-options}/cifs/server-keytab/{server-keytab}',
-                '/pm/config/adom/{adom}/obj/firewall/profile-protocol-options/{profile-protocol-options}/cifs/server-keytab/{server-keytab}'
+                '/pm/config/adom/{adom}/obj/firewall/profile-protocol-options/{profile-protocol-options}/cifs/server-keytab/{server-keytab}',
+                '/pm/config/global/obj/firewall/profile-protocol-options/{profile-protocol-options}/cifs/server-keytab/{server-keytab}'
             ],
             'revision': {
                 '6.4.2': True,
@@ -13541,6 +14548,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -13549,9 +14557,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -13576,6 +14586,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -13588,6 +14599,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -13596,9 +14608,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -13623,6 +14637,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -13635,6 +14650,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -13643,9 +14659,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -13670,6 +14688,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -13682,6 +14701,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -13690,9 +14710,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -13717,6 +14739,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -13729,6 +14752,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -13737,9 +14761,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -13764,6 +14790,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -13776,6 +14803,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -13784,9 +14812,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -13811,6 +14841,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -13823,6 +14854,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -13831,9 +14863,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -13858,6 +14892,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -13870,6 +14905,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -13878,9 +14914,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -13905,6 +14943,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -13917,6 +14956,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -13925,9 +14965,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -13952,6 +14994,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -13964,6 +15007,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -13972,9 +15016,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -13984,8 +15030,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/firewall/profile-protocol-options/{profile-protocol-options}/ssh',
-                '/pm/config/adom/{adom}/obj/firewall/profile-protocol-options/{profile-protocol-options}/ssh'
+                '/pm/config/adom/{adom}/obj/firewall/profile-protocol-options/{profile-protocol-options}/ssh',
+                '/pm/config/global/obj/firewall/profile-protocol-options/{profile-protocol-options}/ssh'
             ],
             'revision': {
                 '6.2.2': True,
@@ -13996,6 +15042,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -14008,6 +15055,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -14016,9 +15064,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -14043,6 +15093,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -14055,6 +15106,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -14063,9 +15115,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -14091,6 +15145,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -14103,6 +15158,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -14111,9 +15167,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -14139,6 +15197,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -14151,6 +15210,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -14159,9 +15219,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -14186,6 +15248,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -14198,6 +15261,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -14206,9 +15270,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -14234,6 +15300,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -14246,6 +15313,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -14254,9 +15322,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -14281,6 +15351,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -14293,6 +15364,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -14301,9 +15373,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -14328,6 +15402,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -14340,6 +15415,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -14348,9 +15424,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -14375,6 +15453,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -14387,6 +15466,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -14395,9 +15475,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -14422,6 +15504,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -14434,6 +15517,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -14442,9 +15526,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -14469,6 +15555,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -14481,6 +15568,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -14489,9 +15577,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -14516,6 +15606,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -14528,6 +15619,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -14536,9 +15628,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -14563,6 +15657,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -14575,6 +15670,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -14583,9 +15679,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -14610,6 +15708,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -14622,6 +15721,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -14630,9 +15730,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -14657,6 +15759,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -14669,6 +15772,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -14677,9 +15781,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -14705,6 +15811,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -14717,6 +15824,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -14725,9 +15833,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -14737,8 +15847,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/firewall/ssh/local-ca/{local-ca}',
-                '/pm/config/adom/{adom}/obj/firewall/ssh/local-ca/{local-ca}'
+                '/pm/config/adom/{adom}/obj/firewall/ssh/local-ca/{local-ca}',
+                '/pm/config/global/obj/firewall/ssh/local-ca/{local-ca}'
             ],
             'revision': {
                 '6.2.1': True,
@@ -14750,6 +15860,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -14762,6 +15873,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -14770,9 +15882,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -14797,6 +15911,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -14809,6 +15924,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -14817,9 +15933,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -14829,8 +15947,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/firewall/ssl-ssh-profile/{ssl-ssh-profile}/dot',
-                '/pm/config/adom/{adom}/obj/firewall/ssl-ssh-profile/{ssl-ssh-profile}/dot'
+                '/pm/config/adom/{adom}/obj/firewall/ssl-ssh-profile/{ssl-ssh-profile}/dot',
+                '/pm/config/global/obj/firewall/ssl-ssh-profile/{ssl-ssh-profile}/dot'
             ],
             'revision': {
                 '7.0.0': True,
@@ -14841,9 +15959,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -14868,6 +15988,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -14880,6 +16001,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -14888,9 +16010,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -14915,6 +16039,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -14927,6 +16052,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -14935,9 +16061,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -14962,6 +16090,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -14974,6 +16103,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -14982,9 +16112,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -15009,6 +16141,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -15021,6 +16154,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -15029,9 +16163,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -15056,6 +16192,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -15068,6 +16205,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -15076,9 +16214,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -15103,6 +16243,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -15115,6 +16256,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -15123,9 +16265,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -15150,6 +16294,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -15162,6 +16307,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -15170,9 +16316,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -15198,6 +16346,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -15210,6 +16359,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -15218,9 +16368,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -15246,6 +16398,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -15258,6 +16411,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -15266,9 +16420,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -15278,8 +16434,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/firewall/traffic-class/{traffic-class}',
-                '/pm/config/adom/{adom}/obj/firewall/traffic-class/{traffic-class}'
+                '/pm/config/adom/{adom}/obj/firewall/traffic-class/{traffic-class}',
+                '/pm/config/global/obj/firewall/traffic-class/{traffic-class}'
             ],
             'revision': {
                 '6.2.2': True,
@@ -15290,6 +16446,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -15302,6 +16459,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -15310,9 +16468,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -15337,6 +16497,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -15349,6 +16510,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -15357,9 +16519,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -15384,6 +16548,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -15396,6 +16561,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -15404,9 +16570,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -15432,6 +16600,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -15444,6 +16613,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -15452,9 +16622,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -15480,6 +16652,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -15492,6 +16665,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -15500,9 +16674,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -15527,6 +16703,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -15539,6 +16716,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -15547,9 +16725,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -15574,6 +16754,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -15586,6 +16767,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -15594,9 +16776,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -15622,6 +16806,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -15634,6 +16819,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -15642,9 +16828,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -15670,6 +16858,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -15682,6 +16871,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -15690,9 +16880,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -15718,6 +16910,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -15730,6 +16923,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -15738,9 +16932,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -15752,8 +16948,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/firewall/vip6/{vip6}/dynamic_mapping/{dynamic_mapping}/realservers/{realservers}',
-                '/pm/config/adom/{adom}/obj/firewall/vip6/{vip6}/dynamic_mapping/{dynamic_mapping}/realservers/{realservers}'
+                '/pm/config/adom/{adom}/obj/firewall/vip6/{vip6}/dynamic_mapping/{dynamic_mapping}/realservers/{realservers}',
+                '/pm/config/global/obj/firewall/vip6/{vip6}/dynamic_mapping/{dynamic_mapping}/realservers/{realservers}'
             ],
             'revision': {
                 '7.0.2': True,
@@ -15762,9 +16958,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -15776,8 +16974,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/firewall/vip6/{vip6}/dynamic_mapping/{dynamic_mapping}/ssl-cipher-suites/{ssl-cipher-suites}',
-                '/pm/config/adom/{adom}/obj/firewall/vip6/{vip6}/dynamic_mapping/{dynamic_mapping}/ssl-cipher-suites/{ssl-cipher-suites}'
+                '/pm/config/adom/{adom}/obj/firewall/vip6/{vip6}/dynamic_mapping/{dynamic_mapping}/ssl-cipher-suites/{ssl-cipher-suites}',
+                '/pm/config/global/obj/firewall/vip6/{vip6}/dynamic_mapping/{dynamic_mapping}/ssl-cipher-suites/{ssl-cipher-suites}'
             ],
             'revision': {
                 '7.0.2': True,
@@ -15786,9 +16984,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -15814,6 +17014,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -15826,6 +17027,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -15834,9 +17036,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -15862,6 +17066,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -15874,6 +17079,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -15882,9 +17088,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -15910,6 +17118,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -15922,6 +17131,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -15930,9 +17140,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -15958,6 +17170,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -15970,6 +17183,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -15978,9 +17192,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -16007,6 +17223,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -16019,6 +17236,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -16027,9 +17245,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -16056,6 +17276,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -16068,6 +17289,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -16076,9 +17298,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -16104,6 +17328,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -16116,6 +17341,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -16124,9 +17350,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -16152,6 +17380,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -16164,6 +17393,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -16172,9 +17402,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -16200,6 +17432,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -16212,6 +17445,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -16220,9 +17454,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -16247,6 +17483,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -16259,6 +17496,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -16267,9 +17505,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -16294,6 +17534,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -16306,6 +17547,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -16314,9 +17556,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -16341,6 +17585,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -16353,6 +17598,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -16361,9 +17607,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -16388,6 +17636,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -16400,6 +17649,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -16408,9 +17658,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -16436,6 +17688,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -16448,6 +17701,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -16456,9 +17710,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -16483,6 +17739,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -16495,6 +17752,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -16503,9 +17761,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -16530,6 +17790,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -16542,6 +17803,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -16550,9 +17812,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -16562,13 +17826,14 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/fmg/device/blueprint/{blueprint}',
-                '/pm/config/adom/{adom}/obj/fmg/device/blueprint/{blueprint}'
+                '/pm/config/adom/{adom}/obj/fmg/device/blueprint/{blueprint}',
+                '/pm/config/global/obj/fmg/device/blueprint/{blueprint}'
             ],
             'revision': {
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -16578,12 +17843,13 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/fmg/fabric/authorization/template/{template}',
-                '/pm/config/adom/{adom}/obj/fmg/fabric/authorization/template/{template}'
+                '/pm/config/adom/{adom}/obj/fmg/fabric/authorization/template/{template}',
+                '/pm/config/global/obj/fmg/fabric/authorization/template/{template}'
             ],
             'revision': {
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -16594,12 +17860,13 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/fmg/fabric/authorization/template/{template}/platforms/{platforms}',
-                '/pm/config/adom/{adom}/obj/fmg/fabric/authorization/template/{template}/platforms/{platforms}'
+                '/pm/config/adom/{adom}/obj/fmg/fabric/authorization/template/{template}/platforms/{platforms}',
+                '/pm/config/global/obj/fmg/fabric/authorization/template/{template}/platforms/{platforms}'
             ],
             'revision': {
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -16609,13 +17876,14 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/fmg/variable/{variable}',
-                '/pm/config/adom/{adom}/obj/fmg/variable/{variable}'
+                '/pm/config/adom/{adom}/obj/fmg/variable/{variable}',
+                '/pm/config/global/obj/fmg/variable/{variable}'
             ],
             'revision': {
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -16626,13 +17894,14 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/fmg/variable/{variable}/dynamic_mapping/{dynamic_mapping}',
-                '/pm/config/adom/{adom}/obj/fmg/variable/{variable}/dynamic_mapping/{dynamic_mapping}'
+                '/pm/config/adom/{adom}/obj/fmg/variable/{variable}/dynamic_mapping/{dynamic_mapping}',
+                '/pm/config/global/obj/fmg/variable/{variable}/dynamic_mapping/{dynamic_mapping}'
             ],
             'revision': {
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -16654,6 +17923,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -16666,6 +17936,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -16674,9 +17945,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -16698,6 +17971,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -16710,6 +17984,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -16718,9 +17993,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -16742,6 +18019,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -16754,6 +18032,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -16762,9 +18041,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -16786,6 +18067,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -16798,6 +18080,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -16806,9 +18089,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -16830,6 +18115,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -16842,6 +18128,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -16850,9 +18137,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -16874,6 +18163,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -16886,6 +18176,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -16894,9 +18185,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -16918,6 +18211,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -16930,6 +18224,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -16938,9 +18233,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -16962,6 +18259,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -16974,6 +18272,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -16982,9 +18281,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -17006,6 +18307,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -17018,6 +18320,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -17026,9 +18329,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -17051,6 +18356,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -17063,6 +18369,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -17071,9 +18378,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -17095,6 +18404,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -17107,6 +18417,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -17115,9 +18426,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -17140,6 +18453,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -17152,6 +18466,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -17160,9 +18475,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -17184,6 +18501,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -17196,6 +18514,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -17204,9 +18523,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -17225,6 +18546,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -17237,6 +18559,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -17245,9 +18568,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -17261,7 +18586,9 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -17283,6 +18610,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -17295,6 +18623,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -17303,9 +18632,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -17327,6 +18658,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -17339,6 +18671,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -17347,9 +18680,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -17371,6 +18706,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -17383,6 +18719,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -17391,9 +18728,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -17416,6 +18755,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -17428,6 +18768,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -17436,9 +18777,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -17460,6 +18803,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -17472,6 +18816,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -17480,9 +18825,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -17504,6 +18851,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -17516,6 +18864,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -17524,9 +18873,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -17548,6 +18899,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -17560,6 +18912,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -17568,9 +18921,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -17592,6 +18947,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -17604,6 +18960,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -17612,9 +18969,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -17637,6 +18996,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -17649,6 +19009,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -17657,9 +19018,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -17681,6 +19044,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -17693,6 +19057,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -17701,9 +19066,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -17727,6 +19094,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -17739,6 +19107,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -17768,6 +19137,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -17780,6 +19150,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -17809,6 +19180,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -17821,6 +19193,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -17878,6 +19251,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -17890,6 +19264,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -17920,6 +19295,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -17932,6 +19308,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -17940,9 +19317,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -17967,6 +19346,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -17979,6 +19359,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -17987,9 +19368,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -18015,6 +19398,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -18027,6 +19411,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -18035,9 +19420,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -18063,6 +19450,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -18075,6 +19463,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -18083,9 +19472,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -18111,6 +19502,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -18123,6 +19515,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -18131,9 +19524,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -18159,6 +19554,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -18171,6 +19567,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -18179,9 +19576,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -18207,6 +19606,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -18219,6 +19619,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -18227,9 +19628,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -18255,6 +19658,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -18267,6 +19671,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -18275,9 +19680,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -18304,6 +19711,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -18316,6 +19724,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -18324,9 +19733,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -18353,6 +19764,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -18365,6 +19777,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -18373,9 +19786,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -18402,6 +19817,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -18414,6 +19830,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -18422,9 +19839,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -18451,6 +19870,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -18463,6 +19883,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -18471,9 +19892,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -18499,6 +19922,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -18511,6 +19935,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -18519,9 +19944,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -18532,8 +19959,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/fsp/vlan/{vlan}/dynamic_mapping/{dynamic_mapping}/interface/ipv6',
-                '/pm/config/adom/{adom}/obj/fsp/vlan/{vlan}/dynamic_mapping/{dynamic_mapping}/interface/ipv6'
+                '/pm/config/adom/{adom}/obj/fsp/vlan/{vlan}/dynamic_mapping/{dynamic_mapping}/interface/ipv6',
+                '/pm/config/global/obj/fsp/vlan/{vlan}/dynamic_mapping/{dynamic_mapping}/interface/ipv6'
             ],
             'revision': {
                 '6.2.2': True,
@@ -18544,6 +19971,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -18556,6 +19984,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -18564,9 +19993,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -18578,8 +20009,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/fsp/vlan/{vlan}/dynamic_mapping/{dynamic_mapping}/interface/ipv6/ip6-delegated-prefix-list/{ip6-delegated-prefix-list}',
-                '/pm/config/adom/{adom}/obj/fsp/vlan/{vlan}/dynamic_mapping/{dynamic_mapping}/interface/ipv6/ip6-delegated-prefix-list/{ip6-delegated-prefix-list}'
+                '/pm/config/adom/{adom}/obj/fsp/vlan/{vlan}/dynamic_mapping/{dynamic_mapping}/interface/ipv6/ip6-delegated-prefix-list/{ip6-delegated-prefix-list}',
+                '/pm/config/global/obj/fsp/vlan/{vlan}/dynamic_mapping/{dynamic_mapping}/interface/ipv6/ip6-delegated-prefix-list/{ip6-delegated-prefix-list}'
             ],
             'revision': {
                 '6.2.2': True,
@@ -18590,6 +20021,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -18602,6 +20034,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -18610,9 +20043,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -18624,8 +20059,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/fsp/vlan/{vlan}/dynamic_mapping/{dynamic_mapping}/interface/ipv6/ip6-extra-addr/{ip6-extra-addr}',
-                '/pm/config/adom/{adom}/obj/fsp/vlan/{vlan}/dynamic_mapping/{dynamic_mapping}/interface/ipv6/ip6-extra-addr/{ip6-extra-addr}'
+                '/pm/config/adom/{adom}/obj/fsp/vlan/{vlan}/dynamic_mapping/{dynamic_mapping}/interface/ipv6/ip6-extra-addr/{ip6-extra-addr}',
+                '/pm/config/global/obj/fsp/vlan/{vlan}/dynamic_mapping/{dynamic_mapping}/interface/ipv6/ip6-extra-addr/{ip6-extra-addr}'
             ],
             'revision': {
                 '6.2.2': True,
@@ -18636,6 +20071,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -18648,6 +20084,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -18656,9 +20093,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -18670,8 +20109,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/fsp/vlan/{vlan}/dynamic_mapping/{dynamic_mapping}/interface/ipv6/ip6-prefix-list/{ip6-prefix-list}',
-                '/pm/config/adom/{adom}/obj/fsp/vlan/{vlan}/dynamic_mapping/{dynamic_mapping}/interface/ipv6/ip6-prefix-list/{ip6-prefix-list}'
+                '/pm/config/adom/{adom}/obj/fsp/vlan/{vlan}/dynamic_mapping/{dynamic_mapping}/interface/ipv6/ip6-prefix-list/{ip6-prefix-list}',
+                '/pm/config/global/obj/fsp/vlan/{vlan}/dynamic_mapping/{dynamic_mapping}/interface/ipv6/ip6-prefix-list/{ip6-prefix-list}'
             ],
             'revision': {
                 '6.2.2': True,
@@ -18682,6 +20121,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -18694,6 +20134,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -18702,9 +20143,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -18716,8 +20159,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/fsp/vlan/{vlan}/dynamic_mapping/{dynamic_mapping}/interface/ipv6/vrrp6/{vrrp6}',
-                '/pm/config/adom/{adom}/obj/fsp/vlan/{vlan}/dynamic_mapping/{dynamic_mapping}/interface/ipv6/vrrp6/{vrrp6}'
+                '/pm/config/adom/{adom}/obj/fsp/vlan/{vlan}/dynamic_mapping/{dynamic_mapping}/interface/ipv6/vrrp6/{vrrp6}',
+                '/pm/config/global/obj/fsp/vlan/{vlan}/dynamic_mapping/{dynamic_mapping}/interface/ipv6/vrrp6/{vrrp6}'
             ],
             'revision': {
                 '6.2.2': True,
@@ -18728,6 +20171,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -18740,6 +20184,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -18748,9 +20193,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -18762,8 +20209,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/fsp/vlan/{vlan}/dynamic_mapping/{dynamic_mapping}/interface/secondaryip/{secondaryip}',
-                '/pm/config/adom/{adom}/obj/fsp/vlan/{vlan}/dynamic_mapping/{dynamic_mapping}/interface/secondaryip/{secondaryip}'
+                '/pm/config/adom/{adom}/obj/fsp/vlan/{vlan}/dynamic_mapping/{dynamic_mapping}/interface/secondaryip/{secondaryip}',
+                '/pm/config/global/obj/fsp/vlan/{vlan}/dynamic_mapping/{dynamic_mapping}/interface/secondaryip/{secondaryip}'
             ],
             'revision': {
                 '6.2.3': True,
@@ -18773,6 +20220,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -18785,6 +20233,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -18793,9 +20242,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -18807,8 +20258,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/fsp/vlan/{vlan}/dynamic_mapping/{dynamic_mapping}/interface/vrrp/{vrrp}',
-                '/pm/config/adom/{adom}/obj/fsp/vlan/{vlan}/dynamic_mapping/{dynamic_mapping}/interface/vrrp/{vrrp}'
+                '/pm/config/adom/{adom}/obj/fsp/vlan/{vlan}/dynamic_mapping/{dynamic_mapping}/interface/vrrp/{vrrp}',
+                '/pm/config/global/obj/fsp/vlan/{vlan}/dynamic_mapping/{dynamic_mapping}/interface/vrrp/{vrrp}'
             ],
             'revision': {
                 '7.4.0': True
@@ -18823,8 +20274,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/fsp/vlan/{vlan}/dynamic_mapping/{dynamic_mapping}/interface/vrrp/{vrrp}/proxy-arp/{proxy-arp}',
-                '/pm/config/adom/{adom}/obj/fsp/vlan/{vlan}/dynamic_mapping/{dynamic_mapping}/interface/vrrp/{vrrp}/proxy-arp/{proxy-arp}'
+                '/pm/config/adom/{adom}/obj/fsp/vlan/{vlan}/dynamic_mapping/{dynamic_mapping}/interface/vrrp/{vrrp}/proxy-arp/{proxy-arp}',
+                '/pm/config/global/obj/fsp/vlan/{vlan}/dynamic_mapping/{dynamic_mapping}/interface/vrrp/{vrrp}/proxy-arp/{proxy-arp}'
             ],
             'revision': {
                 '7.4.0': True
@@ -18851,6 +20302,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -18863,6 +20315,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -18871,9 +20324,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -18898,6 +20353,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -18910,6 +20366,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -18918,9 +20375,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -18931,8 +20390,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/fsp/vlan/{vlan}/interface/ipv6/ip6-delegated-prefix-list/{ip6-delegated-prefix-list}',
-                '/pm/config/adom/{adom}/obj/fsp/vlan/{vlan}/interface/ipv6/ip6-delegated-prefix-list/{ip6-delegated-prefix-list}'
+                '/pm/config/adom/{adom}/obj/fsp/vlan/{vlan}/interface/ipv6/ip6-delegated-prefix-list/{ip6-delegated-prefix-list}',
+                '/pm/config/global/obj/fsp/vlan/{vlan}/interface/ipv6/ip6-delegated-prefix-list/{ip6-delegated-prefix-list}'
             ],
             'revision': {
                 '6.2.2': True,
@@ -18943,6 +20402,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -18955,6 +20415,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -18963,9 +20424,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -18976,8 +20439,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/fsp/vlan/{vlan}/interface/ipv6/ip6-extra-addr/{ip6-extra-addr}',
-                '/pm/config/adom/{adom}/obj/fsp/vlan/{vlan}/interface/ipv6/ip6-extra-addr/{ip6-extra-addr}'
+                '/pm/config/adom/{adom}/obj/fsp/vlan/{vlan}/interface/ipv6/ip6-extra-addr/{ip6-extra-addr}',
+                '/pm/config/global/obj/fsp/vlan/{vlan}/interface/ipv6/ip6-extra-addr/{ip6-extra-addr}'
             ],
             'revision': {
                 '6.2.2': True,
@@ -18988,6 +20451,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -19000,6 +20464,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -19008,9 +20473,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -19021,8 +20488,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/fsp/vlan/{vlan}/interface/ipv6/ip6-prefix-list/{ip6-prefix-list}',
-                '/pm/config/adom/{adom}/obj/fsp/vlan/{vlan}/interface/ipv6/ip6-prefix-list/{ip6-prefix-list}'
+                '/pm/config/adom/{adom}/obj/fsp/vlan/{vlan}/interface/ipv6/ip6-prefix-list/{ip6-prefix-list}',
+                '/pm/config/global/obj/fsp/vlan/{vlan}/interface/ipv6/ip6-prefix-list/{ip6-prefix-list}'
             ],
             'revision': {
                 '6.2.2': True,
@@ -19033,6 +20500,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -19045,6 +20513,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -19053,9 +20522,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -19066,8 +20537,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/fsp/vlan/{vlan}/interface/ipv6/vrrp6/{vrrp6}',
-                '/pm/config/adom/{adom}/obj/fsp/vlan/{vlan}/interface/ipv6/vrrp6/{vrrp6}'
+                '/pm/config/adom/{adom}/obj/fsp/vlan/{vlan}/interface/ipv6/vrrp6/{vrrp6}',
+                '/pm/config/global/obj/fsp/vlan/{vlan}/interface/ipv6/vrrp6/{vrrp6}'
             ],
             'revision': {
                 '6.2.2': True,
@@ -19078,6 +20549,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -19090,6 +20562,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -19098,9 +20571,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -19126,6 +20601,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -19138,6 +20614,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -19146,9 +20623,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -19174,6 +20653,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -19186,6 +20666,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -19194,9 +20675,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -19208,8 +20691,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/fsp/vlan/{vlan}/interface/vrrp/{vrrp}/proxy-arp/{proxy-arp}',
-                '/pm/config/adom/{adom}/obj/fsp/vlan/{vlan}/interface/vrrp/{vrrp}/proxy-arp/{proxy-arp}'
+                '/pm/config/adom/{adom}/obj/fsp/vlan/{vlan}/interface/vrrp/{vrrp}/proxy-arp/{proxy-arp}',
+                '/pm/config/global/obj/fsp/vlan/{vlan}/interface/vrrp/{vrrp}/proxy-arp/{proxy-arp}'
             ],
             'revision': {
                 '7.4.0': True
@@ -19236,6 +20719,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -19248,6 +20732,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -19256,9 +20741,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -19283,6 +20770,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -19295,6 +20783,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -19303,9 +20792,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -19330,6 +20821,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -19342,6 +20834,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -19350,9 +20843,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -19378,6 +20873,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -19390,6 +20886,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -19398,9 +20895,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -19425,6 +20924,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -19437,6 +20937,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -19445,9 +20946,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -19472,6 +20975,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -19484,6 +20988,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -19492,9 +20997,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -19519,6 +21026,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -19531,6 +21039,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -19539,9 +21048,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -19565,6 +21076,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -19577,6 +21089,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -19606,6 +21119,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -19618,6 +21132,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -19647,6 +21162,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -19659,6 +21175,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -19716,6 +21233,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -19728,6 +21246,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -19758,6 +21277,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -19770,6 +21290,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -19778,9 +21299,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -19806,6 +21329,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -19818,6 +21342,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -19826,9 +21351,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -19853,6 +21380,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -19865,6 +21393,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -19873,9 +21402,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -19900,6 +21431,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -19912,6 +21444,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -19920,9 +21453,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -19948,6 +21483,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -19960,6 +21496,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -19968,9 +21505,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -19997,6 +21536,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -20009,6 +21549,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -20017,9 +21558,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -20047,6 +21590,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -20059,6 +21603,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -20067,9 +21612,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -20094,6 +21641,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -20106,6 +21654,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -20114,9 +21663,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -20141,6 +21692,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -20153,6 +21705,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -20161,9 +21714,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -20189,6 +21744,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -20201,6 +21757,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -20209,9 +21766,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -20236,6 +21795,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -20248,6 +21808,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -20256,9 +21817,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -20284,6 +21847,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -20296,6 +21860,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -20304,9 +21869,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -20316,8 +21883,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/wireless-controller/hotspot20/anqp-venue-url/{anqp-venue-url}',
-                '/pm/config/adom/{adom}/obj/wireless-controller/hotspot20/anqp-venue-url/{anqp-venue-url}'
+                '/pm/config/adom/{adom}/obj/wireless-controller/hotspot20/anqp-venue-url/{anqp-venue-url}',
+                '/pm/config/global/obj/wireless-controller/hotspot20/anqp-venue-url/{anqp-venue-url}'
             ],
             'revision': {
                 '7.0.3': True,
@@ -20325,9 +21892,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -20338,8 +21907,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/wireless-controller/hotspot20/anqp-venue-url/{anqp-venue-url}/value-list/{value-list}',
-                '/pm/config/adom/{adom}/obj/wireless-controller/hotspot20/anqp-venue-url/{anqp-venue-url}/value-list/{value-list}'
+                '/pm/config/adom/{adom}/obj/wireless-controller/hotspot20/anqp-venue-url/{anqp-venue-url}/value-list/{value-list}',
+                '/pm/config/global/obj/wireless-controller/hotspot20/anqp-venue-url/{anqp-venue-url}/value-list/{value-list}'
             ],
             'revision': {
                 '7.0.3': True,
@@ -20347,9 +21916,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -20359,8 +21930,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/wireless-controller/hotspot20/h2qp-advice-of-charge/{h2qp-advice-of-charge}',
-                '/pm/config/adom/{adom}/obj/wireless-controller/hotspot20/h2qp-advice-of-charge/{h2qp-advice-of-charge}'
+                '/pm/config/adom/{adom}/obj/wireless-controller/hotspot20/h2qp-advice-of-charge/{h2qp-advice-of-charge}',
+                '/pm/config/global/obj/wireless-controller/hotspot20/h2qp-advice-of-charge/{h2qp-advice-of-charge}'
             ],
             'revision': {
                 '7.0.3': True,
@@ -20368,9 +21939,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -20381,8 +21954,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/wireless-controller/hotspot20/h2qp-advice-of-charge/{h2qp-advice-of-charge}/aoc-list/{aoc-list}',
-                '/pm/config/adom/{adom}/obj/wireless-controller/hotspot20/h2qp-advice-of-charge/{h2qp-advice-of-charge}/aoc-list/{aoc-list}'
+                '/pm/config/adom/{adom}/obj/wireless-controller/hotspot20/h2qp-advice-of-charge/{h2qp-advice-of-charge}/aoc-list/{aoc-list}',
+                '/pm/config/global/obj/wireless-controller/hotspot20/h2qp-advice-of-charge/{h2qp-advice-of-charge}/aoc-list/{aoc-list}'
             ],
             'revision': {
                 '7.0.3': True,
@@ -20390,9 +21963,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -20404,8 +21979,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/wireless-controller/hotspot20/h2qp-advice-of-charge/{h2qp-advice-of-charge}/aoc-list/{aoc-list}/plan-info/{plan-info}',
-                '/pm/config/adom/{adom}/obj/wireless-controller/hotspot20/h2qp-advice-of-charge/{h2qp-advice-of-charge}/aoc-list/{aoc-list}/plan-info/{plan-info}'
+                '/pm/config/adom/{adom}/obj/wireless-controller/hotspot20/h2qp-advice-of-charge/{h2qp-advice-of-charge}/aoc-list/{aoc-list}/plan-info/{plan-info}',
+                '/pm/config/global/obj/wireless-controller/hotspot20/h2qp-advice-of-charge/{h2qp-advice-of-charge}/aoc-list/{aoc-list}/plan-info/{plan-info}'
             ],
             'revision': {
                 '7.0.3': True,
@@ -20413,9 +21988,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -20440,6 +22017,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -20452,6 +22030,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -20460,9 +22039,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -20487,6 +22068,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -20499,6 +22081,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -20507,9 +22090,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -20535,6 +22120,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -20547,6 +22133,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -20555,9 +22142,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -20582,6 +22171,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -20594,6 +22184,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -20602,9 +22193,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -20630,6 +22223,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -20642,6 +22236,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -20650,9 +22245,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -20678,6 +22275,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -20690,6 +22288,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -20698,9 +22297,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -20710,8 +22311,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/wireless-controller/hotspot20/h2qp-osu-provider-nai/{h2qp-osu-provider-nai}',
-                '/pm/config/adom/{adom}/obj/wireless-controller/hotspot20/h2qp-osu-provider-nai/{h2qp-osu-provider-nai}'
+                '/pm/config/adom/{adom}/obj/wireless-controller/hotspot20/h2qp-osu-provider-nai/{h2qp-osu-provider-nai}',
+                '/pm/config/global/obj/wireless-controller/hotspot20/h2qp-osu-provider-nai/{h2qp-osu-provider-nai}'
             ],
             'revision': {
                 '7.0.3': True,
@@ -20719,9 +22320,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -20732,8 +22335,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/wireless-controller/hotspot20/h2qp-osu-provider-nai/{h2qp-osu-provider-nai}/nai-list/{nai-list}',
-                '/pm/config/adom/{adom}/obj/wireless-controller/hotspot20/h2qp-osu-provider-nai/{h2qp-osu-provider-nai}/nai-list/{nai-list}'
+                '/pm/config/adom/{adom}/obj/wireless-controller/hotspot20/h2qp-osu-provider-nai/{h2qp-osu-provider-nai}/nai-list/{nai-list}',
+                '/pm/config/global/obj/wireless-controller/hotspot20/h2qp-osu-provider-nai/{h2qp-osu-provider-nai}/nai-list/{nai-list}'
             ],
             'revision': {
                 '7.0.3': True,
@@ -20741,9 +22344,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -20753,8 +22358,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/wireless-controller/hotspot20/h2qp-terms-and-conditions/{h2qp-terms-and-conditions}',
-                '/pm/config/adom/{adom}/obj/wireless-controller/hotspot20/h2qp-terms-and-conditions/{h2qp-terms-and-conditions}'
+                '/pm/config/adom/{adom}/obj/wireless-controller/hotspot20/h2qp-terms-and-conditions/{h2qp-terms-and-conditions}',
+                '/pm/config/global/obj/wireless-controller/hotspot20/h2qp-terms-and-conditions/{h2qp-terms-and-conditions}'
             ],
             'revision': {
                 '7.0.3': True,
@@ -20762,9 +22367,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -20789,6 +22396,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -20801,6 +22409,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -20809,9 +22418,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -20836,6 +22447,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -20848,6 +22460,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -20856,9 +22469,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -20868,8 +22483,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/wireless-controller/hotspot20/icon/{icon}',
-                '/pm/config/adom/{adom}/obj/wireless-controller/hotspot20/icon/{icon}'
+                '/pm/config/adom/{adom}/obj/wireless-controller/hotspot20/icon/{icon}',
+                '/pm/config/global/obj/wireless-controller/hotspot20/icon/{icon}'
             ],
             'revision': {
                 '7.0.3': True,
@@ -20877,9 +22492,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -20890,8 +22507,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/wireless-controller/hotspot20/icon/{icon}/icon-list/{icon-list}',
-                '/pm/config/adom/{adom}/obj/wireless-controller/hotspot20/icon/{icon}/icon-list/{icon-list}'
+                '/pm/config/adom/{adom}/obj/wireless-controller/hotspot20/icon/{icon}/icon-list/{icon-list}',
+                '/pm/config/global/obj/wireless-controller/hotspot20/icon/{icon}/icon-list/{icon-list}'
             ],
             'revision': {
                 '7.0.3': True,
@@ -20899,9 +22516,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -20926,6 +22545,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -20938,6 +22558,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -20946,9 +22567,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -20974,6 +22597,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -20986,6 +22610,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -20994,9 +22619,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -21022,6 +22649,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -21034,6 +22662,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -21042,9 +22671,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -21069,6 +22700,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -21081,6 +22713,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -21089,9 +22722,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -21102,8 +22737,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/icap/profile/{profile}/icap-headers/{icap-headers}',
-                '/pm/config/adom/{adom}/obj/icap/profile/{profile}/icap-headers/{icap-headers}'
+                '/pm/config/adom/{adom}/obj/icap/profile/{profile}/icap-headers/{icap-headers}',
+                '/pm/config/global/obj/icap/profile/{profile}/icap-headers/{icap-headers}'
             ],
             'revision': {
                 '6.2.0': True,
@@ -21116,6 +22751,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -21128,6 +22764,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -21136,9 +22773,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -21149,8 +22788,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/icap/profile/{profile}/respmod-forward-rules/{respmod-forward-rules}',
-                '/pm/config/adom/{adom}/obj/icap/profile/{profile}/respmod-forward-rules/{respmod-forward-rules}'
+                '/pm/config/adom/{adom}/obj/icap/profile/{profile}/respmod-forward-rules/{respmod-forward-rules}',
+                '/pm/config/global/obj/icap/profile/{profile}/respmod-forward-rules/{respmod-forward-rules}'
             ],
             'revision': {
                 '6.4.0': True,
@@ -21165,6 +22804,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -21173,9 +22813,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -21187,8 +22829,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/icap/profile/{profile}/respmod-forward-rules/{respmod-forward-rules}/header-group/{header-group}',
-                '/pm/config/adom/{adom}/obj/icap/profile/{profile}/respmod-forward-rules/{respmod-forward-rules}/header-group/{header-group}'
+                '/pm/config/adom/{adom}/obj/icap/profile/{profile}/respmod-forward-rules/{respmod-forward-rules}/header-group/{header-group}',
+                '/pm/config/global/obj/icap/profile/{profile}/respmod-forward-rules/{respmod-forward-rules}/header-group/{header-group}'
             ],
             'revision': {
                 '6.4.0': True,
@@ -21203,6 +22845,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -21211,9 +22854,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -21238,6 +22883,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -21250,6 +22896,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -21258,9 +22905,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -21270,8 +22919,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/ips/baseline/sensor/{sensor}',
-                '/pm/config/adom/{adom}/obj/ips/baseline/sensor/{sensor}'
+                '/pm/config/adom/{adom}/obj/ips/baseline/sensor/{sensor}',
+                '/pm/config/global/obj/ips/baseline/sensor/{sensor}'
             ],
             'revision': {
                 '7.0.1': True,
@@ -21285,8 +22934,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/ips/baseline/sensor/{sensor}/entries/{entries}',
-                '/pm/config/adom/{adom}/obj/ips/baseline/sensor/{sensor}/entries/{entries}'
+                '/pm/config/adom/{adom}/obj/ips/baseline/sensor/{sensor}/entries/{entries}',
+                '/pm/config/global/obj/ips/baseline/sensor/{sensor}/entries/{entries}'
             ],
             'revision': {
                 '7.0.1': True,
@@ -21301,8 +22950,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/ips/baseline/sensor/{sensor}/entries/{entries}/exempt-ip/{exempt-ip}',
-                '/pm/config/adom/{adom}/obj/ips/baseline/sensor/{sensor}/entries/{entries}/exempt-ip/{exempt-ip}'
+                '/pm/config/adom/{adom}/obj/ips/baseline/sensor/{sensor}/entries/{entries}/exempt-ip/{exempt-ip}',
+                '/pm/config/global/obj/ips/baseline/sensor/{sensor}/entries/{entries}/exempt-ip/{exempt-ip}'
             ],
             'revision': {
                 '7.0.1': True,
@@ -21316,8 +22965,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/ips/baseline/sensor/{sensor}/filter/{filter}',
-                '/pm/config/adom/{adom}/obj/ips/baseline/sensor/{sensor}/filter/{filter}'
+                '/pm/config/adom/{adom}/obj/ips/baseline/sensor/{sensor}/filter/{filter}',
+                '/pm/config/global/obj/ips/baseline/sensor/{sensor}/filter/{filter}'
             ],
             'revision': {
                 '7.0.1': True,
@@ -21331,8 +22980,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/ips/baseline/sensor/{sensor}/override/{override}',
-                '/pm/config/adom/{adom}/obj/ips/baseline/sensor/{sensor}/override/{override}'
+                '/pm/config/adom/{adom}/obj/ips/baseline/sensor/{sensor}/override/{override}',
+                '/pm/config/global/obj/ips/baseline/sensor/{sensor}/override/{override}'
             ],
             'revision': {
                 '7.0.1': True,
@@ -21347,8 +22996,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/ips/baseline/sensor/{sensor}/override/{override}/exempt-ip/{exempt-ip}',
-                '/pm/config/adom/{adom}/obj/ips/baseline/sensor/{sensor}/override/{override}/exempt-ip/{exempt-ip}'
+                '/pm/config/adom/{adom}/obj/ips/baseline/sensor/{sensor}/override/{override}/exempt-ip/{exempt-ip}',
+                '/pm/config/global/obj/ips/baseline/sensor/{sensor}/override/{override}/exempt-ip/{exempt-ip}'
             ],
             'revision': {
                 '7.0.1': True,
@@ -21376,6 +23025,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -21388,6 +23038,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -21396,9 +23047,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -21408,46 +23061,22 @@ def main():
                 'adom'
             ],
             'urls': [
+                '/pm/config/adom/{adom}/obj/global/ips/sensor/{sensor}',
                 '/pm/config/adom/{adom}/obj/ips/sensor/{sensor}',
-                '/pm/config/global/obj/ips/sensor/{sensor}',
                 '/pm/config/global/obj/global/ips/sensor/{sensor}',
-                '/pm/config/adom/{adom}/obj/global/ips/sensor/{sensor}'
+                '/pm/config/global/obj/ips/sensor/{sensor}'
             ],
             'revision': {
-                '6.0.0': True,
-                '6.2.0': True,
-                '6.2.1': True,
-                '6.2.2': True,
-                '6.2.3': True,
-                '6.2.5': True,
-                '6.2.6': True,
-                '6.2.7': True,
-                '6.2.8': True,
-                '6.2.9': True,
-                '6.2.10': True,
-                '6.4.0': True,
-                '6.4.1': True,
-                '6.4.2': True,
-                '6.4.3': True,
-                '6.4.4': True,
-                '6.4.5': True,
-                '6.4.6': True,
-                '6.4.7': True,
-                '6.4.8': True,
-                '6.4.9': True,
-                '6.4.10': True,
-                '6.4.11': True,
-                '7.0.0': True,
-                '7.0.1': True,
-                '7.0.2': True,
                 '7.0.3': True,
                 '7.0.4': True,
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -21460,8 +23089,8 @@ def main():
             'urls': [
                 '/pm/config/adom/{adom}/obj/ips/sensor/{sensor}/entries/{entries}',
                 '/pm/config/global/obj/ips/sensor/{sensor}/entries/{entries}',
-                '/pm/config/global/obj/global/ips/sensor/{sensor}/entries/{entries}',
-                '/pm/config/adom/{adom}/obj/global/ips/sensor/{sensor}/entries/{entries}'
+                '/pm/config/adom/{adom}/obj/global/ips/sensor/{sensor}/entries/{entries}',
+                '/pm/config/global/obj/global/ips/sensor/{sensor}/entries/{entries}'
             ],
             'revision': {
                 '6.0.0': True,
@@ -21475,6 +23104,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -21487,6 +23117,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -21495,9 +23126,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -21509,46 +23142,22 @@ def main():
                 'adom'
             ],
             'urls': [
+                '/pm/config/adom/{adom}/obj/global/ips/sensor/{sensor}/entries/{entries}/exempt-ip/{exempt-ip}',
                 '/pm/config/adom/{adom}/obj/ips/sensor/{sensor}/entries/{entries}/exempt-ip/{exempt-ip}',
-                '/pm/config/global/obj/ips/sensor/{sensor}/entries/{entries}/exempt-ip/{exempt-ip}',
                 '/pm/config/global/obj/global/ips/sensor/{sensor}/entries/{entries}/exempt-ip/{exempt-ip}',
-                '/pm/config/adom/{adom}/obj/global/ips/sensor/{sensor}/entries/{entries}/exempt-ip/{exempt-ip}'
+                '/pm/config/global/obj/ips/sensor/{sensor}/entries/{entries}/exempt-ip/{exempt-ip}'
             ],
             'revision': {
-                '6.0.0': True,
-                '6.2.0': True,
-                '6.2.1': True,
-                '6.2.2': True,
-                '6.2.3': True,
-                '6.2.5': True,
-                '6.2.6': True,
-                '6.2.7': True,
-                '6.2.8': True,
-                '6.2.9': True,
-                '6.2.10': True,
-                '6.4.0': True,
-                '6.4.1': True,
-                '6.4.2': True,
-                '6.4.3': True,
-                '6.4.4': True,
-                '6.4.5': True,
-                '6.4.6': True,
-                '6.4.7': True,
-                '6.4.8': True,
-                '6.4.9': True,
-                '6.4.10': True,
-                '6.4.11': True,
-                '7.0.0': True,
-                '7.0.1': True,
-                '7.0.2': True,
                 '7.0.3': True,
                 '7.0.4': True,
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -21561,8 +23170,8 @@ def main():
             'urls': [
                 '/pm/config/adom/{adom}/obj/ips/sensor/{sensor}/filter/{filter}',
                 '/pm/config/global/obj/ips/sensor/{sensor}/filter/{filter}',
-                '/pm/config/global/obj/global/ips/sensor/{sensor}/filter/{filter}',
-                '/pm/config/adom/{adom}/obj/global/ips/sensor/{sensor}/filter/{filter}'
+                '/pm/config/adom/{adom}/obj/global/ips/sensor/{sensor}/filter/{filter}',
+                '/pm/config/global/obj/global/ips/sensor/{sensor}/filter/{filter}'
             ],
             'revision': {
                 '6.0.0': True,
@@ -21576,14 +23185,23 @@ def main():
                 'adom'
             ],
             'urls': [
+                '/pm/config/adom/{adom}/obj/global/ips/sensor/{sensor}/override/{override}',
                 '/pm/config/adom/{adom}/obj/ips/sensor/{sensor}/override/{override}',
-                '/pm/config/global/obj/ips/sensor/{sensor}/override/{override}',
                 '/pm/config/global/obj/global/ips/sensor/{sensor}/override/{override}',
-                '/pm/config/adom/{adom}/obj/global/ips/sensor/{sensor}/override/{override}'
+                '/pm/config/global/obj/ips/sensor/{sensor}/override/{override}'
             ],
             'revision': {
-                '6.0.0': True,
-                '6.2.0': True
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.0.8': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.2.3': True,
+                '7.4.0': True
             }
         },
         'ips_sensor_override_exemptip': {
@@ -21594,14 +23212,23 @@ def main():
                 'adom'
             ],
             'urls': [
+                '/pm/config/adom/{adom}/obj/global/ips/sensor/{sensor}/override/{override}/exempt-ip/{exempt-ip}',
                 '/pm/config/adom/{adom}/obj/ips/sensor/{sensor}/override/{override}/exempt-ip/{exempt-ip}',
-                '/pm/config/global/obj/ips/sensor/{sensor}/override/{override}/exempt-ip/{exempt-ip}',
                 '/pm/config/global/obj/global/ips/sensor/{sensor}/override/{override}/exempt-ip/{exempt-ip}',
-                '/pm/config/adom/{adom}/obj/global/ips/sensor/{sensor}/override/{override}/exempt-ip/{exempt-ip}'
+                '/pm/config/global/obj/ips/sensor/{sensor}/override/{override}/exempt-ip/{exempt-ip}'
             ],
             'revision': {
-                '6.0.0': True,
-                '6.2.0': True
+                '7.0.3': True,
+                '7.0.4': True,
+                '7.0.5': True,
+                '7.0.6': True,
+                '7.0.7': True,
+                '7.0.8': True,
+                '7.2.0': True,
+                '7.2.1': True,
+                '7.2.2': True,
+                '7.2.3': True,
+                '7.4.0': True
             }
         },
         'log_customfield': {
@@ -21625,6 +23252,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -21637,6 +23265,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -21645,9 +23274,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -21656,8 +23287,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/log/npu-server',
-                '/pm/config/adom/{adom}/obj/log/npu-server'
+                '/pm/config/adom/{adom}/obj/log/npu-server',
+                '/pm/config/global/obj/log/npu-server'
             ],
             'revision': {
                 '6.4.7': True,
@@ -21665,6 +23296,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.1': True,
                 '7.0.2': True,
                 '7.0.3': True,
@@ -21672,9 +23304,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -21684,8 +23318,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/log/npu-server/server-group/{server-group}',
-                '/pm/config/adom/{adom}/obj/log/npu-server/server-group/{server-group}'
+                '/pm/config/adom/{adom}/obj/log/npu-server/server-group/{server-group}',
+                '/pm/config/global/obj/log/npu-server/server-group/{server-group}'
             ],
             'revision': {
                 '6.4.7': True,
@@ -21693,6 +23327,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.1': True,
                 '7.0.2': True,
                 '7.0.3': True,
@@ -21700,9 +23335,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -21712,8 +23349,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/log/npu-server/server-info/{server-info}',
-                '/pm/config/adom/{adom}/obj/log/npu-server/server-info/{server-info}'
+                '/pm/config/adom/{adom}/obj/log/npu-server/server-info/{server-info}',
+                '/pm/config/global/obj/log/npu-server/server-info/{server-info}'
             ],
             'revision': {
                 '6.4.7': True,
@@ -21721,6 +23358,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.1': True,
                 '7.0.2': True,
                 '7.0.3': True,
@@ -21728,9 +23366,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -21752,6 +23392,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -21764,6 +23405,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -21772,9 +23414,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -21784,8 +23428,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/wireless-controller/mpsk-profile/{mpsk-profile}',
-                '/pm/config/adom/{adom}/obj/wireless-controller/mpsk-profile/{mpsk-profile}'
+                '/pm/config/adom/{adom}/obj/wireless-controller/mpsk-profile/{mpsk-profile}',
+                '/pm/config/global/obj/wireless-controller/mpsk-profile/{mpsk-profile}'
             ],
             'revision': {
                 '6.4.2': True,
@@ -21798,6 +23442,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -21806,9 +23451,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -21819,8 +23466,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/wireless-controller/mpsk-profile/{mpsk-profile}/mpsk-group/{mpsk-group}',
-                '/pm/config/adom/{adom}/obj/wireless-controller/mpsk-profile/{mpsk-profile}/mpsk-group/{mpsk-group}'
+                '/pm/config/adom/{adom}/obj/wireless-controller/mpsk-profile/{mpsk-profile}/mpsk-group/{mpsk-group}',
+                '/pm/config/global/obj/wireless-controller/mpsk-profile/{mpsk-profile}/mpsk-group/{mpsk-group}'
             ],
             'revision': {
                 '6.4.2': True,
@@ -21833,6 +23480,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -21841,9 +23489,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -21855,8 +23505,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/wireless-controller/mpsk-profile/{mpsk-profile}/mpsk-group/{mpsk-group}/mpsk-key/{mpsk-key}',
-                '/pm/config/adom/{adom}/obj/wireless-controller/mpsk-profile/{mpsk-profile}/mpsk-group/{mpsk-group}/mpsk-key/{mpsk-key}'
+                '/pm/config/adom/{adom}/obj/wireless-controller/mpsk-profile/{mpsk-profile}/mpsk-group/{mpsk-group}/mpsk-key/{mpsk-key}',
+                '/pm/config/global/obj/wireless-controller/mpsk-profile/{mpsk-profile}/mpsk-group/{mpsk-group}/mpsk-key/{mpsk-key}'
             ],
             'revision': {
                 '6.4.2': True,
@@ -21869,6 +23519,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -21877,9 +23528,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -21889,8 +23542,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/wireless-controller/nac-profile/{nac-profile}',
-                '/pm/config/adom/{adom}/obj/wireless-controller/nac-profile/{nac-profile}'
+                '/pm/config/adom/{adom}/obj/wireless-controller/nac-profile/{nac-profile}',
+                '/pm/config/global/obj/wireless-controller/nac-profile/{nac-profile}'
             ],
             'revision': {
                 '7.0.3': True,
@@ -21898,9 +23551,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -21923,6 +23578,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -21935,6 +23591,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -21943,9 +23600,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -21967,6 +23626,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -21979,6 +23639,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -21987,9 +23648,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -22014,6 +23677,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -22026,6 +23690,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -22034,9 +23699,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -22060,6 +23727,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -22068,9 +23736,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -22121,6 +23791,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -22133,6 +23804,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -22141,9 +23813,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -22167,6 +23841,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -22179,6 +23854,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -22187,9 +23863,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -22214,6 +23892,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -22226,6 +23905,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -22234,9 +23914,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -22261,6 +23943,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -22273,6 +23956,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -22281,9 +23965,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -22309,6 +23995,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -22321,6 +24008,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -22329,9 +24017,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -22357,6 +24047,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -22369,6 +24060,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -22377,9 +24069,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -22402,7 +24096,8 @@ def main():
                 '6.2.7': True,
                 '6.2.8': True,
                 '6.2.9': True,
-                '6.2.10': True
+                '6.2.10': True,
+                '6.2.11': True
             }
         },
         'pkg_firewall_explicitproxypolicy_identitybasedpolicy': {
@@ -22425,7 +24120,8 @@ def main():
                 '6.2.7': True,
                 '6.2.8': True,
                 '6.2.9': True,
-                '6.2.10': True
+                '6.2.10': True,
+                '6.2.11': True
             }
         },
         'pkg_firewall_hyperscalepolicy': {
@@ -22443,6 +24139,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.1': True,
                 '7.0.2': True,
                 '7.0.3': True,
@@ -22450,6 +24147,7 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True
             }
         },
@@ -22468,6 +24166,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.1': True,
                 '7.0.2': True,
                 '7.0.3': True,
@@ -22475,6 +24174,7 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True
             }
         },
@@ -22493,6 +24193,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.1': True,
                 '7.0.2': True,
                 '7.0.3': True,
@@ -22500,6 +24201,7 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True
             }
         },
@@ -22518,6 +24220,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.1': True,
                 '7.0.2': True,
                 '7.0.3': True,
@@ -22525,6 +24228,7 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True
             }
         },
@@ -22549,6 +24253,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -22561,6 +24266,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -22569,6 +24275,7 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True
@@ -22595,6 +24302,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -22607,6 +24315,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -22615,6 +24324,7 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True
@@ -22641,6 +24351,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -22653,6 +24364,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -22661,9 +24373,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -22688,6 +24402,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -22700,6 +24415,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -22708,9 +24424,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -22735,6 +24453,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -22747,6 +24466,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -22755,9 +24475,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -22782,6 +24504,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -22794,6 +24517,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -22802,9 +24526,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -22829,6 +24555,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -22841,6 +24568,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -22849,9 +24577,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -22876,6 +24606,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -22888,6 +24619,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -22896,9 +24628,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -22923,6 +24657,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -22935,6 +24670,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -22943,9 +24679,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -22970,6 +24708,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -22982,6 +24721,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -22990,9 +24730,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -23018,6 +24760,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -23030,6 +24773,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True
@@ -23057,6 +24801,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -23069,6 +24814,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True
@@ -23095,6 +24841,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -23107,6 +24854,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -23115,9 +24863,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -23140,6 +24890,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -23152,6 +24903,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -23160,9 +24912,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -23187,6 +24941,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -23199,6 +24954,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -23207,9 +24963,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -23235,6 +24993,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -23247,6 +25006,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -23255,9 +25015,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -23283,6 +25045,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -23295,6 +25058,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -23303,9 +25067,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -23331,6 +25097,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -23343,6 +25110,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -23351,9 +25119,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -23407,6 +25177,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -23419,6 +25190,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -23427,9 +25199,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -23455,6 +25229,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -23467,6 +25242,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -23475,9 +25251,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -23503,6 +25281,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -23515,6 +25294,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -23523,9 +25303,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -23551,6 +25333,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -23563,6 +25346,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -23571,9 +25355,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -23627,6 +25413,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -23639,6 +25426,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -23647,9 +25435,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -23665,6 +25455,7 @@ def main():
             'revision': {
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -23685,6 +25476,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.3': True,
@@ -23696,6 +25488,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -23704,9 +25497,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -23715,8 +25510,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/_application/list',
-                '/pm/config/adom/{adom}/_application/list'
+                '/pm/config/adom/{adom}/_application/list',
+                '/pm/config/global/_application/list'
             ],
             'revision': {
                 '6.2.0': True,
@@ -23729,6 +25524,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -23741,6 +25537,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -23749,9 +25546,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -23760,8 +25559,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/_category/list',
-                '/pm/config/adom/{adom}/_category/list'
+                '/pm/config/adom/{adom}/_category/list',
+                '/pm/config/global/_category/list'
             ],
             'revision': {
                 '6.2.0': True,
@@ -23774,6 +25573,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -23786,6 +25586,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -23794,9 +25595,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -23806,8 +25609,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/_data/tablesize/{tablesize}',
-                '/pm/config/adom/{adom}/_data/tablesize/{tablesize}'
+                '/pm/config/adom/{adom}/_data/tablesize/{tablesize}',
+                '/pm/config/global/_data/tablesize/{tablesize}'
             ],
             'revision': {
                 '6.2.0': True,
@@ -23820,6 +25623,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -23832,6 +25636,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -23849,8 +25654,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/_data/tablesize/faz/{faz}',
-                '/pm/config/adom/{adom}/_data/tablesize/faz/{faz}'
+                '/pm/config/adom/{adom}/_data/tablesize/faz/{faz}',
+                '/pm/config/global/_data/tablesize/faz/{faz}'
             ],
             'revision': {
                 '6.2.0': True,
@@ -23863,6 +25668,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -23875,6 +25681,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -23892,8 +25699,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/_data/tablesize/fmg/{fmg}',
-                '/pm/config/adom/{adom}/_data/tablesize/fmg/{fmg}'
+                '/pm/config/adom/{adom}/_data/tablesize/fmg/{fmg}',
+                '/pm/config/global/_data/tablesize/fmg/{fmg}'
             ],
             'revision': {
                 '6.2.0': True,
@@ -23906,6 +25713,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -23918,6 +25726,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -23935,8 +25744,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/_data/tablesize/fos/{fos}',
-                '/pm/config/adom/{adom}/_data/tablesize/fos/{fos}'
+                '/pm/config/adom/{adom}/_data/tablesize/fos/{fos}',
+                '/pm/config/global/_data/tablesize/fos/{fos}'
             ],
             'revision': {
                 '6.2.0': True,
@@ -23949,6 +25758,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -23961,6 +25771,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -23978,8 +25789,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/_data/tablesize/log/{log}',
-                '/pm/config/adom/{adom}/_data/tablesize/log/{log}'
+                '/pm/config/adom/{adom}/_data/tablesize/log/{log}',
+                '/pm/config/global/_data/tablesize/log/{log}'
             ],
             'revision': {
                 '6.2.0': True,
@@ -23992,6 +25803,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -24004,6 +25816,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -24032,6 +25845,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.3': True,
@@ -24043,6 +25857,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -24051,9 +25866,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -24073,6 +25890,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.3': True,
@@ -24084,6 +25902,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -24092,9 +25911,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -24114,6 +25935,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.3': True,
@@ -24125,6 +25947,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -24133,9 +25956,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -24155,6 +25980,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.3': True,
@@ -24166,6 +25992,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -24174,9 +26001,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -24196,6 +26025,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.3': True,
@@ -24207,6 +26037,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -24215,9 +26046,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -24237,6 +26070,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.3': True,
@@ -24248,6 +26082,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -24256,9 +26091,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -24278,6 +26115,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.3': True,
@@ -24289,6 +26127,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -24297,9 +26136,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -24314,7 +26155,9 @@ def main():
             ],
             'revision': {
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -24333,9 +26176,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -24354,9 +26199,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -24375,9 +26222,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -24396,9 +26245,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -24407,8 +26258,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/_rule/list',
-                '/pm/config/adom/{adom}/_rule/list'
+                '/pm/config/adom/{adom}/_rule/list',
+                '/pm/config/global/_rule/list'
             ],
             'revision': {
                 '6.2.0': True,
@@ -24421,6 +26272,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -24433,6 +26285,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -24441,9 +26294,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -24467,6 +26322,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -24479,6 +26335,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -24487,9 +26344,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -24512,6 +26371,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -24524,6 +26384,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -24532,9 +26393,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -24552,9 +26415,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -24571,9 +26436,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -24598,6 +26465,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -24610,6 +26478,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -24618,9 +26487,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -24643,6 +26514,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -24655,6 +26527,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -24663,9 +26536,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -24687,6 +26562,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -24699,6 +26575,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -24707,9 +26584,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -24734,6 +26613,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -24746,6 +26626,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -24754,9 +26635,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -24780,6 +26663,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -24792,6 +26676,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -24800,9 +26685,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -24825,6 +26712,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -24837,6 +26725,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -24845,9 +26734,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -24872,6 +26763,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -24884,6 +26776,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -24892,9 +26785,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -24904,19 +26799,21 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/wireless-controller/region/{region}',
-                '/pm/config/adom/{adom}/obj/wireless-controller/region/{region}'
+                '/pm/config/adom/{adom}/obj/wireless-controller/region/{region}',
+                '/pm/config/global/obj/wireless-controller/region/{region}'
             ],
             'revision': {
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.6': True,
                 '6.4.7': True,
                 '6.4.8': True,
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -24925,9 +26822,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -24937,8 +26836,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/router/access-list/{access-list}',
-                '/pm/config/adom/{adom}/obj/router/access-list/{access-list}'
+                '/pm/config/adom/{adom}/obj/router/access-list/{access-list}',
+                '/pm/config/global/obj/router/access-list/{access-list}'
             ],
             'revision': {
                 '7.0.2': True,
@@ -24947,9 +26846,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -24959,8 +26860,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/router/access-list6/{access-list6}',
-                '/pm/config/adom/{adom}/obj/router/access-list6/{access-list6}'
+                '/pm/config/adom/{adom}/obj/router/access-list6/{access-list6}',
+                '/pm/config/global/obj/router/access-list6/{access-list6}'
             ],
             'revision': {
                 '7.0.2': True,
@@ -24969,9 +26870,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -24982,8 +26885,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/router/access-list6/{access-list6}/rule/{rule}',
-                '/pm/config/adom/{adom}/obj/router/access-list6/{access-list6}/rule/{rule}'
+                '/pm/config/adom/{adom}/obj/router/access-list6/{access-list6}/rule/{rule}',
+                '/pm/config/global/obj/router/access-list6/{access-list6}/rule/{rule}'
             ],
             'revision': {
                 '7.0.2': True,
@@ -24992,9 +26895,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -25005,8 +26910,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/router/access-list/{access-list}/rule/{rule}',
-                '/pm/config/adom/{adom}/obj/router/access-list/{access-list}/rule/{rule}'
+                '/pm/config/adom/{adom}/obj/router/access-list/{access-list}/rule/{rule}',
+                '/pm/config/global/obj/router/access-list/{access-list}/rule/{rule}'
             ],
             'revision': {
                 '7.0.2': True,
@@ -25015,9 +26920,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -25027,8 +26934,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/router/aspath-list/{aspath-list}',
-                '/pm/config/adom/{adom}/obj/router/aspath-list/{aspath-list}'
+                '/pm/config/adom/{adom}/obj/router/aspath-list/{aspath-list}',
+                '/pm/config/global/obj/router/aspath-list/{aspath-list}'
             ],
             'revision': {
                 '7.0.2': True,
@@ -25037,9 +26944,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -25050,8 +26959,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/router/aspath-list/{aspath-list}/rule/{rule}',
-                '/pm/config/adom/{adom}/obj/router/aspath-list/{aspath-list}/rule/{rule}'
+                '/pm/config/adom/{adom}/obj/router/aspath-list/{aspath-list}/rule/{rule}',
+                '/pm/config/global/obj/router/aspath-list/{aspath-list}/rule/{rule}'
             ],
             'revision': {
                 '7.0.2': True,
@@ -25060,9 +26969,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -25072,8 +26983,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/router/community-list/{community-list}',
-                '/pm/config/adom/{adom}/obj/router/community-list/{community-list}'
+                '/pm/config/adom/{adom}/obj/router/community-list/{community-list}',
+                '/pm/config/global/obj/router/community-list/{community-list}'
             ],
             'revision': {
                 '7.0.2': True,
@@ -25082,9 +26993,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -25095,8 +27008,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/router/community-list/{community-list}/rule/{rule}',
-                '/pm/config/adom/{adom}/obj/router/community-list/{community-list}/rule/{rule}'
+                '/pm/config/adom/{adom}/obj/router/community-list/{community-list}/rule/{rule}',
+                '/pm/config/global/obj/router/community-list/{community-list}/rule/{rule}'
             ],
             'revision': {
                 '7.0.2': True,
@@ -25105,9 +27018,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -25117,8 +27032,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/router/prefix-list/{prefix-list}',
-                '/pm/config/adom/{adom}/obj/router/prefix-list/{prefix-list}'
+                '/pm/config/adom/{adom}/obj/router/prefix-list/{prefix-list}',
+                '/pm/config/global/obj/router/prefix-list/{prefix-list}'
             ],
             'revision': {
                 '7.0.2': True,
@@ -25127,9 +27042,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -25139,8 +27056,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/router/prefix-list6/{prefix-list6}',
-                '/pm/config/adom/{adom}/obj/router/prefix-list6/{prefix-list6}'
+                '/pm/config/adom/{adom}/obj/router/prefix-list6/{prefix-list6}',
+                '/pm/config/global/obj/router/prefix-list6/{prefix-list6}'
             ],
             'revision': {
                 '7.0.2': True,
@@ -25149,9 +27066,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -25162,8 +27081,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/router/prefix-list6/{prefix-list6}/rule/{rule}',
-                '/pm/config/adom/{adom}/obj/router/prefix-list6/{prefix-list6}/rule/{rule}'
+                '/pm/config/adom/{adom}/obj/router/prefix-list6/{prefix-list6}/rule/{rule}',
+                '/pm/config/global/obj/router/prefix-list6/{prefix-list6}/rule/{rule}'
             ],
             'revision': {
                 '7.0.2': True,
@@ -25172,9 +27091,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -25185,8 +27106,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/router/prefix-list/{prefix-list}/rule/{rule}',
-                '/pm/config/adom/{adom}/obj/router/prefix-list/{prefix-list}/rule/{rule}'
+                '/pm/config/adom/{adom}/obj/router/prefix-list/{prefix-list}/rule/{rule}',
+                '/pm/config/global/obj/router/prefix-list/{prefix-list}/rule/{rule}'
             ],
             'revision': {
                 '7.0.2': True,
@@ -25195,9 +27116,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -25207,8 +27130,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/router/route-map/{route-map}',
-                '/pm/config/adom/{adom}/obj/router/route-map/{route-map}'
+                '/pm/config/adom/{adom}/obj/router/route-map/{route-map}',
+                '/pm/config/global/obj/router/route-map/{route-map}'
             ],
             'revision': {
                 '7.0.2': True,
@@ -25217,9 +27140,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -25230,8 +27155,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/router/route-map/{route-map}/rule/{rule}',
-                '/pm/config/adom/{adom}/obj/router/route-map/{route-map}/rule/{rule}'
+                '/pm/config/adom/{adom}/obj/router/route-map/{route-map}/rule/{rule}',
+                '/pm/config/global/obj/router/route-map/{route-map}/rule/{rule}'
             ],
             'revision': {
                 '7.0.2': True,
@@ -25240,9 +27165,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -25267,6 +27194,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -25279,6 +27207,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -25287,6 +27216,7 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True
             }
@@ -25313,6 +27243,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -25325,6 +27256,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -25333,6 +27265,7 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True
             }
@@ -25358,6 +27291,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -25370,6 +27304,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -25378,6 +27313,7 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True
             }
@@ -25404,6 +27340,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -25416,6 +27353,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -25424,6 +27362,7 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True
             }
@@ -25449,6 +27388,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -25461,6 +27401,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -25469,6 +27410,7 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True
             }
@@ -25495,6 +27437,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -25507,6 +27450,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -25515,6 +27459,7 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True
             }
@@ -25540,6 +27485,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -25552,6 +27498,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -25560,6 +27507,7 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True
             }
@@ -25586,6 +27534,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -25598,6 +27547,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -25606,6 +27556,7 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True
             }
@@ -25631,6 +27582,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -25643,6 +27595,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -25651,6 +27604,7 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True
             }
@@ -25677,6 +27631,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -25689,6 +27644,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -25697,6 +27653,7 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True
             }
@@ -25722,6 +27679,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -25734,6 +27692,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -25742,6 +27701,7 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True
             }
@@ -25767,6 +27727,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -25779,6 +27740,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -25787,6 +27749,7 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True
             }
@@ -25812,6 +27775,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -25824,6 +27788,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -25832,6 +27797,7 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True
             }
@@ -25857,6 +27823,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -25869,6 +27836,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -25877,6 +27845,7 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True
             }
@@ -25902,6 +27871,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -25914,6 +27884,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -25922,6 +27893,7 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True
             }
@@ -25947,6 +27919,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -25959,6 +27932,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -25967,6 +27941,7 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True
             }
@@ -25992,6 +27967,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -26004,6 +27980,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -26012,6 +27989,7 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True
             }
@@ -26036,7 +28014,8 @@ def main():
                 '6.2.7': True,
                 '6.2.8': True,
                 '6.2.9': True,
-                '6.2.10': True
+                '6.2.10': True,
+                '6.2.11': True
             }
         },
         'sshfilter_profile': {
@@ -26060,6 +28039,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -26072,6 +28052,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -26080,9 +28061,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -26092,8 +28075,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/ssh-filter/profile/{profile}/file-filter',
-                '/pm/config/adom/{adom}/obj/ssh-filter/profile/{profile}/file-filter'
+                '/pm/config/adom/{adom}/obj/ssh-filter/profile/{profile}/file-filter',
+                '/pm/config/global/obj/ssh-filter/profile/{profile}/file-filter'
             ],
             'revision': {
                 '6.2.2': True,
@@ -26104,6 +28087,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -26116,6 +28100,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -26124,9 +28109,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -26137,8 +28124,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/ssh-filter/profile/{profile}/file-filter/entries/{entries}',
-                '/pm/config/adom/{adom}/obj/ssh-filter/profile/{profile}/file-filter/entries/{entries}'
+                '/pm/config/adom/{adom}/obj/ssh-filter/profile/{profile}/file-filter/entries/{entries}',
+                '/pm/config/global/obj/ssh-filter/profile/{profile}/file-filter/entries/{entries}'
             ],
             'revision': {
                 '6.2.2': True,
@@ -26149,6 +28136,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -26161,6 +28149,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -26169,9 +28158,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -26197,6 +28188,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -26209,6 +28201,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -26217,9 +28210,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -26229,8 +28224,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/switch-controller/acl/group/{group}',
-                '/pm/config/adom/{adom}/obj/switch-controller/acl/group/{group}'
+                '/pm/config/adom/{adom}/obj/switch-controller/acl/group/{group}',
+                '/pm/config/global/obj/switch-controller/acl/group/{group}'
             ],
             'revision': {
                 '7.4.0': True
@@ -26242,8 +28237,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/switch-controller/acl/ingress/{ingress}',
-                '/pm/config/adom/{adom}/obj/switch-controller/acl/ingress/{ingress}'
+                '/pm/config/adom/{adom}/obj/switch-controller/acl/ingress/{ingress}',
+                '/pm/config/global/obj/switch-controller/acl/ingress/{ingress}'
             ],
             'revision': {
                 '7.4.0': True
@@ -26255,8 +28250,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/switch-controller/acl/ingress/{ingress}/action',
-                '/pm/config/adom/{adom}/obj/switch-controller/acl/ingress/{ingress}/action'
+                '/pm/config/adom/{adom}/obj/switch-controller/acl/ingress/{ingress}/action',
+                '/pm/config/global/obj/switch-controller/acl/ingress/{ingress}/action'
             ],
             'revision': {
                 '7.4.0': True
@@ -26268,8 +28263,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/switch-controller/acl/ingress/{ingress}/classifier',
-                '/pm/config/adom/{adom}/obj/switch-controller/acl/ingress/{ingress}/classifier'
+                '/pm/config/adom/{adom}/obj/switch-controller/acl/ingress/{ingress}/classifier',
+                '/pm/config/global/obj/switch-controller/acl/ingress/{ingress}/classifier'
             ],
             'revision': {
                 '7.4.0': True
@@ -26281,8 +28276,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/switch-controller/custom-command/{custom-command}',
-                '/pm/config/adom/{adom}/obj/switch-controller/custom-command/{custom-command}'
+                '/pm/config/adom/{adom}/obj/switch-controller/custom-command/{custom-command}',
+                '/pm/config/global/obj/switch-controller/custom-command/{custom-command}'
             ],
             'revision': {
                 '7.0.0': True,
@@ -26293,9 +28288,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -26305,8 +28302,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/switch-controller/dsl/policy/{policy}',
-                '/pm/config/adom/{adom}/obj/switch-controller/dsl/policy/{policy}'
+                '/pm/config/adom/{adom}/obj/switch-controller/dsl/policy/{policy}',
+                '/pm/config/global/obj/switch-controller/dsl/policy/{policy}'
             ],
             'revision': {
                 '7.0.3': True,
@@ -26314,9 +28311,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -26326,12 +28325,13 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/switch-controller/dynamic-port-policy/{dynamic-port-policy}',
-                '/pm/config/adom/{adom}/obj/switch-controller/dynamic-port-policy/{dynamic-port-policy}'
+                '/pm/config/adom/{adom}/obj/switch-controller/dynamic-port-policy/{dynamic-port-policy}',
+                '/pm/config/global/obj/switch-controller/dynamic-port-policy/{dynamic-port-policy}'
             ],
             'revision': {
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -26342,12 +28342,13 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/switch-controller/dynamic-port-policy/{dynamic-port-policy}/policy/{policy}',
-                '/pm/config/adom/{adom}/obj/switch-controller/dynamic-port-policy/{dynamic-port-policy}/policy/{policy}'
+                '/pm/config/adom/{adom}/obj/switch-controller/dynamic-port-policy/{dynamic-port-policy}/policy/{policy}',
+                '/pm/config/global/obj/switch-controller/dynamic-port-policy/{dynamic-port-policy}/policy/{policy}'
             ],
             'revision': {
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -26357,12 +28358,13 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/switch-controller/fortilink-settings/{fortilink-settings}',
-                '/pm/config/adom/{adom}/obj/switch-controller/fortilink-settings/{fortilink-settings}'
+                '/pm/config/adom/{adom}/obj/switch-controller/fortilink-settings/{fortilink-settings}',
+                '/pm/config/global/obj/switch-controller/fortilink-settings/{fortilink-settings}'
             ],
             'revision': {
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -26372,12 +28374,13 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/switch-controller/fortilink-settings/{fortilink-settings}/nac-ports',
-                '/pm/config/adom/{adom}/obj/switch-controller/fortilink-settings/{fortilink-settings}/nac-ports'
+                '/pm/config/adom/{adom}/obj/switch-controller/fortilink-settings/{fortilink-settings}/nac-ports',
+                '/pm/config/global/obj/switch-controller/fortilink-settings/{fortilink-settings}/nac-ports'
             ],
             'revision': {
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -26402,6 +28405,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -26414,6 +28418,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -26422,9 +28427,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -26450,6 +28457,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -26462,6 +28470,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -26470,9 +28479,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -26483,8 +28494,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/switch-controller/lldp-profile/{lldp-profile}/med-location-service/{med-location-service}',
-                '/pm/config/adom/{adom}/obj/switch-controller/lldp-profile/{lldp-profile}/med-location-service/{med-location-service}'
+                '/pm/config/adom/{adom}/obj/switch-controller/lldp-profile/{lldp-profile}/med-location-service/{med-location-service}',
+                '/pm/config/global/obj/switch-controller/lldp-profile/{lldp-profile}/med-location-service/{med-location-service}'
             ],
             'revision': {
                 '6.2.0': True,
@@ -26497,6 +28508,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -26509,6 +28521,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -26517,9 +28530,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -26545,6 +28560,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -26557,6 +28573,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -26565,9 +28582,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -26577,12 +28596,13 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/switch-controller/mac-policy/{mac-policy}',
-                '/pm/config/adom/{adom}/obj/switch-controller/mac-policy/{mac-policy}'
+                '/pm/config/adom/{adom}/obj/switch-controller/mac-policy/{mac-policy}',
+                '/pm/config/global/obj/switch-controller/mac-policy/{mac-policy}'
             ],
             'revision': {
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -26607,6 +28627,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -26619,6 +28640,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -26627,9 +28649,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -26654,8 +28678,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/switch-controller/managed-switch/{managed-switch}/custom-command/{custom-command}',
-                '/pm/config/adom/{adom}/obj/switch-controller/managed-switch/{managed-switch}/custom-command/{custom-command}'
+                '/pm/config/adom/{adom}/obj/switch-controller/managed-switch/{managed-switch}/custom-command/{custom-command}',
+                '/pm/config/global/obj/switch-controller/managed-switch/{managed-switch}/custom-command/{custom-command}'
             ],
             'revision': {
                 '7.0.0': True,
@@ -26666,9 +28690,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -26679,11 +28705,12 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/switch-controller/managed-switch/{managed-switch}/dhcp-snooping-static-client/{dhcp-snooping-static-client}',
-                '/pm/config/adom/{adom}/obj/switch-controller/managed-switch/{managed-switch}/dhcp-snooping-static-client/{dhcp-snooping-static-client}'
+                '/pm/config/adom/{adom}/obj/switch-controller/managed-switch/{managed-switch}/dhcp-snooping-static-client/{dhcp-snooping-static-client}',
+                '/pm/config/global/obj/switch-controller/managed-switch/{managed-switch}/dhcp-snooping-static-client/{dhcp-snooping-static-client}'
             ],
             'revision': {
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -26708,8 +28735,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/switch-controller/managed-switch/{managed-switch}/ip-source-guard/{ip-source-guard}',
-                '/pm/config/adom/{adom}/obj/switch-controller/managed-switch/{managed-switch}/ip-source-guard/{ip-source-guard}'
+                '/pm/config/adom/{adom}/obj/switch-controller/managed-switch/{managed-switch}/ip-source-guard/{ip-source-guard}',
+                '/pm/config/global/obj/switch-controller/managed-switch/{managed-switch}/ip-source-guard/{ip-source-guard}'
             ],
             'revision': {
                 '6.4.0': True,
@@ -26724,8 +28751,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/switch-controller/managed-switch/{managed-switch}/ip-source-guard/{ip-source-guard}/binding-entry/{binding-entry}',
-                '/pm/config/adom/{adom}/obj/switch-controller/managed-switch/{managed-switch}/ip-source-guard/{ip-source-guard}/binding-entry/{binding-entry}'
+                '/pm/config/adom/{adom}/obj/switch-controller/managed-switch/{managed-switch}/ip-source-guard/{ip-source-guard}/binding-entry/{binding-entry}',
+                '/pm/config/global/obj/switch-controller/managed-switch/{managed-switch}/ip-source-guard/{ip-source-guard}/binding-entry/{binding-entry}'
             ],
             'revision': {
                 '6.4.0': True,
@@ -26769,6 +28796,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -26781,6 +28809,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -26789,9 +28818,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -26803,8 +28834,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/switch-controller/managed-switch/{managed-switch}/ports/{ports}/dhcp-snoop-option82-override/{dhcp-snoop-option82-override}',
-                '/pm/config/adom/{adom}/obj/switch-controller/managed-switch/{managed-switch}/ports/{ports}/dhcp-snoop-option82-override/{dhcp-snoop-option82-override}'
+                '/pm/config/adom/{adom}/obj/switch-controller/managed-switch/{managed-switch}/ports/{ports}/dhcp-snoop-option82-override/{dhcp-snoop-option82-override}',
+                '/pm/config/global/obj/switch-controller/managed-switch/{managed-switch}/ports/{ports}/dhcp-snoop-option82-override/{dhcp-snoop-option82-override}'
             ],
             'revision': {
                 '7.4.0': True
@@ -26817,8 +28848,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/switch-controller/managed-switch/{managed-switch}/remote-log/{remote-log}',
-                '/pm/config/adom/{adom}/obj/switch-controller/managed-switch/{managed-switch}/remote-log/{remote-log}'
+                '/pm/config/adom/{adom}/obj/switch-controller/managed-switch/{managed-switch}/remote-log/{remote-log}',
+                '/pm/config/global/obj/switch-controller/managed-switch/{managed-switch}/remote-log/{remote-log}'
             ],
             'revision': {
                 '6.2.1': True,
@@ -26833,8 +28864,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/switch-controller/managed-switch/{managed-switch}/snmp-community/{snmp-community}',
-                '/pm/config/adom/{adom}/obj/switch-controller/managed-switch/{managed-switch}/snmp-community/{snmp-community}'
+                '/pm/config/adom/{adom}/obj/switch-controller/managed-switch/{managed-switch}/snmp-community/{snmp-community}',
+                '/pm/config/global/obj/switch-controller/managed-switch/{managed-switch}/snmp-community/{snmp-community}'
             ],
             'revision': {
                 '6.2.1': True,
@@ -26850,8 +28881,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/switch-controller/managed-switch/{managed-switch}/snmp-community/{snmp-community}/hosts/{hosts}',
-                '/pm/config/adom/{adom}/obj/switch-controller/managed-switch/{managed-switch}/snmp-community/{snmp-community}/hosts/{hosts}'
+                '/pm/config/adom/{adom}/obj/switch-controller/managed-switch/{managed-switch}/snmp-community/{snmp-community}/hosts/{hosts}',
+                '/pm/config/global/obj/switch-controller/managed-switch/{managed-switch}/snmp-community/{snmp-community}/hosts/{hosts}'
             ],
             'revision': {
                 '6.2.1': True,
@@ -26865,8 +28896,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/switch-controller/managed-switch/{managed-switch}/snmp-sysinfo',
-                '/pm/config/adom/{adom}/obj/switch-controller/managed-switch/{managed-switch}/snmp-sysinfo'
+                '/pm/config/adom/{adom}/obj/switch-controller/managed-switch/{managed-switch}/snmp-sysinfo',
+                '/pm/config/global/obj/switch-controller/managed-switch/{managed-switch}/snmp-sysinfo'
             ],
             'revision': {
                 '6.2.1': True,
@@ -26880,8 +28911,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/switch-controller/managed-switch/{managed-switch}/snmp-trap-threshold',
-                '/pm/config/adom/{adom}/obj/switch-controller/managed-switch/{managed-switch}/snmp-trap-threshold'
+                '/pm/config/adom/{adom}/obj/switch-controller/managed-switch/{managed-switch}/snmp-trap-threshold',
+                '/pm/config/global/obj/switch-controller/managed-switch/{managed-switch}/snmp-trap-threshold'
             ],
             'revision': {
                 '6.2.1': True,
@@ -26896,8 +28927,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/switch-controller/managed-switch/{managed-switch}/snmp-user/{snmp-user}',
-                '/pm/config/adom/{adom}/obj/switch-controller/managed-switch/{managed-switch}/snmp-user/{snmp-user}'
+                '/pm/config/adom/{adom}/obj/switch-controller/managed-switch/{managed-switch}/snmp-user/{snmp-user}',
+                '/pm/config/global/obj/switch-controller/managed-switch/{managed-switch}/snmp-user/{snmp-user}'
             ],
             'revision': {
                 '6.2.1': True,
@@ -27010,6 +29041,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -27022,6 +29054,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -27030,9 +29063,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -27057,6 +29092,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -27069,6 +29105,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -27077,9 +29114,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -27105,6 +29144,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -27117,6 +29157,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -27125,9 +29166,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -27152,6 +29195,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -27164,6 +29208,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -27172,9 +29217,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -27199,6 +29246,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -27211,6 +29259,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -27219,9 +29268,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -27247,6 +29298,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -27259,6 +29311,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -27267,9 +29320,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -27294,6 +29349,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -27306,6 +29362,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -27314,9 +29371,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -27341,12 +29400,13 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/switch-controller/switch-interface-tag/{switch-interface-tag}',
-                '/pm/config/adom/{adom}/obj/switch-controller/switch-interface-tag/{switch-interface-tag}'
+                '/pm/config/adom/{adom}/obj/switch-controller/switch-interface-tag/{switch-interface-tag}',
+                '/pm/config/global/obj/switch-controller/switch-interface-tag/{switch-interface-tag}'
             ],
             'revision': {
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -27356,12 +29416,13 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/switch-controller/traffic-policy/{traffic-policy}',
-                '/pm/config/adom/{adom}/obj/switch-controller/traffic-policy/{traffic-policy}'
+                '/pm/config/adom/{adom}/obj/switch-controller/traffic-policy/{traffic-policy}',
+                '/pm/config/global/obj/switch-controller/traffic-policy/{traffic-policy}'
             ],
             'revision': {
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -27371,12 +29432,13 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/switch-controller/vlan-policy/{vlan-policy}',
-                '/pm/config/adom/{adom}/obj/switch-controller/vlan-policy/{vlan-policy}'
+                '/pm/config/adom/{adom}/obj/switch-controller/vlan-policy/{vlan-policy}',
+                '/pm/config/global/obj/switch-controller/vlan-policy/{vlan-policy}'
             ],
             'revision': {
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -27398,6 +29460,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -27410,6 +29473,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -27418,9 +29482,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -27442,6 +29508,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -27454,6 +29521,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -27462,9 +29530,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -27487,6 +29557,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -27499,6 +29570,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -27507,9 +29579,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -27533,6 +29607,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -27545,6 +29620,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -27553,9 +29629,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -27578,6 +29656,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -27590,6 +29669,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -27598,9 +29678,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -27624,6 +29706,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -27636,6 +29719,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -27644,9 +29728,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -27669,6 +29755,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -27681,6 +29768,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -27689,9 +29777,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -27715,6 +29805,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -27727,6 +29818,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -27735,9 +29827,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -27760,6 +29854,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -27772,6 +29867,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -27780,9 +29876,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -27804,6 +29902,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -27816,6 +29915,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -27824,9 +29924,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -27849,6 +29951,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -27861,6 +29964,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -27869,9 +29973,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -27894,6 +30000,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -27906,6 +30013,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -27914,9 +30022,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -27940,6 +30050,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -27952,6 +30063,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -27960,9 +30072,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -27986,6 +30100,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -27998,6 +30113,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True
@@ -28023,6 +30139,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -28035,6 +30152,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -28043,9 +30161,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -28069,6 +30189,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -28081,6 +30202,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -28089,9 +30211,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -28115,6 +30239,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -28127,6 +30252,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -28135,9 +30261,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -28161,6 +30289,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -28173,6 +30302,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -28181,9 +30311,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -28207,6 +30339,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -28219,6 +30352,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -28227,9 +30361,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -28253,6 +30389,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -28265,6 +30402,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -28273,9 +30411,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -28316,6 +30456,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -28328,6 +30469,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -28336,9 +30478,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -28360,6 +30504,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -28372,6 +30517,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -28380,9 +30526,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -28404,6 +30552,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -28416,6 +30565,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -28424,9 +30574,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -28449,6 +30601,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -28461,6 +30614,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -28469,9 +30623,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -28495,6 +30651,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -28507,6 +30664,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -28515,9 +30673,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -28539,6 +30699,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -28551,6 +30712,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -28559,9 +30721,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -28583,6 +30747,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -28595,6 +30760,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -28603,9 +30769,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -28627,6 +30795,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -28639,6 +30808,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -28647,9 +30817,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -28671,6 +30843,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -28683,6 +30856,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -28691,9 +30865,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -28715,6 +30891,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -28727,6 +30904,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -28735,9 +30913,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -28759,6 +30939,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -28771,6 +30952,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -28779,9 +30961,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -28804,6 +30988,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -28816,6 +31001,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -28824,9 +31010,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -28849,6 +31037,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -28861,6 +31050,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -28869,9 +31059,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -28894,6 +31086,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -28906,6 +31099,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -28914,9 +31108,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -28938,6 +31134,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -28950,6 +31147,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -28958,9 +31156,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -28983,6 +31183,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -28995,6 +31196,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -29003,9 +31205,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -29028,6 +31232,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -29040,6 +31245,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -29048,9 +31254,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -29072,6 +31280,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -29084,6 +31293,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -29092,9 +31302,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -29119,6 +31331,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -29131,6 +31344,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -29139,9 +31353,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -29166,6 +31382,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -29178,6 +31395,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -29186,9 +31404,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -29214,6 +31434,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -29226,6 +31447,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -29234,9 +31456,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -29262,6 +31486,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -29274,6 +31499,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -29282,9 +31508,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -29310,6 +31538,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -29322,6 +31551,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -29330,9 +31560,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -29358,6 +31590,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -29370,6 +31603,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -29378,9 +31612,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -29402,6 +31638,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -29414,6 +31651,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -29422,9 +31660,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -29446,6 +31686,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -29458,6 +31699,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -29466,9 +31708,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -29491,6 +31735,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -29499,9 +31744,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -29526,6 +31773,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -29538,6 +31786,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -29546,9 +31795,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -29570,6 +31821,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -29582,6 +31834,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -29590,9 +31843,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -29616,6 +31871,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -29628,6 +31884,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -29636,9 +31893,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -29660,6 +31919,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -29672,6 +31932,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -29680,9 +31941,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -29704,6 +31967,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -29716,6 +31980,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -29724,9 +31989,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -29751,6 +32018,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -29763,6 +32031,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -29771,9 +32040,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -29798,6 +32069,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -29810,6 +32082,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -29818,9 +32091,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -29831,8 +32106,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/system/geoip-override/{geoip-override}/ip6-range/{ip6-range}',
-                '/pm/config/adom/{adom}/obj/system/geoip-override/{geoip-override}/ip6-range/{ip6-range}'
+                '/pm/config/adom/{adom}/obj/system/geoip-override/{geoip-override}/ip6-range/{ip6-range}',
+                '/pm/config/global/obj/system/geoip-override/{geoip-override}/ip6-range/{ip6-range}'
             ],
             'revision': {
                 '6.4.0': True,
@@ -29847,6 +32122,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -29855,9 +32131,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -29883,6 +32161,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -29895,6 +32174,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -29903,9 +32183,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -29927,6 +32209,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -29939,6 +32222,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -29947,9 +32231,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -29971,6 +32257,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -29983,6 +32270,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -29991,9 +32279,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -30015,6 +32305,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -30027,6 +32318,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -30035,9 +32327,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -30052,6 +32346,7 @@ def main():
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -30066,6 +32361,7 @@ def main():
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -30088,6 +32384,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -30100,6 +32397,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -30108,9 +32406,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -30128,9 +32428,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -30153,6 +32455,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -30165,6 +32468,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -30173,9 +32477,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -30198,6 +32504,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -30210,6 +32517,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -30218,9 +32526,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -30236,6 +32546,7 @@ def main():
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -30250,6 +32561,7 @@ def main():
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -30264,6 +32576,7 @@ def main():
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -30285,6 +32598,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -30297,6 +32611,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -30305,9 +32620,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -30329,6 +32646,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -30341,6 +32659,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -30349,9 +32668,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -30373,6 +32694,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -30385,6 +32707,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -30393,9 +32716,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -30417,6 +32742,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -30429,6 +32755,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -30437,9 +32764,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -30461,6 +32790,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -30473,6 +32803,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -30481,9 +32812,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -30505,6 +32838,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -30517,6 +32851,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -30525,9 +32860,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -30549,6 +32886,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -30561,6 +32899,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -30569,9 +32908,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -30593,6 +32934,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -30605,6 +32947,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -30613,9 +32956,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -30637,6 +32982,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -30649,6 +32995,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -30657,9 +33004,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -30681,6 +33030,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -30693,6 +33043,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -30701,9 +33052,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -30725,6 +33078,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -30737,6 +33091,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -30745,9 +33100,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -30769,6 +33126,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -30781,6 +33139,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -30789,9 +33148,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -30813,6 +33174,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -30825,6 +33187,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -30833,9 +33196,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -30857,6 +33222,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -30869,6 +33235,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -30877,9 +33244,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -30901,6 +33270,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -30913,6 +33283,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -30921,9 +33292,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -30945,6 +33318,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -30957,6 +33331,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -30965,9 +33340,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -30989,6 +33366,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -31001,6 +33379,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -31009,9 +33388,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -31033,6 +33414,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -31045,6 +33427,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -31053,9 +33436,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -31075,6 +33460,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -31083,9 +33469,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -31102,9 +33490,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -31124,6 +33514,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -31136,6 +33527,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -31144,9 +33536,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -31168,6 +33562,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -31180,6 +33575,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -31188,9 +33584,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -31213,6 +33611,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -31225,6 +33624,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -31233,9 +33633,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -31250,6 +33652,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -31258,9 +33661,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -31276,6 +33681,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True
@@ -31294,9 +33700,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -31318,6 +33726,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -31330,6 +33739,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -31338,9 +33748,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -31362,6 +33774,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -31374,6 +33787,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -31382,9 +33796,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -31406,6 +33822,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -31418,6 +33835,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -31426,9 +33844,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -31450,6 +33870,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -31462,6 +33883,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -31470,9 +33892,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -31488,15 +33912,18 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.2': True,
                 '7.0.3': True,
                 '7.0.4': True,
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -31519,6 +33946,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -31531,6 +33959,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -31539,6 +33968,7 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True
             }
@@ -31563,6 +33993,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -31575,6 +34006,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -31583,6 +34015,7 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True
             }
@@ -31607,6 +34040,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -31619,6 +34053,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -31627,6 +34062,7 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True
             }
@@ -31649,6 +34085,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -31661,6 +34098,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -31669,6 +34107,7 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True
             }
@@ -31692,6 +34131,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -31704,6 +34144,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -31712,9 +34153,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -31733,6 +34176,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -31745,6 +34189,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -31753,9 +34198,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -31780,6 +34227,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -31792,6 +34240,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -31800,9 +34249,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -31828,6 +34279,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -31840,6 +34292,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -31848,9 +34301,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -31873,6 +34328,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -31885,6 +34341,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -31893,9 +34350,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -31904,8 +34363,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/system/npu',
-                '/pm/config/adom/{adom}/obj/system/npu'
+                '/pm/config/adom/{adom}/obj/system/npu',
+                '/pm/config/global/obj/system/npu'
             ],
             'revision': {
                 '6.4.7': True,
@@ -31913,6 +34372,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.1': True,
                 '7.0.2': True,
                 '7.0.3': True,
@@ -31920,9 +34380,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -31931,22 +34393,25 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/system/npu/background-sse-scan',
-                '/pm/config/adom/{adom}/obj/system/npu/background-sse-scan'
+                '/pm/config/adom/{adom}/obj/system/npu/background-sse-scan',
+                '/pm/config/global/obj/system/npu/background-sse-scan'
             ],
             'revision': {
                 '6.4.8': True,
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.3': True,
                 '7.0.4': True,
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -31955,8 +34420,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/system/npu/dos-options',
-                '/pm/config/adom/{adom}/obj/system/npu/dos-options'
+                '/pm/config/adom/{adom}/obj/system/npu/dos-options',
+                '/pm/config/global/obj/system/npu/dos-options'
             ],
             'revision': {
                 '6.4.7': True,
@@ -31964,6 +34429,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.1': True,
                 '7.0.2': True,
                 '7.0.3': True,
@@ -31971,9 +34437,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -31983,8 +34451,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/system/npu/dsw-dts-profile/{dsw-dts-profile}',
-                '/pm/config/adom/{adom}/obj/system/npu/dsw-dts-profile/{dsw-dts-profile}'
+                '/pm/config/adom/{adom}/obj/system/npu/dsw-dts-profile/{dsw-dts-profile}',
+                '/pm/config/global/obj/system/npu/dsw-dts-profile/{dsw-dts-profile}'
             ],
             'revision': {
                 '6.4.7': True,
@@ -31992,6 +34460,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.1': True,
                 '7.0.2': True,
                 '7.0.3': True,
@@ -31999,9 +34468,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -32011,8 +34482,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/system/npu/dsw-queue-dts-profile/{dsw-queue-dts-profile}',
-                '/pm/config/adom/{adom}/obj/system/npu/dsw-queue-dts-profile/{dsw-queue-dts-profile}'
+                '/pm/config/adom/{adom}/obj/system/npu/dsw-queue-dts-profile/{dsw-queue-dts-profile}',
+                '/pm/config/global/obj/system/npu/dsw-queue-dts-profile/{dsw-queue-dts-profile}'
             ],
             'revision': {
                 '6.4.7': True,
@@ -32020,6 +34491,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.1': True,
                 '7.0.2': True,
                 '7.0.3': True,
@@ -32027,9 +34499,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -32038,8 +34512,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/system/npu/fp-anomaly',
-                '/pm/config/adom/{adom}/obj/system/npu/fp-anomaly'
+                '/pm/config/adom/{adom}/obj/system/npu/fp-anomaly',
+                '/pm/config/global/obj/system/npu/fp-anomaly'
             ],
             'revision': {
                 '6.4.7': True,
@@ -32047,6 +34521,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.1': True,
                 '7.0.2': True,
                 '7.0.3': True,
@@ -32054,9 +34529,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -32065,8 +34542,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/system/npu/hpe',
-                '/pm/config/adom/{adom}/obj/system/npu/hpe'
+                '/pm/config/adom/{adom}/obj/system/npu/hpe',
+                '/pm/config/global/obj/system/npu/hpe'
             ],
             'revision': {
                 '6.4.7': True,
@@ -32074,6 +34551,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.1': True,
                 '7.0.2': True,
                 '7.0.3': True,
@@ -32081,9 +34559,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -32092,8 +34572,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/system/npu/ip-reassembly',
-                '/pm/config/adom/{adom}/obj/system/npu/ip-reassembly'
+                '/pm/config/adom/{adom}/obj/system/npu/ip-reassembly',
+                '/pm/config/global/obj/system/npu/ip-reassembly'
             ],
             'revision': {
                 '6.4.7': True,
@@ -32101,6 +34581,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.1': True,
                 '7.0.2': True,
                 '7.0.3': True,
@@ -32108,9 +34589,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -32119,8 +34602,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/system/npu/isf-np-queues',
-                '/pm/config/adom/{adom}/obj/system/npu/isf-np-queues'
+                '/pm/config/adom/{adom}/obj/system/npu/isf-np-queues',
+                '/pm/config/global/obj/system/npu/isf-np-queues'
             ],
             'revision': {
                 '6.4.7': True,
@@ -32128,6 +34611,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.1': True,
                 '7.0.2': True,
                 '7.0.3': True,
@@ -32135,9 +34619,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -32146,8 +34632,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/system/npu/np-queues',
-                '/pm/config/adom/{adom}/obj/system/npu/np-queues'
+                '/pm/config/adom/{adom}/obj/system/npu/np-queues',
+                '/pm/config/global/obj/system/npu/np-queues'
             ],
             'revision': {
                 '6.4.7': True,
@@ -32155,6 +34641,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.1': True,
                 '7.0.2': True,
                 '7.0.3': True,
@@ -32162,9 +34649,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -32174,8 +34663,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/system/npu/np-queues/ethernet-type/{ethernet-type}',
-                '/pm/config/adom/{adom}/obj/system/npu/np-queues/ethernet-type/{ethernet-type}'
+                '/pm/config/adom/{adom}/obj/system/npu/np-queues/ethernet-type/{ethernet-type}',
+                '/pm/config/global/obj/system/npu/np-queues/ethernet-type/{ethernet-type}'
             ],
             'revision': {
                 '6.4.7': True,
@@ -32183,6 +34672,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.1': True,
                 '7.0.2': True,
                 '7.0.3': True,
@@ -32190,9 +34680,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -32202,8 +34694,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/system/npu/np-queues/ip-protocol/{ip-protocol}',
-                '/pm/config/adom/{adom}/obj/system/npu/np-queues/ip-protocol/{ip-protocol}'
+                '/pm/config/adom/{adom}/obj/system/npu/np-queues/ip-protocol/{ip-protocol}',
+                '/pm/config/global/obj/system/npu/np-queues/ip-protocol/{ip-protocol}'
             ],
             'revision': {
                 '6.4.7': True,
@@ -32211,6 +34703,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.1': True,
                 '7.0.2': True,
                 '7.0.3': True,
@@ -32218,9 +34711,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -32230,8 +34725,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/system/npu/np-queues/ip-service/{ip-service}',
-                '/pm/config/adom/{adom}/obj/system/npu/np-queues/ip-service/{ip-service}'
+                '/pm/config/adom/{adom}/obj/system/npu/np-queues/ip-service/{ip-service}',
+                '/pm/config/global/obj/system/npu/np-queues/ip-service/{ip-service}'
             ],
             'revision': {
                 '6.4.7': True,
@@ -32239,6 +34734,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.1': True,
                 '7.0.2': True,
                 '7.0.3': True,
@@ -32246,9 +34742,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -32258,8 +34756,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/system/npu/np-queues/profile/{profile}',
-                '/pm/config/adom/{adom}/obj/system/npu/np-queues/profile/{profile}'
+                '/pm/config/adom/{adom}/obj/system/npu/np-queues/profile/{profile}',
+                '/pm/config/global/obj/system/npu/np-queues/profile/{profile}'
             ],
             'revision': {
                 '6.4.7': True,
@@ -32267,6 +34765,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.1': True,
                 '7.0.2': True,
                 '7.0.3': True,
@@ -32274,9 +34773,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -32286,8 +34787,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/system/npu/np-queues/scheduler/{scheduler}',
-                '/pm/config/adom/{adom}/obj/system/npu/np-queues/scheduler/{scheduler}'
+                '/pm/config/adom/{adom}/obj/system/npu/np-queues/scheduler/{scheduler}',
+                '/pm/config/global/obj/system/npu/np-queues/scheduler/{scheduler}'
             ],
             'revision': {
                 '6.4.7': True,
@@ -32295,6 +34796,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.1': True,
                 '7.0.2': True,
                 '7.0.3': True,
@@ -32302,9 +34804,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -32314,8 +34818,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/system/npu/port-cpu-map/{port-cpu-map}',
-                '/pm/config/adom/{adom}/obj/system/npu/port-cpu-map/{port-cpu-map}'
+                '/pm/config/adom/{adom}/obj/system/npu/port-cpu-map/{port-cpu-map}',
+                '/pm/config/global/obj/system/npu/port-cpu-map/{port-cpu-map}'
             ],
             'revision': {
                 '6.4.7': True,
@@ -32323,6 +34827,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.1': True,
                 '7.0.2': True,
                 '7.0.3': True,
@@ -32330,9 +34835,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -32342,8 +34849,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/system/npu/port-npu-map/{port-npu-map}',
-                '/pm/config/adom/{adom}/obj/system/npu/port-npu-map/{port-npu-map}'
+                '/pm/config/adom/{adom}/obj/system/npu/port-npu-map/{port-npu-map}',
+                '/pm/config/global/obj/system/npu/port-npu-map/{port-npu-map}'
             ],
             'revision': {
                 '6.4.7': True,
@@ -32351,6 +34858,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.1': True,
                 '7.0.2': True,
                 '7.0.3': True,
@@ -32358,9 +34866,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -32369,8 +34879,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/system/npu/port-path-option',
-                '/pm/config/adom/{adom}/obj/system/npu/port-path-option'
+                '/pm/config/adom/{adom}/obj/system/npu/port-path-option',
+                '/pm/config/global/obj/system/npu/port-path-option'
             ],
             'revision': {
                 '6.4.7': True,
@@ -32378,6 +34888,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.1': True,
                 '7.0.2': True,
                 '7.0.3': True,
@@ -32385,9 +34896,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -32396,8 +34909,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/system/npu/priority-protocol',
-                '/pm/config/adom/{adom}/obj/system/npu/priority-protocol'
+                '/pm/config/adom/{adom}/obj/system/npu/priority-protocol',
+                '/pm/config/global/obj/system/npu/priority-protocol'
             ],
             'revision': {
                 '6.4.7': True,
@@ -32405,6 +34918,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.1': True,
                 '7.0.2': True,
                 '7.0.3': True,
@@ -32412,9 +34926,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -32423,18 +34939,21 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/system/npu/sse-ha-scan',
-                '/pm/config/adom/{adom}/obj/system/npu/sse-ha-scan'
+                '/pm/config/adom/{adom}/obj/system/npu/sse-ha-scan',
+                '/pm/config/global/obj/system/npu/sse-ha-scan'
             ],
             'revision': {
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.4': True,
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -32443,8 +34962,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/system/npu/sw-eh-hash',
-                '/pm/config/adom/{adom}/obj/system/npu/sw-eh-hash'
+                '/pm/config/adom/{adom}/obj/system/npu/sw-eh-hash',
+                '/pm/config/global/obj/system/npu/sw-eh-hash'
             ],
             'revision': {
                 '7.0.1': True,
@@ -32454,9 +34973,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -32465,8 +34986,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/system/npu/sw-tr-hash',
-                '/pm/config/adom/{adom}/obj/system/npu/sw-tr-hash'
+                '/pm/config/adom/{adom}/obj/system/npu/sw-tr-hash',
+                '/pm/config/global/obj/system/npu/sw-tr-hash'
             ],
             'revision': {
                 '7.4.0': True
@@ -32478,8 +34999,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/system/npu/tcp-timeout-profile/{tcp-timeout-profile}',
-                '/pm/config/adom/{adom}/obj/system/npu/tcp-timeout-profile/{tcp-timeout-profile}'
+                '/pm/config/adom/{adom}/obj/system/npu/tcp-timeout-profile/{tcp-timeout-profile}',
+                '/pm/config/global/obj/system/npu/tcp-timeout-profile/{tcp-timeout-profile}'
             ],
             'revision': {
                 '6.4.7': True,
@@ -32487,6 +35008,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.1': True,
                 '7.0.2': True,
                 '7.0.3': True,
@@ -32494,9 +35016,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -32506,8 +35030,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/system/npu/udp-timeout-profile/{udp-timeout-profile}',
-                '/pm/config/adom/{adom}/obj/system/npu/udp-timeout-profile/{udp-timeout-profile}'
+                '/pm/config/adom/{adom}/obj/system/npu/udp-timeout-profile/{udp-timeout-profile}',
+                '/pm/config/global/obj/system/npu/udp-timeout-profile/{udp-timeout-profile}'
             ],
             'revision': {
                 '6.4.7': True,
@@ -32515,6 +35039,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.1': True,
                 '7.0.2': True,
                 '7.0.3': True,
@@ -32522,9 +35047,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -32546,6 +35073,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -32558,6 +35086,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -32566,9 +35095,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -32591,6 +35122,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -32603,6 +35135,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -32611,9 +35144,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -32623,8 +35158,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/system/object-tag/{object-tag}',
-                '/pm/config/adom/{adom}/obj/system/object-tag/{object-tag}'
+                '/pm/config/adom/{adom}/obj/system/object-tag/{object-tag}',
+                '/pm/config/global/obj/system/object-tag/{object-tag}'
             ],
             'revision': {
                 '6.2.0': True,
@@ -32637,6 +35172,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -32648,7 +35184,8 @@ def main():
                 '6.4.8': True,
                 '6.4.9': True,
                 '6.4.10': True,
-                '6.4.11': True
+                '6.4.11': True,
+                '6.4.12': True
             }
         },
         'system_objecttagging': {
@@ -32672,6 +35209,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -32684,6 +35222,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -32692,9 +35231,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -32716,6 +35257,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -32728,6 +35270,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -32736,9 +35279,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -32760,6 +35305,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -32772,6 +35318,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -32780,9 +35327,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -32807,6 +35356,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -32819,6 +35369,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -32827,9 +35378,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -32855,6 +35408,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -32867,6 +35421,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -32875,9 +35430,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -32903,6 +35460,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -32915,6 +35473,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -32923,9 +35482,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -32951,6 +35512,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -32963,6 +35525,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -32971,9 +35534,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -32984,8 +35549,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/system/replacemsg-group/{replacemsg-group}/automation/{automation}',
-                '/pm/config/adom/{adom}/obj/system/replacemsg-group/{replacemsg-group}/automation/{automation}'
+                '/pm/config/adom/{adom}/obj/system/replacemsg-group/{replacemsg-group}/automation/{automation}',
+                '/pm/config/global/obj/system/replacemsg-group/{replacemsg-group}/automation/{automation}'
             ],
             'revision': {
                 '7.0.0': True,
@@ -32996,9 +35561,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -33024,6 +35591,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -33036,6 +35604,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -33044,9 +35613,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -33072,6 +35643,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -33084,6 +35656,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -33092,9 +35665,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -33120,6 +35695,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -33132,6 +35708,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -33140,6 +35717,7 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True
             }
@@ -33166,6 +35744,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -33178,6 +35757,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -33186,9 +35766,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -33214,6 +35796,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -33226,6 +35809,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -33234,9 +35818,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -33262,6 +35848,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -33274,6 +35861,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -33282,9 +35870,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -33310,6 +35900,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -33322,6 +35913,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -33330,9 +35922,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -33358,6 +35952,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -33370,6 +35965,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -33378,9 +35974,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -33406,6 +36004,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -33418,6 +36017,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -33426,9 +36026,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -33454,6 +36056,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -33466,6 +36069,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -33474,9 +36078,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -33502,6 +36108,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -33514,6 +36121,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -33522,9 +36130,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -33550,6 +36160,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -33562,6 +36173,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -33570,9 +36182,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -33598,6 +36212,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -33610,6 +36225,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -33618,9 +36234,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -33646,6 +36264,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -33658,6 +36277,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -33666,9 +36286,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -33694,6 +36316,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -33706,6 +36329,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -33714,9 +36338,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -33742,6 +36368,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -33754,6 +36381,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -33762,9 +36390,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -33790,6 +36420,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -33802,6 +36433,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -33810,9 +36442,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -33838,6 +36472,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -33850,6 +36485,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -33858,9 +36494,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -33886,6 +36524,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -33898,6 +36537,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -33906,9 +36546,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -33934,6 +36576,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -33946,6 +36589,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -33954,9 +36598,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -33981,6 +36627,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -33993,6 +36640,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -34001,9 +36649,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -34025,6 +36675,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -34037,6 +36688,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -34045,9 +36697,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -34069,6 +36723,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -34081,6 +36736,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -34089,9 +36745,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -34114,6 +36772,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -34126,6 +36785,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -34134,9 +36794,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -34160,6 +36822,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -34172,6 +36835,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -34180,9 +36844,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -34206,6 +36872,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -34218,6 +36885,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -34226,9 +36894,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -34250,6 +36920,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -34262,6 +36933,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -34270,9 +36942,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -34295,6 +36969,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -34307,6 +36982,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -34315,9 +36991,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -34340,6 +37018,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -34352,6 +37031,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -34360,9 +37040,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -34384,6 +37066,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -34396,6 +37079,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -34404,9 +37088,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -34430,6 +37116,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -34438,9 +37125,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -34463,6 +37152,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -34475,6 +37165,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -34483,9 +37174,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -34510,6 +37203,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -34522,6 +37216,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -34530,9 +37225,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -34543,8 +37240,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/system/sdn-connector/{sdn-connector}/compartment-list/{compartment-list}',
-                '/pm/config/adom/{adom}/obj/system/sdn-connector/{sdn-connector}/compartment-list/{compartment-list}'
+                '/pm/config/adom/{adom}/obj/system/sdn-connector/{sdn-connector}/compartment-list/{compartment-list}',
+                '/pm/config/global/obj/system/sdn-connector/{sdn-connector}/compartment-list/{compartment-list}'
             ],
             'revision': {
                 '7.4.0': True
@@ -34557,8 +37254,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/system/sdn-connector/{sdn-connector}/external-account-list/{external-account-list}',
-                '/pm/config/adom/{adom}/obj/system/sdn-connector/{sdn-connector}/external-account-list/{external-account-list}'
+                '/pm/config/adom/{adom}/obj/system/sdn-connector/{sdn-connector}/external-account-list/{external-account-list}',
+                '/pm/config/global/obj/system/sdn-connector/{sdn-connector}/external-account-list/{external-account-list}'
             ],
             'revision': {
                 '7.0.3': True,
@@ -34566,9 +37263,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -34594,6 +37293,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -34606,6 +37306,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -34614,9 +37315,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -34627,8 +37330,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/system/sdn-connector/{sdn-connector}/forwarding-rule/{forwarding-rule}',
-                '/pm/config/adom/{adom}/obj/system/sdn-connector/{sdn-connector}/forwarding-rule/{forwarding-rule}'
+                '/pm/config/adom/{adom}/obj/system/sdn-connector/{sdn-connector}/forwarding-rule/{forwarding-rule}',
+                '/pm/config/global/obj/system/sdn-connector/{sdn-connector}/forwarding-rule/{forwarding-rule}'
             ],
             'revision': {
                 '7.0.2': True,
@@ -34637,9 +37340,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -34650,8 +37355,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/system/sdn-connector/{sdn-connector}/gcp-project-list/{gcp-project-list}',
-                '/pm/config/adom/{adom}/obj/system/sdn-connector/{sdn-connector}/gcp-project-list/{gcp-project-list}'
+                '/pm/config/adom/{adom}/obj/system/sdn-connector/{sdn-connector}/gcp-project-list/{gcp-project-list}',
+                '/pm/config/global/obj/system/sdn-connector/{sdn-connector}/gcp-project-list/{gcp-project-list}'
             ],
             'revision': {
                 '6.4.7': True,
@@ -34659,15 +37364,18 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.2': True,
                 '7.0.3': True,
                 '7.0.4': True,
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -34693,6 +37401,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -34705,6 +37414,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -34713,9 +37423,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -34742,6 +37454,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -34754,6 +37467,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -34762,9 +37476,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -34775,8 +37491,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/system/sdn-connector/{sdn-connector}/oci-region-list/{oci-region-list}',
-                '/pm/config/adom/{adom}/obj/system/sdn-connector/{sdn-connector}/oci-region-list/{oci-region-list}'
+                '/pm/config/adom/{adom}/obj/system/sdn-connector/{sdn-connector}/oci-region-list/{oci-region-list}',
+                '/pm/config/global/obj/system/sdn-connector/{sdn-connector}/oci-region-list/{oci-region-list}'
             ],
             'revision': {
                 '7.4.0': True
@@ -34804,6 +37520,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -34816,6 +37533,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -34824,9 +37542,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -34852,6 +37572,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -34864,6 +37585,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -34872,9 +37594,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -34901,6 +37625,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -34913,6 +37638,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -34921,9 +37647,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -34948,6 +37676,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -34960,6 +37689,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -34968,9 +37698,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -34990,6 +37722,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -35002,6 +37735,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -35010,9 +37744,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -35035,6 +37771,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -35047,6 +37784,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -35055,9 +37793,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -35081,6 +37821,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -35093,6 +37834,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -35101,9 +37843,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -35127,6 +37871,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -35139,6 +37884,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -35147,9 +37893,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -35171,6 +37919,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -35183,6 +37932,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -35191,9 +37941,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -35216,6 +37968,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -35228,6 +37981,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -35236,9 +37990,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -35257,9 +38013,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -35292,6 +38050,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -35304,6 +38063,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -35312,9 +38072,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -35337,6 +38099,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -35349,6 +38112,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -35357,9 +38121,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -35378,6 +38144,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -35390,6 +38157,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -35398,9 +38166,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -35423,6 +38193,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -35435,6 +38206,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -35443,9 +38215,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -35461,15 +38235,18 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.2': True,
                 '7.0.3': True,
                 '7.0.4': True,
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -35491,6 +38268,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -35503,6 +38281,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -35511,9 +38290,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -35536,6 +38317,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -35548,6 +38330,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -35556,9 +38339,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -35583,6 +38368,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -35595,6 +38381,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -35603,9 +38390,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -35620,14 +38409,17 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.3': True,
                 '7.0.4': True,
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -35650,6 +38442,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -35662,6 +38455,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -35670,9 +38464,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -35696,6 +38492,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -35708,6 +38505,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -35716,9 +38514,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -35741,6 +38541,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -35753,6 +38554,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -35761,9 +38563,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -35786,7 +38590,8 @@ def main():
                 '6.2.7': True,
                 '6.2.8': True,
                 '6.2.9': True,
-                '6.2.10': True
+                '6.2.10': True,
+                '6.2.11': True
             }
         },
         'task_task_line': {
@@ -35809,6 +38614,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -35821,6 +38627,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -35829,9 +38636,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -35857,6 +38666,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -35865,9 +38675,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -35892,6 +38704,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -35904,6 +38717,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -35912,9 +38726,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -35939,6 +38755,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -35951,6 +38768,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -35959,9 +38777,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -35986,6 +38806,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -35998,6 +38819,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -36006,9 +38828,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -36018,10 +38842,12 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/user/certificate/{certificate}',
-                '/pm/config/adom/{adom}/obj/user/certificate/{certificate}'
+                '/pm/config/adom/{adom}/obj/user/certificate/{certificate}',
+                '/pm/config/global/obj/user/certificate/{certificate}'
             ],
             'revision': {
+                '7.0.8': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -36031,8 +38857,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/user/clearpass/{clearpass}',
-                '/pm/config/adom/{adom}/obj/user/clearpass/{clearpass}'
+                '/pm/config/adom/{adom}/obj/user/clearpass/{clearpass}',
+                '/pm/config/global/obj/user/clearpass/{clearpass}'
             ],
             'revision': {
                 '6.2.1': True,
@@ -36044,6 +38870,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -36056,6 +38883,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -36064,9 +38892,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -36076,8 +38906,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/user/connector/{connector}',
-                '/pm/config/adom/{adom}/obj/user/connector/{connector}'
+                '/pm/config/adom/{adom}/obj/user/connector/{connector}',
+                '/pm/config/global/obj/user/connector/{connector}'
             ],
             'revision': {
                 '7.0.1': True,
@@ -36087,9 +38917,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -36114,6 +38946,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -36126,6 +38959,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -36134,9 +38968,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -36162,6 +38998,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -36174,6 +39011,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -36182,9 +39020,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -36210,6 +39050,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -36222,6 +39063,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -36230,9 +39072,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -36242,8 +39086,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/user/device-access-list/{device-access-list}',
-                '/pm/config/adom/{adom}/obj/user/device-access-list/{device-access-list}'
+                '/pm/config/adom/{adom}/obj/user/device-access-list/{device-access-list}',
+                '/pm/config/global/obj/user/device-access-list/{device-access-list}'
             ],
             'revision': {
                 '6.2.2': True,
@@ -36254,6 +39098,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -36266,6 +39111,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -36274,6 +39120,7 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True
             }
@@ -36285,8 +39132,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/user/device-access-list/{device-access-list}/device-list/{device-list}',
-                '/pm/config/adom/{adom}/obj/user/device-access-list/{device-access-list}/device-list/{device-list}'
+                '/pm/config/adom/{adom}/obj/user/device-access-list/{device-access-list}/device-list/{device-list}',
+                '/pm/config/global/obj/user/device-access-list/{device-access-list}/device-list/{device-list}'
             ],
             'revision': {
                 '6.2.2': True,
@@ -36297,6 +39144,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -36309,6 +39157,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -36317,6 +39166,7 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True
             }
@@ -36342,6 +39192,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -36354,6 +39205,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -36362,6 +39214,7 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True
             }
@@ -36387,6 +39240,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -36399,6 +39253,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -36407,6 +39262,7 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True
             }
@@ -36433,6 +39289,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -36445,6 +39302,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -36453,6 +39311,7 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True
             }
@@ -36479,6 +39338,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -36491,6 +39351,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -36499,6 +39360,7 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True
             }
@@ -36509,8 +39371,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/user/domain-controller/{domain-controller}',
-                '/pm/config/adom/{adom}/obj/user/domain-controller/{domain-controller}'
+                '/pm/config/adom/{adom}/obj/user/domain-controller/{domain-controller}',
+                '/pm/config/global/obj/user/domain-controller/{domain-controller}'
             ],
             'revision': {
                 '6.2.1': True,
@@ -36522,6 +39384,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -36534,6 +39397,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -36542,9 +39406,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -36555,8 +39421,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/user/domain-controller/{domain-controller}/extra-server/{extra-server}',
-                '/pm/config/adom/{adom}/obj/user/domain-controller/{domain-controller}/extra-server/{extra-server}'
+                '/pm/config/adom/{adom}/obj/user/domain-controller/{domain-controller}/extra-server/{extra-server}',
+                '/pm/config/global/obj/user/domain-controller/{domain-controller}/extra-server/{extra-server}'
             ],
             'revision': {
                 '6.2.1': True,
@@ -36568,6 +39434,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -36580,6 +39447,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -36588,9 +39456,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -36600,8 +39470,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/user/exchange/{exchange}',
-                '/pm/config/adom/{adom}/obj/user/exchange/{exchange}'
+                '/pm/config/adom/{adom}/obj/user/exchange/{exchange}',
+                '/pm/config/global/obj/user/exchange/{exchange}'
             ],
             'revision': {
                 '6.2.0': True,
@@ -36614,6 +39484,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -36626,6 +39497,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -36634,9 +39506,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -36646,12 +39520,13 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/user/flexvm/{flexvm}',
-                '/pm/config/adom/{adom}/obj/user/flexvm/{flexvm}'
+                '/pm/config/adom/{adom}/obj/user/flexvm/{flexvm}',
+                '/pm/config/global/obj/user/flexvm/{flexvm}'
             ],
             'revision': {
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -36676,6 +39551,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -36688,6 +39564,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -36696,9 +39573,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -36723,6 +39602,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -36735,6 +39615,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -36743,9 +39624,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -36771,6 +39654,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -36783,6 +39667,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -36791,9 +39676,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -36818,6 +39705,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -36830,6 +39718,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -36838,9 +39727,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -36866,6 +39757,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -36878,6 +39770,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -36886,9 +39779,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -36913,6 +39808,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -36925,6 +39821,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -36933,9 +39830,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -36946,8 +39845,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/user/group/{group}/dynamic_mapping/{dynamic_mapping}',
-                '/pm/config/adom/{adom}/obj/user/group/{group}/dynamic_mapping/{dynamic_mapping}'
+                '/pm/config/adom/{adom}/obj/user/group/{group}/dynamic_mapping/{dynamic_mapping}',
+                '/pm/config/global/obj/user/group/{group}/dynamic_mapping/{dynamic_mapping}'
             ],
             'revision': {
                 '7.0.2': True,
@@ -36956,9 +39855,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -36970,8 +39871,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/user/group/{group}/dynamic_mapping/{dynamic_mapping}/guest/{guest}',
-                '/pm/config/adom/{adom}/obj/user/group/{group}/dynamic_mapping/{dynamic_mapping}/guest/{guest}'
+                '/pm/config/adom/{adom}/obj/user/group/{group}/dynamic_mapping/{dynamic_mapping}/guest/{guest}',
+                '/pm/config/global/obj/user/group/{group}/dynamic_mapping/{dynamic_mapping}/guest/{guest}'
             ],
             'revision': {
                 '7.0.2': True,
@@ -36980,9 +39881,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -36994,8 +39897,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/user/group/{group}/dynamic_mapping/{dynamic_mapping}/match/{match}',
-                '/pm/config/adom/{adom}/obj/user/group/{group}/dynamic_mapping/{dynamic_mapping}/match/{match}'
+                '/pm/config/adom/{adom}/obj/user/group/{group}/dynamic_mapping/{dynamic_mapping}/match/{match}',
+                '/pm/config/global/obj/user/group/{group}/dynamic_mapping/{dynamic_mapping}/match/{match}'
             ],
             'revision': {
                 '7.0.2': True,
@@ -37004,9 +39907,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -37017,8 +39922,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/user/group/{group}/dynamic_mapping/{dynamic_mapping}/sslvpn-os-check-list',
-                '/pm/config/adom/{adom}/obj/user/group/{group}/dynamic_mapping/{dynamic_mapping}/sslvpn-os-check-list'
+                '/pm/config/adom/{adom}/obj/user/group/{group}/dynamic_mapping/{dynamic_mapping}/sslvpn-os-check-list',
+                '/pm/config/global/obj/user/group/{group}/dynamic_mapping/{dynamic_mapping}/sslvpn-os-check-list'
             ],
             'revision': {
                 '7.0.2': True,
@@ -37027,9 +39932,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -37055,6 +39962,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -37067,6 +39975,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -37075,9 +39984,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -37103,6 +40014,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -37115,6 +40027,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -37123,9 +40036,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -37135,12 +40050,13 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/user/json/{json}',
-                '/pm/config/adom/{adom}/obj/user/json/{json}'
+                '/pm/config/adom/{adom}/obj/user/json/{json}',
+                '/pm/config/global/obj/user/json/{json}'
             ],
             'revision': {
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -37150,8 +40066,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/user/krb-keytab/{krb-keytab}',
-                '/pm/config/adom/{adom}/obj/user/krb-keytab/{krb-keytab}'
+                '/pm/config/adom/{adom}/obj/user/krb-keytab/{krb-keytab}',
+                '/pm/config/global/obj/user/krb-keytab/{krb-keytab}'
             ],
             'revision': {
                 '6.2.1': True,
@@ -37163,6 +40079,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -37175,6 +40092,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -37183,9 +40101,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -37210,6 +40130,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -37222,6 +40143,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -37230,9 +40152,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -37258,6 +40182,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -37270,6 +40195,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -37278,9 +40204,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -37305,6 +40233,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -37317,6 +40246,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -37325,9 +40255,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -37337,8 +40269,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/user/nsx/{nsx}',
-                '/pm/config/adom/{adom}/obj/user/nsx/{nsx}'
+                '/pm/config/adom/{adom}/obj/user/nsx/{nsx}',
+                '/pm/config/global/obj/user/nsx/{nsx}'
             ],
             'revision': {
                 '6.2.1': True,
@@ -37350,6 +40282,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -37362,6 +40295,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -37370,9 +40304,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -37383,17 +40319,19 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/user/nsx/{nsx}/service/{service}',
-                '/pm/config/adom/{adom}/obj/user/nsx/{nsx}/service/{service}'
+                '/pm/config/adom/{adom}/obj/user/nsx/{nsx}/service/{service}',
+                '/pm/config/global/obj/user/nsx/{nsx}/service/{service}'
             ],
             'revision': {
                 '7.0.4': True,
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -37418,6 +40356,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -37430,6 +40369,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -37438,9 +40378,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -37465,6 +40407,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -37477,6 +40420,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -37485,9 +40429,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -37512,6 +40458,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -37524,6 +40471,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -37532,9 +40480,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -37559,6 +40509,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -37571,6 +40522,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -37579,9 +40531,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -37606,6 +40560,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -37618,6 +40573,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -37626,9 +40582,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -37653,6 +40611,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -37665,6 +40624,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -37673,9 +40633,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -37701,6 +40663,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -37713,6 +40676,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -37721,9 +40685,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -37749,6 +40715,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -37761,6 +40728,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -37769,9 +40737,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -37783,8 +40753,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/user/radius/{radius}/dynamic_mapping/{dynamic_mapping}/accounting-server/{accounting-server}',
-                '/pm/config/adom/{adom}/obj/user/radius/{radius}/dynamic_mapping/{dynamic_mapping}/accounting-server/{accounting-server}'
+                '/pm/config/adom/{adom}/obj/user/radius/{radius}/dynamic_mapping/{dynamic_mapping}/accounting-server/{accounting-server}',
+                '/pm/config/global/obj/user/radius/{radius}/dynamic_mapping/{dynamic_mapping}/accounting-server/{accounting-server}'
             ],
             'revision': {
                 '6.2.6': True,
@@ -37792,6 +40762,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.2': True,
                 '6.4.3': True,
                 '6.4.4': True,
@@ -37802,6 +40773,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -37810,9 +40782,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -37822,8 +40796,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/user/saml/{saml}',
-                '/pm/config/adom/{adom}/obj/user/saml/{saml}'
+                '/pm/config/adom/{adom}/obj/user/saml/{saml}',
+                '/pm/config/global/obj/user/saml/{saml}'
             ],
             'revision': {
                 '6.4.0': True,
@@ -37838,6 +40812,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -37846,9 +40821,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -37859,15 +40836,17 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/user/saml/{saml}/dynamic_mapping/{dynamic_mapping}',
-                '/pm/config/adom/{adom}/obj/user/saml/{saml}/dynamic_mapping/{dynamic_mapping}'
+                '/pm/config/adom/{adom}/obj/user/saml/{saml}/dynamic_mapping/{dynamic_mapping}',
+                '/pm/config/global/obj/user/saml/{saml}/dynamic_mapping/{dynamic_mapping}'
             ],
             'revision': {
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -37892,6 +40871,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -37904,6 +40884,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -37912,9 +40893,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -37940,6 +40923,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -37952,6 +40936,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -37960,9 +40945,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -37987,6 +40974,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -37999,6 +40987,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -38007,9 +40996,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -38035,6 +41026,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -38047,6 +41039,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -38055,9 +41048,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -38067,8 +41062,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/user/vcenter/{vcenter}',
-                '/pm/config/adom/{adom}/obj/user/vcenter/{vcenter}'
+                '/pm/config/adom/{adom}/obj/user/vcenter/{vcenter}',
+                '/pm/config/global/obj/user/vcenter/{vcenter}'
             ],
             'revision': {
                 '6.4.0': True,
@@ -38083,6 +41078,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -38091,9 +41087,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -38104,8 +41102,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/user/vcenter/{vcenter}/rule/{rule}',
-                '/pm/config/adom/{adom}/obj/user/vcenter/{vcenter}/rule/{rule}'
+                '/pm/config/adom/{adom}/obj/user/vcenter/{vcenter}/rule/{rule}',
+                '/pm/config/global/obj/user/vcenter/{vcenter}/rule/{rule}'
             ],
             'revision': {
                 '6.4.0': True,
@@ -38120,6 +41118,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -38128,9 +41127,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -38140,8 +41141,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/wireless-controller/utm-profile/{utm-profile}',
-                '/pm/config/adom/{adom}/obj/wireless-controller/utm-profile/{utm-profile}'
+                '/pm/config/adom/{adom}/obj/wireless-controller/utm-profile/{utm-profile}',
+                '/pm/config/global/obj/wireless-controller/utm-profile/{utm-profile}'
             ],
             'revision': {
                 '6.2.2': True,
@@ -38152,6 +41153,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -38164,6 +41166,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -38172,9 +41175,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -38199,6 +41204,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -38211,6 +41217,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -38219,9 +41226,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -38247,6 +41256,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -38259,6 +41269,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -38267,9 +41278,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -38295,6 +41308,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -38307,6 +41321,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -38315,9 +41330,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -38343,6 +41360,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -38355,6 +41373,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -38363,9 +41382,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -38390,6 +41411,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -38402,6 +41424,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -38410,9 +41433,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -38423,8 +41448,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/wireless-controller/vap/{vap}/vlan-name/{vlan-name}',
-                '/pm/config/adom/{adom}/obj/wireless-controller/vap/{vap}/vlan-name/{vlan-name}'
+                '/pm/config/adom/{adom}/obj/wireless-controller/vap/{vap}/vlan-name/{vlan-name}',
+                '/pm/config/global/obj/wireless-controller/vap/{vap}/vlan-name/{vlan-name}'
             ],
             'revision': {
                 '7.0.3': True,
@@ -38432,9 +41457,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -38460,6 +41487,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -38472,6 +41500,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -38480,9 +41509,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -38507,6 +41538,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -38519,6 +41551,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -38527,9 +41560,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -38539,8 +41574,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/videofilter/profile/{profile}',
-                '/pm/config/adom/{adom}/obj/videofilter/profile/{profile}'
+                '/pm/config/adom/{adom}/obj/videofilter/profile/{profile}',
+                '/pm/config/global/obj/videofilter/profile/{profile}'
             ],
             'revision': {
                 '7.0.0': True,
@@ -38551,9 +41586,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -38563,8 +41600,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/videofilter/profile/{profile}/fortiguard-category',
-                '/pm/config/adom/{adom}/obj/videofilter/profile/{profile}/fortiguard-category'
+                '/pm/config/adom/{adom}/obj/videofilter/profile/{profile}/fortiguard-category',
+                '/pm/config/global/obj/videofilter/profile/{profile}/fortiguard-category'
             ],
             'revision': {
                 '7.0.0': True,
@@ -38575,9 +41612,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -38588,8 +41627,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/videofilter/profile/{profile}/fortiguard-category/filters/{filters}',
-                '/pm/config/adom/{adom}/obj/videofilter/profile/{profile}/fortiguard-category/filters/{filters}'
+                '/pm/config/adom/{adom}/obj/videofilter/profile/{profile}/fortiguard-category/filters/{filters}',
+                '/pm/config/global/obj/videofilter/profile/{profile}/fortiguard-category/filters/{filters}'
             ],
             'revision': {
                 '7.0.0': True,
@@ -38600,9 +41639,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -38612,8 +41653,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/videofilter/youtube-channel-filter/{youtube-channel-filter}',
-                '/pm/config/adom/{adom}/obj/videofilter/youtube-channel-filter/{youtube-channel-filter}'
+                '/pm/config/adom/{adom}/obj/videofilter/youtube-channel-filter/{youtube-channel-filter}',
+                '/pm/config/global/obj/videofilter/youtube-channel-filter/{youtube-channel-filter}'
             ],
             'revision': {
                 '7.0.0': True,
@@ -38624,9 +41665,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -38637,8 +41680,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/videofilter/youtube-channel-filter/{youtube-channel-filter}/entries/{entries}',
-                '/pm/config/adom/{adom}/obj/videofilter/youtube-channel-filter/{youtube-channel-filter}/entries/{entries}'
+                '/pm/config/adom/{adom}/obj/videofilter/youtube-channel-filter/{youtube-channel-filter}/entries/{entries}',
+                '/pm/config/global/obj/videofilter/youtube-channel-filter/{youtube-channel-filter}/entries/{entries}'
             ],
             'revision': {
                 '7.0.0': True,
@@ -38649,9 +41692,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -38676,6 +41721,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -38688,6 +41734,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -38696,9 +41743,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -38708,8 +41757,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/voip/profile/{profile}/msrp',
-                '/pm/config/adom/{adom}/obj/voip/profile/{profile}/msrp'
+                '/pm/config/adom/{adom}/obj/voip/profile/{profile}/msrp',
+                '/pm/config/global/obj/voip/profile/{profile}/msrp'
             ],
             'revision': {
                 '7.0.2': True,
@@ -38718,9 +41767,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -38745,6 +41796,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -38757,6 +41809,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -38765,9 +41818,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -38792,6 +41847,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -38804,6 +41860,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -38812,9 +41869,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -38839,6 +41898,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -38851,6 +41911,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -38859,9 +41920,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -38886,6 +41949,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -38898,6 +41962,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -38906,9 +41971,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -38933,6 +42000,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -38945,6 +42013,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -38953,9 +42022,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -38965,13 +42036,14 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/vpn/ipsec/fec/{fec}',
-                '/pm/config/adom/{adom}/obj/vpn/ipsec/fec/{fec}'
+                '/pm/config/adom/{adom}/obj/vpn/ipsec/fec/{fec}',
+                '/pm/config/global/obj/vpn/ipsec/fec/{fec}'
             ],
             'revision': {
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -38982,13 +42054,14 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/vpn/ipsec/fec/{fec}/mappings/{mappings}',
-                '/pm/config/adom/{adom}/obj/vpn/ipsec/fec/{fec}/mappings/{mappings}'
+                '/pm/config/adom/{adom}/obj/vpn/ipsec/fec/{fec}/mappings/{mappings}',
+                '/pm/config/global/obj/vpn/ipsec/fec/{fec}/mappings/{mappings}'
             ],
             'revision': {
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -39006,6 +42079,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.2': True,
                 '6.4.3': True,
                 '6.4.4': True,
@@ -39016,6 +42090,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -39024,9 +42099,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -39045,6 +42122,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.2': True,
                 '6.4.3': True,
                 '6.4.4': True,
@@ -39055,6 +42133,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -39063,9 +42142,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -39090,6 +42171,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -39102,6 +42184,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -39110,9 +42193,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -39138,6 +42223,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -39150,6 +42236,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -39158,9 +42245,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -39186,6 +42275,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -39198,6 +42288,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -39206,9 +42297,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -39234,6 +42327,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -39246,6 +42340,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -39254,9 +42349,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -39282,6 +42379,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -39294,6 +42392,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -39302,9 +42401,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -39329,6 +42430,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -39341,6 +42443,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -39349,9 +42452,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -39376,6 +42481,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -39388,6 +42494,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -39396,9 +42503,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -39424,6 +42533,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -39436,6 +42546,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -39444,9 +42555,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -39471,6 +42584,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -39483,6 +42597,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -39491,9 +42606,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -39519,6 +42636,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -39531,6 +42649,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -39539,9 +42658,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -39568,6 +42689,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -39580,6 +42702,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -39588,9 +42711,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -39618,6 +42743,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -39630,6 +42756,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -39638,9 +42765,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -39650,8 +42779,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/vpn/ssl/web/portal/{portal}/landing-page',
-                '/pm/config/adom/{adom}/obj/vpn/ssl/web/portal/{portal}/landing-page'
+                '/pm/config/adom/{adom}/obj/vpn/ssl/web/portal/{portal}/landing-page',
+                '/pm/config/global/obj/vpn/ssl/web/portal/{portal}/landing-page'
             ],
             'revision': {
                 '7.4.0': True
@@ -39664,8 +42793,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/vpn/ssl/web/portal/{portal}/landing-page/form-data/{form-data}',
-                '/pm/config/adom/{adom}/obj/vpn/ssl/web/portal/{portal}/landing-page/form-data/{form-data}'
+                '/pm/config/adom/{adom}/obj/vpn/ssl/web/portal/{portal}/landing-page/form-data/{form-data}',
+                '/pm/config/global/obj/vpn/ssl/web/portal/{portal}/landing-page/form-data/{form-data}'
             ],
             'revision': {
                 '7.4.0': True
@@ -39693,6 +42822,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -39705,6 +42835,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -39713,9 +42844,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -39740,6 +42873,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -39752,6 +42886,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -39760,9 +42895,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -39788,6 +42925,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -39800,6 +42938,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -39808,9 +42947,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -39835,6 +42976,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -39847,6 +42989,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -39855,9 +42998,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -39867,8 +43012,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/vpn/ssl/web/virtual-desktop-app-list/{virtual-desktop-app-list}',
-                '/pm/config/adom/{adom}/obj/vpn/ssl/web/virtual-desktop-app-list/{virtual-desktop-app-list}'
+                '/pm/config/adom/{adom}/obj/vpn/ssl/web/virtual-desktop-app-list/{virtual-desktop-app-list}',
+                '/pm/config/global/obj/vpn/ssl/web/virtual-desktop-app-list/{virtual-desktop-app-list}'
             ],
             'revision': {
                 '6.2.0': True,
@@ -39880,7 +43025,8 @@ def main():
                 '6.2.7': True,
                 '6.2.8': True,
                 '6.2.9': True,
-                '6.2.10': True
+                '6.2.10': True,
+                '6.2.11': True
             }
         },
         'vpnsslweb_virtualdesktopapplist_apps': {
@@ -39890,8 +43036,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/vpn/ssl/web/virtual-desktop-app-list/{virtual-desktop-app-list}/apps/{apps}',
-                '/pm/config/adom/{adom}/obj/vpn/ssl/web/virtual-desktop-app-list/{virtual-desktop-app-list}/apps/{apps}'
+                '/pm/config/adom/{adom}/obj/vpn/ssl/web/virtual-desktop-app-list/{virtual-desktop-app-list}/apps/{apps}',
+                '/pm/config/global/obj/vpn/ssl/web/virtual-desktop-app-list/{virtual-desktop-app-list}/apps/{apps}'
             ],
             'revision': {
                 '6.2.0': True,
@@ -39903,7 +43049,8 @@ def main():
                 '6.2.7': True,
                 '6.2.8': True,
                 '6.2.9': True,
-                '6.2.10': True
+                '6.2.10': True,
+                '6.2.11': True
             }
         },
         'waf_mainclass': {
@@ -39927,6 +43074,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -39939,6 +43087,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -39947,9 +43096,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -39974,6 +43125,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -39986,6 +43138,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -39994,9 +43147,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -40021,6 +43176,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -40033,6 +43189,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -40041,9 +43198,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -40068,6 +43227,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -40080,6 +43240,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -40088,9 +43249,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -40115,6 +43278,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -40127,6 +43291,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -40135,9 +43300,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -40163,6 +43330,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -40175,6 +43343,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -40183,9 +43352,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -40210,6 +43381,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -40222,6 +43394,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -40230,9 +43403,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -40257,6 +43432,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -40269,6 +43445,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -40277,9 +43454,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -40304,6 +43483,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -40316,6 +43496,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -40324,9 +43505,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -40351,6 +43534,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -40363,6 +43547,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -40371,9 +43556,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -40398,6 +43585,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -40410,6 +43598,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -40418,9 +43607,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -40445,6 +43636,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -40457,6 +43649,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -40465,9 +43658,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -40492,6 +43687,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -40504,6 +43700,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -40512,9 +43709,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -40539,6 +43738,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -40551,6 +43751,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -40559,9 +43760,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -40586,6 +43789,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -40598,6 +43802,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -40606,9 +43811,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -40633,6 +43840,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -40645,6 +43853,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -40653,9 +43862,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -40680,6 +43891,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -40692,6 +43904,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -40700,9 +43913,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -40727,6 +43942,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -40739,6 +43955,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -40747,9 +43964,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -40774,6 +43993,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -40786,6 +44006,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -40794,9 +44015,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -40822,6 +44045,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -40834,6 +44058,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -40842,9 +44067,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -40869,6 +44096,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -40881,6 +44109,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -40889,9 +44118,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -40917,6 +44148,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -40929,6 +44161,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -40937,9 +44170,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -40964,6 +44199,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -40976,6 +44212,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -40984,9 +44221,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -41012,6 +44251,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -41024,6 +44264,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -41032,9 +44273,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -41061,6 +44304,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -41073,6 +44317,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -41081,9 +44326,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -41108,6 +44355,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -41120,6 +44368,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -41128,9 +44377,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -41155,6 +44406,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -41167,6 +44419,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -41175,9 +44428,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -41187,8 +44442,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/wireless-controller/wag-profile/{wag-profile}',
-                '/pm/config/adom/{adom}/obj/wireless-controller/wag-profile/{wag-profile}'
+                '/pm/config/adom/{adom}/obj/wireless-controller/wag-profile/{wag-profile}',
+                '/pm/config/global/obj/wireless-controller/wag-profile/{wag-profile}'
             ],
             'revision': {
                 '6.2.3': True,
@@ -41198,6 +44453,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -41210,6 +44466,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -41218,9 +44475,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -41245,6 +44504,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -41257,6 +44517,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -41265,9 +44526,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -41292,6 +44555,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -41304,6 +44568,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -41312,9 +44577,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -41339,6 +44606,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -41351,6 +44619,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -41359,9 +44628,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -41386,6 +44657,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -41398,6 +44670,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -41406,9 +44679,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -41433,6 +44708,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -41445,6 +44721,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -41453,9 +44730,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -41480,6 +44759,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -41492,6 +44772,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -41500,9 +44781,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -41527,6 +44810,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -41539,6 +44823,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -41547,9 +44832,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -41574,6 +44861,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -41586,6 +44874,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -41594,9 +44883,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -41620,6 +44911,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -41628,9 +44920,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -41654,6 +44948,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -41662,9 +44957,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -41689,6 +44986,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -41697,9 +44995,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -41725,6 +45025,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -41733,9 +45034,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -41760,6 +45063,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -41768,9 +45072,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -41795,6 +45101,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -41803,9 +45110,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -41830,6 +45139,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -41838,9 +45148,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -41866,6 +45178,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -41874,9 +45187,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -41901,6 +45216,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -41909,9 +45225,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -41935,6 +45253,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -41947,6 +45266,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -41955,9 +45275,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -41982,6 +45304,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -41994,6 +45317,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -42002,9 +45326,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -42030,6 +45356,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -42042,6 +45369,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -42050,9 +45378,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -42077,6 +45407,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -42089,6 +45420,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -42097,9 +45429,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -42122,6 +45456,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -42134,6 +45469,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -42142,9 +45478,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -42169,6 +45507,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -42181,6 +45520,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -42189,9 +45529,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -42217,6 +45559,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -42229,6 +45572,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -42237,9 +45581,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -42264,6 +45610,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -42276,6 +45623,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -42284,9 +45632,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -42311,6 +45661,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -42323,6 +45674,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -42331,9 +45683,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -42359,6 +45713,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -42371,6 +45726,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -42379,9 +45735,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -42406,6 +45764,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -42418,6 +45777,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -42426,9 +45786,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -42454,6 +45816,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -42466,6 +45829,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -42474,9 +45838,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -42501,6 +45867,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -42513,6 +45880,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -42521,9 +45889,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -42548,6 +45918,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -42560,6 +45931,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -42568,9 +45940,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -42595,6 +45969,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -42607,6 +45982,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -42615,9 +45991,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -42627,8 +46005,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/webfilter/profile/{profile}/antiphish',
-                '/pm/config/adom/{adom}/obj/webfilter/profile/{profile}/antiphish'
+                '/pm/config/adom/{adom}/obj/webfilter/profile/{profile}/antiphish',
+                '/pm/config/global/obj/webfilter/profile/{profile}/antiphish'
             ],
             'revision': {
                 '6.4.0': True,
@@ -42643,6 +46021,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -42651,9 +46030,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -42664,8 +46045,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/webfilter/profile/{profile}/antiphish/custom-patterns/{custom-patterns}',
-                '/pm/config/adom/{adom}/obj/webfilter/profile/{profile}/antiphish/custom-patterns/{custom-patterns}'
+                '/pm/config/adom/{adom}/obj/webfilter/profile/{profile}/antiphish/custom-patterns/{custom-patterns}',
+                '/pm/config/global/obj/webfilter/profile/{profile}/antiphish/custom-patterns/{custom-patterns}'
             ],
             'revision': {
                 '6.4.0': True,
@@ -42680,6 +46061,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -42688,9 +46070,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -42701,8 +46085,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/webfilter/profile/{profile}/antiphish/inspection-entries/{inspection-entries}',
-                '/pm/config/adom/{adom}/obj/webfilter/profile/{profile}/antiphish/inspection-entries/{inspection-entries}'
+                '/pm/config/adom/{adom}/obj/webfilter/profile/{profile}/antiphish/inspection-entries/{inspection-entries}',
+                '/pm/config/global/obj/webfilter/profile/{profile}/antiphish/inspection-entries/{inspection-entries}'
             ],
             'revision': {
                 '6.4.0': True,
@@ -42717,6 +46101,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -42725,9 +46110,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -42737,8 +46124,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/webfilter/profile/{profile}/file-filter',
-                '/pm/config/adom/{adom}/obj/webfilter/profile/{profile}/file-filter'
+                '/pm/config/adom/{adom}/obj/webfilter/profile/{profile}/file-filter',
+                '/pm/config/global/obj/webfilter/profile/{profile}/file-filter'
             ],
             'revision': {
                 '6.2.0': True,
@@ -42751,6 +46138,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -42763,6 +46151,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -42771,9 +46160,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -42784,8 +46175,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/webfilter/profile/{profile}/file-filter/entries/{entries}',
-                '/pm/config/adom/{adom}/obj/webfilter/profile/{profile}/file-filter/entries/{entries}'
+                '/pm/config/adom/{adom}/obj/webfilter/profile/{profile}/file-filter/entries/{entries}',
+                '/pm/config/global/obj/webfilter/profile/{profile}/file-filter/entries/{entries}'
             ],
             'revision': {
                 '6.2.0': True,
@@ -42798,6 +46189,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -42810,6 +46202,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -42818,9 +46211,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -42845,6 +46240,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -42857,6 +46253,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -42865,9 +46262,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -42893,6 +46292,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -42905,6 +46305,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -42913,9 +46314,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -42941,6 +46344,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -42953,6 +46357,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -42961,9 +46366,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -42988,6 +46395,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -43000,6 +46408,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -43008,9 +46417,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -43035,6 +46446,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -43047,6 +46459,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -43055,9 +46468,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -43082,6 +46497,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -43094,6 +46510,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -43102,9 +46519,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -43130,6 +46549,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -43142,6 +46562,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -43150,9 +46571,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -43177,6 +46600,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -43189,6 +46613,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -43197,9 +46622,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -43225,6 +46652,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -43237,6 +46665,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -43245,9 +46674,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -43272,6 +46703,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -43284,6 +46716,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -43292,9 +46725,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -43319,6 +46754,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -43331,6 +46767,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -43339,9 +46776,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -43367,6 +46806,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -43379,6 +46819,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -43387,9 +46828,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -43414,6 +46857,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -43426,6 +46870,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -43434,9 +46879,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -43462,6 +46909,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -43474,6 +46922,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -43482,9 +46931,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -43509,6 +46960,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -43521,6 +46973,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -43529,9 +46982,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -43556,6 +47011,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -43568,6 +47024,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -43576,9 +47033,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -43588,12 +47047,13 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/wireless-controller/access-control-list/{access-control-list}',
-                '/pm/config/adom/{adom}/obj/wireless-controller/access-control-list/{access-control-list}'
+                '/pm/config/adom/{adom}/obj/wireless-controller/access-control-list/{access-control-list}',
+                '/pm/config/global/obj/wireless-controller/access-control-list/{access-control-list}'
             ],
             'revision': {
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -43604,12 +47064,13 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/wireless-controller/access-control-list/{access-control-list}/layer3-ipv4-rules/{layer3-ipv4-rules}',
-                '/pm/config/adom/{adom}/obj/wireless-controller/access-control-list/{access-control-list}/layer3-ipv4-rules/{layer3-ipv4-rules}'
+                '/pm/config/adom/{adom}/obj/wireless-controller/access-control-list/{access-control-list}/layer3-ipv4-rules/{layer3-ipv4-rules}',
+                '/pm/config/global/obj/wireless-controller/access-control-list/{access-control-list}/layer3-ipv4-rules/{layer3-ipv4-rules}'
             ],
             'revision': {
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -43620,12 +47081,13 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/wireless-controller/access-control-list/{access-control-list}/layer3-ipv6-rules/{layer3-ipv6-rules}',
-                '/pm/config/adom/{adom}/obj/wireless-controller/access-control-list/{access-control-list}/layer3-ipv6-rules/{layer3-ipv6-rules}'
+                '/pm/config/adom/{adom}/obj/wireless-controller/access-control-list/{access-control-list}/layer3-ipv6-rules/{layer3-ipv6-rules}',
+                '/pm/config/global/obj/wireless-controller/access-control-list/{access-control-list}/layer3-ipv6-rules/{layer3-ipv6-rules}'
             ],
             'revision': {
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -43635,8 +47097,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/wireless-controller/address/{address}',
-                '/pm/config/adom/{adom}/obj/wireless-controller/address/{address}'
+                '/pm/config/adom/{adom}/obj/wireless-controller/address/{address}',
+                '/pm/config/global/obj/wireless-controller/address/{address}'
             ],
             'revision': {
                 '7.0.1': True,
@@ -43646,9 +47108,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -43658,8 +47122,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/wireless-controller/addrgrp/{addrgrp}',
-                '/pm/config/adom/{adom}/obj/wireless-controller/addrgrp/{addrgrp}'
+                '/pm/config/adom/{adom}/obj/wireless-controller/addrgrp/{addrgrp}',
+                '/pm/config/global/obj/wireless-controller/addrgrp/{addrgrp}'
             ],
             'revision': {
                 '7.0.1': True,
@@ -43669,9 +47133,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -43681,12 +47147,13 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/wireless-controller/ssid-policy/{ssid-policy}',
-                '/pm/config/adom/{adom}/obj/wireless-controller/ssid-policy/{ssid-policy}'
+                '/pm/config/adom/{adom}/obj/wireless-controller/ssid-policy/{ssid-policy}',
+                '/pm/config/global/obj/wireless-controller/ssid-policy/{ssid-policy}'
             ],
             'revision': {
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -43696,12 +47163,13 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/wireless-controller/syslog-profile/{syslog-profile}',
-                '/pm/config/adom/{adom}/obj/wireless-controller/syslog-profile/{syslog-profile}'
+                '/pm/config/adom/{adom}/obj/wireless-controller/syslog-profile/{syslog-profile}',
+                '/pm/config/global/obj/wireless-controller/syslog-profile/{syslog-profile}'
             ],
             'revision': {
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -43726,6 +47194,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -43738,6 +47207,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -43746,9 +47216,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -43774,6 +47246,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -43786,6 +47259,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -43794,9 +47268,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -43806,8 +47282,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/wireless-controller/wtp-profile/{wtp-profile}/esl-ses-dongle',
-                '/pm/config/adom/{adom}/obj/wireless-controller/wtp-profile/{wtp-profile}/esl-ses-dongle'
+                '/pm/config/adom/{adom}/obj/wireless-controller/wtp-profile/{wtp-profile}/esl-ses-dongle',
+                '/pm/config/global/obj/wireless-controller/wtp-profile/{wtp-profile}/esl-ses-dongle'
             ],
             'revision': {
                 '7.0.1': True,
@@ -43817,9 +47293,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -43844,6 +47322,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -43856,6 +47335,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -43864,9 +47344,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -43891,6 +47373,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -43903,6 +47386,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -43911,9 +47395,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -43938,6 +47424,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -43950,6 +47437,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -43958,9 +47446,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -43985,6 +47475,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -43997,6 +47488,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -44005,9 +47497,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -44032,6 +47526,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -44044,6 +47539,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -44052,9 +47548,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -44064,8 +47562,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/wireless-controller/wtp-profile/{wtp-profile}/radio-3',
-                '/pm/config/adom/{adom}/obj/wireless-controller/wtp-profile/{wtp-profile}/radio-3'
+                '/pm/config/adom/{adom}/obj/wireless-controller/wtp-profile/{wtp-profile}/radio-3',
+                '/pm/config/global/obj/wireless-controller/wtp-profile/{wtp-profile}/radio-3'
             ],
             'revision': {
                 '6.2.2': True,
@@ -44076,6 +47574,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -44088,6 +47587,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -44096,9 +47596,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -44108,8 +47610,8 @@ def main():
                 'adom'
             ],
             'urls': [
-                '/pm/config/global/obj/wireless-controller/wtp-profile/{wtp-profile}/radio-4',
-                '/pm/config/adom/{adom}/obj/wireless-controller/wtp-profile/{wtp-profile}/radio-4'
+                '/pm/config/adom/{adom}/obj/wireless-controller/wtp-profile/{wtp-profile}/radio-4',
+                '/pm/config/global/obj/wireless-controller/wtp-profile/{wtp-profile}/radio-4'
             ],
             'revision': {
                 '6.2.5': True,
@@ -44118,6 +47620,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -44130,6 +47633,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -44138,9 +47642,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         },
@@ -44166,6 +47672,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -44178,6 +47685,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -44186,9 +47694,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             }
         }

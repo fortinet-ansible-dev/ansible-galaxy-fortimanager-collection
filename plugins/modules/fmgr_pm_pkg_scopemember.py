@@ -194,13 +194,13 @@ from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import 
 
 def main():
     jrpc_urls = [
-        '/pm/pkg/global/{pkg_path}/scope member',
-        '/pm/pkg/adom/{adom}/{pkg_path}/scope member'
+        '/pm/pkg/adom/{adom}/{pkg_path}/scope member',
+        '/pm/pkg/global/{pkg_path}/scope member'
     ]
 
     perobject_jrpc_urls = [
-        '/pm/pkg/global/{pkg_path}/scope member',
-        '/pm/pkg/adom/{adom}/{pkg_path}/scope member'
+        '/pm/pkg/adom/{adom}/{pkg_path}/scope member',
+        '/pm/pkg/global/{pkg_path}/scope member'
     ]
 
     url_params = ['adom', 'pkg_path']
@@ -276,6 +276,7 @@ def main():
             'revision': {
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'options': {
@@ -284,6 +285,7 @@ def main():
                     'revision': {
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'type': 'str'
@@ -293,6 +295,7 @@ def main():
                     'revision': {
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'type': 'str'

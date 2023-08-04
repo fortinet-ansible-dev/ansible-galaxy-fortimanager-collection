@@ -235,13 +235,13 @@ from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import 
 
 def main():
     jrpc_urls = [
-        '/pm/config/global/obj/switch-controller/acl/ingress',
-        '/pm/config/adom/{adom}/obj/switch-controller/acl/ingress'
+        '/pm/config/adom/{adom}/obj/switch-controller/acl/ingress',
+        '/pm/config/global/obj/switch-controller/acl/ingress'
     ]
 
     perobject_jrpc_urls = [
-        '/pm/config/global/obj/switch-controller/acl/ingress/{ingress}',
-        '/pm/config/adom/{adom}/obj/switch-controller/acl/ingress/{ingress}'
+        '/pm/config/adom/{adom}/obj/switch-controller/acl/ingress/{ingress}',
+        '/pm/config/global/obj/switch-controller/acl/ingress/{ingress}'
     ]
 
     url_params = ['adom']

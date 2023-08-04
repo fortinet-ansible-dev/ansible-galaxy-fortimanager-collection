@@ -189,13 +189,13 @@ from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import 
 
 def main():
     jrpc_urls = [
-        '/pm/config/global/obj/switch-controller/acl/group',
-        '/pm/config/adom/{adom}/obj/switch-controller/acl/group'
+        '/pm/config/adom/{adom}/obj/switch-controller/acl/group',
+        '/pm/config/global/obj/switch-controller/acl/group'
     ]
 
     perobject_jrpc_urls = [
-        '/pm/config/global/obj/switch-controller/acl/group/{group}',
-        '/pm/config/adom/{adom}/obj/switch-controller/acl/group/{group}'
+        '/pm/config/adom/{adom}/obj/switch-controller/acl/group/{group}',
+        '/pm/config/global/obj/switch-controller/acl/group/{group}'
     ]
 
     url_params = ['adom']

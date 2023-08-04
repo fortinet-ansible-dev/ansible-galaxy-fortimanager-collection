@@ -159,13 +159,13 @@ from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import 
 
 def main():
     jrpc_urls = [
-        '/pm/config/global/_workspace/commit',
-        '/pm/config/adom/{adom}/_workspace/commit'
+        '/pm/config/adom/{adom}/_workspace/commit',
+        '/pm/config/global/_workspace/commit'
     ]
 
     perobject_jrpc_urls = [
-        '/pm/config/global/_workspace/commit/{commit}',
-        '/pm/config/adom/{adom}/_workspace/commit/{commit}'
+        '/pm/config/adom/{adom}/_workspace/commit/{commit}',
+        '/pm/config/global/_workspace/commit/{commit}'
     ]
 
     url_params = ['adom']

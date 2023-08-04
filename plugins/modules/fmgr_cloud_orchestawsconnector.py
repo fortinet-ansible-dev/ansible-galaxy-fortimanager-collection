@@ -200,13 +200,13 @@ from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import 
 
 def main():
     jrpc_urls = [
-        '/pm/config/global/obj/cloud/orchest-awsconnector',
-        '/pm/config/adom/{adom}/obj/cloud/orchest-awsconnector'
+        '/pm/config/adom/{adom}/obj/cloud/orchest-awsconnector',
+        '/pm/config/global/obj/cloud/orchest-awsconnector'
     ]
 
     perobject_jrpc_urls = [
-        '/pm/config/global/obj/cloud/orchest-awsconnector/{orchest-awsconnector}',
-        '/pm/config/adom/{adom}/obj/cloud/orchest-awsconnector/{orchest-awsconnector}'
+        '/pm/config/adom/{adom}/obj/cloud/orchest-awsconnector/{orchest-awsconnector}',
+        '/pm/config/global/obj/cloud/orchest-awsconnector/{orchest-awsconnector}'
     ]
 
     url_params = ['adom']

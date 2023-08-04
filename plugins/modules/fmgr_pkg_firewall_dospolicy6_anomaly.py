@@ -160,26 +160,6 @@ options:
             threshold(default):
                 type: int
                 description: no description
-            synproxy_tcp_sack:
-                type: str
-                description: enable/disable TCP selective acknowledage
-                choices:
-                    - 'disable'
-                    - 'enable'
-            synproxy_tcp_timestamp:
-                type: str
-                description: enable/disable TCP timestamp option for packets replied by syn proxy module.
-                choices:
-                    - 'disable'
-                    - 'enable'
-            synproxy_ttl:
-                type: str
-                description: Determine Time to live
-                choices:
-                    - '32'
-                    - '64'
-                    - '128'
-                    - '255'
             synproxy_tos:
                 type: str
                 description: Determine TCP differentiated services code point value
@@ -200,25 +180,20 @@ options:
                     - '40'
                     - '46'
                     - '255'
-            synproxy_tcp_windowscale:
+            synproxy_ttl:
                 type: str
-                description: Determine TCP window scale option value for packets replied by syn proxy module.
+                description: Determine Time to live
                 choices:
-                    - '0'
-                    - '1'
-                    - '2'
-                    - '3'
-                    - '4'
-                    - '5'
-                    - '6'
-                    - '7'
-                    - '8'
-                    - '9'
-                    - '10'
-                    - '11'
-                    - '12'
-                    - '13'
-                    - '14'
+                    - '32'
+                    - '64'
+                    - '128'
+                    - '255'
+            synproxy_tcp_sack:
+                type: str
+                description: enable/disable TCP selective acknowledage
+                choices:
+                    - 'disable'
+                    - 'enable'
             synproxy_tcp_window:
                 type: str
                 description: Determine TCP Window size for packets replied by syn proxy module.
@@ -227,6 +202,12 @@ options:
                     - '8192'
                     - '16384'
                     - '32768'
+            synproxy_tcp_timestamp:
+                type: str
+                description: enable/disable TCP timestamp option for packets replied by syn proxy module.
+                choices:
+                    - 'disable'
+                    - 'enable'
             synproxy_tcp_mss:
                 type: str
                 description: Determine TCP maximum segment size
@@ -239,31 +220,7 @@ options:
                     - '1360'
                     - '1460'
                     - '1500'
-            synproxy-tcp-timestamp:
-                type: str
-                description: enable/disable TCP timestamp option for packets replied by syn proxy module.
-                choices:
-                    - 'disable'
-                    - 'enable'
-            synproxy-tcp-mss:
-                type: str
-                description: Determine TCP maximum segment size
-                choices:
-                    - '0'
-                    - '256'
-                    - '512'
-                    - '1024'
-                    - '1300'
-                    - '1360'
-                    - '1460'
-                    - '1500'
-            synproxy-tcp-sack:
-                type: str
-                description: enable/disable TCP selective acknowledage
-                choices:
-                    - 'disable'
-                    - 'enable'
-            synproxy-tcp-windowscale:
+            synproxy_tcp_windowscale:
                 type: str
                 description: Determine TCP window scale option value for packets replied by syn proxy module.
                 choices:
@@ -302,14 +259,6 @@ options:
                     - '40'
                     - '46'
                     - '255'
-            synproxy-ttl:
-                type: str
-                description: Determine Time to live
-                choices:
-                    - '32'
-                    - '64'
-                    - '128'
-                    - '255'
             synproxy-tcp-window:
                 type: str
                 description: Determine TCP Window size for packets replied by syn proxy module.
@@ -318,6 +267,57 @@ options:
                     - '8192'
                     - '16384'
                     - '32768'
+            synproxy-tcp-windowscale:
+                type: str
+                description: Determine TCP window scale option value for packets replied by syn proxy module.
+                choices:
+                    - '0'
+                    - '1'
+                    - '2'
+                    - '3'
+                    - '4'
+                    - '5'
+                    - '6'
+                    - '7'
+                    - '8'
+                    - '9'
+                    - '10'
+                    - '11'
+                    - '12'
+                    - '13'
+                    - '14'
+            synproxy-tcp-timestamp:
+                type: str
+                description: enable/disable TCP timestamp option for packets replied by syn proxy module.
+                choices:
+                    - 'disable'
+                    - 'enable'
+            synproxy-ttl:
+                type: str
+                description: Determine Time to live
+                choices:
+                    - '32'
+                    - '64'
+                    - '128'
+                    - '255'
+            synproxy-tcp-mss:
+                type: str
+                description: Determine TCP maximum segment size
+                choices:
+                    - '0'
+                    - '256'
+                    - '512'
+                    - '1024'
+                    - '1300'
+                    - '1360'
+                    - '1460'
+                    - '1500'
+            synproxy-tcp-sack:
+                type: str
+                description: enable/disable TCP selective acknowledage
+                choices:
+                    - 'disable'
+                    - 'enable'
 
 '''
 
@@ -508,6 +508,7 @@ def main():
                 '6.2.8': True,
                 '6.2.9': True,
                 '6.2.10': True,
+                '6.2.11': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -520,6 +521,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -528,9 +530,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'options': {
@@ -553,6 +557,7 @@ def main():
                         '6.2.8': True,
                         '6.2.9': True,
                         '6.2.10': True,
+                        '6.2.11': True,
                         '6.4.1': True,
                         '6.4.3': True,
                         '6.4.4': True,
@@ -562,6 +567,7 @@ def main():
                         '6.4.9': True,
                         '6.4.10': True,
                         '6.4.11': True,
+                        '6.4.12': True,
                         '7.0.1': True,
                         '7.0.2': True,
                         '7.0.3': True,
@@ -569,8 +575,10 @@ def main():
                         '7.0.5': True,
                         '7.0.6': True,
                         '7.0.7': True,
+                        '7.0.8': True,
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'choices': [
@@ -599,6 +607,7 @@ def main():
                         '6.2.8': True,
                         '6.2.9': True,
                         '6.2.10': True,
+                        '6.2.11': True,
                         '6.4.1': True,
                         '6.4.3': True,
                         '6.4.4': True,
@@ -608,6 +617,7 @@ def main():
                         '6.4.9': True,
                         '6.4.10': True,
                         '6.4.11': True,
+                        '6.4.12': True,
                         '7.0.1': True,
                         '7.0.2': True,
                         '7.0.3': True,
@@ -615,8 +625,10 @@ def main():
                         '7.0.5': True,
                         '7.0.6': True,
                         '7.0.7': True,
+                        '7.0.8': True,
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'choices': [
@@ -644,6 +656,7 @@ def main():
                         '6.2.8': True,
                         '6.2.9': True,
                         '6.2.10': True,
+                        '6.2.11': True,
                         '6.4.1': True,
                         '6.4.3': True,
                         '6.4.4': True,
@@ -653,6 +666,7 @@ def main():
                         '6.4.9': True,
                         '6.4.10': True,
                         '6.4.11': True,
+                        '6.4.12': True,
                         '7.0.1': True,
                         '7.0.2': True,
                         '7.0.3': True,
@@ -660,8 +674,10 @@ def main():
                         '7.0.5': True,
                         '7.0.6': True,
                         '7.0.7': True,
+                        '7.0.8': True,
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'type': 'str'
@@ -685,6 +701,7 @@ def main():
                         '6.2.8': True,
                         '6.2.9': True,
                         '6.2.10': True,
+                        '6.2.11': True,
                         '6.4.1': True,
                         '6.4.3': True,
                         '6.4.4': True,
@@ -694,6 +711,7 @@ def main():
                         '6.4.9': True,
                         '6.4.10': True,
                         '6.4.11': True,
+                        '6.4.12': True,
                         '7.0.1': True,
                         '7.0.2': True,
                         '7.0.3': True,
@@ -701,8 +719,10 @@ def main():
                         '7.0.5': True,
                         '7.0.6': True,
                         '7.0.7': True,
+                        '7.0.8': True,
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'choices': [
@@ -732,6 +752,7 @@ def main():
                         '6.2.8': True,
                         '6.2.9': True,
                         '6.2.10': True,
+                        '6.2.11': True,
                         '6.4.1': True,
                         '6.4.3': True,
                         '6.4.4': True,
@@ -741,6 +762,7 @@ def main():
                         '6.4.9': True,
                         '6.4.10': True,
                         '6.4.11': True,
+                        '6.4.12': True,
                         '7.0.1': True,
                         '7.0.2': True,
                         '7.0.3': True,
@@ -748,8 +770,10 @@ def main():
                         '7.0.5': True,
                         '7.0.6': True,
                         '7.0.7': True,
+                        '7.0.8': True,
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'type': 'str'
@@ -773,6 +797,7 @@ def main():
                         '6.2.8': True,
                         '6.2.9': True,
                         '6.2.10': True,
+                        '6.2.11': True,
                         '6.4.1': True,
                         '6.4.3': True,
                         '6.4.4': True,
@@ -782,6 +807,7 @@ def main():
                         '6.4.9': True,
                         '6.4.10': True,
                         '6.4.11': True,
+                        '6.4.12': True,
                         '7.0.1': True,
                         '7.0.2': True,
                         '7.0.3': True,
@@ -789,8 +815,10 @@ def main():
                         '7.0.5': True,
                         '7.0.6': True,
                         '7.0.7': True,
+                        '7.0.8': True,
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'choices': [
@@ -818,6 +846,7 @@ def main():
                         '6.2.8': True,
                         '6.2.9': True,
                         '6.2.10': True,
+                        '6.2.11': True,
                         '6.4.1': True,
                         '6.4.3': True,
                         '6.4.4': True,
@@ -827,6 +856,7 @@ def main():
                         '6.4.9': True,
                         '6.4.10': True,
                         '6.4.11': True,
+                        '6.4.12': True,
                         '7.0.1': True,
                         '7.0.2': True,
                         '7.0.3': True,
@@ -834,8 +864,10 @@ def main():
                         '7.0.5': True,
                         '7.0.6': True,
                         '7.0.7': True,
+                        '7.0.8': True,
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'choices': [
@@ -863,6 +895,7 @@ def main():
                         '6.2.8': True,
                         '6.2.9': True,
                         '6.2.10': True,
+                        '6.2.11': True,
                         '6.4.1': True,
                         '6.4.3': True,
                         '6.4.4': True,
@@ -872,6 +905,7 @@ def main():
                         '6.4.9': True,
                         '6.4.10': True,
                         '6.4.11': True,
+                        '6.4.12': True,
                         '7.0.1': True,
                         '7.0.2': True,
                         '7.0.3': True,
@@ -879,8 +913,10 @@ def main():
                         '7.0.5': True,
                         '7.0.6': True,
                         '7.0.7': True,
+                        '7.0.8': True,
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'type': 'int'
@@ -904,6 +940,7 @@ def main():
                         '6.2.8': True,
                         '6.2.9': True,
                         '6.2.10': True,
+                        '6.2.11': True,
                         '6.4.1': True,
                         '6.4.3': True,
                         '6.4.4': True,
@@ -913,6 +950,7 @@ def main():
                         '6.4.9': True,
                         '6.4.10': True,
                         '6.4.11': True,
+                        '6.4.12': True,
                         '7.0.1': True,
                         '7.0.2': True,
                         '7.0.3': True,
@@ -920,139 +958,13 @@ def main():
                         '7.0.5': True,
                         '7.0.6': True,
                         '7.0.7': True,
+                        '7.0.8': True,
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'type': 'int'
-                },
-                'synproxy_tcp_sack': {
-                    'required': False,
-                    'revision': {
-                        '6.2.5': True,
-                        '6.4.0': True,
-                        '6.4.2': True,
-                        '6.4.5': True,
-                        '7.0.0': True,
-                        '7.2.0': True,
-                        '6.2.0': False,
-                        '6.2.2': False,
-                        '6.2.6': True,
-                        '6.2.7': True,
-                        '6.2.8': True,
-                        '6.2.9': True,
-                        '6.2.10': True,
-                        '6.4.1': True,
-                        '6.4.3': True,
-                        '6.4.4': True,
-                        '6.4.6': True,
-                        '6.4.7': True,
-                        '6.4.8': True,
-                        '6.4.9': True,
-                        '6.4.10': True,
-                        '6.4.11': True,
-                        '7.0.1': True,
-                        '7.0.2': True,
-                        '7.0.3': True,
-                        '7.0.4': True,
-                        '7.0.5': True,
-                        '7.0.6': True,
-                        '7.0.7': True,
-                        '7.2.1': False,
-                        '7.2.2': False,
-                        '7.4.0': False
-                    },
-                    'choices': [
-                        'disable',
-                        'enable'
-                    ],
-                    'type': 'str'
-                },
-                'synproxy_tcp_timestamp': {
-                    'required': False,
-                    'revision': {
-                        '6.2.5': True,
-                        '6.4.0': True,
-                        '6.4.2': True,
-                        '6.4.5': True,
-                        '7.0.0': True,
-                        '7.2.0': True,
-                        '6.2.0': False,
-                        '6.2.2': False,
-                        '6.2.6': True,
-                        '6.2.7': True,
-                        '6.2.8': True,
-                        '6.2.9': True,
-                        '6.2.10': True,
-                        '6.4.1': True,
-                        '6.4.3': True,
-                        '6.4.4': True,
-                        '6.4.6': True,
-                        '6.4.7': True,
-                        '6.4.8': True,
-                        '6.4.9': True,
-                        '6.4.10': True,
-                        '6.4.11': True,
-                        '7.0.1': True,
-                        '7.0.2': True,
-                        '7.0.3': True,
-                        '7.0.4': True,
-                        '7.0.5': True,
-                        '7.0.6': True,
-                        '7.0.7': True,
-                        '7.2.1': False,
-                        '7.2.2': False,
-                        '7.4.0': False
-                    },
-                    'choices': [
-                        'disable',
-                        'enable'
-                    ],
-                    'type': 'str'
-                },
-                'synproxy_ttl': {
-                    'required': False,
-                    'revision': {
-                        '6.2.5': True,
-                        '6.4.0': True,
-                        '6.4.2': True,
-                        '6.4.5': True,
-                        '7.0.0': True,
-                        '7.2.0': True,
-                        '6.2.0': False,
-                        '6.2.2': False,
-                        '6.2.6': True,
-                        '6.2.7': True,
-                        '6.2.8': True,
-                        '6.2.9': True,
-                        '6.2.10': True,
-                        '6.4.1': True,
-                        '6.4.3': True,
-                        '6.4.4': True,
-                        '6.4.6': True,
-                        '6.4.7': True,
-                        '6.4.8': True,
-                        '6.4.9': True,
-                        '6.4.10': True,
-                        '6.4.11': True,
-                        '7.0.1': True,
-                        '7.0.2': True,
-                        '7.0.3': True,
-                        '7.0.4': True,
-                        '7.0.5': True,
-                        '7.0.6': True,
-                        '7.0.7': True,
-                        '7.2.1': False,
-                        '7.2.2': False,
-                        '7.4.0': False
-                    },
-                    'choices': [
-                        '32',
-                        '64',
-                        '128',
-                        '255'
-                    ],
-                    'type': 'str'
                 },
                 'synproxy_tos': {
                     'required': False,
@@ -1070,6 +982,7 @@ def main():
                         '6.2.8': True,
                         '6.2.9': True,
                         '6.2.10': True,
+                        '6.2.11': True,
                         '6.4.1': True,
                         '6.4.3': True,
                         '6.4.4': True,
@@ -1079,6 +992,7 @@ def main():
                         '6.4.9': True,
                         '6.4.10': True,
                         '6.4.11': True,
+                        '6.4.12': True,
                         '7.0.1': True,
                         '7.0.2': True,
                         '7.0.3': True,
@@ -1086,8 +1000,10 @@ def main():
                         '7.0.5': True,
                         '7.0.6': True,
                         '7.0.7': True,
+                        '7.0.8': True,
                         '7.2.1': False,
                         '7.2.2': False,
+                        '7.2.3': False,
                         '7.4.0': False
                     },
                     'choices': [
@@ -1110,7 +1026,7 @@ def main():
                     ],
                     'type': 'str'
                 },
-                'synproxy_tcp_windowscale': {
+                'synproxy_ttl': {
                     'required': False,
                     'revision': {
                         '6.2.5': True,
@@ -1126,6 +1042,7 @@ def main():
                         '6.2.8': True,
                         '6.2.9': True,
                         '6.2.10': True,
+                        '6.2.11': True,
                         '6.4.1': True,
                         '6.4.3': True,
                         '6.4.4': True,
@@ -1135,6 +1052,7 @@ def main():
                         '6.4.9': True,
                         '6.4.10': True,
                         '6.4.11': True,
+                        '6.4.12': True,
                         '7.0.1': True,
                         '7.0.2': True,
                         '7.0.3': True,
@@ -1142,26 +1060,63 @@ def main():
                         '7.0.5': True,
                         '7.0.6': True,
                         '7.0.7': True,
+                        '7.0.8': True,
                         '7.2.1': False,
                         '7.2.2': False,
+                        '7.2.3': False,
                         '7.4.0': False
                     },
                     'choices': [
-                        '0',
-                        '1',
-                        '2',
-                        '3',
-                        '4',
-                        '5',
-                        '6',
-                        '7',
-                        '8',
-                        '9',
-                        '10',
-                        '11',
-                        '12',
-                        '13',
-                        '14'
+                        '32',
+                        '64',
+                        '128',
+                        '255'
+                    ],
+                    'type': 'str'
+                },
+                'synproxy_tcp_sack': {
+                    'required': False,
+                    'revision': {
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True,
+                        '7.2.0': True,
+                        '6.2.0': False,
+                        '6.2.2': False,
+                        '6.2.6': True,
+                        '6.2.7': True,
+                        '6.2.8': True,
+                        '6.2.9': True,
+                        '6.2.10': True,
+                        '6.2.11': True,
+                        '6.4.1': True,
+                        '6.4.3': True,
+                        '6.4.4': True,
+                        '6.4.6': True,
+                        '6.4.7': True,
+                        '6.4.8': True,
+                        '6.4.9': True,
+                        '6.4.10': True,
+                        '6.4.11': True,
+                        '6.4.12': True,
+                        '7.0.1': True,
+                        '7.0.2': True,
+                        '7.0.3': True,
+                        '7.0.4': True,
+                        '7.0.5': True,
+                        '7.0.6': True,
+                        '7.0.7': True,
+                        '7.0.8': True,
+                        '7.2.1': False,
+                        '7.2.2': False,
+                        '7.2.3': False,
+                        '7.4.0': False
+                    },
+                    'choices': [
+                        'disable',
+                        'enable'
                     ],
                     'type': 'str'
                 },
@@ -1181,6 +1136,7 @@ def main():
                         '6.2.8': True,
                         '6.2.9': True,
                         '6.2.10': True,
+                        '6.2.11': True,
                         '6.4.1': True,
                         '6.4.3': True,
                         '6.4.4': True,
@@ -1190,6 +1146,7 @@ def main():
                         '6.4.9': True,
                         '6.4.10': True,
                         '6.4.11': True,
+                        '6.4.12': True,
                         '7.0.1': True,
                         '7.0.2': True,
                         '7.0.3': True,
@@ -1197,8 +1154,10 @@ def main():
                         '7.0.5': True,
                         '7.0.6': True,
                         '7.0.7': True,
+                        '7.0.8': True,
                         '7.2.1': False,
                         '7.2.2': False,
+                        '7.2.3': False,
                         '7.4.0': False
                     },
                     'choices': [
@@ -1206,6 +1165,52 @@ def main():
                         '8192',
                         '16384',
                         '32768'
+                    ],
+                    'type': 'str'
+                },
+                'synproxy_tcp_timestamp': {
+                    'required': False,
+                    'revision': {
+                        '6.2.5': True,
+                        '6.4.0': True,
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True,
+                        '7.2.0': True,
+                        '6.2.0': False,
+                        '6.2.2': False,
+                        '6.2.6': True,
+                        '6.2.7': True,
+                        '6.2.8': True,
+                        '6.2.9': True,
+                        '6.2.10': True,
+                        '6.2.11': True,
+                        '6.4.1': True,
+                        '6.4.3': True,
+                        '6.4.4': True,
+                        '6.4.6': True,
+                        '6.4.7': True,
+                        '6.4.8': True,
+                        '6.4.9': True,
+                        '6.4.10': True,
+                        '6.4.11': True,
+                        '6.4.12': True,
+                        '7.0.1': True,
+                        '7.0.2': True,
+                        '7.0.3': True,
+                        '7.0.4': True,
+                        '7.0.5': True,
+                        '7.0.6': True,
+                        '7.0.7': True,
+                        '7.0.8': True,
+                        '7.2.1': False,
+                        '7.2.2': False,
+                        '7.2.3': False,
+                        '7.4.0': False
+                    },
+                    'choices': [
+                        'disable',
+                        'enable'
                     ],
                     'type': 'str'
                 },
@@ -1225,6 +1230,7 @@ def main():
                         '6.2.8': True,
                         '6.2.9': True,
                         '6.2.10': True,
+                        '6.2.11': True,
                         '6.4.1': True,
                         '6.4.3': True,
                         '6.4.4': True,
@@ -1234,6 +1240,7 @@ def main():
                         '6.4.9': True,
                         '6.4.10': True,
                         '6.4.11': True,
+                        '6.4.12': True,
                         '7.0.1': True,
                         '7.0.2': True,
                         '7.0.3': True,
@@ -1241,8 +1248,10 @@ def main():
                         '7.0.5': True,
                         '7.0.6': True,
                         '7.0.7': True,
+                        '7.0.8': True,
                         '7.2.1': False,
                         '7.2.2': False,
+                        '7.2.3': False,
                         '7.4.0': False
                     },
                     'choices': [
@@ -1257,9 +1266,11 @@ def main():
                     ],
                     'type': 'str'
                 },
-                'synproxy-tcp-timestamp': {
+                'synproxy_tcp_windowscale': {
                     'required': False,
                     'revision': {
+                        '6.2.5': True,
+                        '6.4.0': True,
                         '6.4.2': True,
                         '6.4.5': True,
                         '7.0.0': True,
@@ -1271,7 +1282,8 @@ def main():
                         '6.2.8': True,
                         '6.2.9': True,
                         '6.2.10': True,
-                        '6.4.1': False,
+                        '6.2.11': True,
+                        '6.4.1': True,
                         '6.4.3': True,
                         '6.4.4': True,
                         '6.4.6': True,
@@ -1280,6 +1292,7 @@ def main():
                         '6.4.9': True,
                         '6.4.10': True,
                         '6.4.11': True,
+                        '6.4.12': True,
                         '7.0.1': True,
                         '7.0.2': True,
                         '7.0.3': True,
@@ -1287,134 +1300,10 @@ def main():
                         '7.0.5': True,
                         '7.0.6': True,
                         '7.0.7': True,
+                        '7.0.8': True,
                         '7.2.1': False,
                         '7.2.2': False,
-                        '7.4.0': False
-                    },
-                    'choices': [
-                        'disable',
-                        'enable'
-                    ],
-                    'type': 'str'
-                },
-                'synproxy-tcp-mss': {
-                    'required': False,
-                    'revision': {
-                        '6.4.2': True,
-                        '6.4.5': True,
-                        '7.0.0': True,
-                        '7.2.0': True,
-                        '6.2.0': False,
-                        '6.2.2': False,
-                        '6.2.6': True,
-                        '6.2.7': True,
-                        '6.2.8': True,
-                        '6.2.9': True,
-                        '6.2.10': True,
-                        '6.4.1': False,
-                        '6.4.3': True,
-                        '6.4.4': True,
-                        '6.4.6': True,
-                        '6.4.7': True,
-                        '6.4.8': True,
-                        '6.4.9': True,
-                        '6.4.10': True,
-                        '6.4.11': True,
-                        '7.0.1': True,
-                        '7.0.2': True,
-                        '7.0.3': True,
-                        '7.0.4': True,
-                        '7.0.5': True,
-                        '7.0.6': True,
-                        '7.0.7': True,
-                        '7.2.1': False,
-                        '7.2.2': False,
-                        '7.4.0': False
-                    },
-                    'choices': [
-                        '0',
-                        '256',
-                        '512',
-                        '1024',
-                        '1300',
-                        '1360',
-                        '1460',
-                        '1500'
-                    ],
-                    'type': 'str'
-                },
-                'synproxy-tcp-sack': {
-                    'required': False,
-                    'revision': {
-                        '6.4.2': True,
-                        '6.4.5': True,
-                        '7.0.0': True,
-                        '7.2.0': True,
-                        '6.2.0': False,
-                        '6.2.2': False,
-                        '6.2.6': True,
-                        '6.2.7': True,
-                        '6.2.8': True,
-                        '6.2.9': True,
-                        '6.2.10': True,
-                        '6.4.1': False,
-                        '6.4.3': True,
-                        '6.4.4': True,
-                        '6.4.6': True,
-                        '6.4.7': True,
-                        '6.4.8': True,
-                        '6.4.9': True,
-                        '6.4.10': True,
-                        '6.4.11': True,
-                        '7.0.1': True,
-                        '7.0.2': True,
-                        '7.0.3': True,
-                        '7.0.4': True,
-                        '7.0.5': True,
-                        '7.0.6': True,
-                        '7.0.7': True,
-                        '7.2.1': False,
-                        '7.2.2': False,
-                        '7.4.0': False
-                    },
-                    'choices': [
-                        'disable',
-                        'enable'
-                    ],
-                    'type': 'str'
-                },
-                'synproxy-tcp-windowscale': {
-                    'required': False,
-                    'revision': {
-                        '6.4.2': True,
-                        '6.4.5': True,
-                        '7.0.0': True,
-                        '7.2.0': True,
-                        '6.2.0': False,
-                        '6.2.2': False,
-                        '6.2.6': True,
-                        '6.2.7': True,
-                        '6.2.8': True,
-                        '6.2.9': True,
-                        '6.2.10': True,
-                        '6.4.1': False,
-                        '6.4.3': True,
-                        '6.4.4': True,
-                        '6.4.6': True,
-                        '6.4.7': True,
-                        '6.4.8': True,
-                        '6.4.9': True,
-                        '6.4.10': True,
-                        '6.4.11': True,
-                        '7.0.1': True,
-                        '7.0.2': True,
-                        '7.0.3': True,
-                        '7.0.4': True,
-                        '7.0.5': True,
-                        '7.0.6': True,
-                        '7.0.7': True,
-                        '7.2.1': False,
-                        '7.2.2': False,
+                        '7.2.3': False,
                         '7.4.0': False
                     },
                     'choices': [
@@ -1450,6 +1339,7 @@ def main():
                         '6.2.8': True,
                         '6.2.9': True,
                         '6.2.10': True,
+                        '6.2.11': True,
                         '6.4.1': False,
                         '6.4.3': True,
                         '6.4.4': True,
@@ -1459,6 +1349,7 @@ def main():
                         '6.4.9': True,
                         '6.4.10': True,
                         '6.4.11': True,
+                        '6.4.12': True,
                         '7.0.1': True,
                         '7.0.2': True,
                         '7.0.3': True,
@@ -1466,8 +1357,10 @@ def main():
                         '7.0.5': True,
                         '7.0.6': True,
                         '7.0.7': True,
+                        '7.0.8': True,
                         '7.2.1': False,
                         '7.2.2': False,
+                        '7.2.3': False,
                         '7.4.0': False
                     },
                     'choices': [
@@ -1490,48 +1383,6 @@ def main():
                     ],
                     'type': 'str'
                 },
-                'synproxy-ttl': {
-                    'required': False,
-                    'revision': {
-                        '6.4.2': True,
-                        '6.4.5': True,
-                        '7.0.0': True,
-                        '7.2.0': True,
-                        '6.2.0': False,
-                        '6.2.2': False,
-                        '6.2.6': True,
-                        '6.2.7': True,
-                        '6.2.8': True,
-                        '6.2.9': True,
-                        '6.2.10': True,
-                        '6.4.1': False,
-                        '6.4.3': True,
-                        '6.4.4': True,
-                        '6.4.6': True,
-                        '6.4.7': True,
-                        '6.4.8': True,
-                        '6.4.9': True,
-                        '6.4.10': True,
-                        '6.4.11': True,
-                        '7.0.1': True,
-                        '7.0.2': True,
-                        '7.0.3': True,
-                        '7.0.4': True,
-                        '7.0.5': True,
-                        '7.0.6': True,
-                        '7.0.7': True,
-                        '7.2.1': False,
-                        '7.2.2': False,
-                        '7.4.0': False
-                    },
-                    'choices': [
-                        '32',
-                        '64',
-                        '128',
-                        '255'
-                    ],
-                    'type': 'str'
-                },
                 'synproxy-tcp-window': {
                     'required': False,
                     'revision': {
@@ -1546,6 +1397,7 @@ def main():
                         '6.2.8': True,
                         '6.2.9': True,
                         '6.2.10': True,
+                        '6.2.11': True,
                         '6.4.1': False,
                         '6.4.3': True,
                         '6.4.4': True,
@@ -1555,6 +1407,7 @@ def main():
                         '6.4.9': True,
                         '6.4.10': True,
                         '6.4.11': True,
+                        '6.4.12': True,
                         '7.0.1': True,
                         '7.0.2': True,
                         '7.0.3': True,
@@ -1562,8 +1415,10 @@ def main():
                         '7.0.5': True,
                         '7.0.6': True,
                         '7.0.7': True,
+                        '7.0.8': True,
                         '7.2.1': False,
                         '7.2.2': False,
+                        '7.2.3': False,
                         '7.4.0': False
                     },
                     'choices': [
@@ -1571,6 +1426,247 @@ def main():
                         '8192',
                         '16384',
                         '32768'
+                    ],
+                    'type': 'str'
+                },
+                'synproxy-tcp-windowscale': {
+                    'required': False,
+                    'revision': {
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True,
+                        '7.2.0': True,
+                        '6.2.0': False,
+                        '6.2.2': False,
+                        '6.2.6': True,
+                        '6.2.7': True,
+                        '6.2.8': True,
+                        '6.2.9': True,
+                        '6.2.10': True,
+                        '6.2.11': True,
+                        '6.4.1': False,
+                        '6.4.3': True,
+                        '6.4.4': True,
+                        '6.4.6': True,
+                        '6.4.7': True,
+                        '6.4.8': True,
+                        '6.4.9': True,
+                        '6.4.10': True,
+                        '6.4.11': True,
+                        '6.4.12': True,
+                        '7.0.1': True,
+                        '7.0.2': True,
+                        '7.0.3': True,
+                        '7.0.4': True,
+                        '7.0.5': True,
+                        '7.0.6': True,
+                        '7.0.7': True,
+                        '7.0.8': True,
+                        '7.2.1': False,
+                        '7.2.2': False,
+                        '7.2.3': False,
+                        '7.4.0': False
+                    },
+                    'choices': [
+                        '0',
+                        '1',
+                        '2',
+                        '3',
+                        '4',
+                        '5',
+                        '6',
+                        '7',
+                        '8',
+                        '9',
+                        '10',
+                        '11',
+                        '12',
+                        '13',
+                        '14'
+                    ],
+                    'type': 'str'
+                },
+                'synproxy-tcp-timestamp': {
+                    'required': False,
+                    'revision': {
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True,
+                        '7.2.0': True,
+                        '6.2.0': False,
+                        '6.2.2': False,
+                        '6.2.6': True,
+                        '6.2.7': True,
+                        '6.2.8': True,
+                        '6.2.9': True,
+                        '6.2.10': True,
+                        '6.2.11': True,
+                        '6.4.1': False,
+                        '6.4.3': True,
+                        '6.4.4': True,
+                        '6.4.6': True,
+                        '6.4.7': True,
+                        '6.4.8': True,
+                        '6.4.9': True,
+                        '6.4.10': True,
+                        '6.4.11': True,
+                        '6.4.12': True,
+                        '7.0.1': True,
+                        '7.0.2': True,
+                        '7.0.3': True,
+                        '7.0.4': True,
+                        '7.0.5': True,
+                        '7.0.6': True,
+                        '7.0.7': True,
+                        '7.0.8': True,
+                        '7.2.1': False,
+                        '7.2.2': False,
+                        '7.2.3': False,
+                        '7.4.0': False
+                    },
+                    'choices': [
+                        'disable',
+                        'enable'
+                    ],
+                    'type': 'str'
+                },
+                'synproxy-ttl': {
+                    'required': False,
+                    'revision': {
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True,
+                        '7.2.0': True,
+                        '6.2.0': False,
+                        '6.2.2': False,
+                        '6.2.6': True,
+                        '6.2.7': True,
+                        '6.2.8': True,
+                        '6.2.9': True,
+                        '6.2.10': True,
+                        '6.2.11': True,
+                        '6.4.1': False,
+                        '6.4.3': True,
+                        '6.4.4': True,
+                        '6.4.6': True,
+                        '6.4.7': True,
+                        '6.4.8': True,
+                        '6.4.9': True,
+                        '6.4.10': True,
+                        '6.4.11': True,
+                        '6.4.12': True,
+                        '7.0.1': True,
+                        '7.0.2': True,
+                        '7.0.3': True,
+                        '7.0.4': True,
+                        '7.0.5': True,
+                        '7.0.6': True,
+                        '7.0.7': True,
+                        '7.0.8': True,
+                        '7.2.1': False,
+                        '7.2.2': False,
+                        '7.2.3': False,
+                        '7.4.0': False
+                    },
+                    'choices': [
+                        '32',
+                        '64',
+                        '128',
+                        '255'
+                    ],
+                    'type': 'str'
+                },
+                'synproxy-tcp-mss': {
+                    'required': False,
+                    'revision': {
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True,
+                        '7.2.0': True,
+                        '6.2.0': False,
+                        '6.2.2': False,
+                        '6.2.6': True,
+                        '6.2.7': True,
+                        '6.2.8': True,
+                        '6.2.9': True,
+                        '6.2.10': True,
+                        '6.2.11': True,
+                        '6.4.1': False,
+                        '6.4.3': True,
+                        '6.4.4': True,
+                        '6.4.6': True,
+                        '6.4.7': True,
+                        '6.4.8': True,
+                        '6.4.9': True,
+                        '6.4.10': True,
+                        '6.4.11': True,
+                        '6.4.12': True,
+                        '7.0.1': True,
+                        '7.0.2': True,
+                        '7.0.3': True,
+                        '7.0.4': True,
+                        '7.0.5': True,
+                        '7.0.6': True,
+                        '7.0.7': True,
+                        '7.0.8': True,
+                        '7.2.1': False,
+                        '7.2.2': False,
+                        '7.2.3': False,
+                        '7.4.0': False
+                    },
+                    'choices': [
+                        '0',
+                        '256',
+                        '512',
+                        '1024',
+                        '1300',
+                        '1360',
+                        '1460',
+                        '1500'
+                    ],
+                    'type': 'str'
+                },
+                'synproxy-tcp-sack': {
+                    'required': False,
+                    'revision': {
+                        '6.4.2': True,
+                        '6.4.5': True,
+                        '7.0.0': True,
+                        '7.2.0': True,
+                        '6.2.0': False,
+                        '6.2.2': False,
+                        '6.2.6': True,
+                        '6.2.7': True,
+                        '6.2.8': True,
+                        '6.2.9': True,
+                        '6.2.10': True,
+                        '6.2.11': True,
+                        '6.4.1': False,
+                        '6.4.3': True,
+                        '6.4.4': True,
+                        '6.4.6': True,
+                        '6.4.7': True,
+                        '6.4.8': True,
+                        '6.4.9': True,
+                        '6.4.10': True,
+                        '6.4.11': True,
+                        '6.4.12': True,
+                        '7.0.1': True,
+                        '7.0.2': True,
+                        '7.0.3': True,
+                        '7.0.4': True,
+                        '7.0.5': True,
+                        '7.0.6': True,
+                        '7.0.7': True,
+                        '7.0.8': True,
+                        '7.2.1': False,
+                        '7.2.2': False,
+                        '7.2.3': False,
+                        '7.4.0': False
+                    },
+                    'choices': [
+                        'disable',
+                        'enable'
                     ],
                     'type': 'str'
                 }

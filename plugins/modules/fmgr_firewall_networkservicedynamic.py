@@ -201,13 +201,13 @@ from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import 
 
 def main():
     jrpc_urls = [
-        '/pm/config/global/obj/firewall/network-service-dynamic',
-        '/pm/config/adom/{adom}/obj/firewall/network-service-dynamic'
+        '/pm/config/adom/{adom}/obj/firewall/network-service-dynamic',
+        '/pm/config/global/obj/firewall/network-service-dynamic'
     ]
 
     perobject_jrpc_urls = [
-        '/pm/config/global/obj/firewall/network-service-dynamic/{network-service-dynamic}',
-        '/pm/config/adom/{adom}/obj/firewall/network-service-dynamic/{network-service-dynamic}'
+        '/pm/config/adom/{adom}/obj/firewall/network-service-dynamic/{network-service-dynamic}',
+        '/pm/config/global/obj/firewall/network-service-dynamic/{network-service-dynamic}'
     ]
 
     url_params = ['adom']
@@ -278,6 +278,7 @@ def main():
             'type': 'dict',
             'revision': {
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'options': {
@@ -285,6 +286,7 @@ def main():
                     'required': False,
                     'revision': {
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'type': 'str'
@@ -293,6 +295,7 @@ def main():
                     'required': False,
                     'revision': {
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'type': 'str'
@@ -301,6 +304,7 @@ def main():
                     'required': True,
                     'revision': {
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'type': 'int'
@@ -309,6 +313,7 @@ def main():
                     'required': False,
                     'revision': {
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'type': 'str'
@@ -317,6 +322,7 @@ def main():
                     'required': False,
                     'revision': {
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'type': 'str'

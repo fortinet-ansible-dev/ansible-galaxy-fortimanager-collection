@@ -244,177 +244,9 @@ options:
                 choices:
                     - 'drop'
                     - 'trap-to-host'
-            tcp-land:
-                type: str
-                description: TCP land anomalies.
-                choices:
-                    - 'allow'
-                    - 'drop'
-                    - 'trap-to-host'
-            tcp-fin-noack:
-                type: str
-                description: TCP SYN flood with FIN flag set without ACK setting anomalies.
-                choices:
-                    - 'allow'
-                    - 'drop'
-                    - 'trap-to-host'
-            tcp-syn-data:
-                type: str
-                description: TCP SYN flood packets with data anomalies.
-                choices:
-                    - 'allow'
-                    - 'drop'
-                    - 'trap-to-host'
-            tcp-winnuke:
-                type: str
-                description: TCP WinNuke anomalies.
-                choices:
-                    - 'allow'
-                    - 'drop'
-                    - 'trap-to-host'
-            ipv4-optssrr:
-                type: str
-                description: Strict source record route option anomalies.
-                choices:
-                    - 'allow'
-                    - 'drop'
-                    - 'trap-to-host'
-            ipv6-proto-err:
-                type: str
-                description: Layer 4 invalid protocol anomalies.
-                choices:
-                    - 'allow'
-                    - 'drop'
-                    - 'trap-to-host'
-            ipv6-land:
-                type: str
-                description: Land anomalies.
-                choices:
-                    - 'allow'
-                    - 'drop'
-                    - 'trap-to-host'
-            tcp-no-flag:
-                type: str
-                description: TCP SYN flood with no flag set anomalies.
-                choices:
-                    - 'allow'
-                    - 'drop'
-                    - 'trap-to-host'
-            ipv4-land:
-                type: str
-                description: Land anomalies.
-                choices:
-                    - 'allow'
-                    - 'drop'
-                    - 'trap-to-host'
-            ipv4-optlsrr:
-                type: str
-                description: Loose source record route option anomalies.
-                choices:
-                    - 'allow'
-                    - 'drop'
-                    - 'trap-to-host'
-            udp-land:
-                type: str
-                description: UDP land anomalies.
-                choices:
-                    - 'allow'
-                    - 'drop'
-                    - 'trap-to-host'
-            icmp-frag:
-                type: str
-                description: Layer 3 fragmented packets that could be part of layer 4 ICMP anomalies.
-                choices:
-                    - 'allow'
-                    - 'drop'
-                    - 'trap-to-host'
-            ipv6-optendpid:
-                type: str
-                description: End point identification anomalies.
-                choices:
-                    - 'allow'
-                    - 'drop'
-                    - 'trap-to-host'
-            ipv4-opttimestamp:
-                type: str
-                description: Timestamp option anomalies.
-                choices:
-                    - 'allow'
-                    - 'drop'
-                    - 'trap-to-host'
-            ipv4-optrr:
-                type: str
-                description: Record route option anomalies.
-                choices:
-                    - 'allow'
-                    - 'drop'
-                    - 'trap-to-host'
-            ipv6-unknopt:
-                type: str
-                description: Unknown option anomalies.
-                choices:
-                    - 'allow'
-                    - 'drop'
-                    - 'trap-to-host'
             tcp-fin-only:
                 type: str
                 description: TCP SYN flood with only FIN flag set anomalies.
-                choices:
-                    - 'allow'
-                    - 'drop'
-                    - 'trap-to-host'
-            tcp-syn-fin:
-                type: str
-                description: TCP SYN flood SYN/FIN flag set anomalies.
-                choices:
-                    - 'allow'
-                    - 'drop'
-                    - 'trap-to-host'
-            ipv6-optinvld:
-                type: str
-                description: Invalid option anomalies.
-                choices:
-                    - 'allow'
-                    - 'drop'
-                    - 'trap-to-host'
-            ipv6-saddr-err:
-                type: str
-                description: Source address as multicast anomalies.
-                choices:
-                    - 'allow'
-                    - 'drop'
-                    - 'trap-to-host'
-            ipv4-proto-err:
-                type: str
-                description: Invalid layer 4 protocol anomalies.
-                choices:
-                    - 'allow'
-                    - 'drop'
-                    - 'trap-to-host'
-            ipv4-optstream:
-                type: str
-                description: Stream option anomalies.
-                choices:
-                    - 'allow'
-                    - 'drop'
-                    - 'trap-to-host'
-            ipv6-optnsap:
-                type: str
-                description: Network service access point address option anomalies.
-                choices:
-                    - 'allow'
-                    - 'drop'
-                    - 'trap-to-host'
-            icmp-land:
-                type: str
-                description: ICMP land anomalies.
-                choices:
-                    - 'allow'
-                    - 'drop'
-                    - 'trap-to-host'
-            ipv6-optjumbo:
-                type: str
-                description: Jumbo options anomalies.
                 choices:
                     - 'allow'
                     - 'drop'
@@ -433,9 +265,37 @@ options:
                     - 'allow'
                     - 'drop'
                     - 'trap-to-host'
-            ipv6-daddr-err:
+            tcp-syn-fin:
                 type: str
-                description: Destination address as unspecified or loopback address anomalies.
+                description: TCP SYN flood SYN/FIN flag set anomalies.
+                choices:
+                    - 'allow'
+                    - 'drop'
+                    - 'trap-to-host'
+            ipv4-proto-err:
+                type: str
+                description: Invalid layer 4 protocol anomalies.
+                choices:
+                    - 'allow'
+                    - 'drop'
+                    - 'trap-to-host'
+            ipv6-saddr-err:
+                type: str
+                description: Source address as multicast anomalies.
+                choices:
+                    - 'allow'
+                    - 'drop'
+                    - 'trap-to-host'
+            icmp-frag:
+                type: str
+                description: Layer 3 fragmented packets that could be part of layer 4 ICMP anomalies.
+                choices:
+                    - 'allow'
+                    - 'drop'
+                    - 'trap-to-host'
+            ipv4-optssrr:
+                type: str
+                description: Strict source record route option anomalies.
                 choices:
                     - 'allow'
                     - 'drop'
@@ -447,9 +307,86 @@ options:
                     - 'allow'
                     - 'drop'
                     - 'trap-to-host'
+            udp-land:
+                type: str
+                description: UDP land anomalies.
+                choices:
+                    - 'allow'
+                    - 'drop'
+                    - 'trap-to-host'
+            ipv6-optinvld:
+                type: str
+                description: Invalid option anomalies.
+                choices:
+                    - 'allow'
+                    - 'drop'
+                    - 'trap-to-host'
+            tcp-fin-noack:
+                type: str
+                description: TCP SYN flood with FIN flag set without ACK setting anomalies.
+                choices:
+                    - 'allow'
+                    - 'drop'
+                    - 'trap-to-host'
+            ipv6-proto-err:
+                type: str
+                description: Layer 4 invalid protocol anomalies.
+                choices:
+                    - 'allow'
+                    - 'drop'
+                    - 'trap-to-host'
+            tcp-land:
+                type: str
+                description: TCP land anomalies.
+                choices:
+                    - 'allow'
+                    - 'drop'
+                    - 'trap-to-host'
             ipv4-unknopt:
                 type: str
                 description: Unknown option anomalies.
+                choices:
+                    - 'allow'
+                    - 'drop'
+                    - 'trap-to-host'
+            ipv4-optstream:
+                type: str
+                description: Stream option anomalies.
+                choices:
+                    - 'allow'
+                    - 'drop'
+                    - 'trap-to-host'
+            ipv6-optjumbo:
+                type: str
+                description: Jumbo options anomalies.
+                choices:
+                    - 'allow'
+                    - 'drop'
+                    - 'trap-to-host'
+            icmp-land:
+                type: str
+                description: ICMP land anomalies.
+                choices:
+                    - 'allow'
+                    - 'drop'
+                    - 'trap-to-host'
+            tcp-winnuke:
+                type: str
+                description: TCP WinNuke anomalies.
+                choices:
+                    - 'allow'
+                    - 'drop'
+                    - 'trap-to-host'
+            ipv6-daddr-err:
+                type: str
+                description: Destination address as unspecified or loopback address anomalies.
+                choices:
+                    - 'allow'
+                    - 'drop'
+                    - 'trap-to-host'
+            ipv4-land:
+                type: str
+                description: Land anomalies.
                 choices:
                     - 'allow'
                     - 'drop'
@@ -461,43 +398,76 @@ options:
                     - 'allow'
                     - 'drop'
                     - 'trap-to-host'
-            uesp-minlen-err:
+            tcp-no-flag:
+                type: str
+                description: TCP SYN flood with no flag set anomalies.
+                choices:
+                    - 'allow'
+                    - 'drop'
+                    - 'trap-to-host'
+            ipv6-land:
+                type: str
+                description: Land anomalies.
+                choices:
+                    - 'allow'
+                    - 'drop'
+                    - 'trap-to-host'
+            ipv4-optlsrr:
+                type: str
+                description: Loose source record route option anomalies.
+                choices:
+                    - 'allow'
+                    - 'drop'
+                    - 'trap-to-host'
+            ipv4-opttimestamp:
+                type: str
+                description: Timestamp option anomalies.
+                choices:
+                    - 'allow'
+                    - 'drop'
+                    - 'trap-to-host'
+            ipv4-optrr:
+                type: str
+                description: Record route option anomalies.
+                choices:
+                    - 'allow'
+                    - 'drop'
+                    - 'trap-to-host'
+            ipv6-optnsap:
+                type: str
+                description: Network service access point address option anomalies.
+                choices:
+                    - 'allow'
+                    - 'drop'
+                    - 'trap-to-host'
+            ipv6-unknopt:
+                type: str
+                description: Unknown option anomalies.
+                choices:
+                    - 'allow'
+                    - 'drop'
+                    - 'trap-to-host'
+            tcp-syn-data:
+                type: str
+                description: TCP SYN flood packets with data anomalies.
+                choices:
+                    - 'allow'
+                    - 'drop'
+                    - 'trap-to-host'
+            ipv6-optendpid:
+                type: str
+                description: End point identification anomalies.
+                choices:
+                    - 'allow'
+                    - 'drop'
+                    - 'trap-to-host'
+            gtpu-plen-err:
                 type: str
                 description: no description
                 choices:
                     - 'drop'
                     - 'trap-to-host'
             vxlan-minlen-err:
-                type: str
-                description: no description
-                choices:
-                    - 'drop'
-                    - 'trap-to-host'
-            sctp-crc-err:
-                type: str
-                description: no description
-                choices:
-                    - 'drop'
-                    - 'trap-to-host'
-            nvgre-minlen-err:
-                type: str
-                description: no description
-                choices:
-                    - 'drop'
-                    - 'trap-to-host'
-            sctp-l4len-err:
-                type: str
-                description: no description
-                choices:
-                    - 'drop'
-                    - 'trap-to-host'
-            sctp-clen-err:
-                type: str
-                description: no description
-                choices:
-                    - 'drop'
-                    - 'trap-to-host'
-            gtpu-plen-err:
                 type: str
                 description: no description
                 choices:
@@ -515,7 +485,37 @@ options:
                 choices:
                     - 'drop'
                     - 'trap-to-host'
+            nvgre-minlen-err:
+                type: str
+                description: no description
+                choices:
+                    - 'drop'
+                    - 'trap-to-host'
+            sctp-l4len-err:
+                type: str
+                description: no description
+                choices:
+                    - 'drop'
+                    - 'trap-to-host'
             tcp-hlenvsl4len-err:
+                type: str
+                description: no description
+                choices:
+                    - 'drop'
+                    - 'trap-to-host'
+            sctp-crc-err:
+                type: str
+                description: no description
+                choices:
+                    - 'drop'
+                    - 'trap-to-host'
+            sctp-clen-err:
+                type: str
+                description: no description
+                choices:
+                    - 'drop'
+                    - 'trap-to-host'
+            uesp-minlen-err:
                 type: str
                 description: no description
                 choices:
@@ -567,47 +567,47 @@ EXAMPLES = '''
             udplite-cover-err: <value in [drop, trap-to-host]>
             udplite-csum-err: <value in [drop, trap-to-host]>
             unknproto-minlen-err: <value in [drop, trap-to-host]>
-            tcp-land: <value in [allow, drop, trap-to-host]>
-            tcp-fin-noack: <value in [allow, drop, trap-to-host]>
-            tcp-syn-data: <value in [allow, drop, trap-to-host]>
-            tcp-winnuke: <value in [allow, drop, trap-to-host]>
-            ipv4-optssrr: <value in [allow, drop, trap-to-host]>
-            ipv6-proto-err: <value in [allow, drop, trap-to-host]>
-            ipv6-land: <value in [allow, drop, trap-to-host]>
-            tcp-no-flag: <value in [allow, drop, trap-to-host]>
-            ipv4-land: <value in [allow, drop, trap-to-host]>
-            ipv4-optlsrr: <value in [allow, drop, trap-to-host]>
-            udp-land: <value in [allow, drop, trap-to-host]>
-            icmp-frag: <value in [allow, drop, trap-to-host]>
-            ipv6-optendpid: <value in [allow, drop, trap-to-host]>
-            ipv4-opttimestamp: <value in [allow, drop, trap-to-host]>
-            ipv4-optrr: <value in [allow, drop, trap-to-host]>
-            ipv6-unknopt: <value in [allow, drop, trap-to-host]>
             tcp-fin-only: <value in [allow, drop, trap-to-host]>
-            tcp-syn-fin: <value in [allow, drop, trap-to-host]>
-            ipv6-optinvld: <value in [allow, drop, trap-to-host]>
-            ipv6-saddr-err: <value in [allow, drop, trap-to-host]>
-            ipv4-proto-err: <value in [allow, drop, trap-to-host]>
-            ipv4-optstream: <value in [allow, drop, trap-to-host]>
-            ipv6-optnsap: <value in [allow, drop, trap-to-host]>
-            icmp-land: <value in [allow, drop, trap-to-host]>
-            ipv6-optjumbo: <value in [allow, drop, trap-to-host]>
             ipv4-optsecurity: <value in [allow, drop, trap-to-host]>
             ipv6-optralert: <value in [allow, drop, trap-to-host]>
-            ipv6-daddr-err: <value in [allow, drop, trap-to-host]>
+            tcp-syn-fin: <value in [allow, drop, trap-to-host]>
+            ipv4-proto-err: <value in [allow, drop, trap-to-host]>
+            ipv6-saddr-err: <value in [allow, drop, trap-to-host]>
+            icmp-frag: <value in [allow, drop, trap-to-host]>
+            ipv4-optssrr: <value in [allow, drop, trap-to-host]>
             ipv6-opthomeaddr: <value in [allow, drop, trap-to-host]>
+            udp-land: <value in [allow, drop, trap-to-host]>
+            ipv6-optinvld: <value in [allow, drop, trap-to-host]>
+            tcp-fin-noack: <value in [allow, drop, trap-to-host]>
+            ipv6-proto-err: <value in [allow, drop, trap-to-host]>
+            tcp-land: <value in [allow, drop, trap-to-host]>
             ipv4-unknopt: <value in [allow, drop, trap-to-host]>
+            ipv4-optstream: <value in [allow, drop, trap-to-host]>
+            ipv6-optjumbo: <value in [allow, drop, trap-to-host]>
+            icmp-land: <value in [allow, drop, trap-to-host]>
+            tcp-winnuke: <value in [allow, drop, trap-to-host]>
+            ipv6-daddr-err: <value in [allow, drop, trap-to-host]>
+            ipv4-land: <value in [allow, drop, trap-to-host]>
             ipv6-opttunnel: <value in [allow, drop, trap-to-host]>
-            uesp-minlen-err: <value in [drop, trap-to-host]>
-            vxlan-minlen-err: <value in [drop, trap-to-host]>
-            sctp-crc-err: <value in [drop, trap-to-host]>
-            nvgre-minlen-err: <value in [drop, trap-to-host]>
-            sctp-l4len-err: <value in [drop, trap-to-host]>
-            sctp-clen-err: <value in [drop, trap-to-host]>
+            tcp-no-flag: <value in [allow, drop, trap-to-host]>
+            ipv6-land: <value in [allow, drop, trap-to-host]>
+            ipv4-optlsrr: <value in [allow, drop, trap-to-host]>
+            ipv4-opttimestamp: <value in [allow, drop, trap-to-host]>
+            ipv4-optrr: <value in [allow, drop, trap-to-host]>
+            ipv6-optnsap: <value in [allow, drop, trap-to-host]>
+            ipv6-unknopt: <value in [allow, drop, trap-to-host]>
+            tcp-syn-data: <value in [allow, drop, trap-to-host]>
+            ipv6-optendpid: <value in [allow, drop, trap-to-host]>
             gtpu-plen-err: <value in [drop, trap-to-host]>
+            vxlan-minlen-err: <value in [drop, trap-to-host]>
             capwap-minlen-err: <value in [drop, trap-to-host]>
             gre-csum-err: <value in [drop, trap-to-host]>
+            nvgre-minlen-err: <value in [drop, trap-to-host]>
+            sctp-l4len-err: <value in [drop, trap-to-host]>
             tcp-hlenvsl4len-err: <value in [drop, trap-to-host]>
+            sctp-crc-err: <value in [drop, trap-to-host]>
+            sctp-clen-err: <value in [drop, trap-to-host]>
+            uesp-minlen-err: <value in [drop, trap-to-host]>
 
 '''
 
@@ -659,13 +659,13 @@ from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import 
 
 def main():
     jrpc_urls = [
-        '/pm/config/global/obj/system/npu/fp-anomaly',
-        '/pm/config/adom/{adom}/obj/system/npu/fp-anomaly'
+        '/pm/config/adom/{adom}/obj/system/npu/fp-anomaly',
+        '/pm/config/global/obj/system/npu/fp-anomaly'
     ]
 
     perobject_jrpc_urls = [
-        '/pm/config/global/obj/system/npu/fp-anomaly/{fp-anomaly}',
-        '/pm/config/adom/{adom}/obj/system/npu/fp-anomaly/{fp-anomaly}'
+        '/pm/config/adom/{adom}/obj/system/npu/fp-anomaly/{fp-anomaly}',
+        '/pm/config/global/obj/system/npu/fp-anomaly/{fp-anomaly}'
     ]
 
     url_params = ['adom']
@@ -732,6 +732,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.1': True,
                 '7.0.2': True,
                 '7.0.3': True,
@@ -739,9 +740,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'options': {
@@ -756,6 +759,7 @@ def main():
                         '6.2.8': False,
                         '6.2.9': False,
                         '6.2.10': False,
+                        '6.2.11': False,
                         '6.4.1': False,
                         '6.4.3': False,
                         '6.4.4': False,
@@ -765,6 +769,7 @@ def main():
                         '6.4.9': True,
                         '6.4.10': True,
                         '6.4.11': True,
+                        '6.4.12': True,
                         '7.0.1': True,
                         '7.0.2': True,
                         '7.0.3': True,
@@ -772,8 +777,10 @@ def main():
                         '7.0.5': True,
                         '7.0.6': True,
                         '7.0.7': True,
+                        '7.0.8': True,
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'choices': [
@@ -793,6 +800,7 @@ def main():
                         '6.2.8': False,
                         '6.2.9': False,
                         '6.2.10': False,
+                        '6.2.11': False,
                         '6.4.1': False,
                         '6.4.3': False,
                         '6.4.4': False,
@@ -802,6 +810,7 @@ def main():
                         '6.4.9': True,
                         '6.4.10': True,
                         '6.4.11': True,
+                        '6.4.12': True,
                         '7.0.1': True,
                         '7.0.2': True,
                         '7.0.3': True,
@@ -809,8 +818,10 @@ def main():
                         '7.0.5': True,
                         '7.0.6': True,
                         '7.0.7': True,
+                        '7.0.8': True,
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'choices': [
@@ -830,6 +841,7 @@ def main():
                         '6.2.8': False,
                         '6.2.9': False,
                         '6.2.10': False,
+                        '6.2.11': False,
                         '6.4.1': False,
                         '6.4.3': False,
                         '6.4.4': False,
@@ -839,6 +851,7 @@ def main():
                         '6.4.9': True,
                         '6.4.10': True,
                         '6.4.11': True,
+                        '6.4.12': True,
                         '7.0.1': True,
                         '7.0.2': True,
                         '7.0.3': True,
@@ -846,8 +859,10 @@ def main():
                         '7.0.5': True,
                         '7.0.6': True,
                         '7.0.7': True,
+                        '7.0.8': True,
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'choices': [
@@ -867,6 +882,7 @@ def main():
                         '6.2.8': False,
                         '6.2.9': False,
                         '6.2.10': False,
+                        '6.2.11': False,
                         '6.4.1': False,
                         '6.4.3': False,
                         '6.4.4': False,
@@ -876,6 +892,7 @@ def main():
                         '6.4.9': True,
                         '6.4.10': True,
                         '6.4.11': True,
+                        '6.4.12': True,
                         '7.0.1': True,
                         '7.0.2': True,
                         '7.0.3': True,
@@ -883,8 +900,10 @@ def main():
                         '7.0.5': True,
                         '7.0.6': True,
                         '7.0.7': True,
+                        '7.0.8': True,
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'choices': [
@@ -904,6 +923,7 @@ def main():
                         '6.2.8': False,
                         '6.2.9': False,
                         '6.2.10': False,
+                        '6.2.11': False,
                         '6.4.1': False,
                         '6.4.3': False,
                         '6.4.4': False,
@@ -913,6 +933,7 @@ def main():
                         '6.4.9': True,
                         '6.4.10': True,
                         '6.4.11': True,
+                        '6.4.12': True,
                         '7.0.1': True,
                         '7.0.2': True,
                         '7.0.3': True,
@@ -920,8 +941,10 @@ def main():
                         '7.0.5': True,
                         '7.0.6': True,
                         '7.0.7': True,
+                        '7.0.8': True,
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'choices': [
@@ -941,6 +964,7 @@ def main():
                         '6.2.8': False,
                         '6.2.9': False,
                         '6.2.10': False,
+                        '6.2.11': False,
                         '6.4.1': False,
                         '6.4.3': False,
                         '6.4.4': False,
@@ -950,6 +974,7 @@ def main():
                         '6.4.9': True,
                         '6.4.10': True,
                         '6.4.11': True,
+                        '6.4.12': True,
                         '7.0.1': True,
                         '7.0.2': True,
                         '7.0.3': True,
@@ -957,8 +982,10 @@ def main():
                         '7.0.5': True,
                         '7.0.6': True,
                         '7.0.7': True,
+                        '7.0.8': True,
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'choices': [
@@ -978,6 +1005,7 @@ def main():
                         '6.2.8': False,
                         '6.2.9': False,
                         '6.2.10': False,
+                        '6.2.11': False,
                         '6.4.1': False,
                         '6.4.3': False,
                         '6.4.4': False,
@@ -987,6 +1015,7 @@ def main():
                         '6.4.9': True,
                         '6.4.10': True,
                         '6.4.11': True,
+                        '6.4.12': True,
                         '7.0.1': True,
                         '7.0.2': True,
                         '7.0.3': True,
@@ -994,8 +1023,10 @@ def main():
                         '7.0.5': True,
                         '7.0.6': True,
                         '7.0.7': True,
+                        '7.0.8': True,
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'choices': [
@@ -1015,6 +1046,7 @@ def main():
                         '6.2.8': False,
                         '6.2.9': False,
                         '6.2.10': False,
+                        '6.2.11': False,
                         '6.4.1': False,
                         '6.4.3': False,
                         '6.4.4': False,
@@ -1024,6 +1056,7 @@ def main():
                         '6.4.9': True,
                         '6.4.10': True,
                         '6.4.11': True,
+                        '6.4.12': True,
                         '7.0.1': True,
                         '7.0.2': True,
                         '7.0.3': True,
@@ -1031,8 +1064,10 @@ def main():
                         '7.0.5': True,
                         '7.0.6': True,
                         '7.0.7': True,
+                        '7.0.8': True,
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'choices': [
@@ -1052,6 +1087,7 @@ def main():
                         '6.2.8': False,
                         '6.2.9': False,
                         '6.2.10': False,
+                        '6.2.11': False,
                         '6.4.1': False,
                         '6.4.3': False,
                         '6.4.4': False,
@@ -1061,6 +1097,7 @@ def main():
                         '6.4.9': True,
                         '6.4.10': True,
                         '6.4.11': True,
+                        '6.4.12': True,
                         '7.0.1': True,
                         '7.0.2': True,
                         '7.0.3': True,
@@ -1068,8 +1105,10 @@ def main():
                         '7.0.5': True,
                         '7.0.6': True,
                         '7.0.7': True,
+                        '7.0.8': True,
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'choices': [
@@ -1089,6 +1128,7 @@ def main():
                         '6.2.8': False,
                         '6.2.9': False,
                         '6.2.10': False,
+                        '6.2.11': False,
                         '6.4.1': False,
                         '6.4.3': False,
                         '6.4.4': False,
@@ -1098,6 +1138,7 @@ def main():
                         '6.4.9': True,
                         '6.4.10': True,
                         '6.4.11': True,
+                        '6.4.12': True,
                         '7.0.1': True,
                         '7.0.2': True,
                         '7.0.3': True,
@@ -1105,8 +1146,10 @@ def main():
                         '7.0.5': True,
                         '7.0.6': True,
                         '7.0.7': True,
+                        '7.0.8': True,
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'choices': [
@@ -1126,6 +1169,7 @@ def main():
                         '6.2.8': False,
                         '6.2.9': False,
                         '6.2.10': False,
+                        '6.2.11': False,
                         '6.4.1': False,
                         '6.4.3': False,
                         '6.4.4': False,
@@ -1135,6 +1179,7 @@ def main():
                         '6.4.9': True,
                         '6.4.10': True,
                         '6.4.11': True,
+                        '6.4.12': True,
                         '7.0.1': True,
                         '7.0.2': True,
                         '7.0.3': True,
@@ -1142,8 +1187,10 @@ def main():
                         '7.0.5': True,
                         '7.0.6': True,
                         '7.0.7': True,
+                        '7.0.8': True,
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'choices': [
@@ -1163,6 +1210,7 @@ def main():
                         '6.2.8': False,
                         '6.2.9': False,
                         '6.2.10': False,
+                        '6.2.11': False,
                         '6.4.1': False,
                         '6.4.3': False,
                         '6.4.4': False,
@@ -1172,6 +1220,7 @@ def main():
                         '6.4.9': True,
                         '6.4.10': True,
                         '6.4.11': True,
+                        '6.4.12': True,
                         '7.0.1': True,
                         '7.0.2': True,
                         '7.0.3': True,
@@ -1179,8 +1228,10 @@ def main():
                         '7.0.5': True,
                         '7.0.6': True,
                         '7.0.7': True,
+                        '7.0.8': True,
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'choices': [
@@ -1200,6 +1251,7 @@ def main():
                         '6.2.8': False,
                         '6.2.9': False,
                         '6.2.10': False,
+                        '6.2.11': False,
                         '6.4.1': False,
                         '6.4.3': False,
                         '6.4.4': False,
@@ -1209,6 +1261,7 @@ def main():
                         '6.4.9': True,
                         '6.4.10': True,
                         '6.4.11': True,
+                        '6.4.12': True,
                         '7.0.1': True,
                         '7.0.2': True,
                         '7.0.3': True,
@@ -1216,8 +1269,10 @@ def main():
                         '7.0.5': True,
                         '7.0.6': True,
                         '7.0.7': True,
+                        '7.0.8': True,
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'choices': [
@@ -1237,6 +1292,7 @@ def main():
                         '6.2.8': False,
                         '6.2.9': False,
                         '6.2.10': False,
+                        '6.2.11': False,
                         '6.4.1': False,
                         '6.4.3': False,
                         '6.4.4': False,
@@ -1246,6 +1302,7 @@ def main():
                         '6.4.9': True,
                         '6.4.10': True,
                         '6.4.11': True,
+                        '6.4.12': True,
                         '7.0.1': True,
                         '7.0.2': True,
                         '7.0.3': True,
@@ -1253,8 +1310,10 @@ def main():
                         '7.0.5': True,
                         '7.0.6': True,
                         '7.0.7': True,
+                        '7.0.8': True,
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'choices': [
@@ -1274,6 +1333,7 @@ def main():
                         '6.2.8': False,
                         '6.2.9': False,
                         '6.2.10': False,
+                        '6.2.11': False,
                         '6.4.1': False,
                         '6.4.3': False,
                         '6.4.4': False,
@@ -1283,6 +1343,7 @@ def main():
                         '6.4.9': True,
                         '6.4.10': True,
                         '6.4.11': True,
+                        '6.4.12': True,
                         '7.0.1': True,
                         '7.0.2': True,
                         '7.0.3': True,
@@ -1290,8 +1351,10 @@ def main():
                         '7.0.5': True,
                         '7.0.6': True,
                         '7.0.7': True,
+                        '7.0.8': True,
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'choices': [
@@ -1311,6 +1374,7 @@ def main():
                         '6.2.8': False,
                         '6.2.9': False,
                         '6.2.10': False,
+                        '6.2.11': False,
                         '6.4.1': False,
                         '6.4.3': False,
                         '6.4.4': False,
@@ -1320,6 +1384,7 @@ def main():
                         '6.4.9': True,
                         '6.4.10': True,
                         '6.4.11': True,
+                        '6.4.12': True,
                         '7.0.1': True,
                         '7.0.2': True,
                         '7.0.3': True,
@@ -1327,8 +1392,10 @@ def main():
                         '7.0.5': True,
                         '7.0.6': True,
                         '7.0.7': True,
+                        '7.0.8': True,
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'choices': [
@@ -1348,6 +1415,7 @@ def main():
                         '6.2.8': False,
                         '6.2.9': False,
                         '6.2.10': False,
+                        '6.2.11': False,
                         '6.4.1': False,
                         '6.4.3': False,
                         '6.4.4': False,
@@ -1357,6 +1425,7 @@ def main():
                         '6.4.9': True,
                         '6.4.10': True,
                         '6.4.11': True,
+                        '6.4.12': True,
                         '7.0.1': True,
                         '7.0.2': True,
                         '7.0.3': True,
@@ -1364,8 +1433,10 @@ def main():
                         '7.0.5': True,
                         '7.0.6': True,
                         '7.0.7': True,
+                        '7.0.8': True,
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'choices': [
@@ -1385,6 +1456,7 @@ def main():
                         '6.2.8': False,
                         '6.2.9': False,
                         '6.2.10': False,
+                        '6.2.11': False,
                         '6.4.1': False,
                         '6.4.3': False,
                         '6.4.4': False,
@@ -1394,6 +1466,7 @@ def main():
                         '6.4.9': True,
                         '6.4.10': True,
                         '6.4.11': True,
+                        '6.4.12': True,
                         '7.0.1': True,
                         '7.0.2': True,
                         '7.0.3': True,
@@ -1401,8 +1474,10 @@ def main():
                         '7.0.5': True,
                         '7.0.6': True,
                         '7.0.7': True,
+                        '7.0.8': True,
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'choices': [
@@ -1422,6 +1497,7 @@ def main():
                         '6.2.8': False,
                         '6.2.9': False,
                         '6.2.10': False,
+                        '6.2.11': False,
                         '6.4.1': False,
                         '6.4.3': False,
                         '6.4.4': False,
@@ -1431,6 +1507,7 @@ def main():
                         '6.4.9': True,
                         '6.4.10': True,
                         '6.4.11': True,
+                        '6.4.12': True,
                         '7.0.1': True,
                         '7.0.2': True,
                         '7.0.3': True,
@@ -1438,8 +1515,10 @@ def main():
                         '7.0.5': True,
                         '7.0.6': True,
                         '7.0.7': True,
+                        '7.0.8': True,
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'choices': [
@@ -1459,6 +1538,7 @@ def main():
                         '6.2.8': False,
                         '6.2.9': False,
                         '6.2.10': False,
+                        '6.2.11': False,
                         '6.4.1': False,
                         '6.4.3': False,
                         '6.4.4': False,
@@ -1468,6 +1548,7 @@ def main():
                         '6.4.9': True,
                         '6.4.10': True,
                         '6.4.11': True,
+                        '6.4.12': True,
                         '7.0.1': True,
                         '7.0.2': True,
                         '7.0.3': True,
@@ -1475,8 +1556,10 @@ def main():
                         '7.0.5': True,
                         '7.0.6': True,
                         '7.0.7': True,
+                        '7.0.8': True,
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'choices': [
@@ -1496,6 +1579,7 @@ def main():
                         '6.2.8': False,
                         '6.2.9': False,
                         '6.2.10': False,
+                        '6.2.11': False,
                         '6.4.1': False,
                         '6.4.3': False,
                         '6.4.4': False,
@@ -1505,6 +1589,7 @@ def main():
                         '6.4.9': True,
                         '6.4.10': True,
                         '6.4.11': True,
+                        '6.4.12': True,
                         '7.0.1': True,
                         '7.0.2': True,
                         '7.0.3': True,
@@ -1512,8 +1597,10 @@ def main():
                         '7.0.5': True,
                         '7.0.6': True,
                         '7.0.7': True,
+                        '7.0.8': True,
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'choices': [
@@ -1533,6 +1620,7 @@ def main():
                         '6.2.8': False,
                         '6.2.9': False,
                         '6.2.10': False,
+                        '6.2.11': False,
                         '6.4.1': False,
                         '6.4.3': False,
                         '6.4.4': False,
@@ -1542,6 +1630,7 @@ def main():
                         '6.4.9': True,
                         '6.4.10': True,
                         '6.4.11': True,
+                        '6.4.12': True,
                         '7.0.1': True,
                         '7.0.2': True,
                         '7.0.3': True,
@@ -1549,8 +1638,10 @@ def main():
                         '7.0.5': True,
                         '7.0.6': True,
                         '7.0.7': True,
+                        '7.0.8': True,
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'choices': [
@@ -1570,6 +1661,7 @@ def main():
                         '6.2.8': False,
                         '6.2.9': False,
                         '6.2.10': False,
+                        '6.2.11': False,
                         '6.4.1': False,
                         '6.4.3': False,
                         '6.4.4': False,
@@ -1579,6 +1671,7 @@ def main():
                         '6.4.9': True,
                         '6.4.10': True,
                         '6.4.11': True,
+                        '6.4.12': True,
                         '7.0.1': True,
                         '7.0.2': True,
                         '7.0.3': True,
@@ -1586,8 +1679,10 @@ def main():
                         '7.0.5': True,
                         '7.0.6': True,
                         '7.0.7': True,
+                        '7.0.8': True,
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'choices': [
@@ -1607,6 +1702,7 @@ def main():
                         '6.2.8': False,
                         '6.2.9': False,
                         '6.2.10': False,
+                        '6.2.11': False,
                         '6.4.1': False,
                         '6.4.3': False,
                         '6.4.4': False,
@@ -1616,6 +1712,7 @@ def main():
                         '6.4.9': True,
                         '6.4.10': True,
                         '6.4.11': True,
+                        '6.4.12': True,
                         '7.0.1': True,
                         '7.0.2': True,
                         '7.0.3': True,
@@ -1623,619 +1720,13 @@ def main():
                         '7.0.5': True,
                         '7.0.6': True,
                         '7.0.7': True,
+                        '7.0.8': True,
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'choices': [
-                        'drop',
-                        'trap-to-host'
-                    ],
-                    'type': 'str'
-                },
-                'tcp-land': {
-                    'required': False,
-                    'revision': {
-                        '7.2.0': True,
-                        '6.2.0': False,
-                        '6.2.2': False,
-                        '6.2.6': False,
-                        '6.2.7': False,
-                        '6.2.8': False,
-                        '6.2.9': False,
-                        '6.2.10': False,
-                        '6.4.1': False,
-                        '6.4.3': False,
-                        '6.4.4': False,
-                        '6.4.6': False,
-                        '6.4.7': True,
-                        '6.4.8': True,
-                        '6.4.9': True,
-                        '6.4.10': True,
-                        '6.4.11': True,
-                        '7.0.1': True,
-                        '7.0.2': True,
-                        '7.0.3': True,
-                        '7.0.4': True,
-                        '7.0.5': True,
-                        '7.0.6': True,
-                        '7.0.7': True,
-                        '7.2.1': True,
-                        '7.2.2': True,
-                        '7.4.0': True
-                    },
-                    'choices': [
-                        'allow',
-                        'drop',
-                        'trap-to-host'
-                    ],
-                    'type': 'str'
-                },
-                'tcp-fin-noack': {
-                    'required': False,
-                    'revision': {
-                        '7.2.0': True,
-                        '6.2.0': False,
-                        '6.2.2': False,
-                        '6.2.6': False,
-                        '6.2.7': False,
-                        '6.2.8': False,
-                        '6.2.9': False,
-                        '6.2.10': False,
-                        '6.4.1': False,
-                        '6.4.3': False,
-                        '6.4.4': False,
-                        '6.4.6': False,
-                        '6.4.7': True,
-                        '6.4.8': True,
-                        '6.4.9': True,
-                        '6.4.10': True,
-                        '6.4.11': True,
-                        '7.0.1': True,
-                        '7.0.2': True,
-                        '7.0.3': True,
-                        '7.0.4': True,
-                        '7.0.5': True,
-                        '7.0.6': True,
-                        '7.0.7': True,
-                        '7.2.1': True,
-                        '7.2.2': True,
-                        '7.4.0': True
-                    },
-                    'choices': [
-                        'allow',
-                        'drop',
-                        'trap-to-host'
-                    ],
-                    'type': 'str'
-                },
-                'tcp-syn-data': {
-                    'required': False,
-                    'revision': {
-                        '7.2.0': True,
-                        '6.2.0': False,
-                        '6.2.2': False,
-                        '6.2.6': False,
-                        '6.2.7': False,
-                        '6.2.8': False,
-                        '6.2.9': False,
-                        '6.2.10': False,
-                        '6.4.1': False,
-                        '6.4.3': False,
-                        '6.4.4': False,
-                        '6.4.6': False,
-                        '6.4.7': True,
-                        '6.4.8': True,
-                        '6.4.9': True,
-                        '6.4.10': True,
-                        '6.4.11': True,
-                        '7.0.1': True,
-                        '7.0.2': True,
-                        '7.0.3': True,
-                        '7.0.4': True,
-                        '7.0.5': True,
-                        '7.0.6': True,
-                        '7.0.7': True,
-                        '7.2.1': True,
-                        '7.2.2': True,
-                        '7.4.0': True
-                    },
-                    'choices': [
-                        'allow',
-                        'drop',
-                        'trap-to-host'
-                    ],
-                    'type': 'str'
-                },
-                'tcp-winnuke': {
-                    'required': False,
-                    'revision': {
-                        '7.2.0': True,
-                        '6.2.0': False,
-                        '6.2.2': False,
-                        '6.2.6': False,
-                        '6.2.7': False,
-                        '6.2.8': False,
-                        '6.2.9': False,
-                        '6.2.10': False,
-                        '6.4.1': False,
-                        '6.4.3': False,
-                        '6.4.4': False,
-                        '6.4.6': False,
-                        '6.4.7': True,
-                        '6.4.8': True,
-                        '6.4.9': True,
-                        '6.4.10': True,
-                        '6.4.11': True,
-                        '7.0.1': True,
-                        '7.0.2': True,
-                        '7.0.3': True,
-                        '7.0.4': True,
-                        '7.0.5': True,
-                        '7.0.6': True,
-                        '7.0.7': True,
-                        '7.2.1': True,
-                        '7.2.2': True,
-                        '7.4.0': True
-                    },
-                    'choices': [
-                        'allow',
-                        'drop',
-                        'trap-to-host'
-                    ],
-                    'type': 'str'
-                },
-                'ipv4-optssrr': {
-                    'required': False,
-                    'revision': {
-                        '7.2.0': True,
-                        '6.2.0': False,
-                        '6.2.2': False,
-                        '6.2.6': False,
-                        '6.2.7': False,
-                        '6.2.8': False,
-                        '6.2.9': False,
-                        '6.2.10': False,
-                        '6.4.1': False,
-                        '6.4.3': False,
-                        '6.4.4': False,
-                        '6.4.6': False,
-                        '6.4.7': True,
-                        '6.4.8': True,
-                        '6.4.9': True,
-                        '6.4.10': True,
-                        '6.4.11': True,
-                        '7.0.1': True,
-                        '7.0.2': True,
-                        '7.0.3': True,
-                        '7.0.4': True,
-                        '7.0.5': True,
-                        '7.0.6': True,
-                        '7.0.7': True,
-                        '7.2.1': True,
-                        '7.2.2': True,
-                        '7.4.0': True
-                    },
-                    'choices': [
-                        'allow',
-                        'drop',
-                        'trap-to-host'
-                    ],
-                    'type': 'str'
-                },
-                'ipv6-proto-err': {
-                    'required': False,
-                    'revision': {
-                        '7.2.0': True,
-                        '6.2.0': False,
-                        '6.2.2': False,
-                        '6.2.6': False,
-                        '6.2.7': False,
-                        '6.2.8': False,
-                        '6.2.9': False,
-                        '6.2.10': False,
-                        '6.4.1': False,
-                        '6.4.3': False,
-                        '6.4.4': False,
-                        '6.4.6': False,
-                        '6.4.7': True,
-                        '6.4.8': True,
-                        '6.4.9': True,
-                        '6.4.10': True,
-                        '6.4.11': True,
-                        '7.0.1': True,
-                        '7.0.2': True,
-                        '7.0.3': True,
-                        '7.0.4': True,
-                        '7.0.5': True,
-                        '7.0.6': True,
-                        '7.0.7': True,
-                        '7.2.1': True,
-                        '7.2.2': True,
-                        '7.4.0': True
-                    },
-                    'choices': [
-                        'allow',
-                        'drop',
-                        'trap-to-host'
-                    ],
-                    'type': 'str'
-                },
-                'ipv6-land': {
-                    'required': False,
-                    'revision': {
-                        '7.2.0': True,
-                        '6.2.0': False,
-                        '6.2.2': False,
-                        '6.2.6': False,
-                        '6.2.7': False,
-                        '6.2.8': False,
-                        '6.2.9': False,
-                        '6.2.10': False,
-                        '6.4.1': False,
-                        '6.4.3': False,
-                        '6.4.4': False,
-                        '6.4.6': False,
-                        '6.4.7': True,
-                        '6.4.8': True,
-                        '6.4.9': True,
-                        '6.4.10': True,
-                        '6.4.11': True,
-                        '7.0.1': True,
-                        '7.0.2': True,
-                        '7.0.3': True,
-                        '7.0.4': True,
-                        '7.0.5': True,
-                        '7.0.6': True,
-                        '7.0.7': True,
-                        '7.2.1': True,
-                        '7.2.2': True,
-                        '7.4.0': True
-                    },
-                    'choices': [
-                        'allow',
-                        'drop',
-                        'trap-to-host'
-                    ],
-                    'type': 'str'
-                },
-                'tcp-no-flag': {
-                    'required': False,
-                    'revision': {
-                        '7.2.0': True,
-                        '6.2.0': False,
-                        '6.2.2': False,
-                        '6.2.6': False,
-                        '6.2.7': False,
-                        '6.2.8': False,
-                        '6.2.9': False,
-                        '6.2.10': False,
-                        '6.4.1': False,
-                        '6.4.3': False,
-                        '6.4.4': False,
-                        '6.4.6': False,
-                        '6.4.7': True,
-                        '6.4.8': True,
-                        '6.4.9': True,
-                        '6.4.10': True,
-                        '6.4.11': True,
-                        '7.0.1': True,
-                        '7.0.2': True,
-                        '7.0.3': True,
-                        '7.0.4': True,
-                        '7.0.5': True,
-                        '7.0.6': True,
-                        '7.0.7': True,
-                        '7.2.1': True,
-                        '7.2.2': True,
-                        '7.4.0': True
-                    },
-                    'choices': [
-                        'allow',
-                        'drop',
-                        'trap-to-host'
-                    ],
-                    'type': 'str'
-                },
-                'ipv4-land': {
-                    'required': False,
-                    'revision': {
-                        '7.2.0': True,
-                        '6.2.0': False,
-                        '6.2.2': False,
-                        '6.2.6': False,
-                        '6.2.7': False,
-                        '6.2.8': False,
-                        '6.2.9': False,
-                        '6.2.10': False,
-                        '6.4.1': False,
-                        '6.4.3': False,
-                        '6.4.4': False,
-                        '6.4.6': False,
-                        '6.4.7': True,
-                        '6.4.8': True,
-                        '6.4.9': True,
-                        '6.4.10': True,
-                        '6.4.11': True,
-                        '7.0.1': True,
-                        '7.0.2': True,
-                        '7.0.3': True,
-                        '7.0.4': True,
-                        '7.0.5': True,
-                        '7.0.6': True,
-                        '7.0.7': True,
-                        '7.2.1': True,
-                        '7.2.2': True,
-                        '7.4.0': True
-                    },
-                    'choices': [
-                        'allow',
-                        'drop',
-                        'trap-to-host'
-                    ],
-                    'type': 'str'
-                },
-                'ipv4-optlsrr': {
-                    'required': False,
-                    'revision': {
-                        '7.2.0': True,
-                        '6.2.0': False,
-                        '6.2.2': False,
-                        '6.2.6': False,
-                        '6.2.7': False,
-                        '6.2.8': False,
-                        '6.2.9': False,
-                        '6.2.10': False,
-                        '6.4.1': False,
-                        '6.4.3': False,
-                        '6.4.4': False,
-                        '6.4.6': False,
-                        '6.4.7': True,
-                        '6.4.8': True,
-                        '6.4.9': True,
-                        '6.4.10': True,
-                        '6.4.11': True,
-                        '7.0.1': True,
-                        '7.0.2': True,
-                        '7.0.3': True,
-                        '7.0.4': True,
-                        '7.0.5': True,
-                        '7.0.6': True,
-                        '7.0.7': True,
-                        '7.2.1': True,
-                        '7.2.2': True,
-                        '7.4.0': True
-                    },
-                    'choices': [
-                        'allow',
-                        'drop',
-                        'trap-to-host'
-                    ],
-                    'type': 'str'
-                },
-                'udp-land': {
-                    'required': False,
-                    'revision': {
-                        '7.2.0': True,
-                        '6.2.0': False,
-                        '6.2.2': False,
-                        '6.2.6': False,
-                        '6.2.7': False,
-                        '6.2.8': False,
-                        '6.2.9': False,
-                        '6.2.10': False,
-                        '6.4.1': False,
-                        '6.4.3': False,
-                        '6.4.4': False,
-                        '6.4.6': False,
-                        '6.4.7': True,
-                        '6.4.8': True,
-                        '6.4.9': True,
-                        '6.4.10': True,
-                        '6.4.11': True,
-                        '7.0.1': True,
-                        '7.0.2': True,
-                        '7.0.3': True,
-                        '7.0.4': True,
-                        '7.0.5': True,
-                        '7.0.6': True,
-                        '7.0.7': True,
-                        '7.2.1': True,
-                        '7.2.2': True,
-                        '7.4.0': True
-                    },
-                    'choices': [
-                        'allow',
-                        'drop',
-                        'trap-to-host'
-                    ],
-                    'type': 'str'
-                },
-                'icmp-frag': {
-                    'required': False,
-                    'revision': {
-                        '7.2.0': True,
-                        '6.2.0': False,
-                        '6.2.2': False,
-                        '6.2.6': False,
-                        '6.2.7': False,
-                        '6.2.8': False,
-                        '6.2.9': False,
-                        '6.2.10': False,
-                        '6.4.1': False,
-                        '6.4.3': False,
-                        '6.4.4': False,
-                        '6.4.6': False,
-                        '6.4.7': True,
-                        '6.4.8': True,
-                        '6.4.9': True,
-                        '6.4.10': True,
-                        '6.4.11': True,
-                        '7.0.1': True,
-                        '7.0.2': True,
-                        '7.0.3': True,
-                        '7.0.4': True,
-                        '7.0.5': True,
-                        '7.0.6': True,
-                        '7.0.7': True,
-                        '7.2.1': True,
-                        '7.2.2': True,
-                        '7.4.0': True
-                    },
-                    'choices': [
-                        'allow',
-                        'drop',
-                        'trap-to-host'
-                    ],
-                    'type': 'str'
-                },
-                'ipv6-optendpid': {
-                    'required': False,
-                    'revision': {
-                        '7.2.0': True,
-                        '6.2.0': False,
-                        '6.2.2': False,
-                        '6.2.6': False,
-                        '6.2.7': False,
-                        '6.2.8': False,
-                        '6.2.9': False,
-                        '6.2.10': False,
-                        '6.4.1': False,
-                        '6.4.3': False,
-                        '6.4.4': False,
-                        '6.4.6': False,
-                        '6.4.7': True,
-                        '6.4.8': True,
-                        '6.4.9': True,
-                        '6.4.10': True,
-                        '6.4.11': True,
-                        '7.0.1': True,
-                        '7.0.2': True,
-                        '7.0.3': True,
-                        '7.0.4': True,
-                        '7.0.5': True,
-                        '7.0.6': True,
-                        '7.0.7': True,
-                        '7.2.1': True,
-                        '7.2.2': True,
-                        '7.4.0': True
-                    },
-                    'choices': [
-                        'allow',
-                        'drop',
-                        'trap-to-host'
-                    ],
-                    'type': 'str'
-                },
-                'ipv4-opttimestamp': {
-                    'required': False,
-                    'revision': {
-                        '7.2.0': True,
-                        '6.2.0': False,
-                        '6.2.2': False,
-                        '6.2.6': False,
-                        '6.2.7': False,
-                        '6.2.8': False,
-                        '6.2.9': False,
-                        '6.2.10': False,
-                        '6.4.1': False,
-                        '6.4.3': False,
-                        '6.4.4': False,
-                        '6.4.6': False,
-                        '6.4.7': True,
-                        '6.4.8': True,
-                        '6.4.9': True,
-                        '6.4.10': True,
-                        '6.4.11': True,
-                        '7.0.1': True,
-                        '7.0.2': True,
-                        '7.0.3': True,
-                        '7.0.4': True,
-                        '7.0.5': True,
-                        '7.0.6': True,
-                        '7.0.7': True,
-                        '7.2.1': True,
-                        '7.2.2': True,
-                        '7.4.0': True
-                    },
-                    'choices': [
-                        'allow',
-                        'drop',
-                        'trap-to-host'
-                    ],
-                    'type': 'str'
-                },
-                'ipv4-optrr': {
-                    'required': False,
-                    'revision': {
-                        '7.2.0': True,
-                        '6.2.0': False,
-                        '6.2.2': False,
-                        '6.2.6': False,
-                        '6.2.7': False,
-                        '6.2.8': False,
-                        '6.2.9': False,
-                        '6.2.10': False,
-                        '6.4.1': False,
-                        '6.4.3': False,
-                        '6.4.4': False,
-                        '6.4.6': False,
-                        '6.4.7': True,
-                        '6.4.8': True,
-                        '6.4.9': True,
-                        '6.4.10': True,
-                        '6.4.11': True,
-                        '7.0.1': True,
-                        '7.0.2': True,
-                        '7.0.3': True,
-                        '7.0.4': True,
-                        '7.0.5': True,
-                        '7.0.6': True,
-                        '7.0.7': True,
-                        '7.2.1': True,
-                        '7.2.2': True,
-                        '7.4.0': True
-                    },
-                    'choices': [
-                        'allow',
-                        'drop',
-                        'trap-to-host'
-                    ],
-                    'type': 'str'
-                },
-                'ipv6-unknopt': {
-                    'required': False,
-                    'revision': {
-                        '7.2.0': True,
-                        '6.2.0': False,
-                        '6.2.2': False,
-                        '6.2.6': False,
-                        '6.2.7': False,
-                        '6.2.8': False,
-                        '6.2.9': False,
-                        '6.2.10': False,
-                        '6.4.1': False,
-                        '6.4.3': False,
-                        '6.4.4': False,
-                        '6.4.6': False,
-                        '6.4.7': True,
-                        '6.4.8': True,
-                        '6.4.9': True,
-                        '6.4.10': True,
-                        '6.4.11': True,
-                        '7.0.1': True,
-                        '7.0.2': True,
-                        '7.0.3': True,
-                        '7.0.4': True,
-                        '7.0.5': True,
-                        '7.0.6': True,
-                        '7.0.7': True,
-                        '7.2.1': True,
-                        '7.2.2': True,
-                        '7.4.0': True
-                    },
-                    'choices': [
-                        'allow',
                         'drop',
                         'trap-to-host'
                     ],
@@ -2252,6 +1743,7 @@ def main():
                         '6.2.8': False,
                         '6.2.9': False,
                         '6.2.10': False,
+                        '6.2.11': False,
                         '6.4.1': False,
                         '6.4.3': False,
                         '6.4.4': False,
@@ -2261,6 +1753,7 @@ def main():
                         '6.4.9': True,
                         '6.4.10': True,
                         '6.4.11': True,
+                        '6.4.12': True,
                         '7.0.1': True,
                         '7.0.2': True,
                         '7.0.3': True,
@@ -2268,312 +1761,10 @@ def main():
                         '7.0.5': True,
                         '7.0.6': True,
                         '7.0.7': True,
+                        '7.0.8': True,
                         '7.2.1': True,
                         '7.2.2': True,
-                        '7.4.0': True
-                    },
-                    'choices': [
-                        'allow',
-                        'drop',
-                        'trap-to-host'
-                    ],
-                    'type': 'str'
-                },
-                'tcp-syn-fin': {
-                    'required': False,
-                    'revision': {
-                        '7.2.0': True,
-                        '6.2.0': False,
-                        '6.2.2': False,
-                        '6.2.6': False,
-                        '6.2.7': False,
-                        '6.2.8': False,
-                        '6.2.9': False,
-                        '6.2.10': False,
-                        '6.4.1': False,
-                        '6.4.3': False,
-                        '6.4.4': False,
-                        '6.4.6': False,
-                        '6.4.7': True,
-                        '6.4.8': True,
-                        '6.4.9': True,
-                        '6.4.10': True,
-                        '6.4.11': True,
-                        '7.0.1': True,
-                        '7.0.2': True,
-                        '7.0.3': True,
-                        '7.0.4': True,
-                        '7.0.5': True,
-                        '7.0.6': True,
-                        '7.0.7': True,
-                        '7.2.1': True,
-                        '7.2.2': True,
-                        '7.4.0': True
-                    },
-                    'choices': [
-                        'allow',
-                        'drop',
-                        'trap-to-host'
-                    ],
-                    'type': 'str'
-                },
-                'ipv6-optinvld': {
-                    'required': False,
-                    'revision': {
-                        '7.2.0': True,
-                        '6.2.0': False,
-                        '6.2.2': False,
-                        '6.2.6': False,
-                        '6.2.7': False,
-                        '6.2.8': False,
-                        '6.2.9': False,
-                        '6.2.10': False,
-                        '6.4.1': False,
-                        '6.4.3': False,
-                        '6.4.4': False,
-                        '6.4.6': False,
-                        '6.4.7': True,
-                        '6.4.8': True,
-                        '6.4.9': True,
-                        '6.4.10': True,
-                        '6.4.11': True,
-                        '7.0.1': True,
-                        '7.0.2': True,
-                        '7.0.3': True,
-                        '7.0.4': True,
-                        '7.0.5': True,
-                        '7.0.6': True,
-                        '7.0.7': True,
-                        '7.2.1': True,
-                        '7.2.2': True,
-                        '7.4.0': True
-                    },
-                    'choices': [
-                        'allow',
-                        'drop',
-                        'trap-to-host'
-                    ],
-                    'type': 'str'
-                },
-                'ipv6-saddr-err': {
-                    'required': False,
-                    'revision': {
-                        '7.2.0': True,
-                        '6.2.0': False,
-                        '6.2.2': False,
-                        '6.2.6': False,
-                        '6.2.7': False,
-                        '6.2.8': False,
-                        '6.2.9': False,
-                        '6.2.10': False,
-                        '6.4.1': False,
-                        '6.4.3': False,
-                        '6.4.4': False,
-                        '6.4.6': False,
-                        '6.4.7': True,
-                        '6.4.8': True,
-                        '6.4.9': True,
-                        '6.4.10': True,
-                        '6.4.11': True,
-                        '7.0.1': True,
-                        '7.0.2': True,
-                        '7.0.3': True,
-                        '7.0.4': True,
-                        '7.0.5': True,
-                        '7.0.6': True,
-                        '7.0.7': True,
-                        '7.2.1': True,
-                        '7.2.2': True,
-                        '7.4.0': True
-                    },
-                    'choices': [
-                        'allow',
-                        'drop',
-                        'trap-to-host'
-                    ],
-                    'type': 'str'
-                },
-                'ipv4-proto-err': {
-                    'required': False,
-                    'revision': {
-                        '7.2.0': True,
-                        '6.2.0': False,
-                        '6.2.2': False,
-                        '6.2.6': False,
-                        '6.2.7': False,
-                        '6.2.8': False,
-                        '6.2.9': False,
-                        '6.2.10': False,
-                        '6.4.1': False,
-                        '6.4.3': False,
-                        '6.4.4': False,
-                        '6.4.6': False,
-                        '6.4.7': True,
-                        '6.4.8': True,
-                        '6.4.9': True,
-                        '6.4.10': True,
-                        '6.4.11': True,
-                        '7.0.1': True,
-                        '7.0.2': True,
-                        '7.0.3': True,
-                        '7.0.4': True,
-                        '7.0.5': True,
-                        '7.0.6': True,
-                        '7.0.7': True,
-                        '7.2.1': True,
-                        '7.2.2': True,
-                        '7.4.0': True
-                    },
-                    'choices': [
-                        'allow',
-                        'drop',
-                        'trap-to-host'
-                    ],
-                    'type': 'str'
-                },
-                'ipv4-optstream': {
-                    'required': False,
-                    'revision': {
-                        '7.2.0': True,
-                        '6.2.0': False,
-                        '6.2.2': False,
-                        '6.2.6': False,
-                        '6.2.7': False,
-                        '6.2.8': False,
-                        '6.2.9': False,
-                        '6.2.10': False,
-                        '6.4.1': False,
-                        '6.4.3': False,
-                        '6.4.4': False,
-                        '6.4.6': False,
-                        '6.4.7': True,
-                        '6.4.8': True,
-                        '6.4.9': True,
-                        '6.4.10': True,
-                        '6.4.11': True,
-                        '7.0.1': True,
-                        '7.0.2': True,
-                        '7.0.3': True,
-                        '7.0.4': True,
-                        '7.0.5': True,
-                        '7.0.6': True,
-                        '7.0.7': True,
-                        '7.2.1': True,
-                        '7.2.2': True,
-                        '7.4.0': True
-                    },
-                    'choices': [
-                        'allow',
-                        'drop',
-                        'trap-to-host'
-                    ],
-                    'type': 'str'
-                },
-                'ipv6-optnsap': {
-                    'required': False,
-                    'revision': {
-                        '7.2.0': True,
-                        '6.2.0': False,
-                        '6.2.2': False,
-                        '6.2.6': False,
-                        '6.2.7': False,
-                        '6.2.8': False,
-                        '6.2.9': False,
-                        '6.2.10': False,
-                        '6.4.1': False,
-                        '6.4.3': False,
-                        '6.4.4': False,
-                        '6.4.6': False,
-                        '6.4.7': True,
-                        '6.4.8': True,
-                        '6.4.9': True,
-                        '6.4.10': True,
-                        '6.4.11': True,
-                        '7.0.1': True,
-                        '7.0.2': True,
-                        '7.0.3': True,
-                        '7.0.4': True,
-                        '7.0.5': True,
-                        '7.0.6': True,
-                        '7.0.7': True,
-                        '7.2.1': True,
-                        '7.2.2': True,
-                        '7.4.0': True
-                    },
-                    'choices': [
-                        'allow',
-                        'drop',
-                        'trap-to-host'
-                    ],
-                    'type': 'str'
-                },
-                'icmp-land': {
-                    'required': False,
-                    'revision': {
-                        '7.2.0': True,
-                        '6.2.0': False,
-                        '6.2.2': False,
-                        '6.2.6': False,
-                        '6.2.7': False,
-                        '6.2.8': False,
-                        '6.2.9': False,
-                        '6.2.10': False,
-                        '6.4.1': False,
-                        '6.4.3': False,
-                        '6.4.4': False,
-                        '6.4.6': False,
-                        '6.4.7': True,
-                        '6.4.8': True,
-                        '6.4.9': True,
-                        '6.4.10': True,
-                        '6.4.11': True,
-                        '7.0.1': True,
-                        '7.0.2': True,
-                        '7.0.3': True,
-                        '7.0.4': True,
-                        '7.0.5': True,
-                        '7.0.6': True,
-                        '7.0.7': True,
-                        '7.2.1': True,
-                        '7.2.2': True,
-                        '7.4.0': True
-                    },
-                    'choices': [
-                        'allow',
-                        'drop',
-                        'trap-to-host'
-                    ],
-                    'type': 'str'
-                },
-                'ipv6-optjumbo': {
-                    'required': False,
-                    'revision': {
-                        '7.2.0': True,
-                        '6.2.0': False,
-                        '6.2.2': False,
-                        '6.2.6': False,
-                        '6.2.7': False,
-                        '6.2.8': False,
-                        '6.2.9': False,
-                        '6.2.10': False,
-                        '6.4.1': False,
-                        '6.4.3': False,
-                        '6.4.4': False,
-                        '6.4.6': False,
-                        '6.4.7': True,
-                        '6.4.8': True,
-                        '6.4.9': True,
-                        '6.4.10': True,
-                        '6.4.11': True,
-                        '7.0.1': True,
-                        '7.0.2': True,
-                        '7.0.3': True,
-                        '7.0.4': True,
-                        '7.0.5': True,
-                        '7.0.6': True,
-                        '7.0.7': True,
-                        '7.2.1': True,
-                        '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'choices': [
@@ -2594,6 +1785,7 @@ def main():
                         '6.2.8': False,
                         '6.2.9': False,
                         '6.2.10': False,
+                        '6.2.11': False,
                         '6.4.1': False,
                         '6.4.3': False,
                         '6.4.4': False,
@@ -2603,6 +1795,7 @@ def main():
                         '6.4.9': True,
                         '6.4.10': True,
                         '6.4.11': True,
+                        '6.4.12': True,
                         '7.0.1': True,
                         '7.0.2': True,
                         '7.0.3': True,
@@ -2610,8 +1803,10 @@ def main():
                         '7.0.5': True,
                         '7.0.6': True,
                         '7.0.7': True,
+                        '7.0.8': True,
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'choices': [
@@ -2632,6 +1827,7 @@ def main():
                         '6.2.8': False,
                         '6.2.9': False,
                         '6.2.10': False,
+                        '6.2.11': False,
                         '6.4.1': False,
                         '6.4.3': False,
                         '6.4.4': False,
@@ -2641,6 +1837,7 @@ def main():
                         '6.4.9': True,
                         '6.4.10': True,
                         '6.4.11': True,
+                        '6.4.12': True,
                         '7.0.1': True,
                         '7.0.2': True,
                         '7.0.3': True,
@@ -2648,8 +1845,10 @@ def main():
                         '7.0.5': True,
                         '7.0.6': True,
                         '7.0.7': True,
+                        '7.0.8': True,
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'choices': [
@@ -2659,7 +1858,7 @@ def main():
                     ],
                     'type': 'str'
                 },
-                'ipv6-daddr-err': {
+                'tcp-syn-fin': {
                     'required': False,
                     'revision': {
                         '7.2.0': True,
@@ -2670,6 +1869,7 @@ def main():
                         '6.2.8': False,
                         '6.2.9': False,
                         '6.2.10': False,
+                        '6.2.11': False,
                         '6.4.1': False,
                         '6.4.3': False,
                         '6.4.4': False,
@@ -2679,6 +1879,7 @@ def main():
                         '6.4.9': True,
                         '6.4.10': True,
                         '6.4.11': True,
+                        '6.4.12': True,
                         '7.0.1': True,
                         '7.0.2': True,
                         '7.0.3': True,
@@ -2686,8 +1887,178 @@ def main():
                         '7.0.5': True,
                         '7.0.6': True,
                         '7.0.7': True,
+                        '7.0.8': True,
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
+                        '7.4.0': True
+                    },
+                    'choices': [
+                        'allow',
+                        'drop',
+                        'trap-to-host'
+                    ],
+                    'type': 'str'
+                },
+                'ipv4-proto-err': {
+                    'required': False,
+                    'revision': {
+                        '7.2.0': True,
+                        '6.2.0': False,
+                        '6.2.2': False,
+                        '6.2.6': False,
+                        '6.2.7': False,
+                        '6.2.8': False,
+                        '6.2.9': False,
+                        '6.2.10': False,
+                        '6.2.11': False,
+                        '6.4.1': False,
+                        '6.4.3': False,
+                        '6.4.4': False,
+                        '6.4.6': False,
+                        '6.4.7': True,
+                        '6.4.8': True,
+                        '6.4.9': True,
+                        '6.4.10': True,
+                        '6.4.11': True,
+                        '6.4.12': True,
+                        '7.0.1': True,
+                        '7.0.2': True,
+                        '7.0.3': True,
+                        '7.0.4': True,
+                        '7.0.5': True,
+                        '7.0.6': True,
+                        '7.0.7': True,
+                        '7.0.8': True,
+                        '7.2.1': True,
+                        '7.2.2': True,
+                        '7.2.3': True,
+                        '7.4.0': True
+                    },
+                    'choices': [
+                        'allow',
+                        'drop',
+                        'trap-to-host'
+                    ],
+                    'type': 'str'
+                },
+                'ipv6-saddr-err': {
+                    'required': False,
+                    'revision': {
+                        '7.2.0': True,
+                        '6.2.0': False,
+                        '6.2.2': False,
+                        '6.2.6': False,
+                        '6.2.7': False,
+                        '6.2.8': False,
+                        '6.2.9': False,
+                        '6.2.10': False,
+                        '6.2.11': False,
+                        '6.4.1': False,
+                        '6.4.3': False,
+                        '6.4.4': False,
+                        '6.4.6': False,
+                        '6.4.7': True,
+                        '6.4.8': True,
+                        '6.4.9': True,
+                        '6.4.10': True,
+                        '6.4.11': True,
+                        '6.4.12': True,
+                        '7.0.1': True,
+                        '7.0.2': True,
+                        '7.0.3': True,
+                        '7.0.4': True,
+                        '7.0.5': True,
+                        '7.0.6': True,
+                        '7.0.7': True,
+                        '7.0.8': True,
+                        '7.2.1': True,
+                        '7.2.2': True,
+                        '7.2.3': True,
+                        '7.4.0': True
+                    },
+                    'choices': [
+                        'allow',
+                        'drop',
+                        'trap-to-host'
+                    ],
+                    'type': 'str'
+                },
+                'icmp-frag': {
+                    'required': False,
+                    'revision': {
+                        '7.2.0': True,
+                        '6.2.0': False,
+                        '6.2.2': False,
+                        '6.2.6': False,
+                        '6.2.7': False,
+                        '6.2.8': False,
+                        '6.2.9': False,
+                        '6.2.10': False,
+                        '6.2.11': False,
+                        '6.4.1': False,
+                        '6.4.3': False,
+                        '6.4.4': False,
+                        '6.4.6': False,
+                        '6.4.7': True,
+                        '6.4.8': True,
+                        '6.4.9': True,
+                        '6.4.10': True,
+                        '6.4.11': True,
+                        '6.4.12': True,
+                        '7.0.1': True,
+                        '7.0.2': True,
+                        '7.0.3': True,
+                        '7.0.4': True,
+                        '7.0.5': True,
+                        '7.0.6': True,
+                        '7.0.7': True,
+                        '7.0.8': True,
+                        '7.2.1': True,
+                        '7.2.2': True,
+                        '7.2.3': True,
+                        '7.4.0': True
+                    },
+                    'choices': [
+                        'allow',
+                        'drop',
+                        'trap-to-host'
+                    ],
+                    'type': 'str'
+                },
+                'ipv4-optssrr': {
+                    'required': False,
+                    'revision': {
+                        '7.2.0': True,
+                        '6.2.0': False,
+                        '6.2.2': False,
+                        '6.2.6': False,
+                        '6.2.7': False,
+                        '6.2.8': False,
+                        '6.2.9': False,
+                        '6.2.10': False,
+                        '6.2.11': False,
+                        '6.4.1': False,
+                        '6.4.3': False,
+                        '6.4.4': False,
+                        '6.4.6': False,
+                        '6.4.7': True,
+                        '6.4.8': True,
+                        '6.4.9': True,
+                        '6.4.10': True,
+                        '6.4.11': True,
+                        '6.4.12': True,
+                        '7.0.1': True,
+                        '7.0.2': True,
+                        '7.0.3': True,
+                        '7.0.4': True,
+                        '7.0.5': True,
+                        '7.0.6': True,
+                        '7.0.7': True,
+                        '7.0.8': True,
+                        '7.2.1': True,
+                        '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'choices': [
@@ -2708,6 +2079,7 @@ def main():
                         '6.2.8': False,
                         '6.2.9': False,
                         '6.2.10': False,
+                        '6.2.11': False,
                         '6.4.1': False,
                         '6.4.3': False,
                         '6.4.4': False,
@@ -2717,6 +2089,7 @@ def main():
                         '6.4.9': True,
                         '6.4.10': True,
                         '6.4.11': True,
+                        '6.4.12': True,
                         '7.0.1': True,
                         '7.0.2': True,
                         '7.0.3': True,
@@ -2724,8 +2097,220 @@ def main():
                         '7.0.5': True,
                         '7.0.6': True,
                         '7.0.7': True,
+                        '7.0.8': True,
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
+                        '7.4.0': True
+                    },
+                    'choices': [
+                        'allow',
+                        'drop',
+                        'trap-to-host'
+                    ],
+                    'type': 'str'
+                },
+                'udp-land': {
+                    'required': False,
+                    'revision': {
+                        '7.2.0': True,
+                        '6.2.0': False,
+                        '6.2.2': False,
+                        '6.2.6': False,
+                        '6.2.7': False,
+                        '6.2.8': False,
+                        '6.2.9': False,
+                        '6.2.10': False,
+                        '6.2.11': False,
+                        '6.4.1': False,
+                        '6.4.3': False,
+                        '6.4.4': False,
+                        '6.4.6': False,
+                        '6.4.7': True,
+                        '6.4.8': True,
+                        '6.4.9': True,
+                        '6.4.10': True,
+                        '6.4.11': True,
+                        '6.4.12': True,
+                        '7.0.1': True,
+                        '7.0.2': True,
+                        '7.0.3': True,
+                        '7.0.4': True,
+                        '7.0.5': True,
+                        '7.0.6': True,
+                        '7.0.7': True,
+                        '7.0.8': True,
+                        '7.2.1': True,
+                        '7.2.2': True,
+                        '7.2.3': True,
+                        '7.4.0': True
+                    },
+                    'choices': [
+                        'allow',
+                        'drop',
+                        'trap-to-host'
+                    ],
+                    'type': 'str'
+                },
+                'ipv6-optinvld': {
+                    'required': False,
+                    'revision': {
+                        '7.2.0': True,
+                        '6.2.0': False,
+                        '6.2.2': False,
+                        '6.2.6': False,
+                        '6.2.7': False,
+                        '6.2.8': False,
+                        '6.2.9': False,
+                        '6.2.10': False,
+                        '6.2.11': False,
+                        '6.4.1': False,
+                        '6.4.3': False,
+                        '6.4.4': False,
+                        '6.4.6': False,
+                        '6.4.7': True,
+                        '6.4.8': True,
+                        '6.4.9': True,
+                        '6.4.10': True,
+                        '6.4.11': True,
+                        '6.4.12': True,
+                        '7.0.1': True,
+                        '7.0.2': True,
+                        '7.0.3': True,
+                        '7.0.4': True,
+                        '7.0.5': True,
+                        '7.0.6': True,
+                        '7.0.7': True,
+                        '7.0.8': True,
+                        '7.2.1': True,
+                        '7.2.2': True,
+                        '7.2.3': True,
+                        '7.4.0': True
+                    },
+                    'choices': [
+                        'allow',
+                        'drop',
+                        'trap-to-host'
+                    ],
+                    'type': 'str'
+                },
+                'tcp-fin-noack': {
+                    'required': False,
+                    'revision': {
+                        '7.2.0': True,
+                        '6.2.0': False,
+                        '6.2.2': False,
+                        '6.2.6': False,
+                        '6.2.7': False,
+                        '6.2.8': False,
+                        '6.2.9': False,
+                        '6.2.10': False,
+                        '6.2.11': False,
+                        '6.4.1': False,
+                        '6.4.3': False,
+                        '6.4.4': False,
+                        '6.4.6': False,
+                        '6.4.7': True,
+                        '6.4.8': True,
+                        '6.4.9': True,
+                        '6.4.10': True,
+                        '6.4.11': True,
+                        '6.4.12': True,
+                        '7.0.1': True,
+                        '7.0.2': True,
+                        '7.0.3': True,
+                        '7.0.4': True,
+                        '7.0.5': True,
+                        '7.0.6': True,
+                        '7.0.7': True,
+                        '7.0.8': True,
+                        '7.2.1': True,
+                        '7.2.2': True,
+                        '7.2.3': True,
+                        '7.4.0': True
+                    },
+                    'choices': [
+                        'allow',
+                        'drop',
+                        'trap-to-host'
+                    ],
+                    'type': 'str'
+                },
+                'ipv6-proto-err': {
+                    'required': False,
+                    'revision': {
+                        '7.2.0': True,
+                        '6.2.0': False,
+                        '6.2.2': False,
+                        '6.2.6': False,
+                        '6.2.7': False,
+                        '6.2.8': False,
+                        '6.2.9': False,
+                        '6.2.10': False,
+                        '6.2.11': False,
+                        '6.4.1': False,
+                        '6.4.3': False,
+                        '6.4.4': False,
+                        '6.4.6': False,
+                        '6.4.7': True,
+                        '6.4.8': True,
+                        '6.4.9': True,
+                        '6.4.10': True,
+                        '6.4.11': True,
+                        '6.4.12': True,
+                        '7.0.1': True,
+                        '7.0.2': True,
+                        '7.0.3': True,
+                        '7.0.4': True,
+                        '7.0.5': True,
+                        '7.0.6': True,
+                        '7.0.7': True,
+                        '7.0.8': True,
+                        '7.2.1': True,
+                        '7.2.2': True,
+                        '7.2.3': True,
+                        '7.4.0': True
+                    },
+                    'choices': [
+                        'allow',
+                        'drop',
+                        'trap-to-host'
+                    ],
+                    'type': 'str'
+                },
+                'tcp-land': {
+                    'required': False,
+                    'revision': {
+                        '7.2.0': True,
+                        '6.2.0': False,
+                        '6.2.2': False,
+                        '6.2.6': False,
+                        '6.2.7': False,
+                        '6.2.8': False,
+                        '6.2.9': False,
+                        '6.2.10': False,
+                        '6.2.11': False,
+                        '6.4.1': False,
+                        '6.4.3': False,
+                        '6.4.4': False,
+                        '6.4.6': False,
+                        '6.4.7': True,
+                        '6.4.8': True,
+                        '6.4.9': True,
+                        '6.4.10': True,
+                        '6.4.11': True,
+                        '6.4.12': True,
+                        '7.0.1': True,
+                        '7.0.2': True,
+                        '7.0.3': True,
+                        '7.0.4': True,
+                        '7.0.5': True,
+                        '7.0.6': True,
+                        '7.0.7': True,
+                        '7.0.8': True,
+                        '7.2.1': True,
+                        '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'choices': [
@@ -2746,6 +2331,7 @@ def main():
                         '6.2.8': False,
                         '6.2.9': False,
                         '6.2.10': False,
+                        '6.2.11': False,
                         '6.4.1': False,
                         '6.4.3': False,
                         '6.4.4': False,
@@ -2755,6 +2341,7 @@ def main():
                         '6.4.9': True,
                         '6.4.10': True,
                         '6.4.11': True,
+                        '6.4.12': True,
                         '7.0.1': True,
                         '7.0.2': True,
                         '7.0.3': True,
@@ -2762,8 +2349,262 @@ def main():
                         '7.0.5': True,
                         '7.0.6': True,
                         '7.0.7': True,
+                        '7.0.8': True,
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
+                        '7.4.0': True
+                    },
+                    'choices': [
+                        'allow',
+                        'drop',
+                        'trap-to-host'
+                    ],
+                    'type': 'str'
+                },
+                'ipv4-optstream': {
+                    'required': False,
+                    'revision': {
+                        '7.2.0': True,
+                        '6.2.0': False,
+                        '6.2.2': False,
+                        '6.2.6': False,
+                        '6.2.7': False,
+                        '6.2.8': False,
+                        '6.2.9': False,
+                        '6.2.10': False,
+                        '6.2.11': False,
+                        '6.4.1': False,
+                        '6.4.3': False,
+                        '6.4.4': False,
+                        '6.4.6': False,
+                        '6.4.7': True,
+                        '6.4.8': True,
+                        '6.4.9': True,
+                        '6.4.10': True,
+                        '6.4.11': True,
+                        '6.4.12': True,
+                        '7.0.1': True,
+                        '7.0.2': True,
+                        '7.0.3': True,
+                        '7.0.4': True,
+                        '7.0.5': True,
+                        '7.0.6': True,
+                        '7.0.7': True,
+                        '7.0.8': True,
+                        '7.2.1': True,
+                        '7.2.2': True,
+                        '7.2.3': True,
+                        '7.4.0': True
+                    },
+                    'choices': [
+                        'allow',
+                        'drop',
+                        'trap-to-host'
+                    ],
+                    'type': 'str'
+                },
+                'ipv6-optjumbo': {
+                    'required': False,
+                    'revision': {
+                        '7.2.0': True,
+                        '6.2.0': False,
+                        '6.2.2': False,
+                        '6.2.6': False,
+                        '6.2.7': False,
+                        '6.2.8': False,
+                        '6.2.9': False,
+                        '6.2.10': False,
+                        '6.2.11': False,
+                        '6.4.1': False,
+                        '6.4.3': False,
+                        '6.4.4': False,
+                        '6.4.6': False,
+                        '6.4.7': True,
+                        '6.4.8': True,
+                        '6.4.9': True,
+                        '6.4.10': True,
+                        '6.4.11': True,
+                        '6.4.12': True,
+                        '7.0.1': True,
+                        '7.0.2': True,
+                        '7.0.3': True,
+                        '7.0.4': True,
+                        '7.0.5': True,
+                        '7.0.6': True,
+                        '7.0.7': True,
+                        '7.0.8': True,
+                        '7.2.1': True,
+                        '7.2.2': True,
+                        '7.2.3': True,
+                        '7.4.0': True
+                    },
+                    'choices': [
+                        'allow',
+                        'drop',
+                        'trap-to-host'
+                    ],
+                    'type': 'str'
+                },
+                'icmp-land': {
+                    'required': False,
+                    'revision': {
+                        '7.2.0': True,
+                        '6.2.0': False,
+                        '6.2.2': False,
+                        '6.2.6': False,
+                        '6.2.7': False,
+                        '6.2.8': False,
+                        '6.2.9': False,
+                        '6.2.10': False,
+                        '6.2.11': False,
+                        '6.4.1': False,
+                        '6.4.3': False,
+                        '6.4.4': False,
+                        '6.4.6': False,
+                        '6.4.7': True,
+                        '6.4.8': True,
+                        '6.4.9': True,
+                        '6.4.10': True,
+                        '6.4.11': True,
+                        '6.4.12': True,
+                        '7.0.1': True,
+                        '7.0.2': True,
+                        '7.0.3': True,
+                        '7.0.4': True,
+                        '7.0.5': True,
+                        '7.0.6': True,
+                        '7.0.7': True,
+                        '7.0.8': True,
+                        '7.2.1': True,
+                        '7.2.2': True,
+                        '7.2.3': True,
+                        '7.4.0': True
+                    },
+                    'choices': [
+                        'allow',
+                        'drop',
+                        'trap-to-host'
+                    ],
+                    'type': 'str'
+                },
+                'tcp-winnuke': {
+                    'required': False,
+                    'revision': {
+                        '7.2.0': True,
+                        '6.2.0': False,
+                        '6.2.2': False,
+                        '6.2.6': False,
+                        '6.2.7': False,
+                        '6.2.8': False,
+                        '6.2.9': False,
+                        '6.2.10': False,
+                        '6.2.11': False,
+                        '6.4.1': False,
+                        '6.4.3': False,
+                        '6.4.4': False,
+                        '6.4.6': False,
+                        '6.4.7': True,
+                        '6.4.8': True,
+                        '6.4.9': True,
+                        '6.4.10': True,
+                        '6.4.11': True,
+                        '6.4.12': True,
+                        '7.0.1': True,
+                        '7.0.2': True,
+                        '7.0.3': True,
+                        '7.0.4': True,
+                        '7.0.5': True,
+                        '7.0.6': True,
+                        '7.0.7': True,
+                        '7.0.8': True,
+                        '7.2.1': True,
+                        '7.2.2': True,
+                        '7.2.3': True,
+                        '7.4.0': True
+                    },
+                    'choices': [
+                        'allow',
+                        'drop',
+                        'trap-to-host'
+                    ],
+                    'type': 'str'
+                },
+                'ipv6-daddr-err': {
+                    'required': False,
+                    'revision': {
+                        '7.2.0': True,
+                        '6.2.0': False,
+                        '6.2.2': False,
+                        '6.2.6': False,
+                        '6.2.7': False,
+                        '6.2.8': False,
+                        '6.2.9': False,
+                        '6.2.10': False,
+                        '6.2.11': False,
+                        '6.4.1': False,
+                        '6.4.3': False,
+                        '6.4.4': False,
+                        '6.4.6': False,
+                        '6.4.7': True,
+                        '6.4.8': True,
+                        '6.4.9': True,
+                        '6.4.10': True,
+                        '6.4.11': True,
+                        '6.4.12': True,
+                        '7.0.1': True,
+                        '7.0.2': True,
+                        '7.0.3': True,
+                        '7.0.4': True,
+                        '7.0.5': True,
+                        '7.0.6': True,
+                        '7.0.7': True,
+                        '7.0.8': True,
+                        '7.2.1': True,
+                        '7.2.2': True,
+                        '7.2.3': True,
+                        '7.4.0': True
+                    },
+                    'choices': [
+                        'allow',
+                        'drop',
+                        'trap-to-host'
+                    ],
+                    'type': 'str'
+                },
+                'ipv4-land': {
+                    'required': False,
+                    'revision': {
+                        '7.2.0': True,
+                        '6.2.0': False,
+                        '6.2.2': False,
+                        '6.2.6': False,
+                        '6.2.7': False,
+                        '6.2.8': False,
+                        '6.2.9': False,
+                        '6.2.10': False,
+                        '6.2.11': False,
+                        '6.4.1': False,
+                        '6.4.3': False,
+                        '6.4.4': False,
+                        '6.4.6': False,
+                        '6.4.7': True,
+                        '6.4.8': True,
+                        '6.4.9': True,
+                        '6.4.10': True,
+                        '6.4.11': True,
+                        '6.4.12': True,
+                        '7.0.1': True,
+                        '7.0.2': True,
+                        '7.0.3': True,
+                        '7.0.4': True,
+                        '7.0.5': True,
+                        '7.0.6': True,
+                        '7.0.7': True,
+                        '7.0.8': True,
+                        '7.2.1': True,
+                        '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'choices': [
@@ -2784,6 +2625,7 @@ def main():
                         '6.2.8': False,
                         '6.2.9': False,
                         '6.2.10': False,
+                        '6.2.11': False,
                         '6.4.1': False,
                         '6.4.3': False,
                         '6.4.4': False,
@@ -2793,6 +2635,7 @@ def main():
                         '6.4.9': True,
                         '6.4.10': True,
                         '6.4.11': True,
+                        '6.4.12': True,
                         '7.0.1': True,
                         '7.0.2': True,
                         '7.0.3': True,
@@ -2800,8 +2643,10 @@ def main():
                         '7.0.5': True,
                         '7.0.6': True,
                         '7.0.7': True,
+                        '7.0.8': True,
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'choices': [
@@ -2811,7 +2656,7 @@ def main():
                     ],
                     'type': 'str'
                 },
-                'uesp-minlen-err': {
+                'tcp-no-flag': {
                     'required': False,
                     'revision': {
                         '7.2.0': True,
@@ -2822,6 +2667,7 @@ def main():
                         '6.2.8': False,
                         '6.2.9': False,
                         '6.2.10': False,
+                        '6.2.11': False,
                         '6.4.1': False,
                         '6.4.3': False,
                         '6.4.4': False,
@@ -2831,6 +2677,7 @@ def main():
                         '6.4.9': True,
                         '6.4.10': True,
                         '6.4.11': True,
+                        '6.4.12': True,
                         '7.0.1': True,
                         '7.0.2': True,
                         '7.0.3': True,
@@ -2838,8 +2685,388 @@ def main():
                         '7.0.5': True,
                         '7.0.6': True,
                         '7.0.7': True,
+                        '7.0.8': True,
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
+                        '7.4.0': True
+                    },
+                    'choices': [
+                        'allow',
+                        'drop',
+                        'trap-to-host'
+                    ],
+                    'type': 'str'
+                },
+                'ipv6-land': {
+                    'required': False,
+                    'revision': {
+                        '7.2.0': True,
+                        '6.2.0': False,
+                        '6.2.2': False,
+                        '6.2.6': False,
+                        '6.2.7': False,
+                        '6.2.8': False,
+                        '6.2.9': False,
+                        '6.2.10': False,
+                        '6.2.11': False,
+                        '6.4.1': False,
+                        '6.4.3': False,
+                        '6.4.4': False,
+                        '6.4.6': False,
+                        '6.4.7': True,
+                        '6.4.8': True,
+                        '6.4.9': True,
+                        '6.4.10': True,
+                        '6.4.11': True,
+                        '6.4.12': True,
+                        '7.0.1': True,
+                        '7.0.2': True,
+                        '7.0.3': True,
+                        '7.0.4': True,
+                        '7.0.5': True,
+                        '7.0.6': True,
+                        '7.0.7': True,
+                        '7.0.8': True,
+                        '7.2.1': True,
+                        '7.2.2': True,
+                        '7.2.3': True,
+                        '7.4.0': True
+                    },
+                    'choices': [
+                        'allow',
+                        'drop',
+                        'trap-to-host'
+                    ],
+                    'type': 'str'
+                },
+                'ipv4-optlsrr': {
+                    'required': False,
+                    'revision': {
+                        '7.2.0': True,
+                        '6.2.0': False,
+                        '6.2.2': False,
+                        '6.2.6': False,
+                        '6.2.7': False,
+                        '6.2.8': False,
+                        '6.2.9': False,
+                        '6.2.10': False,
+                        '6.2.11': False,
+                        '6.4.1': False,
+                        '6.4.3': False,
+                        '6.4.4': False,
+                        '6.4.6': False,
+                        '6.4.7': True,
+                        '6.4.8': True,
+                        '6.4.9': True,
+                        '6.4.10': True,
+                        '6.4.11': True,
+                        '6.4.12': True,
+                        '7.0.1': True,
+                        '7.0.2': True,
+                        '7.0.3': True,
+                        '7.0.4': True,
+                        '7.0.5': True,
+                        '7.0.6': True,
+                        '7.0.7': True,
+                        '7.0.8': True,
+                        '7.2.1': True,
+                        '7.2.2': True,
+                        '7.2.3': True,
+                        '7.4.0': True
+                    },
+                    'choices': [
+                        'allow',
+                        'drop',
+                        'trap-to-host'
+                    ],
+                    'type': 'str'
+                },
+                'ipv4-opttimestamp': {
+                    'required': False,
+                    'revision': {
+                        '7.2.0': True,
+                        '6.2.0': False,
+                        '6.2.2': False,
+                        '6.2.6': False,
+                        '6.2.7': False,
+                        '6.2.8': False,
+                        '6.2.9': False,
+                        '6.2.10': False,
+                        '6.2.11': False,
+                        '6.4.1': False,
+                        '6.4.3': False,
+                        '6.4.4': False,
+                        '6.4.6': False,
+                        '6.4.7': True,
+                        '6.4.8': True,
+                        '6.4.9': True,
+                        '6.4.10': True,
+                        '6.4.11': True,
+                        '6.4.12': True,
+                        '7.0.1': True,
+                        '7.0.2': True,
+                        '7.0.3': True,
+                        '7.0.4': True,
+                        '7.0.5': True,
+                        '7.0.6': True,
+                        '7.0.7': True,
+                        '7.0.8': True,
+                        '7.2.1': True,
+                        '7.2.2': True,
+                        '7.2.3': True,
+                        '7.4.0': True
+                    },
+                    'choices': [
+                        'allow',
+                        'drop',
+                        'trap-to-host'
+                    ],
+                    'type': 'str'
+                },
+                'ipv4-optrr': {
+                    'required': False,
+                    'revision': {
+                        '7.2.0': True,
+                        '6.2.0': False,
+                        '6.2.2': False,
+                        '6.2.6': False,
+                        '6.2.7': False,
+                        '6.2.8': False,
+                        '6.2.9': False,
+                        '6.2.10': False,
+                        '6.2.11': False,
+                        '6.4.1': False,
+                        '6.4.3': False,
+                        '6.4.4': False,
+                        '6.4.6': False,
+                        '6.4.7': True,
+                        '6.4.8': True,
+                        '6.4.9': True,
+                        '6.4.10': True,
+                        '6.4.11': True,
+                        '6.4.12': True,
+                        '7.0.1': True,
+                        '7.0.2': True,
+                        '7.0.3': True,
+                        '7.0.4': True,
+                        '7.0.5': True,
+                        '7.0.6': True,
+                        '7.0.7': True,
+                        '7.0.8': True,
+                        '7.2.1': True,
+                        '7.2.2': True,
+                        '7.2.3': True,
+                        '7.4.0': True
+                    },
+                    'choices': [
+                        'allow',
+                        'drop',
+                        'trap-to-host'
+                    ],
+                    'type': 'str'
+                },
+                'ipv6-optnsap': {
+                    'required': False,
+                    'revision': {
+                        '7.2.0': True,
+                        '6.2.0': False,
+                        '6.2.2': False,
+                        '6.2.6': False,
+                        '6.2.7': False,
+                        '6.2.8': False,
+                        '6.2.9': False,
+                        '6.2.10': False,
+                        '6.2.11': False,
+                        '6.4.1': False,
+                        '6.4.3': False,
+                        '6.4.4': False,
+                        '6.4.6': False,
+                        '6.4.7': True,
+                        '6.4.8': True,
+                        '6.4.9': True,
+                        '6.4.10': True,
+                        '6.4.11': True,
+                        '6.4.12': True,
+                        '7.0.1': True,
+                        '7.0.2': True,
+                        '7.0.3': True,
+                        '7.0.4': True,
+                        '7.0.5': True,
+                        '7.0.6': True,
+                        '7.0.7': True,
+                        '7.0.8': True,
+                        '7.2.1': True,
+                        '7.2.2': True,
+                        '7.2.3': True,
+                        '7.4.0': True
+                    },
+                    'choices': [
+                        'allow',
+                        'drop',
+                        'trap-to-host'
+                    ],
+                    'type': 'str'
+                },
+                'ipv6-unknopt': {
+                    'required': False,
+                    'revision': {
+                        '7.2.0': True,
+                        '6.2.0': False,
+                        '6.2.2': False,
+                        '6.2.6': False,
+                        '6.2.7': False,
+                        '6.2.8': False,
+                        '6.2.9': False,
+                        '6.2.10': False,
+                        '6.2.11': False,
+                        '6.4.1': False,
+                        '6.4.3': False,
+                        '6.4.4': False,
+                        '6.4.6': False,
+                        '6.4.7': True,
+                        '6.4.8': True,
+                        '6.4.9': True,
+                        '6.4.10': True,
+                        '6.4.11': True,
+                        '6.4.12': True,
+                        '7.0.1': True,
+                        '7.0.2': True,
+                        '7.0.3': True,
+                        '7.0.4': True,
+                        '7.0.5': True,
+                        '7.0.6': True,
+                        '7.0.7': True,
+                        '7.0.8': True,
+                        '7.2.1': True,
+                        '7.2.2': True,
+                        '7.2.3': True,
+                        '7.4.0': True
+                    },
+                    'choices': [
+                        'allow',
+                        'drop',
+                        'trap-to-host'
+                    ],
+                    'type': 'str'
+                },
+                'tcp-syn-data': {
+                    'required': False,
+                    'revision': {
+                        '7.2.0': True,
+                        '6.2.0': False,
+                        '6.2.2': False,
+                        '6.2.6': False,
+                        '6.2.7': False,
+                        '6.2.8': False,
+                        '6.2.9': False,
+                        '6.2.10': False,
+                        '6.2.11': False,
+                        '6.4.1': False,
+                        '6.4.3': False,
+                        '6.4.4': False,
+                        '6.4.6': False,
+                        '6.4.7': True,
+                        '6.4.8': True,
+                        '6.4.9': True,
+                        '6.4.10': True,
+                        '6.4.11': True,
+                        '6.4.12': True,
+                        '7.0.1': True,
+                        '7.0.2': True,
+                        '7.0.3': True,
+                        '7.0.4': True,
+                        '7.0.5': True,
+                        '7.0.6': True,
+                        '7.0.7': True,
+                        '7.0.8': True,
+                        '7.2.1': True,
+                        '7.2.2': True,
+                        '7.2.3': True,
+                        '7.4.0': True
+                    },
+                    'choices': [
+                        'allow',
+                        'drop',
+                        'trap-to-host'
+                    ],
+                    'type': 'str'
+                },
+                'ipv6-optendpid': {
+                    'required': False,
+                    'revision': {
+                        '7.2.0': True,
+                        '6.2.0': False,
+                        '6.2.2': False,
+                        '6.2.6': False,
+                        '6.2.7': False,
+                        '6.2.8': False,
+                        '6.2.9': False,
+                        '6.2.10': False,
+                        '6.2.11': False,
+                        '6.4.1': False,
+                        '6.4.3': False,
+                        '6.4.4': False,
+                        '6.4.6': False,
+                        '6.4.7': True,
+                        '6.4.8': True,
+                        '6.4.9': True,
+                        '6.4.10': True,
+                        '6.4.11': True,
+                        '6.4.12': True,
+                        '7.0.1': True,
+                        '7.0.2': True,
+                        '7.0.3': True,
+                        '7.0.4': True,
+                        '7.0.5': True,
+                        '7.0.6': True,
+                        '7.0.7': True,
+                        '7.0.8': True,
+                        '7.2.1': True,
+                        '7.2.2': True,
+                        '7.2.3': True,
+                        '7.4.0': True
+                    },
+                    'choices': [
+                        'allow',
+                        'drop',
+                        'trap-to-host'
+                    ],
+                    'type': 'str'
+                },
+                'gtpu-plen-err': {
+                    'required': False,
+                    'revision': {
+                        '7.2.0': True,
+                        '6.2.0': False,
+                        '6.2.2': False,
+                        '6.2.6': False,
+                        '6.2.7': False,
+                        '6.2.8': False,
+                        '6.2.9': False,
+                        '6.2.10': False,
+                        '6.2.11': False,
+                        '6.4.1': False,
+                        '6.4.3': False,
+                        '6.4.4': False,
+                        '6.4.6': False,
+                        '6.4.7': True,
+                        '6.4.8': True,
+                        '6.4.9': True,
+                        '6.4.10': True,
+                        '6.4.11': True,
+                        '6.4.12': True,
+                        '7.0.1': True,
+                        '7.0.2': True,
+                        '7.0.3': True,
+                        '7.0.4': True,
+                        '7.0.5': True,
+                        '7.0.6': True,
+                        '7.0.7': True,
+                        '7.0.8': True,
+                        '7.2.1': True,
+                        '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'choices': [
@@ -2859,6 +3086,7 @@ def main():
                         '6.2.8': False,
                         '6.2.9': False,
                         '6.2.10': False,
+                        '6.2.11': False,
                         '6.4.1': False,
                         '6.4.3': False,
                         '6.4.4': False,
@@ -2868,6 +3096,7 @@ def main():
                         '6.4.9': True,
                         '6.4.10': True,
                         '6.4.11': True,
+                        '6.4.12': True,
                         '7.0.1': True,
                         '7.0.2': True,
                         '7.0.3': True,
@@ -2875,193 +3104,10 @@ def main():
                         '7.0.5': True,
                         '7.0.6': True,
                         '7.0.7': True,
+                        '7.0.8': True,
                         '7.2.1': True,
                         '7.2.2': True,
-                        '7.4.0': True
-                    },
-                    'choices': [
-                        'drop',
-                        'trap-to-host'
-                    ],
-                    'type': 'str'
-                },
-                'sctp-crc-err': {
-                    'required': False,
-                    'revision': {
-                        '7.2.0': True,
-                        '6.2.0': False,
-                        '6.2.2': False,
-                        '6.2.6': False,
-                        '6.2.7': False,
-                        '6.2.8': False,
-                        '6.2.9': False,
-                        '6.2.10': False,
-                        '6.4.1': False,
-                        '6.4.3': False,
-                        '6.4.4': False,
-                        '6.4.6': False,
-                        '6.4.7': True,
-                        '6.4.8': True,
-                        '6.4.9': True,
-                        '6.4.10': True,
-                        '6.4.11': True,
-                        '7.0.1': True,
-                        '7.0.2': True,
-                        '7.0.3': True,
-                        '7.0.4': True,
-                        '7.0.5': True,
-                        '7.0.6': True,
-                        '7.0.7': True,
-                        '7.2.1': True,
-                        '7.2.2': True,
-                        '7.4.0': True
-                    },
-                    'choices': [
-                        'drop',
-                        'trap-to-host'
-                    ],
-                    'type': 'str'
-                },
-                'nvgre-minlen-err': {
-                    'required': False,
-                    'revision': {
-                        '7.2.0': True,
-                        '6.2.0': False,
-                        '6.2.2': False,
-                        '6.2.6': False,
-                        '6.2.7': False,
-                        '6.2.8': False,
-                        '6.2.9': False,
-                        '6.2.10': False,
-                        '6.4.1': False,
-                        '6.4.3': False,
-                        '6.4.4': False,
-                        '6.4.6': False,
-                        '6.4.7': True,
-                        '6.4.8': True,
-                        '6.4.9': True,
-                        '6.4.10': True,
-                        '6.4.11': True,
-                        '7.0.1': True,
-                        '7.0.2': True,
-                        '7.0.3': True,
-                        '7.0.4': True,
-                        '7.0.5': True,
-                        '7.0.6': True,
-                        '7.0.7': True,
-                        '7.2.1': True,
-                        '7.2.2': True,
-                        '7.4.0': True
-                    },
-                    'choices': [
-                        'drop',
-                        'trap-to-host'
-                    ],
-                    'type': 'str'
-                },
-                'sctp-l4len-err': {
-                    'required': False,
-                    'revision': {
-                        '7.2.0': True,
-                        '6.2.0': False,
-                        '6.2.2': False,
-                        '6.2.6': False,
-                        '6.2.7': False,
-                        '6.2.8': False,
-                        '6.2.9': False,
-                        '6.2.10': False,
-                        '6.4.1': False,
-                        '6.4.3': False,
-                        '6.4.4': False,
-                        '6.4.6': False,
-                        '6.4.7': True,
-                        '6.4.8': True,
-                        '6.4.9': True,
-                        '6.4.10': True,
-                        '6.4.11': True,
-                        '7.0.1': True,
-                        '7.0.2': True,
-                        '7.0.3': True,
-                        '7.0.4': True,
-                        '7.0.5': True,
-                        '7.0.6': True,
-                        '7.0.7': True,
-                        '7.2.1': True,
-                        '7.2.2': True,
-                        '7.4.0': True
-                    },
-                    'choices': [
-                        'drop',
-                        'trap-to-host'
-                    ],
-                    'type': 'str'
-                },
-                'sctp-clen-err': {
-                    'required': False,
-                    'revision': {
-                        '7.2.0': True,
-                        '6.2.0': False,
-                        '6.2.2': False,
-                        '6.2.6': False,
-                        '6.2.7': False,
-                        '6.2.8': False,
-                        '6.2.9': False,
-                        '6.2.10': False,
-                        '6.4.1': False,
-                        '6.4.3': False,
-                        '6.4.4': False,
-                        '6.4.6': False,
-                        '6.4.7': True,
-                        '6.4.8': True,
-                        '6.4.9': True,
-                        '6.4.10': True,
-                        '6.4.11': True,
-                        '7.0.1': True,
-                        '7.0.2': True,
-                        '7.0.3': True,
-                        '7.0.4': True,
-                        '7.0.5': True,
-                        '7.0.6': True,
-                        '7.0.7': True,
-                        '7.2.1': True,
-                        '7.2.2': True,
-                        '7.4.0': True
-                    },
-                    'choices': [
-                        'drop',
-                        'trap-to-host'
-                    ],
-                    'type': 'str'
-                },
-                'gtpu-plen-err': {
-                    'required': False,
-                    'revision': {
-                        '7.2.0': True,
-                        '6.2.0': False,
-                        '6.2.2': False,
-                        '6.2.6': False,
-                        '6.2.7': False,
-                        '6.2.8': False,
-                        '6.2.9': False,
-                        '6.2.10': False,
-                        '6.4.1': False,
-                        '6.4.3': False,
-                        '6.4.4': False,
-                        '6.4.6': False,
-                        '6.4.7': True,
-                        '6.4.8': True,
-                        '6.4.9': True,
-                        '6.4.10': True,
-                        '6.4.11': True,
-                        '7.0.1': True,
-                        '7.0.2': True,
-                        '7.0.3': True,
-                        '7.0.4': True,
-                        '7.0.5': True,
-                        '7.0.6': True,
-                        '7.0.7': True,
-                        '7.2.1': True,
-                        '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'choices': [
@@ -3081,6 +3127,7 @@ def main():
                         '6.2.8': False,
                         '6.2.9': False,
                         '6.2.10': False,
+                        '6.2.11': False,
                         '6.4.1': False,
                         '6.4.3': False,
                         '6.4.4': False,
@@ -3090,6 +3137,7 @@ def main():
                         '6.4.9': True,
                         '6.4.10': True,
                         '6.4.11': True,
+                        '6.4.12': True,
                         '7.0.1': True,
                         '7.0.2': True,
                         '7.0.3': True,
@@ -3097,8 +3145,10 @@ def main():
                         '7.0.5': True,
                         '7.0.6': True,
                         '7.0.7': True,
+                        '7.0.8': True,
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'choices': [
@@ -3118,6 +3168,7 @@ def main():
                         '6.2.8': False,
                         '6.2.9': False,
                         '6.2.10': False,
+                        '6.2.11': False,
                         '6.4.1': False,
                         '6.4.3': False,
                         '6.4.4': False,
@@ -3127,6 +3178,7 @@ def main():
                         '6.4.9': True,
                         '6.4.10': True,
                         '6.4.11': True,
+                        '6.4.12': True,
                         '7.0.1': True,
                         '7.0.2': True,
                         '7.0.3': True,
@@ -3134,8 +3186,92 @@ def main():
                         '7.0.5': True,
                         '7.0.6': True,
                         '7.0.7': True,
+                        '7.0.8': True,
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
+                        '7.4.0': True
+                    },
+                    'choices': [
+                        'drop',
+                        'trap-to-host'
+                    ],
+                    'type': 'str'
+                },
+                'nvgre-minlen-err': {
+                    'required': False,
+                    'revision': {
+                        '7.2.0': True,
+                        '6.2.0': False,
+                        '6.2.2': False,
+                        '6.2.6': False,
+                        '6.2.7': False,
+                        '6.2.8': False,
+                        '6.2.9': False,
+                        '6.2.10': False,
+                        '6.2.11': False,
+                        '6.4.1': False,
+                        '6.4.3': False,
+                        '6.4.4': False,
+                        '6.4.6': False,
+                        '6.4.7': True,
+                        '6.4.8': True,
+                        '6.4.9': True,
+                        '6.4.10': True,
+                        '6.4.11': True,
+                        '6.4.12': True,
+                        '7.0.1': True,
+                        '7.0.2': True,
+                        '7.0.3': True,
+                        '7.0.4': True,
+                        '7.0.5': True,
+                        '7.0.6': True,
+                        '7.0.7': True,
+                        '7.0.8': True,
+                        '7.2.1': True,
+                        '7.2.2': True,
+                        '7.2.3': True,
+                        '7.4.0': True
+                    },
+                    'choices': [
+                        'drop',
+                        'trap-to-host'
+                    ],
+                    'type': 'str'
+                },
+                'sctp-l4len-err': {
+                    'required': False,
+                    'revision': {
+                        '7.2.0': True,
+                        '6.2.0': False,
+                        '6.2.2': False,
+                        '6.2.6': False,
+                        '6.2.7': False,
+                        '6.2.8': False,
+                        '6.2.9': False,
+                        '6.2.10': False,
+                        '6.2.11': False,
+                        '6.4.1': False,
+                        '6.4.3': False,
+                        '6.4.4': False,
+                        '6.4.6': False,
+                        '6.4.7': True,
+                        '6.4.8': True,
+                        '6.4.9': True,
+                        '6.4.10': True,
+                        '6.4.11': True,
+                        '6.4.12': True,
+                        '7.0.1': True,
+                        '7.0.2': True,
+                        '7.0.3': True,
+                        '7.0.4': True,
+                        '7.0.5': True,
+                        '7.0.6': True,
+                        '7.0.7': True,
+                        '7.0.8': True,
+                        '7.2.1': True,
+                        '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'choices': [
@@ -3155,6 +3291,7 @@ def main():
                         '6.2.8': False,
                         '6.2.9': False,
                         '6.2.10': False,
+                        '6.2.11': False,
                         '6.4.1': False,
                         '6.4.3': False,
                         '6.4.4': False,
@@ -3164,6 +3301,7 @@ def main():
                         '6.4.9': True,
                         '6.4.10': True,
                         '6.4.11': True,
+                        '6.4.12': True,
                         '7.0.1': True,
                         '7.0.2': True,
                         '7.0.3': True,
@@ -3171,8 +3309,133 @@ def main():
                         '7.0.5': True,
                         '7.0.6': True,
                         '7.0.7': True,
+                        '7.0.8': True,
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
+                        '7.4.0': True
+                    },
+                    'choices': [
+                        'drop',
+                        'trap-to-host'
+                    ],
+                    'type': 'str'
+                },
+                'sctp-crc-err': {
+                    'required': False,
+                    'revision': {
+                        '7.2.0': True,
+                        '6.2.0': False,
+                        '6.2.2': False,
+                        '6.2.6': False,
+                        '6.2.7': False,
+                        '6.2.8': False,
+                        '6.2.9': False,
+                        '6.2.10': False,
+                        '6.2.11': False,
+                        '6.4.1': False,
+                        '6.4.3': False,
+                        '6.4.4': False,
+                        '6.4.6': False,
+                        '6.4.7': True,
+                        '6.4.8': True,
+                        '6.4.9': True,
+                        '6.4.10': True,
+                        '6.4.11': True,
+                        '6.4.12': True,
+                        '7.0.1': True,
+                        '7.0.2': True,
+                        '7.0.3': True,
+                        '7.0.4': True,
+                        '7.0.5': True,
+                        '7.0.6': True,
+                        '7.0.7': True,
+                        '7.0.8': True,
+                        '7.2.1': True,
+                        '7.2.2': True,
+                        '7.2.3': True,
+                        '7.4.0': True
+                    },
+                    'choices': [
+                        'drop',
+                        'trap-to-host'
+                    ],
+                    'type': 'str'
+                },
+                'sctp-clen-err': {
+                    'required': False,
+                    'revision': {
+                        '7.2.0': True,
+                        '6.2.0': False,
+                        '6.2.2': False,
+                        '6.2.6': False,
+                        '6.2.7': False,
+                        '6.2.8': False,
+                        '6.2.9': False,
+                        '6.2.10': False,
+                        '6.2.11': False,
+                        '6.4.1': False,
+                        '6.4.3': False,
+                        '6.4.4': False,
+                        '6.4.6': False,
+                        '6.4.7': True,
+                        '6.4.8': True,
+                        '6.4.9': True,
+                        '6.4.10': True,
+                        '6.4.11': True,
+                        '6.4.12': True,
+                        '7.0.1': True,
+                        '7.0.2': True,
+                        '7.0.3': True,
+                        '7.0.4': True,
+                        '7.0.5': True,
+                        '7.0.6': True,
+                        '7.0.7': True,
+                        '7.0.8': True,
+                        '7.2.1': True,
+                        '7.2.2': True,
+                        '7.2.3': True,
+                        '7.4.0': True
+                    },
+                    'choices': [
+                        'drop',
+                        'trap-to-host'
+                    ],
+                    'type': 'str'
+                },
+                'uesp-minlen-err': {
+                    'required': False,
+                    'revision': {
+                        '7.2.0': True,
+                        '6.2.0': False,
+                        '6.2.2': False,
+                        '6.2.6': False,
+                        '6.2.7': False,
+                        '6.2.8': False,
+                        '6.2.9': False,
+                        '6.2.10': False,
+                        '6.2.11': False,
+                        '6.4.1': False,
+                        '6.4.3': False,
+                        '6.4.4': False,
+                        '6.4.6': False,
+                        '6.4.7': True,
+                        '6.4.8': True,
+                        '6.4.9': True,
+                        '6.4.10': True,
+                        '6.4.11': True,
+                        '6.4.12': True,
+                        '7.0.1': True,
+                        '7.0.2': True,
+                        '7.0.3': True,
+                        '7.0.4': True,
+                        '7.0.5': True,
+                        '7.0.6': True,
+                        '7.0.7': True,
+                        '7.0.8': True,
+                        '7.2.1': True,
+                        '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'choices': [

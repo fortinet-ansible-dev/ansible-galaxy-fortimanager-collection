@@ -429,13 +429,13 @@ from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import 
 
 def main():
     jrpc_urls = [
-        '/pm/config/global/obj/cloud/orchest-awstemplate/autoscale-existing-vpc',
-        '/pm/config/adom/{adom}/obj/cloud/orchest-awstemplate/autoscale-existing-vpc'
+        '/pm/config/adom/{adom}/obj/cloud/orchest-awstemplate/autoscale-existing-vpc',
+        '/pm/config/global/obj/cloud/orchest-awstemplate/autoscale-existing-vpc'
     ]
 
     perobject_jrpc_urls = [
-        '/pm/config/global/obj/cloud/orchest-awstemplate/autoscale-existing-vpc/{autoscale-existing-vpc}',
-        '/pm/config/adom/{adom}/obj/cloud/orchest-awstemplate/autoscale-existing-vpc/{autoscale-existing-vpc}'
+        '/pm/config/adom/{adom}/obj/cloud/orchest-awstemplate/autoscale-existing-vpc/{autoscale-existing-vpc}',
+        '/pm/config/global/obj/cloud/orchest-awstemplate/autoscale-existing-vpc/{autoscale-existing-vpc}'
     ]
 
     url_params = ['adom']

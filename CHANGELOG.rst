@@ -5,6 +5,20 @@ Fortinet.Fortimanager Release Notes
 .. contents:: Topics
 
 
+v2.2.1
+======
+
+Release Summary
+---------------
+
+release fortinet.fortimanager 2.2.1
+
+Bugfixes
+--------
+
+- Fix a bug where the user may not be able to use workspace_locking_adom if the workspace mode is per-adom.
+- Improve login logic in httpapi plugin.
+
 v2.2.0
 ======
 
@@ -30,7 +44,7 @@ Bugfixes
 
 - Corrected description of parameters in documentation.
 - Fixed Many sanity test warnings and errors.
-- Fixed a bug where users might not be able to log in.
+- Fixed a bug where users might not be able to login.
 - Fixed version_added in the document. The value of this parameter is the version each module first supported in the FortiManager Ansible Collection.
 
 New Modules

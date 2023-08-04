@@ -189,13 +189,13 @@ from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import 
 
 def main():
     jrpc_urls = [
-        '/pm/config/global/obj/system/npu/port-cpu-map',
-        '/pm/config/adom/{adom}/obj/system/npu/port-cpu-map'
+        '/pm/config/adom/{adom}/obj/system/npu/port-cpu-map',
+        '/pm/config/global/obj/system/npu/port-cpu-map'
     ]
 
     perobject_jrpc_urls = [
-        '/pm/config/global/obj/system/npu/port-cpu-map/{port-cpu-map}',
-        '/pm/config/adom/{adom}/obj/system/npu/port-cpu-map/{port-cpu-map}'
+        '/pm/config/adom/{adom}/obj/system/npu/port-cpu-map/{port-cpu-map}',
+        '/pm/config/global/obj/system/npu/port-cpu-map/{port-cpu-map}'
     ]
 
     url_params = ['adom']
@@ -270,6 +270,7 @@ def main():
                 '6.4.9': True,
                 '6.4.10': True,
                 '6.4.11': True,
+                '6.4.12': True,
                 '7.0.1': True,
                 '7.0.2': True,
                 '7.0.3': True,
@@ -277,9 +278,11 @@ def main():
                 '7.0.5': True,
                 '7.0.6': True,
                 '7.0.7': True,
+                '7.0.8': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'options': {
@@ -294,6 +297,7 @@ def main():
                         '6.2.8': False,
                         '6.2.9': False,
                         '6.2.10': False,
+                        '6.2.11': False,
                         '6.4.1': False,
                         '6.4.3': False,
                         '6.4.4': False,
@@ -303,6 +307,7 @@ def main():
                         '6.4.9': True,
                         '6.4.10': True,
                         '6.4.11': True,
+                        '6.4.12': True,
                         '7.0.1': True,
                         '7.0.2': True,
                         '7.0.3': True,
@@ -310,8 +315,10 @@ def main():
                         '7.0.5': True,
                         '7.0.6': True,
                         '7.0.7': True,
+                        '7.0.8': True,
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'type': 'str'
@@ -327,6 +334,7 @@ def main():
                         '6.2.8': False,
                         '6.2.9': False,
                         '6.2.10': False,
+                        '6.2.11': False,
                         '6.4.1': False,
                         '6.4.3': False,
                         '6.4.4': False,
@@ -336,6 +344,7 @@ def main():
                         '6.4.9': True,
                         '6.4.10': True,
                         '6.4.11': True,
+                        '6.4.12': True,
                         '7.0.1': True,
                         '7.0.2': True,
                         '7.0.3': True,
@@ -343,8 +352,10 @@ def main():
                         '7.0.5': True,
                         '7.0.6': True,
                         '7.0.7': True,
+                        '7.0.8': True,
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'type': 'str'

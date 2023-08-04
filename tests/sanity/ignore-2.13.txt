@@ -938,6 +938,7 @@ plugins/modules/fmgr_fact.py pep8:E501
 plugins/modules/fmgr_hotspot20_anqpnairealm_nailist_eapmethod_authparam.py pep8:E501
 plugins/modules/fmgr_ips_custom.py pep8:E501
 plugins/modules/fmgr_rename.py pep8:E501
+plugins/modules/fmgr_switchcontroller_managedswitch_ports_dhcpsnoopoption82override.py pep8:E501
 plugins/modules/fmgr_system_admin_group.py pep8:E501
 plugins/modules/fmgr_antivirus_mmschecksum.py validate-modules:doc-required-mismatch
 plugins/modules/fmgr_antivirus_mmschecksum_entries.py validate-modules:doc-required-mismatch

@@ -187,13 +187,13 @@ from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import 
 
 def main():
     jrpc_urls = [
-        '/pm/config/global/obj/system/npu/sw-tr-hash',
-        '/pm/config/adom/{adom}/obj/system/npu/sw-tr-hash'
+        '/pm/config/adom/{adom}/obj/system/npu/sw-tr-hash',
+        '/pm/config/global/obj/system/npu/sw-tr-hash'
     ]
 
     perobject_jrpc_urls = [
-        '/pm/config/global/obj/system/npu/sw-tr-hash/{sw-tr-hash}',
-        '/pm/config/adom/{adom}/obj/system/npu/sw-tr-hash/{sw-tr-hash}'
+        '/pm/config/adom/{adom}/obj/system/npu/sw-tr-hash/{sw-tr-hash}',
+        '/pm/config/global/obj/system/npu/sw-tr-hash/{sw-tr-hash}'
     ]
 
     url_params = ['adom']

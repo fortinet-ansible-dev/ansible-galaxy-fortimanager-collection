@@ -190,13 +190,13 @@ from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import 
 
 def main():
     jrpc_urls = [
-        '/pm/config/global/obj/system/sdn-connector/{sdn-connector}/oci-region-list',
-        '/pm/config/adom/{adom}/obj/system/sdn-connector/{sdn-connector}/oci-region-list'
+        '/pm/config/adom/{adom}/obj/system/sdn-connector/{sdn-connector}/oci-region-list',
+        '/pm/config/global/obj/system/sdn-connector/{sdn-connector}/oci-region-list'
     ]
 
     perobject_jrpc_urls = [
-        '/pm/config/global/obj/system/sdn-connector/{sdn-connector}/oci-region-list/{oci-region-list}',
-        '/pm/config/adom/{adom}/obj/system/sdn-connector/{sdn-connector}/oci-region-list/{oci-region-list}'
+        '/pm/config/adom/{adom}/obj/system/sdn-connector/{sdn-connector}/oci-region-list/{oci-region-list}',
+        '/pm/config/global/obj/system/sdn-connector/{sdn-connector}/oci-region-list/{oci-region-list}'
     ]
 
     url_params = ['adom', 'sdn-connector']

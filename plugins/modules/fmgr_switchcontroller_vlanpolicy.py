@@ -216,13 +216,13 @@ from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import 
 
 def main():
     jrpc_urls = [
-        '/pm/config/global/obj/switch-controller/vlan-policy',
-        '/pm/config/adom/{adom}/obj/switch-controller/vlan-policy'
+        '/pm/config/adom/{adom}/obj/switch-controller/vlan-policy',
+        '/pm/config/global/obj/switch-controller/vlan-policy'
     ]
 
     perobject_jrpc_urls = [
-        '/pm/config/global/obj/switch-controller/vlan-policy/{vlan-policy}',
-        '/pm/config/adom/{adom}/obj/switch-controller/vlan-policy/{vlan-policy}'
+        '/pm/config/adom/{adom}/obj/switch-controller/vlan-policy/{vlan-policy}',
+        '/pm/config/global/obj/switch-controller/vlan-policy/{vlan-policy}'
     ]
 
     url_params = ['adom']
@@ -294,6 +294,7 @@ def main():
             'revision': {
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'options': {
@@ -302,6 +303,7 @@ def main():
                     'revision': {
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'type': 'str'
@@ -311,6 +313,7 @@ def main():
                     'revision': {
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'choices': [
@@ -324,6 +327,7 @@ def main():
                     'revision': {
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'type': 'str'
@@ -333,6 +337,7 @@ def main():
                     'revision': {
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'choices': [
@@ -347,6 +352,7 @@ def main():
                     'revision': {
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'type': 'str'
@@ -356,6 +362,7 @@ def main():
                     'revision': {
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'type': 'str'
@@ -365,6 +372,7 @@ def main():
                     'revision': {
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'type': 'str'

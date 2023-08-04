@@ -211,13 +211,13 @@ from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import 
 
 def main():
     jrpc_urls = [
-        '/pm/config/global/obj/user/certificate',
-        '/pm/config/adom/{adom}/obj/user/certificate'
+        '/pm/config/adom/{adom}/obj/user/certificate',
+        '/pm/config/global/obj/user/certificate'
     ]
 
     perobject_jrpc_urls = [
-        '/pm/config/global/obj/user/certificate/{certificate}',
-        '/pm/config/adom/{adom}/obj/user/certificate/{certificate}'
+        '/pm/config/adom/{adom}/obj/user/certificate/{certificate}',
+        '/pm/config/global/obj/user/certificate/{certificate}'
     ]
 
     url_params = ['adom']
@@ -287,12 +287,18 @@ def main():
             'required': False,
             'type': 'dict',
             'revision': {
+                '7.0.8': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'options': {
                 'common-name': {
                     'required': False,
                     'revision': {
+                        '7.0.8': True,
+                        '7.2.1': False,
+                        '7.2.2': False,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'type': 'str'
@@ -300,6 +306,10 @@ def main():
                 'id': {
                     'required': True,
                     'revision': {
+                        '7.0.8': True,
+                        '7.2.1': False,
+                        '7.2.2': False,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'type': 'int'
@@ -307,6 +317,10 @@ def main():
                 'issuer': {
                     'required': False,
                     'revision': {
+                        '7.0.8': True,
+                        '7.2.1': False,
+                        '7.2.2': False,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'type': 'str'
@@ -314,6 +328,10 @@ def main():
                 'name': {
                     'required': False,
                     'revision': {
+                        '7.0.8': True,
+                        '7.2.1': False,
+                        '7.2.2': False,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'type': 'str'
@@ -321,6 +339,10 @@ def main():
                 'status': {
                     'required': False,
                     'revision': {
+                        '7.0.8': True,
+                        '7.2.1': False,
+                        '7.2.2': False,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'choices': [
@@ -332,6 +354,10 @@ def main():
                 'type': {
                     'required': False,
                     'revision': {
+                        '7.0.8': True,
+                        '7.2.1': False,
+                        '7.2.2': False,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'choices': [

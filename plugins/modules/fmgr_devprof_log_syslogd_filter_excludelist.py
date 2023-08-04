@@ -310,7 +310,8 @@ def main():
                 '7.0.4': True,
                 '7.0.5': True,
                 '7.0.6': True,
-                '7.0.7': True
+                '7.0.7': True,
+                '7.0.8': True
             },
             'options': {
                 'category': {
@@ -320,8 +321,10 @@ def main():
                         '7.0.5': True,
                         '7.0.6': True,
                         '7.0.7': True,
+                        '7.0.8': True,
                         '7.2.1': False,
                         '7.2.2': False,
+                        '7.2.3': False,
                         '7.4.0': False
                     },
                     'choices': [
@@ -347,8 +350,10 @@ def main():
                         '7.0.5': True,
                         '7.0.6': True,
                         '7.0.7': True,
+                        '7.0.8': True,
                         '7.2.1': False,
                         '7.2.2': False,
+                        '7.2.3': False,
                         '7.4.0': False
                     },
                     'type': 'list',
@@ -360,8 +365,10 @@ def main():
                                 '7.0.5': True,
                                 '7.0.6': True,
                                 '7.0.7': True,
+                                '7.0.8': True,
                                 '7.2.1': False,
                                 '7.2.2': False,
+                                '7.2.3': False,
                                 '7.4.0': False
                             },
                             'type': 'str'
@@ -373,8 +380,10 @@ def main():
                                 '7.0.5': True,
                                 '7.0.6': True,
                                 '7.0.7': True,
+                                '7.0.8': True,
                                 '7.2.1': False,
                                 '7.2.2': False,
+                                '7.2.3': False,
                                 '7.4.0': False
                             },
                             'type': 'str'
@@ -386,8 +395,10 @@ def main():
                                 '7.0.5': True,
                                 '7.0.6': True,
                                 '7.0.7': True,
+                                '7.0.8': True,
                                 '7.2.1': False,
                                 '7.2.2': False,
+                                '7.2.3': False,
                                 '7.4.0': False
                             },
                             'choices': [
@@ -406,8 +417,10 @@ def main():
                         '7.0.5': True,
                         '7.0.6': True,
                         '7.0.7': True,
+                        '7.0.8': True,
                         '7.2.1': False,
                         '7.2.2': False,
+                        '7.2.3': False,
                         '7.4.0': False
                     },
                     'type': 'int'

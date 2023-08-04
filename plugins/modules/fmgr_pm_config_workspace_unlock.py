@@ -159,13 +159,13 @@ from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import 
 
 def main():
     jrpc_urls = [
-        '/pm/config/global/_workspace/unlock',
-        '/pm/config/adom/{adom}/_workspace/unlock'
+        '/pm/config/adom/{adom}/_workspace/unlock',
+        '/pm/config/global/_workspace/unlock'
     ]
 
     perobject_jrpc_urls = [
-        '/pm/config/global/_workspace/unlock/{unlock}',
-        '/pm/config/adom/{adom}/_workspace/unlock/{unlock}'
+        '/pm/config/adom/{adom}/_workspace/unlock/{unlock}',
+        '/pm/config/global/_workspace/unlock/{unlock}'
     ]
 
     url_params = ['adom']

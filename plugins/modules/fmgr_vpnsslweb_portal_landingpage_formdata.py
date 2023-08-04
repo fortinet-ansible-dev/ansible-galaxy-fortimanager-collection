@@ -194,13 +194,13 @@ from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import 
 
 def main():
     jrpc_urls = [
-        '/pm/config/global/obj/vpn/ssl/web/portal/{portal}/landing-page/form-data',
-        '/pm/config/adom/{adom}/obj/vpn/ssl/web/portal/{portal}/landing-page/form-data'
+        '/pm/config/adom/{adom}/obj/vpn/ssl/web/portal/{portal}/landing-page/form-data',
+        '/pm/config/global/obj/vpn/ssl/web/portal/{portal}/landing-page/form-data'
     ]
 
     perobject_jrpc_urls = [
-        '/pm/config/global/obj/vpn/ssl/web/portal/{portal}/landing-page/form-data/{form-data}',
-        '/pm/config/adom/{adom}/obj/vpn/ssl/web/portal/{portal}/landing-page/form-data/{form-data}'
+        '/pm/config/adom/{adom}/obj/vpn/ssl/web/portal/{portal}/landing-page/form-data/{form-data}',
+        '/pm/config/global/obj/vpn/ssl/web/portal/{portal}/landing-page/form-data/{form-data}'
     ]
 
     url_params = ['adom', 'portal']

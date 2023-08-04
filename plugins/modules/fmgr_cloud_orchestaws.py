@@ -227,13 +227,13 @@ from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import 
 
 def main():
     jrpc_urls = [
-        '/pm/config/global/obj/cloud/orchest-aws',
-        '/pm/config/adom/{adom}/obj/cloud/orchest-aws'
+        '/pm/config/adom/{adom}/obj/cloud/orchest-aws',
+        '/pm/config/global/obj/cloud/orchest-aws'
     ]
 
     perobject_jrpc_urls = [
-        '/pm/config/global/obj/cloud/orchest-aws/{orchest-aws}',
-        '/pm/config/adom/{adom}/obj/cloud/orchest-aws/{orchest-aws}'
+        '/pm/config/adom/{adom}/obj/cloud/orchest-aws/{orchest-aws}',
+        '/pm/config/global/obj/cloud/orchest-aws/{orchest-aws}'
     ]
 
     url_params = ['adom']

@@ -244,13 +244,13 @@ from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import 
 
 def main():
     jrpc_urls = [
-        '/pm/config/global/obj/fmg/fabric/authorization/template',
-        '/pm/config/adom/{adom}/obj/fmg/fabric/authorization/template'
+        '/pm/config/adom/{adom}/obj/fmg/fabric/authorization/template',
+        '/pm/config/global/obj/fmg/fabric/authorization/template'
     ]
 
     perobject_jrpc_urls = [
-        '/pm/config/global/obj/fmg/fabric/authorization/template/{template}',
-        '/pm/config/adom/{adom}/obj/fmg/fabric/authorization/template/{template}'
+        '/pm/config/adom/{adom}/obj/fmg/fabric/authorization/template/{template}',
+        '/pm/config/global/obj/fmg/fabric/authorization/template/{template}'
     ]
 
     url_params = ['adom']
@@ -322,6 +322,7 @@ def main():
             'revision': {
                 '7.2.1': True,
                 '7.2.2': True,
+                '7.2.3': True,
                 '7.4.0': True
             },
             'options': {
@@ -330,6 +331,7 @@ def main():
                     'revision': {
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'type': 'str'
@@ -339,6 +341,7 @@ def main():
                     'revision': {
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'choices': [
@@ -352,6 +355,7 @@ def main():
                     'revision': {
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'type': 'str'
@@ -361,6 +365,7 @@ def main():
                     'revision': {
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'type': 'list',
@@ -370,6 +375,7 @@ def main():
                             'revision': {
                                 '7.2.1': True,
                                 '7.2.2': True,
+                                '7.2.3': True,
                                 '7.4.0': True
                             },
                             'type': 'int'
@@ -379,6 +385,7 @@ def main():
                             'revision': {
                                 '7.2.1': True,
                                 '7.2.2': True,
+                                '7.2.3': True,
                                 '7.4.0': True
                             },
                             'choices': [
@@ -392,6 +399,7 @@ def main():
                             'revision': {
                                 '7.2.1': True,
                                 '7.2.2': True,
+                                '7.2.3': True,
                                 '7.4.0': True
                             },
                             'type': 'str'
@@ -401,6 +409,7 @@ def main():
                             'revision': {
                                 '7.2.1': True,
                                 '7.2.2': True,
+                                '7.2.3': True,
                                 '7.4.0': True
                             },
                             'type': 'str'
@@ -410,6 +419,7 @@ def main():
                             'revision': {
                                 '7.2.1': True,
                                 '7.2.2': True,
+                                '7.2.3': True,
                                 '7.4.0': True
                             },
                             'choices': [
@@ -427,6 +437,7 @@ def main():
                     'revision': {
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'choices': [
@@ -440,6 +451,7 @@ def main():
                     'revision': {
                         '7.2.1': True,
                         '7.2.2': True,
+                        '7.2.3': True,
                         '7.4.0': True
                     },
                     'choices': [

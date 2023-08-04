@@ -1,4 +1,4 @@
-# Ansible Collection - fortinet.fortimanager:2.2.0
+# Ansible Collection - fortinet.fortimanager:2.2.1
 
 [Documentation](https://ansible-galaxy-fortimanager-docs.readthedocs.io/en/latest) for the collection.
 
