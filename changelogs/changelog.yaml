@@ -475,3 +475,125 @@ releases:
     fragments:
     - 2.2.1.yml
     release_date: '2023-08-02'
+  2.3.0:
+    changes:
+      bugfixes:
+      - Add 'access_token' in 'fmgr_generic'.
+      - Add param 'platform' in 'fmgr_wtpprofile' and param 'interface' in 'fmgr_fsp_vlan'.
+      - Fix a bug that collection may update the resource when it does not need to.
+      - Fix some modules missing revision (used for version warning).
+      - Fixed the bug that would report an error when providing access_token and username/password
+        at the same time.
+      - Improve document.
+      - Improve fmgr_fact. 'changed' will not be true anymore if you get the result.
+      - Improve sanity tests.
+      - When the JSON data sent by FortiManager is not in the right format, the collection
+        can still execute correctly.
+      minor_changes:
+      - Some arguments can support both list or string format input now.
+      - Support newest versions for FortiManager v6.2 ~ v7.4
+      release_summary: release fortinet.fortimanager 2.3.0
+    fragments:
+    - 2.3.0.yml
+    modules:
+    - description: Configure CASB profile.
+      name: fmgr_casb_profile
+      namespace: ''
+    - description: CASB profile SaaS application.
+      name: fmgr_casb_profile_saasapplication
+      namespace: ''
+    - description: CASB profile access rule.
+      name: fmgr_casb_profile_saasapplication_accessrule
+      namespace: ''
+    - description: CASB profile custom control.
+      name: fmgr_casb_profile_saasapplication_customcontrol
+      namespace: ''
+    - description: CASB custom control option.
+      name: fmgr_casb_profile_saasapplication_customcontrol_option
+      namespace: ''
+    - description: Configure CASB SaaS application.
+      name: fmgr_casb_saasapplication
+      namespace: ''
+    - description: Configure CASB user activity.
+      name: fmgr_casb_useractivity
+      namespace: ''
+    - description: CASB control options.
+      name: fmgr_casb_useractivity_controloptions
+      namespace: ''
+    - description: CASB control option operations.
+      name: fmgr_casb_useractivity_controloptions_operations
+      namespace: ''
+    - description: CASB user activity match rules.
+      name: fmgr_casb_useractivity_match
+      namespace: ''
+    - description: CASB user activity rules.
+      name: fmgr_casb_useractivity_match_rules
+      namespace: ''
+    - description: no description
+      name: fmgr_dvmdb_upgrade
+      namespace: ''
+    - description: QUIC setting.
+      name: fmgr_firewall_accessproxy6_apigateway6_quic
+      namespace: ''
+    - description: QUIC setting.
+      name: fmgr_firewall_accessproxy6_apigateway_quic
+      namespace: ''
+    - description: QUIC setting.
+      name: fmgr_firewall_accessproxy_apigateway6_quic
+      namespace: ''
+    - description: QUIC setting.
+      name: fmgr_firewall_accessproxy_apigateway_quic
+      namespace: ''
+    - description: no description
+      name: fmgr_firewall_casbprofile
+      namespace: ''
+    - description: no description
+      name: fmgr_firewall_casbprofile_saasapplication
+      namespace: ''
+    - description: no description
+      name: fmgr_firewall_casbprofile_saasapplication_accessrule
+      namespace: ''
+    - description: no description
+      name: fmgr_firewall_casbprofile_saasapplication_customcontrol
+      namespace: ''
+    - description: no description
+      name: fmgr_firewall_casbprofile_saasapplication_customcontrol_option
+      namespace: ''
+    - description: Show vendor and the MAC address they have.
+      name: fmgr_firewall_vendormac
+      namespace: ''
+    - description: QUIC setting.
+      name: fmgr_firewall_vip_quic
+      namespace: ''
+    - description: no description
+      name: fmgr_pm_config_meta_reference
+      namespace: ''
+    - description: no description
+      name: fmgr_securityconsole_install_objects_v2
+      namespace: ''
+    - description: Configure route offload MCLAG IP address.
+      name: fmgr_switchcontroller_managedswitch_routeoffloadrouter
+      namespace: ''
+    - description: Global PTP profile.
+      name: fmgr_switchcontroller_ptp_profile
+      namespace: ''
+    - description: Add this device to a Security Fabric or set up a new Security Fabric
+        on this device.
+      name: fmgr_system_csf
+      namespace: ''
+    - description: Fabric connector configuration.
+      name: fmgr_system_csf_fabricconnector
+      namespace: ''
+    - description: Pre-authorized and blocked security fabric nodes.
+      name: fmgr_system_csf_trustedlist
+      namespace: ''
+    - description: Configure SDN proxy.
+      name: fmgr_system_sdnproxy
+      namespace: ''
+    - description: Configure virtual-patch profile.
+      name: fmgr_virtualpatch_profile
+      namespace: ''
+    - description: Exempt devices or rules.
+      name: fmgr_virtualpatch_profile_exemption
+      namespace: ''
+    release_date: '2023-10-13'

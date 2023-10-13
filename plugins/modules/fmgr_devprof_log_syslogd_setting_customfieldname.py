@@ -117,6 +117,7 @@ options:
             id:
                 type: int
                 description: Entry ID.
+                required: true
             name:
                 type: str
                 description: Field name.
@@ -124,29 +125,29 @@ options:
 '''
 
 EXAMPLES = '''
- - hosts: fortimanager-inventory
-   collections:
-     - fortinet.fortimanager
-   connection: httpapi
-   vars:
-      ansible_httpapi_use_ssl: True
-      ansible_httpapi_validate_certs: False
-      ansible_httpapi_port: 443
-   tasks:
+- hosts: fortimanager-inventory
+  collections:
+    - fortinet.fortimanager
+  connection: httpapi
+  vars:
+    ansible_httpapi_use_ssl: True
+    ansible_httpapi_validate_certs: False
+    ansible_httpapi_port: 443
+  tasks:
     - name: Custom field name for CEF format logging.
       fmgr_devprof_log_syslogd_setting_customfieldname:
-         bypass_validation: False
-         workspace_locking_adom: <value in [global, custom adom including root]>
-         workspace_locking_timeout: 300
-         rc_succeeded: [0, -2, -3, ...]
-         rc_failed: [-2, -3, ...]
-         adom: <your own value>
-         devprof: <your own value>
-         state: <value in [present, absent]>
-         devprof_log_syslogd_setting_customfieldname:
-            custom: <value of string>
-            id: <value of integer>
-            name: <value of string>
+        bypass_validation: False
+        workspace_locking_adom: <value in [global, custom adom including root]>
+        workspace_locking_timeout: 300
+        rc_succeeded: [0, -2, -3, ...]
+        rc_failed: [-2, -3, ...]
+        adom: <your own value>
+        devprof: <your own value>
+        state: <value in [present, absent]>
+        devprof_log_syslogd_setting_customfieldname:
+          custom: <string>
+          id: <integer>
+          name: <string>
 
 '''
 
@@ -281,10 +282,13 @@ def main():
                 '7.0.6': True,
                 '7.0.7': True,
                 '7.0.8': True,
+                '7.0.9': True,
                 '7.2.1': True,
                 '7.2.2': True,
                 '7.2.3': True,
-                '7.4.0': True
+                '7.2.4': True,
+                '7.4.0': True,
+                '7.4.1': True
             },
             'options': {
                 'custom': {
@@ -295,10 +299,13 @@ def main():
                         '7.0.6': True,
                         '7.0.7': True,
                         '7.0.8': True,
+                        '7.0.9': True,
                         '7.2.1': True,
                         '7.2.2': True,
                         '7.2.3': True,
-                        '7.4.0': True
+                        '7.2.4': True,
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'type': 'str'
                 },
@@ -310,10 +317,13 @@ def main():
                         '7.0.6': True,
                         '7.0.7': True,
                         '7.0.8': True,
+                        '7.0.9': True,
                         '7.2.1': True,
                         '7.2.2': True,
                         '7.2.3': True,
-                        '7.4.0': True
+                        '7.2.4': True,
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'type': 'int'
                 },
@@ -325,10 +335,13 @@ def main():
                         '7.0.6': True,
                         '7.0.7': True,
                         '7.0.8': True,
+                        '7.0.9': True,
                         '7.2.1': True,
                         '7.2.2': True,
                         '7.2.3': True,
-                        '7.4.0': True
+                        '7.2.4': True,
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'type': 'str'
                 }

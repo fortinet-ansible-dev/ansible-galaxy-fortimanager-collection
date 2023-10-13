@@ -113,6 +113,7 @@ options:
             name:
                 type: str
                 description: Password policy name.
+                required: true
             warn-days:
                 type: int
                 description: Time in days before a password expiration warning message is displayed to the user upon login.
@@ -122,33 +123,71 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
+            expire-status:
+                type: str
+                description: Enable/disable password expiration.
+                choices:
+                    - 'disable'
+                    - 'enable'
+            min-change-characters:
+                type: int
+                description: Minimum number of unique characters in new password which do not exist in old password
+            min-lower-case-letter:
+                type: int
+                description: Minimum number of lowercase characters in password
+            min-non-alphanumeric:
+                type: int
+                description: Minimum number of non-alphanumeric characters in password
+            min-number:
+                type: int
+                description: Minimum number of numeric characters in password
+            min-upper-case-letter:
+                type: int
+                description: Minimum number of uppercase characters in password
+            minimum-length:
+                type: int
+                description: Minimum password length
+            reuse-password:
+                type: str
+                description: Enable/disable reuse of password.
+                choices:
+                    - 'disable'
+                    - 'enable'
 
 '''
 
 EXAMPLES = '''
- - hosts: fortimanager-inventory
-   collections:
-     - fortinet.fortimanager
-   connection: httpapi
-   vars:
-      ansible_httpapi_use_ssl: True
-      ansible_httpapi_validate_certs: False
-      ansible_httpapi_port: 443
-   tasks:
+- hosts: fortimanager-inventory
+  collections:
+    - fortinet.fortimanager
+  connection: httpapi
+  vars:
+    ansible_httpapi_use_ssl: True
+    ansible_httpapi_validate_certs: False
+    ansible_httpapi_port: 443
+  tasks:
     - name: Configure user password policy.
       fmgr_user_passwordpolicy:
-         bypass_validation: False
-         workspace_locking_adom: <value in [global, custom adom including root]>
-         workspace_locking_timeout: 300
-         rc_succeeded: [0, -2, -3, ...]
-         rc_failed: [-2, -3, ...]
-         adom: <your own value>
-         state: <value in [present, absent]>
-         user_passwordpolicy:
-            expire-days: <value of integer>
-            name: <value of string>
-            warn-days: <value of integer>
-            expired-password-renewal: <value in [disable, enable]>
+        bypass_validation: False
+        workspace_locking_adom: <value in [global, custom adom including root]>
+        workspace_locking_timeout: 300
+        rc_succeeded: [0, -2, -3, ...]
+        rc_failed: [-2, -3, ...]
+        adom: <your own value>
+        state: <value in [present, absent]>
+        user_passwordpolicy:
+          expire-days: <integer>
+          name: <string>
+          warn-days: <integer>
+          expired-password-renewal: <value in [disable, enable]>
+          expire-status: <value in [disable, enable]>
+          min-change-characters: <integer>
+          min-lower-case-letter: <integer>
+          min-non-alphanumeric: <integer>
+          min-number: <integer>
+          min-upper-case-letter: <integer>
+          minimum-length: <integer>
+          reuse-password: <value in [disable, enable]>
 
 '''
 
@@ -275,6 +314,7 @@ def main():
         'user_passwordpolicy': {
             'required': False,
             'type': 'dict',
+            'no_log': False,
             'revision': {
                 '6.0.0': True,
                 '6.2.0': True,
@@ -288,6 +328,7 @@ def main():
                 '6.2.9': True,
                 '6.2.10': True,
                 '6.2.11': True,
+                '6.2.12': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -301,6 +342,7 @@ def main():
                 '6.4.10': True,
                 '6.4.11': True,
                 '6.4.12': True,
+                '6.4.13': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -310,36 +352,38 @@ def main():
                 '7.0.6': True,
                 '7.0.7': True,
                 '7.0.8': True,
+                '7.0.9': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
                 '7.2.3': True,
-                '7.4.0': True
+                '7.2.4': True,
+                '7.4.0': True,
+                '7.4.1': True
             },
             'options': {
                 'expire-days': {
                     'required': False,
                     'revision': {
                         '6.0.0': True,
+                        '6.2.0': True,
                         '6.2.1': True,
+                        '6.2.2': True,
                         '6.2.3': True,
                         '6.2.5': True,
-                        '6.4.0': True,
-                        '6.4.2': True,
-                        '6.4.5': True,
-                        '7.0.0': True,
-                        '7.2.0': True,
-                        '6.2.0': True,
-                        '6.2.2': True,
                         '6.2.6': True,
                         '6.2.7': True,
                         '6.2.8': True,
                         '6.2.9': True,
                         '6.2.10': True,
                         '6.2.11': True,
+                        '6.2.12': True,
+                        '6.4.0': True,
                         '6.4.1': True,
+                        '6.4.2': True,
                         '6.4.3': True,
                         '6.4.4': True,
+                        '6.4.5': True,
                         '6.4.6': True,
                         '6.4.7': True,
                         '6.4.8': True,
@@ -347,6 +391,8 @@ def main():
                         '6.4.10': True,
                         '6.4.11': True,
                         '6.4.12': True,
+                        '6.4.13': True,
+                        '7.0.0': True,
                         '7.0.1': True,
                         '7.0.2': True,
                         '7.0.3': True,
@@ -355,10 +401,14 @@ def main():
                         '7.0.6': True,
                         '7.0.7': True,
                         '7.0.8': True,
+                        '7.0.9': True,
+                        '7.2.0': True,
                         '7.2.1': True,
                         '7.2.2': True,
                         '7.2.3': True,
-                        '7.4.0': True
+                        '7.2.4': True,
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'type': 'int'
                 },
@@ -366,25 +416,24 @@ def main():
                     'required': True,
                     'revision': {
                         '6.0.0': True,
+                        '6.2.0': True,
                         '6.2.1': True,
+                        '6.2.2': True,
                         '6.2.3': True,
                         '6.2.5': True,
-                        '6.4.0': True,
-                        '6.4.2': True,
-                        '6.4.5': True,
-                        '7.0.0': True,
-                        '7.2.0': True,
-                        '6.2.0': True,
-                        '6.2.2': True,
                         '6.2.6': True,
                         '6.2.7': True,
                         '6.2.8': True,
                         '6.2.9': True,
                         '6.2.10': True,
                         '6.2.11': True,
+                        '6.2.12': True,
+                        '6.4.0': True,
                         '6.4.1': True,
+                        '6.4.2': True,
                         '6.4.3': True,
                         '6.4.4': True,
+                        '6.4.5': True,
                         '6.4.6': True,
                         '6.4.7': True,
                         '6.4.8': True,
@@ -392,6 +441,8 @@ def main():
                         '6.4.10': True,
                         '6.4.11': True,
                         '6.4.12': True,
+                        '6.4.13': True,
+                        '7.0.0': True,
                         '7.0.1': True,
                         '7.0.2': True,
                         '7.0.3': True,
@@ -400,10 +451,14 @@ def main():
                         '7.0.6': True,
                         '7.0.7': True,
                         '7.0.8': True,
+                        '7.0.9': True,
+                        '7.2.0': True,
                         '7.2.1': True,
                         '7.2.2': True,
                         '7.2.3': True,
-                        '7.4.0': True
+                        '7.2.4': True,
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'type': 'str'
                 },
@@ -411,25 +466,24 @@ def main():
                     'required': False,
                     'revision': {
                         '6.0.0': True,
+                        '6.2.0': True,
                         '6.2.1': True,
+                        '6.2.2': True,
                         '6.2.3': True,
                         '6.2.5': True,
-                        '6.4.0': True,
-                        '6.4.2': True,
-                        '6.4.5': True,
-                        '7.0.0': True,
-                        '7.2.0': True,
-                        '6.2.0': True,
-                        '6.2.2': True,
                         '6.2.6': True,
                         '6.2.7': True,
                         '6.2.8': True,
                         '6.2.9': True,
                         '6.2.10': True,
                         '6.2.11': True,
+                        '6.2.12': True,
+                        '6.4.0': True,
                         '6.4.1': True,
+                        '6.4.2': True,
                         '6.4.3': True,
                         '6.4.4': True,
+                        '6.4.5': True,
                         '6.4.6': True,
                         '6.4.7': True,
                         '6.4.8': True,
@@ -437,6 +491,8 @@ def main():
                         '6.4.10': True,
                         '6.4.11': True,
                         '6.4.12': True,
+                        '6.4.13': True,
+                        '7.0.0': True,
                         '7.0.1': True,
                         '7.0.2': True,
                         '7.0.3': True,
@@ -445,35 +501,38 @@ def main():
                         '7.0.6': True,
                         '7.0.7': True,
                         '7.0.8': True,
+                        '7.0.9': True,
+                        '7.2.0': True,
                         '7.2.1': True,
                         '7.2.2': True,
                         '7.2.3': True,
-                        '7.4.0': True
+                        '7.2.4': True,
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'type': 'int'
                 },
                 'expired-password-renewal': {
                     'required': False,
                     'revision': {
+                        '6.2.0': False,
                         '6.2.1': True,
+                        '6.2.2': True,
                         '6.2.3': True,
                         '6.2.5': True,
-                        '6.4.0': True,
-                        '6.4.2': True,
-                        '6.4.5': True,
-                        '7.0.0': True,
-                        '7.2.0': True,
-                        '6.2.0': False,
-                        '6.2.2': True,
                         '6.2.6': True,
                         '6.2.7': True,
                         '6.2.8': True,
                         '6.2.9': True,
                         '6.2.10': True,
                         '6.2.11': True,
+                        '6.2.12': True,
+                        '6.4.0': True,
                         '6.4.1': True,
+                        '6.4.2': True,
                         '6.4.3': True,
                         '6.4.4': True,
+                        '6.4.5': True,
                         '6.4.6': True,
                         '6.4.7': True,
                         '6.4.8': True,
@@ -481,6 +540,8 @@ def main():
                         '6.4.10': True,
                         '6.4.11': True,
                         '6.4.12': True,
+                        '6.4.13': True,
+                        '7.0.0': True,
                         '7.0.1': True,
                         '7.0.2': True,
                         '7.0.3': True,
@@ -489,16 +550,83 @@ def main():
                         '7.0.6': True,
                         '7.0.7': True,
                         '7.0.8': True,
+                        '7.0.9': True,
+                        '7.2.0': True,
                         '7.2.1': True,
                         '7.2.2': True,
                         '7.2.3': True,
-                        '7.4.0': True
+                        '7.2.4': True,
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'choices': [
                         'disable',
                         'enable'
                     ],
-                    'no_log': True,
+                    'type': 'str'
+                },
+                'expire-status': {
+                    'required': False,
+                    'revision': {
+                        '7.4.1': True
+                    },
+                    'choices': [
+                        'disable',
+                        'enable'
+                    ],
+                    'type': 'str'
+                },
+                'min-change-characters': {
+                    'required': False,
+                    'revision': {
+                        '7.4.1': True
+                    },
+                    'type': 'int'
+                },
+                'min-lower-case-letter': {
+                    'required': False,
+                    'revision': {
+                        '7.4.1': True
+                    },
+                    'type': 'int'
+                },
+                'min-non-alphanumeric': {
+                    'required': False,
+                    'revision': {
+                        '7.4.1': True
+                    },
+                    'type': 'int'
+                },
+                'min-number': {
+                    'required': False,
+                    'revision': {
+                        '7.4.1': True
+                    },
+                    'type': 'int'
+                },
+                'min-upper-case-letter': {
+                    'required': False,
+                    'revision': {
+                        '7.4.1': True
+                    },
+                    'type': 'int'
+                },
+                'minimum-length': {
+                    'required': False,
+                    'revision': {
+                        '7.4.1': True
+                    },
+                    'type': 'int'
+                },
+                'reuse-password': {
+                    'required': False,
+                    'revision': {
+                        '7.4.1': True
+                    },
+                    'choices': [
+                        'disable',
+                        'enable'
+                    ],
                     'type': 'str'
                 }
             }

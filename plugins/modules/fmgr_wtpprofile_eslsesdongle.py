@@ -29,7 +29,7 @@ description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
 
-version_added: "2.1.6"
+version_added: "2.1.0"
 author:
     - Xinwei Du (@dux-fortinet)
     - Xing Li (@lix-fortinet)
@@ -180,36 +180,36 @@ options:
 '''
 
 EXAMPLES = '''
- - hosts: fortimanager-inventory
-   collections:
-     - fortinet.fortimanager
-   connection: httpapi
-   vars:
-      ansible_httpapi_use_ssl: True
-      ansible_httpapi_validate_certs: False
-      ansible_httpapi_port: 443
-   tasks:
+- hosts: fortimanager-inventory
+  collections:
+    - fortinet.fortimanager
+  connection: httpapi
+  vars:
+    ansible_httpapi_use_ssl: True
+    ansible_httpapi_validate_certs: False
+    ansible_httpapi_port: 443
+  tasks:
     - name: ESL SES-imagotag dongle configuration.
       fmgr_wtpprofile_eslsesdongle:
-         bypass_validation: False
-         workspace_locking_adom: <value in [global, custom adom including root]>
-         workspace_locking_timeout: 300
-         rc_succeeded: [0, -2, -3, ...]
-         rc_failed: [-2, -3, ...]
-         adom: <your own value>
-         wtp-profile: <your own value>
-         wtpprofile_eslsesdongle:
-            apc-addr-type: <value in [fqdn, ip]>
-            apc-fqdn: <value of string>
-            apc-ip: <value of string>
-            apc-port: <value of integer>
-            coex-level: <value in [none]>
-            compliance-level: <value in [compliance-level-2]>
-            esl-channel: <value in [0, 1, 2, ...]>
-            output-power: <value in [a, b, c, ...]>
-            scd-enable: <value in [disable, enable]>
-            tls-cert-verification: <value in [disable, enable]>
-            tls-fqdn-verification: <value in [disable, enable]>
+        bypass_validation: False
+        workspace_locking_adom: <value in [global, custom adom including root]>
+        workspace_locking_timeout: 300
+        rc_succeeded: [0, -2, -3, ...]
+        rc_failed: [-2, -3, ...]
+        adom: <your own value>
+        wtp-profile: <your own value>
+        wtpprofile_eslsesdongle:
+          apc-addr-type: <value in [fqdn, ip]>
+          apc-fqdn: <string>
+          apc-ip: <string>
+          apc-port: <integer>
+          coex-level: <value in [none]>
+          compliance-level: <value in [compliance-level-2]>
+          esl-channel: <value in [0, 1, 2, ...]>
+          output-power: <value in [a, b, c, ...]>
+          scd-enable: <value in [disable, enable]>
+          tls-cert-verification: <value in [disable, enable]>
+          tls-fqdn-verification: <value in [disable, enable]>
 
 '''
 
@@ -341,17 +341,19 @@ def main():
                 '7.0.6': True,
                 '7.0.7': True,
                 '7.0.8': True,
+                '7.0.9': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
                 '7.2.3': True,
-                '7.4.0': True
+                '7.2.4': True,
+                '7.4.0': True,
+                '7.4.1': True
             },
             'options': {
                 'apc-addr-type': {
                     'required': False,
                     'revision': {
-                        '7.2.0': True,
                         '6.2.0': False,
                         '6.2.2': False,
                         '6.2.6': False,
@@ -360,6 +362,7 @@ def main():
                         '6.2.9': False,
                         '6.2.10': False,
                         '6.2.11': False,
+                        '6.2.12': False,
                         '6.4.1': False,
                         '6.4.3': False,
                         '6.4.4': False,
@@ -370,6 +373,7 @@ def main():
                         '6.4.10': False,
                         '6.4.11': False,
                         '6.4.12': False,
+                        '6.4.13': False,
                         '7.0.1': True,
                         '7.0.2': True,
                         '7.0.3': True,
@@ -378,10 +382,14 @@ def main():
                         '7.0.6': True,
                         '7.0.7': True,
                         '7.0.8': True,
+                        '7.0.9': True,
+                        '7.2.0': True,
                         '7.2.1': True,
                         '7.2.2': True,
                         '7.2.3': True,
-                        '7.4.0': True
+                        '7.2.4': True,
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'choices': [
                         'fqdn',
@@ -392,7 +400,6 @@ def main():
                 'apc-fqdn': {
                     'required': False,
                     'revision': {
-                        '7.2.0': True,
                         '6.2.0': False,
                         '6.2.2': False,
                         '6.2.6': False,
@@ -401,6 +408,7 @@ def main():
                         '6.2.9': False,
                         '6.2.10': False,
                         '6.2.11': False,
+                        '6.2.12': False,
                         '6.4.1': False,
                         '6.4.3': False,
                         '6.4.4': False,
@@ -411,6 +419,7 @@ def main():
                         '6.4.10': False,
                         '6.4.11': False,
                         '6.4.12': False,
+                        '6.4.13': False,
                         '7.0.1': True,
                         '7.0.2': True,
                         '7.0.3': True,
@@ -419,17 +428,20 @@ def main():
                         '7.0.6': True,
                         '7.0.7': True,
                         '7.0.8': True,
+                        '7.0.9': True,
+                        '7.2.0': True,
                         '7.2.1': True,
                         '7.2.2': True,
                         '7.2.3': True,
-                        '7.4.0': True
+                        '7.2.4': True,
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'type': 'str'
                 },
                 'apc-ip': {
                     'required': False,
                     'revision': {
-                        '7.2.0': True,
                         '6.2.0': False,
                         '6.2.2': False,
                         '6.2.6': False,
@@ -438,6 +450,7 @@ def main():
                         '6.2.9': False,
                         '6.2.10': False,
                         '6.2.11': False,
+                        '6.2.12': False,
                         '6.4.1': False,
                         '6.4.3': False,
                         '6.4.4': False,
@@ -448,6 +461,7 @@ def main():
                         '6.4.10': False,
                         '6.4.11': False,
                         '6.4.12': False,
+                        '6.4.13': False,
                         '7.0.1': True,
                         '7.0.2': True,
                         '7.0.3': True,
@@ -456,17 +470,20 @@ def main():
                         '7.0.6': True,
                         '7.0.7': True,
                         '7.0.8': True,
+                        '7.0.9': True,
+                        '7.2.0': True,
                         '7.2.1': True,
                         '7.2.2': True,
                         '7.2.3': True,
-                        '7.4.0': True
+                        '7.2.4': True,
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'type': 'str'
                 },
                 'apc-port': {
                     'required': False,
                     'revision': {
-                        '7.2.0': True,
                         '6.2.0': False,
                         '6.2.2': False,
                         '6.2.6': False,
@@ -475,6 +492,7 @@ def main():
                         '6.2.9': False,
                         '6.2.10': False,
                         '6.2.11': False,
+                        '6.2.12': False,
                         '6.4.1': False,
                         '6.4.3': False,
                         '6.4.4': False,
@@ -485,6 +503,7 @@ def main():
                         '6.4.10': False,
                         '6.4.11': False,
                         '6.4.12': False,
+                        '6.4.13': False,
                         '7.0.1': True,
                         '7.0.2': True,
                         '7.0.3': True,
@@ -493,17 +512,20 @@ def main():
                         '7.0.6': True,
                         '7.0.7': True,
                         '7.0.8': True,
+                        '7.0.9': True,
+                        '7.2.0': True,
                         '7.2.1': True,
                         '7.2.2': True,
                         '7.2.3': True,
-                        '7.4.0': True
+                        '7.2.4': True,
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'type': 'int'
                 },
                 'coex-level': {
                     'required': False,
                     'revision': {
-                        '7.2.0': True,
                         '6.2.0': False,
                         '6.2.2': False,
                         '6.2.6': False,
@@ -512,6 +534,7 @@ def main():
                         '6.2.9': False,
                         '6.2.10': False,
                         '6.2.11': False,
+                        '6.2.12': False,
                         '6.4.1': False,
                         '6.4.3': False,
                         '6.4.4': False,
@@ -522,6 +545,7 @@ def main():
                         '6.4.10': False,
                         '6.4.11': False,
                         '6.4.12': False,
+                        '6.4.13': False,
                         '7.0.1': True,
                         '7.0.2': True,
                         '7.0.3': True,
@@ -530,10 +554,14 @@ def main():
                         '7.0.6': True,
                         '7.0.7': True,
                         '7.0.8': True,
+                        '7.0.9': True,
+                        '7.2.0': True,
                         '7.2.1': True,
                         '7.2.2': True,
                         '7.2.3': True,
-                        '7.4.0': True
+                        '7.2.4': True,
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'choices': [
                         'none'
@@ -543,7 +571,6 @@ def main():
                 'compliance-level': {
                     'required': False,
                     'revision': {
-                        '7.2.0': True,
                         '6.2.0': False,
                         '6.2.2': False,
                         '6.2.6': False,
@@ -552,6 +579,7 @@ def main():
                         '6.2.9': False,
                         '6.2.10': False,
                         '6.2.11': False,
+                        '6.2.12': False,
                         '6.4.1': False,
                         '6.4.3': False,
                         '6.4.4': False,
@@ -562,6 +590,7 @@ def main():
                         '6.4.10': False,
                         '6.4.11': False,
                         '6.4.12': False,
+                        '6.4.13': False,
                         '7.0.1': True,
                         '7.0.2': True,
                         '7.0.3': True,
@@ -570,10 +599,14 @@ def main():
                         '7.0.6': True,
                         '7.0.7': True,
                         '7.0.8': True,
+                        '7.0.9': True,
+                        '7.2.0': True,
                         '7.2.1': True,
                         '7.2.2': True,
                         '7.2.3': True,
-                        '7.4.0': True
+                        '7.2.4': True,
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'choices': [
                         'compliance-level-2'
@@ -583,7 +616,6 @@ def main():
                 'esl-channel': {
                     'required': False,
                     'revision': {
-                        '7.2.0': True,
                         '6.2.0': False,
                         '6.2.2': False,
                         '6.2.6': False,
@@ -592,6 +624,7 @@ def main():
                         '6.2.9': False,
                         '6.2.10': False,
                         '6.2.11': False,
+                        '6.2.12': False,
                         '6.4.1': False,
                         '6.4.3': False,
                         '6.4.4': False,
@@ -602,6 +635,7 @@ def main():
                         '6.4.10': False,
                         '6.4.11': False,
                         '6.4.12': False,
+                        '6.4.13': False,
                         '7.0.1': True,
                         '7.0.2': True,
                         '7.0.3': True,
@@ -610,10 +644,14 @@ def main():
                         '7.0.6': True,
                         '7.0.7': True,
                         '7.0.8': True,
+                        '7.0.9': True,
+                        '7.2.0': True,
                         '7.2.1': True,
                         '7.2.2': True,
                         '7.2.3': True,
-                        '7.4.0': True
+                        '7.2.4': True,
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'choices': [
                         '0',
@@ -635,7 +673,6 @@ def main():
                 'output-power': {
                     'required': False,
                     'revision': {
-                        '7.2.0': True,
                         '6.2.0': False,
                         '6.2.2': False,
                         '6.2.6': False,
@@ -644,6 +681,7 @@ def main():
                         '6.2.9': False,
                         '6.2.10': False,
                         '6.2.11': False,
+                        '6.2.12': False,
                         '6.4.1': False,
                         '6.4.3': False,
                         '6.4.4': False,
@@ -654,6 +692,7 @@ def main():
                         '6.4.10': False,
                         '6.4.11': False,
                         '6.4.12': False,
+                        '6.4.13': False,
                         '7.0.1': True,
                         '7.0.2': True,
                         '7.0.3': True,
@@ -662,10 +701,14 @@ def main():
                         '7.0.6': True,
                         '7.0.7': True,
                         '7.0.8': True,
+                        '7.0.9': True,
+                        '7.2.0': True,
                         '7.2.1': True,
                         '7.2.2': True,
                         '7.2.3': True,
-                        '7.4.0': True
+                        '7.2.4': True,
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'choices': [
                         'a',
@@ -682,7 +725,6 @@ def main():
                 'scd-enable': {
                     'required': False,
                     'revision': {
-                        '7.2.0': True,
                         '6.2.0': False,
                         '6.2.2': False,
                         '6.2.6': False,
@@ -691,6 +733,7 @@ def main():
                         '6.2.9': False,
                         '6.2.10': False,
                         '6.2.11': False,
+                        '6.2.12': False,
                         '6.4.1': False,
                         '6.4.3': False,
                         '6.4.4': False,
@@ -701,6 +744,7 @@ def main():
                         '6.4.10': False,
                         '6.4.11': False,
                         '6.4.12': False,
+                        '6.4.13': False,
                         '7.0.1': True,
                         '7.0.2': True,
                         '7.0.3': True,
@@ -709,10 +753,14 @@ def main():
                         '7.0.6': True,
                         '7.0.7': True,
                         '7.0.8': True,
+                        '7.0.9': True,
+                        '7.2.0': True,
                         '7.2.1': True,
                         '7.2.2': True,
                         '7.2.3': True,
-                        '7.4.0': True
+                        '7.2.4': True,
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'choices': [
                         'disable',
@@ -723,7 +771,6 @@ def main():
                 'tls-cert-verification': {
                     'required': False,
                     'revision': {
-                        '7.2.0': True,
                         '6.2.0': False,
                         '6.2.2': False,
                         '6.2.6': False,
@@ -732,6 +779,7 @@ def main():
                         '6.2.9': False,
                         '6.2.10': False,
                         '6.2.11': False,
+                        '6.2.12': False,
                         '6.4.1': False,
                         '6.4.3': False,
                         '6.4.4': False,
@@ -742,6 +790,7 @@ def main():
                         '6.4.10': False,
                         '6.4.11': False,
                         '6.4.12': False,
+                        '6.4.13': False,
                         '7.0.1': True,
                         '7.0.2': True,
                         '7.0.3': True,
@@ -750,10 +799,14 @@ def main():
                         '7.0.6': True,
                         '7.0.7': True,
                         '7.0.8': True,
+                        '7.0.9': True,
+                        '7.2.0': True,
                         '7.2.1': True,
                         '7.2.2': True,
                         '7.2.3': True,
-                        '7.4.0': True
+                        '7.2.4': True,
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'choices': [
                         'disable',
@@ -764,7 +817,6 @@ def main():
                 'tls-fqdn-verification': {
                     'required': False,
                     'revision': {
-                        '7.2.0': True,
                         '6.2.0': False,
                         '6.2.2': False,
                         '6.2.6': False,
@@ -773,6 +825,7 @@ def main():
                         '6.2.9': False,
                         '6.2.10': False,
                         '6.2.11': False,
+                        '6.2.12': False,
                         '6.4.1': False,
                         '6.4.3': False,
                         '6.4.4': False,
@@ -783,6 +836,7 @@ def main():
                         '6.4.10': False,
                         '6.4.11': False,
                         '6.4.12': False,
+                        '6.4.13': False,
                         '7.0.1': True,
                         '7.0.2': True,
                         '7.0.3': True,
@@ -791,10 +845,14 @@ def main():
                         '7.0.6': True,
                         '7.0.7': True,
                         '7.0.8': True,
+                        '7.0.9': True,
+                        '7.2.0': True,
                         '7.2.1': True,
                         '7.2.2': True,
                         '7.2.3': True,
-                        '7.4.0': True
+                        '7.2.4': True,
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'choices': [
                         'disable',

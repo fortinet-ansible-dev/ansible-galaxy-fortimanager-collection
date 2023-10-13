@@ -106,26 +106,26 @@ options:
             case-sensitive:
                 type: str
                 description:
-                 - Disable/Enable case sensitive index.
-                 - disable - Build a case insensitive index.
-                 - enable - Build a case sensitive index.
+                    - Disable/Enable case sensitive index.
+                    - disable - Build a case insensitive index.
+                    - enable - Build a case sensitive index.
                 choices:
                     - 'disable'
                     - 'enable'
             device-type:
                 type: str
                 description:
-                 - Device type.
-                 - FortiGate - Device type to FortiGate.
-                 - FortiManager - Set device type to FortiManager
-                 - FortiClient - Set device type to FortiClient
-                 - FortiMail - Device type to FortiMail.
-                 - FortiWeb - Device type to FortiWeb.
-                 - FortiCache - Set device type to FortiCache
-                 - FortiSandbox - Set device type to FortiSandbox
-                 - FortiDDoS - Set device type to FortiDDoS
-                 - FortiAuthenticator - Set device type to FortiAuthenticator
-                 - FortiProxy - Set device type to FortiProxy
+                    - Device type.
+                    - FortiGate - Device type to FortiGate.
+                    - FortiManager - Set device type to FortiManager
+                    - FortiClient - Set device type to FortiClient
+                    - FortiMail - Device type to FortiMail.
+                    - FortiWeb - Device type to FortiWeb.
+                    - FortiCache - Set device type to FortiCache
+                    - FortiSandbox - Set device type to FortiSandbox
+                    - FortiDDoS - Set device type to FortiDDoS
+                    - FortiAuthenticator - Set device type to FortiAuthenticator
+                    - FortiProxy - Set device type to FortiProxy
                 choices:
                     - 'FortiGate'
                     - 'FortiManager'
@@ -140,35 +140,36 @@ options:
             id:
                 type: int
                 description: Add or Edit log index fields.
+                required: true
             index-field:
                 type: str
                 description: Log field name to be indexed.
             log-type:
                 type: str
                 description:
-                 - Log type.
-                 - none - none
-                 - app-ctrl
-                 - attack
-                 - content
-                 - dlp
-                 - emailfilter
-                 - event
-                 - generic
-                 - history
-                 - traffic
-                 - virus
-                 - voip
-                 - webfilter
-                 - netscan
-                 - fct-event
-                 - fct-traffic
-                 - fct-netscan
-                 - waf
-                 - gtp
-                 - dns
-                 - ssh
-                 - ssl
+                    - Log type.
+                    - none - none
+                    - app-ctrl
+                    - attack
+                    - content
+                    - dlp
+                    - emailfilter
+                    - event
+                    - generic
+                    - history
+                    - traffic
+                    - virus
+                    - voip
+                    - webfilter
+                    - netscan
+                    - fct-event
+                    - fct-traffic
+                    - fct-netscan
+                    - waf
+                    - gtp
+                    - dns
+                    - ssh
+                    - ssl
                 choices:
                     - 'none'
                     - 'app-ctrl'
@@ -197,46 +198,47 @@ options:
                     - 'protocol'
                     - 'siem'
                     - 'ztna'
+                    - 'security'
 
 '''
 
 EXAMPLES = '''
- - hosts: fortimanager00
-   collections:
-     - fortinet.fortimanager
-   connection: httpapi
-   vars:
-      ansible_httpapi_use_ssl: True
-      ansible_httpapi_validate_certs: False
-      ansible_httpapi_port: 443
-   tasks:
-    - name: List of SQL index fields.
-      fmgr_system_sql_customindex:
-         bypass_validation: False
-         state: present
-         system_sql_customindex:
-            case-sensitive: disable
-            device-type: FortiGate #<value in [FortiGate, FortiManager, FortiClient, ...]>
-            id: 1
-            index-field: srcip
-            log-type: attack #<value in [none, app-ctrl, attack, ...]>
- - name: gathering fortimanager facts
-   hosts: fortimanager00
-   gather_facts: no
-   connection: httpapi
-   collections:
-     - fortinet.fortimanager
-   vars:
+- hosts: fortimanager00
+  collections:
+    - fortinet.fortimanager
+  connection: httpapi
+  vars:
      ansible_httpapi_use_ssl: True
      ansible_httpapi_validate_certs: False
      ansible_httpapi_port: 443
-   tasks:
-    - name: retrieve all the SQL index fields
-      fmgr_fact:
-        facts:
-            selector: 'system_sql_customindex'
-            params:
-                custom-index: 'your_value'
+  tasks:
+   - name: List of SQL index fields.
+     fmgr_system_sql_customindex:
+        bypass_validation: False
+        state: present
+        system_sql_customindex:
+           case-sensitive: disable
+           device-type: FortiGate #<value in [FortiGate, FortiManager, FortiClient, ...]>
+           id: 1
+           index-field: srcip
+           log-type: attack #<value in [none, app-ctrl, attack, ...]>
+- name: gathering fortimanager facts
+  hosts: fortimanager00
+  gather_facts: no
+  connection: httpapi
+  collections:
+    - fortinet.fortimanager
+  vars:
+    ansible_httpapi_use_ssl: True
+    ansible_httpapi_validate_certs: False
+    ansible_httpapi_port: 443
+  tasks:
+   - name: retrieve all the SQL index fields
+     fmgr_fact:
+       facts:
+           selector: 'system_sql_customindex'
+           params:
+               custom-index: 'your_value'
 
 '''
 
@@ -370,6 +372,7 @@ def main():
                 '6.2.9': True,
                 '6.2.10': True,
                 '6.2.11': True,
+                '6.2.12': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -383,6 +386,7 @@ def main():
                 '6.4.10': True,
                 '6.4.11': True,
                 '6.4.12': True,
+                '6.4.13': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -392,36 +396,38 @@ def main():
                 '7.0.6': True,
                 '7.0.7': True,
                 '7.0.8': True,
+                '7.0.9': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
                 '7.2.3': True,
-                '7.4.0': True
+                '7.2.4': True,
+                '7.4.0': True,
+                '7.4.1': True
             },
             'options': {
                 'case-sensitive': {
                     'required': False,
                     'revision': {
                         '6.0.0': True,
+                        '6.2.0': True,
                         '6.2.1': True,
+                        '6.2.2': True,
                         '6.2.3': True,
                         '6.2.5': True,
-                        '6.4.0': True,
-                        '6.4.2': True,
-                        '6.4.5': True,
-                        '7.0.0': True,
-                        '7.2.0': True,
-                        '6.2.0': True,
-                        '6.2.2': True,
                         '6.2.6': True,
                         '6.2.7': True,
                         '6.2.8': True,
                         '6.2.9': True,
                         '6.2.10': True,
                         '6.2.11': True,
+                        '6.2.12': True,
+                        '6.4.0': True,
                         '6.4.1': True,
+                        '6.4.2': True,
                         '6.4.3': True,
                         '6.4.4': True,
+                        '6.4.5': True,
                         '6.4.6': True,
                         '6.4.7': True,
                         '6.4.8': True,
@@ -429,6 +435,8 @@ def main():
                         '6.4.10': True,
                         '6.4.11': True,
                         '6.4.12': True,
+                        '6.4.13': True,
+                        '7.0.0': True,
                         '7.0.1': True,
                         '7.0.2': True,
                         '7.0.3': True,
@@ -437,10 +445,14 @@ def main():
                         '7.0.6': True,
                         '7.0.7': True,
                         '7.0.8': True,
+                        '7.0.9': True,
+                        '7.2.0': True,
                         '7.2.1': True,
                         '7.2.2': True,
                         '7.2.3': True,
-                        '7.4.0': True
+                        '7.2.4': True,
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'choices': [
                         'disable',
@@ -452,25 +464,24 @@ def main():
                     'required': False,
                     'revision': {
                         '6.0.0': True,
+                        '6.2.0': True,
                         '6.2.1': True,
+                        '6.2.2': True,
                         '6.2.3': True,
                         '6.2.5': True,
-                        '6.4.0': True,
-                        '6.4.2': True,
-                        '6.4.5': True,
-                        '7.0.0': True,
-                        '7.2.0': True,
-                        '6.2.0': True,
-                        '6.2.2': True,
                         '6.2.6': True,
                         '6.2.7': True,
                         '6.2.8': True,
                         '6.2.9': True,
                         '6.2.10': True,
                         '6.2.11': True,
+                        '6.2.12': True,
+                        '6.4.0': True,
                         '6.4.1': True,
+                        '6.4.2': True,
                         '6.4.3': True,
                         '6.4.4': True,
+                        '6.4.5': True,
                         '6.4.6': True,
                         '6.4.7': True,
                         '6.4.8': True,
@@ -478,6 +489,8 @@ def main():
                         '6.4.10': True,
                         '6.4.11': True,
                         '6.4.12': True,
+                        '6.4.13': True,
+                        '7.0.0': True,
                         '7.0.1': True,
                         '7.0.2': True,
                         '7.0.3': True,
@@ -486,10 +499,14 @@ def main():
                         '7.0.6': True,
                         '7.0.7': True,
                         '7.0.8': True,
+                        '7.0.9': True,
+                        '7.2.0': True,
                         '7.2.1': True,
                         '7.2.2': True,
                         '7.2.3': True,
-                        '7.4.0': True
+                        '7.2.4': True,
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'choices': [
                         'FortiGate',
@@ -509,25 +526,24 @@ def main():
                     'required': True,
                     'revision': {
                         '6.0.0': True,
+                        '6.2.0': True,
                         '6.2.1': True,
+                        '6.2.2': True,
                         '6.2.3': True,
                         '6.2.5': True,
-                        '6.4.0': True,
-                        '6.4.2': True,
-                        '6.4.5': True,
-                        '7.0.0': True,
-                        '7.2.0': True,
-                        '6.2.0': True,
-                        '6.2.2': True,
                         '6.2.6': True,
                         '6.2.7': True,
                         '6.2.8': True,
                         '6.2.9': True,
                         '6.2.10': True,
                         '6.2.11': True,
+                        '6.2.12': True,
+                        '6.4.0': True,
                         '6.4.1': True,
+                        '6.4.2': True,
                         '6.4.3': True,
                         '6.4.4': True,
+                        '6.4.5': True,
                         '6.4.6': True,
                         '6.4.7': True,
                         '6.4.8': True,
@@ -535,6 +551,8 @@ def main():
                         '6.4.10': True,
                         '6.4.11': True,
                         '6.4.12': True,
+                        '6.4.13': True,
+                        '7.0.0': True,
                         '7.0.1': True,
                         '7.0.2': True,
                         '7.0.3': True,
@@ -543,10 +561,14 @@ def main():
                         '7.0.6': True,
                         '7.0.7': True,
                         '7.0.8': True,
+                        '7.0.9': True,
+                        '7.2.0': True,
                         '7.2.1': True,
                         '7.2.2': True,
                         '7.2.3': True,
-                        '7.4.0': True
+                        '7.2.4': True,
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'type': 'int'
                 },
@@ -554,25 +576,24 @@ def main():
                     'required': False,
                     'revision': {
                         '6.0.0': True,
+                        '6.2.0': True,
                         '6.2.1': True,
+                        '6.2.2': True,
                         '6.2.3': True,
                         '6.2.5': True,
-                        '6.4.0': True,
-                        '6.4.2': True,
-                        '6.4.5': True,
-                        '7.0.0': True,
-                        '7.2.0': True,
-                        '6.2.0': True,
-                        '6.2.2': True,
                         '6.2.6': True,
                         '6.2.7': True,
                         '6.2.8': True,
                         '6.2.9': True,
                         '6.2.10': True,
                         '6.2.11': True,
+                        '6.2.12': True,
+                        '6.4.0': True,
                         '6.4.1': True,
+                        '6.4.2': True,
                         '6.4.3': True,
                         '6.4.4': True,
+                        '6.4.5': True,
                         '6.4.6': True,
                         '6.4.7': True,
                         '6.4.8': True,
@@ -580,6 +601,8 @@ def main():
                         '6.4.10': True,
                         '6.4.11': True,
                         '6.4.12': True,
+                        '6.4.13': True,
+                        '7.0.0': True,
                         '7.0.1': True,
                         '7.0.2': True,
                         '7.0.3': True,
@@ -588,10 +611,14 @@ def main():
                         '7.0.6': True,
                         '7.0.7': True,
                         '7.0.8': True,
+                        '7.0.9': True,
+                        '7.2.0': True,
                         '7.2.1': True,
                         '7.2.2': True,
                         '7.2.3': True,
-                        '7.4.0': True
+                        '7.2.4': True,
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'type': 'str'
                 },
@@ -599,25 +626,24 @@ def main():
                     'required': False,
                     'revision': {
                         '6.0.0': True,
+                        '6.2.0': True,
                         '6.2.1': True,
+                        '6.2.2': True,
                         '6.2.3': True,
                         '6.2.5': True,
-                        '6.4.0': True,
-                        '6.4.2': True,
-                        '6.4.5': True,
-                        '7.0.0': True,
-                        '7.2.0': True,
-                        '6.2.0': True,
-                        '6.2.2': True,
                         '6.2.6': True,
                         '6.2.7': True,
                         '6.2.8': True,
                         '6.2.9': True,
                         '6.2.10': True,
                         '6.2.11': True,
+                        '6.2.12': True,
+                        '6.4.0': True,
                         '6.4.1': True,
+                        '6.4.2': True,
                         '6.4.3': True,
                         '6.4.4': True,
+                        '6.4.5': True,
                         '6.4.6': True,
                         '6.4.7': True,
                         '6.4.8': True,
@@ -625,6 +651,8 @@ def main():
                         '6.4.10': True,
                         '6.4.11': True,
                         '6.4.12': True,
+                        '6.4.13': True,
+                        '7.0.0': True,
                         '7.0.1': True,
                         '7.0.2': True,
                         '7.0.3': True,
@@ -633,10 +661,14 @@ def main():
                         '7.0.6': True,
                         '7.0.7': True,
                         '7.0.8': True,
+                        '7.0.9': True,
+                        '7.2.0': True,
                         '7.2.1': True,
                         '7.2.2': True,
                         '7.2.3': True,
-                        '7.4.0': True
+                        '7.2.4': True,
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'choices': [
                         'none',
@@ -665,7 +697,8 @@ def main():
                         'asset',
                         'protocol',
                         'siem',
-                        'ztna'
+                        'ztna',
+                        'security'
                     ],
                     'type': 'str'
                 }

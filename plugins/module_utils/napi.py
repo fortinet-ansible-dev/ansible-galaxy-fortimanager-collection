@@ -111,6 +111,23 @@ def check_parameter_bypass(schema, module_level2_name):
     return schema
 
 
+def remove_revision(schema):
+    if not isinstance(schema, dict):
+        return schema
+    new_schema = {}
+    for key in schema:
+        if key != 'revision' and key != 'api_name':
+            new_schema[key] = remove_revision(schema[key])
+            for special_char in ['-', ' ', '.', '(', '+']:
+                if special_char in key:
+                    new_schema[key]['removed_in_version'] = '3.0.0'
+                    new_schema[key]['removed_from_collection'] = 'fortinet.fortimanager'
+            if key == '80211d':
+                new_schema[key]['removed_in_version'] = '3.0.0'
+                new_schema[key]['removed_from_collection'] = 'fortinet.fortimanager'
+    return new_schema
+
+
 class NAPIManager(object):
     jrpc_urls = None
     perobject_jrpc_urls = None
@@ -301,7 +318,7 @@ class NAPIManager(object):
         response = self.conn.send_request(self._propose_method("update"), params)
         return response
 
-    def create_objejct(self):
+    def create_object(self):
         url_creating = self._get_basic_url(False)
         if not self.top_level_schema_name:
             raise AssertionError("top level schema name MUST NOT be NULL")
@@ -339,9 +356,7 @@ class NAPIManager(object):
             subnet_number = int(tokens[1])
             if subnet_number < 0 or subnet_number > 32:
                 return True
-            remote_subnet_number = sum(
-                bin(int(x)).count("1") for x in object_remote[1].split(".")
-            )
+            remote_subnet_number = sum(bin(int(x)).count("1") for x in object_remote[1].split("."))
             if object_remote[0] != tokens[0] or remote_subnet_number != subnet_number:
                 return True
             else:
@@ -352,74 +367,74 @@ class NAPIManager(object):
 
     def _check_object_difference(self, object_remote, object_present):
         for key in object_present:
-            value = object_present[key]
-            if not value:
+            local_value = object_present[key]
+            if not local_value:
                 continue
             if key not in object_remote or not object_remote[key]:
                 return True
-            value_type = type(value)
-            if value_type is list:
+            remote_value = object_remote[key]
+            if isinstance(local_value, list):
+                try:
+                    if isinstance(remote_value, list):
+                        if str(sorted(remote_value)) == str(sorted(local_value)):
+                            return False
+                    # Won't update if remote = 'var' and local = ['var']
+                    elif len(local_value) == 1:
+                        if str(remote_value) == str(local_value[0]):
+                            return False
+                except Exception as e:
+                    return True
                 return True
-            elif value_type is dict:
-                if type(object_remote[key]) is not dict:
+            elif isinstance(local_value, dict):
+                if not isinstance(remote_value, dict):
                     return True
-                elif self._check_object_difference(object_remote[key], value):
+                elif self._check_object_difference(remote_value, local_value):
                     return True
-            else:
-                value_string = str(value)
-                if (
-                    type(object_remote[key]) is not list
-                    and str(object_remote[key]) != value_string
-                ):
-                    return True
-                elif type(object_remote[key]) is list:
-                    if not self._compare_subnet(object_remote[key], value_string):
+            else:  # local_value is not list or dict, maybe int, float or str
+                value_string = str(local_value)
+                if isinstance(remote_value, list):
+                    if not self._compare_subnet(remote_value, value_string):
                         return False
-                    elif (
-                        len(object_remote[key]) > 1
-                        or str(object_remote[key][0]) != value_string
-                    ):
+                    # Won't update if remote = ['var'] and local = 'var'
+                    elif len(remote_value) != 1 or str(remote_value[0]) != value_string:
                         return True
+                elif str(remote_value) != value_string:
+                    return True
         return False
 
     def _update_required(self, robject):
-        object_status = robject[0]
-        if object_status != 0:
-            return False
-        object_remote = robject[1]["data"]
+        object_remote = robject["data"] if "data" in robject else {}
         module_name = self.module_level2_name
         object_present = self.module.params[module_name] if module_name in self.module.params else {}
         return self._check_object_difference(object_remote, object_present)
 
     def _process_with_mkey(self, mvalue):
-        mobject = self.get_object(mvalue)
-        update_required = self._update_required(mobject)
+        rc, robject = self.get_object(mvalue)
+        update_required = False
+        if rc == 0:
+            update_required = self._update_required(robject)
         if self._method_proposed():
             update_required = True
         if self.module.params["state"] == "present":
-            if mobject[0] == 0:
+            if rc == 0:
                 if update_required:
                     return self.update_object(mvalue)
                 else:
                     self.module.exit_json(message="Object update skipped!")
-
             else:
-                return self.create_objejct()
+                return self.create_object()
         elif self.module.params["state"] == "absent":
             # in case the `GET` method returns nothing... see module `fmgr_antivirus_mmschecksum`
-            # if mobject[0] == 0:
             return self.delete_object(mvalue)
-            # else:
-            #    self.do_nonexist_exit()
         else:
-            raise AssertionError("Not Reachable")
+            raise AssertionError("state could only be present or absent")
 
     def _process_without_mkey(self):
         if self.module.params["state"] == "absent":
             self.module.fail_json(
                 msg="this module doesn't not support state:absent because of no primary key."
             )
-        return self.create_objejct()
+        return self.create_object()
 
     def process_generic(self, method, param):
         response = self.conn.send_request(method, param)
@@ -1072,24 +1087,16 @@ class NAPIManager(object):
             )
             url = url.replace(token_hint, token)
         # Other Filters and Sorters
-        filters = self.module.params["facts"]["filter"]
-        sortings = self.module.params["facts"]["sortings"]
-        fields = self.module.params["facts"]["fields"]
-        options = self.module.params["facts"]["option"]
-
+        params = self.module.params
         api_params = [{"url": url}]
-        if filters:
-            api_params[0]["filter"] = filters
-        if sortings:
-            api_params[0]["sortings"] = sortings
-        if fields:
-            api_params[0]["fields"] = fields
-        if options:
-            api_params[0]["option"] = options
-
-        # Now issue the request.
+        for key in ['filter', 'sortings', 'fields', 'option']:
+            if params['facts'].get(key, None):
+                api_params[0][key] = params['facts'][key]
+        if params['facts'].get('extra_params', None):
+            for key in params['facts']['extra_params']:
+                api_params[0][key] = params['facts']['extra_params'][key]
         response = self.conn.send_request("get", api_params)
-        self.do_exit(response)
+        self.do_exit(response, changed=False)
 
     def process_curd(self, argument_specs=None):
         if "state" not in self.module.params:
@@ -1121,12 +1128,15 @@ class NAPIManager(object):
                 # On Windows Platform, exec() call doesn't take effect.
                 mvalue = eval(mvalue_exec_string)
             else:
+                if self.module_primary_key not in self.module.params[module_name]:
+                    raise AssertionError("main key %s is expected" % (self.module_primary_key))
                 mvalue = self.module.params[module_name][self.module_primary_key]
             self.do_exit(self._process_with_mkey(mvalue))
         else:
             self.do_exit(self._process_without_mkey())
 
     def __tailor_attributes(self, data):
+        '''remove empty attributes'''
         if type(data) == dict:
             rdata = dict()
             for key in data:
@@ -1247,35 +1257,31 @@ class NAPIManager(object):
                     # assert blob['fail_action'] == 'quit':
                     self.module.fail_json(msg=blob["hint_message"])
 
-    def _do_final_exit(self, rc, result):
+    def _do_final_exit(self, rc, result, changed=True):
         # XXX: as with https://github.com/fortinet/ansible-fortimanager-generic.
         # the failing conditions priority: failed_when > rc_failed > rc_succeeded.
         failed = rc != 0
-        changed = rc == 0
+        if changed:
+            changed = rc == 0
 
-        if "response_code" not in result:
-            raise AssertionError("response_code should be in result")
-        if self.module.params["rc_failed"]:
-            for rc_code in self.module.params["rc_failed"]:
-                if str(result["response_code"]) == str(rc_code):
-                    failed = True
-                    result[
-                        "result_code_overriding"
-                    ] = "rc code:%s is overridden to failure" % (rc_code)
-        elif self.module.params["rc_succeeded"]:
-            for rc_code in self.module.params["rc_succeeded"]:
-                if str(result["response_code"]) == str(rc_code):
-                    failed = False
-                    result[
-                        "result_code_overriding"
-                    ] = "rc code:%s is overridden to success" % (rc_code)
+        if "response_code" in result:
+            if "rc_failed" in self.module.params and self.module.params["rc_failed"]:
+                for rc_code in self.module.params["rc_failed"]:
+                    if str(result["response_code"]) == str(rc_code):
+                        failed = True
+                        result["result_code_overriding"] = "rc code:%s is overridden to failure" % (rc_code)
+            elif "rc_succeeded" in self.module.params and self.module.params["rc_succeeded"]:
+                for rc_code in self.module.params["rc_succeeded"]:
+                    if str(result["response_code"]) == str(rc_code):
+                        failed = False
+                        result["result_code_overriding"] = "rc code:%s is overridden to success" % (rc_code)
         if self.system_status:
             result["system_information"] = self.system_status
         if len(self.version_check_warnings):
             version_check_warning = dict()
             version_check_warning["mismatches"] = self.version_check_warnings
             if not self.system_status:
-                raise AssertionError()
+                raise AssertionError("Can't get system status, please check Internet connection.")
             version_check_warning["system_version"] = "v%s.%s.%s" % (
                 self.system_status["Major"],
                 self.system_status["Minor"],
@@ -1284,38 +1290,27 @@ class NAPIManager(object):
             self.module.warn(
                 "Ansible has detected version mismatch between FortiManager and your playbook, see more details by appending option -vvv"
             )
-            self.module.exit_json(
-                rc=rc,
-                meta=result,
-                version_check_warning=version_check_warning,
-                failed=failed,
-                changed=changed,
-            )
+            self.module.exit_json(rc=rc, meta=result, version_check_warning=version_check_warning, failed=failed, changed=changed)
         else:
             self.module.exit_json(rc=rc, meta=result, failed=failed, changed=changed)
 
-    def do_nonexist_exit(self):
-        rc = 0
-        result = dict()
-        result["response_code"] = -3
-        result["response_message"] = "object not exist"
-        self._do_final_exit(rc, result)
-
-    def do_exit(self, response):
-        rc = response[0]
-        result = dict()
-        result["response_data"] = list()
-        if "data" in response[1]:
-            result["response_data"] = response[1]["data"]
-        result["response_code"] = response[1]["status"]["code"]
-        result["response_message"] = response[1]["status"]["message"]
-        result["request_url"] = response[1]["url"]
-        # Fix for fmgr_sys_hitcount
-        if response[1]["url"] == "/sys/hitcount":
-            if isinstance(result["response_data"], list) and len(result["response_data"]) == 0:
-                result["response_data"] = dict()
-            if "taskid" in response[1] and isinstance(result["response_data"], dict) \
-                    and "task" not in result["response_data"]:
-                result["response_data"]["task"] = response[1]["taskid"]
-        # XXX:Do further status mapping
-        self._do_final_exit(rc, result)
+    def do_exit(self, response, changed=True):
+        rc, response_data = response
+        result = {"response_data": list(), "response_message": ""}
+        if "data" in response_data:
+            result["response_data"] = response_data["data"]
+        if "status" in response_data:
+            if "code" in response_data["status"]:
+                result["response_code"] = response_data["status"]["code"]
+            if "message" in response_data["status"]:
+                result["response_message"] = response_data["status"]["message"]
+        if "url" in response_data:
+            result["request_url"] = response_data["url"]
+            # Fix for fmgr_sys_hitcount
+            if response_data["url"] == "/sys/hitcount":
+                if isinstance(result["response_data"], list) and len(result["response_data"]) == 0:
+                    result["response_data"] = dict()
+                if "taskid" in response_data and isinstance(result["response_data"], dict) \
+                        and "task" not in result["response_data"]:
+                    result["response_data"]["task"] = response_data["taskid"]
+        self._do_final_exit(rc, result, changed=changed)

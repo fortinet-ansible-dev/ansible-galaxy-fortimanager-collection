@@ -120,8 +120,8 @@ options:
                 type: str
                 description: no description
             faz-autoscale-admin-password:
-                description: description
-                type: str
+                type: raw
+                description: (list) no description
             faz-autoscale-admin-username:
                 type: str
                 description: no description
@@ -251,6 +251,7 @@ options:
             name:
                 type: str
                 description: no description
+                required: true
             notification-email:
                 type: str
                 description: no description
@@ -300,76 +301,76 @@ options:
 '''
 
 EXAMPLES = '''
- - hosts: fortimanager-inventory
-   collections:
-     - fortinet.fortimanager
-   connection: httpapi
-   vars:
-      ansible_httpapi_use_ssl: True
-      ansible_httpapi_validate_certs: False
-      ansible_httpapi_port: 443
-   tasks:
+- hosts: fortimanager-inventory
+  collections:
+    - fortinet.fortimanager
+  connection: httpapi
+  vars:
+    ansible_httpapi_use_ssl: True
+    ansible_httpapi_validate_certs: False
+    ansible_httpapi_port: 443
+  tasks:
     - name: no description
       fmgr_cloud_orchestawstemplate_autoscalenewvpc:
-         bypass_validation: False
-         workspace_locking_adom: <value in [global, custom adom including root]>
-         workspace_locking_timeout: 300
-         rc_succeeded: [0, -2, -3, ...]
-         rc_failed: [-2, -3, ...]
-         adom: <your own value>
-         state: <value in [present, absent]>
-         cloud_orchestawstemplate_autoscalenewvpc:
-            availability-zones: <value of string>
-            custom-asset-container: <value of string>
-            custom-asset-directory: <value of string>
-            custom-identifier: <value of string>
-            faz-autoscale-admin-password: <value of string>
-            faz-autoscale-admin-username: <value of string>
-            faz-custom-private-ipaddress: <value of string>
-            faz-instance-type: <value in [h1.2xlarge, h1.4xlarge, h1.8xlarge, ...]>
-            faz-integration-options: <value in [no, yes]>
-            faz-version: <value of string>
-            fgt-admin-cidr: <value of string>
-            fgt-admin-port: <value of integer>
-            fgt-instance-type: <value in [t2.small, c5.large, c5.xlarge, ...]>
-            fgt-psk-secret: <value of string>
-            fgtasg-cool-down: <value of integer>
-            fgtasg-desired-capacity-byol: <value of integer>
-            fgtasg-desired-capacity-payg: <value of integer>
-            fgtasg-health-check-grace-period: <value of integer>
-            fgtasg-max-size-byol: <value of integer>
-            fgtasg-max-size-payg: <value of integer>
-            fgtasg-min-size-byol: <value of integer>
-            fgtasg-min-size-payg: <value of integer>
-            fgtasg-scale-in-threshold: <value of integer>
-            fgtasg-scale-out-threshold: <value of integer>
-            fos-version: <value of string>
-            get-license-grace-period: <value of integer>
-            heartbeat-delay-allowance: <value of integer>
-            heartbeat-interval: <value of integer>
-            heartbeat-loss-count: <value of integer>
-            internal-balancer-dns-name: <value of string>
-            internal-balancing-options: <value in [add a new internal load balancer, use a load balancer specified below, do not need one]>
-            internal-target-group-health-check-path: <value of string>
-            key-pair-name: <value of string>
-            lifecycle-hook-timeout: <value of integer>
-            loadbalancing-health-check-threshold: <value of integer>
-            loadbalancing-traffic-port: <value of integer>
-            loadbalancing-traffic-protocol: <value in [HTTPS, HTTP, TCP]>
-            name: <value of string>
-            notification-email: <value of string>
-            primary-election-timeout: <value of integer>
-            private-subnet1-cidr: <value of string>
-            private-subnet2-cidr: <value of string>
-            public-subnet1-cidr: <value of string>
-            public-subnet2-cidr: <value of string>
-            resource-tag-prefix: <value of string>
-            s3-bucket-name: <value of string>
-            s3-key-prefix: <value of string>
-            sync-recovery-count: <value of integer>
-            terminate-unhealthy-vm: <value in [no, yes]>
-            use-custom-asset-location: <value in [no, yes]>
-            vpc-cidr: <value of string>
+        bypass_validation: False
+        workspace_locking_adom: <value in [global, custom adom including root]>
+        workspace_locking_timeout: 300
+        rc_succeeded: [0, -2, -3, ...]
+        rc_failed: [-2, -3, ...]
+        adom: <your own value>
+        state: <value in [present, absent]>
+        cloud_orchestawstemplate_autoscalenewvpc:
+          availability-zones: <string>
+          custom-asset-container: <string>
+          custom-asset-directory: <string>
+          custom-identifier: <string>
+          faz-autoscale-admin-password: <list or string>
+          faz-autoscale-admin-username: <string>
+          faz-custom-private-ipaddress: <string>
+          faz-instance-type: <value in [h1.2xlarge, h1.4xlarge, h1.8xlarge, ...]>
+          faz-integration-options: <value in [no, yes]>
+          faz-version: <string>
+          fgt-admin-cidr: <string>
+          fgt-admin-port: <integer>
+          fgt-instance-type: <value in [t2.small, c5.large, c5.xlarge, ...]>
+          fgt-psk-secret: <string>
+          fgtasg-cool-down: <integer>
+          fgtasg-desired-capacity-byol: <integer>
+          fgtasg-desired-capacity-payg: <integer>
+          fgtasg-health-check-grace-period: <integer>
+          fgtasg-max-size-byol: <integer>
+          fgtasg-max-size-payg: <integer>
+          fgtasg-min-size-byol: <integer>
+          fgtasg-min-size-payg: <integer>
+          fgtasg-scale-in-threshold: <integer>
+          fgtasg-scale-out-threshold: <integer>
+          fos-version: <string>
+          get-license-grace-period: <integer>
+          heartbeat-delay-allowance: <integer>
+          heartbeat-interval: <integer>
+          heartbeat-loss-count: <integer>
+          internal-balancer-dns-name: <string>
+          internal-balancing-options: <value in [add a new internal load balancer, use a load balancer specified below, do not need one]>
+          internal-target-group-health-check-path: <string>
+          key-pair-name: <string>
+          lifecycle-hook-timeout: <integer>
+          loadbalancing-health-check-threshold: <integer>
+          loadbalancing-traffic-port: <integer>
+          loadbalancing-traffic-protocol: <value in [HTTPS, HTTP, TCP]>
+          name: <string>
+          notification-email: <string>
+          primary-election-timeout: <integer>
+          private-subnet1-cidr: <string>
+          private-subnet2-cidr: <string>
+          public-subnet1-cidr: <string>
+          public-subnet2-cidr: <string>
+          resource-tag-prefix: <string>
+          s3-bucket-name: <string>
+          s3-key-prefix: <string>
+          sync-recovery-count: <integer>
+          terminate-unhealthy-vm: <value in [no, yes]>
+          use-custom-asset-location: <value in [no, yes]>
+          vpc-cidr: <string>
 
 '''
 
@@ -497,63 +498,72 @@ def main():
             'required': False,
             'type': 'dict',
             'revision': {
-                '7.4.0': True
+                '7.4.0': True,
+                '7.4.1': True
             },
             'options': {
                 'availability-zones': {
                     'required': False,
                     'revision': {
-                        '7.4.0': True
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'type': 'str'
                 },
                 'custom-asset-container': {
                     'required': False,
                     'revision': {
-                        '7.4.0': True
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'type': 'str'
                 },
                 'custom-asset-directory': {
                     'required': False,
                     'revision': {
-                        '7.4.0': True
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'type': 'str'
                 },
                 'custom-identifier': {
                     'required': False,
                     'revision': {
-                        '7.4.0': True
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'type': 'str'
                 },
                 'faz-autoscale-admin-password': {
                     'required': False,
                     'revision': {
-                        '7.4.0': True
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'no_log': True,
-                    'type': 'str'
+                    'type': 'raw'
                 },
                 'faz-autoscale-admin-username': {
                     'required': False,
                     'revision': {
-                        '7.4.0': True
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'type': 'str'
                 },
                 'faz-custom-private-ipaddress': {
                     'required': False,
                     'revision': {
-                        '7.4.0': True
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'type': 'str'
                 },
                 'faz-instance-type': {
                     'required': False,
                     'revision': {
-                        '7.4.0': True
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'choices': [
                         'h1.2xlarge',
@@ -573,7 +583,8 @@ def main():
                 'faz-integration-options': {
                     'required': False,
                     'revision': {
-                        '7.4.0': True
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'choices': [
                         'no',
@@ -584,28 +595,32 @@ def main():
                 'faz-version': {
                     'required': False,
                     'revision': {
-                        '7.4.0': True
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'type': 'str'
                 },
                 'fgt-admin-cidr': {
                     'required': False,
                     'revision': {
-                        '7.4.0': True
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'type': 'str'
                 },
                 'fgt-admin-port': {
                     'required': False,
                     'revision': {
-                        '7.4.0': True
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'type': 'int'
                 },
                 'fgt-instance-type': {
                     'required': False,
                     'revision': {
-                        '7.4.0': True
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'choices': [
                         't2.small',
@@ -620,126 +635,145 @@ def main():
                 'fgt-psk-secret': {
                     'required': False,
                     'revision': {
-                        '7.4.0': True
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
+                    'no_log': True,
                     'type': 'str'
                 },
                 'fgtasg-cool-down': {
                     'required': False,
                     'revision': {
-                        '7.4.0': True
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'type': 'int'
                 },
                 'fgtasg-desired-capacity-byol': {
                     'required': False,
                     'revision': {
-                        '7.4.0': True
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'type': 'int'
                 },
                 'fgtasg-desired-capacity-payg': {
                     'required': False,
                     'revision': {
-                        '7.4.0': True
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'type': 'int'
                 },
                 'fgtasg-health-check-grace-period': {
                     'required': False,
                     'revision': {
-                        '7.4.0': True
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'type': 'int'
                 },
                 'fgtasg-max-size-byol': {
                     'required': False,
                     'revision': {
-                        '7.4.0': True
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'type': 'int'
                 },
                 'fgtasg-max-size-payg': {
                     'required': False,
                     'revision': {
-                        '7.4.0': True
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'type': 'int'
                 },
                 'fgtasg-min-size-byol': {
                     'required': False,
                     'revision': {
-                        '7.4.0': True
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'type': 'int'
                 },
                 'fgtasg-min-size-payg': {
                     'required': False,
                     'revision': {
-                        '7.4.0': True
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'type': 'int'
                 },
                 'fgtasg-scale-in-threshold': {
                     'required': False,
                     'revision': {
-                        '7.4.0': True
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'type': 'int'
                 },
                 'fgtasg-scale-out-threshold': {
                     'required': False,
                     'revision': {
-                        '7.4.0': True
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'type': 'int'
                 },
                 'fos-version': {
                     'required': False,
                     'revision': {
-                        '7.4.0': True
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'type': 'str'
                 },
                 'get-license-grace-period': {
                     'required': False,
                     'revision': {
-                        '7.4.0': True
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'type': 'int'
                 },
                 'heartbeat-delay-allowance': {
                     'required': False,
                     'revision': {
-                        '7.4.0': True
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'type': 'int'
                 },
                 'heartbeat-interval': {
                     'required': False,
                     'revision': {
-                        '7.4.0': True
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'type': 'int'
                 },
                 'heartbeat-loss-count': {
                     'required': False,
                     'revision': {
-                        '7.4.0': True
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'type': 'int'
                 },
                 'internal-balancer-dns-name': {
                     'required': False,
                     'revision': {
-                        '7.4.0': True
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'type': 'str'
                 },
                 'internal-balancing-options': {
                     'required': False,
                     'revision': {
-                        '7.4.0': True
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'choices': [
                         'add a new internal load balancer',
@@ -751,42 +785,49 @@ def main():
                 'internal-target-group-health-check-path': {
                     'required': False,
                     'revision': {
-                        '7.4.0': True
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'type': 'str'
                 },
                 'key-pair-name': {
                     'required': False,
                     'revision': {
-                        '7.4.0': True
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
+                    'no_log': True,
                     'type': 'str'
                 },
                 'lifecycle-hook-timeout': {
                     'required': False,
                     'revision': {
-                        '7.4.0': True
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'type': 'int'
                 },
                 'loadbalancing-health-check-threshold': {
                     'required': False,
                     'revision': {
-                        '7.4.0': True
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'type': 'int'
                 },
                 'loadbalancing-traffic-port': {
                     'required': False,
                     'revision': {
-                        '7.4.0': True
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'type': 'int'
                 },
                 'loadbalancing-traffic-protocol': {
                     'required': False,
                     'revision': {
-                        '7.4.0': True
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'choices': [
                         'HTTPS',
@@ -798,84 +839,97 @@ def main():
                 'name': {
                     'required': True,
                     'revision': {
-                        '7.4.0': True
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'type': 'str'
                 },
                 'notification-email': {
                     'required': False,
                     'revision': {
-                        '7.4.0': True
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'type': 'str'
                 },
                 'primary-election-timeout': {
                     'required': False,
                     'revision': {
-                        '7.4.0': True
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'type': 'int'
                 },
                 'private-subnet1-cidr': {
                     'required': False,
                     'revision': {
-                        '7.4.0': True
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'type': 'str'
                 },
                 'private-subnet2-cidr': {
                     'required': False,
                     'revision': {
-                        '7.4.0': True
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'type': 'str'
                 },
                 'public-subnet1-cidr': {
                     'required': False,
                     'revision': {
-                        '7.4.0': True
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'type': 'str'
                 },
                 'public-subnet2-cidr': {
                     'required': False,
                     'revision': {
-                        '7.4.0': True
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'type': 'str'
                 },
                 'resource-tag-prefix': {
                     'required': False,
                     'revision': {
-                        '7.4.0': True
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'type': 'str'
                 },
                 's3-bucket-name': {
                     'required': False,
                     'revision': {
-                        '7.4.0': True
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'type': 'str'
                 },
                 's3-key-prefix': {
                     'required': False,
                     'revision': {
-                        '7.4.0': True
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
+                    'no_log': True,
                     'type': 'str'
                 },
                 'sync-recovery-count': {
                     'required': False,
                     'revision': {
-                        '7.4.0': True
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'type': 'int'
                 },
                 'terminate-unhealthy-vm': {
                     'required': False,
                     'revision': {
-                        '7.4.0': True
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'choices': [
                         'no',
@@ -886,7 +940,8 @@ def main():
                 'use-custom-asset-location': {
                     'required': False,
                     'revision': {
-                        '7.4.0': True
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'choices': [
                         'no',
@@ -897,7 +952,8 @@ def main():
                 'vpc-cidr': {
                     'required': False,
                     'revision': {
-                        '7.4.0': True
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'type': 'str'
                 }

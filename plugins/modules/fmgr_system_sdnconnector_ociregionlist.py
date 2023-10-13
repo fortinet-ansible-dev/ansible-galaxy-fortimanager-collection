@@ -118,27 +118,27 @@ options:
 '''
 
 EXAMPLES = '''
- - hosts: fortimanager-inventory
-   collections:
-     - fortinet.fortimanager
-   connection: httpapi
-   vars:
-      ansible_httpapi_use_ssl: True
-      ansible_httpapi_validate_certs: False
-      ansible_httpapi_port: 443
-   tasks:
+- hosts: fortimanager-inventory
+  collections:
+    - fortinet.fortimanager
+  connection: httpapi
+  vars:
+    ansible_httpapi_use_ssl: True
+    ansible_httpapi_validate_certs: False
+    ansible_httpapi_port: 443
+  tasks:
     - name: Configure OCI region list.
       fmgr_system_sdnconnector_ociregionlist:
-         bypass_validation: False
-         workspace_locking_adom: <value in [global, custom adom including root]>
-         workspace_locking_timeout: 300
-         rc_succeeded: [0, -2, -3, ...]
-         rc_failed: [-2, -3, ...]
-         adom: <your own value>
-         sdn-connector: <your own value>
-         state: <value in [present, absent]>
-         system_sdnconnector_ociregionlist:
-            region: <value of string>
+        bypass_validation: False
+        workspace_locking_adom: <value in [global, custom adom including root]>
+        workspace_locking_timeout: 300
+        rc_succeeded: [0, -2, -3, ...]
+        rc_failed: [-2, -3, ...]
+        adom: <your own value>
+        sdn-connector: <your own value>
+        state: <value in [present, absent]>
+        system_sdnconnector_ociregionlist:
+          region: <string>
 
 '''
 
@@ -270,13 +270,15 @@ def main():
             'required': False,
             'type': 'dict',
             'revision': {
-                '7.4.0': True
+                '7.4.0': True,
+                '7.4.1': True
             },
             'options': {
                 'region': {
                     'required': False,
                     'revision': {
-                        '7.4.0': True
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'type': 'str'
                 }

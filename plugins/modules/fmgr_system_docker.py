@@ -99,38 +99,38 @@ options:
             fortiportal:
                 type: str
                 description:
-                 - Enable/disable container.
-                 - disable - Disable setting.
-                 - enable - Enable setting.
+                    - Enable/disable container.
+                    - disable - Disable setting.
+                    - enable - Enable setting.
                 choices:
                     - 'disable'
                     - 'enable'
             fortiwlm:
                 type: str
                 description:
-                 - Enable/disable container.
-                 - disable - Disable setting.
-                 - enable - Enable setting.
+                    - Enable/disable container.
+                    - disable - Disable setting.
+                    - enable - Enable setting.
                 choices:
                     - 'disable'
                     - 'enable'
             sdwancontroller:
                 type: str
                 description:
-                 - Enable/disable container.
-                 - disable - Disable setting.
-                 - enable - Enable setting.
+                    - Enable/disable container.
+                    - disable - Disable setting.
+                    - enable - Enable setting.
                 choices:
                     - 'disable'
                     - 'enable'
             status:
                 type: str
                 description:
-                 - Enable and set registry.
-                 - disable - Disable docker host service.
-                 - enable - Enable production registry.
-                 - qa - Enable QA test registry.
-                 - dev - Enable QA test registry
+                    - Enable and set registry.
+                    - disable - Disable docker host service.
+                    - enable - Enable production registry.
+                    - qa - Enable QA test registry.
+                    - dev - Enable QA test registry
                 choices:
                     - 'disable'
                     - 'enable'
@@ -148,18 +148,18 @@ options:
             fortiauthenticator:
                 type: str
                 description:
-                 - Enable/disable container.
-                 - disable - Disable setting.
-                 - enable - Enable setting.
+                    - Enable/disable container.
+                    - disable - Disable setting.
+                    - enable - Enable setting.
                 choices:
                     - 'disable'
                     - 'enable'
             fortisigconverter:
                 type: str
                 description:
-                 - Enable/disable container.
-                 - disable - Disable setting.
-                 - enable - Enable setting.
+                    - Enable/disable container.
+                    - disable - Disable setting.
+                    - enable - Enable setting.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -172,45 +172,45 @@ options:
             fortisoar:
                 type: str
                 description:
-                 - Enable/disable container.
-                 - disable - Disable setting.
-                 - enable - Enable setting.
+                    - Enable/disable container.
+                    - disable - Disable setting.
+                    - enable - Enable setting.
                 choices:
                     - 'disable'
                     - 'enable'
             fortiaiops:
                 type: str
                 description:
-                 - Enable/disable container.
-                 - disable - Disable setting.
-                 - enable - Enable setting.
+                    - Enable/disable container.
+                    - disable - Disable setting.
+                    - enable - Enable setting.
                 choices:
                     - 'disable'
                     - 'enable'
             policyanalyzer:
                 type: str
                 description:
-                 - Enable/disable container.
-                 - disable - Disable setting.
-                 - enable - Enable setting.
+                    - Enable/disable container.
+                    - disable - Disable setting.
+                    - enable - Enable setting.
                 choices:
                     - 'disable'
                     - 'enable'
             universalconnector:
                 type: str
                 description:
-                 - Enable/disable container.
-                 - disable - Disable setting.
-                 - enable - Enable setting.
+                    - Enable/disable container.
+                    - disable - Disable setting.
+                    - enable - Enable setting.
                 choices:
                     - 'disable'
                     - 'enable'
             fsmcollector:
                 type: str
                 description:
-                 - Enable/disable container.
-                 - disable - Disable setting.
-                 - enable - Enable setting.
+                    - Enable/disable container.
+                    - disable - Disable setting.
+                    - enable - Enable setting.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -218,39 +218,39 @@ options:
 '''
 
 EXAMPLES = '''
- - hosts: fortimanager-inventory
-   collections:
-     - fortinet.fortimanager
-   connection: httpapi
-   vars:
-      ansible_httpapi_use_ssl: True
-      ansible_httpapi_validate_certs: False
-      ansible_httpapi_port: 443
-   tasks:
+- hosts: fortimanager-inventory
+  collections:
+    - fortinet.fortimanager
+  connection: httpapi
+  vars:
+    ansible_httpapi_use_ssl: True
+    ansible_httpapi_validate_certs: False
+    ansible_httpapi_port: 443
+  tasks:
     - name: Docker host.
       fmgr_system_docker:
-         bypass_validation: False
-         workspace_locking_adom: <value in [global, custom adom including root]>
-         workspace_locking_timeout: 300
-         rc_succeeded: [0, -2, -3, ...]
-         rc_failed: [-2, -3, ...]
-         system_docker:
-            fortiportal: <value in [disable, enable]>
-            fortiwlm: <value in [disable, enable]>
-            sdwancontroller: <value in [disable, enable]>
-            status: <value in [disable, enable, qa, ...]>
-            cpu: <value of integer>
-            default-address-pool_base: <value of string>
-            default-address-pool_size: <value of integer>
-            fortiauthenticator: <value in [disable, enable]>
-            fortisigconverter: <value in [disable, enable]>
-            mem: <value of integer>
-            docker-user-login-max: <value of integer>
-            fortisoar: <value in [disable, enable]>
-            fortiaiops: <value in [disable, enable]>
-            policyanalyzer: <value in [disable, enable]>
-            universalconnector: <value in [disable, enable]>
-            fsmcollector: <value in [disable, enable]>
+        bypass_validation: False
+        workspace_locking_adom: <value in [global, custom adom including root]>
+        workspace_locking_timeout: 300
+        rc_succeeded: [0, -2, -3, ...]
+        rc_failed: [-2, -3, ...]
+        system_docker:
+          fortiportal: <value in [disable, enable]>
+          fortiwlm: <value in [disable, enable]>
+          sdwancontroller: <value in [disable, enable]>
+          status: <value in [disable, enable, qa, ...]>
+          cpu: <integer>
+          default-address-pool_base: <string>
+          default-address-pool_size: <integer>
+          fortiauthenticator: <value in [disable, enable]>
+          fortisigconverter: <value in [disable, enable]>
+          mem: <integer>
+          docker-user-login-max: <integer>
+          fortisoar: <value in [disable, enable]>
+          fortiaiops: <value in [disable, enable]>
+          policyanalyzer: <value in [disable, enable]>
+          universalconnector: <value in [disable, enable]>
+          fsmcollector: <value in [disable, enable]>
 
 '''
 
@@ -377,6 +377,7 @@ def main():
                 '6.4.10': True,
                 '6.4.11': True,
                 '6.4.12': True,
+                '6.4.13': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -386,21 +387,19 @@ def main():
                 '7.0.6': True,
                 '7.0.7': True,
                 '7.0.8': True,
+                '7.0.9': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
                 '7.2.3': True,
-                '7.4.0': True
+                '7.2.4': True,
+                '7.4.0': True,
+                '7.4.1': True
             },
             'options': {
                 'fortiportal': {
                     'required': False,
                     'revision': {
-                        '6.4.0': True,
-                        '6.4.2': True,
-                        '6.4.5': True,
-                        '7.0.0': True,
-                        '7.2.0': True,
                         '6.2.0': False,
                         '6.2.2': False,
                         '6.2.6': False,
@@ -409,9 +408,13 @@ def main():
                         '6.2.9': False,
                         '6.2.10': False,
                         '6.2.11': False,
+                        '6.2.12': False,
+                        '6.4.0': True,
                         '6.4.1': True,
+                        '6.4.2': True,
                         '6.4.3': True,
                         '6.4.4': True,
+                        '6.4.5': True,
                         '6.4.6': True,
                         '6.4.7': True,
                         '6.4.8': True,
@@ -419,6 +422,8 @@ def main():
                         '6.4.10': True,
                         '6.4.11': True,
                         '6.4.12': True,
+                        '6.4.13': True,
+                        '7.0.0': True,
                         '7.0.1': True,
                         '7.0.2': True,
                         '7.0.3': True,
@@ -427,10 +432,14 @@ def main():
                         '7.0.6': True,
                         '7.0.7': True,
                         '7.0.8': True,
+                        '7.0.9': True,
+                        '7.2.0': True,
                         '7.2.1': True,
                         '7.2.2': True,
                         '7.2.3': True,
-                        '7.4.0': True
+                        '7.2.4': True,
+                        '7.4.0': True,
+                        '7.4.1': False
                     },
                     'choices': [
                         'disable',
@@ -441,11 +450,6 @@ def main():
                 'fortiwlm': {
                     'required': False,
                     'revision': {
-                        '6.4.0': True,
-                        '6.4.2': True,
-                        '6.4.5': True,
-                        '7.0.0': True,
-                        '7.2.0': True,
                         '6.2.0': False,
                         '6.2.2': False,
                         '6.2.6': False,
@@ -454,9 +458,13 @@ def main():
                         '6.2.9': False,
                         '6.2.10': False,
                         '6.2.11': False,
+                        '6.2.12': False,
+                        '6.4.0': True,
                         '6.4.1': True,
+                        '6.4.2': True,
                         '6.4.3': True,
                         '6.4.4': True,
+                        '6.4.5': True,
                         '6.4.6': True,
                         '6.4.7': True,
                         '6.4.8': True,
@@ -464,6 +472,8 @@ def main():
                         '6.4.10': True,
                         '6.4.11': True,
                         '6.4.12': True,
+                        '6.4.13': True,
+                        '7.0.0': True,
                         '7.0.1': True,
                         '7.0.2': True,
                         '7.0.3': True,
@@ -472,10 +482,14 @@ def main():
                         '7.0.6': True,
                         '7.0.7': True,
                         '7.0.8': True,
+                        '7.0.9': True,
+                        '7.2.0': True,
                         '7.2.1': True,
                         '7.2.2': True,
                         '7.2.3': True,
-                        '7.4.0': True
+                        '7.2.4': True,
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'choices': [
                         'disable',
@@ -486,11 +500,6 @@ def main():
                 'sdwancontroller': {
                     'required': False,
                     'revision': {
-                        '6.4.0': True,
-                        '6.4.2': True,
-                        '6.4.5': True,
-                        '7.0.0': True,
-                        '7.2.0': False,
                         '6.2.0': False,
                         '6.2.2': False,
                         '6.2.6': False,
@@ -499,9 +508,13 @@ def main():
                         '6.2.9': False,
                         '6.2.10': False,
                         '6.2.11': False,
+                        '6.2.12': False,
+                        '6.4.0': True,
                         '6.4.1': True,
+                        '6.4.2': True,
                         '6.4.3': True,
                         '6.4.4': True,
+                        '6.4.5': True,
                         '6.4.6': True,
                         '6.4.7': True,
                         '6.4.8': True,
@@ -509,6 +522,8 @@ def main():
                         '6.4.10': True,
                         '6.4.11': True,
                         '6.4.12': True,
+                        '6.4.13': True,
+                        '7.0.0': True,
                         '7.0.1': True,
                         '7.0.2': True,
                         '7.0.3': True,
@@ -517,10 +532,14 @@ def main():
                         '7.0.6': True,
                         '7.0.7': True,
                         '7.0.8': True,
+                        '7.0.9': True,
+                        '7.2.0': False,
                         '7.2.1': False,
                         '7.2.2': False,
                         '7.2.3': False,
-                        '7.4.0': False
+                        '7.2.4': False,
+                        '7.4.0': False,
+                        '7.4.1': False
                     },
                     'choices': [
                         'disable',
@@ -531,11 +550,6 @@ def main():
                 'status': {
                     'required': False,
                     'revision': {
-                        '6.4.0': True,
-                        '6.4.2': True,
-                        '6.4.5': True,
-                        '7.0.0': True,
-                        '7.2.0': True,
                         '6.2.0': False,
                         '6.2.2': False,
                         '6.2.6': False,
@@ -544,9 +558,13 @@ def main():
                         '6.2.9': False,
                         '6.2.10': False,
                         '6.2.11': False,
+                        '6.2.12': False,
+                        '6.4.0': True,
                         '6.4.1': True,
+                        '6.4.2': True,
                         '6.4.3': True,
                         '6.4.4': True,
+                        '6.4.5': True,
                         '6.4.6': True,
                         '6.4.7': True,
                         '6.4.8': True,
@@ -554,6 +572,8 @@ def main():
                         '6.4.10': True,
                         '6.4.11': True,
                         '6.4.12': True,
+                        '6.4.13': True,
+                        '7.0.0': True,
                         '7.0.1': True,
                         '7.0.2': True,
                         '7.0.3': True,
@@ -562,10 +582,14 @@ def main():
                         '7.0.6': True,
                         '7.0.7': True,
                         '7.0.8': True,
+                        '7.0.9': True,
+                        '7.2.0': True,
                         '7.2.1': True,
                         '7.2.2': True,
                         '7.2.3': True,
-                        '7.4.0': True
+                        '7.2.4': True,
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'choices': [
                         'disable',
@@ -578,9 +602,6 @@ def main():
                 'cpu': {
                     'required': False,
                     'revision': {
-                        '6.4.5': True,
-                        '7.0.0': True,
-                        '7.2.0': True,
                         '6.2.0': False,
                         '6.2.2': False,
                         '6.2.6': False,
@@ -589,9 +610,11 @@ def main():
                         '6.2.9': False,
                         '6.2.10': False,
                         '6.2.11': False,
+                        '6.2.12': False,
                         '6.4.1': False,
                         '6.4.3': False,
                         '6.4.4': False,
+                        '6.4.5': True,
                         '6.4.6': True,
                         '6.4.7': True,
                         '6.4.8': True,
@@ -599,6 +622,8 @@ def main():
                         '6.4.10': True,
                         '6.4.11': True,
                         '6.4.12': True,
+                        '6.4.13': True,
+                        '7.0.0': True,
                         '7.0.1': True,
                         '7.0.2': True,
                         '7.0.3': True,
@@ -607,19 +632,20 @@ def main():
                         '7.0.6': True,
                         '7.0.7': True,
                         '7.0.8': True,
+                        '7.0.9': True,
+                        '7.2.0': True,
                         '7.2.1': True,
                         '7.2.2': True,
                         '7.2.3': True,
-                        '7.4.0': True
+                        '7.2.4': True,
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'type': 'int'
                 },
                 'default-address-pool_base': {
                     'required': False,
                     'revision': {
-                        '6.4.5': True,
-                        '7.0.0': True,
-                        '7.2.0': True,
                         '6.2.0': False,
                         '6.2.2': False,
                         '6.2.6': False,
@@ -628,9 +654,11 @@ def main():
                         '6.2.9': False,
                         '6.2.10': False,
                         '6.2.11': False,
+                        '6.2.12': False,
                         '6.4.1': False,
                         '6.4.3': True,
                         '6.4.4': True,
+                        '6.4.5': True,
                         '6.4.6': True,
                         '6.4.7': True,
                         '6.4.8': True,
@@ -638,6 +666,8 @@ def main():
                         '6.4.10': True,
                         '6.4.11': True,
                         '6.4.12': True,
+                        '6.4.13': True,
+                        '7.0.0': True,
                         '7.0.1': True,
                         '7.0.2': True,
                         '7.0.3': True,
@@ -646,19 +676,20 @@ def main():
                         '7.0.6': True,
                         '7.0.7': True,
                         '7.0.8': True,
+                        '7.0.9': True,
+                        '7.2.0': True,
                         '7.2.1': True,
                         '7.2.2': True,
                         '7.2.3': True,
-                        '7.4.0': True
+                        '7.2.4': True,
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'type': 'str'
                 },
                 'default-address-pool_size': {
                     'required': False,
                     'revision': {
-                        '6.4.5': True,
-                        '7.0.0': True,
-                        '7.2.0': True,
                         '6.2.0': False,
                         '6.2.2': False,
                         '6.2.6': False,
@@ -667,9 +698,11 @@ def main():
                         '6.2.9': False,
                         '6.2.10': False,
                         '6.2.11': False,
+                        '6.2.12': False,
                         '6.4.1': False,
                         '6.4.3': True,
                         '6.4.4': True,
+                        '6.4.5': True,
                         '6.4.6': True,
                         '6.4.7': True,
                         '6.4.8': True,
@@ -677,6 +710,8 @@ def main():
                         '6.4.10': True,
                         '6.4.11': True,
                         '6.4.12': True,
+                        '6.4.13': True,
+                        '7.0.0': True,
                         '7.0.1': True,
                         '7.0.2': True,
                         '7.0.3': True,
@@ -685,19 +720,20 @@ def main():
                         '7.0.6': True,
                         '7.0.7': True,
                         '7.0.8': True,
+                        '7.0.9': True,
+                        '7.2.0': True,
                         '7.2.1': True,
                         '7.2.2': True,
                         '7.2.3': True,
-                        '7.4.0': True
+                        '7.2.4': True,
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'type': 'int'
                 },
                 'fortiauthenticator': {
                     'required': False,
                     'revision': {
-                        '6.4.5': True,
-                        '7.0.0': True,
-                        '7.2.0': True,
                         '6.2.0': False,
                         '6.2.2': False,
                         '6.2.6': False,
@@ -706,9 +742,11 @@ def main():
                         '6.2.9': False,
                         '6.2.10': False,
                         '6.2.11': False,
+                        '6.2.12': False,
                         '6.4.1': False,
                         '6.4.3': True,
                         '6.4.4': True,
+                        '6.4.5': True,
                         '6.4.6': True,
                         '6.4.7': True,
                         '6.4.8': True,
@@ -716,6 +754,8 @@ def main():
                         '6.4.10': True,
                         '6.4.11': True,
                         '6.4.12': True,
+                        '6.4.13': True,
+                        '7.0.0': True,
                         '7.0.1': True,
                         '7.0.2': True,
                         '7.0.3': True,
@@ -724,10 +764,14 @@ def main():
                         '7.0.6': True,
                         '7.0.7': True,
                         '7.0.8': True,
+                        '7.0.9': True,
+                        '7.2.0': True,
                         '7.2.1': False,
                         '7.2.2': False,
                         '7.2.3': False,
-                        '7.4.0': False
+                        '7.2.4': False,
+                        '7.4.0': False,
+                        '7.4.1': False
                     },
                     'choices': [
                         'disable',
@@ -738,9 +782,6 @@ def main():
                 'fortisigconverter': {
                     'required': False,
                     'revision': {
-                        '6.4.5': True,
-                        '7.0.0': True,
-                        '7.2.0': True,
                         '6.2.0': False,
                         '6.2.2': False,
                         '6.2.6': False,
@@ -749,9 +790,11 @@ def main():
                         '6.2.9': False,
                         '6.2.10': False,
                         '6.2.11': False,
+                        '6.2.12': False,
                         '6.4.1': False,
                         '6.4.3': True,
                         '6.4.4': True,
+                        '6.4.5': True,
                         '6.4.6': True,
                         '6.4.7': True,
                         '6.4.8': True,
@@ -759,6 +802,8 @@ def main():
                         '6.4.10': True,
                         '6.4.11': True,
                         '6.4.12': True,
+                        '6.4.13': True,
+                        '7.0.0': True,
                         '7.0.1': True,
                         '7.0.2': True,
                         '7.0.3': True,
@@ -767,10 +812,14 @@ def main():
                         '7.0.6': True,
                         '7.0.7': True,
                         '7.0.8': True,
+                        '7.0.9': True,
+                        '7.2.0': True,
                         '7.2.1': True,
                         '7.2.2': True,
                         '7.2.3': True,
-                        '7.4.0': True
+                        '7.2.4': True,
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'choices': [
                         'disable',
@@ -781,9 +830,6 @@ def main():
                 'mem': {
                     'required': False,
                     'revision': {
-                        '6.4.5': True,
-                        '7.0.0': True,
-                        '7.2.0': True,
                         '6.2.0': False,
                         '6.2.2': False,
                         '6.2.6': False,
@@ -792,9 +838,11 @@ def main():
                         '6.2.9': False,
                         '6.2.10': False,
                         '6.2.11': False,
+                        '6.2.12': False,
                         '6.4.1': False,
                         '6.4.3': False,
                         '6.4.4': False,
+                        '6.4.5': True,
                         '6.4.6': True,
                         '6.4.7': True,
                         '6.4.8': True,
@@ -802,6 +850,8 @@ def main():
                         '6.4.10': True,
                         '6.4.11': True,
                         '6.4.12': True,
+                        '6.4.13': True,
+                        '7.0.0': True,
                         '7.0.1': True,
                         '7.0.2': True,
                         '7.0.3': True,
@@ -810,18 +860,20 @@ def main():
                         '7.0.6': True,
                         '7.0.7': True,
                         '7.0.8': True,
+                        '7.0.9': True,
+                        '7.2.0': True,
                         '7.2.1': True,
                         '7.2.2': True,
                         '7.2.3': True,
-                        '7.4.0': True
+                        '7.2.4': True,
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'type': 'int'
                 },
                 'docker-user-login-max': {
                     'required': False,
                     'revision': {
-                        '7.0.0': True,
-                        '7.2.0': True,
                         '6.2.0': False,
                         '6.2.2': False,
                         '6.2.6': False,
@@ -830,6 +882,7 @@ def main():
                         '6.2.9': False,
                         '6.2.10': False,
                         '6.2.11': False,
+                        '6.2.12': False,
                         '6.4.1': False,
                         '6.4.3': False,
                         '6.4.4': False,
@@ -840,6 +893,8 @@ def main():
                         '6.4.10': True,
                         '6.4.11': True,
                         '6.4.12': True,
+                        '6.4.13': True,
+                        '7.0.0': True,
                         '7.0.1': True,
                         '7.0.2': True,
                         '7.0.3': True,
@@ -848,18 +903,20 @@ def main():
                         '7.0.6': True,
                         '7.0.7': True,
                         '7.0.8': True,
+                        '7.0.9': True,
+                        '7.2.0': True,
                         '7.2.1': True,
                         '7.2.2': True,
                         '7.2.3': True,
-                        '7.4.0': True
+                        '7.2.4': True,
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'type': 'int'
                 },
                 'fortisoar': {
                     'required': False,
                     'revision': {
-                        '7.0.0': True,
-                        '7.2.0': True,
                         '6.2.0': False,
                         '6.2.2': False,
                         '6.2.6': False,
@@ -868,6 +925,7 @@ def main():
                         '6.2.9': False,
                         '6.2.10': False,
                         '6.2.11': False,
+                        '6.2.12': False,
                         '6.4.1': False,
                         '6.4.3': False,
                         '6.4.4': False,
@@ -878,6 +936,8 @@ def main():
                         '6.4.10': False,
                         '6.4.11': False,
                         '6.4.12': False,
+                        '6.4.13': False,
+                        '7.0.0': True,
                         '7.0.1': True,
                         '7.0.2': True,
                         '7.0.3': True,
@@ -886,10 +946,14 @@ def main():
                         '7.0.6': True,
                         '7.0.7': True,
                         '7.0.8': True,
+                        '7.0.9': True,
+                        '7.2.0': True,
                         '7.2.1': True,
                         '7.2.2': True,
                         '7.2.3': True,
-                        '7.4.0': True
+                        '7.2.4': True,
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'choices': [
                         'disable',
@@ -900,7 +964,6 @@ def main():
                 'fortiaiops': {
                     'required': False,
                     'revision': {
-                        '7.2.0': True,
                         '6.2.0': False,
                         '6.2.2': False,
                         '6.2.6': False,
@@ -909,6 +972,7 @@ def main():
                         '6.2.9': False,
                         '6.2.10': False,
                         '6.2.11': False,
+                        '6.2.12': False,
                         '6.4.1': False,
                         '6.4.3': False,
                         '6.4.4': False,
@@ -919,6 +983,7 @@ def main():
                         '6.4.10': False,
                         '6.4.11': False,
                         '6.4.12': False,
+                        '6.4.13': False,
                         '7.0.1': True,
                         '7.0.2': True,
                         '7.0.3': True,
@@ -927,10 +992,14 @@ def main():
                         '7.0.6': True,
                         '7.0.7': True,
                         '7.0.8': True,
+                        '7.0.9': True,
+                        '7.2.0': True,
                         '7.2.1': True,
                         '7.2.2': True,
                         '7.2.3': True,
-                        '7.4.0': True
+                        '7.2.4': True,
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'choices': [
                         'disable',
@@ -941,7 +1010,6 @@ def main():
                 'policyanalyzer': {
                     'required': False,
                     'revision': {
-                        '7.2.0': True,
                         '6.2.0': False,
                         '6.2.2': False,
                         '6.2.6': False,
@@ -950,6 +1018,7 @@ def main():
                         '6.2.9': False,
                         '6.2.10': False,
                         '6.2.11': False,
+                        '6.2.12': False,
                         '6.4.1': False,
                         '6.4.3': False,
                         '6.4.4': False,
@@ -960,6 +1029,7 @@ def main():
                         '6.4.10': False,
                         '6.4.11': False,
                         '6.4.12': False,
+                        '6.4.13': False,
                         '7.0.1': False,
                         '7.0.2': True,
                         '7.0.3': True,
@@ -968,10 +1038,14 @@ def main():
                         '7.0.6': True,
                         '7.0.7': True,
                         '7.0.8': True,
+                        '7.0.9': True,
+                        '7.2.0': True,
                         '7.2.1': True,
                         '7.2.2': True,
                         '7.2.3': True,
-                        '7.4.0': True
+                        '7.2.4': True,
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'choices': [
                         'disable',
@@ -982,7 +1056,6 @@ def main():
                 'universalconnector': {
                     'required': False,
                     'revision': {
-                        '7.2.0': True,
                         '6.2.0': False,
                         '6.2.2': False,
                         '6.2.6': False,
@@ -991,6 +1064,7 @@ def main():
                         '6.2.9': False,
                         '6.2.10': False,
                         '6.2.11': False,
+                        '6.2.12': False,
                         '6.4.1': False,
                         '6.4.3': False,
                         '6.4.4': False,
@@ -1001,6 +1075,7 @@ def main():
                         '6.4.10': False,
                         '6.4.11': False,
                         '6.4.12': False,
+                        '6.4.13': False,
                         '7.0.1': True,
                         '7.0.2': True,
                         '7.0.3': True,
@@ -1009,10 +1084,14 @@ def main():
                         '7.0.6': True,
                         '7.0.7': True,
                         '7.0.8': True,
+                        '7.0.9': True,
+                        '7.2.0': True,
                         '7.2.1': True,
                         '7.2.2': True,
                         '7.2.3': True,
-                        '7.4.0': True
+                        '7.2.4': True,
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'choices': [
                         'disable',
@@ -1031,10 +1110,13 @@ def main():
                         '7.0.6': False,
                         '7.0.7': False,
                         '7.0.8': False,
+                        '7.0.9': False,
                         '7.2.1': False,
                         '7.2.2': False,
                         '7.2.3': False,
-                        '7.4.0': False
+                        '7.2.4': False,
+                        '7.4.0': False,
+                        '7.4.1': False
                     },
                     'choices': [
                         'disable',

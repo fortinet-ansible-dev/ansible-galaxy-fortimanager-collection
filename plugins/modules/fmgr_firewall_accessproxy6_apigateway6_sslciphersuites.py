@@ -194,9 +194,9 @@ options:
                 type: int
                 description: SSL/TLS cipher suites priority.
             versions:
-                description: description
                 type: list
                 elements: str
+                description: no description
                 choices:
                     - 'tls-1.0'
                     - 'tls-1.1'
@@ -206,34 +206,34 @@ options:
 '''
 
 EXAMPLES = '''
- - hosts: fortimanager-inventory
-   collections:
-     - fortinet.fortimanager
-   connection: httpapi
-   vars:
-      ansible_httpapi_use_ssl: True
-      ansible_httpapi_validate_certs: False
-      ansible_httpapi_port: 443
-   tasks:
+- hosts: fortimanager-inventory
+  collections:
+    - fortinet.fortimanager
+  connection: httpapi
+  vars:
+    ansible_httpapi_use_ssl: True
+    ansible_httpapi_validate_certs: False
+    ansible_httpapi_port: 443
+  tasks:
     - name: SSL/TLS cipher suites to offer to a server, ordered by priority.
       fmgr_firewall_accessproxy6_apigateway6_sslciphersuites:
-         bypass_validation: False
-         workspace_locking_adom: <value in [global, custom adom including root]>
-         workspace_locking_timeout: 300
-         rc_succeeded: [0, -2, -3, ...]
-         rc_failed: [-2, -3, ...]
-         adom: <your own value>
-         access-proxy6: <your own value>
-         api-gateway6: <your own value>
-         state: <value in [present, absent]>
-         firewall_accessproxy6_apigateway6_sslciphersuites:
-            cipher: <value in [TLS-RSA-WITH-RC4-128-MD5, TLS-RSA-WITH-RC4-128-SHA, TLS-RSA-WITH-DES-CBC-SHA, ...]>
-            priority: <value of integer>
-            versions:
-              - tls-1.0
-              - tls-1.1
-              - tls-1.2
-              - tls-1.3
+        bypass_validation: False
+        workspace_locking_adom: <value in [global, custom adom including root]>
+        workspace_locking_timeout: 300
+        rc_succeeded: [0, -2, -3, ...]
+        rc_failed: [-2, -3, ...]
+        adom: <your own value>
+        access-proxy6: <your own value>
+        api-gateway6: <your own value>
+        state: <value in [present, absent]>
+        firewall_accessproxy6_apigateway6_sslciphersuites:
+          cipher: <value in [TLS-RSA-WITH-RC4-128-MD5, TLS-RSA-WITH-RC4-128-SHA, TLS-RSA-WITH-DES-CBC-SHA, ...]>
+          priority: <integer>
+          versions:
+            - tls-1.0
+            - tls-1.1
+            - tls-1.2
+            - tls-1.3
 
 '''
 
@@ -372,7 +372,9 @@ def main():
                 '7.2.1': True,
                 '7.2.2': True,
                 '7.2.3': True,
-                '7.4.0': True
+                '7.2.4': True,
+                '7.4.0': True,
+                '7.4.1': True
             },
             'options': {
                 'cipher': {
@@ -381,7 +383,9 @@ def main():
                         '7.2.1': True,
                         '7.2.2': True,
                         '7.2.3': True,
-                        '7.4.0': True
+                        '7.2.4': True,
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'choices': [
                         'TLS-RSA-WITH-RC4-128-MD5',
@@ -464,7 +468,9 @@ def main():
                         '7.2.1': True,
                         '7.2.2': True,
                         '7.2.3': True,
-                        '7.4.0': True
+                        '7.2.4': True,
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'type': 'int'
                 },
@@ -474,7 +480,9 @@ def main():
                         '7.2.1': True,
                         '7.2.2': True,
                         '7.2.3': True,
-                        '7.4.0': True
+                        '7.2.4': True,
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'type': 'list',
                     'choices': [

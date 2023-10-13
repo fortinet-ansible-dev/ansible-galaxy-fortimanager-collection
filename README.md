@@ -1,6 +1,24 @@
-# Ansible Collection - fortinet.fortimanager:2.2.1
+![Fortinet logo|](https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Fortinet_logo.svg/320px-Fortinet_logo.svg.png)
+
+# Ansible Collection - fortinet.fortimanager:2.3.0
+
+FortiManager Ansible Collection includes the modules that are able to configure FortiManager.
 
 [Documentation](https://ansible-galaxy-fortimanager-docs.readthedocs.io/en/latest) for the collection.
+
+## Requirements
+- Ansible 2.9+
+- Python 3
+
+## Installation
+This collection is distributed via [ansible-galaxy](https://galaxy.ansible.com/fortinet/fortimanager), the installation steps are as follows:
+
+1. Install or upgrade to Ansible 2.9+
+2. Download this collection from galaxy: `ansible-galaxy collection install fortinet.fortimanager`
+
+## Example Usage
+
+See [example here](https://ansible-galaxy-fortimanager-docs.readthedocs.io/en/latest/playbook.html) to run your first playbook.
 
 ## Modules
 The collection provides the following modules:
@@ -48,6 +66,17 @@ The collection provides the following modules:
 * `fmgr_bleprofile`  Configure Bluetooth Low Energy profile.
 * `fmgr_bonjourprofile`  Configure Bonjour profiles.
 * `fmgr_bonjourprofile_policylist`  Bonjour policy list.
+* `fmgr_casb_profile`  Configure CASB profile.
+* `fmgr_casb_profile_saasapplication`  CASB profile SaaS application.
+* `fmgr_casb_profile_saasapplication_accessrule`  CASB profile access rule.
+* `fmgr_casb_profile_saasapplication_customcontrol`  CASB profile custom control.
+* `fmgr_casb_profile_saasapplication_customcontrol_option`  CASB custom control option.
+* `fmgr_casb_saasapplication`  Configure CASB SaaS application.
+* `fmgr_casb_useractivity`  Configure CASB user activity.
+* `fmgr_casb_useractivity_controloptions`  CASB control options.
+* `fmgr_casb_useractivity_controloptions_operations`  CASB control option operations.
+* `fmgr_casb_useractivity_match`  CASB user activity match rules.
+* `fmgr_casb_useractivity_match_rules`  CASB user activity rules.
 * `fmgr_certificate_template`  no description.
 * `fmgr_cifs_domaincontroller`  Define known domain controller servers.
 * `fmgr_cifs_profile`  Configure CIFS profile.
@@ -149,6 +178,7 @@ The collection provides the following modules:
 * `fmgr_dvmdb_script_execute`  Run script.
 * `fmgr_dvmdb_script_objectmember`  Script table.
 * `fmgr_dvmdb_script_scriptschedule`  Script schedule table.
+* `fmgr_dvmdb_upgrade`  no description.
 * `fmgr_dvmdb_workflow_approve`  no description.
 * `fmgr_dvmdb_workflow_discard`  no description.
 * `fmgr_dvmdb_workflow_drop`  no description.
@@ -254,14 +284,18 @@ The collection provides the following modules:
 * `fmgr_firewall_accessproxy6`  Configure IPv6 access proxy.
 * `fmgr_firewall_accessproxy6_apigateway`  Set IPv4 API Gateway.
 * `fmgr_firewall_accessproxy6_apigateway6`  Set IPv6 API Gateway.
+* `fmgr_firewall_accessproxy6_apigateway6_quic`  QUIC setting.
 * `fmgr_firewall_accessproxy6_apigateway6_realservers`  Select the real servers that this Access Proxy will distribute traffic to.
 * `fmgr_firewall_accessproxy6_apigateway6_sslciphersuites`  SSL/TLS cipher suites to offer to a server, ordered by priority.
+* `fmgr_firewall_accessproxy6_apigateway_quic`  QUIC setting.
 * `fmgr_firewall_accessproxy6_apigateway_realservers`  Select the real servers that this Access Proxy will distribute traffic to.
 * `fmgr_firewall_accessproxy6_apigateway_sslciphersuites`  SSL/TLS cipher suites to offer to a server, ordered by priority.
 * `fmgr_firewall_accessproxy_apigateway`  Set API Gateway.
 * `fmgr_firewall_accessproxy_apigateway6`  Set IPv6 API Gateway.
+* `fmgr_firewall_accessproxy_apigateway6_quic`  QUIC setting.
 * `fmgr_firewall_accessproxy_apigateway6_realservers`  Select the real servers that this Access Proxy will distribute traffic to.
 * `fmgr_firewall_accessproxy_apigateway6_sslciphersuites`  SSL/TLS cipher suites to offer to a server, ordered by priority.
+* `fmgr_firewall_accessproxy_apigateway_quic`  QUIC setting.
 * `fmgr_firewall_accessproxy_apigateway_realservers`  Select the real servers that this Access Proxy will distribute traffic to.
 * `fmgr_firewall_accessproxy_apigateway_sslciphersuites`  SSL/TLS cipher suites to offer to a server, ordered by priority.
 * `fmgr_firewall_accessproxy_realservers`  Select the SSL real servers that this Access Proxy will distribute traffic to.
@@ -291,6 +325,11 @@ The collection provides the following modules:
 * `fmgr_firewall_addrgrp_tagging`  Config object tagging.
 * `fmgr_firewall_carrierendpointbwl`  Carrier end point black/white list tables.
 * `fmgr_firewall_carrierendpointbwl_entries`  Carrier end point black/white list.
+* `fmgr_firewall_casbprofile`  no description.
+* `fmgr_firewall_casbprofile_saasapplication`  no description.
+* `fmgr_firewall_casbprofile_saasapplication_accessrule`  no description.
+* `fmgr_firewall_casbprofile_saasapplication_customcontrol`  no description.
+* `fmgr_firewall_casbprofile_saasapplication_customcontrol_option`  no description.
 * `fmgr_firewall_decryptedtrafficmirror`  Configure decrypted traffic mirror.
 * `fmgr_firewall_explicitproxyaddress`  Explicit web proxy address configuration.
 * `fmgr_firewall_explicitproxyaddress_headergroup`  HTTP header group.
@@ -386,6 +425,7 @@ The collection provides the following modules:
 * `fmgr_firewall_sslsshprofile_sslexempt`  Servers to exempt from SSL inspection.
 * `fmgr_firewall_sslsshprofile_sslserver`  SSL servers.
 * `fmgr_firewall_trafficclass`  Configure names for shaping classes.
+* `fmgr_firewall_vendormac`  Show vendor and the MAC address they have.
 * `fmgr_firewall_vip`  Configure virtual IP for IPv4.
 * `fmgr_firewall_vip46`  Configure IPv4 to IPv6 virtual IPs.
 * `fmgr_firewall_vip46_dynamicmapping`  Configure IPv4 to IPv6 virtual IPs.
@@ -403,6 +443,7 @@ The collection provides the following modules:
 * `fmgr_firewall_vip_dynamicmapping`  Configure virtual IP for IPv4.
 * `fmgr_firewall_vip_dynamicmapping_realservers`  Select the real servers that this server load balancing VIP will distribute traffic to.
 * `fmgr_firewall_vip_dynamicmapping_sslciphersuites`  SSL/TLS cipher suites acceptable from a client, ordered by priority.
+* `fmgr_firewall_vip_quic`  QUIC setting.
 * `fmgr_firewall_vip_realservers`  Select the real servers that this server load balancing VIP will distribute traffic to.
 * `fmgr_firewall_vip_sslciphersuites`  SSL/TLS cipher suites acceptable from a client, ordered by priority.
 * `fmgr_firewall_vip_sslserverciphersuites`  SSL/TLS cipher suites to offer to a server, ordered by priority.
@@ -585,6 +626,7 @@ The collection provides the following modules:
 * `fmgr_pkg_header_policy6`  Configure IPv6 policies.
 * `fmgr_pkg_header_shapingpolicy`  Configure shaping policies.
 * `fmgr_pkg_user_nacpolicy`  Configure NAC policy matching pattern to identify matching NAC devices.
+* `fmgr_pm_config_meta_reference`  no description.
 * `fmgr_pm_config_metafields_firewall_address`  no description.
 * `fmgr_pm_config_metafields_firewall_addrgrp`  no description.
 * `fmgr_pm_config_metafields_firewall_centralsnatmap`  no description.
@@ -637,6 +679,7 @@ The collection provides the following modules:
 * `fmgr_securityconsole_cliprof_check`  no description.
 * `fmgr_securityconsole_import_dev_objs`  Import objects from device to ADOM, or from ADOM to Global.
 * `fmgr_securityconsole_install_device`  no description.
+* `fmgr_securityconsole_install_objects_v2`  no description.
 * `fmgr_securityconsole_install_package`  Copy and install a policy package to devices.
 * `fmgr_securityconsole_install_preview`  Generate install preview for a device.
 * `fmgr_securityconsole_package_cancel_install`  Cancel policy install and clear preview cache.
@@ -696,6 +739,7 @@ The collection provides the following modules:
 * `fmgr_switchcontroller_managedswitch_ports`  Managed-switch port list.
 * `fmgr_switchcontroller_managedswitch_ports_dhcpsnoopoption82override`  Configure DHCP snooping option 82 override.
 * `fmgr_switchcontroller_managedswitch_remotelog`  Configure logging by FortiSwitch device to a remote syslog server.
+* `fmgr_switchcontroller_managedswitch_routeoffloadrouter`  Configure route offload MCLAG IP address.
 * `fmgr_switchcontroller_managedswitch_snmpcommunity`  Configuration method to edit Simple Network Management Protocol.
 * `fmgr_switchcontroller_managedswitch_snmpcommunity_hosts`  Configure IPv4 SNMP managers.
 * `fmgr_switchcontroller_managedswitch_snmpsysinfo`  Configuration method to edit Simple Network Management Protocol.
@@ -707,6 +751,7 @@ The collection provides the following modules:
 * `fmgr_switchcontroller_managedswitch_stpsettings`  Configuration method to edit Spanning Tree Protocol.
 * `fmgr_switchcontroller_managedswitch_switchlog`  Configuration method to edit FortiSwitch logging settings.
 * `fmgr_switchcontroller_managedswitch_switchstpsettings`  Configure spanning tree protocol.
+* `fmgr_switchcontroller_ptp_profile`  Global PTP profile.
 * `fmgr_switchcontroller_qos_dot1pmap`  Configure FortiSwitch QoS 802.
 * `fmgr_switchcontroller_qos_ipdscpmap`  Configure FortiSwitch QoS IP precedence/DSCP.
 * `fmgr_switchcontroller_qos_ipdscpmap_map`  Maps between IP-DSCP value to COS queue.
@@ -765,6 +810,9 @@ The collection provides the following modules:
 * `fmgr_system_certificate_remote`  Remote certificate.
 * `fmgr_system_certificate_ssh`  SSH certificates and keys.
 * `fmgr_system_connector`  Configure connector.
+* `fmgr_system_csf`  Add this device to a Security Fabric or set up a new Security Fabric on this device.
+* `fmgr_system_csf_fabricconnector`  Fabric connector configuration.
+* `fmgr_system_csf_trustedlist`  Pre-authorized and blocked security fabric nodes.
 * `fmgr_system_customlanguage`  Configure custom languages.
 * `fmgr_system_dhcp_server`  Configure DHCP servers.
 * `fmgr_system_dhcp_server_excluderange`  Exclude one or more ranges of IP addresses from being assigned to clients.
@@ -912,6 +960,7 @@ The collection provides the following modules:
 * `fmgr_system_sdnconnector_route`  Configure GCP route.
 * `fmgr_system_sdnconnector_routetable`  Configure Azure route table.
 * `fmgr_system_sdnconnector_routetable_route`  Configure Azure route.
+* `fmgr_system_sdnproxy`  Configure SDN proxy.
 * `fmgr_system_smsserver`  Configure SMS server for sending SMS messages to support user authentication.
 * `fmgr_system_sniffer`  Interface sniffer.
 * `fmgr_system_snmp_community`  SNMP community configuration.
@@ -1002,6 +1051,8 @@ The collection provides the following modules:
 * `fmgr_videofilter_profile_fortiguardcategory_filters`  Configure VideoFilter FortiGuard category.
 * `fmgr_videofilter_youtubechannelfilter`  Configure YouTube channel filter.
 * `fmgr_videofilter_youtubechannelfilter_entries`  YouTube filter entries.
+* `fmgr_virtualpatch_profile`  Configure virtual-patch profile.
+* `fmgr_virtualpatch_profile_exemption`  Exempt devices or rules.
 * `fmgr_voip_profile`  Configure VoIP profiles.
 * `fmgr_voip_profile_msrp`  MSRP.
 * `fmgr_voip_profile_sccp`  SCCP.
@@ -1132,3 +1183,9 @@ The collection provides the following modules:
 * `fmgr_wtpprofile_radio3`  Configuration options for radio 3.
 * `fmgr_wtpprofile_radio4`  Configuration options for radio 4.
 * `fmgr_wtpprofile_splittunnelingacl`  Split tunneling ACL filter list.
+
+
+
+## License
+
+FortiManager Ansible Collection follows [GNU General Public License v3.0](LICENSE).

@@ -29,7 +29,7 @@ description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
 
-version_added: "2.1.6"
+version_added: "2.1.0"
 author:
     - Xinwei Du (@dux-fortinet)
     - Xing Li (@lix-fortinet)
@@ -107,9 +107,8 @@ options:
                 type: int
                 description: no description
             package settings:
-                description: no description
                 type: dict
-                required: false
+                description: no description
                 suboptions:
                     central-nat:
                         type: str
@@ -167,36 +166,36 @@ options:
 '''
 
 EXAMPLES = '''
- - hosts: fortimanager-inventory
-   collections:
-     - fortinet.fortimanager
-   connection: httpapi
-   vars:
-      ansible_httpapi_use_ssl: True
-      ansible_httpapi_validate_certs: False
-      ansible_httpapi_port: 443
-   tasks:
+- hosts: fortimanager-inventory
+  collections:
+    - fortinet.fortimanager
+  connection: httpapi
+  vars:
+    ansible_httpapi_use_ssl: True
+    ansible_httpapi_validate_certs: False
+    ansible_httpapi_port: 443
+  tasks:
     - name: no description
       fmgr_pm_pblock_adom:
-         bypass_validation: False
-         workspace_locking_adom: <value in [global, custom adom including root]>
-         workspace_locking_timeout: 300
-         rc_succeeded: [0, -2, -3, ...]
-         rc_failed: [-2, -3, ...]
-         adom: <your own value>
-         pm_pblock_adom:
-            name: <value of string>
-            oid: <value of integer>
-            package settings:
-               central-nat: <value in [disable, enable]>
-               consolidated-firewall-mode: <value in [disable, enable]>
-               fwpolicy-implicit-log: <value in [disable, enable]>
-               fwpolicy6-implicit-log: <value in [disable, enable]>
-               inspection-mode: <value in [proxy, flow]>
-               ngfw-mode: <value in [profile-based, policy-based]>
-               policy-offload-level: <value in [disable, default, dos-offload, ...]>
-               ssl-ssh-profile: <value of string>
-            type: <value in [pblock]>
+        bypass_validation: False
+        workspace_locking_adom: <value in [global, custom adom including root]>
+        workspace_locking_timeout: 300
+        rc_succeeded: [0, -2, -3, ...]
+        rc_failed: [-2, -3, ...]
+        adom: <your own value>
+        pm_pblock_adom:
+          name: <string>
+          oid: <integer>
+          package settings:
+            central-nat: <value in [disable, enable]>
+            consolidated-firewall-mode: <value in [disable, enable]>
+            fwpolicy-implicit-log: <value in [disable, enable]>
+            fwpolicy6-implicit-log: <value in [disable, enable]>
+            inspection-mode: <value in [proxy, flow]>
+            ngfw-mode: <value in [profile-based, policy-based]>
+            policy-offload-level: <value in [disable, default, dos-offload, ...]>
+            ssl-ssh-profile: <string>
+          type: <value in [pblock]>
 
 '''
 
@@ -320,17 +319,19 @@ def main():
                 '7.0.6': True,
                 '7.0.7': True,
                 '7.0.8': True,
+                '7.0.9': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
                 '7.2.3': True,
-                '7.4.0': True
+                '7.2.4': True,
+                '7.4.0': True,
+                '7.4.1': True
             },
             'options': {
                 'name': {
                     'required': False,
                     'revision': {
-                        '7.2.0': True,
                         '6.2.0': False,
                         '6.2.2': False,
                         '6.2.6': False,
@@ -339,6 +340,7 @@ def main():
                         '6.2.9': False,
                         '6.2.10': False,
                         '6.2.11': False,
+                        '6.2.12': False,
                         '6.4.1': False,
                         '6.4.3': False,
                         '6.4.4': False,
@@ -349,6 +351,7 @@ def main():
                         '6.4.10': False,
                         '6.4.11': False,
                         '6.4.12': False,
+                        '6.4.13': False,
                         '7.0.1': False,
                         '7.0.2': False,
                         '7.0.3': True,
@@ -357,17 +360,20 @@ def main():
                         '7.0.6': True,
                         '7.0.7': True,
                         '7.0.8': True,
+                        '7.0.9': True,
+                        '7.2.0': True,
                         '7.2.1': True,
                         '7.2.2': True,
                         '7.2.3': True,
-                        '7.4.0': True
+                        '7.2.4': True,
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'type': 'str'
                 },
                 'oid': {
                     'required': False,
                     'revision': {
-                        '7.2.0': True,
                         '6.2.0': False,
                         '6.2.2': False,
                         '6.2.6': False,
@@ -376,6 +382,7 @@ def main():
                         '6.2.9': False,
                         '6.2.10': False,
                         '6.2.11': False,
+                        '6.2.12': False,
                         '6.4.1': False,
                         '6.4.3': False,
                         '6.4.4': False,
@@ -386,6 +393,7 @@ def main():
                         '6.4.10': False,
                         '6.4.11': False,
                         '6.4.12': False,
+                        '6.4.13': False,
                         '7.0.1': False,
                         '7.0.2': False,
                         '7.0.3': True,
@@ -394,10 +402,14 @@ def main():
                         '7.0.6': True,
                         '7.0.7': True,
                         '7.0.8': True,
+                        '7.0.9': True,
+                        '7.2.0': True,
                         '7.2.1': True,
                         '7.2.2': True,
                         '7.2.3': True,
-                        '7.4.0': True
+                        '7.2.4': True,
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'type': 'int'
                 },
@@ -408,7 +420,6 @@ def main():
                         'central-nat': {
                             'required': False,
                             'revision': {
-                                '7.2.0': True,
                                 '6.2.0': False,
                                 '6.2.2': False,
                                 '6.2.6': False,
@@ -417,6 +428,7 @@ def main():
                                 '6.2.9': False,
                                 '6.2.10': False,
                                 '6.2.11': False,
+                                '6.2.12': False,
                                 '6.4.1': False,
                                 '6.4.3': False,
                                 '6.4.4': False,
@@ -427,6 +439,7 @@ def main():
                                 '6.4.10': False,
                                 '6.4.11': False,
                                 '6.4.12': False,
+                                '6.4.13': False,
                                 '7.0.1': False,
                                 '7.0.2': False,
                                 '7.0.3': True,
@@ -435,10 +448,14 @@ def main():
                                 '7.0.6': True,
                                 '7.0.7': True,
                                 '7.0.8': True,
+                                '7.0.9': True,
+                                '7.2.0': True,
                                 '7.2.1': True,
                                 '7.2.2': True,
                                 '7.2.3': True,
-                                '7.4.0': True
+                                '7.2.4': True,
+                                '7.4.0': True,
+                                '7.4.1': True
                             },
                             'choices': [
                                 'disable',
@@ -449,7 +466,6 @@ def main():
                         'consolidated-firewall-mode': {
                             'required': False,
                             'revision': {
-                                '7.2.0': True,
                                 '6.2.0': False,
                                 '6.2.2': False,
                                 '6.2.6': False,
@@ -458,6 +474,7 @@ def main():
                                 '6.2.9': False,
                                 '6.2.10': False,
                                 '6.2.11': False,
+                                '6.2.12': False,
                                 '6.4.1': False,
                                 '6.4.3': False,
                                 '6.4.4': False,
@@ -468,6 +485,7 @@ def main():
                                 '6.4.10': False,
                                 '6.4.11': False,
                                 '6.4.12': False,
+                                '6.4.13': False,
                                 '7.0.1': False,
                                 '7.0.2': False,
                                 '7.0.3': True,
@@ -476,10 +494,14 @@ def main():
                                 '7.0.6': True,
                                 '7.0.7': True,
                                 '7.0.8': True,
+                                '7.0.9': True,
+                                '7.2.0': True,
                                 '7.2.1': True,
                                 '7.2.2': True,
                                 '7.2.3': True,
-                                '7.4.0': True
+                                '7.2.4': True,
+                                '7.4.0': True,
+                                '7.4.1': True
                             },
                             'choices': [
                                 'disable',
@@ -490,7 +512,6 @@ def main():
                         'fwpolicy-implicit-log': {
                             'required': False,
                             'revision': {
-                                '7.2.0': True,
                                 '6.2.0': False,
                                 '6.2.2': False,
                                 '6.2.6': False,
@@ -499,6 +520,7 @@ def main():
                                 '6.2.9': False,
                                 '6.2.10': False,
                                 '6.2.11': False,
+                                '6.2.12': False,
                                 '6.4.1': False,
                                 '6.4.3': False,
                                 '6.4.4': False,
@@ -509,6 +531,7 @@ def main():
                                 '6.4.10': False,
                                 '6.4.11': False,
                                 '6.4.12': False,
+                                '6.4.13': False,
                                 '7.0.1': False,
                                 '7.0.2': False,
                                 '7.0.3': True,
@@ -517,10 +540,14 @@ def main():
                                 '7.0.6': True,
                                 '7.0.7': True,
                                 '7.0.8': True,
+                                '7.0.9': True,
+                                '7.2.0': True,
                                 '7.2.1': True,
                                 '7.2.2': True,
                                 '7.2.3': True,
-                                '7.4.0': True
+                                '7.2.4': True,
+                                '7.4.0': True,
+                                '7.4.1': True
                             },
                             'choices': [
                                 'disable',
@@ -531,7 +558,6 @@ def main():
                         'fwpolicy6-implicit-log': {
                             'required': False,
                             'revision': {
-                                '7.2.0': True,
                                 '6.2.0': False,
                                 '6.2.2': False,
                                 '6.2.6': False,
@@ -540,6 +566,7 @@ def main():
                                 '6.2.9': False,
                                 '6.2.10': False,
                                 '6.2.11': False,
+                                '6.2.12': False,
                                 '6.4.1': False,
                                 '6.4.3': False,
                                 '6.4.4': False,
@@ -550,6 +577,7 @@ def main():
                                 '6.4.10': False,
                                 '6.4.11': False,
                                 '6.4.12': False,
+                                '6.4.13': False,
                                 '7.0.1': False,
                                 '7.0.2': False,
                                 '7.0.3': True,
@@ -558,10 +586,14 @@ def main():
                                 '7.0.6': True,
                                 '7.0.7': True,
                                 '7.0.8': True,
+                                '7.0.9': True,
+                                '7.2.0': True,
                                 '7.2.1': True,
                                 '7.2.2': True,
                                 '7.2.3': True,
-                                '7.4.0': True
+                                '7.2.4': True,
+                                '7.4.0': True,
+                                '7.4.1': True
                             },
                             'choices': [
                                 'disable',
@@ -572,7 +604,6 @@ def main():
                         'inspection-mode': {
                             'required': False,
                             'revision': {
-                                '7.2.0': True,
                                 '6.2.0': False,
                                 '6.2.2': False,
                                 '6.2.6': False,
@@ -581,6 +612,7 @@ def main():
                                 '6.2.9': False,
                                 '6.2.10': False,
                                 '6.2.11': False,
+                                '6.2.12': False,
                                 '6.4.1': False,
                                 '6.4.3': False,
                                 '6.4.4': False,
@@ -591,6 +623,7 @@ def main():
                                 '6.4.10': False,
                                 '6.4.11': False,
                                 '6.4.12': False,
+                                '6.4.13': False,
                                 '7.0.1': False,
                                 '7.0.2': False,
                                 '7.0.3': True,
@@ -599,10 +632,14 @@ def main():
                                 '7.0.6': True,
                                 '7.0.7': True,
                                 '7.0.8': True,
+                                '7.0.9': True,
+                                '7.2.0': True,
                                 '7.2.1': True,
                                 '7.2.2': True,
                                 '7.2.3': True,
-                                '7.4.0': True
+                                '7.2.4': True,
+                                '7.4.0': True,
+                                '7.4.1': True
                             },
                             'choices': [
                                 'proxy',
@@ -613,7 +650,6 @@ def main():
                         'ngfw-mode': {
                             'required': False,
                             'revision': {
-                                '7.2.0': True,
                                 '6.2.0': False,
                                 '6.2.2': False,
                                 '6.2.6': False,
@@ -622,6 +658,7 @@ def main():
                                 '6.2.9': False,
                                 '6.2.10': False,
                                 '6.2.11': False,
+                                '6.2.12': False,
                                 '6.4.1': False,
                                 '6.4.3': False,
                                 '6.4.4': False,
@@ -632,6 +669,7 @@ def main():
                                 '6.4.10': False,
                                 '6.4.11': False,
                                 '6.4.12': False,
+                                '6.4.13': False,
                                 '7.0.1': False,
                                 '7.0.2': False,
                                 '7.0.3': True,
@@ -640,10 +678,14 @@ def main():
                                 '7.0.6': True,
                                 '7.0.7': True,
                                 '7.0.8': True,
+                                '7.0.9': True,
+                                '7.2.0': True,
                                 '7.2.1': True,
                                 '7.2.2': True,
                                 '7.2.3': True,
-                                '7.4.0': True
+                                '7.2.4': True,
+                                '7.4.0': True,
+                                '7.4.1': True
                             },
                             'choices': [
                                 'profile-based',
@@ -654,7 +696,6 @@ def main():
                         'policy-offload-level': {
                             'required': False,
                             'revision': {
-                                '7.2.0': True,
                                 '6.2.0': False,
                                 '6.2.2': False,
                                 '6.2.6': False,
@@ -663,6 +704,7 @@ def main():
                                 '6.2.9': False,
                                 '6.2.10': False,
                                 '6.2.11': False,
+                                '6.2.12': False,
                                 '6.4.1': False,
                                 '6.4.3': False,
                                 '6.4.4': False,
@@ -673,6 +715,7 @@ def main():
                                 '6.4.10': False,
                                 '6.4.11': False,
                                 '6.4.12': False,
+                                '6.4.13': False,
                                 '7.0.1': False,
                                 '7.0.2': False,
                                 '7.0.3': True,
@@ -681,10 +724,14 @@ def main():
                                 '7.0.6': True,
                                 '7.0.7': True,
                                 '7.0.8': True,
+                                '7.0.9': True,
+                                '7.2.0': True,
                                 '7.2.1': True,
                                 '7.2.2': True,
                                 '7.2.3': True,
-                                '7.4.0': True
+                                '7.2.4': True,
+                                '7.4.0': True,
+                                '7.4.1': True
                             },
                             'choices': [
                                 'disable',
@@ -697,7 +744,6 @@ def main():
                         'ssl-ssh-profile': {
                             'required': False,
                             'revision': {
-                                '7.2.0': True,
                                 '6.2.0': False,
                                 '6.2.2': False,
                                 '6.2.6': False,
@@ -706,6 +752,7 @@ def main():
                                 '6.2.9': False,
                                 '6.2.10': False,
                                 '6.2.11': False,
+                                '6.2.12': False,
                                 '6.4.1': False,
                                 '6.4.3': False,
                                 '6.4.4': False,
@@ -716,6 +763,7 @@ def main():
                                 '6.4.10': False,
                                 '6.4.11': False,
                                 '6.4.12': False,
+                                '6.4.13': False,
                                 '7.0.1': False,
                                 '7.0.2': False,
                                 '7.0.3': True,
@@ -724,10 +772,14 @@ def main():
                                 '7.0.6': True,
                                 '7.0.7': True,
                                 '7.0.8': True,
+                                '7.0.9': True,
+                                '7.2.0': True,
                                 '7.2.1': True,
                                 '7.2.2': True,
                                 '7.2.3': True,
-                                '7.4.0': True
+                                '7.2.4': True,
+                                '7.4.0': True,
+                                '7.4.1': True
                             },
                             'type': 'str'
                         }
@@ -736,7 +788,6 @@ def main():
                 'type': {
                     'required': False,
                     'revision': {
-                        '7.2.0': True,
                         '6.2.0': False,
                         '6.2.2': False,
                         '6.2.6': False,
@@ -745,6 +796,7 @@ def main():
                         '6.2.9': False,
                         '6.2.10': False,
                         '6.2.11': False,
+                        '6.2.12': False,
                         '6.4.1': False,
                         '6.4.3': False,
                         '6.4.4': False,
@@ -755,6 +807,7 @@ def main():
                         '6.4.10': False,
                         '6.4.11': False,
                         '6.4.12': False,
+                        '6.4.13': False,
                         '7.0.1': False,
                         '7.0.2': False,
                         '7.0.3': True,
@@ -763,10 +816,14 @@ def main():
                         '7.0.6': True,
                         '7.0.7': True,
                         '7.0.8': True,
+                        '7.0.9': True,
+                        '7.2.0': True,
                         '7.2.1': True,
                         '7.2.2': True,
                         '7.2.3': True,
-                        '7.4.0': True
+                        '7.2.4': True,
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'choices': [
                         'pblock'

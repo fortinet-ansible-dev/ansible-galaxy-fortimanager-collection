@@ -113,10 +113,11 @@ options:
             name:
                 type: str
                 description: Dynamic port policy name.
+                required: true
             policy:
-                description: description
                 type: list
                 elements: dict
+                description: no description
                 suboptions:
                     802-1x:
                         type: str
@@ -146,8 +147,8 @@ options:
                         type: str
                         description: Match policy based on hardware vendor.
                     interface-tags:
-                        description: description
-                        type: str
+                        type: raw
+                        description: (list) no description
                     lldp-profile:
                         type: str
                         description: LLDP profile to be applied when using this policy.
@@ -176,44 +177,44 @@ options:
 '''
 
 EXAMPLES = '''
- - hosts: fortimanager-inventory
-   collections:
-     - fortinet.fortimanager
-   connection: httpapi
-   vars:
-      ansible_httpapi_use_ssl: True
-      ansible_httpapi_validate_certs: False
-      ansible_httpapi_port: 443
-   tasks:
+- hosts: fortimanager-inventory
+  collections:
+    - fortinet.fortimanager
+  connection: httpapi
+  vars:
+    ansible_httpapi_use_ssl: True
+    ansible_httpapi_validate_certs: False
+    ansible_httpapi_port: 443
+  tasks:
     - name: Configure Dynamic port policy to be applied on the managed FortiSwitch ports through DPP device.
       fmgr_switchcontroller_dynamicportpolicy:
-         bypass_validation: False
-         workspace_locking_adom: <value in [global, custom adom including root]>
-         workspace_locking_timeout: 300
-         rc_succeeded: [0, -2, -3, ...]
-         rc_failed: [-2, -3, ...]
-         adom: <your own value>
-         state: <value in [present, absent]>
-         switchcontroller_dynamicportpolicy:
-            description: <value of string>
-            name: <value of string>
-            policy:
-              -
-                  802-1x: <value of string>
-                  bounce-port-link: <value in [disable, enable]>
-                  category: <value in [device, interface-tag]>
-                  description: <value of string>
-                  family: <value of string>
-                  host: <value of string>
-                  hw-vendor: <value of string>
-                  interface-tags: <value of string>
-                  lldp-profile: <value of string>
-                  mac: <value of string>
-                  name: <value of string>
-                  qos-policy: <value of string>
-                  status: <value in [disable, enable]>
-                  type: <value of string>
-                  vlan-policy: <value of string>
+        bypass_validation: False
+        workspace_locking_adom: <value in [global, custom adom including root]>
+        workspace_locking_timeout: 300
+        rc_succeeded: [0, -2, -3, ...]
+        rc_failed: [-2, -3, ...]
+        adom: <your own value>
+        state: <value in [present, absent]>
+        switchcontroller_dynamicportpolicy:
+          description: <string>
+          name: <string>
+          policy:
+            -
+              802-1x: <string>
+              bounce-port-link: <value in [disable, enable]>
+              category: <value in [device, interface-tag]>
+              description: <string>
+              family: <string>
+              host: <string>
+              hw-vendor: <string>
+              interface-tags: <list or string>
+              lldp-profile: <string>
+              mac: <string>
+              name: <string>
+              qos-policy: <string>
+              status: <value in [disable, enable]>
+              type: <string>
+              vlan-policy: <string>
 
 '''
 
@@ -344,7 +345,9 @@ def main():
                 '7.2.1': True,
                 '7.2.2': True,
                 '7.2.3': True,
-                '7.4.0': True
+                '7.2.4': True,
+                '7.4.0': True,
+                '7.4.1': True
             },
             'options': {
                 'description': {
@@ -353,7 +356,9 @@ def main():
                         '7.2.1': True,
                         '7.2.2': True,
                         '7.2.3': True,
-                        '7.4.0': True
+                        '7.2.4': True,
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'type': 'str'
                 },
@@ -363,7 +368,9 @@ def main():
                         '7.2.1': True,
                         '7.2.2': True,
                         '7.2.3': True,
-                        '7.4.0': True
+                        '7.2.4': True,
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'type': 'str'
                 },
@@ -373,7 +380,9 @@ def main():
                         '7.2.1': True,
                         '7.2.2': True,
                         '7.2.3': True,
-                        '7.4.0': True
+                        '7.2.4': True,
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'type': 'list',
                     'options': {
@@ -383,7 +392,9 @@ def main():
                                 '7.2.1': True,
                                 '7.2.2': True,
                                 '7.2.3': True,
-                                '7.4.0': True
+                                '7.2.4': True,
+                                '7.4.0': True,
+                                '7.4.1': True
                             },
                             'type': 'str'
                         },
@@ -393,7 +404,9 @@ def main():
                                 '7.2.1': True,
                                 '7.2.2': True,
                                 '7.2.3': True,
-                                '7.4.0': True
+                                '7.2.4': True,
+                                '7.4.0': True,
+                                '7.4.1': True
                             },
                             'choices': [
                                 'disable',
@@ -407,7 +420,9 @@ def main():
                                 '7.2.1': True,
                                 '7.2.2': True,
                                 '7.2.3': True,
-                                '7.4.0': True
+                                '7.2.4': True,
+                                '7.4.0': True,
+                                '7.4.1': True
                             },
                             'choices': [
                                 'device',
@@ -421,7 +436,9 @@ def main():
                                 '7.2.1': True,
                                 '7.2.2': True,
                                 '7.2.3': True,
-                                '7.4.0': True
+                                '7.2.4': True,
+                                '7.4.0': True,
+                                '7.4.1': True
                             },
                             'type': 'str'
                         },
@@ -431,7 +448,9 @@ def main():
                                 '7.2.1': True,
                                 '7.2.2': True,
                                 '7.2.3': True,
-                                '7.4.0': True
+                                '7.2.4': True,
+                                '7.4.0': True,
+                                '7.4.1': True
                             },
                             'type': 'str'
                         },
@@ -441,7 +460,9 @@ def main():
                                 '7.2.1': True,
                                 '7.2.2': True,
                                 '7.2.3': True,
-                                '7.4.0': True
+                                '7.2.4': True,
+                                '7.4.0': True,
+                                '7.4.1': True
                             },
                             'type': 'str'
                         },
@@ -451,7 +472,9 @@ def main():
                                 '7.2.1': True,
                                 '7.2.2': True,
                                 '7.2.3': True,
-                                '7.4.0': True
+                                '7.2.4': True,
+                                '7.4.0': True,
+                                '7.4.1': True
                             },
                             'type': 'str'
                         },
@@ -461,9 +484,11 @@ def main():
                                 '7.2.1': True,
                                 '7.2.2': True,
                                 '7.2.3': True,
-                                '7.4.0': True
+                                '7.2.4': True,
+                                '7.4.0': True,
+                                '7.4.1': True
                             },
-                            'type': 'str'
+                            'type': 'raw'
                         },
                         'lldp-profile': {
                             'required': False,
@@ -471,7 +496,9 @@ def main():
                                 '7.2.1': True,
                                 '7.2.2': True,
                                 '7.2.3': True,
-                                '7.4.0': True
+                                '7.2.4': True,
+                                '7.4.0': True,
+                                '7.4.1': True
                             },
                             'type': 'str'
                         },
@@ -481,7 +508,9 @@ def main():
                                 '7.2.1': True,
                                 '7.2.2': True,
                                 '7.2.3': True,
-                                '7.4.0': True
+                                '7.2.4': True,
+                                '7.4.0': True,
+                                '7.4.1': True
                             },
                             'type': 'str'
                         },
@@ -491,7 +520,9 @@ def main():
                                 '7.2.1': True,
                                 '7.2.2': True,
                                 '7.2.3': True,
-                                '7.4.0': True
+                                '7.2.4': True,
+                                '7.4.0': True,
+                                '7.4.1': True
                             },
                             'type': 'str'
                         },
@@ -501,7 +532,9 @@ def main():
                                 '7.2.1': True,
                                 '7.2.2': True,
                                 '7.2.3': True,
-                                '7.4.0': True
+                                '7.2.4': True,
+                                '7.4.0': True,
+                                '7.4.1': True
                             },
                             'type': 'str'
                         },
@@ -511,7 +544,9 @@ def main():
                                 '7.2.1': True,
                                 '7.2.2': True,
                                 '7.2.3': True,
-                                '7.4.0': True
+                                '7.2.4': True,
+                                '7.4.0': True,
+                                '7.4.1': True
                             },
                             'choices': [
                                 'disable',
@@ -525,7 +560,9 @@ def main():
                                 '7.2.1': True,
                                 '7.2.2': True,
                                 '7.2.3': True,
-                                '7.4.0': True
+                                '7.2.4': True,
+                                '7.4.0': True,
+                                '7.4.1': True
                             },
                             'type': 'str'
                         },
@@ -535,7 +572,9 @@ def main():
                                 '7.2.1': True,
                                 '7.2.2': True,
                                 '7.2.3': True,
-                                '7.4.0': True
+                                '7.2.4': True,
+                                '7.4.0': True,
+                                '7.4.1': True
                             },
                             'type': 'str'
                         }

@@ -112,8 +112,8 @@ options:
         type: dict
         suboptions:
             application:
-                description: description
-                type: str
+                type: raw
+                description: (list) no description
             http-cookie-age:
                 type: int
                 description: Time in minutes that client web browsers should keep a cookie.
@@ -147,6 +147,7 @@ options:
             id:
                 type: int
                 description: API Gateway ID.
+                required: true
             ldb-method:
                 type: str
                 description: Method used to distribute sessions to real servers.
@@ -163,9 +164,9 @@ options:
                     - 'none'
                     - 'http-cookie'
             realservers:
-                description: description
                 type: list
                 elements: dict
+                description: no description
                 suboptions:
                     addr-type:
                         type: str
@@ -208,8 +209,8 @@ options:
                         type: str
                         description: IPv6 address of the real server.
                     mappedport:
-                        type: str
-                        description: Port for communicating with the real server.
+                        type: raw
+                        description: (list or str) Port for communicating with the real server.
                     port:
                         type: int
                         description: Port for communicating with the real server.
@@ -217,8 +218,8 @@ options:
                         type: str
                         description: Set access-proxy SSH client certificate profile.
                     ssh-host-key:
-                        description: description
-                        type: str
+                        type: raw
+                        description: (list) no description
                     ssh-host-key-validation:
                         type: str
                         description: Enable/disable SSH real server host key validation.
@@ -286,9 +287,9 @@ options:
                     - 'medium'
                     - 'low'
             ssl-cipher-suites:
-                description: description
                 type: list
                 elements: dict
+                description: no description
                 suboptions:
                     cipher:
                         type: str
@@ -369,9 +370,9 @@ options:
                         type: int
                         description: SSL/TLS cipher suites priority.
                     versions:
-                        description: description
                         type: list
                         elements: str
+                        description: no description
                         choices:
                             - 'tls-1.0'
                             - 'tls-1.1'
@@ -425,84 +426,141 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
+            h2-support:
+                type: str
+                description: HTTP2 support, default=Enable.
+                choices:
+                    - 'disable'
+                    - 'enable'
+            h3-support:
+                type: str
+                description: HTTP3/QUIC support, default=Disable.
+                choices:
+                    - 'disable'
+                    - 'enable'
+            quic:
+                type: dict
+                description: no description
+                suboptions:
+                    ack-delay-exponent:
+                        type: int
+                        description: ACK delay exponent
+                    active-connection-id-limit:
+                        type: int
+                        description: Active connection ID limit
+                    active-migration:
+                        type: str
+                        description: Enable/disable active migration
+                        choices:
+                            - 'disable'
+                            - 'enable'
+                    grease-quic-bit:
+                        type: str
+                        description: Enable/disable grease QUIC bit
+                        choices:
+                            - 'disable'
+                            - 'enable'
+                    max-ack-delay:
+                        type: int
+                        description: Maximum ACK delay in milliseconds
+                    max-datagram-frame-size:
+                        type: int
+                        description: Maximum datagram frame size in bytes
+                    max-idle-timeout:
+                        type: int
+                        description: Maximum idle timeout milliseconds
+                    max-udp-payload-size:
+                        type: int
+                        description: Maximum UDP payload size in bytes
 
 '''
 
 EXAMPLES = '''
- - hosts: fortimanager-inventory
-   collections:
-     - fortinet.fortimanager
-   connection: httpapi
-   vars:
-      ansible_httpapi_use_ssl: True
-      ansible_httpapi_validate_certs: False
-      ansible_httpapi_port: 443
-   tasks:
+- hosts: fortimanager-inventory
+  collections:
+    - fortinet.fortimanager
+  connection: httpapi
+  vars:
+    ansible_httpapi_use_ssl: True
+    ansible_httpapi_validate_certs: False
+    ansible_httpapi_port: 443
+  tasks:
     - name: Set IPv6 API Gateway.
       fmgr_firewall_accessproxy6_apigateway6:
-         bypass_validation: False
-         workspace_locking_adom: <value in [global, custom adom including root]>
-         workspace_locking_timeout: 300
-         rc_succeeded: [0, -2, -3, ...]
-         rc_failed: [-2, -3, ...]
-         adom: <your own value>
-         access-proxy6: <your own value>
-         state: <value in [present, absent]>
-         firewall_accessproxy6_apigateway6:
-            application: <value of string>
-            http-cookie-age: <value of integer>
-            http-cookie-domain: <value of string>
-            http-cookie-domain-from-host: <value in [disable, enable]>
-            http-cookie-generation: <value of integer>
-            http-cookie-path: <value of string>
-            http-cookie-share: <value in [disable, same-ip]>
-            https-cookie-secure: <value in [disable, enable]>
-            id: <value of integer>
-            ldb-method: <value in [static, round-robin, weighted, ...]>
-            persistence: <value in [none, http-cookie]>
-            realservers:
-              -
-                  addr-type: <value in [fqdn, ip]>
-                  address: <value of string>
-                  domain: <value of string>
-                  health-check: <value in [disable, enable]>
-                  health-check-proto: <value in [ping, http, tcp-connect]>
-                  holddown-interval: <value in [disable, enable]>
-                  http-host: <value of string>
-                  id: <value of integer>
-                  ip: <value of string>
-                  mappedport: <value of string>
-                  port: <value of integer>
-                  ssh-client-cert: <value of string>
-                  ssh-host-key: <value of string>
-                  ssh-host-key-validation: <value in [disable, enable]>
-                  status: <value in [active, standby, disable]>
-                  type: <value in [tcp-forwarding, ssh]>
-                  weight: <value of integer>
-                  translate-host: <value in [disable, enable]>
-                  external-auth: <value in [disable, enable]>
-                  tunnel-encryption: <value in [disable, enable]>
-            saml-redirect: <value in [disable, enable]>
-            saml-server: <value of string>
-            service: <value in [http, https, tcp-forwarding, ...]>
-            ssl-algorithm: <value in [high, medium, low]>
-            ssl-cipher-suites:
-              -
-                  cipher: <value in [TLS-RSA-WITH-RC4-128-MD5, TLS-RSA-WITH-RC4-128-SHA, TLS-RSA-WITH-DES-CBC-SHA, ...]>
-                  priority: <value of integer>
-                  versions:
-                    - tls-1.0
-                    - tls-1.1
-                    - tls-1.2
-                    - tls-1.3
-            ssl-dh-bits: <value in [768, 1024, 1536, ...]>
-            ssl-max-version: <value in [tls-1.0, tls-1.1, tls-1.2, ...]>
-            ssl-min-version: <value in [tls-1.0, tls-1.1, tls-1.2, ...]>
-            ssl-vpn-web-portal: <value of string>
-            url-map: <value of string>
-            url-map-type: <value in [sub-string, wildcard, regex]>
-            virtual-host: <value of string>
-            ssl-renegotiation: <value in [disable, enable]>
+        bypass_validation: False
+        workspace_locking_adom: <value in [global, custom adom including root]>
+        workspace_locking_timeout: 300
+        rc_succeeded: [0, -2, -3, ...]
+        rc_failed: [-2, -3, ...]
+        adom: <your own value>
+        access-proxy6: <your own value>
+        state: <value in [present, absent]>
+        firewall_accessproxy6_apigateway6:
+          application: <list or string>
+          http-cookie-age: <integer>
+          http-cookie-domain: <string>
+          http-cookie-domain-from-host: <value in [disable, enable]>
+          http-cookie-generation: <integer>
+          http-cookie-path: <string>
+          http-cookie-share: <value in [disable, same-ip]>
+          https-cookie-secure: <value in [disable, enable]>
+          id: <integer>
+          ldb-method: <value in [static, round-robin, weighted, ...]>
+          persistence: <value in [none, http-cookie]>
+          realservers:
+            -
+              addr-type: <value in [fqdn, ip]>
+              address: <string>
+              domain: <string>
+              health-check: <value in [disable, enable]>
+              health-check-proto: <value in [ping, http, tcp-connect]>
+              holddown-interval: <value in [disable, enable]>
+              http-host: <string>
+              id: <integer>
+              ip: <string>
+              mappedport: <list or string>
+              port: <integer>
+              ssh-client-cert: <string>
+              ssh-host-key: <list or string>
+              ssh-host-key-validation: <value in [disable, enable]>
+              status: <value in [active, standby, disable]>
+              type: <value in [tcp-forwarding, ssh]>
+              weight: <integer>
+              translate-host: <value in [disable, enable]>
+              external-auth: <value in [disable, enable]>
+              tunnel-encryption: <value in [disable, enable]>
+          saml-redirect: <value in [disable, enable]>
+          saml-server: <string>
+          service: <value in [http, https, tcp-forwarding, ...]>
+          ssl-algorithm: <value in [high, medium, low]>
+          ssl-cipher-suites:
+            -
+              cipher: <value in [TLS-RSA-WITH-RC4-128-MD5, TLS-RSA-WITH-RC4-128-SHA, TLS-RSA-WITH-DES-CBC-SHA, ...]>
+              priority: <integer>
+              versions:
+                - tls-1.0
+                - tls-1.1
+                - tls-1.2
+                - tls-1.3
+          ssl-dh-bits: <value in [768, 1024, 1536, ...]>
+          ssl-max-version: <value in [tls-1.0, tls-1.1, tls-1.2, ...]>
+          ssl-min-version: <value in [tls-1.0, tls-1.1, tls-1.2, ...]>
+          ssl-vpn-web-portal: <string>
+          url-map: <string>
+          url-map-type: <value in [sub-string, wildcard, regex]>
+          virtual-host: <string>
+          ssl-renegotiation: <value in [disable, enable]>
+          h2-support: <value in [disable, enable]>
+          h3-support: <value in [disable, enable]>
+          quic:
+            ack-delay-exponent: <integer>
+            active-connection-id-limit: <integer>
+            active-migration: <value in [disable, enable]>
+            grease-quic-bit: <value in [disable, enable]>
+            max-ack-delay: <integer>
+            max-datagram-frame-size: <integer>
+            max-idle-timeout: <integer>
+            max-udp-payload-size: <integer>
 
 '''
 
@@ -637,7 +695,9 @@ def main():
                 '7.2.1': True,
                 '7.2.2': True,
                 '7.2.3': True,
-                '7.4.0': True
+                '7.2.4': True,
+                '7.4.0': True,
+                '7.4.1': True
             },
             'options': {
                 'application': {
@@ -646,9 +706,11 @@ def main():
                         '7.2.1': True,
                         '7.2.2': True,
                         '7.2.3': True,
-                        '7.4.0': True
+                        '7.2.4': True,
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
-                    'type': 'str'
+                    'type': 'raw'
                 },
                 'http-cookie-age': {
                     'required': False,
@@ -656,7 +718,9 @@ def main():
                         '7.2.1': True,
                         '7.2.2': True,
                         '7.2.3': True,
-                        '7.4.0': True
+                        '7.2.4': True,
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'type': 'int'
                 },
@@ -666,7 +730,9 @@ def main():
                         '7.2.1': True,
                         '7.2.2': True,
                         '7.2.3': True,
-                        '7.4.0': True
+                        '7.2.4': True,
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'type': 'str'
                 },
@@ -676,7 +742,9 @@ def main():
                         '7.2.1': True,
                         '7.2.2': True,
                         '7.2.3': True,
-                        '7.4.0': True
+                        '7.2.4': True,
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'choices': [
                         'disable',
@@ -690,7 +758,9 @@ def main():
                         '7.2.1': True,
                         '7.2.2': True,
                         '7.2.3': True,
-                        '7.4.0': True
+                        '7.2.4': True,
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'type': 'int'
                 },
@@ -700,7 +770,9 @@ def main():
                         '7.2.1': True,
                         '7.2.2': True,
                         '7.2.3': True,
-                        '7.4.0': True
+                        '7.2.4': True,
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'type': 'str'
                 },
@@ -710,7 +782,9 @@ def main():
                         '7.2.1': True,
                         '7.2.2': True,
                         '7.2.3': True,
-                        '7.4.0': True
+                        '7.2.4': True,
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'choices': [
                         'disable',
@@ -724,7 +798,9 @@ def main():
                         '7.2.1': True,
                         '7.2.2': True,
                         '7.2.3': True,
-                        '7.4.0': True
+                        '7.2.4': True,
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'choices': [
                         'disable',
@@ -738,7 +814,9 @@ def main():
                         '7.2.1': True,
                         '7.2.2': True,
                         '7.2.3': True,
-                        '7.4.0': True
+                        '7.2.4': True,
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'type': 'int'
                 },
@@ -748,7 +826,9 @@ def main():
                         '7.2.1': True,
                         '7.2.2': True,
                         '7.2.3': True,
-                        '7.4.0': True
+                        '7.2.4': True,
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'choices': [
                         'static',
@@ -765,7 +845,9 @@ def main():
                         '7.2.1': True,
                         '7.2.2': True,
                         '7.2.3': True,
-                        '7.4.0': True
+                        '7.2.4': True,
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'choices': [
                         'none',
@@ -779,7 +861,9 @@ def main():
                         '7.2.1': True,
                         '7.2.2': True,
                         '7.2.3': True,
-                        '7.4.0': True
+                        '7.2.4': True,
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'type': 'list',
                     'options': {
@@ -789,7 +873,9 @@ def main():
                                 '7.2.1': True,
                                 '7.2.2': True,
                                 '7.2.3': True,
-                                '7.4.0': True
+                                '7.2.4': True,
+                                '7.4.0': True,
+                                '7.4.1': True
                             },
                             'choices': [
                                 'fqdn',
@@ -803,7 +889,9 @@ def main():
                                 '7.2.1': True,
                                 '7.2.2': True,
                                 '7.2.3': True,
-                                '7.4.0': True
+                                '7.2.4': True,
+                                '7.4.0': True,
+                                '7.4.1': True
                             },
                             'type': 'str'
                         },
@@ -813,7 +901,9 @@ def main():
                                 '7.2.1': True,
                                 '7.2.2': True,
                                 '7.2.3': True,
-                                '7.4.0': True
+                                '7.2.4': True,
+                                '7.4.0': True,
+                                '7.4.1': True
                             },
                             'type': 'str'
                         },
@@ -823,7 +913,9 @@ def main():
                                 '7.2.1': True,
                                 '7.2.2': True,
                                 '7.2.3': True,
-                                '7.4.0': True
+                                '7.2.4': True,
+                                '7.4.0': True,
+                                '7.4.1': True
                             },
                             'choices': [
                                 'disable',
@@ -837,7 +929,9 @@ def main():
                                 '7.2.1': True,
                                 '7.2.2': True,
                                 '7.2.3': True,
-                                '7.4.0': True
+                                '7.2.4': True,
+                                '7.4.0': True,
+                                '7.4.1': True
                             },
                             'choices': [
                                 'ping',
@@ -852,7 +946,9 @@ def main():
                                 '7.2.1': True,
                                 '7.2.2': True,
                                 '7.2.3': True,
-                                '7.4.0': True
+                                '7.2.4': True,
+                                '7.4.0': True,
+                                '7.4.1': True
                             },
                             'choices': [
                                 'disable',
@@ -866,7 +962,9 @@ def main():
                                 '7.2.1': True,
                                 '7.2.2': True,
                                 '7.2.3': True,
-                                '7.4.0': True
+                                '7.2.4': True,
+                                '7.4.0': True,
+                                '7.4.1': True
                             },
                             'type': 'str'
                         },
@@ -876,7 +974,9 @@ def main():
                                 '7.2.1': True,
                                 '7.2.2': True,
                                 '7.2.3': True,
-                                '7.4.0': True
+                                '7.2.4': True,
+                                '7.4.0': True,
+                                '7.4.1': True
                             },
                             'type': 'int'
                         },
@@ -886,7 +986,9 @@ def main():
                                 '7.2.1': True,
                                 '7.2.2': True,
                                 '7.2.3': True,
-                                '7.4.0': True
+                                '7.2.4': True,
+                                '7.4.0': True,
+                                '7.4.1': True
                             },
                             'type': 'str'
                         },
@@ -896,9 +998,11 @@ def main():
                                 '7.2.1': True,
                                 '7.2.2': True,
                                 '7.2.3': True,
-                                '7.4.0': True
+                                '7.2.4': True,
+                                '7.4.0': True,
+                                '7.4.1': True
                             },
-                            'type': 'str'
+                            'type': 'raw'
                         },
                         'port': {
                             'required': False,
@@ -906,7 +1010,9 @@ def main():
                                 '7.2.1': True,
                                 '7.2.2': True,
                                 '7.2.3': True,
-                                '7.4.0': True
+                                '7.2.4': True,
+                                '7.4.0': True,
+                                '7.4.1': True
                             },
                             'type': 'int'
                         },
@@ -916,7 +1022,9 @@ def main():
                                 '7.2.1': True,
                                 '7.2.2': True,
                                 '7.2.3': True,
-                                '7.4.0': True
+                                '7.2.4': True,
+                                '7.4.0': True,
+                                '7.4.1': True
                             },
                             'type': 'str'
                         },
@@ -926,9 +1034,12 @@ def main():
                                 '7.2.1': True,
                                 '7.2.2': True,
                                 '7.2.3': True,
-                                '7.4.0': True
+                                '7.2.4': True,
+                                '7.4.0': True,
+                                '7.4.1': True
                             },
-                            'type': 'str'
+                            'no_log': True,
+                            'type': 'raw'
                         },
                         'ssh-host-key-validation': {
                             'required': False,
@@ -936,7 +1047,9 @@ def main():
                                 '7.2.1': True,
                                 '7.2.2': True,
                                 '7.2.3': True,
-                                '7.4.0': True
+                                '7.2.4': True,
+                                '7.4.0': True,
+                                '7.4.1': True
                             },
                             'choices': [
                                 'disable',
@@ -950,7 +1063,9 @@ def main():
                                 '7.2.1': True,
                                 '7.2.2': True,
                                 '7.2.3': True,
-                                '7.4.0': True
+                                '7.2.4': True,
+                                '7.4.0': True,
+                                '7.4.1': True
                             },
                             'choices': [
                                 'active',
@@ -965,7 +1080,9 @@ def main():
                                 '7.2.1': True,
                                 '7.2.2': True,
                                 '7.2.3': True,
-                                '7.4.0': True
+                                '7.2.4': True,
+                                '7.4.0': True,
+                                '7.4.1': True
                             },
                             'choices': [
                                 'tcp-forwarding',
@@ -979,7 +1096,9 @@ def main():
                                 '7.2.1': True,
                                 '7.2.2': True,
                                 '7.2.3': True,
-                                '7.4.0': True
+                                '7.2.4': True,
+                                '7.4.0': True,
+                                '7.4.1': True
                             },
                             'type': 'int'
                         },
@@ -988,7 +1107,9 @@ def main():
                             'revision': {
                                 '7.2.2': True,
                                 '7.2.3': True,
-                                '7.4.0': True
+                                '7.2.4': True,
+                                '7.4.0': True,
+                                '7.4.1': True
                             },
                             'choices': [
                                 'disable',
@@ -999,7 +1120,8 @@ def main():
                         'external-auth': {
                             'required': False,
                             'revision': {
-                                '7.4.0': True
+                                '7.4.0': True,
+                                '7.4.1': True
                             },
                             'choices': [
                                 'disable',
@@ -1010,7 +1132,8 @@ def main():
                         'tunnel-encryption': {
                             'required': False,
                             'revision': {
-                                '7.4.0': True
+                                '7.4.0': True,
+                                '7.4.1': True
                             },
                             'choices': [
                                 'disable',
@@ -1027,7 +1150,9 @@ def main():
                         '7.2.1': True,
                         '7.2.2': True,
                         '7.2.3': True,
-                        '7.4.0': True
+                        '7.2.4': True,
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'choices': [
                         'disable',
@@ -1041,7 +1166,9 @@ def main():
                         '7.2.1': True,
                         '7.2.2': True,
                         '7.2.3': True,
-                        '7.4.0': True
+                        '7.2.4': True,
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'type': 'str'
                 },
@@ -1051,7 +1178,9 @@ def main():
                         '7.2.1': True,
                         '7.2.2': True,
                         '7.2.3': True,
-                        '7.4.0': True
+                        '7.2.4': True,
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'choices': [
                         'http',
@@ -1069,7 +1198,9 @@ def main():
                         '7.2.1': True,
                         '7.2.2': True,
                         '7.2.3': True,
-                        '7.4.0': True
+                        '7.2.4': True,
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'choices': [
                         'high',
@@ -1084,7 +1215,9 @@ def main():
                         '7.2.1': True,
                         '7.2.2': True,
                         '7.2.3': True,
-                        '7.4.0': True
+                        '7.2.4': True,
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'type': 'list',
                     'options': {
@@ -1094,7 +1227,9 @@ def main():
                                 '7.2.1': True,
                                 '7.2.2': True,
                                 '7.2.3': True,
-                                '7.4.0': True
+                                '7.2.4': True,
+                                '7.4.0': True,
+                                '7.4.1': True
                             },
                             'choices': [
                                 'TLS-RSA-WITH-RC4-128-MD5',
@@ -1177,7 +1312,9 @@ def main():
                                 '7.2.1': True,
                                 '7.2.2': True,
                                 '7.2.3': True,
-                                '7.4.0': True
+                                '7.2.4': True,
+                                '7.4.0': True,
+                                '7.4.1': True
                             },
                             'type': 'int'
                         },
@@ -1187,7 +1324,9 @@ def main():
                                 '7.2.1': True,
                                 '7.2.2': True,
                                 '7.2.3': True,
-                                '7.4.0': True
+                                '7.2.4': True,
+                                '7.4.0': True,
+                                '7.4.1': True
                             },
                             'type': 'list',
                             'choices': [
@@ -1207,7 +1346,9 @@ def main():
                         '7.2.1': True,
                         '7.2.2': True,
                         '7.2.3': True,
-                        '7.4.0': True
+                        '7.2.4': True,
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'choices': [
                         '768',
@@ -1225,7 +1366,9 @@ def main():
                         '7.2.1': True,
                         '7.2.2': True,
                         '7.2.3': True,
-                        '7.4.0': True
+                        '7.2.4': True,
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'choices': [
                         'tls-1.0',
@@ -1241,7 +1384,9 @@ def main():
                         '7.2.1': True,
                         '7.2.2': True,
                         '7.2.3': True,
-                        '7.4.0': True
+                        '7.2.4': True,
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'choices': [
                         'tls-1.0',
@@ -1257,7 +1402,9 @@ def main():
                         '7.2.1': True,
                         '7.2.2': True,
                         '7.2.3': True,
-                        '7.4.0': True
+                        '7.2.4': True,
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'type': 'str'
                 },
@@ -1267,7 +1414,9 @@ def main():
                         '7.2.1': True,
                         '7.2.2': True,
                         '7.2.3': True,
-                        '7.4.0': True
+                        '7.2.4': True,
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'type': 'str'
                 },
@@ -1277,7 +1426,9 @@ def main():
                         '7.2.1': True,
                         '7.2.2': True,
                         '7.2.3': True,
-                        '7.4.0': True
+                        '7.2.4': True,
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'choices': [
                         'sub-string',
@@ -1292,7 +1443,9 @@ def main():
                         '7.2.1': True,
                         '7.2.2': True,
                         '7.2.3': True,
-                        '7.4.0': True
+                        '7.2.4': True,
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'type': 'str'
                 },
@@ -1301,13 +1454,107 @@ def main():
                     'revision': {
                         '7.2.2': True,
                         '7.2.3': True,
-                        '7.4.0': True
+                        '7.2.4': True,
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'choices': [
                         'disable',
                         'enable'
                     ],
                     'type': 'str'
+                },
+                'h2-support': {
+                    'required': False,
+                    'revision': {
+                        '7.4.1': True
+                    },
+                    'choices': [
+                        'disable',
+                        'enable'
+                    ],
+                    'type': 'str'
+                },
+                'h3-support': {
+                    'required': False,
+                    'revision': {
+                        '7.4.1': True
+                    },
+                    'choices': [
+                        'disable',
+                        'enable'
+                    ],
+                    'type': 'str'
+                },
+                'quic': {
+                    'required': False,
+                    'type': 'dict',
+                    'options': {
+                        'ack-delay-exponent': {
+                            'required': False,
+                            'revision': {
+                                '7.4.1': True
+                            },
+                            'type': 'int'
+                        },
+                        'active-connection-id-limit': {
+                            'required': False,
+                            'revision': {
+                                '7.4.1': True
+                            },
+                            'type': 'int'
+                        },
+                        'active-migration': {
+                            'required': False,
+                            'revision': {
+                                '7.4.1': True
+                            },
+                            'choices': [
+                                'disable',
+                                'enable'
+                            ],
+                            'type': 'str'
+                        },
+                        'grease-quic-bit': {
+                            'required': False,
+                            'revision': {
+                                '7.4.1': True
+                            },
+                            'choices': [
+                                'disable',
+                                'enable'
+                            ],
+                            'type': 'str'
+                        },
+                        'max-ack-delay': {
+                            'required': False,
+                            'revision': {
+                                '7.4.1': True
+                            },
+                            'type': 'int'
+                        },
+                        'max-datagram-frame-size': {
+                            'required': False,
+                            'revision': {
+                                '7.4.1': True
+                            },
+                            'type': 'int'
+                        },
+                        'max-idle-timeout': {
+                            'required': False,
+                            'revision': {
+                                '7.4.1': True
+                            },
+                            'type': 'int'
+                        },
+                        'max-udp-payload-size': {
+                            'required': False,
+                            'revision': {
+                                '7.4.1': True
+                            },
+                            'type': 'int'
+                        }
+                    }
                 }
             }
 

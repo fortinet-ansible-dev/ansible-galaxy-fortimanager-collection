@@ -122,6 +122,7 @@ options:
             id:
                 type: int
                 description: ID.
+                required: true
             ip:
                 type: str
                 description: Set IP addresses of proxy ARP.
@@ -129,30 +130,30 @@ options:
 '''
 
 EXAMPLES = '''
- - hosts: fortimanager-inventory
-   collections:
-     - fortinet.fortimanager
-   connection: httpapi
-   vars:
-      ansible_httpapi_use_ssl: True
-      ansible_httpapi_validate_certs: False
-      ansible_httpapi_port: 443
-   tasks:
+- hosts: fortimanager-inventory
+  collections:
+    - fortinet.fortimanager
+  connection: httpapi
+  vars:
+    ansible_httpapi_use_ssl: True
+    ansible_httpapi_validate_certs: False
+    ansible_httpapi_port: 443
+  tasks:
     - name: VRRP Proxy ARP configuration.
       fmgr_fsp_vlan_dynamicmapping_interface_vrrp_proxyarp:
-         bypass_validation: False
-         workspace_locking_adom: <value in [global, custom adom including root]>
-         workspace_locking_timeout: 300
-         rc_succeeded: [0, -2, -3, ...]
-         rc_failed: [-2, -3, ...]
-         adom: <your own value>
-         vlan: <your own value>
-         dynamic_mapping: <your own value>
-         vrrp: <your own value>
-         state: <value in [present, absent]>
-         fsp_vlan_dynamicmapping_interface_vrrp_proxyarp:
-            id: <value of integer>
-            ip: <value of string>
+        bypass_validation: False
+        workspace_locking_adom: <value in [global, custom adom including root]>
+        workspace_locking_timeout: 300
+        rc_succeeded: [0, -2, -3, ...]
+        rc_failed: [-2, -3, ...]
+        adom: <your own value>
+        vlan: <your own value>
+        dynamic_mapping: <your own value>
+        vrrp: <your own value>
+        state: <value in [present, absent]>
+        fsp_vlan_dynamicmapping_interface_vrrp_proxyarp:
+          id: <integer>
+          ip: <string>
 
 '''
 
@@ -298,14 +299,16 @@ def main():
                 'id': {
                     'required': True,
                     'revision': {
-                        '7.4.0': True
+                        '7.4.0': True,
+                        '7.4.1': False
                     },
                     'type': 'int'
                 },
                 'ip': {
                     'required': False,
                     'revision': {
-                        '7.4.0': True
+                        '7.4.0': True,
+                        '7.4.1': False
                     },
                     'type': 'str'
                 }

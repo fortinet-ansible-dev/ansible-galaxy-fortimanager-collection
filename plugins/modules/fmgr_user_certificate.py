@@ -113,6 +113,7 @@ options:
             id:
                 type: int
                 description: no description
+                required: true
             issuer:
                 type: str
                 description: CA certificate used for client certificate verification.
@@ -135,31 +136,31 @@ options:
 '''
 
 EXAMPLES = '''
- - hosts: fortimanager-inventory
-   collections:
-     - fortinet.fortimanager
-   connection: httpapi
-   vars:
-      ansible_httpapi_use_ssl: True
-      ansible_httpapi_validate_certs: False
-      ansible_httpapi_port: 443
-   tasks:
+- hosts: fortimanager-inventory
+  collections:
+    - fortinet.fortimanager
+  connection: httpapi
+  vars:
+    ansible_httpapi_use_ssl: True
+    ansible_httpapi_validate_certs: False
+    ansible_httpapi_port: 443
+  tasks:
     - name: Configure certificate users.
       fmgr_user_certificate:
-         bypass_validation: False
-         workspace_locking_adom: <value in [global, custom adom including root]>
-         workspace_locking_timeout: 300
-         rc_succeeded: [0, -2, -3, ...]
-         rc_failed: [-2, -3, ...]
-         adom: <your own value>
-         state: <value in [present, absent]>
-         user_certificate:
-            common-name: <value of string>
-            id: <value of integer>
-            issuer: <value of string>
-            name: <value of string>
-            status: <value in [disable, enable]>
-            type: <value in [single-certificate, trusted-issuer]>
+        bypass_validation: False
+        workspace_locking_adom: <value in [global, custom adom including root]>
+        workspace_locking_timeout: 300
+        rc_succeeded: [0, -2, -3, ...]
+        rc_failed: [-2, -3, ...]
+        adom: <your own value>
+        state: <value in [present, absent]>
+        user_certificate:
+          common-name: <string>
+          id: <integer>
+          issuer: <string>
+          name: <string>
+          status: <value in [disable, enable]>
+          type: <value in [single-certificate, trusted-issuer]>
 
 '''
 
@@ -288,18 +289,24 @@ def main():
             'type': 'dict',
             'revision': {
                 '7.0.8': True,
+                '7.0.9': True,
                 '7.2.3': True,
-                '7.4.0': True
+                '7.2.4': True,
+                '7.4.0': True,
+                '7.4.1': True
             },
             'options': {
                 'common-name': {
                     'required': False,
                     'revision': {
                         '7.0.8': True,
+                        '7.0.9': True,
                         '7.2.1': False,
                         '7.2.2': False,
                         '7.2.3': True,
-                        '7.4.0': True
+                        '7.2.4': True,
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'type': 'str'
                 },
@@ -307,10 +314,13 @@ def main():
                     'required': True,
                     'revision': {
                         '7.0.8': True,
+                        '7.0.9': True,
                         '7.2.1': False,
                         '7.2.2': False,
                         '7.2.3': True,
-                        '7.4.0': True
+                        '7.2.4': True,
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'type': 'int'
                 },
@@ -318,10 +328,13 @@ def main():
                     'required': False,
                     'revision': {
                         '7.0.8': True,
+                        '7.0.9': True,
                         '7.2.1': False,
                         '7.2.2': False,
                         '7.2.3': True,
-                        '7.4.0': True
+                        '7.2.4': True,
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'type': 'str'
                 },
@@ -329,10 +342,13 @@ def main():
                     'required': False,
                     'revision': {
                         '7.0.8': True,
+                        '7.0.9': True,
                         '7.2.1': False,
                         '7.2.2': False,
                         '7.2.3': True,
-                        '7.4.0': True
+                        '7.2.4': True,
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'type': 'str'
                 },
@@ -340,10 +356,13 @@ def main():
                     'required': False,
                     'revision': {
                         '7.0.8': True,
+                        '7.0.9': True,
                         '7.2.1': False,
                         '7.2.2': False,
                         '7.2.3': True,
-                        '7.4.0': True
+                        '7.2.4': True,
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'choices': [
                         'disable',
@@ -355,10 +374,13 @@ def main():
                     'required': False,
                     'revision': {
                         '7.0.8': True,
+                        '7.0.9': True,
                         '7.2.1': False,
                         '7.2.2': False,
                         '7.2.3': True,
-                        '7.4.0': True
+                        '7.2.4': True,
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'choices': [
                         'single-certificate',

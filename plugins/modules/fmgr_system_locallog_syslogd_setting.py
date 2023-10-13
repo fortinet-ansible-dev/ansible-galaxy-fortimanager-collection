@@ -99,40 +99,40 @@ options:
             csv:
                 type: str
                 description:
-                 - CSV format.
-                 - disable - Disable CSV format.
-                 - enable - Enable CSV format.
+                    - CSV format.
+                    - disable - Disable CSV format.
+                    - enable - Enable CSV format.
                 choices:
                     - 'disable'
                     - 'enable'
             facility:
                 type: str
                 description:
-                 - Remote syslog facility.
-                 - kernel - Kernel messages.
-                 - user - Random user-level messages.
-                 - ntp - NTP daemon.
-                 - audit - Log audit.
-                 - alert - Log alert.
-                 - clock - Clock daemon.
-                 - mail - Mail system.
-                 - daemon - System daemons.
-                 - auth - Security/authorization messages.
-                 - syslog - Messages generated internally by syslog daemon.
-                 - lpr - Line printer subsystem.
-                 - news - Network news subsystem.
-                 - uucp - Network news subsystem.
-                 - cron - Clock daemon.
-                 - authpriv - Security/authorization messages
-                 - ftp - FTP daemon.
-                 - local0 - Reserved for local use.
-                 - local1 - Reserved for local use.
-                 - local2 - Reserved for local use.
-                 - local3 - Reserved for local use.
-                 - local4 - Reserved for local use.
-                 - local5 - Reserved for local use.
-                 - local6 - Reserved for local use.
-                 - local7 - Reserved for local use.
+                    - Remote syslog facility.
+                    - kernel - Kernel messages.
+                    - user - Random user-level messages.
+                    - ntp - NTP daemon.
+                    - audit - Log audit.
+                    - alert - Log alert.
+                    - clock - Clock daemon.
+                    - mail - Mail system.
+                    - daemon - System daemons.
+                    - auth - Security/authorization messages.
+                    - syslog - Messages generated internally by syslog daemon.
+                    - lpr - Line printer subsystem.
+                    - news - Network news subsystem.
+                    - uucp - Network news subsystem.
+                    - cron - Clock daemon.
+                    - authpriv - Security/authorization messages
+                    - ftp - FTP daemon.
+                    - local0 - Reserved for local use.
+                    - local1 - Reserved for local use.
+                    - local2 - Reserved for local use.
+                    - local3 - Reserved for local use.
+                    - local4 - Reserved for local use.
+                    - local5 - Reserved for local use.
+                    - local6 - Reserved for local use.
+                    - local7 - Reserved for local use.
                 choices:
                     - 'kernel'
                     - 'user'
@@ -161,15 +161,15 @@ options:
             severity:
                 type: str
                 description:
-                 - Least severity level to log.
-                 - emergency - Emergency level.
-                 - alert - Alert level.
-                 - critical - Critical level.
-                 - error - Error level.
-                 - warning - Warning level.
-                 - notification - Notification level.
-                 - information - Information level.
-                 - debug - Debug level.
+                    - Least severity level to log.
+                    - emergency - Emergency level.
+                    - alert - Alert level.
+                    - critical - Critical level.
+                    - error - Error level.
+                    - warning - Warning level.
+                    - notification - Notification level.
+                    - information - Information level.
+                    - debug - Debug level.
                 choices:
                     - 'emergency'
                     - 'alert'
@@ -182,9 +182,9 @@ options:
             status:
                 type: str
                 description:
-                 - Remote syslog log.
-                 - disable - Do not log to remote syslog server.
-                 - enable - Log to remote syslog server.
+                    - Remote syslog log.
+                    - disable - Do not log to remote syslog server.
+                    - enable - Log to remote syslog server.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -197,18 +197,18 @@ options:
             reliable:
                 type: str
                 description:
-                 - Enable/disable reliable realtime logging.
-                 - disable - Disable reliable realtime logging.
-                 - enable - Enable reliable realtime logging.
+                    - Enable/disable reliable realtime logging.
+                    - disable - Disable reliable realtime logging.
+                    - enable - Enable reliable realtime logging.
                 choices:
                     - 'disable'
                     - 'enable'
             secure-connection:
                 type: str
                 description:
-                 - Enable/disable connection secured by TLS/SSL.
-                 - disable - Disable SSL connection.
-                 - enable - Enable SSL connection.
+                    - Enable/disable connection secured by TLS/SSL.
+                    - disable - Disable SSL connection.
+                    - enable - Enable SSL connection.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -216,31 +216,31 @@ options:
 '''
 
 EXAMPLES = '''
- - hosts: fortimanager-inventory
-   collections:
-     - fortinet.fortimanager
-   connection: httpapi
-   vars:
-      ansible_httpapi_use_ssl: True
-      ansible_httpapi_validate_certs: False
-      ansible_httpapi_port: 443
-   tasks:
+- hosts: fortimanager-inventory
+  collections:
+    - fortinet.fortimanager
+  connection: httpapi
+  vars:
+    ansible_httpapi_use_ssl: True
+    ansible_httpapi_validate_certs: False
+    ansible_httpapi_port: 443
+  tasks:
     - name: Settings for remote syslog server.
       fmgr_system_locallog_syslogd_setting:
-         bypass_validation: False
-         workspace_locking_adom: <value in [global, custom adom including root]>
-         workspace_locking_timeout: 300
-         rc_succeeded: [0, -2, -3, ...]
-         rc_failed: [-2, -3, ...]
-         system_locallog_syslogd_setting:
-            csv: <value in [disable, enable]>
-            facility: <value in [kernel, user, ntp, ...]>
-            severity: <value in [emergency, alert, critical, ...]>
-            status: <value in [disable, enable]>
-            syslog-name: <value of string>
-            cert: <value of string>
-            reliable: <value in [disable, enable]>
-            secure-connection: <value in [disable, enable]>
+        bypass_validation: False
+        workspace_locking_adom: <value in [global, custom adom including root]>
+        workspace_locking_timeout: 300
+        rc_succeeded: [0, -2, -3, ...]
+        rc_failed: [-2, -3, ...]
+        system_locallog_syslogd_setting:
+          csv: <value in [disable, enable]>
+          facility: <value in [kernel, user, ntp, ...]>
+          severity: <value in [emergency, alert, critical, ...]>
+          status: <value in [disable, enable]>
+          syslog-name: <string>
+          cert: <string>
+          reliable: <value in [disable, enable]>
+          secure-connection: <value in [disable, enable]>
 
 '''
 
@@ -366,6 +366,7 @@ def main():
                 '6.2.9': True,
                 '6.2.10': True,
                 '6.2.11': True,
+                '6.2.12': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -379,6 +380,7 @@ def main():
                 '6.4.10': True,
                 '6.4.11': True,
                 '6.4.12': True,
+                '6.4.13': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -388,36 +390,38 @@ def main():
                 '7.0.6': True,
                 '7.0.7': True,
                 '7.0.8': True,
+                '7.0.9': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
                 '7.2.3': True,
-                '7.4.0': True
+                '7.2.4': True,
+                '7.4.0': True,
+                '7.4.1': True
             },
             'options': {
                 'csv': {
                     'required': False,
                     'revision': {
                         '6.0.0': True,
+                        '6.2.0': True,
                         '6.2.1': True,
+                        '6.2.2': True,
                         '6.2.3': True,
                         '6.2.5': True,
-                        '6.4.0': True,
-                        '6.4.2': True,
-                        '6.4.5': True,
-                        '7.0.0': True,
-                        '7.2.0': True,
-                        '6.2.0': True,
-                        '6.2.2': True,
                         '6.2.6': True,
                         '6.2.7': True,
                         '6.2.8': True,
                         '6.2.9': True,
                         '6.2.10': True,
                         '6.2.11': True,
+                        '6.2.12': True,
+                        '6.4.0': True,
                         '6.4.1': True,
+                        '6.4.2': True,
                         '6.4.3': True,
                         '6.4.4': True,
+                        '6.4.5': True,
                         '6.4.6': True,
                         '6.4.7': True,
                         '6.4.8': True,
@@ -425,6 +429,8 @@ def main():
                         '6.4.10': True,
                         '6.4.11': True,
                         '6.4.12': True,
+                        '6.4.13': True,
+                        '7.0.0': True,
                         '7.0.1': True,
                         '7.0.2': True,
                         '7.0.3': True,
@@ -433,10 +439,14 @@ def main():
                         '7.0.6': True,
                         '7.0.7': True,
                         '7.0.8': True,
+                        '7.0.9': True,
+                        '7.2.0': True,
                         '7.2.1': True,
                         '7.2.2': True,
                         '7.2.3': True,
-                        '7.4.0': True
+                        '7.2.4': True,
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'choices': [
                         'disable',
@@ -448,25 +458,24 @@ def main():
                     'required': False,
                     'revision': {
                         '6.0.0': True,
+                        '6.2.0': True,
                         '6.2.1': True,
+                        '6.2.2': True,
                         '6.2.3': True,
                         '6.2.5': True,
-                        '6.4.0': True,
-                        '6.4.2': True,
-                        '6.4.5': True,
-                        '7.0.0': True,
-                        '7.2.0': True,
-                        '6.2.0': True,
-                        '6.2.2': True,
                         '6.2.6': True,
                         '6.2.7': True,
                         '6.2.8': True,
                         '6.2.9': True,
                         '6.2.10': True,
                         '6.2.11': True,
+                        '6.2.12': True,
+                        '6.4.0': True,
                         '6.4.1': True,
+                        '6.4.2': True,
                         '6.4.3': True,
                         '6.4.4': True,
+                        '6.4.5': True,
                         '6.4.6': True,
                         '6.4.7': True,
                         '6.4.8': True,
@@ -474,6 +483,8 @@ def main():
                         '6.4.10': True,
                         '6.4.11': True,
                         '6.4.12': True,
+                        '6.4.13': True,
+                        '7.0.0': True,
                         '7.0.1': True,
                         '7.0.2': True,
                         '7.0.3': True,
@@ -482,10 +493,14 @@ def main():
                         '7.0.6': True,
                         '7.0.7': True,
                         '7.0.8': True,
+                        '7.0.9': True,
+                        '7.2.0': True,
                         '7.2.1': True,
                         '7.2.2': True,
                         '7.2.3': True,
-                        '7.4.0': True
+                        '7.2.4': True,
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'choices': [
                         'kernel',
@@ -519,25 +534,24 @@ def main():
                     'required': False,
                     'revision': {
                         '6.0.0': True,
+                        '6.2.0': True,
                         '6.2.1': True,
+                        '6.2.2': True,
                         '6.2.3': True,
                         '6.2.5': True,
-                        '6.4.0': True,
-                        '6.4.2': True,
-                        '6.4.5': True,
-                        '7.0.0': True,
-                        '7.2.0': True,
-                        '6.2.0': True,
-                        '6.2.2': True,
                         '6.2.6': True,
                         '6.2.7': True,
                         '6.2.8': True,
                         '6.2.9': True,
                         '6.2.10': True,
                         '6.2.11': True,
+                        '6.2.12': True,
+                        '6.4.0': True,
                         '6.4.1': True,
+                        '6.4.2': True,
                         '6.4.3': True,
                         '6.4.4': True,
+                        '6.4.5': True,
                         '6.4.6': True,
                         '6.4.7': True,
                         '6.4.8': True,
@@ -545,6 +559,8 @@ def main():
                         '6.4.10': True,
                         '6.4.11': True,
                         '6.4.12': True,
+                        '6.4.13': True,
+                        '7.0.0': True,
                         '7.0.1': True,
                         '7.0.2': True,
                         '7.0.3': True,
@@ -553,10 +569,14 @@ def main():
                         '7.0.6': True,
                         '7.0.7': True,
                         '7.0.8': True,
+                        '7.0.9': True,
+                        '7.2.0': True,
                         '7.2.1': True,
                         '7.2.2': True,
                         '7.2.3': True,
-                        '7.4.0': True
+                        '7.2.4': True,
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'choices': [
                         'emergency',
@@ -574,25 +594,24 @@ def main():
                     'required': False,
                     'revision': {
                         '6.0.0': True,
+                        '6.2.0': True,
                         '6.2.1': True,
+                        '6.2.2': True,
                         '6.2.3': True,
                         '6.2.5': True,
-                        '6.4.0': True,
-                        '6.4.2': True,
-                        '6.4.5': True,
-                        '7.0.0': True,
-                        '7.2.0': True,
-                        '6.2.0': True,
-                        '6.2.2': True,
                         '6.2.6': True,
                         '6.2.7': True,
                         '6.2.8': True,
                         '6.2.9': True,
                         '6.2.10': True,
                         '6.2.11': True,
+                        '6.2.12': True,
+                        '6.4.0': True,
                         '6.4.1': True,
+                        '6.4.2': True,
                         '6.4.3': True,
                         '6.4.4': True,
+                        '6.4.5': True,
                         '6.4.6': True,
                         '6.4.7': True,
                         '6.4.8': True,
@@ -600,6 +619,8 @@ def main():
                         '6.4.10': True,
                         '6.4.11': True,
                         '6.4.12': True,
+                        '6.4.13': True,
+                        '7.0.0': True,
                         '7.0.1': True,
                         '7.0.2': True,
                         '7.0.3': True,
@@ -608,10 +629,14 @@ def main():
                         '7.0.6': True,
                         '7.0.7': True,
                         '7.0.8': True,
+                        '7.0.9': True,
+                        '7.2.0': True,
                         '7.2.1': True,
                         '7.2.2': True,
                         '7.2.3': True,
-                        '7.4.0': True
+                        '7.2.4': True,
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'choices': [
                         'disable',
@@ -623,25 +648,24 @@ def main():
                     'required': False,
                     'revision': {
                         '6.0.0': True,
+                        '6.2.0': True,
                         '6.2.1': True,
+                        '6.2.2': True,
                         '6.2.3': True,
                         '6.2.5': True,
-                        '6.4.0': True,
-                        '6.4.2': True,
-                        '6.4.5': True,
-                        '7.0.0': True,
-                        '7.2.0': True,
-                        '6.2.0': True,
-                        '6.2.2': True,
                         '6.2.6': True,
                         '6.2.7': True,
                         '6.2.8': True,
                         '6.2.9': True,
                         '6.2.10': True,
                         '6.2.11': True,
+                        '6.2.12': True,
+                        '6.4.0': True,
                         '6.4.1': True,
+                        '6.4.2': True,
                         '6.4.3': True,
                         '6.4.4': True,
+                        '6.4.5': True,
                         '6.4.6': True,
                         '6.4.7': True,
                         '6.4.8': True,
@@ -649,6 +673,8 @@ def main():
                         '6.4.10': True,
                         '6.4.11': True,
                         '6.4.12': True,
+                        '6.4.13': True,
+                        '7.0.0': True,
                         '7.0.1': True,
                         '7.0.2': True,
                         '7.0.3': True,
@@ -657,17 +683,20 @@ def main():
                         '7.0.6': True,
                         '7.0.7': True,
                         '7.0.8': True,
+                        '7.0.9': True,
+                        '7.2.0': True,
                         '7.2.1': True,
                         '7.2.2': True,
                         '7.2.3': True,
-                        '7.4.0': True
+                        '7.2.4': True,
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'type': 'str'
                 },
                 'cert': {
                     'required': False,
                     'revision': {
-                        '7.2.0': True,
                         '6.2.0': False,
                         '6.2.2': False,
                         '6.2.6': False,
@@ -676,6 +705,7 @@ def main():
                         '6.2.9': False,
                         '6.2.10': False,
                         '6.2.11': False,
+                        '6.2.12': False,
                         '6.4.1': False,
                         '6.4.3': False,
                         '6.4.4': False,
@@ -686,6 +716,7 @@ def main():
                         '6.4.10': True,
                         '6.4.11': True,
                         '6.4.12': True,
+                        '6.4.13': True,
                         '7.0.1': True,
                         '7.0.2': True,
                         '7.0.3': True,
@@ -694,17 +725,20 @@ def main():
                         '7.0.6': True,
                         '7.0.7': True,
                         '7.0.8': True,
+                        '7.0.9': True,
+                        '7.2.0': True,
                         '7.2.1': True,
                         '7.2.2': True,
                         '7.2.3': True,
-                        '7.4.0': True
+                        '7.2.4': True,
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'type': 'str'
                 },
                 'reliable': {
                     'required': False,
                     'revision': {
-                        '7.2.0': True,
                         '6.2.0': False,
                         '6.2.2': False,
                         '6.2.6': False,
@@ -713,6 +747,7 @@ def main():
                         '6.2.9': False,
                         '6.2.10': False,
                         '6.2.11': False,
+                        '6.2.12': False,
                         '6.4.1': False,
                         '6.4.3': False,
                         '6.4.4': False,
@@ -723,6 +758,7 @@ def main():
                         '6.4.10': True,
                         '6.4.11': True,
                         '6.4.12': True,
+                        '6.4.13': True,
                         '7.0.1': True,
                         '7.0.2': True,
                         '7.0.3': True,
@@ -731,10 +767,14 @@ def main():
                         '7.0.6': True,
                         '7.0.7': True,
                         '7.0.8': True,
+                        '7.0.9': True,
+                        '7.2.0': True,
                         '7.2.1': True,
                         '7.2.2': True,
                         '7.2.3': True,
-                        '7.4.0': True
+                        '7.2.4': True,
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'choices': [
                         'disable',
@@ -745,7 +785,6 @@ def main():
                 'secure-connection': {
                     'required': False,
                     'revision': {
-                        '7.2.0': True,
                         '6.2.0': False,
                         '6.2.2': False,
                         '6.2.6': False,
@@ -754,6 +793,7 @@ def main():
                         '6.2.9': False,
                         '6.2.10': False,
                         '6.2.11': False,
+                        '6.2.12': False,
                         '6.4.1': False,
                         '6.4.3': False,
                         '6.4.4': False,
@@ -764,6 +804,7 @@ def main():
                         '6.4.10': True,
                         '6.4.11': True,
                         '6.4.12': True,
+                        '6.4.13': True,
                         '7.0.1': True,
                         '7.0.2': True,
                         '7.0.3': True,
@@ -772,10 +813,14 @@ def main():
                         '7.0.6': True,
                         '7.0.7': True,
                         '7.0.8': True,
+                        '7.0.9': True,
+                        '7.2.0': True,
                         '7.2.1': True,
                         '7.2.2': True,
                         '7.2.3': True,
-                        '7.4.0': True
+                        '7.2.4': True,
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'choices': [
                         'disable',

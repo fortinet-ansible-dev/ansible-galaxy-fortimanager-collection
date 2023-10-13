@@ -51,6 +51,10 @@ notes:
     - method and params should be specified by users if 'json' is not present
     - if all three parameters are provided, the 'json' is preferred.
 options:
+    access_token:
+        description: The token to access FortiManager without using username and password.
+        required: false
+        type: str
     enable_log:
         description: Enable/Disable logging for task
         required: false
@@ -153,6 +157,7 @@ import json
 def main():
 
     module_arg_spec = {
+        "access_token": {"type": "str", "required": False, "no_log": True},
         "enable_log": {"type": "bool", "required": False, "default": False},
         "forticloud_access_token": {"type": "str", "required": False, "no_log": True},
         "workspace_locking_adom": {"type": "str", "required": False},
@@ -168,16 +173,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg="Only Httpapi plugin is supported in this module.")
     connection = Connection(module._socket_path)
-    connection.set_option(
-        "enable_log",
-        module.params["enable_log"] if "enable_log" in module.params else False,
-    )
-    connection.set_option(
-        "forticloud_access_token",
-        module.params["forticloud_access_token"]
-        if "forticloud_access_token" in module.params
-        else None,
-    )
+    connection.set_option('access_token', module.params['access_token'] if 'access_token' in module.params else None)
+    connection.set_option("enable_log", module.params["enable_log"] if "enable_log" in module.params else False)
+    connection.set_option("forticloud_access_token",
+                          module.params["forticloud_access_token"] if "forticloud_access_token" in module.params else None)
     fmgr = NAPIManager(None, None, None, None, module, connection)
     method = None
     params = None

@@ -106,6 +106,7 @@ options:
             id:
                 type: int
                 description: Trusted list ID.
+                required: true
             serial:
                 type: str
                 description: FAZ serial number
@@ -113,26 +114,26 @@ options:
 '''
 
 EXAMPLES = '''
- - hosts: fortimanager-inventory
-   collections:
-     - fortinet.fortimanager
-   connection: httpapi
-   vars:
-      ansible_httpapi_use_ssl: True
-      ansible_httpapi_validate_certs: False
-      ansible_httpapi_port: 443
-   tasks:
+- hosts: fortimanager-inventory
+  collections:
+    - fortinet.fortimanager
+  connection: httpapi
+  vars:
+    ansible_httpapi_use_ssl: True
+    ansible_httpapi_validate_certs: False
+    ansible_httpapi_port: 443
+  tasks:
     - name: Pre-authorized security fabric nodes
       fmgr_system_socfabric_trustedlist:
-         bypass_validation: False
-         workspace_locking_adom: <value in [global, custom adom including root]>
-         workspace_locking_timeout: 300
-         rc_succeeded: [0, -2, -3, ...]
-         rc_failed: [-2, -3, ...]
-         state: <value in [present, absent]>
-         system_socfabric_trustedlist:
-            id: <value of integer>
-            serial: <value of string>
+        bypass_validation: False
+        workspace_locking_adom: <value in [global, custom adom including root]>
+        workspace_locking_timeout: 300
+        rc_succeeded: [0, -2, -3, ...]
+        rc_failed: [-2, -3, ...]
+        state: <value in [present, absent]>
+        system_socfabric_trustedlist:
+          id: <integer>
+          serial: <string>
 
 '''
 
@@ -254,20 +255,23 @@ def main():
             'required': False,
             'type': 'dict',
             'revision': {
-                '7.4.0': True
+                '7.4.0': True,
+                '7.4.1': True
             },
             'options': {
                 'id': {
                     'required': True,
                     'revision': {
-                        '7.4.0': True
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'type': 'int'
                 },
                 'serial': {
                     'required': False,
                     'revision': {
-                        '7.4.0': True
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'type': 'str'
                 }

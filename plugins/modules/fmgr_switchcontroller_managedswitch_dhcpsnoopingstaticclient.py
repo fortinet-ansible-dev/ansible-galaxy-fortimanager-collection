@@ -120,6 +120,7 @@ options:
             name:
                 type: str
                 description: Client name.
+                required: true
             port:
                 type: str
                 description: Interface name.
@@ -130,31 +131,31 @@ options:
 '''
 
 EXAMPLES = '''
- - hosts: fortimanager-inventory
-   collections:
-     - fortinet.fortimanager
-   connection: httpapi
-   vars:
-      ansible_httpapi_use_ssl: True
-      ansible_httpapi_validate_certs: False
-      ansible_httpapi_port: 443
-   tasks:
+- hosts: fortimanager-inventory
+  collections:
+    - fortinet.fortimanager
+  connection: httpapi
+  vars:
+    ansible_httpapi_use_ssl: True
+    ansible_httpapi_validate_certs: False
+    ansible_httpapi_port: 443
+  tasks:
     - name: Configure FortiSwitch DHCP snooping static clients.
       fmgr_switchcontroller_managedswitch_dhcpsnoopingstaticclient:
-         bypass_validation: False
-         workspace_locking_adom: <value in [global, custom adom including root]>
-         workspace_locking_timeout: 300
-         rc_succeeded: [0, -2, -3, ...]
-         rc_failed: [-2, -3, ...]
-         adom: <your own value>
-         managed-switch: <your own value>
-         state: <value in [present, absent]>
-         switchcontroller_managedswitch_dhcpsnoopingstaticclient:
-            ip: <value of string>
-            mac: <value of string>
-            name: <value of string>
-            port: <value of string>
-            vlan: <value of string>
+        bypass_validation: False
+        workspace_locking_adom: <value in [global, custom adom including root]>
+        workspace_locking_timeout: 300
+        rc_succeeded: [0, -2, -3, ...]
+        rc_failed: [-2, -3, ...]
+        adom: <your own value>
+        managed-switch: <your own value>
+        state: <value in [present, absent]>
+        switchcontroller_managedswitch_dhcpsnoopingstaticclient:
+          ip: <string>
+          mac: <string>
+          name: <string>
+          port: <string>
+          vlan: <string>
 
 '''
 
@@ -288,7 +289,9 @@ def main():
             'revision': {
                 '7.2.2': True,
                 '7.2.3': True,
-                '7.4.0': True
+                '7.2.4': True,
+                '7.4.0': True,
+                '7.4.1': True
             },
             'options': {
                 'ip': {
@@ -296,7 +299,9 @@ def main():
                     'revision': {
                         '7.2.2': True,
                         '7.2.3': True,
-                        '7.4.0': True
+                        '7.2.4': True,
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'type': 'str'
                 },
@@ -305,7 +310,9 @@ def main():
                     'revision': {
                         '7.2.2': True,
                         '7.2.3': True,
-                        '7.4.0': True
+                        '7.2.4': True,
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'type': 'str'
                 },
@@ -314,7 +321,9 @@ def main():
                     'revision': {
                         '7.2.2': True,
                         '7.2.3': True,
-                        '7.4.0': True
+                        '7.2.4': True,
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'type': 'str'
                 },
@@ -323,7 +332,9 @@ def main():
                     'revision': {
                         '7.2.2': True,
                         '7.2.3': True,
-                        '7.4.0': True
+                        '7.2.4': True,
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'type': 'str'
                 },
@@ -332,7 +343,9 @@ def main():
                     'revision': {
                         '7.2.2': True,
                         '7.2.3': True,
-                        '7.4.0': True
+                        '7.2.4': True,
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'type': 'str'
                 }

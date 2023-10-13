@@ -5,6 +5,70 @@ Fortinet.Fortimanager Release Notes
 .. contents:: Topics
 
 
+v2.3.0
+======
+
+Release Summary
+---------------
+
+release fortinet.fortimanager 2.3.0
+
+Minor Changes
+-------------
+
+- Some arguments can support both list or string format input now.
+- Support newest versions for FortiManager v6.2 ~ v7.4
+
+Bugfixes
+--------
+
+- Add 'access_token' in 'fmgr_generic'.
+- Add param 'platform' in 'fmgr_wtpprofile' and param 'interface' in 'fmgr_fsp_vlan'.
+- Fix a bug that collection may update the resource when it does not need to.
+- Fix some modules missing revision (used for version warning).
+- Fixed the bug that would report an error when providing access_token and username/password at the same time.
+- Improve document.
+- Improve fmgr_fact. 'changed' will not be true anymore if you get the result.
+- Improve sanity tests.
+- When the JSON data sent by FortiManager is not in the right format, the collection can still execute correctly.
+
+New Modules
+-----------
+
+- fortinet.fortimanager.fmgr_casb_profile - Configure CASB profile.
+- fortinet.fortimanager.fmgr_casb_profile_saasapplication - CASB profile SaaS application.
+- fortinet.fortimanager.fmgr_casb_profile_saasapplication_accessrule - CASB profile access rule.
+- fortinet.fortimanager.fmgr_casb_profile_saasapplication_customcontrol - CASB profile custom control.
+- fortinet.fortimanager.fmgr_casb_profile_saasapplication_customcontrol_option - CASB custom control option.
+- fortinet.fortimanager.fmgr_casb_saasapplication - Configure CASB SaaS application.
+- fortinet.fortimanager.fmgr_casb_useractivity - Configure CASB user activity.
+- fortinet.fortimanager.fmgr_casb_useractivity_controloptions - CASB control options.
+- fortinet.fortimanager.fmgr_casb_useractivity_controloptions_operations - CASB control option operations.
+- fortinet.fortimanager.fmgr_casb_useractivity_match - CASB user activity match rules.
+- fortinet.fortimanager.fmgr_casb_useractivity_match_rules - CASB user activity rules.
+- fortinet.fortimanager.fmgr_dvmdb_upgrade - no description
+- fortinet.fortimanager.fmgr_firewall_accessproxy6_apigateway6_quic - QUIC setting.
+- fortinet.fortimanager.fmgr_firewall_accessproxy6_apigateway_quic - QUIC setting.
+- fortinet.fortimanager.fmgr_firewall_accessproxy_apigateway6_quic - QUIC setting.
+- fortinet.fortimanager.fmgr_firewall_accessproxy_apigateway_quic - QUIC setting.
+- fortinet.fortimanager.fmgr_firewall_casbprofile - no description
+- fortinet.fortimanager.fmgr_firewall_casbprofile_saasapplication - no description
+- fortinet.fortimanager.fmgr_firewall_casbprofile_saasapplication_accessrule - no description
+- fortinet.fortimanager.fmgr_firewall_casbprofile_saasapplication_customcontrol - no description
+- fortinet.fortimanager.fmgr_firewall_casbprofile_saasapplication_customcontrol_option - no description
+- fortinet.fortimanager.fmgr_firewall_vendormac - Show vendor and the MAC address they have.
+- fortinet.fortimanager.fmgr_firewall_vip_quic - QUIC setting.
+- fortinet.fortimanager.fmgr_pm_config_meta_reference - no description
+- fortinet.fortimanager.fmgr_securityconsole_install_objects_v2 - no description
+- fortinet.fortimanager.fmgr_switchcontroller_managedswitch_routeoffloadrouter - Configure route offload MCLAG IP address.
+- fortinet.fortimanager.fmgr_switchcontroller_ptp_profile - Global PTP profile.
+- fortinet.fortimanager.fmgr_system_csf - Add this device to a Security Fabric or set up a new Security Fabric on this device.
+- fortinet.fortimanager.fmgr_system_csf_fabricconnector - Fabric connector configuration.
+- fortinet.fortimanager.fmgr_system_csf_trustedlist - Pre-authorized and blocked security fabric nodes.
+- fortinet.fortimanager.fmgr_system_sdnproxy - Configure SDN proxy.
+- fortinet.fortimanager.fmgr_virtualpatch_profile - Configure virtual-patch profile.
+- fortinet.fortimanager.fmgr_virtualpatch_profile_exemption - Exempt devices or rules.
+
 v2.2.1
 ======
 

@@ -112,9 +112,9 @@ options:
         type: dict
         suboptions:
             alert:
-                description: description
                 type: list
                 elements: str
+                description: no description
                 choices:
                     - 'system-reboot'
                     - 'data-exhausted'
@@ -126,6 +126,7 @@ options:
             name:
                 type: str
                 description: FortiExtender SMS notification receiver name.
+                required: true
             phone-number:
                 type: str
                 description: Receiver phone number.
@@ -139,37 +140,37 @@ options:
 '''
 
 EXAMPLES = '''
- - hosts: fortimanager-inventory
-   collections:
-     - fortinet.fortimanager
-   connection: httpapi
-   vars:
-      ansible_httpapi_use_ssl: True
-      ansible_httpapi_validate_certs: False
-      ansible_httpapi_port: 443
-   tasks:
+- hosts: fortimanager-inventory
+  collections:
+    - fortinet.fortimanager
+  connection: httpapi
+  vars:
+    ansible_httpapi_use_ssl: True
+    ansible_httpapi_validate_certs: False
+    ansible_httpapi_port: 443
+  tasks:
     - name: SMS notification receiver list.
       fmgr_extensioncontroller_extenderprofile_cellular_smsnotification_receiver:
-         bypass_validation: False
-         workspace_locking_adom: <value in [global, custom adom including root]>
-         workspace_locking_timeout: 300
-         rc_succeeded: [0, -2, -3, ...]
-         rc_failed: [-2, -3, ...]
-         adom: <your own value>
-         extender-profile: <your own value>
-         state: <value in [present, absent]>
-         extensioncontroller_extenderprofile_cellular_smsnotification_receiver:
-            alert:
-              - system-reboot
-              - data-exhausted
-              - session-disconnect
-              - low-signal-strength
-              - mode-switch
-              - os-image-fallback
-              - fgt-backup-mode-switch
-            name: <value of string>
-            phone-number: <value of string>
-            status: <value in [disable, enable]>
+        bypass_validation: False
+        workspace_locking_adom: <value in [global, custom adom including root]>
+        workspace_locking_timeout: 300
+        rc_succeeded: [0, -2, -3, ...]
+        rc_failed: [-2, -3, ...]
+        adom: <your own value>
+        extender-profile: <your own value>
+        state: <value in [present, absent]>
+        extensioncontroller_extenderprofile_cellular_smsnotification_receiver:
+          alert:
+            - system-reboot
+            - data-exhausted
+            - session-disconnect
+            - low-signal-strength
+            - mode-switch
+            - os-image-fallback
+            - fgt-backup-mode-switch
+          name: <string>
+          phone-number: <string>
+          status: <value in [disable, enable]>
 
 '''
 
@@ -304,7 +305,9 @@ def main():
                 '7.2.1': True,
                 '7.2.2': True,
                 '7.2.3': True,
-                '7.4.0': True
+                '7.2.4': True,
+                '7.4.0': True,
+                '7.4.1': True
             },
             'options': {
                 'alert': {
@@ -313,7 +316,9 @@ def main():
                         '7.2.1': True,
                         '7.2.2': True,
                         '7.2.3': True,
-                        '7.4.0': True
+                        '7.2.4': True,
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'type': 'list',
                     'choices': [
@@ -333,7 +338,9 @@ def main():
                         '7.2.1': True,
                         '7.2.2': True,
                         '7.2.3': True,
-                        '7.4.0': True
+                        '7.2.4': True,
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'type': 'str'
                 },
@@ -343,7 +350,9 @@ def main():
                         '7.2.1': True,
                         '7.2.2': True,
                         '7.2.3': True,
-                        '7.4.0': True
+                        '7.2.4': True,
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'type': 'str'
                 },
@@ -353,7 +362,9 @@ def main():
                         '7.2.1': True,
                         '7.2.2': True,
                         '7.2.3': True,
-                        '7.4.0': True
+                        '7.2.4': True,
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'choices': [
                         'disable',

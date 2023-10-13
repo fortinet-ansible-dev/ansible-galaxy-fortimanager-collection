@@ -98,9 +98,9 @@ options:
                 type: str
                 description: Source package path and name.
             scope:
-                description: description
                 type: list
                 elements: dict
+                description: no description
                 suboptions:
                     name:
                         type: str
@@ -112,30 +112,30 @@ options:
 '''
 
 EXAMPLES = '''
- - hosts: fortimanager-inventory
-   collections:
-     - fortinet.fortimanager
-   connection: httpapi
-   vars:
-      ansible_httpapi_use_ssl: True
-      ansible_httpapi_validate_certs: False
-      ansible_httpapi_port: 443
-   tasks:
+- hosts: fortimanager-inventory
+  collections:
+    - fortinet.fortimanager
+  connection: httpapi
+  vars:
+    ansible_httpapi_use_ssl: True
+    ansible_httpapi_validate_certs: False
+    ansible_httpapi_port: 443
+  tasks:
     - name: no description
       fmgr_securityconsole_template_cli_preview:
-         bypass_validation: False
-         workspace_locking_adom: <value in [global, custom adom including root]>
-         workspace_locking_timeout: 300
-         rc_succeeded: [0, -2, -3, ...]
-         rc_failed: [-2, -3, ...]
-         securityconsole_template_cli_preview:
-            adom: <value of string>
-            filename: <value of string>
-            pkg: <value of string>
-            scope:
-              -
-                  name: <value of string>
-                  vdom: <value of string>
+        bypass_validation: False
+        workspace_locking_adom: <value in [global, custom adom including root]>
+        workspace_locking_timeout: 300
+        rc_succeeded: [0, -2, -3, ...]
+        rc_failed: [-2, -3, ...]
+        securityconsole_template_cli_preview:
+          adom: <string>
+          filename: <string>
+          pkg: <string>
+          scope:
+            -
+              name: <string>
+              vdom: <string>
 
 '''
 
@@ -240,48 +240,55 @@ def main():
             'required': False,
             'type': 'dict',
             'revision': {
-                '7.4.0': True
+                '7.4.0': True,
+                '7.4.1': True
             },
             'options': {
                 'adom': {
                     'required': False,
                     'revision': {
-                        '7.4.0': True
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'type': 'str'
                 },
                 'filename': {
                     'required': False,
                     'revision': {
-                        '7.4.0': True
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'type': 'str'
                 },
                 'pkg': {
                     'required': False,
                     'revision': {
-                        '7.4.0': True
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'type': 'str'
                 },
                 'scope': {
                     'required': False,
                     'revision': {
-                        '7.4.0': True
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'type': 'list',
                     'options': {
                         'name': {
                             'required': False,
                             'revision': {
-                                '7.4.0': True
+                                '7.4.0': True,
+                                '7.4.1': True
                             },
                             'type': 'str'
                         },
                         'vdom': {
                             'required': False,
                             'revision': {
-                                '7.4.0': True
+                                '7.4.0': True,
+                                '7.4.1': True
                             },
                             'type': 'str'
                         }

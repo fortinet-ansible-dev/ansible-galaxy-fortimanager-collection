@@ -95,9 +95,9 @@ options:
                 type: str
                 description: Name or ID of the target device.
             flags:
-                description: description
                 type: list
                 elements: str
+                description: no description
                 choices:
                     - 'none'
                     - 'create_task'
@@ -107,70 +107,70 @@ options:
 '''
 
 EXAMPLES = '''
- - name: Delete first FOS devices from FMG In a specific adom
-   hosts: fortimanager00
-   gather_facts: no
-   connection: httpapi
-   collections:
-     - fortinet.fortimanager
-   vars:
+- name: Delete first FOS devices from FMG In a specific adom
+  hosts: fortimanager00
+  gather_facts: no
+  connection: httpapi
+  collections:
+    - fortinet.fortimanager
+  vars:
+    ansible_httpapi_use_ssl: True
+    ansible_httpapi_validate_certs: False
+    ansible_httpapi_port: 443
+    device_adom: 'root'
+  tasks:
+    - name: fetch all devices
+      fmgr_fact:
+        facts:
+            selector: 'dvmdb_device'
+            params:
+                adom: '{{ device_adom }}'
+                device: 'your_value'
+      register: alldevices
+    - when: alldevices.meta.response_data != []
+      debug:
+        msg:
+         - 'We are going to delete device: {{ alldevices.meta.response_data[0].name }}'
+         - 'IP of the device is: {{ alldevices.meta.response_data[0].ip }}'
+    - when: alldevices.meta.response_data != [] and False
+      name: Create The Task To Delete The Device
+      fmgr_dvm_cmd_del_device:
+        dvm_cmd_del_device:
+            device: '{{ alldevices.meta.response_data[0].name }}'
+            adom: '{{ device_adom }}'
+            flags:
+             - 'create_task'
+             - 'nonblocking'
+      register: uninstalling_task
+    - when: alldevices.meta.response_data != [] and False
+      name: poll the task
+      fmgr_fact:
+        facts:
+            selector: 'task_task'
+            params:
+                task: '{{uninstalling_task.meta.response_data.taskid}}'
+      register: taskinfo
+      until: taskinfo.meta.response_data.percent == 100
+      retries: 30
+      delay: 5
+      failed_when: taskinfo.meta.response_data.state == 'error'
+
+
+- hosts: fortimanager00
+  collections:
+    - fortinet.fortimanager
+  connection: httpapi
+  vars:
      ansible_httpapi_use_ssl: True
      ansible_httpapi_validate_certs: False
      ansible_httpapi_port: 443
-     device_adom: 'root'
-   tasks:
-     - name: fetch all devices
-       fmgr_fact:
-         facts:
-             selector: 'dvmdb_device'
-             params:
-                 adom: '{{ device_adom }}'
-                 device: 'your_value'
-       register: alldevices
-     - when: alldevices.meta.response_data != []
-       debug:
-         msg:
-          - 'We are going to delete device: {{ alldevices.meta.response_data[0].name }}'
-          - 'IP of the device is: {{ alldevices.meta.response_data[0].ip }}'
-     - when: alldevices.meta.response_data != [] and False
-       name: Create The Task To Delete The Device
-       fmgr_dvm_cmd_del_device:
-         dvm_cmd_del_device:
-             device: '{{ alldevices.meta.response_data[0].name }}'
-             adom: '{{ device_adom }}'
-             flags:
-              - 'create_task'
-              - 'nonblocking'
-       register: uninstalling_task
-     - when: alldevices.meta.response_data != [] and False
-       name: poll the task
-       fmgr_fact:
-         facts:
-             selector: 'task_task'
-             params:
-                 task: '{{uninstalling_task.meta.response_data.taskid}}'
-       register: taskinfo
-       until: taskinfo.meta.response_data.percent == 100
-       retries: 30
-       delay: 5
-       failed_when: taskinfo.meta.response_data.state == 'error'
-
-
- - hosts: fortimanager00
-   collections:
-     - fortinet.fortimanager
-   connection: httpapi
-   vars:
-      ansible_httpapi_use_ssl: True
-      ansible_httpapi_validate_certs: False
-      ansible_httpapi_port: 443
-   tasks:
-    - name: Delete a device.
-      fmgr_dvm_cmd_del_device:
-         bypass_validation: False
-         dvm_cmd_del_device:
-            adom: ansible
-            device: ansible-test # device name
+  tasks:
+   - name: Delete a device.
+     fmgr_dvm_cmd_del_device:
+        bypass_validation: False
+        dvm_cmd_del_device:
+           adom: ansible
+           device: ansible-test # device name
 
 '''
 
@@ -287,6 +287,7 @@ def main():
                 '6.2.9': True,
                 '6.2.10': True,
                 '6.2.11': True,
+                '6.2.12': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -300,6 +301,7 @@ def main():
                 '6.4.10': True,
                 '6.4.11': True,
                 '6.4.12': True,
+                '6.4.13': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -309,36 +311,38 @@ def main():
                 '7.0.6': True,
                 '7.0.7': True,
                 '7.0.8': True,
+                '7.0.9': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
                 '7.2.3': True,
-                '7.4.0': True
+                '7.2.4': True,
+                '7.4.0': True,
+                '7.4.1': True
             },
             'options': {
                 'adom': {
                     'required': False,
                     'revision': {
                         '6.0.0': True,
+                        '6.2.0': True,
                         '6.2.1': True,
+                        '6.2.2': True,
                         '6.2.3': True,
                         '6.2.5': True,
-                        '6.4.0': True,
-                        '6.4.2': True,
-                        '6.4.5': True,
-                        '7.0.0': True,
-                        '7.2.0': True,
-                        '6.2.0': True,
-                        '6.2.2': True,
                         '6.2.6': True,
                         '6.2.7': True,
                         '6.2.8': True,
                         '6.2.9': True,
                         '6.2.10': True,
                         '6.2.11': True,
+                        '6.2.12': True,
+                        '6.4.0': True,
                         '6.4.1': True,
+                        '6.4.2': True,
                         '6.4.3': True,
                         '6.4.4': True,
+                        '6.4.5': True,
                         '6.4.6': True,
                         '6.4.7': True,
                         '6.4.8': True,
@@ -346,6 +350,8 @@ def main():
                         '6.4.10': True,
                         '6.4.11': True,
                         '6.4.12': True,
+                        '6.4.13': True,
+                        '7.0.0': True,
                         '7.0.1': True,
                         '7.0.2': True,
                         '7.0.3': True,
@@ -354,10 +360,14 @@ def main():
                         '7.0.6': True,
                         '7.0.7': True,
                         '7.0.8': True,
+                        '7.0.9': True,
+                        '7.2.0': True,
                         '7.2.1': True,
                         '7.2.2': True,
                         '7.2.3': True,
-                        '7.4.0': True
+                        '7.2.4': True,
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'type': 'str'
                 },
@@ -365,25 +375,24 @@ def main():
                     'required': False,
                     'revision': {
                         '6.0.0': True,
+                        '6.2.0': True,
                         '6.2.1': True,
+                        '6.2.2': True,
                         '6.2.3': True,
                         '6.2.5': True,
-                        '6.4.0': True,
-                        '6.4.2': True,
-                        '6.4.5': True,
-                        '7.0.0': True,
-                        '7.2.0': True,
-                        '6.2.0': True,
-                        '6.2.2': True,
                         '6.2.6': True,
                         '6.2.7': True,
                         '6.2.8': True,
                         '6.2.9': True,
                         '6.2.10': True,
                         '6.2.11': True,
+                        '6.2.12': True,
+                        '6.4.0': True,
                         '6.4.1': True,
+                        '6.4.2': True,
                         '6.4.3': True,
                         '6.4.4': True,
+                        '6.4.5': True,
                         '6.4.6': True,
                         '6.4.7': True,
                         '6.4.8': True,
@@ -391,6 +400,8 @@ def main():
                         '6.4.10': True,
                         '6.4.11': True,
                         '6.4.12': True,
+                        '6.4.13': True,
+                        '7.0.0': True,
                         '7.0.1': True,
                         '7.0.2': True,
                         '7.0.3': True,
@@ -399,10 +410,14 @@ def main():
                         '7.0.6': True,
                         '7.0.7': True,
                         '7.0.8': True,
+                        '7.0.9': True,
+                        '7.2.0': True,
                         '7.2.1': True,
                         '7.2.2': True,
                         '7.2.3': True,
-                        '7.4.0': True
+                        '7.2.4': True,
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'type': 'str'
                 },
@@ -410,25 +425,24 @@ def main():
                     'required': False,
                     'revision': {
                         '6.0.0': True,
+                        '6.2.0': True,
                         '6.2.1': True,
+                        '6.2.2': True,
                         '6.2.3': True,
                         '6.2.5': True,
-                        '6.4.0': True,
-                        '6.4.2': True,
-                        '6.4.5': True,
-                        '7.0.0': True,
-                        '7.2.0': True,
-                        '6.2.0': True,
-                        '6.2.2': True,
                         '6.2.6': True,
                         '6.2.7': True,
                         '6.2.8': True,
                         '6.2.9': True,
                         '6.2.10': True,
                         '6.2.11': True,
+                        '6.2.12': True,
+                        '6.4.0': True,
                         '6.4.1': True,
+                        '6.4.2': True,
                         '6.4.3': True,
                         '6.4.4': True,
+                        '6.4.5': True,
                         '6.4.6': True,
                         '6.4.7': True,
                         '6.4.8': True,
@@ -436,6 +450,8 @@ def main():
                         '6.4.10': True,
                         '6.4.11': True,
                         '6.4.12': True,
+                        '6.4.13': True,
+                        '7.0.0': True,
                         '7.0.1': True,
                         '7.0.2': True,
                         '7.0.3': True,
@@ -444,10 +460,14 @@ def main():
                         '7.0.6': True,
                         '7.0.7': True,
                         '7.0.8': True,
+                        '7.0.9': True,
+                        '7.2.0': True,
                         '7.2.1': True,
                         '7.2.2': True,
                         '7.2.3': True,
-                        '7.4.0': True
+                        '7.2.4': True,
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'type': 'list',
                     'choices': [

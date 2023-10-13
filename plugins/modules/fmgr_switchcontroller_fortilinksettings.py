@@ -120,9 +120,8 @@ options:
                     - 'disable'
                     - 'enable'
             nac-ports:
-                description: no description
                 type: dict
-                required: false
+                description: no description
                 suboptions:
                     lan-segment:
                         type: str
@@ -137,8 +136,8 @@ options:
                         type: str
                         description: Configure NAC LAN interface.
                     nac-segment-vlans:
-                        description: description
-                        type: str
+                        type: raw
+                        description: (list) no description
                     onboarding-vlan:
                         type: str
                         description: Default NAC Onboarding VLAN when NAC devices are discovered.
@@ -154,41 +153,50 @@ options:
             name:
                 type: str
                 description: FortiLink settings name.
+                required: true
+            access-vlan-mode:
+                type: str
+                description: Intra VLAN traffic behavior with loss of connection to the FortiGate.
+                choices:
+                    - 'legacy'
+                    - 'fail-open'
+                    - 'fail-close'
 
 '''
 
 EXAMPLES = '''
- - hosts: fortimanager-inventory
-   collections:
-     - fortinet.fortimanager
-   connection: httpapi
-   vars:
-      ansible_httpapi_use_ssl: True
-      ansible_httpapi_validate_certs: False
-      ansible_httpapi_port: 443
-   tasks:
+- hosts: fortimanager-inventory
+  collections:
+    - fortinet.fortimanager
+  connection: httpapi
+  vars:
+    ansible_httpapi_use_ssl: True
+    ansible_httpapi_validate_certs: False
+    ansible_httpapi_port: 443
+  tasks:
     - name: Configure integrated FortiLink settings for FortiSwitch.
       fmgr_switchcontroller_fortilinksettings:
-         bypass_validation: False
-         workspace_locking_adom: <value in [global, custom adom including root]>
-         workspace_locking_timeout: 300
-         rc_succeeded: [0, -2, -3, ...]
-         rc_failed: [-2, -3, ...]
-         adom: <your own value>
-         state: <value in [present, absent]>
-         switchcontroller_fortilinksettings:
-            fortilink: <value of string>
-            inactive-timer: <value of integer>
-            link-down-flush: <value in [disable, enable]>
-            nac-ports:
-               lan-segment: <value in [disabled, enabled]>
-               member-change: <value of integer>
-               nac-lan-interface: <value of string>
-               nac-segment-vlans: <value of string>
-               onboarding-vlan: <value of string>
-               parent-key: <value of string>
-               bounce-nac-port: <value in [disable, enable]>
-            name: <value of string>
+        bypass_validation: False
+        workspace_locking_adom: <value in [global, custom adom including root]>
+        workspace_locking_timeout: 300
+        rc_succeeded: [0, -2, -3, ...]
+        rc_failed: [-2, -3, ...]
+        adom: <your own value>
+        state: <value in [present, absent]>
+        switchcontroller_fortilinksettings:
+          fortilink: <string>
+          inactive-timer: <integer>
+          link-down-flush: <value in [disable, enable]>
+          nac-ports:
+            lan-segment: <value in [disabled, enabled]>
+            member-change: <integer>
+            nac-lan-interface: <string>
+            nac-segment-vlans: <list or string>
+            onboarding-vlan: <string>
+            parent-key: <string>
+            bounce-nac-port: <value in [disable, enable]>
+          name: <string>
+          access-vlan-mode: <value in [legacy, fail-open, fail-close]>
 
 '''
 
@@ -319,7 +327,9 @@ def main():
                 '7.2.1': True,
                 '7.2.2': True,
                 '7.2.3': True,
-                '7.4.0': True
+                '7.2.4': True,
+                '7.4.0': True,
+                '7.4.1': True
             },
             'options': {
                 'fortilink': {
@@ -328,7 +338,9 @@ def main():
                         '7.2.1': True,
                         '7.2.2': True,
                         '7.2.3': True,
-                        '7.4.0': True
+                        '7.2.4': False,
+                        '7.4.0': True,
+                        '7.4.1': False
                     },
                     'type': 'str'
                 },
@@ -338,7 +350,9 @@ def main():
                         '7.2.1': True,
                         '7.2.2': True,
                         '7.2.3': True,
-                        '7.4.0': True
+                        '7.2.4': True,
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'type': 'int'
                 },
@@ -348,7 +362,9 @@ def main():
                         '7.2.1': True,
                         '7.2.2': True,
                         '7.2.3': True,
-                        '7.4.0': True
+                        '7.2.4': True,
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'choices': [
                         'disable',
@@ -366,7 +382,9 @@ def main():
                                 '7.2.1': True,
                                 '7.2.2': True,
                                 '7.2.3': True,
-                                '7.4.0': True
+                                '7.2.4': True,
+                                '7.4.0': True,
+                                '7.4.1': True
                             },
                             'choices': [
                                 'disabled',
@@ -380,7 +398,9 @@ def main():
                                 '7.2.1': True,
                                 '7.2.2': True,
                                 '7.2.3': True,
-                                '7.4.0': True
+                                '7.2.4': True,
+                                '7.4.0': True,
+                                '7.4.1': True
                             },
                             'type': 'int'
                         },
@@ -390,7 +410,9 @@ def main():
                                 '7.2.1': True,
                                 '7.2.2': True,
                                 '7.2.3': True,
-                                '7.4.0': True
+                                '7.2.4': True,
+                                '7.4.0': True,
+                                '7.4.1': True
                             },
                             'type': 'str'
                         },
@@ -400,9 +422,11 @@ def main():
                                 '7.2.1': True,
                                 '7.2.2': True,
                                 '7.2.3': True,
-                                '7.4.0': True
+                                '7.2.4': True,
+                                '7.4.0': True,
+                                '7.4.1': True
                             },
-                            'type': 'str'
+                            'type': 'raw'
                         },
                         'onboarding-vlan': {
                             'required': False,
@@ -410,7 +434,9 @@ def main():
                                 '7.2.1': True,
                                 '7.2.2': True,
                                 '7.2.3': True,
-                                '7.4.0': True
+                                '7.2.4': True,
+                                '7.4.0': True,
+                                '7.4.1': True
                             },
                             'type': 'str'
                         },
@@ -420,8 +446,11 @@ def main():
                                 '7.2.1': True,
                                 '7.2.2': True,
                                 '7.2.3': True,
-                                '7.4.0': True
+                                '7.2.4': True,
+                                '7.4.0': True,
+                                '7.4.1': True
                             },
+                            'no_log': True,
                             'type': 'str'
                         },
                         'bounce-nac-port': {
@@ -430,7 +459,9 @@ def main():
                                 '7.2.1': True,
                                 '7.2.2': True,
                                 '7.2.3': True,
-                                '7.4.0': True
+                                '7.2.4': True,
+                                '7.4.0': True,
+                                '7.4.1': True
                             },
                             'choices': [
                                 'disable',
@@ -446,8 +477,22 @@ def main():
                         '7.2.1': True,
                         '7.2.2': True,
                         '7.2.3': True,
-                        '7.4.0': True
+                        '7.2.4': True,
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
+                    'type': 'str'
+                },
+                'access-vlan-mode': {
+                    'required': False,
+                    'revision': {
+                        '7.4.1': True
+                    },
+                    'choices': [
+                        'legacy',
+                        'fail-open',
+                        'fail-close'
+                    ],
                     'type': 'str'
                 }
             }

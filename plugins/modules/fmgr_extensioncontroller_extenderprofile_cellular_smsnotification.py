@@ -105,9 +105,8 @@ options:
         type: dict
         suboptions:
             alert:
-                description: no description
                 type: dict
-                required: false
+                description: no description
                 suboptions:
                     data-exhausted:
                         type: str
@@ -131,14 +130,14 @@ options:
                         type: str
                         description: Display string when system rebooted.
             receiver:
-                description: description
                 type: list
                 elements: dict
+                description: no description
                 suboptions:
                     alert:
-                        description: description
                         type: list
                         elements: str
+                        description: no description
                         choices:
                             - 'system-reboot'
                             - 'data-exhausted'
@@ -169,47 +168,47 @@ options:
 '''
 
 EXAMPLES = '''
- - hosts: fortimanager-inventory
-   collections:
-     - fortinet.fortimanager
-   connection: httpapi
-   vars:
-      ansible_httpapi_use_ssl: True
-      ansible_httpapi_validate_certs: False
-      ansible_httpapi_port: 443
-   tasks:
+- hosts: fortimanager-inventory
+  collections:
+    - fortinet.fortimanager
+  connection: httpapi
+  vars:
+    ansible_httpapi_use_ssl: True
+    ansible_httpapi_validate_certs: False
+    ansible_httpapi_port: 443
+  tasks:
     - name: FortiExtender cellular SMS notification configuration.
       fmgr_extensioncontroller_extenderprofile_cellular_smsnotification:
-         bypass_validation: False
-         workspace_locking_adom: <value in [global, custom adom including root]>
-         workspace_locking_timeout: 300
-         rc_succeeded: [0, -2, -3, ...]
-         rc_failed: [-2, -3, ...]
-         adom: <your own value>
-         extender-profile: <your own value>
-         extensioncontroller_extenderprofile_cellular_smsnotification:
-            alert:
-               data-exhausted: <value of string>
-               fgt-backup-mode-switch: <value of string>
-               low-signal-strength: <value of string>
-               mode-switch: <value of string>
-               os-image-fallback: <value of string>
-               session-disconnect: <value of string>
-               system-reboot: <value of string>
-            receiver:
-              -
-                  alert:
-                    - system-reboot
-                    - data-exhausted
-                    - session-disconnect
-                    - low-signal-strength
-                    - mode-switch
-                    - os-image-fallback
-                    - fgt-backup-mode-switch
-                  name: <value of string>
-                  phone-number: <value of string>
-                  status: <value in [disable, enable]>
-            status: <value in [disable, enable]>
+        bypass_validation: False
+        workspace_locking_adom: <value in [global, custom adom including root]>
+        workspace_locking_timeout: 300
+        rc_succeeded: [0, -2, -3, ...]
+        rc_failed: [-2, -3, ...]
+        adom: <your own value>
+        extender-profile: <your own value>
+        extensioncontroller_extenderprofile_cellular_smsnotification:
+          alert:
+            data-exhausted: <string>
+            fgt-backup-mode-switch: <string>
+            low-signal-strength: <string>
+            mode-switch: <string>
+            os-image-fallback: <string>
+            session-disconnect: <string>
+            system-reboot: <string>
+          receiver:
+            -
+              alert:
+                - system-reboot
+                - data-exhausted
+                - session-disconnect
+                - low-signal-strength
+                - mode-switch
+                - os-image-fallback
+                - fgt-backup-mode-switch
+              name: <string>
+              phone-number: <string>
+              status: <value in [disable, enable]>
+          status: <value in [disable, enable]>
 
 '''
 
@@ -336,7 +335,9 @@ def main():
                 '7.2.1': True,
                 '7.2.2': True,
                 '7.2.3': True,
-                '7.4.0': True
+                '7.2.4': True,
+                '7.4.0': True,
+                '7.4.1': True
             },
             'options': {
                 'alert': {
@@ -349,7 +350,9 @@ def main():
                                 '7.2.1': True,
                                 '7.2.2': True,
                                 '7.2.3': True,
-                                '7.4.0': True
+                                '7.2.4': True,
+                                '7.4.0': True,
+                                '7.4.1': True
                             },
                             'type': 'str'
                         },
@@ -359,7 +362,9 @@ def main():
                                 '7.2.1': True,
                                 '7.2.2': True,
                                 '7.2.3': True,
-                                '7.4.0': True
+                                '7.2.4': True,
+                                '7.4.0': True,
+                                '7.4.1': True
                             },
                             'type': 'str'
                         },
@@ -369,7 +374,9 @@ def main():
                                 '7.2.1': True,
                                 '7.2.2': True,
                                 '7.2.3': True,
-                                '7.4.0': True
+                                '7.2.4': True,
+                                '7.4.0': True,
+                                '7.4.1': True
                             },
                             'type': 'str'
                         },
@@ -379,7 +386,9 @@ def main():
                                 '7.2.1': True,
                                 '7.2.2': True,
                                 '7.2.3': True,
-                                '7.4.0': True
+                                '7.2.4': True,
+                                '7.4.0': True,
+                                '7.4.1': True
                             },
                             'type': 'str'
                         },
@@ -389,7 +398,9 @@ def main():
                                 '7.2.1': True,
                                 '7.2.2': True,
                                 '7.2.3': True,
-                                '7.4.0': True
+                                '7.2.4': True,
+                                '7.4.0': True,
+                                '7.4.1': True
                             },
                             'type': 'str'
                         },
@@ -399,7 +410,9 @@ def main():
                                 '7.2.1': True,
                                 '7.2.2': True,
                                 '7.2.3': True,
-                                '7.4.0': True
+                                '7.2.4': True,
+                                '7.4.0': True,
+                                '7.4.1': True
                             },
                             'type': 'str'
                         },
@@ -409,7 +422,9 @@ def main():
                                 '7.2.1': True,
                                 '7.2.2': True,
                                 '7.2.3': True,
-                                '7.4.0': True
+                                '7.2.4': True,
+                                '7.4.0': True,
+                                '7.4.1': True
                             },
                             'type': 'str'
                         }
@@ -421,7 +436,9 @@ def main():
                         '7.2.1': True,
                         '7.2.2': True,
                         '7.2.3': True,
-                        '7.4.0': True
+                        '7.2.4': True,
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'type': 'list',
                     'options': {
@@ -431,7 +448,9 @@ def main():
                                 '7.2.1': True,
                                 '7.2.2': True,
                                 '7.2.3': True,
-                                '7.4.0': True
+                                '7.2.4': True,
+                                '7.4.0': True,
+                                '7.4.1': True
                             },
                             'type': 'list',
                             'choices': [
@@ -451,7 +470,9 @@ def main():
                                 '7.2.1': True,
                                 '7.2.2': True,
                                 '7.2.3': True,
-                                '7.4.0': True
+                                '7.2.4': True,
+                                '7.4.0': True,
+                                '7.4.1': True
                             },
                             'type': 'str'
                         },
@@ -461,7 +482,9 @@ def main():
                                 '7.2.1': True,
                                 '7.2.2': True,
                                 '7.2.3': True,
-                                '7.4.0': True
+                                '7.2.4': True,
+                                '7.4.0': True,
+                                '7.4.1': True
                             },
                             'type': 'str'
                         },
@@ -471,7 +494,9 @@ def main():
                                 '7.2.1': True,
                                 '7.2.2': True,
                                 '7.2.3': True,
-                                '7.4.0': True
+                                '7.2.4': True,
+                                '7.4.0': True,
+                                '7.4.1': True
                             },
                             'choices': [
                                 'disable',
@@ -488,7 +513,9 @@ def main():
                         '7.2.1': True,
                         '7.2.2': True,
                         '7.2.3': True,
-                        '7.4.0': True
+                        '7.2.4': True,
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'choices': [
                         'disable',

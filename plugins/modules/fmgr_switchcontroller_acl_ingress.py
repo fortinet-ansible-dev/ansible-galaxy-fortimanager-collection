@@ -108,9 +108,8 @@ options:
         type: dict
         suboptions:
             action:
-                description: no description
                 type: dict
-                required: false
+                description: no description
                 suboptions:
                     count:
                         type: str
@@ -125,9 +124,8 @@ options:
                             - 'disable'
                             - 'enable'
             classifier:
-                description: no description
                 type: dict
-                required: false
+                description: no description
                 suboptions:
                     dst-ip-prefix:
                         type: str
@@ -150,40 +148,41 @@ options:
             id:
                 type: int
                 description: ACL ID.
+                required: true
 
 '''
 
 EXAMPLES = '''
- - hosts: fortimanager-inventory
-   collections:
-     - fortinet.fortimanager
-   connection: httpapi
-   vars:
-      ansible_httpapi_use_ssl: True
-      ansible_httpapi_validate_certs: False
-      ansible_httpapi_port: 443
-   tasks:
+- hosts: fortimanager-inventory
+  collections:
+    - fortinet.fortimanager
+  connection: httpapi
+  vars:
+    ansible_httpapi_use_ssl: True
+    ansible_httpapi_validate_certs: False
+    ansible_httpapi_port: 443
+  tasks:
     - name: Configure ingress ACL policies to be applied on managed FortiSwitch ports.
       fmgr_switchcontroller_acl_ingress:
-         bypass_validation: False
-         workspace_locking_adom: <value in [global, custom adom including root]>
-         workspace_locking_timeout: 300
-         rc_succeeded: [0, -2, -3, ...]
-         rc_failed: [-2, -3, ...]
-         adom: <your own value>
-         state: <value in [present, absent]>
-         switchcontroller_acl_ingress:
-            action:
-               count: <value in [disable, enable]>
-               drop: <value in [disable, enable]>
-            classifier:
-               dst-ip-prefix: <value of string>
-               dst-mac: <value of string>
-               src-ip-prefix: <value of string>
-               src-mac: <value of string>
-               vlan: <value of integer>
-            description: <value of string>
-            id: <value of integer>
+        bypass_validation: False
+        workspace_locking_adom: <value in [global, custom adom including root]>
+        workspace_locking_timeout: 300
+        rc_succeeded: [0, -2, -3, ...]
+        rc_failed: [-2, -3, ...]
+        adom: <your own value>
+        state: <value in [present, absent]>
+        switchcontroller_acl_ingress:
+          action:
+            count: <value in [disable, enable]>
+            drop: <value in [disable, enable]>
+          classifier:
+            dst-ip-prefix: <string>
+            dst-mac: <string>
+            src-ip-prefix: <string>
+            src-mac: <string>
+            vlan: <integer>
+          description: <string>
+          id: <integer>
 
 '''
 
@@ -311,7 +310,8 @@ def main():
             'required': False,
             'type': 'dict',
             'revision': {
-                '7.4.0': True
+                '7.4.0': True,
+                '7.4.1': True
             },
             'options': {
                 'action': {
@@ -321,7 +321,8 @@ def main():
                         'count': {
                             'required': False,
                             'revision': {
-                                '7.4.0': True
+                                '7.4.0': True,
+                                '7.4.1': True
                             },
                             'choices': [
                                 'disable',
@@ -332,7 +333,8 @@ def main():
                         'drop': {
                             'required': False,
                             'revision': {
-                                '7.4.0': True
+                                '7.4.0': True,
+                                '7.4.1': True
                             },
                             'choices': [
                                 'disable',
@@ -349,35 +351,40 @@ def main():
                         'dst-ip-prefix': {
                             'required': False,
                             'revision': {
-                                '7.4.0': True
+                                '7.4.0': True,
+                                '7.4.1': True
                             },
                             'type': 'str'
                         },
                         'dst-mac': {
                             'required': False,
                             'revision': {
-                                '7.4.0': True
+                                '7.4.0': True,
+                                '7.4.1': True
                             },
                             'type': 'str'
                         },
                         'src-ip-prefix': {
                             'required': False,
                             'revision': {
-                                '7.4.0': True
+                                '7.4.0': True,
+                                '7.4.1': True
                             },
                             'type': 'str'
                         },
                         'src-mac': {
                             'required': False,
                             'revision': {
-                                '7.4.0': True
+                                '7.4.0': True,
+                                '7.4.1': True
                             },
                             'type': 'str'
                         },
                         'vlan': {
                             'required': False,
                             'revision': {
-                                '7.4.0': True
+                                '7.4.0': True,
+                                '7.4.1': True
                             },
                             'type': 'int'
                         }
@@ -386,14 +393,16 @@ def main():
                 'description': {
                     'required': False,
                     'revision': {
-                        '7.4.0': True
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'type': 'str'
                 },
                 'id': {
                     'required': True,
                     'revision': {
-                        '7.4.0': True
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'type': 'int'
                 }

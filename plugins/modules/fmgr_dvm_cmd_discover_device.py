@@ -89,9 +89,8 @@ options:
         type: dict
         suboptions:
             device:
-                description: no description
                 type: dict
-                required: false
+                description: no description
                 suboptions:
                     adm_pass:
                         type: str
@@ -106,74 +105,74 @@ options:
 '''
 
 EXAMPLES = '''
- - hosts: fortimanager00
-   collections:
-     - fortinet.fortimanager
-   connection: httpapi
-   vars:
-      ansible_httpapi_use_ssl: True
-      ansible_httpapi_validate_certs: False
-      ansible_httpapi_port: 443
-   tasks:
-    - name: Probe a remote device and retrieve its device information and system status.
-      fmgr_dvm_cmd_discover_device:
-         bypass_validation: False
-         dvm_cmd_discover_device:
-            device:
-               adm_pass: fortinet # device password
-               adm_usr: admin # device user name
-               ip: 0.0.0.0 # device ip
- - name: Add a FOS device to FMG
-   hosts: fortimanager01
-   gather_facts: no
-   connection: httpapi
-   collections:
-     - fortinet.fortimanager
-   vars:
+- hosts: fortimanager00
+  collections:
+    - fortinet.fortimanager
+  connection: httpapi
+  vars:
      ansible_httpapi_use_ssl: True
      ansible_httpapi_validate_certs: False
      ansible_httpapi_port: 443
-     fos_user: 'admin'
-     fos_pass: 'password'
-     fos_ip: '192.168.190.151'
-   tasks:
-     - name: discover device
-       fmgr_dvm_cmd_discover_device:
-         bypass_validation: True
-         dvm_cmd_discover_device:
-             device:
-                 adm_pass: '{{ fos_pass }}'
-                 adm_usr: '{{ fos_user }}'
-                 ip: '{{ fos_ip }}'
-       register: probed_device
-     - name: add device
-       fmgr_dvm_cmd_add_device:
-         bypass_validation: True
-         dvm_cmd_add_device:
-             adom: 'root'
-             flags:
-               - 'create_task'
-               - 'nonblocking'
-             device:
-                 adm_usr: '{{ probed_device.meta.response_data.device.adm_usr }}'
-                 adm_pass: '{{ probed_device.meta.response_data.device.adm_pass }}'
-                 desc: 'The device is added via FortiManager Ansible'
-                 ip: '{{ probed_device.meta.response_data.device.ip }}'
-                 mgmt_mode: 'fmg'
-                 name: '{{ probed_device.meta.response_data.device.name }}'
-                 sn: '{{ probed_device.meta.response_data.device.sn }}'
-       register: installing_task
-     - name: poll the task
-       fmgr_fact:
-         facts:
-             selector: 'task_task'
-             params:
-                 task: '{{installing_task.meta.response_data.taskid}}'
-       register: taskinfo
-       until: taskinfo.meta.response_data.percent == 100
-       retries: 30
-       delay: 5
-       failed_when: taskinfo.meta.response_data.state == 'error' and 'devsnexist' not in taskinfo.meta.response_data.line[0].detail
+  tasks:
+   - name: Probe a remote device and retrieve its device information and system status.
+     fmgr_dvm_cmd_discover_device:
+        bypass_validation: False
+        dvm_cmd_discover_device:
+           device:
+              adm_pass: fortinet # device password
+              adm_usr: admin # device user name
+              ip: 0.0.0.0 # device ip
+- name: Add a FOS device to FMG
+  hosts: fortimanager01
+  gather_facts: no
+  connection: httpapi
+  collections:
+    - fortinet.fortimanager
+  vars:
+    ansible_httpapi_use_ssl: True
+    ansible_httpapi_validate_certs: False
+    ansible_httpapi_port: 443
+    fos_user: 'admin'
+    fos_pass: 'password'
+    fos_ip: '192.168.190.151'
+  tasks:
+    - name: discover device
+      fmgr_dvm_cmd_discover_device:
+        bypass_validation: True
+        dvm_cmd_discover_device:
+            device:
+                adm_pass: '{{ fos_pass }}'
+                adm_usr: '{{ fos_user }}'
+                ip: '{{ fos_ip }}'
+      register: probed_device
+    - name: add device
+      fmgr_dvm_cmd_add_device:
+        bypass_validation: True
+        dvm_cmd_add_device:
+            adom: 'root'
+            flags:
+              - 'create_task'
+              - 'nonblocking'
+            device:
+                adm_usr: '{{ probed_device.meta.response_data.device.adm_usr }}'
+                adm_pass: '{{ probed_device.meta.response_data.device.adm_pass }}'
+                desc: 'The device is added via FortiManager Ansible'
+                ip: '{{ probed_device.meta.response_data.device.ip }}'
+                mgmt_mode: 'fmg'
+                name: '{{ probed_device.meta.response_data.device.name }}'
+                sn: '{{ probed_device.meta.response_data.device.sn }}'
+      register: installing_task
+    - name: poll the task
+      fmgr_fact:
+        facts:
+            selector: 'task_task'
+            params:
+                task: '{{installing_task.meta.response_data.taskid}}'
+      register: taskinfo
+      until: taskinfo.meta.response_data.percent == 100
+      retries: 30
+      delay: 5
+      failed_when: taskinfo.meta.response_data.state == 'error' and 'devsnexist' not in taskinfo.meta.response_data.line[0].detail
 
 '''
 
@@ -290,6 +289,7 @@ def main():
                 '6.2.9': True,
                 '6.2.10': True,
                 '6.2.11': True,
+                '6.2.12': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -303,6 +303,7 @@ def main():
                 '6.4.10': True,
                 '6.4.11': True,
                 '6.4.12': True,
+                '6.4.13': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -312,11 +313,14 @@ def main():
                 '7.0.6': True,
                 '7.0.7': True,
                 '7.0.8': True,
+                '7.0.9': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
                 '7.2.3': True,
-                '7.4.0': True
+                '7.2.4': True,
+                '7.4.0': True,
+                '7.4.1': True
             },
             'options': {
                 'device': {
@@ -327,25 +331,24 @@ def main():
                             'required': False,
                             'revision': {
                                 '6.0.0': True,
+                                '6.2.0': True,
                                 '6.2.1': True,
+                                '6.2.2': True,
                                 '6.2.3': True,
                                 '6.2.5': True,
-                                '6.4.0': True,
-                                '6.4.2': True,
-                                '6.4.5': True,
-                                '7.0.0': True,
-                                '7.2.0': True,
-                                '6.2.0': True,
-                                '6.2.2': True,
                                 '6.2.6': True,
                                 '6.2.7': True,
                                 '6.2.8': True,
                                 '6.2.9': True,
                                 '6.2.10': True,
                                 '6.2.11': True,
+                                '6.2.12': True,
+                                '6.4.0': True,
                                 '6.4.1': True,
+                                '6.4.2': True,
                                 '6.4.3': True,
                                 '6.4.4': True,
+                                '6.4.5': True,
                                 '6.4.6': True,
                                 '6.4.7': True,
                                 '6.4.8': True,
@@ -353,6 +356,8 @@ def main():
                                 '6.4.10': True,
                                 '6.4.11': True,
                                 '6.4.12': True,
+                                '6.4.13': True,
+                                '7.0.0': True,
                                 '7.0.1': True,
                                 '7.0.2': True,
                                 '7.0.3': True,
@@ -361,36 +366,40 @@ def main():
                                 '7.0.6': True,
                                 '7.0.7': True,
                                 '7.0.8': True,
+                                '7.0.9': True,
+                                '7.2.0': True,
                                 '7.2.1': True,
                                 '7.2.2': True,
                                 '7.2.3': True,
-                                '7.4.0': True
+                                '7.2.4': True,
+                                '7.4.0': True,
+                                '7.4.1': True
                             },
+                            'no_log': True,
                             'type': 'str'
                         },
                         'adm_usr': {
                             'required': False,
                             'revision': {
                                 '6.0.0': True,
+                                '6.2.0': True,
                                 '6.2.1': True,
+                                '6.2.2': True,
                                 '6.2.3': True,
                                 '6.2.5': True,
-                                '6.4.0': True,
-                                '6.4.2': True,
-                                '6.4.5': True,
-                                '7.0.0': True,
-                                '7.2.0': True,
-                                '6.2.0': True,
-                                '6.2.2': True,
                                 '6.2.6': True,
                                 '6.2.7': True,
                                 '6.2.8': True,
                                 '6.2.9': True,
                                 '6.2.10': True,
                                 '6.2.11': True,
+                                '6.2.12': True,
+                                '6.4.0': True,
                                 '6.4.1': True,
+                                '6.4.2': True,
                                 '6.4.3': True,
                                 '6.4.4': True,
+                                '6.4.5': True,
                                 '6.4.6': True,
                                 '6.4.7': True,
                                 '6.4.8': True,
@@ -398,6 +407,8 @@ def main():
                                 '6.4.10': True,
                                 '6.4.11': True,
                                 '6.4.12': True,
+                                '6.4.13': True,
+                                '7.0.0': True,
                                 '7.0.1': True,
                                 '7.0.2': True,
                                 '7.0.3': True,
@@ -406,10 +417,14 @@ def main():
                                 '7.0.6': True,
                                 '7.0.7': True,
                                 '7.0.8': True,
+                                '7.0.9': True,
+                                '7.2.0': True,
                                 '7.2.1': True,
                                 '7.2.2': True,
                                 '7.2.3': True,
-                                '7.4.0': True
+                                '7.2.4': True,
+                                '7.4.0': True,
+                                '7.4.1': True
                             },
                             'type': 'str'
                         },
@@ -417,25 +432,24 @@ def main():
                             'required': False,
                             'revision': {
                                 '6.0.0': True,
+                                '6.2.0': True,
                                 '6.2.1': True,
+                                '6.2.2': True,
                                 '6.2.3': True,
                                 '6.2.5': True,
-                                '6.4.0': True,
-                                '6.4.2': True,
-                                '6.4.5': True,
-                                '7.0.0': True,
-                                '7.2.0': True,
-                                '6.2.0': True,
-                                '6.2.2': True,
                                 '6.2.6': True,
                                 '6.2.7': True,
                                 '6.2.8': True,
                                 '6.2.9': True,
                                 '6.2.10': True,
                                 '6.2.11': True,
+                                '6.2.12': True,
+                                '6.4.0': True,
                                 '6.4.1': True,
+                                '6.4.2': True,
                                 '6.4.3': True,
                                 '6.4.4': True,
+                                '6.4.5': True,
                                 '6.4.6': True,
                                 '6.4.7': True,
                                 '6.4.8': True,
@@ -443,6 +457,8 @@ def main():
                                 '6.4.10': True,
                                 '6.4.11': True,
                                 '6.4.12': True,
+                                '6.4.13': True,
+                                '7.0.0': True,
                                 '7.0.1': True,
                                 '7.0.2': True,
                                 '7.0.3': True,
@@ -451,10 +467,14 @@ def main():
                                 '7.0.6': True,
                                 '7.0.7': True,
                                 '7.0.8': True,
+                                '7.0.9': True,
+                                '7.2.0': True,
                                 '7.2.1': True,
                                 '7.2.2': True,
                                 '7.2.3': True,
-                                '7.4.0': True
+                                '7.2.4': True,
+                                '7.4.0': True,
+                                '7.4.1': True
                             },
                             'type': 'str'
                         }

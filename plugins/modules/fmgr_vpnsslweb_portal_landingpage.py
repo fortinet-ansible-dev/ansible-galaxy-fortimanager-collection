@@ -105,9 +105,9 @@ options:
         type: dict
         suboptions:
             form-data:
-                description: description
                 type: list
                 elements: dict
+                description: no description
                 suboptions:
                     name:
                         type: str
@@ -132,8 +132,8 @@ options:
                     - 'sslvpn-login'
                     - 'alternative'
             sso-password:
-                description: description
-                type: str
+                type: raw
+                description: (list) no description
             sso-username:
                 type: str
                 description: SSO user name.
@@ -144,35 +144,35 @@ options:
 '''
 
 EXAMPLES = '''
- - hosts: fortimanager-inventory
-   collections:
-     - fortinet.fortimanager
-   connection: httpapi
-   vars:
-      ansible_httpapi_use_ssl: True
-      ansible_httpapi_validate_certs: False
-      ansible_httpapi_port: 443
-   tasks:
+- hosts: fortimanager-inventory
+  collections:
+    - fortinet.fortimanager
+  connection: httpapi
+  vars:
+    ansible_httpapi_use_ssl: True
+    ansible_httpapi_validate_certs: False
+    ansible_httpapi_port: 443
+  tasks:
     - name: Landing page options.
       fmgr_vpnsslweb_portal_landingpage:
-         bypass_validation: False
-         workspace_locking_adom: <value in [global, custom adom including root]>
-         workspace_locking_timeout: 300
-         rc_succeeded: [0, -2, -3, ...]
-         rc_failed: [-2, -3, ...]
-         adom: <your own value>
-         portal: <your own value>
-         vpnsslweb_portal_landingpage:
-            form-data:
-              -
-                  name: <value of string>
-                  value: <value of string>
-            logout-url: <value of string>
-            sso: <value in [disable, static, auto]>
-            sso-credential: <value in [sslvpn-login, alternative]>
-            sso-password: <value of string>
-            sso-username: <value of string>
-            url: <value of string>
+        bypass_validation: False
+        workspace_locking_adom: <value in [global, custom adom including root]>
+        workspace_locking_timeout: 300
+        rc_succeeded: [0, -2, -3, ...]
+        rc_failed: [-2, -3, ...]
+        adom: <your own value>
+        portal: <your own value>
+        vpnsslweb_portal_landingpage:
+          form-data:
+            -
+              name: <string>
+              value: <string>
+          logout-url: <string>
+          sso: <value in [disable, static, auto]>
+          sso-credential: <value in [sslvpn-login, alternative]>
+          sso-password: <list or string>
+          sso-username: <string>
+          url: <string>
 
 '''
 
@@ -296,27 +296,31 @@ def main():
             'required': False,
             'type': 'dict',
             'revision': {
-                '7.4.0': True
+                '7.4.0': True,
+                '7.4.1': True
             },
             'options': {
                 'form-data': {
                     'required': False,
                     'revision': {
-                        '7.4.0': True
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'type': 'list',
                     'options': {
                         'name': {
                             'required': False,
                             'revision': {
-                                '7.4.0': True
+                                '7.4.0': True,
+                                '7.4.1': True
                             },
                             'type': 'str'
                         },
                         'value': {
                             'required': False,
                             'revision': {
-                                '7.4.0': True
+                                '7.4.0': True,
+                                '7.4.1': True
                             },
                             'type': 'str'
                         }
@@ -326,14 +330,16 @@ def main():
                 'logout-url': {
                     'required': False,
                     'revision': {
-                        '7.4.0': True
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'type': 'str'
                 },
                 'sso': {
                     'required': False,
                     'revision': {
-                        '7.4.0': True
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'choices': [
                         'disable',
@@ -345,7 +351,8 @@ def main():
                 'sso-credential': {
                     'required': False,
                     'revision': {
-                        '7.4.0': True
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'choices': [
                         'sslvpn-login',
@@ -356,22 +363,25 @@ def main():
                 'sso-password': {
                     'required': False,
                     'revision': {
-                        '7.4.0': True
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'no_log': True,
-                    'type': 'str'
+                    'type': 'raw'
                 },
                 'sso-username': {
                     'required': False,
                     'revision': {
-                        '7.4.0': True
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'type': 'str'
                 },
                 'url': {
                     'required': False,
                     'revision': {
-                        '7.4.0': True
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'type': 'str'
                 }

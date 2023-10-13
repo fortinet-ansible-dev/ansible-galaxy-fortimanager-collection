@@ -108,9 +108,9 @@ options:
         type: dict
         suboptions:
             allowaccess:
-                description: description
                 type: list
                 elements: str
+                description: no description
                 choices:
                     - 'https'
                     - 'ping'
@@ -122,14 +122,12 @@ options:
                 type: int
                 description: FortiExtender LAN extension bandwidth limit
             cellular:
-                description: no description
                 type: dict
-                required: false
+                description: no description
                 suboptions:
                     controller-report:
-                        description: no description
                         type: dict
-                        required: false
+                        description: no description
                         suboptions:
                             interval:
                                 type: int
@@ -144,17 +142,15 @@ options:
                                     - 'disable'
                                     - 'enable'
                     dataplan:
-                        description: description
-                        type: str
+                        type: raw
+                        description: (list) no description
                     modem1:
-                        description: no description
                         type: dict
-                        required: false
+                        description: no description
                         suboptions:
                             auto-switch:
-                                description: no description
                                 type: dict
-                                required: false
+                                description: no description
                                 suboptions:
                                     dataplan:
                                         type: str
@@ -181,9 +177,9 @@ options:
                                             - 'disable'
                                             - 'enable'
                                     switch-back:
-                                        description: description
                                         type: list
                                         elements: str
+                                        description: no description
                                         choices:
                                             - 'time'
                                             - 'timer'
@@ -232,8 +228,8 @@ options:
                                     - 'disable'
                                     - 'enable'
                             sim1-pin-code:
-                                description: description
-                                type: str
+                                type: raw
+                                description: (list) no description
                             sim2-pin:
                                 type: str
                                 description: SIM #2 PIN status.
@@ -241,17 +237,15 @@ options:
                                     - 'disable'
                                     - 'enable'
                             sim2-pin-code:
-                                description: description
-                                type: str
+                                type: raw
+                                description: (list) no description
                     modem2:
-                        description: no description
                         type: dict
-                        required: false
+                        description: no description
                         suboptions:
                             auto-switch:
-                                description: no description
                                 type: dict
-                                required: false
+                                description: no description
                                 suboptions:
                                     dataplan:
                                         type: str
@@ -278,9 +272,9 @@ options:
                                             - 'disable'
                                             - 'enable'
                                     switch-back:
-                                        description: description
                                         type: list
                                         elements: str
+                                        description: no description
                                         choices:
                                             - 'time'
                                             - 'timer'
@@ -329,8 +323,8 @@ options:
                                     - 'disable'
                                     - 'enable'
                             sim1-pin-code:
-                                description: description
-                                type: str
+                                type: raw
+                                description: (list) no description
                             sim2-pin:
                                 type: str
                                 description: SIM #2 PIN status.
@@ -338,17 +332,15 @@ options:
                                     - 'disable'
                                     - 'enable'
                             sim2-pin-code:
-                                description: description
-                                type: str
+                                type: raw
+                                description: (list) no description
                     sms-notification:
-                        description: no description
                         type: dict
-                        required: false
+                        description: no description
                         suboptions:
                             alert:
-                                description: no description
                                 type: dict
-                                required: false
+                                description: no description
                                 suboptions:
                                     data-exhausted:
                                         type: str
@@ -372,14 +364,14 @@ options:
                                         type: str
                                         description: Display string when system rebooted.
                             receiver:
-                                description: description
                                 type: list
                                 elements: dict
+                                description: no description
                                 suboptions:
                                     alert:
-                                        description: description
                                         type: list
                                         elements: str
+                                        description: no description
                                         choices:
                                             - 'system-reboot'
                                             - 'data-exhausted'
@@ -421,15 +413,15 @@ options:
             id:
                 type: int
                 description: ID.
+                required: true
             lan-extension:
-                description: no description
                 type: dict
-                required: false
+                description: no description
                 suboptions:
                     backhaul:
-                        description: description
                         type: list
                         elements: dict
+                        description: no description
                         suboptions:
                             name:
                                 type: str
@@ -472,8 +464,8 @@ options:
                             - 'activebackup'
                             - 'loadbalance'
             login-password:
-                description: description
-                type: str
+                type: raw
+                description: (list) no description
             login-password-change:
                 type: str
                 description: Change or reset the administrator password of a managed extender
@@ -519,127 +511,127 @@ options:
 '''
 
 EXAMPLES = '''
- - hosts: fortimanager-inventory
-   collections:
-     - fortinet.fortimanager
-   connection: httpapi
-   vars:
-      ansible_httpapi_use_ssl: True
-      ansible_httpapi_validate_certs: False
-      ansible_httpapi_port: 443
-   tasks:
+- hosts: fortimanager-inventory
+  collections:
+    - fortinet.fortimanager
+  connection: httpapi
+  vars:
+    ansible_httpapi_use_ssl: True
+    ansible_httpapi_validate_certs: False
+    ansible_httpapi_port: 443
+  tasks:
     - name: FortiExtender extender profile configuration.
       fmgr_extensioncontroller_extenderprofile:
-         bypass_validation: False
-         workspace_locking_adom: <value in [global, custom adom including root]>
-         workspace_locking_timeout: 300
-         rc_succeeded: [0, -2, -3, ...]
-         rc_failed: [-2, -3, ...]
-         adom: <your own value>
-         state: <value in [present, absent]>
-         extensioncontroller_extenderprofile:
-            allowaccess:
-              - https
-              - ping
-              - ssh
-              - snmp
-              - http
-              - telnet
-            bandwidth-limit: <value of integer>
-            cellular:
-               controller-report:
-                  interval: <value of integer>
-                  signal-threshold: <value of integer>
-                  status: <value in [disable, enable]>
-               dataplan: <value of string>
-               modem1:
-                  auto-switch:
-                     dataplan: <value in [disable, enable]>
-                     disconnect: <value in [disable, enable]>
-                     disconnect-period: <value of integer>
-                     disconnect-threshold: <value of integer>
-                     signal: <value in [disable, enable]>
-                     switch-back:
-                       - time
-                       - timer
-                     switch-back-time: <value of string>
-                     switch-back-timer: <value of integer>
-                  conn-status: <value of integer>
-                  default-sim: <value in [sim1, sim2, carrier, ...]>
-                  gps: <value in [disable, enable]>
-                  modem-id: <value of integer>
-                  preferred-carrier: <value of string>
-                  redundant-intf: <value of string>
-                  redundant-mode: <value in [disable, enable]>
-                  sim1-pin: <value in [disable, enable]>
-                  sim1-pin-code: <value of string>
-                  sim2-pin: <value in [disable, enable]>
-                  sim2-pin-code: <value of string>
-               modem2:
-                  auto-switch:
-                     dataplan: <value in [disable, enable]>
-                     disconnect: <value in [disable, enable]>
-                     disconnect-period: <value of integer>
-                     disconnect-threshold: <value of integer>
-                     signal: <value in [disable, enable]>
-                     switch-back:
-                       - time
-                       - timer
-                     switch-back-time: <value of string>
-                     switch-back-timer: <value of integer>
-                  conn-status: <value of integer>
-                  default-sim: <value in [sim1, sim2, carrier, ...]>
-                  gps: <value in [disable, enable]>
-                  modem-id: <value of integer>
-                  preferred-carrier: <value of string>
-                  redundant-intf: <value of string>
-                  redundant-mode: <value in [disable, enable]>
-                  sim1-pin: <value in [disable, enable]>
-                  sim1-pin-code: <value of string>
-                  sim2-pin: <value in [disable, enable]>
-                  sim2-pin-code: <value of string>
-               sms-notification:
+        bypass_validation: False
+        workspace_locking_adom: <value in [global, custom adom including root]>
+        workspace_locking_timeout: 300
+        rc_succeeded: [0, -2, -3, ...]
+        rc_failed: [-2, -3, ...]
+        adom: <your own value>
+        state: <value in [present, absent]>
+        extensioncontroller_extenderprofile:
+          allowaccess:
+            - https
+            - ping
+            - ssh
+            - snmp
+            - http
+            - telnet
+          bandwidth-limit: <integer>
+          cellular:
+            controller-report:
+              interval: <integer>
+              signal-threshold: <integer>
+              status: <value in [disable, enable]>
+            dataplan: <list or string>
+            modem1:
+              auto-switch:
+                dataplan: <value in [disable, enable]>
+                disconnect: <value in [disable, enable]>
+                disconnect-period: <integer>
+                disconnect-threshold: <integer>
+                signal: <value in [disable, enable]>
+                switch-back:
+                  - time
+                  - timer
+                switch-back-time: <string>
+                switch-back-timer: <integer>
+              conn-status: <integer>
+              default-sim: <value in [sim1, sim2, carrier, ...]>
+              gps: <value in [disable, enable]>
+              modem-id: <integer>
+              preferred-carrier: <string>
+              redundant-intf: <string>
+              redundant-mode: <value in [disable, enable]>
+              sim1-pin: <value in [disable, enable]>
+              sim1-pin-code: <list or string>
+              sim2-pin: <value in [disable, enable]>
+              sim2-pin-code: <list or string>
+            modem2:
+              auto-switch:
+                dataplan: <value in [disable, enable]>
+                disconnect: <value in [disable, enable]>
+                disconnect-period: <integer>
+                disconnect-threshold: <integer>
+                signal: <value in [disable, enable]>
+                switch-back:
+                  - time
+                  - timer
+                switch-back-time: <string>
+                switch-back-timer: <integer>
+              conn-status: <integer>
+              default-sim: <value in [sim1, sim2, carrier, ...]>
+              gps: <value in [disable, enable]>
+              modem-id: <integer>
+              preferred-carrier: <string>
+              redundant-intf: <string>
+              redundant-mode: <value in [disable, enable]>
+              sim1-pin: <value in [disable, enable]>
+              sim1-pin-code: <list or string>
+              sim2-pin: <value in [disable, enable]>
+              sim2-pin-code: <list or string>
+            sms-notification:
+              alert:
+                data-exhausted: <string>
+                fgt-backup-mode-switch: <string>
+                low-signal-strength: <string>
+                mode-switch: <string>
+                os-image-fallback: <string>
+                session-disconnect: <string>
+                system-reboot: <string>
+              receiver:
+                -
                   alert:
-                     data-exhausted: <value of string>
-                     fgt-backup-mode-switch: <value of string>
-                     low-signal-strength: <value of string>
-                     mode-switch: <value of string>
-                     os-image-fallback: <value of string>
-                     session-disconnect: <value of string>
-                     system-reboot: <value of string>
-                  receiver:
-                    -
-                        alert:
-                          - system-reboot
-                          - data-exhausted
-                          - session-disconnect
-                          - low-signal-strength
-                          - mode-switch
-                          - os-image-fallback
-                          - fgt-backup-mode-switch
-                        name: <value of string>
-                        phone-number: <value of string>
-                        status: <value in [disable, enable]>
+                    - system-reboot
+                    - data-exhausted
+                    - session-disconnect
+                    - low-signal-strength
+                    - mode-switch
+                    - os-image-fallback
+                    - fgt-backup-mode-switch
+                  name: <string>
+                  phone-number: <string>
                   status: <value in [disable, enable]>
-            enforce-bandwidth: <value in [disable, enable]>
-            extension: <value in [wan-extension, lan-extension]>
-            id: <value of integer>
-            lan-extension:
-               backhaul:
-                 -
-                     name: <value of string>
-                     port: <value in [wan, lte1, lte2, ...]>
-                     role: <value in [primary, secondary]>
-                     weight: <value of integer>
-               backhaul-interface: <value of string>
-               backhaul-ip: <value of string>
-               ipsec-tunnel: <value of string>
-               link-loadbalance: <value in [activebackup, loadbalance]>
-            login-password: <value of string>
-            login-password-change: <value in [no, yes, default]>
-            model: <value in [FX201E, FX211E, FX200F, ...]>
-            name: <value of string>
-            _is_factory_setting: <value in [disable, enable, ext]>
+              status: <value in [disable, enable]>
+          enforce-bandwidth: <value in [disable, enable]>
+          extension: <value in [wan-extension, lan-extension]>
+          id: <integer>
+          lan-extension:
+            backhaul:
+              -
+                name: <string>
+                port: <value in [wan, lte1, lte2, ...]>
+                role: <value in [primary, secondary]>
+                weight: <integer>
+            backhaul-interface: <string>
+            backhaul-ip: <string>
+            ipsec-tunnel: <string>
+            link-loadbalance: <value in [activebackup, loadbalance]>
+          login-password: <list or string>
+          login-password-change: <value in [no, yes, default]>
+          model: <value in [FX201E, FX211E, FX200F, ...]>
+          name: <string>
+          _is_factory_setting: <value in [disable, enable, ext]>
 
 '''
 
@@ -770,7 +762,9 @@ def main():
                 '7.2.1': True,
                 '7.2.2': True,
                 '7.2.3': True,
-                '7.4.0': True
+                '7.2.4': True,
+                '7.4.0': True,
+                '7.4.1': True
             },
             'options': {
                 'allowaccess': {
@@ -779,7 +773,9 @@ def main():
                         '7.2.1': True,
                         '7.2.2': True,
                         '7.2.3': True,
-                        '7.4.0': True
+                        '7.2.4': True,
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'type': 'list',
                     'choices': [
@@ -798,7 +794,9 @@ def main():
                         '7.2.1': True,
                         '7.2.2': True,
                         '7.2.3': True,
-                        '7.4.0': True
+                        '7.2.4': True,
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'type': 'int'
                 },
@@ -816,7 +814,9 @@ def main():
                                         '7.2.1': True,
                                         '7.2.2': True,
                                         '7.2.3': True,
-                                        '7.4.0': True
+                                        '7.2.4': True,
+                                        '7.4.0': True,
+                                        '7.4.1': True
                                     },
                                     'type': 'int'
                                 },
@@ -826,7 +826,9 @@ def main():
                                         '7.2.1': True,
                                         '7.2.2': True,
                                         '7.2.3': True,
-                                        '7.4.0': True
+                                        '7.2.4': True,
+                                        '7.4.0': True,
+                                        '7.4.1': True
                                     },
                                     'type': 'int'
                                 },
@@ -836,7 +838,9 @@ def main():
                                         '7.2.1': True,
                                         '7.2.2': True,
                                         '7.2.3': True,
-                                        '7.4.0': True
+                                        '7.2.4': True,
+                                        '7.4.0': True,
+                                        '7.4.1': True
                                     },
                                     'choices': [
                                         'disable',
@@ -852,9 +856,11 @@ def main():
                                 '7.2.1': True,
                                 '7.2.2': True,
                                 '7.2.3': True,
-                                '7.4.0': True
+                                '7.2.4': True,
+                                '7.4.0': True,
+                                '7.4.1': True
                             },
-                            'type': 'str'
+                            'type': 'raw'
                         },
                         'modem1': {
                             'required': False,
@@ -870,7 +876,9 @@ def main():
                                                 '7.2.1': True,
                                                 '7.2.2': True,
                                                 '7.2.3': True,
-                                                '7.4.0': True
+                                                '7.2.4': True,
+                                                '7.4.0': True,
+                                                '7.4.1': True
                                             },
                                             'choices': [
                                                 'disable',
@@ -884,7 +892,9 @@ def main():
                                                 '7.2.1': True,
                                                 '7.2.2': True,
                                                 '7.2.3': True,
-                                                '7.4.0': True
+                                                '7.2.4': True,
+                                                '7.4.0': True,
+                                                '7.4.1': True
                                             },
                                             'choices': [
                                                 'disable',
@@ -898,7 +908,9 @@ def main():
                                                 '7.2.1': True,
                                                 '7.2.2': True,
                                                 '7.2.3': True,
-                                                '7.4.0': True
+                                                '7.2.4': True,
+                                                '7.4.0': True,
+                                                '7.4.1': True
                                             },
                                             'type': 'int'
                                         },
@@ -908,7 +920,9 @@ def main():
                                                 '7.2.1': True,
                                                 '7.2.2': True,
                                                 '7.2.3': True,
-                                                '7.4.0': True
+                                                '7.2.4': True,
+                                                '7.4.0': True,
+                                                '7.4.1': True
                                             },
                                             'type': 'int'
                                         },
@@ -918,7 +932,9 @@ def main():
                                                 '7.2.1': True,
                                                 '7.2.2': True,
                                                 '7.2.3': True,
-                                                '7.4.0': True
+                                                '7.2.4': True,
+                                                '7.4.0': True,
+                                                '7.4.1': True
                                             },
                                             'choices': [
                                                 'disable',
@@ -932,7 +948,9 @@ def main():
                                                 '7.2.1': True,
                                                 '7.2.2': True,
                                                 '7.2.3': True,
-                                                '7.4.0': True
+                                                '7.2.4': True,
+                                                '7.4.0': True,
+                                                '7.4.1': True
                                             },
                                             'type': 'list',
                                             'choices': [
@@ -947,7 +965,9 @@ def main():
                                                 '7.2.1': True,
                                                 '7.2.2': True,
                                                 '7.2.3': True,
-                                                '7.4.0': True
+                                                '7.2.4': True,
+                                                '7.4.0': True,
+                                                '7.4.1': True
                                             },
                                             'type': 'str'
                                         },
@@ -957,7 +977,9 @@ def main():
                                                 '7.2.1': True,
                                                 '7.2.2': True,
                                                 '7.2.3': True,
-                                                '7.4.0': True
+                                                '7.2.4': True,
+                                                '7.4.0': True,
+                                                '7.4.1': True
                                             },
                                             'type': 'int'
                                         }
@@ -969,7 +991,9 @@ def main():
                                         '7.2.1': True,
                                         '7.2.2': True,
                                         '7.2.3': True,
-                                        '7.4.0': True
+                                        '7.2.4': True,
+                                        '7.4.0': True,
+                                        '7.4.1': True
                                     },
                                     'type': 'int'
                                 },
@@ -979,7 +1003,9 @@ def main():
                                         '7.2.1': True,
                                         '7.2.2': True,
                                         '7.2.3': True,
-                                        '7.4.0': True
+                                        '7.2.4': True,
+                                        '7.4.0': True,
+                                        '7.4.1': True
                                     },
                                     'choices': [
                                         'sim1',
@@ -995,7 +1021,9 @@ def main():
                                         '7.2.1': True,
                                         '7.2.2': True,
                                         '7.2.3': True,
-                                        '7.4.0': True
+                                        '7.2.4': True,
+                                        '7.4.0': True,
+                                        '7.4.1': True
                                     },
                                     'choices': [
                                         'disable',
@@ -1009,7 +1037,9 @@ def main():
                                         '7.2.1': True,
                                         '7.2.2': True,
                                         '7.2.3': True,
-                                        '7.4.0': True
+                                        '7.2.4': True,
+                                        '7.4.0': True,
+                                        '7.4.1': True
                                     },
                                     'type': 'int'
                                 },
@@ -1019,7 +1049,9 @@ def main():
                                         '7.2.1': True,
                                         '7.2.2': True,
                                         '7.2.3': True,
-                                        '7.4.0': True
+                                        '7.2.4': True,
+                                        '7.4.0': True,
+                                        '7.4.1': True
                                     },
                                     'type': 'str'
                                 },
@@ -1029,7 +1061,9 @@ def main():
                                         '7.2.1': True,
                                         '7.2.2': True,
                                         '7.2.3': True,
-                                        '7.4.0': True
+                                        '7.2.4': True,
+                                        '7.4.0': True,
+                                        '7.4.1': True
                                     },
                                     'type': 'str'
                                 },
@@ -1039,7 +1073,9 @@ def main():
                                         '7.2.1': True,
                                         '7.2.2': True,
                                         '7.2.3': True,
-                                        '7.4.0': True
+                                        '7.2.4': True,
+                                        '7.4.0': True,
+                                        '7.4.1': True
                                     },
                                     'choices': [
                                         'disable',
@@ -1053,7 +1089,9 @@ def main():
                                         '7.2.1': True,
                                         '7.2.2': True,
                                         '7.2.3': True,
-                                        '7.4.0': True
+                                        '7.2.4': True,
+                                        '7.4.0': True,
+                                        '7.4.1': True
                                     },
                                     'choices': [
                                         'disable',
@@ -1067,9 +1105,11 @@ def main():
                                         '7.2.1': True,
                                         '7.2.2': True,
                                         '7.2.3': True,
-                                        '7.4.0': True
+                                        '7.2.4': True,
+                                        '7.4.0': True,
+                                        '7.4.1': True
                                     },
-                                    'type': 'str'
+                                    'type': 'raw'
                                 },
                                 'sim2-pin': {
                                     'required': False,
@@ -1077,7 +1117,9 @@ def main():
                                         '7.2.1': True,
                                         '7.2.2': True,
                                         '7.2.3': True,
-                                        '7.4.0': True
+                                        '7.2.4': True,
+                                        '7.4.0': True,
+                                        '7.4.1': True
                                     },
                                     'choices': [
                                         'disable',
@@ -1091,9 +1133,11 @@ def main():
                                         '7.2.1': True,
                                         '7.2.2': True,
                                         '7.2.3': True,
-                                        '7.4.0': True
+                                        '7.2.4': True,
+                                        '7.4.0': True,
+                                        '7.4.1': True
                                     },
-                                    'type': 'str'
+                                    'type': 'raw'
                                 }
                             }
                         },
@@ -1111,7 +1155,9 @@ def main():
                                                 '7.2.1': True,
                                                 '7.2.2': True,
                                                 '7.2.3': True,
-                                                '7.4.0': True
+                                                '7.2.4': True,
+                                                '7.4.0': True,
+                                                '7.4.1': True
                                             },
                                             'choices': [
                                                 'disable',
@@ -1125,7 +1171,9 @@ def main():
                                                 '7.2.1': True,
                                                 '7.2.2': True,
                                                 '7.2.3': True,
-                                                '7.4.0': True
+                                                '7.2.4': True,
+                                                '7.4.0': True,
+                                                '7.4.1': True
                                             },
                                             'choices': [
                                                 'disable',
@@ -1139,7 +1187,9 @@ def main():
                                                 '7.2.1': True,
                                                 '7.2.2': True,
                                                 '7.2.3': True,
-                                                '7.4.0': True
+                                                '7.2.4': True,
+                                                '7.4.0': True,
+                                                '7.4.1': True
                                             },
                                             'type': 'int'
                                         },
@@ -1149,7 +1199,9 @@ def main():
                                                 '7.2.1': True,
                                                 '7.2.2': True,
                                                 '7.2.3': True,
-                                                '7.4.0': True
+                                                '7.2.4': True,
+                                                '7.4.0': True,
+                                                '7.4.1': True
                                             },
                                             'type': 'int'
                                         },
@@ -1159,7 +1211,9 @@ def main():
                                                 '7.2.1': True,
                                                 '7.2.2': True,
                                                 '7.2.3': True,
-                                                '7.4.0': True
+                                                '7.2.4': True,
+                                                '7.4.0': True,
+                                                '7.4.1': True
                                             },
                                             'choices': [
                                                 'disable',
@@ -1173,7 +1227,9 @@ def main():
                                                 '7.2.1': True,
                                                 '7.2.2': True,
                                                 '7.2.3': True,
-                                                '7.4.0': True
+                                                '7.2.4': True,
+                                                '7.4.0': True,
+                                                '7.4.1': True
                                             },
                                             'type': 'list',
                                             'choices': [
@@ -1188,7 +1244,9 @@ def main():
                                                 '7.2.1': True,
                                                 '7.2.2': True,
                                                 '7.2.3': True,
-                                                '7.4.0': True
+                                                '7.2.4': True,
+                                                '7.4.0': True,
+                                                '7.4.1': True
                                             },
                                             'type': 'str'
                                         },
@@ -1198,7 +1256,9 @@ def main():
                                                 '7.2.1': True,
                                                 '7.2.2': True,
                                                 '7.2.3': True,
-                                                '7.4.0': True
+                                                '7.2.4': True,
+                                                '7.4.0': True,
+                                                '7.4.1': True
                                             },
                                             'type': 'int'
                                         }
@@ -1210,7 +1270,9 @@ def main():
                                         '7.2.1': True,
                                         '7.2.2': True,
                                         '7.2.3': True,
-                                        '7.4.0': True
+                                        '7.2.4': True,
+                                        '7.4.0': True,
+                                        '7.4.1': True
                                     },
                                     'type': 'int'
                                 },
@@ -1220,7 +1282,9 @@ def main():
                                         '7.2.1': True,
                                         '7.2.2': True,
                                         '7.2.3': True,
-                                        '7.4.0': True
+                                        '7.2.4': True,
+                                        '7.4.0': True,
+                                        '7.4.1': True
                                     },
                                     'choices': [
                                         'sim1',
@@ -1236,7 +1300,9 @@ def main():
                                         '7.2.1': True,
                                         '7.2.2': True,
                                         '7.2.3': True,
-                                        '7.4.0': True
+                                        '7.2.4': True,
+                                        '7.4.0': True,
+                                        '7.4.1': True
                                     },
                                     'choices': [
                                         'disable',
@@ -1250,7 +1316,9 @@ def main():
                                         '7.2.1': True,
                                         '7.2.2': True,
                                         '7.2.3': True,
-                                        '7.4.0': True
+                                        '7.2.4': True,
+                                        '7.4.0': True,
+                                        '7.4.1': True
                                     },
                                     'type': 'int'
                                 },
@@ -1260,7 +1328,9 @@ def main():
                                         '7.2.1': True,
                                         '7.2.2': True,
                                         '7.2.3': True,
-                                        '7.4.0': True
+                                        '7.2.4': True,
+                                        '7.4.0': True,
+                                        '7.4.1': True
                                     },
                                     'type': 'str'
                                 },
@@ -1270,7 +1340,9 @@ def main():
                                         '7.2.1': True,
                                         '7.2.2': True,
                                         '7.2.3': True,
-                                        '7.4.0': True
+                                        '7.2.4': True,
+                                        '7.4.0': True,
+                                        '7.4.1': True
                                     },
                                     'type': 'str'
                                 },
@@ -1280,7 +1352,9 @@ def main():
                                         '7.2.1': True,
                                         '7.2.2': True,
                                         '7.2.3': True,
-                                        '7.4.0': True
+                                        '7.2.4': True,
+                                        '7.4.0': True,
+                                        '7.4.1': True
                                     },
                                     'choices': [
                                         'disable',
@@ -1294,7 +1368,9 @@ def main():
                                         '7.2.1': True,
                                         '7.2.2': True,
                                         '7.2.3': True,
-                                        '7.4.0': True
+                                        '7.2.4': True,
+                                        '7.4.0': True,
+                                        '7.4.1': True
                                     },
                                     'choices': [
                                         'disable',
@@ -1308,9 +1384,11 @@ def main():
                                         '7.2.1': True,
                                         '7.2.2': True,
                                         '7.2.3': True,
-                                        '7.4.0': True
+                                        '7.2.4': True,
+                                        '7.4.0': True,
+                                        '7.4.1': True
                                     },
-                                    'type': 'str'
+                                    'type': 'raw'
                                 },
                                 'sim2-pin': {
                                     'required': False,
@@ -1318,7 +1396,9 @@ def main():
                                         '7.2.1': True,
                                         '7.2.2': True,
                                         '7.2.3': True,
-                                        '7.4.0': True
+                                        '7.2.4': True,
+                                        '7.4.0': True,
+                                        '7.4.1': True
                                     },
                                     'choices': [
                                         'disable',
@@ -1332,9 +1412,11 @@ def main():
                                         '7.2.1': True,
                                         '7.2.2': True,
                                         '7.2.3': True,
-                                        '7.4.0': True
+                                        '7.2.4': True,
+                                        '7.4.0': True,
+                                        '7.4.1': True
                                     },
-                                    'type': 'str'
+                                    'type': 'raw'
                                 }
                             }
                         },
@@ -1352,7 +1434,9 @@ def main():
                                                 '7.2.1': True,
                                                 '7.2.2': True,
                                                 '7.2.3': True,
-                                                '7.4.0': True
+                                                '7.2.4': True,
+                                                '7.4.0': True,
+                                                '7.4.1': True
                                             },
                                             'type': 'str'
                                         },
@@ -1362,7 +1446,9 @@ def main():
                                                 '7.2.1': True,
                                                 '7.2.2': True,
                                                 '7.2.3': True,
-                                                '7.4.0': True
+                                                '7.2.4': True,
+                                                '7.4.0': True,
+                                                '7.4.1': True
                                             },
                                             'type': 'str'
                                         },
@@ -1372,7 +1458,9 @@ def main():
                                                 '7.2.1': True,
                                                 '7.2.2': True,
                                                 '7.2.3': True,
-                                                '7.4.0': True
+                                                '7.2.4': True,
+                                                '7.4.0': True,
+                                                '7.4.1': True
                                             },
                                             'type': 'str'
                                         },
@@ -1382,7 +1470,9 @@ def main():
                                                 '7.2.1': True,
                                                 '7.2.2': True,
                                                 '7.2.3': True,
-                                                '7.4.0': True
+                                                '7.2.4': True,
+                                                '7.4.0': True,
+                                                '7.4.1': True
                                             },
                                             'type': 'str'
                                         },
@@ -1392,7 +1482,9 @@ def main():
                                                 '7.2.1': True,
                                                 '7.2.2': True,
                                                 '7.2.3': True,
-                                                '7.4.0': True
+                                                '7.2.4': True,
+                                                '7.4.0': True,
+                                                '7.4.1': True
                                             },
                                             'type': 'str'
                                         },
@@ -1402,7 +1494,9 @@ def main():
                                                 '7.2.1': True,
                                                 '7.2.2': True,
                                                 '7.2.3': True,
-                                                '7.4.0': True
+                                                '7.2.4': True,
+                                                '7.4.0': True,
+                                                '7.4.1': True
                                             },
                                             'type': 'str'
                                         },
@@ -1412,7 +1506,9 @@ def main():
                                                 '7.2.1': True,
                                                 '7.2.2': True,
                                                 '7.2.3': True,
-                                                '7.4.0': True
+                                                '7.2.4': True,
+                                                '7.4.0': True,
+                                                '7.4.1': True
                                             },
                                             'type': 'str'
                                         }
@@ -1424,7 +1520,9 @@ def main():
                                         '7.2.1': True,
                                         '7.2.2': True,
                                         '7.2.3': True,
-                                        '7.4.0': True
+                                        '7.2.4': True,
+                                        '7.4.0': True,
+                                        '7.4.1': True
                                     },
                                     'type': 'list',
                                     'options': {
@@ -1434,7 +1532,9 @@ def main():
                                                 '7.2.1': True,
                                                 '7.2.2': True,
                                                 '7.2.3': True,
-                                                '7.4.0': True
+                                                '7.2.4': True,
+                                                '7.4.0': True,
+                                                '7.4.1': True
                                             },
                                             'type': 'list',
                                             'choices': [
@@ -1454,7 +1554,9 @@ def main():
                                                 '7.2.1': True,
                                                 '7.2.2': True,
                                                 '7.2.3': True,
-                                                '7.4.0': True
+                                                '7.2.4': True,
+                                                '7.4.0': True,
+                                                '7.4.1': True
                                             },
                                             'type': 'str'
                                         },
@@ -1464,7 +1566,9 @@ def main():
                                                 '7.2.1': True,
                                                 '7.2.2': True,
                                                 '7.2.3': True,
-                                                '7.4.0': True
+                                                '7.2.4': True,
+                                                '7.4.0': True,
+                                                '7.4.1': True
                                             },
                                             'type': 'str'
                                         },
@@ -1474,7 +1578,9 @@ def main():
                                                 '7.2.1': True,
                                                 '7.2.2': True,
                                                 '7.2.3': True,
-                                                '7.4.0': True
+                                                '7.2.4': True,
+                                                '7.4.0': True,
+                                                '7.4.1': True
                                             },
                                             'choices': [
                                                 'disable',
@@ -1491,7 +1597,9 @@ def main():
                                         '7.2.1': True,
                                         '7.2.2': True,
                                         '7.2.3': True,
-                                        '7.4.0': True
+                                        '7.2.4': True,
+                                        '7.4.0': True,
+                                        '7.4.1': True
                                     },
                                     'choices': [
                                         'disable',
@@ -1509,7 +1617,9 @@ def main():
                         '7.2.1': True,
                         '7.2.2': True,
                         '7.2.3': True,
-                        '7.4.0': True
+                        '7.2.4': True,
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'choices': [
                         'disable',
@@ -1523,7 +1633,9 @@ def main():
                         '7.2.1': True,
                         '7.2.2': True,
                         '7.2.3': True,
-                        '7.4.0': True
+                        '7.2.4': True,
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'choices': [
                         'wan-extension',
@@ -1537,7 +1649,9 @@ def main():
                         '7.2.1': True,
                         '7.2.2': True,
                         '7.2.3': True,
-                        '7.4.0': True
+                        '7.2.4': True,
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'type': 'int'
                 },
@@ -1551,7 +1665,9 @@ def main():
                                 '7.2.1': True,
                                 '7.2.2': True,
                                 '7.2.3': True,
-                                '7.4.0': True
+                                '7.2.4': True,
+                                '7.4.0': True,
+                                '7.4.1': True
                             },
                             'type': 'list',
                             'options': {
@@ -1561,7 +1677,9 @@ def main():
                                         '7.2.1': True,
                                         '7.2.2': True,
                                         '7.2.3': True,
-                                        '7.4.0': True
+                                        '7.2.4': True,
+                                        '7.4.0': True,
+                                        '7.4.1': True
                                     },
                                     'type': 'str'
                                 },
@@ -1571,7 +1689,9 @@ def main():
                                         '7.2.1': True,
                                         '7.2.2': True,
                                         '7.2.3': True,
-                                        '7.4.0': True
+                                        '7.2.4': True,
+                                        '7.4.0': True,
+                                        '7.4.1': True
                                     },
                                     'choices': [
                                         'wan',
@@ -1592,7 +1712,9 @@ def main():
                                         '7.2.1': True,
                                         '7.2.2': True,
                                         '7.2.3': True,
-                                        '7.4.0': True
+                                        '7.2.4': True,
+                                        '7.4.0': True,
+                                        '7.4.1': True
                                     },
                                     'choices': [
                                         'primary',
@@ -1606,7 +1728,9 @@ def main():
                                         '7.2.1': True,
                                         '7.2.2': True,
                                         '7.2.3': True,
-                                        '7.4.0': True
+                                        '7.2.4': True,
+                                        '7.4.0': True,
+                                        '7.4.1': True
                                     },
                                     'type': 'int'
                                 }
@@ -1619,7 +1743,9 @@ def main():
                                 '7.2.1': True,
                                 '7.2.2': True,
                                 '7.2.3': True,
-                                '7.4.0': True
+                                '7.2.4': True,
+                                '7.4.0': True,
+                                '7.4.1': True
                             },
                             'type': 'str'
                         },
@@ -1629,7 +1755,9 @@ def main():
                                 '7.2.1': True,
                                 '7.2.2': True,
                                 '7.2.3': True,
-                                '7.4.0': True
+                                '7.2.4': True,
+                                '7.4.0': True,
+                                '7.4.1': True
                             },
                             'type': 'str'
                         },
@@ -1639,7 +1767,9 @@ def main():
                                 '7.2.1': True,
                                 '7.2.2': True,
                                 '7.2.3': True,
-                                '7.4.0': True
+                                '7.2.4': True,
+                                '7.4.0': True,
+                                '7.4.1': True
                             },
                             'type': 'str'
                         },
@@ -1649,7 +1779,9 @@ def main():
                                 '7.2.1': True,
                                 '7.2.2': True,
                                 '7.2.3': True,
-                                '7.4.0': True
+                                '7.2.4': True,
+                                '7.4.0': True,
+                                '7.4.1': True
                             },
                             'choices': [
                                 'activebackup',
@@ -1665,10 +1797,12 @@ def main():
                         '7.2.1': True,
                         '7.2.2': True,
                         '7.2.3': True,
-                        '7.4.0': True
+                        '7.2.4': True,
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'no_log': True,
-                    'type': 'str'
+                    'type': 'raw'
                 },
                 'login-password-change': {
                     'required': False,
@@ -1676,14 +1810,15 @@ def main():
                         '7.2.1': True,
                         '7.2.2': True,
                         '7.2.3': True,
-                        '7.4.0': True
+                        '7.2.4': True,
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'choices': [
                         'no',
                         'yes',
                         'default'
                     ],
-                    'no_log': True,
                     'type': 'str'
                 },
                 'model': {
@@ -1692,7 +1827,9 @@ def main():
                         '7.2.1': True,
                         '7.2.2': True,
                         '7.2.3': True,
-                        '7.4.0': True
+                        '7.2.4': True,
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'choices': [
                         'FX201E',
@@ -1724,14 +1861,17 @@ def main():
                         '7.2.1': True,
                         '7.2.2': True,
                         '7.2.3': True,
-                        '7.4.0': True
+                        '7.2.4': True,
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'type': 'str'
                 },
                 '_is_factory_setting': {
                     'required': False,
                     'revision': {
-                        '7.4.0': True
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'choices': [
                         'disable',

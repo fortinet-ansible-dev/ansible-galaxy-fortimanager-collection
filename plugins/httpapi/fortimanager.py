@@ -53,7 +53,6 @@ class HttpApi(HttpApiBase):
         self._req_id = 0
         self._sid = None
         self._url = "/jsonrpc"
-        self._host = None
         self._tools = FMGRCommon
         self._connected_fmgr = None
         self._last_response_msg = None
@@ -144,10 +143,6 @@ class HttpApi(HttpApiBase):
         self._logged_in_user = username
         forticloud_access_token = self.get_forticloud_access_token()
         self._access_token = self.get_access_token()
-        self.log(
-            "forticloud access token: %s"
-            % (forticloud_access_token if forticloud_access_token else "(not set)")
-        )
         if self._access_token:
             self._login_method = 'access_token'
         elif forticloud_access_token:
@@ -176,13 +171,15 @@ class HttpApi(HttpApiBase):
             self.logout()
             raise FMGBaseException(msg="Error -11 -- the Session ID was likely malformed somehow. Exiting")
         elif rc == 0:
-            self.check_mode()
-            if self._uses_adoms:
-                self.get_adom_list()
-            if self._uses_workspace:
-                self.get_locked_adom_list()
-            self._connected_fmgr = status
-            self._host = self._connected_fmgr["data"]["Hostname"]
+            try:
+                self.check_mode()
+                if self._uses_adoms:
+                    self.get_adom_list()
+                if self._uses_workspace:
+                    self.get_locked_adom_list()
+                self._connected_fmgr = status
+            except Exception as e:
+                self.log("inspect_fmgr exception: %s" % (e))
 
     def logout(self):
         """
@@ -214,7 +211,7 @@ class HttpApi(HttpApiBase):
         if self.sid is None and params[0]["url"] != "sys/login/user":
             if not self.connection._connected:
                 self.connection._connect()
-        if params[0]["url"] == "sys/login/user" and "passwd" in params[0]["data"]:
+        if params[0]["url"] == "sys/login/user" and "data" in params[0] and "passwd" in params[0]["data"]:
             params[0]["data"]["passwd"] = str(params[0]["data"]["passwd"])
         self._update_request_id()
         json_request = {
@@ -225,19 +222,23 @@ class HttpApi(HttpApiBase):
             "verbose": 1,
         }
         data = json.dumps(json_request, ensure_ascii=False).replace("\\\\", "\\")
+
         # Don't log sensitive information
-        if params[0]["url"] == "sys/login/user" and "passwd" in params[0]["data"]:
+        if params[0]["url"] == "sys/login/user" and "data" in params[0] and "passwd" in params[0]["data"]:
             json_request["params"][0]["data"]["passwd"] = "******"
         if "session" in params[0]:
             json_request["params"][0]["session"] = "******"
         log_data = json.dumps(json_request, ensure_ascii=False).replace("\\\\", "\\")
         self.log("request: %s" % (log_data))
+
         # Sending URL and Data in Unicode, per Ansible Specifications for Connection Plugins
+        access_token_str = ''
         header_data = BASE_HEADERS
         if self._login_method == "access_token":
+            access_token_str = '?access_token=' + self._access_token
             header_data["Authorization"] = "Bearer " + self._access_token
         response, response_data = self.connection.send(
-            path=to_text(self._url), data=to_text(data), headers=header_data
+            path=to_text(self._url) + access_token_str, data=to_text(data), headers=header_data
         )
         # Get Unicode Response - Must convert from StringIO to unicode first so we can do a replace function below
         result = json.loads(to_text(response_data.getvalue()))
@@ -382,10 +383,11 @@ class HttpApi(HttpApiBase):
         """
         url = "/cli/global/system/global"
         rc, resp_obj = self.send_request("get", self._tools.format_request("get", url, fields=["workspace-mode", "adom-status"]))
-        if resp_obj["data"]["adom-status"] in [1, "enable"]:
-            self._uses_adoms = True
-        if resp_obj["data"]["workspace-mode"] in ["workflow", "normal", "per-adom"]:
-            self._uses_workspace = True
+        if "data" in resp_obj and isinstance(resp_obj["data"], dict):
+            if resp_obj["data"].get("adom-status", "") in [1, "enable"]:
+                self._uses_adoms = True
+            if resp_obj["data"].get("workspace-mode", "") in ["workflow", "normal", "per-adom"]:
+                self._uses_workspace = True
         self.log("workspace-mode: %s adom-status: %s" % (self._uses_workspace, self._uses_adoms))
 
     def run_unlock(self):

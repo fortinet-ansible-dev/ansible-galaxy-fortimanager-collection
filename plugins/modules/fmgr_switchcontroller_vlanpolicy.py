@@ -108,8 +108,8 @@ options:
         type: dict
         suboptions:
             allowed-vlans:
-                description: description
-                type: str
+                type: raw
+                description: (list) no description
             allowed-vlans-all:
                 type: str
                 description: Enable/disable all defined VLANs when using this VLAN policy.
@@ -129,9 +129,10 @@ options:
             name:
                 type: str
                 description: VLAN policy name.
+                required: true
             untagged-vlans:
-                description: description
-                type: str
+                type: raw
+                description: (list) no description
             vlan:
                 type: str
                 description: Native VLAN to be applied when using this VLAN policy.
@@ -139,32 +140,32 @@ options:
 '''
 
 EXAMPLES = '''
- - hosts: fortimanager-inventory
-   collections:
-     - fortinet.fortimanager
-   connection: httpapi
-   vars:
-      ansible_httpapi_use_ssl: True
-      ansible_httpapi_validate_certs: False
-      ansible_httpapi_port: 443
-   tasks:
+- hosts: fortimanager-inventory
+  collections:
+    - fortinet.fortimanager
+  connection: httpapi
+  vars:
+    ansible_httpapi_use_ssl: True
+    ansible_httpapi_validate_certs: False
+    ansible_httpapi_port: 443
+  tasks:
     - name: Configure VLAN policy to be applied on the managed FortiSwitch ports through dynamic-port-policy.
       fmgr_switchcontroller_vlanpolicy:
-         bypass_validation: False
-         workspace_locking_adom: <value in [global, custom adom including root]>
-         workspace_locking_timeout: 300
-         rc_succeeded: [0, -2, -3, ...]
-         rc_failed: [-2, -3, ...]
-         adom: <your own value>
-         state: <value in [present, absent]>
-         switchcontroller_vlanpolicy:
-            allowed-vlans: <value of string>
-            allowed-vlans-all: <value in [disable, enable]>
-            description: <value of string>
-            discard-mode: <value in [none, all-untagged, all-tagged]>
-            name: <value of string>
-            untagged-vlans: <value of string>
-            vlan: <value of string>
+        bypass_validation: False
+        workspace_locking_adom: <value in [global, custom adom including root]>
+        workspace_locking_timeout: 300
+        rc_succeeded: [0, -2, -3, ...]
+        rc_failed: [-2, -3, ...]
+        adom: <your own value>
+        state: <value in [present, absent]>
+        switchcontroller_vlanpolicy:
+          allowed-vlans: <list or string>
+          allowed-vlans-all: <value in [disable, enable]>
+          description: <string>
+          discard-mode: <value in [none, all-untagged, all-tagged]>
+          name: <string>
+          untagged-vlans: <list or string>
+          vlan: <string>
 
 '''
 
@@ -295,7 +296,9 @@ def main():
                 '7.2.1': True,
                 '7.2.2': True,
                 '7.2.3': True,
-                '7.4.0': True
+                '7.2.4': True,
+                '7.4.0': True,
+                '7.4.1': True
             },
             'options': {
                 'allowed-vlans': {
@@ -304,9 +307,11 @@ def main():
                         '7.2.1': True,
                         '7.2.2': True,
                         '7.2.3': True,
-                        '7.4.0': True
+                        '7.2.4': True,
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
-                    'type': 'str'
+                    'type': 'raw'
                 },
                 'allowed-vlans-all': {
                     'required': False,
@@ -314,7 +319,9 @@ def main():
                         '7.2.1': True,
                         '7.2.2': True,
                         '7.2.3': True,
-                        '7.4.0': True
+                        '7.2.4': True,
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'choices': [
                         'disable',
@@ -328,7 +335,9 @@ def main():
                         '7.2.1': True,
                         '7.2.2': True,
                         '7.2.3': True,
-                        '7.4.0': True
+                        '7.2.4': True,
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'type': 'str'
                 },
@@ -338,7 +347,9 @@ def main():
                         '7.2.1': True,
                         '7.2.2': True,
                         '7.2.3': True,
-                        '7.4.0': True
+                        '7.2.4': True,
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'choices': [
                         'none',
@@ -353,7 +364,9 @@ def main():
                         '7.2.1': True,
                         '7.2.2': True,
                         '7.2.3': True,
-                        '7.4.0': True
+                        '7.2.4': True,
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'type': 'str'
                 },
@@ -363,9 +376,11 @@ def main():
                         '7.2.1': True,
                         '7.2.2': True,
                         '7.2.3': True,
-                        '7.4.0': True
+                        '7.2.4': True,
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
-                    'type': 'str'
+                    'type': 'raw'
                 },
                 'vlan': {
                     'required': False,
@@ -373,7 +388,9 @@ def main():
                         '7.2.1': True,
                         '7.2.2': True,
                         '7.2.3': True,
-                        '7.4.0': True
+                        '7.2.4': True,
+                        '7.4.0': True,
+                        '7.4.1': True
                     },
                     'type': 'str'
                 }

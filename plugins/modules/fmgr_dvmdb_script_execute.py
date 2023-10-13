@@ -99,9 +99,9 @@ options:
                 type: str
                 description: no description
             scope:
-                description: description
                 type: list
                 elements: dict
+                description: no description
                 suboptions:
                     name:
                         type: str
@@ -116,75 +116,75 @@ options:
 '''
 
 EXAMPLES = '''
- - hosts: fortimanager00
-   collections:
-     - fortinet.fortimanager
-   connection: httpapi
-   vars:
-      ansible_httpapi_use_ssl: True
-      ansible_httpapi_validate_certs: False
-      ansible_httpapi_port: 443
-   tasks:
-    - name: Run script.
-      fmgr_dvmdb_script_execute:
-         bypass_validation: False
-         adom: ansible
-         dvmdb_script_execute:
-            adom: ansible
-            package: 'your_value'
-            scope:
-              -
-                  name: ansible-test
-                  vdom: root
-            script: ansible-test
- - name: Apply a script to device
-   hosts: fortimanager01
-   gather_facts: no
-   connection: httpapi
-   collections:
-     - fortinet.fortimanager
-   vars:
+- hosts: fortimanager00
+  collections:
+    - fortinet.fortimanager
+  connection: httpapi
+  vars:
      ansible_httpapi_use_ssl: True
      ansible_httpapi_validate_certs: False
      ansible_httpapi_port: 443
-     device_adom: 'root'
-     script_name: 'FooScript'
-     device_name: 'CustomHostName'
-     device_vdom: 'root'
-   tasks:
-     - name: Create a Script to later execute
-       fmgr_dvmdb_script:
-         adom: '{{ device_adom }}'
-         state: 'present'
-         dvmdb_script:
-             name: '{{ script_name }}'
-             desc: 'A script created via Ansible'
-             content: |
-                         config system global
-                             set remoteauthtimeout 80
-                         end
-             type: 'cli'
-     - name: Run the Script
-       fmgr_dvmdb_script_execute:
-         adom: '{{ device_adom }}'
-         dvmdb_script_execute:
-             adom: '{{ device_adom }}'
-             script: '{{ script_name }}'
-             scope:
-                - name: '{{ device_name }}'
-                  vdom: '{{ device_vdom }}'
-       register: running_task
-     - name: Inspect the Task Status
-       fmgr_fact:
-         facts:
-             selector: 'task_task'
-             params:
-                 task: '{{running_task.meta.response_data.task}}'
-       register: taskinfo
-       until: taskinfo.meta.response_data.percent == 100
-       retries: 30
-       delay: 3
-       failed_when: taskinfo.meta.response_data.state == 'error'
+  tasks:
+   - name: Run script.
+     fmgr_dvmdb_script_execute:
+        bypass_validation: False
+        adom: ansible
+        dvmdb_script_execute:
+           adom: ansible
+           package: 'your_value'
+           scope:
+             -
+                 name: ansible-test
+                 vdom: root
+           script: ansible-test
+- name: Apply a script to device
+  hosts: fortimanager01
+  gather_facts: no
+  connection: httpapi
+  collections:
+    - fortinet.fortimanager
+  vars:
+    ansible_httpapi_use_ssl: True
+    ansible_httpapi_validate_certs: False
+    ansible_httpapi_port: 443
+    device_adom: 'root'
+    script_name: 'FooScript'
+    device_name: 'CustomHostName'
+    device_vdom: 'root'
+  tasks:
+    - name: Create a Script to later execute
+      fmgr_dvmdb_script:
+        adom: '{{ device_adom }}'
+        state: 'present'
+        dvmdb_script:
+            name: '{{ script_name }}'
+            desc: 'A script created via Ansible'
+            content: |
+                        config system global
+                            set remoteauthtimeout 80
+                        end
+            type: 'cli'
+    - name: Run the Script
+      fmgr_dvmdb_script_execute:
+        adom: '{{ device_adom }}'
+        dvmdb_script_execute:
+            adom: '{{ device_adom }}'
+            script: '{{ script_name }}'
+            scope:
+               - name: '{{ device_name }}'
+                 vdom: '{{ device_vdom }}'
+      register: running_task
+    - name: Inspect the Task Status
+      fmgr_fact:
+        facts:
+            selector: 'task_task'
+            params:
+                task: '{{running_task.meta.response_data.task}}'
+      register: taskinfo
+      until: taskinfo.meta.response_data.percent == 100
+      retries: 30
+      delay: 3
+      failed_when: taskinfo.meta.response_data.state == 'error'
 
 '''
 
@@ -309,6 +309,7 @@ def main():
                 '6.2.9': True,
                 '6.2.10': True,
                 '6.2.11': True,
+                '6.2.12': True,
                 '6.4.0': True,
                 '6.4.1': True,
                 '6.4.2': True,
@@ -322,6 +323,7 @@ def main():
                 '6.4.10': True,
                 '6.4.11': True,
                 '6.4.12': True,
+                '6.4.13': True,
                 '7.0.0': True,
                 '7.0.1': True,
                 '7.0.2': True,
@@ -331,31 +333,159 @@ def main():
                 '7.0.6': True,
                 '7.0.7': True,
                 '7.0.8': True,
+                '7.0.9': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
                 '7.2.3': True,
-                '7.4.0': True
+                '7.2.4': True,
+                '7.4.0': True,
+                '7.4.1': True
             },
             'options': {
                 'adom': {
                     'required': False,
+                    'revision': {
+                        '6.4.7': True,
+                        '6.4.8': True,
+                        '6.4.9': True,
+                        '6.4.10': True,
+                        '6.4.11': True,
+                        '6.4.12': True,
+                        '6.4.13': True,
+                        '7.0.1': True,
+                        '7.0.2': True,
+                        '7.0.3': True,
+                        '7.0.4': True,
+                        '7.0.5': True,
+                        '7.0.6': True,
+                        '7.0.7': True,
+                        '7.0.8': True,
+                        '7.0.9': True,
+                        '7.2.0': True,
+                        '7.2.1': True,
+                        '7.2.2': True,
+                        '7.2.3': True,
+                        '7.2.4': True,
+                        '7.4.0': True,
+                        '7.4.1': True
+                    },
                     'type': 'str'
                 },
                 'package': {
                     'required': False,
+                    'revision': {
+                        '6.4.7': True,
+                        '6.4.8': True,
+                        '6.4.9': True,
+                        '6.4.10': True,
+                        '6.4.11': True,
+                        '6.4.12': True,
+                        '6.4.13': True,
+                        '7.0.1': True,
+                        '7.0.2': True,
+                        '7.0.3': True,
+                        '7.0.4': True,
+                        '7.0.5': True,
+                        '7.0.6': True,
+                        '7.0.7': True,
+                        '7.0.8': True,
+                        '7.0.9': True,
+                        '7.2.0': True,
+                        '7.2.1': True,
+                        '7.2.2': True,
+                        '7.2.3': True,
+                        '7.2.4': True,
+                        '7.4.0': True,
+                        '7.4.1': True
+                    },
                     'type': 'str'
                 },
                 'scope': {
                     'required': False,
+                    'revision': {
+                        '6.4.7': True,
+                        '6.4.8': True,
+                        '6.4.9': True,
+                        '6.4.10': True,
+                        '6.4.11': True,
+                        '6.4.12': True,
+                        '6.4.13': True,
+                        '7.0.1': True,
+                        '7.0.2': True,
+                        '7.0.3': True,
+                        '7.0.4': True,
+                        '7.0.5': True,
+                        '7.0.6': True,
+                        '7.0.7': True,
+                        '7.0.8': True,
+                        '7.0.9': True,
+                        '7.2.0': True,
+                        '7.2.1': True,
+                        '7.2.2': True,
+                        '7.2.3': True,
+                        '7.2.4': True,
+                        '7.4.0': True,
+                        '7.4.1': True
+                    },
                     'type': 'list',
                     'options': {
                         'name': {
                             'required': False,
+                            'revision': {
+                                '6.4.7': True,
+                                '6.4.8': True,
+                                '6.4.9': True,
+                                '6.4.10': True,
+                                '6.4.11': True,
+                                '6.4.12': True,
+                                '6.4.13': True,
+                                '7.0.1': True,
+                                '7.0.2': True,
+                                '7.0.3': True,
+                                '7.0.4': True,
+                                '7.0.5': True,
+                                '7.0.6': True,
+                                '7.0.7': True,
+                                '7.0.8': True,
+                                '7.0.9': True,
+                                '7.2.0': True,
+                                '7.2.1': True,
+                                '7.2.2': True,
+                                '7.2.3': True,
+                                '7.2.4': True,
+                                '7.4.0': True,
+                                '7.4.1': True
+                            },
                             'type': 'str'
                         },
                         'vdom': {
                             'required': False,
+                            'revision': {
+                                '6.4.7': True,
+                                '6.4.8': True,
+                                '6.4.9': True,
+                                '6.4.10': True,
+                                '6.4.11': True,
+                                '6.4.12': True,
+                                '6.4.13': True,
+                                '7.0.1': True,
+                                '7.0.2': True,
+                                '7.0.3': True,
+                                '7.0.4': True,
+                                '7.0.5': True,
+                                '7.0.6': True,
+                                '7.0.7': True,
+                                '7.0.8': True,
+                                '7.0.9': True,
+                                '7.2.0': True,
+                                '7.2.1': True,
+                                '7.2.2': True,
+                                '7.2.3': True,
+                                '7.2.4': True,
+                                '7.4.0': True,
+                                '7.4.1': True
+                            },
                             'type': 'str'
                         }
                     },
@@ -363,6 +493,31 @@ def main():
                 },
                 'script': {
                     'required': False,
+                    'revision': {
+                        '6.4.7': True,
+                        '6.4.8': True,
+                        '6.4.9': True,
+                        '6.4.10': True,
+                        '6.4.11': True,
+                        '6.4.12': True,
+                        '6.4.13': True,
+                        '7.0.1': True,
+                        '7.0.2': True,
+                        '7.0.3': True,
+                        '7.0.4': True,
+                        '7.0.5': True,
+                        '7.0.6': True,
+                        '7.0.7': True,
+                        '7.0.8': True,
+                        '7.0.9': True,
+                        '7.2.0': True,
+                        '7.2.1': True,
+                        '7.2.2': True,
+                        '7.2.3': True,
+                        '7.2.4': True,
+                        '7.4.0': True,
+                        '7.4.1': True
+                    },
                     'type': 'str'
                 }
             }

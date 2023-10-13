@@ -140,9 +140,9 @@ options:
                 type: int
                 description: Priority of the virtual router
             proxy-arp:
-                description: description
                 type: list
                 elements: dict
+                description: no description
                 suboptions:
                     id:
                         type: int
@@ -166,8 +166,8 @@ options:
                     - '2'
                     - '3'
             vrdst:
-                description: description
-                type: str
+                type: raw
+                description: (list) no description
             vrdst-priority:
                 type: int
                 description: Priority of the virtual router when the virtual router destination becomes unreachable
@@ -184,44 +184,44 @@ options:
 '''
 
 EXAMPLES = '''
- - hosts: fortimanager-inventory
-   collections:
-     - fortinet.fortimanager
-   connection: httpapi
-   vars:
-      ansible_httpapi_use_ssl: True
-      ansible_httpapi_validate_certs: False
-      ansible_httpapi_port: 443
-   tasks:
+- hosts: fortimanager-inventory
+  collections:
+    - fortinet.fortimanager
+  connection: httpapi
+  vars:
+    ansible_httpapi_use_ssl: True
+    ansible_httpapi_validate_certs: False
+    ansible_httpapi_port: 443
+  tasks:
     - name: VRRP configuration.
       fmgr_fsp_vlan_dynamicmapping_interface_vrrp:
-         bypass_validation: False
-         workspace_locking_adom: <value in [global, custom adom including root]>
-         workspace_locking_timeout: 300
-         rc_succeeded: [0, -2, -3, ...]
-         rc_failed: [-2, -3, ...]
-         adom: <your own value>
-         vlan: <your own value>
-         dynamic_mapping: <your own value>
-         state: <value in [present, absent]>
-         fsp_vlan_dynamicmapping_interface_vrrp:
-            accept-mode: <value in [disable, enable]>
-            adv-interval: <value of integer>
-            ignore-default-route: <value in [disable, enable]>
-            preempt: <value in [disable, enable]>
-            priority: <value of integer>
-            proxy-arp:
-              -
-                  id: <value of integer>
-                  ip: <value of string>
-            start-time: <value of integer>
-            status: <value in [disable, enable]>
-            version: <value in [2, 3]>
-            vrdst: <value of string>
-            vrdst-priority: <value of integer>
-            vrgrp: <value of integer>
-            vrid: <value of integer>
-            vrip: <value of string>
+        bypass_validation: False
+        workspace_locking_adom: <value in [global, custom adom including root]>
+        workspace_locking_timeout: 300
+        rc_succeeded: [0, -2, -3, ...]
+        rc_failed: [-2, -3, ...]
+        adom: <your own value>
+        vlan: <your own value>
+        dynamic_mapping: <your own value>
+        state: <value in [present, absent]>
+        fsp_vlan_dynamicmapping_interface_vrrp:
+          accept-mode: <value in [disable, enable]>
+          adv-interval: <integer>
+          ignore-default-route: <value in [disable, enable]>
+          preempt: <value in [disable, enable]>
+          priority: <integer>
+          proxy-arp:
+            -
+              id: <integer>
+              ip: <string>
+          start-time: <integer>
+          status: <value in [disable, enable]>
+          version: <value in [2, 3]>
+          vrdst: <list or string>
+          vrdst-priority: <integer>
+          vrgrp: <integer>
+          vrid: <integer>
+          vrip: <string>
 
 '''
 
@@ -363,7 +363,8 @@ def main():
                 'accept-mode': {
                     'required': False,
                     'revision': {
-                        '7.4.0': True
+                        '7.4.0': True,
+                        '7.4.1': False
                     },
                     'choices': [
                         'disable',
@@ -374,14 +375,16 @@ def main():
                 'adv-interval': {
                     'required': False,
                     'revision': {
-                        '7.4.0': True
+                        '7.4.0': True,
+                        '7.4.1': False
                     },
                     'type': 'int'
                 },
                 'ignore-default-route': {
                     'required': False,
                     'revision': {
-                        '7.4.0': True
+                        '7.4.0': True,
+                        '7.4.1': False
                     },
                     'choices': [
                         'disable',
@@ -392,7 +395,8 @@ def main():
                 'preempt': {
                     'required': False,
                     'revision': {
-                        '7.4.0': True
+                        '7.4.0': True,
+                        '7.4.1': False
                     },
                     'choices': [
                         'disable',
@@ -403,28 +407,32 @@ def main():
                 'priority': {
                     'required': False,
                     'revision': {
-                        '7.4.0': True
+                        '7.4.0': True,
+                        '7.4.1': False
                     },
                     'type': 'int'
                 },
                 'proxy-arp': {
                     'required': False,
                     'revision': {
-                        '7.4.0': True
+                        '7.4.0': True,
+                        '7.4.1': False
                     },
                     'type': 'list',
                     'options': {
                         'id': {
                             'required': False,
                             'revision': {
-                                '7.4.0': True
+                                '7.4.0': True,
+                                '7.4.1': False
                             },
                             'type': 'int'
                         },
                         'ip': {
                             'required': False,
                             'revision': {
-                                '7.4.0': True
+                                '7.4.0': True,
+                                '7.4.1': False
                             },
                             'type': 'str'
                         }
@@ -434,14 +442,16 @@ def main():
                 'start-time': {
                     'required': False,
                     'revision': {
-                        '7.4.0': True
+                        '7.4.0': True,
+                        '7.4.1': False
                     },
                     'type': 'int'
                 },
                 'status': {
                     'required': False,
                     'revision': {
-                        '7.4.0': True
+                        '7.4.0': True,
+                        '7.4.1': False
                     },
                     'choices': [
                         'disable',
@@ -452,7 +462,8 @@ def main():
                 'version': {
                     'required': False,
                     'revision': {
-                        '7.4.0': True
+                        '7.4.0': True,
+                        '7.4.1': False
                     },
                     'choices': [
                         '2',
@@ -463,35 +474,40 @@ def main():
                 'vrdst': {
                     'required': False,
                     'revision': {
-                        '7.4.0': True
+                        '7.4.0': True,
+                        '7.4.1': False
                     },
-                    'type': 'str'
+                    'type': 'raw'
                 },
                 'vrdst-priority': {
                     'required': False,
                     'revision': {
-                        '7.4.0': True
+                        '7.4.0': True,
+                        '7.4.1': False
                     },
                     'type': 'int'
                 },
                 'vrgrp': {
                     'required': False,
                     'revision': {
-                        '7.4.0': True
+                        '7.4.0': True,
+                        '7.4.1': False
                     },
                     'type': 'int'
                 },
                 'vrid': {
                     'required': False,
                     'revision': {
-                        '7.4.0': True
+                        '7.4.0': True,
+                        '7.4.1': False
                     },
                     'type': 'int'
                 },
                 'vrip': {
                     'required': False,
                     'revision': {
-                        '7.4.0': True
+                        '7.4.0': True,
+                        '7.4.1': False
                     },
                     'type': 'str'
                 }
