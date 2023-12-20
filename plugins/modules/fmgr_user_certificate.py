@@ -290,6 +290,7 @@ def main():
             'revision': {
                 '7.0.8': True,
                 '7.0.9': True,
+                '7.0.10': True,
                 '7.2.3': True,
                 '7.2.4': True,
                 '7.4.0': True,
@@ -301,6 +302,7 @@ def main():
                     'revision': {
                         '7.0.8': True,
                         '7.0.9': True,
+                        '7.0.10': True,
                         '7.2.1': False,
                         '7.2.2': False,
                         '7.2.3': True,
@@ -315,6 +317,7 @@ def main():
                     'revision': {
                         '7.0.8': True,
                         '7.0.9': True,
+                        '7.0.10': True,
                         '7.2.1': False,
                         '7.2.2': False,
                         '7.2.3': True,
@@ -329,6 +332,7 @@ def main():
                     'revision': {
                         '7.0.8': True,
                         '7.0.9': True,
+                        '7.0.10': True,
                         '7.2.1': False,
                         '7.2.2': False,
                         '7.2.3': True,
@@ -343,6 +347,7 @@ def main():
                     'revision': {
                         '7.0.8': True,
                         '7.0.9': True,
+                        '7.0.10': True,
                         '7.2.1': False,
                         '7.2.2': False,
                         '7.2.3': True,
@@ -357,6 +362,7 @@ def main():
                     'revision': {
                         '7.0.8': True,
                         '7.0.9': True,
+                        '7.0.10': True,
                         '7.2.1': False,
                         '7.2.2': False,
                         '7.2.3': True,
@@ -375,6 +381,7 @@ def main():
                     'revision': {
                         '7.0.8': True,
                         '7.0.9': True,
+                        '7.0.10': True,
                         '7.2.1': False,
                         '7.2.2': False,
                         '7.2.3': True,

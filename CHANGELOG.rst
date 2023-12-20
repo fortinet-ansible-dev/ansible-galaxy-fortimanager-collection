@@ -5,6 +5,22 @@ Fortinet.Fortimanager Release Notes
 .. contents:: Topics
 
 
+v2.3.1
+======
+
+Release Summary
+---------------
+
+release fortinet.fortimanager 2.3.1
+
+Bugfixes
+--------
+
+- Added missing enum values for some arguments.
+- Change minimum required ansible-core version to 2.14.0
+- Fixed a bug where ansible may skip update incorrectly.
+- Support FortiManager 7.0.10
+
 v2.3.0
 ======
 

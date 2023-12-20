@@ -55,7 +55,7 @@ def check_galaxy_version(schema):
 
 
 def __strip_revision(schema):
-    if type(schema) == dict:
+    if isinstance(schema, dict):
         if "revision" in schema and type(schema["revision"]) is dict:
             revisions = schema["revision"]
             valid_revision = True
@@ -76,7 +76,7 @@ def __strip_revision(schema):
                 del schema["revision"]
         for key in schema:
             __strip_revision(schema[key])
-    elif type(schema) == list:
+    elif isinstance(schema, list):
         for item in schema:
             __strip_revision(item)
 
@@ -346,26 +346,24 @@ class NAPIManager(object):
             return response[1]["data"]
         return None
 
-    def _compare_subnet(self, object_remote, object_present):
-        if type(object_remote) is not list and len(object_remote) != 2:
-            return True
+    def is_same_subnet(self, object_remote, object_present):
+        if isinstance(object_remote, list) and len(object_remote) != 2:
+            return False
         tokens = object_present.split("/")
         if len(tokens) != 2:
-            return True
+            return False
         try:
             subnet_number = int(tokens[1])
             if subnet_number < 0 or subnet_number > 32:
-                return True
-            remote_subnet_number = sum(bin(int(x)).count("1") for x in object_remote[1].split("."))
-            if object_remote[0] != tokens[0] or remote_subnet_number != subnet_number:
-                return True
-            else:
                 return False
+            remote_subnet_number = sum(bin(int(x)).count("1") for x in object_remote[1].split("."))
+            if object_remote[0] == tokens[0] and remote_subnet_number == subnet_number:
+                return True
         except Exception as e:
-            return True
-        return True
+            return False
+        return False
 
-    def _check_object_difference(self, object_remote, object_present):
+    def is_object_difference(self, object_remote, object_present):
         for key in object_present:
             local_value = object_present[key]
             if not local_value:
@@ -388,13 +386,13 @@ class NAPIManager(object):
             elif isinstance(local_value, dict):
                 if not isinstance(remote_value, dict):
                     return True
-                elif self._check_object_difference(remote_value, local_value):
+                elif self.is_object_difference(remote_value, local_value):
                     return True
             else:  # local_value is not list or dict, maybe int, float or str
                 value_string = str(local_value)
-                if isinstance(remote_value, list):
-                    if not self._compare_subnet(remote_value, value_string):
-                        return False
+                if isinstance(remote_value, list):  # e.g., subnet
+                    if self.is_same_subnet(remote_value, value_string):
+                        continue
                     # Won't update if remote = ['var'] and local = 'var'
                     elif len(remote_value) != 1 or str(remote_value[0]) != value_string:
                         return True
@@ -406,7 +404,7 @@ class NAPIManager(object):
         object_remote = robject["data"] if "data" in robject else {}
         module_name = self.module_level2_name
         object_present = self.module.params[module_name] if module_name in self.module.params else {}
-        return self._check_object_difference(object_remote, object_present)
+        return self.is_object_difference(object_remote, object_present)
 
     def _process_with_mkey(self, mvalue):
         rc, robject = self.get_object(mvalue)
@@ -1137,7 +1135,7 @@ class NAPIManager(object):
 
     def __tailor_attributes(self, data):
         '''remove empty attributes'''
-        if type(data) == dict:
+        if isinstance(data, dict):
             rdata = dict()
             for key in data:
                 value = data[key]
@@ -1145,7 +1143,7 @@ class NAPIManager(object):
                     continue
                 rdata[key] = self.__tailor_attributes(value)
             return rdata
-        elif type(data) == list:
+        elif isinstance(data, list):
             rdata = list()
             for item in data:
                 if item is None:

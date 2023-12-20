@@ -293,7 +293,8 @@ def main():
                 '7.0.6': True,
                 '7.0.7': True,
                 '7.0.8': True,
-                '7.0.9': True
+                '7.0.9': True,
+                '7.0.10': True
             },
             'options': {
                 'args': {
@@ -305,6 +306,7 @@ def main():
                         '7.0.7': True,
                         '7.0.8': True,
                         '7.0.9': True,
+                        '7.0.10': True,
                         '7.2.1': False,
                         '7.2.2': False,
                         '7.2.3': False,
@@ -323,6 +325,7 @@ def main():
                         '7.0.7': True,
                         '7.0.8': True,
                         '7.0.9': True,
+                        '7.0.10': True,
                         '7.2.1': False,
                         '7.2.2': False,
                         '7.2.3': False,
@@ -341,6 +344,7 @@ def main():
                         '7.0.7': True,
                         '7.0.8': True,
                         '7.0.9': True,
+                        '7.0.10': True,
                         '7.2.1': False,
                         '7.2.2': False,
                         '7.2.3': False,

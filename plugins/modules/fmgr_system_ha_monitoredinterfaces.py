@@ -291,6 +291,7 @@ def main():
                         '7.0.7': False,
                         '7.0.8': False,
                         '7.0.9': False,
+                        '7.0.10': False,
                         '7.2.0': True,
                         '7.2.1': True,
                         '7.2.2': True,

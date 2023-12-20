@@ -112,6 +112,9 @@ options:
             script:
                 type: str
                 description: Script name.
+            pblock:
+                type: str
+                description: no description
 
 '''
 
@@ -334,6 +337,7 @@ def main():
                 '7.0.7': True,
                 '7.0.8': True,
                 '7.0.9': True,
+                '7.0.10': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
@@ -362,6 +366,7 @@ def main():
                         '7.0.7': True,
                         '7.0.8': True,
                         '7.0.9': True,
+                        '7.0.10': True,
                         '7.2.0': True,
                         '7.2.1': True,
                         '7.2.2': True,
@@ -391,6 +396,7 @@ def main():
                         '7.0.7': True,
                         '7.0.8': True,
                         '7.0.9': True,
+                        '7.0.10': True,
                         '7.2.0': True,
                         '7.2.1': True,
                         '7.2.2': True,
@@ -420,6 +426,7 @@ def main():
                         '7.0.7': True,
                         '7.0.8': True,
                         '7.0.9': True,
+                        '7.0.10': True,
                         '7.2.0': True,
                         '7.2.1': True,
                         '7.2.2': True,
@@ -449,6 +456,7 @@ def main():
                                 '7.0.7': True,
                                 '7.0.8': True,
                                 '7.0.9': True,
+                                '7.0.10': True,
                                 '7.2.0': True,
                                 '7.2.1': True,
                                 '7.2.2': True,
@@ -478,6 +486,7 @@ def main():
                                 '7.0.7': True,
                                 '7.0.8': True,
                                 '7.0.9': True,
+                                '7.0.10': True,
                                 '7.2.0': True,
                                 '7.2.1': True,
                                 '7.2.2': True,
@@ -510,6 +519,7 @@ def main():
                         '7.0.7': True,
                         '7.0.8': True,
                         '7.0.9': True,
+                        '7.0.10': True,
                         '7.2.0': True,
                         '7.2.1': True,
                         '7.2.2': True,
@@ -517,6 +527,19 @@ def main():
                         '7.2.4': True,
                         '7.4.0': True,
                         '7.4.1': True
+                    },
+                    'type': 'str'
+                },
+                'pblock': {
+                    'required': False,
+                    'revision': {
+                        '7.0.10': True,
+                        '7.2.1': False,
+                        '7.2.2': False,
+                        '7.2.3': False,
+                        '7.2.4': False,
+                        '7.4.0': False,
+                        '7.4.1': False
                     },
                     'type': 'str'
                 }

@@ -125,6 +125,9 @@ options:
                             - 'fgd'
                             - 'fgc'
                             - 'fsa'
+                            - 'fgfq'
+                            - 'geoip'
+                            - 'iot-collect'
             status:
                 type: str
                 description:
@@ -165,6 +168,9 @@ EXAMPLES = '''
                 - fgd
                 - fgc
                 - fsa
+                - fgfq
+                - geoip
+                - iot-collect
           status: <value in [disable, enable]>
 
 '''
@@ -316,6 +322,7 @@ def main():
                 '7.0.7': True,
                 '7.0.8': True,
                 '7.0.9': True,
+                '7.0.10': True,
                 '7.2.0': True,
                 '7.2.1': True,
                 '7.2.2': True,
@@ -365,6 +372,7 @@ def main():
                         '7.0.7': True,
                         '7.0.8': True,
                         '7.0.9': True,
+                        '7.0.10': True,
                         '7.2.0': True,
                         '7.2.1': True,
                         '7.2.2': True,
@@ -415,6 +423,7 @@ def main():
                                 '7.0.7': True,
                                 '7.0.8': True,
                                 '7.0.9': True,
+                                '7.0.10': True,
                                 '7.2.0': True,
                                 '7.2.1': True,
                                 '7.2.2': True,
@@ -465,6 +474,7 @@ def main():
                                 '7.0.7': True,
                                 '7.0.8': True,
                                 '7.0.9': True,
+                                '7.0.10': True,
                                 '7.2.0': True,
                                 '7.2.1': True,
                                 '7.2.2': True,
@@ -515,6 +525,7 @@ def main():
                                 '7.0.7': True,
                                 '7.0.8': True,
                                 '7.0.9': True,
+                                '7.0.10': True,
                                 '7.2.0': True,
                                 '7.2.1': True,
                                 '7.2.2': True,
@@ -565,6 +576,7 @@ def main():
                                 '7.0.7': True,
                                 '7.0.8': True,
                                 '7.0.9': True,
+                                '7.0.10': True,
                                 '7.2.0': True,
                                 '7.2.1': True,
                                 '7.2.2': True,
@@ -615,6 +627,7 @@ def main():
                                 '7.0.7': True,
                                 '7.0.8': True,
                                 '7.0.9': True,
+                                '7.0.10': True,
                                 '7.2.0': True,
                                 '7.2.1': True,
                                 '7.2.2': True,
@@ -627,7 +640,10 @@ def main():
                             'choices': [
                                 'fgd',
                                 'fgc',
-                                'fsa'
+                                'fsa',
+                                'fgfq',
+                                'geoip',
+                                'iot-collect'
                             ]
                         }
                     },
@@ -673,6 +689,7 @@ def main():
                         '7.0.7': True,
                         '7.0.8': True,
                         '7.0.9': True,
+                        '7.0.10': True,
                         '7.2.0': True,
                         '7.2.1': True,
                         '7.2.2': True,
