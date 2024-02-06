@@ -1,19 +1,7 @@
 #!/usr/bin/python
 from __future__ import absolute_import, division, print_function
-# Copyright 2019-2023 Fortinet, Inc.
-#
-# This program is free software: you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation, either version 3 of the License, or
-# (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program.  If not, see <https://www.gnu.org/licenses/>.
+# Copyright 2019-2024 Fortinet, Inc.
+# GNU General Public License v3.0+ (see COPYING or https://www.gnu.org/licenses/gpl-3.0.txt)
 
 __metaclass__ = type
 
@@ -38,35 +26,33 @@ author:
     - Frank Shen (@fshen01)
     - Hongbin Lu (@fgtdev-hblu)
 notes:
+    - Starting in version 2.4.0, all input arguments are named using the underscore naming convention (snake_case).
+      Please change the arguments such as "var-name" to "var_name".
+      Old argument names are still available yet you will receive deprecation warnings.
+      You can ignore this warning by setting deprecation_warnings=False in ansible.cfg.
     - Running in workspace locking mode is supported in this FortiManager module, the top
       level parameters workspace_locking_adom and workspace_locking_timeout help do the work.
     - To create or update an object, use state present directive.
     - To delete an object, use state absent directive.
     - Normally, running one module can fail when a non-zero rc is returned. you can also override
       the conditions to fail or succeed with parameters rc_failed and rc_succeeded
-
 options:
     access_token:
         description: The token to access FortiManager without using username and password.
-        required: false
         type: str
     bypass_validation:
         description: Only set to True when module schema diffs with FortiManager API structure, module continues to execute without validating parameters.
-        required: false
         type: bool
         default: false
     enable_log:
         description: Enable/Disable logging for task.
-        required: false
         type: bool
         default: false
     forticloud_access_token:
         description: Authenticate Ansible client with forticloud API access token.
-        required: false
         type: str
     proposed_method:
         description: The overridden method for the underlying Json RPC request.
-        required: false
         type: str
         choices:
           - update
@@ -75,12 +61,10 @@ options:
     rc_succeeded:
         description: The rc codes list with which the conditions to succeed will be overriden.
         type: list
-        required: false
         elements: int
     rc_failed:
         description: The rc codes list with which the conditions to fail will be overriden.
         type: list
-        required: false
         elements: int
     state:
         description: The directive to create, update or delete an object.
@@ -91,23 +75,21 @@ options:
           - absent
     workspace_locking_adom:
         description: The adom to lock for FortiManager running in workspace mode, the value can be global and others including root.
-        required: false
         type: str
     workspace_locking_timeout:
         description: The maximum time in seconds to wait for other user to release the workspace lock.
-        required: false
         type: int
         default: 300
     adom:
-        description: the parameter (adom) in requested url
+        description: The parameter (adom) in requested url.
         type: str
         required: true
     pblock:
-        description: the parameter (pblock) in requested url
+        description: The parameter (pblock) in requested url.
         type: str
         required: true
     pm_config_pblock_firewall_securitypolicy:
-        description: the top level parameters set
+        description: The top level parameters set.
         required: false
         type: dict
         suboptions:
@@ -122,124 +104,124 @@ options:
                     - 'accept'
             app-category:
                 type: raw
-                description: (list) no description
+                description: (list) Deprecated, please rename it to app_category.
             app-group:
                 type: raw
-                description: (list) no description
+                description: (list) Deprecated, please rename it to app_group.
             application:
                 type: raw
-                description: (list) no description
+                description: (list) No description.
             application-list:
                 type: str
-                description: Name of an existing Application list.
+                description: Deprecated, please rename it to application_list. Name of an existing Application list.
             av-profile:
                 type: str
-                description: Name of an existing Antivirus profile.
+                description: Deprecated, please rename it to av_profile. Name of an existing Antivirus profile.
             cifs-profile:
                 type: str
-                description: Name of an existing CIFS profile.
+                description: Deprecated, please rename it to cifs_profile. Name of an existing CIFS profile.
             comments:
                 type: str
                 description: Comment.
             dlp-profile:
                 type: str
-                description: Name of an existing DLP profile.
+                description: Deprecated, please rename it to dlp_profile. Name of an existing DLP profile.
             dnsfilter-profile:
                 type: str
-                description: Name of an existing DNS filter profile.
+                description: Deprecated, please rename it to dnsfilter_profile. Name of an existing DNS filter profile.
             dstaddr:
                 type: raw
-                description: (list) no description
+                description: (list) No description.
             dstaddr-negate:
                 type: str
-                description: When enabled dstaddr/dstaddr6 specifies what the destination address must NOT be.
+                description: Deprecated, please rename it to dstaddr_negate. When enabled dstaddr/dstaddr6 specifies what the destination address must ...
                 choices:
                     - 'disable'
                     - 'enable'
             dstaddr6:
                 type: raw
-                description: (list) no description
+                description: (list) No description.
             dstintf:
                 type: raw
-                description: (list) no description
+                description: (list) No description.
             emailfilter-profile:
                 type: str
-                description: Name of an existing email filter profile.
+                description: Deprecated, please rename it to emailfilter_profile. Name of an existing email filter profile.
             enforce-default-app-port:
                 type: str
-                description: Enable/disable default application port enforcement for allowed applications.
+                description: Deprecated, please rename it to enforce_default_app_port. Enable/disable default application port enforcement for allowed ...
                 choices:
                     - 'disable'
                     - 'enable'
             file-filter-profile:
                 type: str
-                description: Name of an existing file-filter profile.
+                description: Deprecated, please rename it to file_filter_profile. Name of an existing file-filter profile.
             fsso-groups:
                 type: raw
-                description: (list) no description
+                description: (list) Deprecated, please rename it to fsso_groups.
             global-label:
                 type: str
-                description: Label for the policy that appears when the GUI is in Global View mode.
+                description: Deprecated, please rename it to global_label. Label for the policy that appears when the GUI is in Global View mode.
             groups:
                 type: raw
-                description: (list) no description
+                description: (list) No description.
             icap-profile:
                 type: str
-                description: Name of an existing ICAP profile.
+                description: Deprecated, please rename it to icap_profile. Name of an existing ICAP profile.
             internet-service:
                 type: str
-                description: Enable/disable use of Internet Services for this policy.
+                description: Deprecated, please rename it to internet_service. Enable/disable use of Internet Services for this policy.
                 choices:
                     - 'disable'
                     - 'enable'
             internet-service-custom:
                 type: raw
-                description: (list) no description
+                description: (list) Deprecated, please rename it to internet_service_custom.
             internet-service-custom-group:
                 type: raw
-                description: (list) no description
+                description: (list) Deprecated, please rename it to internet_service_custom_group.
             internet-service-group:
                 type: raw
-                description: (list) no description
+                description: (list) Deprecated, please rename it to internet_service_group.
             internet-service-name:
                 type: raw
-                description: (list) no description
+                description: (list) Deprecated, please rename it to internet_service_name.
             internet-service-negate:
                 type: str
-                description: When enabled internet-service specifies what the service must NOT be.
+                description: Deprecated, please rename it to internet_service_negate. When enabled internet-service specifies what the service must NOT be.
                 choices:
                     - 'disable'
                     - 'enable'
             internet-service-src:
                 type: str
-                description: Enable/disable use of Internet Services in source for this policy.
+                description: Deprecated, please rename it to internet_service_src. Enable/disable use of Internet Services in source for this policy.
                 choices:
                     - 'disable'
                     - 'enable'
             internet-service-src-custom:
                 type: raw
-                description: (list) no description
+                description: (list) Deprecated, please rename it to internet_service_src_custom.
             internet-service-src-custom-group:
                 type: raw
-                description: (list) no description
+                description: (list) Deprecated, please rename it to internet_service_src_custom_group.
             internet-service-src-group:
                 type: raw
-                description: (list) no description
+                description: (list) Deprecated, please rename it to internet_service_src_group.
             internet-service-src-name:
                 type: raw
-                description: (list) no description
+                description: (list) Deprecated, please rename it to internet_service_src_name.
             internet-service-src-negate:
                 type: str
-                description: When enabled internet-service-src specifies what the service must NOT be.
+                description: Deprecated, please rename it to internet_service_src_negate. When enabled internet-service-src specifies what the service ...
                 choices:
                     - 'disable'
                     - 'enable'
             ips-sensor:
                 type: str
-                description: Name of an existing IPS sensor.
+                description: Deprecated, please rename it to ips_sensor. Name of an existing IPS sensor.
             learning-mode:
                 type: str
-                description: Enable to allow everything, but log all of the meaningful data for security information gathering.
+                description: Deprecated, please rename it to learning_mode. Enable to allow everything, but log all of the meaningful data for security...
                 choices:
                     - 'disable'
                     - 'enable'
@@ -253,7 +235,6 @@ options:
             name:
                 type: str
                 description: Policy name.
-                required: true
             nat46:
                 type: str
                 description: Enable/disable NAT46.
@@ -269,15 +250,16 @@ options:
             policyid:
                 type: int
                 description: Policy ID.
+                required: true
             profile-group:
                 type: str
-                description: Name of profile group.
+                description: Deprecated, please rename it to profile_group. Name of profile group.
             profile-protocol-options:
                 type: str
-                description: Name of an existing Protocol options profile.
+                description: Deprecated, please rename it to profile_protocol_options. Name of an existing Protocol options profile.
             profile-type:
                 type: str
-                description: Determine whether the firewall policy allows security profile groups or single profiles only.
+                description: Deprecated, please rename it to profile_type. Determine whether the firewall policy allows security profile groups or sing...
                 choices:
                     - 'single'
                     - 'group'
@@ -286,43 +268,43 @@ options:
                 description: Schedule name.
             sctp-filter-profile:
                 type: str
-                description: Name of an existing SCTP filter profile.
+                description: Deprecated, please rename it to sctp_filter_profile. Name of an existing SCTP filter profile.
             send-deny-packet:
                 type: str
-                description: Enable to send a reply when a session is denied or blocked by a firewall policy.
+                description: Deprecated, please rename it to send_deny_packet. Enable to send a reply when a session is denied or blocked by a firewall...
                 choices:
                     - 'disable'
                     - 'enable'
             service:
                 type: raw
-                description: (list) no description
+                description: (list) No description.
             service-negate:
                 type: str
-                description: When enabled service specifies what the service must NOT be.
+                description: Deprecated, please rename it to service_negate. When enabled service specifies what the service must NOT be.
                 choices:
                     - 'disable'
                     - 'enable'
             srcaddr:
                 type: raw
-                description: (list) no description
+                description: (list) No description.
             srcaddr-negate:
                 type: str
-                description: When enabled srcaddr/srcaddr6 specifies what the source address must NOT be.
+                description: Deprecated, please rename it to srcaddr_negate. When enabled srcaddr/srcaddr6 specifies what the source address must NOT be.
                 choices:
                     - 'disable'
                     - 'enable'
             srcaddr6:
                 type: raw
-                description: (list) no description
+                description: (list) No description.
             srcintf:
                 type: raw
-                description: (list) no description
+                description: (list) No description.
             ssh-filter-profile:
                 type: str
-                description: Name of an existing SSH filter profile.
+                description: Deprecated, please rename it to ssh_filter_profile. Name of an existing SSH filter profile.
             ssl-ssh-profile:
                 type: str
-                description: Name of an existing SSL SSH profile.
+                description: Deprecated, please rename it to ssl_ssh_profile. Name of an existing SSL SSH profile.
             status:
                 type: str
                 description: Enable or disable this policy.
@@ -331,13 +313,13 @@ options:
                     - 'enable'
             url-category:
                 type: raw
-                description: (list) no description
+                description: (list) Deprecated, please rename it to url_category.
             users:
                 type: raw
-                description: (list) no description
+                description: (list) No description.
             utm-status:
                 type: str
-                description: Enable security profiles.
+                description: Deprecated, please rename it to utm_status. Enable security profiles.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -346,192 +328,219 @@ options:
                 description: Universally Unique Identifier
             videofilter-profile:
                 type: str
-                description: Name of an existing VideoFilter profile.
+                description: Deprecated, please rename it to videofilter_profile. Name of an existing VideoFilter profile.
             voip-profile:
                 type: str
-                description: Name of an existing VoIP profile.
+                description: Deprecated, please rename it to voip_profile. Name of an existing VoIP profile.
             webfilter-profile:
                 type: str
-                description: Name of an existing Web filter profile.
+                description: Deprecated, please rename it to webfilter_profile. Name of an existing Web filter profile.
             dlp-sensor:
                 type: str
-                description: Name of an existing DLP sensor.
+                description: Deprecated, please rename it to dlp_sensor. Name of an existing DLP sensor.
             mms-profile:
                 type: str
-                description: Name of an existing MMS profile.
+                description: Deprecated, please rename it to mms_profile. Name of an existing MMS profile.
             internet-service-id:
                 type: raw
-                description: (list) no description
+                description: (list) Deprecated, please rename it to internet_service_id.
             logtraffic-start:
                 type: str
-                description: Record logs when a session starts.
+                description: Deprecated, please rename it to logtraffic_start. Record logs when a session starts.
                 choices:
                     - 'disable'
                     - 'enable'
             srcaddr4:
                 type: raw
-                description: (list) no description
+                description: (list) No description.
             dstaddr4:
                 type: raw
-                description: (list) no description
+                description: (list) No description.
             internet-service-src-id:
                 type: raw
-                description: (list) no description
+                description: (list) Deprecated, please rename it to internet_service_src_id.
             internet-service6:
                 type: str
-                description: Enable/disable use of IPv6 Internet Services for this policy.
+                description: Deprecated, please rename it to internet_service6. Enable/disable use of IPv6 Internet Services for this policy.
                 choices:
                     - 'disable'
                     - 'enable'
             internet-service6-custom:
                 type: raw
-                description: (list) no description
+                description: (list) Deprecated, please rename it to internet_service6_custom.
             internet-service6-custom-group:
                 type: raw
-                description: (list) no description
+                description: (list) Deprecated, please rename it to internet_service6_custom_group.
             internet-service6-group:
                 type: raw
-                description: (list) no description
+                description: (list) Deprecated, please rename it to internet_service6_group.
             internet-service6-name:
                 type: raw
-                description: (list) no description
+                description: (list) Deprecated, please rename it to internet_service6_name.
             internet-service6-negate:
                 type: str
-                description: When enabled internet-service6 specifies what the service must NOT be.
+                description: Deprecated, please rename it to internet_service6_negate. When enabled internet-service6 specifies what the service must N...
                 choices:
                     - 'disable'
                     - 'enable'
             internet-service6-src:
                 type: str
-                description: Enable/disable use of IPv6 Internet Services in source for this policy.
+                description: Deprecated, please rename it to internet_service6_src. Enable/disable use of IPv6 Internet Services in source for this policy.
                 choices:
                     - 'disable'
                     - 'enable'
             internet-service6-src-custom:
                 type: raw
-                description: (list) no description
+                description: (list) Deprecated, please rename it to internet_service6_src_custom.
             internet-service6-src-custom-group:
                 type: raw
-                description: (list) no description
+                description: (list) Deprecated, please rename it to internet_service6_src_custom_group.
             internet-service6-src-group:
                 type: raw
-                description: (list) no description
+                description: (list) Deprecated, please rename it to internet_service6_src_group.
             internet-service6-src-name:
                 type: raw
-                description: (list) no description
+                description: (list) Deprecated, please rename it to internet_service6_src_name.
             internet-service6-src-negate:
                 type: str
-                description: When enabled internet-service6-src specifies what the service must NOT be.
+                description: Deprecated, please rename it to internet_service6_src_negate. When enabled internet-service6-src specifies what the servic...
                 choices:
                     - 'disable'
                     - 'enable'
-
+            casb-profile:
+                type: str
+                description: Deprecated, please rename it to casb_profile. Name of an existing CASB profile.
+            diameter-filter-profile:
+                type: str
+                description: Deprecated, please rename it to diameter_filter_profile. Name of an existing Diameter filter profile.
+            dstaddr6-negate:
+                type: str
+                description: Deprecated, please rename it to dstaddr6_negate. When enabled dstaddr6 specifies what the destination address must NOT be.
+                choices:
+                    - 'disable'
+                    - 'enable'
+            ips-voip-filter:
+                type: str
+                description: Deprecated, please rename it to ips_voip_filter. Name of an existing VoIP
+            srcaddr6-negate:
+                type: str
+                description: Deprecated, please rename it to srcaddr6_negate. When enabled srcaddr6 specifies what the source address must NOT be.
+                choices:
+                    - 'disable'
+                    - 'enable'
+            virtual-patch-profile:
+                type: str
+                description: Deprecated, please rename it to virtual_patch_profile. Name of an existing virtual-patch profile.
 '''
 
 EXAMPLES = '''
-- hosts: fortimanager-inventory
-  collections:
-    - fortinet.fortimanager
+- name: Example playbook (generated based on argument schema)
+  hosts: fortimanagers
   connection: httpapi
   vars:
-    ansible_httpapi_use_ssl: True
-    ansible_httpapi_validate_certs: False
+    ansible_httpapi_use_ssl: true
+    ansible_httpapi_validate_certs: false
     ansible_httpapi_port: 443
   tasks:
     - name: Configure NGFW IPv4/IPv6 application policies.
-      fmgr_pm_config_pblock_firewall_securitypolicy:
-        bypass_validation: False
+      fortinet.fortimanager.fmgr_pm_config_pblock_firewall_securitypolicy:
+        # bypass_validation: false
         workspace_locking_adom: <value in [global, custom adom including root]>
         workspace_locking_timeout: 300
-        rc_succeeded: [0, -2, -3, ...]
-        rc_failed: [-2, -3, ...]
+        # rc_succeeded: [0, -2, -3, ...]
+        # rc_failed: [-2, -3, ...]
         adom: <your own value>
         pblock: <your own value>
-        state: <value in [present, absent]>
+        state: present # <value in [present, absent]>
         pm_config_pblock_firewall_securitypolicy:
           _policy_block: <integer>
           action: <value in [deny, accept]>
-          app-category: <list or string>
-          app-group: <list or string>
+          app_category: <list or string>
+          app_group: <list or string>
           application: <list or integer>
-          application-list: <string>
-          av-profile: <string>
-          cifs-profile: <string>
+          application_list: <string>
+          av_profile: <string>
+          cifs_profile: <string>
           comments: <string>
-          dlp-profile: <string>
-          dnsfilter-profile: <string>
+          dlp_profile: <string>
+          dnsfilter_profile: <string>
           dstaddr: <list or string>
-          dstaddr-negate: <value in [disable, enable]>
+          dstaddr_negate: <value in [disable, enable]>
           dstaddr6: <list or string>
           dstintf: <list or string>
-          emailfilter-profile: <string>
-          enforce-default-app-port: <value in [disable, enable]>
-          file-filter-profile: <string>
-          fsso-groups: <list or string>
-          global-label: <string>
+          emailfilter_profile: <string>
+          enforce_default_app_port: <value in [disable, enable]>
+          file_filter_profile: <string>
+          fsso_groups: <list or string>
+          global_label: <string>
           groups: <list or string>
-          icap-profile: <string>
-          internet-service: <value in [disable, enable]>
-          internet-service-custom: <list or string>
-          internet-service-custom-group: <list or string>
-          internet-service-group: <list or string>
-          internet-service-name: <list or string>
-          internet-service-negate: <value in [disable, enable]>
-          internet-service-src: <value in [disable, enable]>
-          internet-service-src-custom: <list or string>
-          internet-service-src-custom-group: <list or string>
-          internet-service-src-group: <list or string>
-          internet-service-src-name: <list or string>
-          internet-service-src-negate: <value in [disable, enable]>
-          ips-sensor: <string>
-          learning-mode: <value in [disable, enable]>
+          icap_profile: <string>
+          internet_service: <value in [disable, enable]>
+          internet_service_custom: <list or string>
+          internet_service_custom_group: <list or string>
+          internet_service_group: <list or string>
+          internet_service_name: <list or string>
+          internet_service_negate: <value in [disable, enable]>
+          internet_service_src: <value in [disable, enable]>
+          internet_service_src_custom: <list or string>
+          internet_service_src_custom_group: <list or string>
+          internet_service_src_group: <list or string>
+          internet_service_src_name: <list or string>
+          internet_service_src_negate: <value in [disable, enable]>
+          ips_sensor: <string>
+          learning_mode: <value in [disable, enable]>
           logtraffic: <value in [disable, all, utm]>
           name: <string>
           nat46: <value in [disable, enable]>
           nat64: <value in [disable, enable]>
           policyid: <integer>
-          profile-group: <string>
-          profile-protocol-options: <string>
-          profile-type: <value in [single, group]>
+          profile_group: <string>
+          profile_protocol_options: <string>
+          profile_type: <value in [single, group]>
           schedule: <string>
-          sctp-filter-profile: <string>
-          send-deny-packet: <value in [disable, enable]>
+          sctp_filter_profile: <string>
+          send_deny_packet: <value in [disable, enable]>
           service: <list or string>
-          service-negate: <value in [disable, enable]>
+          service_negate: <value in [disable, enable]>
           srcaddr: <list or string>
-          srcaddr-negate: <value in [disable, enable]>
+          srcaddr_negate: <value in [disable, enable]>
           srcaddr6: <list or string>
           srcintf: <list or string>
-          ssh-filter-profile: <string>
-          ssl-ssh-profile: <string>
+          ssh_filter_profile: <string>
+          ssl_ssh_profile: <string>
           status: <value in [disable, enable]>
-          url-category: <list or string>
+          url_category: <list or string>
           users: <list or string>
-          utm-status: <value in [disable, enable]>
+          utm_status: <value in [disable, enable]>
           uuid: <string>
-          videofilter-profile: <string>
-          voip-profile: <string>
-          webfilter-profile: <string>
-          dlp-sensor: <string>
-          mms-profile: <string>
-          internet-service-id: <list or string>
-          logtraffic-start: <value in [disable, enable]>
+          videofilter_profile: <string>
+          voip_profile: <string>
+          webfilter_profile: <string>
+          dlp_sensor: <string>
+          mms_profile: <string>
+          internet_service_id: <list or string>
+          logtraffic_start: <value in [disable, enable]>
           srcaddr4: <list or string>
           dstaddr4: <list or string>
-          internet-service-src-id: <list or string>
-          internet-service6: <value in [disable, enable]>
-          internet-service6-custom: <list or string>
-          internet-service6-custom-group: <list or string>
-          internet-service6-group: <list or string>
-          internet-service6-name: <list or string>
-          internet-service6-negate: <value in [disable, enable]>
-          internet-service6-src: <value in [disable, enable]>
-          internet-service6-src-custom: <list or string>
-          internet-service6-src-custom-group: <list or string>
-          internet-service6-src-group: <list or string>
-          internet-service6-src-name: <list or string>
-          internet-service6-src-negate: <value in [disable, enable]>
-
+          internet_service_src_id: <list or string>
+          internet_service6: <value in [disable, enable]>
+          internet_service6_custom: <list or string>
+          internet_service6_custom_group: <list or string>
+          internet_service6_group: <list or string>
+          internet_service6_name: <list or string>
+          internet_service6_negate: <value in [disable, enable]>
+          internet_service6_src: <value in [disable, enable]>
+          internet_service6_src_custom: <list or string>
+          internet_service6_src_custom_group: <list or string>
+          internet_service6_src_group: <list or string>
+          internet_service6_src_name: <list or string>
+          internet_service6_src_negate: <value in [disable, enable]>
+          casb_profile: <string>
+          diameter_filter_profile: <string>
+          dstaddr6_negate: <value in [disable, enable]>
+          ips_voip_filter: <string>
+          srcaddr6_negate: <value in [disable, enable]>
+          virtual_patch_profile: <string>
 '''
 
 RETURN = '''
@@ -578,6 +587,7 @@ from ansible.module_utils.connection import Connection
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
@@ -590,3358 +600,136 @@ def main():
     ]
 
     url_params = ['adom', 'pblock']
-    module_primary_key = 'name'
+    module_primary_key = 'policyid'
     module_arg_spec = {
-        'access_token': {
-            'type': 'str',
-            'required': False,
-            'no_log': True
-        },
-        'bypass_validation': {
-            'type': 'bool',
-            'required': False,
-            'default': False
-        },
-        'enable_log': {
-            'type': 'bool',
-            'required': False,
-            'default': False
-        },
-        'forticloud_access_token': {
-            'type': 'str',
-            'required': False,
-            'no_log': True
-        },
-        'proposed_method': {
-            'type': 'str',
-            'required': False,
-            'choices': [
-                'set',
-                'update',
-                'add'
-            ]
-        },
-        'rc_succeeded': {
-            'required': False,
-            'type': 'list',
-            'elements': 'int'
-        },
-        'rc_failed': {
-            'required': False,
-            'type': 'list',
-            'elements': 'int'
-        },
-        'state': {
-            'type': 'str',
-            'required': True,
-            'choices': [
-                'present',
-                'absent'
-            ]
-        },
-        'workspace_locking_adom': {
-            'type': 'str',
-            'required': False
-        },
-        'workspace_locking_timeout': {
-            'type': 'int',
-            'required': False,
-            'default': 300
-        },
-        'adom': {
-            'required': True,
-            'type': 'str'
-        },
-        'pblock': {
-            'required': True,
-            'type': 'str'
-        },
+        'adom': {'required': True, 'type': 'str'},
+        'pblock': {'required': True, 'type': 'str'},
         'pm_config_pblock_firewall_securitypolicy': {
-            'required': False,
             'type': 'dict',
-            'revision': {
-                '7.0.3': True,
-                '7.0.4': True,
-                '7.0.5': True,
-                '7.0.6': True,
-                '7.0.7': True,
-                '7.0.8': True,
-                '7.0.9': True,
-                '7.0.10': True,
-                '7.2.0': True,
-                '7.2.1': True,
-                '7.2.2': True,
-                '7.2.3': True,
-                '7.2.4': True,
-                '7.4.0': True,
-                '7.4.1': True
-            },
+            'v_range': [['7.0.3', '']],
             'options': {
-                '_policy_block': {
-                    'required': False,
-                    'revision': {
-                        '6.2.0': False,
-                        '6.2.2': False,
-                        '6.2.6': False,
-                        '6.2.7': False,
-                        '6.2.8': False,
-                        '6.2.9': False,
-                        '6.2.10': False,
-                        '6.2.11': False,
-                        '6.2.12': False,
-                        '6.4.1': False,
-                        '6.4.3': False,
-                        '6.4.4': False,
-                        '6.4.6': False,
-                        '6.4.7': False,
-                        '6.4.8': False,
-                        '6.4.9': False,
-                        '6.4.10': False,
-                        '6.4.11': False,
-                        '6.4.12': False,
-                        '6.4.13': False,
-                        '7.0.1': False,
-                        '7.0.2': False,
-                        '7.0.3': True,
-                        '7.0.4': True,
-                        '7.0.5': True,
-                        '7.0.6': True,
-                        '7.0.7': True,
-                        '7.0.8': True,
-                        '7.0.9': True,
-                        '7.0.10': True,
-                        '7.2.0': True,
-                        '7.2.1': True,
-                        '7.2.2': True,
-                        '7.2.3': True,
-                        '7.2.4': True,
-                        '7.4.0': True,
-                        '7.4.1': True
-                    },
-                    'type': 'int'
-                },
-                'action': {
-                    'required': False,
-                    'revision': {
-                        '6.2.0': False,
-                        '6.2.2': False,
-                        '6.2.6': False,
-                        '6.2.7': False,
-                        '6.2.8': False,
-                        '6.2.9': False,
-                        '6.2.10': False,
-                        '6.2.11': False,
-                        '6.2.12': False,
-                        '6.4.1': False,
-                        '6.4.3': False,
-                        '6.4.4': False,
-                        '6.4.6': False,
-                        '6.4.7': False,
-                        '6.4.8': False,
-                        '6.4.9': False,
-                        '6.4.10': False,
-                        '6.4.11': False,
-                        '6.4.12': False,
-                        '6.4.13': False,
-                        '7.0.1': False,
-                        '7.0.2': False,
-                        '7.0.3': True,
-                        '7.0.4': True,
-                        '7.0.5': True,
-                        '7.0.6': True,
-                        '7.0.7': True,
-                        '7.0.8': True,
-                        '7.0.9': True,
-                        '7.0.10': True,
-                        '7.2.0': True,
-                        '7.2.1': True,
-                        '7.2.2': True,
-                        '7.2.3': True,
-                        '7.2.4': True,
-                        '7.4.0': True,
-                        '7.4.1': True
-                    },
-                    'choices': [
-                        'deny',
-                        'accept'
-                    ],
-                    'type': 'str'
-                },
-                'app-category': {
-                    'required': False,
-                    'revision': {
-                        '6.2.0': False,
-                        '6.2.2': False,
-                        '6.2.6': False,
-                        '6.2.7': False,
-                        '6.2.8': False,
-                        '6.2.9': False,
-                        '6.2.10': False,
-                        '6.2.11': False,
-                        '6.2.12': False,
-                        '6.4.1': False,
-                        '6.4.3': False,
-                        '6.4.4': False,
-                        '6.4.6': False,
-                        '6.4.7': False,
-                        '6.4.8': False,
-                        '6.4.9': False,
-                        '6.4.10': False,
-                        '6.4.11': False,
-                        '6.4.12': False,
-                        '6.4.13': False,
-                        '7.0.1': False,
-                        '7.0.2': False,
-                        '7.0.3': True,
-                        '7.0.4': True,
-                        '7.0.5': True,
-                        '7.0.6': True,
-                        '7.0.7': True,
-                        '7.0.8': True,
-                        '7.0.9': True,
-                        '7.0.10': True,
-                        '7.2.0': True,
-                        '7.2.1': True,
-                        '7.2.2': True,
-                        '7.2.3': True,
-                        '7.2.4': True,
-                        '7.4.0': True,
-                        '7.4.1': True
-                    },
-                    'type': 'raw'
-                },
-                'app-group': {
-                    'required': False,
-                    'revision': {
-                        '6.2.0': False,
-                        '6.2.2': False,
-                        '6.2.6': False,
-                        '6.2.7': False,
-                        '6.2.8': False,
-                        '6.2.9': False,
-                        '6.2.10': False,
-                        '6.2.11': False,
-                        '6.2.12': False,
-                        '6.4.1': False,
-                        '6.4.3': False,
-                        '6.4.4': False,
-                        '6.4.6': False,
-                        '6.4.7': False,
-                        '6.4.8': False,
-                        '6.4.9': False,
-                        '6.4.10': False,
-                        '6.4.11': False,
-                        '6.4.12': False,
-                        '6.4.13': False,
-                        '7.0.1': False,
-                        '7.0.2': False,
-                        '7.0.3': True,
-                        '7.0.4': True,
-                        '7.0.5': True,
-                        '7.0.6': True,
-                        '7.0.7': True,
-                        '7.0.8': True,
-                        '7.0.9': True,
-                        '7.0.10': True,
-                        '7.2.0': True,
-                        '7.2.1': True,
-                        '7.2.2': True,
-                        '7.2.3': True,
-                        '7.2.4': True,
-                        '7.4.0': True,
-                        '7.4.1': True
-                    },
-                    'type': 'raw'
-                },
-                'application': {
-                    'required': False,
-                    'revision': {
-                        '6.2.0': False,
-                        '6.2.2': False,
-                        '6.2.6': False,
-                        '6.2.7': False,
-                        '6.2.8': False,
-                        '6.2.9': False,
-                        '6.2.10': False,
-                        '6.2.11': False,
-                        '6.2.12': False,
-                        '6.4.1': False,
-                        '6.4.3': False,
-                        '6.4.4': False,
-                        '6.4.6': False,
-                        '6.4.7': False,
-                        '6.4.8': False,
-                        '6.4.9': False,
-                        '6.4.10': False,
-                        '6.4.11': False,
-                        '6.4.12': False,
-                        '6.4.13': False,
-                        '7.0.1': False,
-                        '7.0.2': False,
-                        '7.0.3': True,
-                        '7.0.4': True,
-                        '7.0.5': True,
-                        '7.0.6': True,
-                        '7.0.7': True,
-                        '7.0.8': True,
-                        '7.0.9': True,
-                        '7.0.10': True,
-                        '7.2.0': True,
-                        '7.2.1': True,
-                        '7.2.2': True,
-                        '7.2.3': True,
-                        '7.2.4': True,
-                        '7.4.0': True,
-                        '7.4.1': True
-                    },
-                    'type': 'raw'
-                },
-                'application-list': {
-                    'required': False,
-                    'revision': {
-                        '6.2.0': False,
-                        '6.2.2': False,
-                        '6.2.6': False,
-                        '6.2.7': False,
-                        '6.2.8': False,
-                        '6.2.9': False,
-                        '6.2.10': False,
-                        '6.2.11': False,
-                        '6.2.12': False,
-                        '6.4.1': False,
-                        '6.4.3': False,
-                        '6.4.4': False,
-                        '6.4.6': False,
-                        '6.4.7': False,
-                        '6.4.8': False,
-                        '6.4.9': False,
-                        '6.4.10': False,
-                        '6.4.11': False,
-                        '6.4.12': False,
-                        '6.4.13': False,
-                        '7.0.1': False,
-                        '7.0.2': False,
-                        '7.0.3': True,
-                        '7.0.4': True,
-                        '7.0.5': True,
-                        '7.0.6': True,
-                        '7.0.7': True,
-                        '7.0.8': True,
-                        '7.0.9': True,
-                        '7.0.10': True,
-                        '7.2.0': True,
-                        '7.2.1': True,
-                        '7.2.2': True,
-                        '7.2.3': True,
-                        '7.2.4': True,
-                        '7.4.0': True,
-                        '7.4.1': True
-                    },
-                    'type': 'str'
-                },
-                'av-profile': {
-                    'required': False,
-                    'revision': {
-                        '6.2.0': False,
-                        '6.2.2': False,
-                        '6.2.6': False,
-                        '6.2.7': False,
-                        '6.2.8': False,
-                        '6.2.9': False,
-                        '6.2.10': False,
-                        '6.2.11': False,
-                        '6.2.12': False,
-                        '6.4.1': False,
-                        '6.4.3': False,
-                        '6.4.4': False,
-                        '6.4.6': False,
-                        '6.4.7': False,
-                        '6.4.8': False,
-                        '6.4.9': False,
-                        '6.4.10': False,
-                        '6.4.11': False,
-                        '6.4.12': False,
-                        '6.4.13': False,
-                        '7.0.1': False,
-                        '7.0.2': False,
-                        '7.0.3': True,
-                        '7.0.4': True,
-                        '7.0.5': True,
-                        '7.0.6': True,
-                        '7.0.7': True,
-                        '7.0.8': True,
-                        '7.0.9': True,
-                        '7.0.10': True,
-                        '7.2.0': True,
-                        '7.2.1': True,
-                        '7.2.2': True,
-                        '7.2.3': True,
-                        '7.2.4': True,
-                        '7.4.0': True,
-                        '7.4.1': True
-                    },
-                    'type': 'str'
-                },
-                'cifs-profile': {
-                    'required': False,
-                    'revision': {
-                        '6.2.0': False,
-                        '6.2.2': False,
-                        '6.2.6': False,
-                        '6.2.7': False,
-                        '6.2.8': False,
-                        '6.2.9': False,
-                        '6.2.10': False,
-                        '6.2.11': False,
-                        '6.2.12': False,
-                        '6.4.1': False,
-                        '6.4.3': False,
-                        '6.4.4': False,
-                        '6.4.6': False,
-                        '6.4.7': False,
-                        '6.4.8': False,
-                        '6.4.9': False,
-                        '6.4.10': False,
-                        '6.4.11': False,
-                        '6.4.12': False,
-                        '6.4.13': False,
-                        '7.0.1': False,
-                        '7.0.2': False,
-                        '7.0.3': True,
-                        '7.0.4': True,
-                        '7.0.5': True,
-                        '7.0.6': True,
-                        '7.0.7': True,
-                        '7.0.8': True,
-                        '7.0.9': True,
-                        '7.0.10': True,
-                        '7.2.0': True,
-                        '7.2.1': True,
-                        '7.2.2': True,
-                        '7.2.3': True,
-                        '7.2.4': True,
-                        '7.4.0': True,
-                        '7.4.1': True
-                    },
-                    'type': 'str'
-                },
-                'comments': {
-                    'required': False,
-                    'revision': {
-                        '6.2.0': False,
-                        '6.2.2': False,
-                        '6.2.6': False,
-                        '6.2.7': False,
-                        '6.2.8': False,
-                        '6.2.9': False,
-                        '6.2.10': False,
-                        '6.2.11': False,
-                        '6.2.12': False,
-                        '6.4.1': False,
-                        '6.4.3': False,
-                        '6.4.4': False,
-                        '6.4.6': False,
-                        '6.4.7': False,
-                        '6.4.8': False,
-                        '6.4.9': False,
-                        '6.4.10': False,
-                        '6.4.11': False,
-                        '6.4.12': False,
-                        '6.4.13': False,
-                        '7.0.1': False,
-                        '7.0.2': False,
-                        '7.0.3': True,
-                        '7.0.4': True,
-                        '7.0.5': True,
-                        '7.0.6': True,
-                        '7.0.7': True,
-                        '7.0.8': True,
-                        '7.0.9': True,
-                        '7.0.10': True,
-                        '7.2.0': True,
-                        '7.2.1': True,
-                        '7.2.2': True,
-                        '7.2.3': True,
-                        '7.2.4': True,
-                        '7.4.0': True,
-                        '7.4.1': True
-                    },
-                    'type': 'str'
-                },
-                'dlp-profile': {
-                    'required': False,
-                    'revision': {
-                        '6.2.0': False,
-                        '6.2.2': False,
-                        '6.2.6': False,
-                        '6.2.7': False,
-                        '6.2.8': False,
-                        '6.2.9': False,
-                        '6.2.10': False,
-                        '6.2.11': False,
-                        '6.2.12': False,
-                        '6.4.1': False,
-                        '6.4.3': False,
-                        '6.4.4': False,
-                        '6.4.6': False,
-                        '6.4.7': False,
-                        '6.4.8': False,
-                        '6.4.9': False,
-                        '6.4.10': False,
-                        '6.4.11': False,
-                        '6.4.12': False,
-                        '6.4.13': False,
-                        '7.0.1': False,
-                        '7.0.2': False,
-                        '7.0.3': False,
-                        '7.0.4': False,
-                        '7.0.5': False,
-                        '7.0.6': False,
-                        '7.0.7': False,
-                        '7.0.8': False,
-                        '7.0.9': False,
-                        '7.0.10': False,
-                        '7.2.0': True,
-                        '7.2.1': True,
-                        '7.2.2': False,
-                        '7.2.3': False,
-                        '7.2.4': True,
-                        '7.4.0': False,
-                        '7.4.1': False
-                    },
-                    'type': 'str'
-                },
-                'dnsfilter-profile': {
-                    'required': False,
-                    'revision': {
-                        '6.2.0': False,
-                        '6.2.2': False,
-                        '6.2.6': False,
-                        '6.2.7': False,
-                        '6.2.8': False,
-                        '6.2.9': False,
-                        '6.2.10': False,
-                        '6.2.11': False,
-                        '6.2.12': False,
-                        '6.4.1': False,
-                        '6.4.3': False,
-                        '6.4.4': False,
-                        '6.4.6': False,
-                        '6.4.7': False,
-                        '6.4.8': False,
-                        '6.4.9': False,
-                        '6.4.10': False,
-                        '6.4.11': False,
-                        '6.4.12': False,
-                        '6.4.13': False,
-                        '7.0.1': False,
-                        '7.0.2': False,
-                        '7.0.3': True,
-                        '7.0.4': True,
-                        '7.0.5': True,
-                        '7.0.6': True,
-                        '7.0.7': True,
-                        '7.0.8': True,
-                        '7.0.9': True,
-                        '7.0.10': True,
-                        '7.2.0': True,
-                        '7.2.1': True,
-                        '7.2.2': True,
-                        '7.2.3': True,
-                        '7.2.4': True,
-                        '7.4.0': True,
-                        '7.4.1': True
-                    },
-                    'type': 'str'
-                },
-                'dstaddr': {
-                    'required': False,
-                    'revision': {
-                        '6.2.0': False,
-                        '6.2.2': False,
-                        '6.2.6': False,
-                        '6.2.7': False,
-                        '6.2.8': False,
-                        '6.2.9': False,
-                        '6.2.10': False,
-                        '6.2.11': False,
-                        '6.2.12': False,
-                        '6.4.1': False,
-                        '6.4.3': False,
-                        '6.4.4': False,
-                        '6.4.6': False,
-                        '6.4.7': False,
-                        '6.4.8': False,
-                        '6.4.9': False,
-                        '6.4.10': False,
-                        '6.4.11': False,
-                        '6.4.12': False,
-                        '6.4.13': False,
-                        '7.0.1': False,
-                        '7.0.2': False,
-                        '7.0.3': True,
-                        '7.0.4': True,
-                        '7.0.5': True,
-                        '7.0.6': True,
-                        '7.0.7': True,
-                        '7.0.8': True,
-                        '7.0.9': True,
-                        '7.0.10': True,
-                        '7.2.0': True,
-                        '7.2.1': True,
-                        '7.2.2': True,
-                        '7.2.3': False,
-                        '7.2.4': True,
-                        '7.4.0': False,
-                        '7.4.1': False
-                    },
-                    'type': 'raw'
-                },
-                'dstaddr-negate': {
-                    'required': False,
-                    'revision': {
-                        '6.2.0': False,
-                        '6.2.2': False,
-                        '6.2.6': False,
-                        '6.2.7': False,
-                        '6.2.8': False,
-                        '6.2.9': False,
-                        '6.2.10': False,
-                        '6.2.11': False,
-                        '6.2.12': False,
-                        '6.4.1': False,
-                        '6.4.3': False,
-                        '6.4.4': False,
-                        '6.4.6': False,
-                        '6.4.7': False,
-                        '6.4.8': False,
-                        '6.4.9': False,
-                        '6.4.10': False,
-                        '6.4.11': False,
-                        '6.4.12': False,
-                        '6.4.13': False,
-                        '7.0.1': False,
-                        '7.0.2': False,
-                        '7.0.3': True,
-                        '7.0.4': True,
-                        '7.0.5': True,
-                        '7.0.6': True,
-                        '7.0.7': True,
-                        '7.0.8': True,
-                        '7.0.9': True,
-                        '7.0.10': True,
-                        '7.2.0': True,
-                        '7.2.1': True,
-                        '7.2.2': True,
-                        '7.2.3': False,
-                        '7.2.4': True,
-                        '7.4.0': False,
-                        '7.4.1': False
-                    },
-                    'choices': [
-                        'disable',
-                        'enable'
-                    ],
-                    'type': 'str'
-                },
-                'dstaddr6': {
-                    'required': False,
-                    'revision': {
-                        '6.2.0': False,
-                        '6.2.2': False,
-                        '6.2.6': False,
-                        '6.2.7': False,
-                        '6.2.8': False,
-                        '6.2.9': False,
-                        '6.2.10': False,
-                        '6.2.11': False,
-                        '6.2.12': False,
-                        '6.4.1': False,
-                        '6.4.3': False,
-                        '6.4.4': False,
-                        '6.4.6': False,
-                        '6.4.7': False,
-                        '6.4.8': False,
-                        '6.4.9': False,
-                        '6.4.10': False,
-                        '6.4.11': False,
-                        '6.4.12': False,
-                        '6.4.13': False,
-                        '7.0.1': False,
-                        '7.0.2': False,
-                        '7.0.3': True,
-                        '7.0.4': True,
-                        '7.0.5': True,
-                        '7.0.6': True,
-                        '7.0.7': True,
-                        '7.0.8': True,
-                        '7.0.9': True,
-                        '7.0.10': True,
-                        '7.2.0': True,
-                        '7.2.1': True,
-                        '7.2.2': True,
-                        '7.2.3': True,
-                        '7.2.4': True,
-                        '7.4.0': True,
-                        '7.4.1': True
-                    },
-                    'type': 'raw'
-                },
-                'dstintf': {
-                    'required': False,
-                    'revision': {
-                        '6.2.0': False,
-                        '6.2.2': False,
-                        '6.2.6': False,
-                        '6.2.7': False,
-                        '6.2.8': False,
-                        '6.2.9': False,
-                        '6.2.10': False,
-                        '6.2.11': False,
-                        '6.2.12': False,
-                        '6.4.1': False,
-                        '6.4.3': False,
-                        '6.4.4': False,
-                        '6.4.6': False,
-                        '6.4.7': False,
-                        '6.4.8': False,
-                        '6.4.9': False,
-                        '6.4.10': False,
-                        '6.4.11': False,
-                        '6.4.12': False,
-                        '6.4.13': False,
-                        '7.0.1': False,
-                        '7.0.2': False,
-                        '7.0.3': True,
-                        '7.0.4': True,
-                        '7.0.5': True,
-                        '7.0.6': True,
-                        '7.0.7': True,
-                        '7.0.8': True,
-                        '7.0.9': True,
-                        '7.0.10': True,
-                        '7.2.0': True,
-                        '7.2.1': True,
-                        '7.2.2': True,
-                        '7.2.3': True,
-                        '7.2.4': True,
-                        '7.4.0': True,
-                        '7.4.1': True
-                    },
-                    'type': 'raw'
-                },
-                'emailfilter-profile': {
-                    'required': False,
-                    'revision': {
-                        '6.2.0': False,
-                        '6.2.2': False,
-                        '6.2.6': False,
-                        '6.2.7': False,
-                        '6.2.8': False,
-                        '6.2.9': False,
-                        '6.2.10': False,
-                        '6.2.11': False,
-                        '6.2.12': False,
-                        '6.4.1': False,
-                        '6.4.3': False,
-                        '6.4.4': False,
-                        '6.4.6': False,
-                        '6.4.7': False,
-                        '6.4.8': False,
-                        '6.4.9': False,
-                        '6.4.10': False,
-                        '6.4.11': False,
-                        '6.4.12': False,
-                        '6.4.13': False,
-                        '7.0.1': False,
-                        '7.0.2': False,
-                        '7.0.3': True,
-                        '7.0.4': True,
-                        '7.0.5': True,
-                        '7.0.6': True,
-                        '7.0.7': True,
-                        '7.0.8': True,
-                        '7.0.9': True,
-                        '7.0.10': True,
-                        '7.2.0': True,
-                        '7.2.1': True,
-                        '7.2.2': True,
-                        '7.2.3': True,
-                        '7.2.4': True,
-                        '7.4.0': True,
-                        '7.4.1': True
-                    },
-                    'type': 'str'
-                },
-                'enforce-default-app-port': {
-                    'required': False,
-                    'revision': {
-                        '6.2.0': False,
-                        '6.2.2': False,
-                        '6.2.6': False,
-                        '6.2.7': False,
-                        '6.2.8': False,
-                        '6.2.9': False,
-                        '6.2.10': False,
-                        '6.2.11': False,
-                        '6.2.12': False,
-                        '6.4.1': False,
-                        '6.4.3': False,
-                        '6.4.4': False,
-                        '6.4.6': False,
-                        '6.4.7': False,
-                        '6.4.8': False,
-                        '6.4.9': False,
-                        '6.4.10': False,
-                        '6.4.11': False,
-                        '6.4.12': False,
-                        '6.4.13': False,
-                        '7.0.1': False,
-                        '7.0.2': False,
-                        '7.0.3': True,
-                        '7.0.4': True,
-                        '7.0.5': True,
-                        '7.0.6': True,
-                        '7.0.7': True,
-                        '7.0.8': True,
-                        '7.0.9': True,
-                        '7.0.10': True,
-                        '7.2.0': True,
-                        '7.2.1': True,
-                        '7.2.2': True,
-                        '7.2.3': True,
-                        '7.2.4': True,
-                        '7.4.0': True,
-                        '7.4.1': True
-                    },
-                    'choices': [
-                        'disable',
-                        'enable'
-                    ],
-                    'type': 'str'
-                },
-                'file-filter-profile': {
-                    'required': False,
-                    'revision': {
-                        '6.2.0': False,
-                        '6.2.2': False,
-                        '6.2.6': False,
-                        '6.2.7': False,
-                        '6.2.8': False,
-                        '6.2.9': False,
-                        '6.2.10': False,
-                        '6.2.11': False,
-                        '6.2.12': False,
-                        '6.4.1': False,
-                        '6.4.3': False,
-                        '6.4.4': False,
-                        '6.4.6': False,
-                        '6.4.7': False,
-                        '6.4.8': False,
-                        '6.4.9': False,
-                        '6.4.10': False,
-                        '6.4.11': False,
-                        '6.4.12': False,
-                        '6.4.13': False,
-                        '7.0.1': False,
-                        '7.0.2': False,
-                        '7.0.3': True,
-                        '7.0.4': True,
-                        '7.0.5': True,
-                        '7.0.6': True,
-                        '7.0.7': True,
-                        '7.0.8': True,
-                        '7.0.9': True,
-                        '7.0.10': True,
-                        '7.2.0': True,
-                        '7.2.1': True,
-                        '7.2.2': True,
-                        '7.2.3': False,
-                        '7.2.4': True,
-                        '7.4.0': False,
-                        '7.4.1': False
-                    },
-                    'type': 'str'
-                },
-                'fsso-groups': {
-                    'required': False,
-                    'revision': {
-                        '6.2.0': False,
-                        '6.2.2': False,
-                        '6.2.6': False,
-                        '6.2.7': False,
-                        '6.2.8': False,
-                        '6.2.9': False,
-                        '6.2.10': False,
-                        '6.2.11': False,
-                        '6.2.12': False,
-                        '6.4.1': False,
-                        '6.4.3': False,
-                        '6.4.4': False,
-                        '6.4.6': False,
-                        '6.4.7': False,
-                        '6.4.8': False,
-                        '6.4.9': False,
-                        '6.4.10': False,
-                        '6.4.11': False,
-                        '6.4.12': False,
-                        '6.4.13': False,
-                        '7.0.1': False,
-                        '7.0.2': False,
-                        '7.0.3': True,
-                        '7.0.4': True,
-                        '7.0.5': True,
-                        '7.0.6': True,
-                        '7.0.7': True,
-                        '7.0.8': True,
-                        '7.0.9': True,
-                        '7.0.10': True,
-                        '7.2.0': True,
-                        '7.2.1': True,
-                        '7.2.2': True,
-                        '7.2.3': True,
-                        '7.2.4': True,
-                        '7.4.0': True,
-                        '7.4.1': True
-                    },
-                    'type': 'raw'
-                },
-                'global-label': {
-                    'required': False,
-                    'revision': {
-                        '6.2.0': False,
-                        '6.2.2': False,
-                        '6.2.6': False,
-                        '6.2.7': False,
-                        '6.2.8': False,
-                        '6.2.9': False,
-                        '6.2.10': False,
-                        '6.2.11': False,
-                        '6.2.12': False,
-                        '6.4.1': False,
-                        '6.4.3': False,
-                        '6.4.4': False,
-                        '6.4.6': False,
-                        '6.4.7': False,
-                        '6.4.8': False,
-                        '6.4.9': False,
-                        '6.4.10': False,
-                        '6.4.11': False,
-                        '6.4.12': False,
-                        '6.4.13': False,
-                        '7.0.1': False,
-                        '7.0.2': False,
-                        '7.0.3': True,
-                        '7.0.4': True,
-                        '7.0.5': True,
-                        '7.0.6': True,
-                        '7.0.7': True,
-                        '7.0.8': True,
-                        '7.0.9': True,
-                        '7.0.10': True,
-                        '7.2.0': True,
-                        '7.2.1': True,
-                        '7.2.2': True,
-                        '7.2.3': True,
-                        '7.2.4': True,
-                        '7.4.0': True,
-                        '7.4.1': True
-                    },
-                    'type': 'str'
-                },
-                'groups': {
-                    'required': False,
-                    'revision': {
-                        '6.2.0': False,
-                        '6.2.2': False,
-                        '6.2.6': False,
-                        '6.2.7': False,
-                        '6.2.8': False,
-                        '6.2.9': False,
-                        '6.2.10': False,
-                        '6.2.11': False,
-                        '6.2.12': False,
-                        '6.4.1': False,
-                        '6.4.3': False,
-                        '6.4.4': False,
-                        '6.4.6': False,
-                        '6.4.7': False,
-                        '6.4.8': False,
-                        '6.4.9': False,
-                        '6.4.10': False,
-                        '6.4.11': False,
-                        '6.4.12': False,
-                        '6.4.13': False,
-                        '7.0.1': False,
-                        '7.0.2': False,
-                        '7.0.3': True,
-                        '7.0.4': True,
-                        '7.0.5': True,
-                        '7.0.6': True,
-                        '7.0.7': True,
-                        '7.0.8': True,
-                        '7.0.9': True,
-                        '7.0.10': True,
-                        '7.2.0': True,
-                        '7.2.1': True,
-                        '7.2.2': True,
-                        '7.2.3': True,
-                        '7.2.4': True,
-                        '7.4.0': True,
-                        '7.4.1': True
-                    },
-                    'type': 'raw'
-                },
-                'icap-profile': {
-                    'required': False,
-                    'revision': {
-                        '6.2.0': False,
-                        '6.2.2': False,
-                        '6.2.6': False,
-                        '6.2.7': False,
-                        '6.2.8': False,
-                        '6.2.9': False,
-                        '6.2.10': False,
-                        '6.2.11': False,
-                        '6.2.12': False,
-                        '6.4.1': False,
-                        '6.4.3': False,
-                        '6.4.4': False,
-                        '6.4.6': False,
-                        '6.4.7': False,
-                        '6.4.8': False,
-                        '6.4.9': False,
-                        '6.4.10': False,
-                        '6.4.11': False,
-                        '6.4.12': False,
-                        '6.4.13': False,
-                        '7.0.1': False,
-                        '7.0.2': False,
-                        '7.0.3': True,
-                        '7.0.4': True,
-                        '7.0.5': True,
-                        '7.0.6': True,
-                        '7.0.7': True,
-                        '7.0.8': True,
-                        '7.0.9': True,
-                        '7.0.10': True,
-                        '7.2.0': True,
-                        '7.2.1': True,
-                        '7.2.2': True,
-                        '7.2.3': True,
-                        '7.2.4': True,
-                        '7.4.0': True,
-                        '7.4.1': True
-                    },
-                    'type': 'str'
-                },
-                'internet-service': {
-                    'required': False,
-                    'revision': {
-                        '6.2.0': False,
-                        '6.2.2': False,
-                        '6.2.6': False,
-                        '6.2.7': False,
-                        '6.2.8': False,
-                        '6.2.9': False,
-                        '6.2.10': False,
-                        '6.2.11': False,
-                        '6.2.12': False,
-                        '6.4.1': False,
-                        '6.4.3': False,
-                        '6.4.4': False,
-                        '6.4.6': False,
-                        '6.4.7': False,
-                        '6.4.8': False,
-                        '6.4.9': False,
-                        '6.4.10': False,
-                        '6.4.11': False,
-                        '6.4.12': False,
-                        '6.4.13': False,
-                        '7.0.1': False,
-                        '7.0.2': False,
-                        '7.0.3': True,
-                        '7.0.4': True,
-                        '7.0.5': True,
-                        '7.0.6': True,
-                        '7.0.7': True,
-                        '7.0.8': True,
-                        '7.0.9': True,
-                        '7.0.10': True,
-                        '7.2.0': True,
-                        '7.2.1': True,
-                        '7.2.2': True,
-                        '7.2.3': True,
-                        '7.2.4': True,
-                        '7.4.0': True,
-                        '7.4.1': True
-                    },
-                    'choices': [
-                        'disable',
-                        'enable'
-                    ],
-                    'type': 'str'
-                },
-                'internet-service-custom': {
-                    'required': False,
-                    'revision': {
-                        '6.2.0': False,
-                        '6.2.2': False,
-                        '6.2.6': False,
-                        '6.2.7': False,
-                        '6.2.8': False,
-                        '6.2.9': False,
-                        '6.2.10': False,
-                        '6.2.11': False,
-                        '6.2.12': False,
-                        '6.4.1': False,
-                        '6.4.3': False,
-                        '6.4.4': False,
-                        '6.4.6': False,
-                        '6.4.7': False,
-                        '6.4.8': False,
-                        '6.4.9': False,
-                        '6.4.10': False,
-                        '6.4.11': False,
-                        '6.4.12': False,
-                        '6.4.13': False,
-                        '7.0.1': False,
-                        '7.0.2': False,
-                        '7.0.3': True,
-                        '7.0.4': True,
-                        '7.0.5': True,
-                        '7.0.6': True,
-                        '7.0.7': True,
-                        '7.0.8': True,
-                        '7.0.9': True,
-                        '7.0.10': True,
-                        '7.2.0': True,
-                        '7.2.1': True,
-                        '7.2.2': True,
-                        '7.2.3': True,
-                        '7.2.4': True,
-                        '7.4.0': True,
-                        '7.4.1': True
-                    },
-                    'type': 'raw'
-                },
-                'internet-service-custom-group': {
-                    'required': False,
-                    'revision': {
-                        '6.2.0': False,
-                        '6.2.2': False,
-                        '6.2.6': False,
-                        '6.2.7': False,
-                        '6.2.8': False,
-                        '6.2.9': False,
-                        '6.2.10': False,
-                        '6.2.11': False,
-                        '6.2.12': False,
-                        '6.4.1': False,
-                        '6.4.3': False,
-                        '6.4.4': False,
-                        '6.4.6': False,
-                        '6.4.7': False,
-                        '6.4.8': False,
-                        '6.4.9': False,
-                        '6.4.10': False,
-                        '6.4.11': False,
-                        '6.4.12': False,
-                        '6.4.13': False,
-                        '7.0.1': False,
-                        '7.0.2': False,
-                        '7.0.3': True,
-                        '7.0.4': True,
-                        '7.0.5': True,
-                        '7.0.6': True,
-                        '7.0.7': True,
-                        '7.0.8': True,
-                        '7.0.9': True,
-                        '7.0.10': True,
-                        '7.2.0': True,
-                        '7.2.1': True,
-                        '7.2.2': True,
-                        '7.2.3': True,
-                        '7.2.4': True,
-                        '7.4.0': True,
-                        '7.4.1': True
-                    },
-                    'type': 'raw'
-                },
-                'internet-service-group': {
-                    'required': False,
-                    'revision': {
-                        '6.2.0': False,
-                        '6.2.2': False,
-                        '6.2.6': False,
-                        '6.2.7': False,
-                        '6.2.8': False,
-                        '6.2.9': False,
-                        '6.2.10': False,
-                        '6.2.11': False,
-                        '6.2.12': False,
-                        '6.4.1': False,
-                        '6.4.3': False,
-                        '6.4.4': False,
-                        '6.4.6': False,
-                        '6.4.7': False,
-                        '6.4.8': False,
-                        '6.4.9': False,
-                        '6.4.10': False,
-                        '6.4.11': False,
-                        '6.4.12': False,
-                        '6.4.13': False,
-                        '7.0.1': False,
-                        '7.0.2': False,
-                        '7.0.3': True,
-                        '7.0.4': True,
-                        '7.0.5': True,
-                        '7.0.6': True,
-                        '7.0.7': True,
-                        '7.0.8': True,
-                        '7.0.9': True,
-                        '7.0.10': True,
-                        '7.2.0': True,
-                        '7.2.1': True,
-                        '7.2.2': True,
-                        '7.2.3': True,
-                        '7.2.4': True,
-                        '7.4.0': True,
-                        '7.4.1': True
-                    },
-                    'type': 'raw'
-                },
-                'internet-service-name': {
-                    'required': False,
-                    'revision': {
-                        '6.2.0': False,
-                        '6.2.2': False,
-                        '6.2.6': False,
-                        '6.2.7': False,
-                        '6.2.8': False,
-                        '6.2.9': False,
-                        '6.2.10': False,
-                        '6.2.11': False,
-                        '6.2.12': False,
-                        '6.4.1': False,
-                        '6.4.3': False,
-                        '6.4.4': False,
-                        '6.4.6': False,
-                        '6.4.7': False,
-                        '6.4.8': False,
-                        '6.4.9': False,
-                        '6.4.10': False,
-                        '6.4.11': False,
-                        '6.4.12': False,
-                        '6.4.13': False,
-                        '7.0.1': False,
-                        '7.0.2': False,
-                        '7.0.3': True,
-                        '7.0.4': True,
-                        '7.0.5': True,
-                        '7.0.6': True,
-                        '7.0.7': True,
-                        '7.0.8': True,
-                        '7.0.9': True,
-                        '7.0.10': True,
-                        '7.2.0': True,
-                        '7.2.1': True,
-                        '7.2.2': True,
-                        '7.2.3': False,
-                        '7.2.4': True,
-                        '7.4.0': False,
-                        '7.4.1': False
-                    },
-                    'type': 'raw'
-                },
-                'internet-service-negate': {
-                    'required': False,
-                    'revision': {
-                        '6.2.0': False,
-                        '6.2.2': False,
-                        '6.2.6': False,
-                        '6.2.7': False,
-                        '6.2.8': False,
-                        '6.2.9': False,
-                        '6.2.10': False,
-                        '6.2.11': False,
-                        '6.2.12': False,
-                        '6.4.1': False,
-                        '6.4.3': False,
-                        '6.4.4': False,
-                        '6.4.6': False,
-                        '6.4.7': False,
-                        '6.4.8': False,
-                        '6.4.9': False,
-                        '6.4.10': False,
-                        '6.4.11': False,
-                        '6.4.12': False,
-                        '6.4.13': False,
-                        '7.0.1': False,
-                        '7.0.2': False,
-                        '7.0.3': True,
-                        '7.0.4': True,
-                        '7.0.5': True,
-                        '7.0.6': True,
-                        '7.0.7': True,
-                        '7.0.8': True,
-                        '7.0.9': True,
-                        '7.0.10': True,
-                        '7.2.0': True,
-                        '7.2.1': True,
-                        '7.2.2': True,
-                        '7.2.3': True,
-                        '7.2.4': True,
-                        '7.4.0': True,
-                        '7.4.1': True
-                    },
-                    'choices': [
-                        'disable',
-                        'enable'
-                    ],
-                    'type': 'str'
-                },
-                'internet-service-src': {
-                    'required': False,
-                    'revision': {
-                        '6.2.0': False,
-                        '6.2.2': False,
-                        '6.2.6': False,
-                        '6.2.7': False,
-                        '6.2.8': False,
-                        '6.2.9': False,
-                        '6.2.10': False,
-                        '6.2.11': False,
-                        '6.2.12': False,
-                        '6.4.1': False,
-                        '6.4.3': False,
-                        '6.4.4': False,
-                        '6.4.6': False,
-                        '6.4.7': False,
-                        '6.4.8': False,
-                        '6.4.9': False,
-                        '6.4.10': False,
-                        '6.4.11': False,
-                        '6.4.12': False,
-                        '6.4.13': False,
-                        '7.0.1': False,
-                        '7.0.2': False,
-                        '7.0.3': True,
-                        '7.0.4': True,
-                        '7.0.5': True,
-                        '7.0.6': True,
-                        '7.0.7': True,
-                        '7.0.8': True,
-                        '7.0.9': True,
-                        '7.0.10': True,
-                        '7.2.0': True,
-                        '7.2.1': True,
-                        '7.2.2': True,
-                        '7.2.3': True,
-                        '7.2.4': True,
-                        '7.4.0': True,
-                        '7.4.1': True
-                    },
-                    'choices': [
-                        'disable',
-                        'enable'
-                    ],
-                    'type': 'str'
-                },
-                'internet-service-src-custom': {
-                    'required': False,
-                    'revision': {
-                        '6.2.0': False,
-                        '6.2.2': False,
-                        '6.2.6': False,
-                        '6.2.7': False,
-                        '6.2.8': False,
-                        '6.2.9': False,
-                        '6.2.10': False,
-                        '6.2.11': False,
-                        '6.2.12': False,
-                        '6.4.1': False,
-                        '6.4.3': False,
-                        '6.4.4': False,
-                        '6.4.6': False,
-                        '6.4.7': False,
-                        '6.4.8': False,
-                        '6.4.9': False,
-                        '6.4.10': False,
-                        '6.4.11': False,
-                        '6.4.12': False,
-                        '6.4.13': False,
-                        '7.0.1': False,
-                        '7.0.2': False,
-                        '7.0.3': True,
-                        '7.0.4': True,
-                        '7.0.5': True,
-                        '7.0.6': True,
-                        '7.0.7': True,
-                        '7.0.8': True,
-                        '7.0.9': True,
-                        '7.0.10': True,
-                        '7.2.0': True,
-                        '7.2.1': True,
-                        '7.2.2': True,
-                        '7.2.3': True,
-                        '7.2.4': True,
-                        '7.4.0': True,
-                        '7.4.1': True
-                    },
-                    'type': 'raw'
-                },
-                'internet-service-src-custom-group': {
-                    'required': False,
-                    'revision': {
-                        '6.2.0': False,
-                        '6.2.2': False,
-                        '6.2.6': False,
-                        '6.2.7': False,
-                        '6.2.8': False,
-                        '6.2.9': False,
-                        '6.2.10': False,
-                        '6.2.11': False,
-                        '6.2.12': False,
-                        '6.4.1': False,
-                        '6.4.3': False,
-                        '6.4.4': False,
-                        '6.4.6': False,
-                        '6.4.7': False,
-                        '6.4.8': False,
-                        '6.4.9': False,
-                        '6.4.10': False,
-                        '6.4.11': False,
-                        '6.4.12': False,
-                        '6.4.13': False,
-                        '7.0.1': False,
-                        '7.0.2': False,
-                        '7.0.3': True,
-                        '7.0.4': True,
-                        '7.0.5': True,
-                        '7.0.6': True,
-                        '7.0.7': True,
-                        '7.0.8': True,
-                        '7.0.9': True,
-                        '7.0.10': True,
-                        '7.2.0': True,
-                        '7.2.1': True,
-                        '7.2.2': True,
-                        '7.2.3': True,
-                        '7.2.4': True,
-                        '7.4.0': True,
-                        '7.4.1': True
-                    },
-                    'type': 'raw'
-                },
-                'internet-service-src-group': {
-                    'required': False,
-                    'revision': {
-                        '6.2.0': False,
-                        '6.2.2': False,
-                        '6.2.6': False,
-                        '6.2.7': False,
-                        '6.2.8': False,
-                        '6.2.9': False,
-                        '6.2.10': False,
-                        '6.2.11': False,
-                        '6.2.12': False,
-                        '6.4.1': False,
-                        '6.4.3': False,
-                        '6.4.4': False,
-                        '6.4.6': False,
-                        '6.4.7': False,
-                        '6.4.8': False,
-                        '6.4.9': False,
-                        '6.4.10': False,
-                        '6.4.11': False,
-                        '6.4.12': False,
-                        '6.4.13': False,
-                        '7.0.1': False,
-                        '7.0.2': False,
-                        '7.0.3': True,
-                        '7.0.4': True,
-                        '7.0.5': True,
-                        '7.0.6': True,
-                        '7.0.7': True,
-                        '7.0.8': True,
-                        '7.0.9': True,
-                        '7.0.10': True,
-                        '7.2.0': True,
-                        '7.2.1': True,
-                        '7.2.2': True,
-                        '7.2.3': True,
-                        '7.2.4': True,
-                        '7.4.0': True,
-                        '7.4.1': True
-                    },
-                    'type': 'raw'
-                },
-                'internet-service-src-name': {
-                    'required': False,
-                    'revision': {
-                        '6.2.0': False,
-                        '6.2.2': False,
-                        '6.2.6': False,
-                        '6.2.7': False,
-                        '6.2.8': False,
-                        '6.2.9': False,
-                        '6.2.10': False,
-                        '6.2.11': False,
-                        '6.2.12': False,
-                        '6.4.1': False,
-                        '6.4.3': False,
-                        '6.4.4': False,
-                        '6.4.6': False,
-                        '6.4.7': False,
-                        '6.4.8': False,
-                        '6.4.9': False,
-                        '6.4.10': False,
-                        '6.4.11': False,
-                        '6.4.12': False,
-                        '6.4.13': False,
-                        '7.0.1': False,
-                        '7.0.2': False,
-                        '7.0.3': True,
-                        '7.0.4': True,
-                        '7.0.5': True,
-                        '7.0.6': True,
-                        '7.0.7': True,
-                        '7.0.8': True,
-                        '7.0.9': True,
-                        '7.0.10': True,
-                        '7.2.0': True,
-                        '7.2.1': True,
-                        '7.2.2': True,
-                        '7.2.3': False,
-                        '7.2.4': True,
-                        '7.4.0': False,
-                        '7.4.1': False
-                    },
-                    'type': 'raw'
-                },
-                'internet-service-src-negate': {
-                    'required': False,
-                    'revision': {
-                        '6.2.0': False,
-                        '6.2.2': False,
-                        '6.2.6': False,
-                        '6.2.7': False,
-                        '6.2.8': False,
-                        '6.2.9': False,
-                        '6.2.10': False,
-                        '6.2.11': False,
-                        '6.2.12': False,
-                        '6.4.1': False,
-                        '6.4.3': False,
-                        '6.4.4': False,
-                        '6.4.6': False,
-                        '6.4.7': False,
-                        '6.4.8': False,
-                        '6.4.9': False,
-                        '6.4.10': False,
-                        '6.4.11': False,
-                        '6.4.12': False,
-                        '6.4.13': False,
-                        '7.0.1': False,
-                        '7.0.2': False,
-                        '7.0.3': True,
-                        '7.0.4': True,
-                        '7.0.5': True,
-                        '7.0.6': True,
-                        '7.0.7': True,
-                        '7.0.8': True,
-                        '7.0.9': True,
-                        '7.0.10': True,
-                        '7.2.0': True,
-                        '7.2.1': True,
-                        '7.2.2': True,
-                        '7.2.3': True,
-                        '7.2.4': True,
-                        '7.4.0': True,
-                        '7.4.1': True
-                    },
-                    'choices': [
-                        'disable',
-                        'enable'
-                    ],
-                    'type': 'str'
-                },
-                'ips-sensor': {
-                    'required': False,
-                    'revision': {
-                        '6.2.0': False,
-                        '6.2.2': False,
-                        '6.2.6': False,
-                        '6.2.7': False,
-                        '6.2.8': False,
-                        '6.2.9': False,
-                        '6.2.10': False,
-                        '6.2.11': False,
-                        '6.2.12': False,
-                        '6.4.1': False,
-                        '6.4.3': False,
-                        '6.4.4': False,
-                        '6.4.6': False,
-                        '6.4.7': False,
-                        '6.4.8': False,
-                        '6.4.9': False,
-                        '6.4.10': False,
-                        '6.4.11': False,
-                        '6.4.12': False,
-                        '6.4.13': False,
-                        '7.0.1': False,
-                        '7.0.2': False,
-                        '7.0.3': True,
-                        '7.0.4': True,
-                        '7.0.5': True,
-                        '7.0.6': True,
-                        '7.0.7': True,
-                        '7.0.8': True,
-                        '7.0.9': True,
-                        '7.0.10': True,
-                        '7.2.0': True,
-                        '7.2.1': True,
-                        '7.2.2': True,
-                        '7.2.3': True,
-                        '7.2.4': True,
-                        '7.4.0': True,
-                        '7.4.1': True
-                    },
-                    'type': 'str'
-                },
-                'learning-mode': {
-                    'required': False,
-                    'revision': {
-                        '6.2.0': False,
-                        '6.2.2': False,
-                        '6.2.6': False,
-                        '6.2.7': False,
-                        '6.2.8': False,
-                        '6.2.9': False,
-                        '6.2.10': False,
-                        '6.2.11': False,
-                        '6.2.12': False,
-                        '6.4.1': False,
-                        '6.4.3': False,
-                        '6.4.4': False,
-                        '6.4.6': False,
-                        '6.4.7': False,
-                        '6.4.8': False,
-                        '6.4.9': False,
-                        '6.4.10': False,
-                        '6.4.11': False,
-                        '6.4.12': False,
-                        '6.4.13': False,
-                        '7.0.1': False,
-                        '7.0.2': False,
-                        '7.0.3': True,
-                        '7.0.4': True,
-                        '7.0.5': True,
-                        '7.0.6': True,
-                        '7.0.7': True,
-                        '7.0.8': True,
-                        '7.0.9': True,
-                        '7.0.10': True,
-                        '7.2.0': True,
-                        '7.2.1': True,
-                        '7.2.2': True,
-                        '7.2.3': False,
-                        '7.2.4': True,
-                        '7.4.0': False,
-                        '7.4.1': False
-                    },
-                    'choices': [
-                        'disable',
-                        'enable'
-                    ],
-                    'type': 'str'
-                },
-                'logtraffic': {
-                    'required': False,
-                    'revision': {
-                        '6.2.0': False,
-                        '6.2.2': False,
-                        '6.2.6': False,
-                        '6.2.7': False,
-                        '6.2.8': False,
-                        '6.2.9': False,
-                        '6.2.10': False,
-                        '6.2.11': False,
-                        '6.2.12': False,
-                        '6.4.1': False,
-                        '6.4.3': False,
-                        '6.4.4': False,
-                        '6.4.6': False,
-                        '6.4.7': False,
-                        '6.4.8': False,
-                        '6.4.9': False,
-                        '6.4.10': False,
-                        '6.4.11': False,
-                        '6.4.12': False,
-                        '6.4.13': False,
-                        '7.0.1': False,
-                        '7.0.2': False,
-                        '7.0.3': True,
-                        '7.0.4': True,
-                        '7.0.5': True,
-                        '7.0.6': True,
-                        '7.0.7': True,
-                        '7.0.8': True,
-                        '7.0.9': True,
-                        '7.0.10': True,
-                        '7.2.0': True,
-                        '7.2.1': True,
-                        '7.2.2': True,
-                        '7.2.3': True,
-                        '7.2.4': True,
-                        '7.4.0': True,
-                        '7.4.1': True
-                    },
-                    'choices': [
-                        'disable',
-                        'all',
-                        'utm'
-                    ],
-                    'type': 'str'
-                },
-                'name': {
-                    'required': True,
-                    'revision': {
-                        '6.2.0': False,
-                        '6.2.2': False,
-                        '6.2.6': False,
-                        '6.2.7': False,
-                        '6.2.8': False,
-                        '6.2.9': False,
-                        '6.2.10': False,
-                        '6.2.11': False,
-                        '6.2.12': False,
-                        '6.4.1': False,
-                        '6.4.3': False,
-                        '6.4.4': False,
-                        '6.4.6': False,
-                        '6.4.7': False,
-                        '6.4.8': False,
-                        '6.4.9': False,
-                        '6.4.10': False,
-                        '6.4.11': False,
-                        '6.4.12': False,
-                        '6.4.13': False,
-                        '7.0.1': False,
-                        '7.0.2': False,
-                        '7.0.3': True,
-                        '7.0.4': True,
-                        '7.0.5': True,
-                        '7.0.6': True,
-                        '7.0.7': True,
-                        '7.0.8': True,
-                        '7.0.9': True,
-                        '7.0.10': True,
-                        '7.2.0': True,
-                        '7.2.1': True,
-                        '7.2.2': True,
-                        '7.2.3': True,
-                        '7.2.4': True,
-                        '7.4.0': True,
-                        '7.4.1': True
-                    },
-                    'type': 'str'
-                },
-                'nat46': {
-                    'required': False,
-                    'revision': {
-                        '6.2.0': False,
-                        '6.2.2': False,
-                        '6.2.6': False,
-                        '6.2.7': False,
-                        '6.2.8': False,
-                        '6.2.9': False,
-                        '6.2.10': False,
-                        '6.2.11': False,
-                        '6.2.12': False,
-                        '6.4.1': False,
-                        '6.4.3': False,
-                        '6.4.4': False,
-                        '6.4.6': False,
-                        '6.4.7': False,
-                        '6.4.8': False,
-                        '6.4.9': False,
-                        '6.4.10': False,
-                        '6.4.11': False,
-                        '6.4.12': False,
-                        '6.4.13': False,
-                        '7.0.1': False,
-                        '7.0.2': False,
-                        '7.0.3': True,
-                        '7.0.4': True,
-                        '7.0.5': True,
-                        '7.0.6': True,
-                        '7.0.7': True,
-                        '7.0.8': True,
-                        '7.0.9': True,
-                        '7.0.10': True,
-                        '7.2.0': True,
-                        '7.2.1': True,
-                        '7.2.2': False,
-                        '7.2.3': False,
-                        '7.2.4': True,
-                        '7.4.0': False,
-                        '7.4.1': False
-                    },
-                    'choices': [
-                        'disable',
-                        'enable'
-                    ],
-                    'type': 'str'
-                },
-                'nat64': {
-                    'required': False,
-                    'revision': {
-                        '6.2.0': False,
-                        '6.2.2': False,
-                        '6.2.6': False,
-                        '6.2.7': False,
-                        '6.2.8': False,
-                        '6.2.9': False,
-                        '6.2.10': False,
-                        '6.2.11': False,
-                        '6.2.12': False,
-                        '6.4.1': False,
-                        '6.4.3': False,
-                        '6.4.4': False,
-                        '6.4.6': False,
-                        '6.4.7': False,
-                        '6.4.8': False,
-                        '6.4.9': False,
-                        '6.4.10': False,
-                        '6.4.11': False,
-                        '6.4.12': False,
-                        '6.4.13': False,
-                        '7.0.1': False,
-                        '7.0.2': False,
-                        '7.0.3': True,
-                        '7.0.4': True,
-                        '7.0.5': True,
-                        '7.0.6': True,
-                        '7.0.7': True,
-                        '7.0.8': True,
-                        '7.0.9': True,
-                        '7.0.10': True,
-                        '7.2.0': True,
-                        '7.2.1': True,
-                        '7.2.2': False,
-                        '7.2.3': False,
-                        '7.2.4': True,
-                        '7.4.0': False,
-                        '7.4.1': False
-                    },
-                    'choices': [
-                        'disable',
-                        'enable'
-                    ],
-                    'type': 'str'
-                },
-                'policyid': {
-                    'required': False,
-                    'revision': {
-                        '6.2.0': False,
-                        '6.2.2': False,
-                        '6.2.6': False,
-                        '6.2.7': False,
-                        '6.2.8': False,
-                        '6.2.9': False,
-                        '6.2.10': False,
-                        '6.2.11': False,
-                        '6.2.12': False,
-                        '6.4.1': False,
-                        '6.4.3': False,
-                        '6.4.4': False,
-                        '6.4.6': False,
-                        '6.4.7': False,
-                        '6.4.8': False,
-                        '6.4.9': False,
-                        '6.4.10': False,
-                        '6.4.11': False,
-                        '6.4.12': False,
-                        '6.4.13': False,
-                        '7.0.1': False,
-                        '7.0.2': False,
-                        '7.0.3': True,
-                        '7.0.4': True,
-                        '7.0.5': True,
-                        '7.0.6': True,
-                        '7.0.7': True,
-                        '7.0.8': True,
-                        '7.0.9': True,
-                        '7.0.10': True,
-                        '7.2.0': True,
-                        '7.2.1': True,
-                        '7.2.2': True,
-                        '7.2.3': True,
-                        '7.2.4': True,
-                        '7.4.0': True,
-                        '7.4.1': True
-                    },
-                    'type': 'int'
-                },
-                'profile-group': {
-                    'required': False,
-                    'revision': {
-                        '6.2.0': False,
-                        '6.2.2': False,
-                        '6.2.6': False,
-                        '6.2.7': False,
-                        '6.2.8': False,
-                        '6.2.9': False,
-                        '6.2.10': False,
-                        '6.2.11': False,
-                        '6.2.12': False,
-                        '6.4.1': False,
-                        '6.4.3': False,
-                        '6.4.4': False,
-                        '6.4.6': False,
-                        '6.4.7': False,
-                        '6.4.8': False,
-                        '6.4.9': False,
-                        '6.4.10': False,
-                        '6.4.11': False,
-                        '6.4.12': False,
-                        '6.4.13': False,
-                        '7.0.1': False,
-                        '7.0.2': False,
-                        '7.0.3': True,
-                        '7.0.4': True,
-                        '7.0.5': True,
-                        '7.0.6': True,
-                        '7.0.7': True,
-                        '7.0.8': True,
-                        '7.0.9': True,
-                        '7.0.10': True,
-                        '7.2.0': True,
-                        '7.2.1': True,
-                        '7.2.2': True,
-                        '7.2.3': True,
-                        '7.2.4': True,
-                        '7.4.0': True,
-                        '7.4.1': True
-                    },
-                    'type': 'str'
-                },
-                'profile-protocol-options': {
-                    'required': False,
-                    'revision': {
-                        '6.2.0': False,
-                        '6.2.2': False,
-                        '6.2.6': False,
-                        '6.2.7': False,
-                        '6.2.8': False,
-                        '6.2.9': False,
-                        '6.2.10': False,
-                        '6.2.11': False,
-                        '6.2.12': False,
-                        '6.4.1': False,
-                        '6.4.3': False,
-                        '6.4.4': False,
-                        '6.4.6': False,
-                        '6.4.7': False,
-                        '6.4.8': False,
-                        '6.4.9': False,
-                        '6.4.10': False,
-                        '6.4.11': False,
-                        '6.4.12': False,
-                        '6.4.13': False,
-                        '7.0.1': False,
-                        '7.0.2': False,
-                        '7.0.3': True,
-                        '7.0.4': True,
-                        '7.0.5': True,
-                        '7.0.6': True,
-                        '7.0.7': True,
-                        '7.0.8': True,
-                        '7.0.9': True,
-                        '7.0.10': True,
-                        '7.2.0': True,
-                        '7.2.1': True,
-                        '7.2.2': True,
-                        '7.2.3': False,
-                        '7.2.4': True,
-                        '7.4.0': False,
-                        '7.4.1': False
-                    },
-                    'type': 'str'
-                },
-                'profile-type': {
-                    'required': False,
-                    'revision': {
-                        '6.2.0': False,
-                        '6.2.2': False,
-                        '6.2.6': False,
-                        '6.2.7': False,
-                        '6.2.8': False,
-                        '6.2.9': False,
-                        '6.2.10': False,
-                        '6.2.11': False,
-                        '6.2.12': False,
-                        '6.4.1': False,
-                        '6.4.3': False,
-                        '6.4.4': False,
-                        '6.4.6': False,
-                        '6.4.7': False,
-                        '6.4.8': False,
-                        '6.4.9': False,
-                        '6.4.10': False,
-                        '6.4.11': False,
-                        '6.4.12': False,
-                        '6.4.13': False,
-                        '7.0.1': False,
-                        '7.0.2': False,
-                        '7.0.3': True,
-                        '7.0.4': True,
-                        '7.0.5': True,
-                        '7.0.6': True,
-                        '7.0.7': True,
-                        '7.0.8': True,
-                        '7.0.9': True,
-                        '7.0.10': True,
-                        '7.2.0': True,
-                        '7.2.1': True,
-                        '7.2.2': True,
-                        '7.2.3': True,
-                        '7.2.4': True,
-                        '7.4.0': True,
-                        '7.4.1': True
-                    },
-                    'choices': [
-                        'single',
-                        'group'
-                    ],
-                    'type': 'str'
-                },
-                'schedule': {
-                    'required': False,
-                    'revision': {
-                        '6.2.0': False,
-                        '6.2.2': False,
-                        '6.2.6': False,
-                        '6.2.7': False,
-                        '6.2.8': False,
-                        '6.2.9': False,
-                        '6.2.10': False,
-                        '6.2.11': False,
-                        '6.2.12': False,
-                        '6.4.1': False,
-                        '6.4.3': False,
-                        '6.4.4': False,
-                        '6.4.6': False,
-                        '6.4.7': False,
-                        '6.4.8': False,
-                        '6.4.9': False,
-                        '6.4.10': False,
-                        '6.4.11': False,
-                        '6.4.12': False,
-                        '6.4.13': False,
-                        '7.0.1': False,
-                        '7.0.2': False,
-                        '7.0.3': True,
-                        '7.0.4': True,
-                        '7.0.5': True,
-                        '7.0.6': True,
-                        '7.0.7': True,
-                        '7.0.8': True,
-                        '7.0.9': True,
-                        '7.0.10': True,
-                        '7.2.0': True,
-                        '7.2.1': True,
-                        '7.2.2': True,
-                        '7.2.3': True,
-                        '7.2.4': True,
-                        '7.4.0': True,
-                        '7.4.1': True
-                    },
-                    'type': 'str'
-                },
-                'sctp-filter-profile': {
-                    'required': False,
-                    'revision': {
-                        '6.2.0': False,
-                        '6.2.2': False,
-                        '6.2.6': False,
-                        '6.2.7': False,
-                        '6.2.8': False,
-                        '6.2.9': False,
-                        '6.2.10': False,
-                        '6.2.11': False,
-                        '6.2.12': False,
-                        '6.4.1': False,
-                        '6.4.3': False,
-                        '6.4.4': False,
-                        '6.4.6': False,
-                        '6.4.7': False,
-                        '6.4.8': False,
-                        '6.4.9': False,
-                        '6.4.10': False,
-                        '6.4.11': False,
-                        '6.4.12': False,
-                        '6.4.13': False,
-                        '7.0.1': False,
-                        '7.0.2': False,
-                        '7.0.3': True,
-                        '7.0.4': True,
-                        '7.0.5': True,
-                        '7.0.6': True,
-                        '7.0.7': True,
-                        '7.0.8': True,
-                        '7.0.9': True,
-                        '7.0.10': True,
-                        '7.2.0': True,
-                        '7.2.1': True,
-                        '7.2.2': True,
-                        '7.2.3': False,
-                        '7.2.4': True,
-                        '7.4.0': False,
-                        '7.4.1': False
-                    },
-                    'type': 'str'
-                },
-                'send-deny-packet': {
-                    'required': False,
-                    'revision': {
-                        '6.2.0': False,
-                        '6.2.2': False,
-                        '6.2.6': False,
-                        '6.2.7': False,
-                        '6.2.8': False,
-                        '6.2.9': False,
-                        '6.2.10': False,
-                        '6.2.11': False,
-                        '6.2.12': False,
-                        '6.4.1': False,
-                        '6.4.3': False,
-                        '6.4.4': False,
-                        '6.4.6': False,
-                        '6.4.7': False,
-                        '6.4.8': False,
-                        '6.4.9': False,
-                        '6.4.10': False,
-                        '6.4.11': False,
-                        '6.4.12': False,
-                        '6.4.13': False,
-                        '7.0.1': False,
-                        '7.0.2': False,
-                        '7.0.3': True,
-                        '7.0.4': True,
-                        '7.0.5': True,
-                        '7.0.6': True,
-                        '7.0.7': True,
-                        '7.0.8': True,
-                        '7.0.9': True,
-                        '7.0.10': True,
-                        '7.2.0': True,
-                        '7.2.1': True,
-                        '7.2.2': True,
-                        '7.2.3': True,
-                        '7.2.4': True,
-                        '7.4.0': True,
-                        '7.4.1': True
-                    },
-                    'choices': [
-                        'disable',
-                        'enable'
-                    ],
-                    'type': 'str'
-                },
-                'service': {
-                    'required': False,
-                    'revision': {
-                        '6.2.0': False,
-                        '6.2.2': False,
-                        '6.2.6': False,
-                        '6.2.7': False,
-                        '6.2.8': False,
-                        '6.2.9': False,
-                        '6.2.10': False,
-                        '6.2.11': False,
-                        '6.2.12': False,
-                        '6.4.1': False,
-                        '6.4.3': False,
-                        '6.4.4': False,
-                        '6.4.6': False,
-                        '6.4.7': False,
-                        '6.4.8': False,
-                        '6.4.9': False,
-                        '6.4.10': False,
-                        '6.4.11': False,
-                        '6.4.12': False,
-                        '6.4.13': False,
-                        '7.0.1': False,
-                        '7.0.2': False,
-                        '7.0.3': True,
-                        '7.0.4': True,
-                        '7.0.5': True,
-                        '7.0.6': True,
-                        '7.0.7': True,
-                        '7.0.8': True,
-                        '7.0.9': True,
-                        '7.0.10': True,
-                        '7.2.0': True,
-                        '7.2.1': True,
-                        '7.2.2': True,
-                        '7.2.3': True,
-                        '7.2.4': True,
-                        '7.4.0': True,
-                        '7.4.1': True
-                    },
-                    'type': 'raw'
-                },
-                'service-negate': {
-                    'required': False,
-                    'revision': {
-                        '6.2.0': False,
-                        '6.2.2': False,
-                        '6.2.6': False,
-                        '6.2.7': False,
-                        '6.2.8': False,
-                        '6.2.9': False,
-                        '6.2.10': False,
-                        '6.2.11': False,
-                        '6.2.12': False,
-                        '6.4.1': False,
-                        '6.4.3': False,
-                        '6.4.4': False,
-                        '6.4.6': False,
-                        '6.4.7': False,
-                        '6.4.8': False,
-                        '6.4.9': False,
-                        '6.4.10': False,
-                        '6.4.11': False,
-                        '6.4.12': False,
-                        '6.4.13': False,
-                        '7.0.1': False,
-                        '7.0.2': False,
-                        '7.0.3': True,
-                        '7.0.4': True,
-                        '7.0.5': True,
-                        '7.0.6': True,
-                        '7.0.7': True,
-                        '7.0.8': True,
-                        '7.0.9': True,
-                        '7.0.10': True,
-                        '7.2.0': True,
-                        '7.2.1': True,
-                        '7.2.2': True,
-                        '7.2.3': True,
-                        '7.2.4': True,
-                        '7.4.0': True,
-                        '7.4.1': True
-                    },
-                    'choices': [
-                        'disable',
-                        'enable'
-                    ],
-                    'type': 'str'
-                },
-                'srcaddr': {
-                    'required': False,
-                    'revision': {
-                        '6.2.0': False,
-                        '6.2.2': False,
-                        '6.2.6': False,
-                        '6.2.7': False,
-                        '6.2.8': False,
-                        '6.2.9': False,
-                        '6.2.10': False,
-                        '6.2.11': False,
-                        '6.2.12': False,
-                        '6.4.1': False,
-                        '6.4.3': False,
-                        '6.4.4': False,
-                        '6.4.6': False,
-                        '6.4.7': False,
-                        '6.4.8': False,
-                        '6.4.9': False,
-                        '6.4.10': False,
-                        '6.4.11': False,
-                        '6.4.12': False,
-                        '6.4.13': False,
-                        '7.0.1': False,
-                        '7.0.2': False,
-                        '7.0.3': True,
-                        '7.0.4': True,
-                        '7.0.5': True,
-                        '7.0.6': True,
-                        '7.0.7': True,
-                        '7.0.8': True,
-                        '7.0.9': True,
-                        '7.0.10': True,
-                        '7.2.0': True,
-                        '7.2.1': True,
-                        '7.2.2': True,
-                        '7.2.3': False,
-                        '7.2.4': True,
-                        '7.4.0': False,
-                        '7.4.1': False
-                    },
-                    'type': 'raw'
-                },
-                'srcaddr-negate': {
-                    'required': False,
-                    'revision': {
-                        '6.2.0': False,
-                        '6.2.2': False,
-                        '6.2.6': False,
-                        '6.2.7': False,
-                        '6.2.8': False,
-                        '6.2.9': False,
-                        '6.2.10': False,
-                        '6.2.11': False,
-                        '6.2.12': False,
-                        '6.4.1': False,
-                        '6.4.3': False,
-                        '6.4.4': False,
-                        '6.4.6': False,
-                        '6.4.7': False,
-                        '6.4.8': False,
-                        '6.4.9': False,
-                        '6.4.10': False,
-                        '6.4.11': False,
-                        '6.4.12': False,
-                        '6.4.13': False,
-                        '7.0.1': False,
-                        '7.0.2': False,
-                        '7.0.3': True,
-                        '7.0.4': True,
-                        '7.0.5': True,
-                        '7.0.6': True,
-                        '7.0.7': True,
-                        '7.0.8': True,
-                        '7.0.9': True,
-                        '7.0.10': True,
-                        '7.2.0': True,
-                        '7.2.1': True,
-                        '7.2.2': True,
-                        '7.2.3': False,
-                        '7.2.4': True,
-                        '7.4.0': False,
-                        '7.4.1': False
-                    },
-                    'choices': [
-                        'disable',
-                        'enable'
-                    ],
-                    'type': 'str'
-                },
-                'srcaddr6': {
-                    'required': False,
-                    'revision': {
-                        '6.2.0': False,
-                        '6.2.2': False,
-                        '6.2.6': False,
-                        '6.2.7': False,
-                        '6.2.8': False,
-                        '6.2.9': False,
-                        '6.2.10': False,
-                        '6.2.11': False,
-                        '6.2.12': False,
-                        '6.4.1': False,
-                        '6.4.3': False,
-                        '6.4.4': False,
-                        '6.4.6': False,
-                        '6.4.7': False,
-                        '6.4.8': False,
-                        '6.4.9': False,
-                        '6.4.10': False,
-                        '6.4.11': False,
-                        '6.4.12': False,
-                        '6.4.13': False,
-                        '7.0.1': False,
-                        '7.0.2': False,
-                        '7.0.3': True,
-                        '7.0.4': True,
-                        '7.0.5': True,
-                        '7.0.6': True,
-                        '7.0.7': True,
-                        '7.0.8': True,
-                        '7.0.9': True,
-                        '7.0.10': True,
-                        '7.2.0': True,
-                        '7.2.1': True,
-                        '7.2.2': True,
-                        '7.2.3': True,
-                        '7.2.4': True,
-                        '7.4.0': True,
-                        '7.4.1': True
-                    },
-                    'type': 'raw'
-                },
-                'srcintf': {
-                    'required': False,
-                    'revision': {
-                        '6.2.0': False,
-                        '6.2.2': False,
-                        '6.2.6': False,
-                        '6.2.7': False,
-                        '6.2.8': False,
-                        '6.2.9': False,
-                        '6.2.10': False,
-                        '6.2.11': False,
-                        '6.2.12': False,
-                        '6.4.1': False,
-                        '6.4.3': False,
-                        '6.4.4': False,
-                        '6.4.6': False,
-                        '6.4.7': False,
-                        '6.4.8': False,
-                        '6.4.9': False,
-                        '6.4.10': False,
-                        '6.4.11': False,
-                        '6.4.12': False,
-                        '6.4.13': False,
-                        '7.0.1': False,
-                        '7.0.2': False,
-                        '7.0.3': True,
-                        '7.0.4': True,
-                        '7.0.5': True,
-                        '7.0.6': True,
-                        '7.0.7': True,
-                        '7.0.8': True,
-                        '7.0.9': True,
-                        '7.0.10': True,
-                        '7.2.0': True,
-                        '7.2.1': True,
-                        '7.2.2': True,
-                        '7.2.3': True,
-                        '7.2.4': True,
-                        '7.4.0': True,
-                        '7.4.1': True
-                    },
-                    'type': 'raw'
-                },
-                'ssh-filter-profile': {
-                    'required': False,
-                    'revision': {
-                        '6.2.0': False,
-                        '6.2.2': False,
-                        '6.2.6': False,
-                        '6.2.7': False,
-                        '6.2.8': False,
-                        '6.2.9': False,
-                        '6.2.10': False,
-                        '6.2.11': False,
-                        '6.2.12': False,
-                        '6.4.1': False,
-                        '6.4.3': False,
-                        '6.4.4': False,
-                        '6.4.6': False,
-                        '6.4.7': False,
-                        '6.4.8': False,
-                        '6.4.9': False,
-                        '6.4.10': False,
-                        '6.4.11': False,
-                        '6.4.12': False,
-                        '6.4.13': False,
-                        '7.0.1': False,
-                        '7.0.2': False,
-                        '7.0.3': True,
-                        '7.0.4': True,
-                        '7.0.5': True,
-                        '7.0.6': True,
-                        '7.0.7': True,
-                        '7.0.8': True,
-                        '7.0.9': True,
-                        '7.0.10': True,
-                        '7.2.0': True,
-                        '7.2.1': True,
-                        '7.2.2': True,
-                        '7.2.3': True,
-                        '7.2.4': True,
-                        '7.4.0': True,
-                        '7.4.1': True
-                    },
-                    'type': 'str'
-                },
-                'ssl-ssh-profile': {
-                    'required': False,
-                    'revision': {
-                        '6.2.0': False,
-                        '6.2.2': False,
-                        '6.2.6': False,
-                        '6.2.7': False,
-                        '6.2.8': False,
-                        '6.2.9': False,
-                        '6.2.10': False,
-                        '6.2.11': False,
-                        '6.2.12': False,
-                        '6.4.1': False,
-                        '6.4.3': False,
-                        '6.4.4': False,
-                        '6.4.6': False,
-                        '6.4.7': False,
-                        '6.4.8': False,
-                        '6.4.9': False,
-                        '6.4.10': False,
-                        '6.4.11': False,
-                        '6.4.12': False,
-                        '6.4.13': False,
-                        '7.0.1': False,
-                        '7.0.2': False,
-                        '7.0.3': True,
-                        '7.0.4': True,
-                        '7.0.5': True,
-                        '7.0.6': True,
-                        '7.0.7': True,
-                        '7.0.8': True,
-                        '7.0.9': True,
-                        '7.0.10': True,
-                        '7.2.0': True,
-                        '7.2.1': True,
-                        '7.2.2': True,
-                        '7.2.3': False,
-                        '7.2.4': True,
-                        '7.4.0': False,
-                        '7.4.1': False
-                    },
-                    'type': 'str'
-                },
-                'status': {
-                    'required': False,
-                    'revision': {
-                        '6.2.0': False,
-                        '6.2.2': False,
-                        '6.2.6': False,
-                        '6.2.7': False,
-                        '6.2.8': False,
-                        '6.2.9': False,
-                        '6.2.10': False,
-                        '6.2.11': False,
-                        '6.2.12': False,
-                        '6.4.1': False,
-                        '6.4.3': False,
-                        '6.4.4': False,
-                        '6.4.6': False,
-                        '6.4.7': False,
-                        '6.4.8': False,
-                        '6.4.9': False,
-                        '6.4.10': False,
-                        '6.4.11': False,
-                        '6.4.12': False,
-                        '6.4.13': False,
-                        '7.0.1': False,
-                        '7.0.2': False,
-                        '7.0.3': True,
-                        '7.0.4': True,
-                        '7.0.5': True,
-                        '7.0.6': True,
-                        '7.0.7': True,
-                        '7.0.8': True,
-                        '7.0.9': True,
-                        '7.0.10': True,
-                        '7.2.0': True,
-                        '7.2.1': True,
-                        '7.2.2': True,
-                        '7.2.3': True,
-                        '7.2.4': True,
-                        '7.4.0': True,
-                        '7.4.1': True
-                    },
-                    'choices': [
-                        'disable',
-                        'enable'
-                    ],
-                    'type': 'str'
-                },
-                'url-category': {
-                    'required': False,
-                    'revision': {
-                        '6.2.0': False,
-                        '6.2.2': False,
-                        '6.2.6': False,
-                        '6.2.7': False,
-                        '6.2.8': False,
-                        '6.2.9': False,
-                        '6.2.10': False,
-                        '6.2.11': False,
-                        '6.2.12': False,
-                        '6.4.1': False,
-                        '6.4.3': False,
-                        '6.4.4': False,
-                        '6.4.6': False,
-                        '6.4.7': False,
-                        '6.4.8': False,
-                        '6.4.9': False,
-                        '6.4.10': False,
-                        '6.4.11': False,
-                        '6.4.12': False,
-                        '6.4.13': False,
-                        '7.0.1': False,
-                        '7.0.2': False,
-                        '7.0.3': True,
-                        '7.0.4': True,
-                        '7.0.5': True,
-                        '7.0.6': True,
-                        '7.0.7': True,
-                        '7.0.8': True,
-                        '7.0.9': True,
-                        '7.0.10': True,
-                        '7.2.0': True,
-                        '7.2.1': True,
-                        '7.2.2': True,
-                        '7.2.3': True,
-                        '7.2.4': True,
-                        '7.4.0': True,
-                        '7.4.1': True
-                    },
-                    'type': 'raw'
-                },
-                'users': {
-                    'required': False,
-                    'revision': {
-                        '6.2.0': False,
-                        '6.2.2': False,
-                        '6.2.6': False,
-                        '6.2.7': False,
-                        '6.2.8': False,
-                        '6.2.9': False,
-                        '6.2.10': False,
-                        '6.2.11': False,
-                        '6.2.12': False,
-                        '6.4.1': False,
-                        '6.4.3': False,
-                        '6.4.4': False,
-                        '6.4.6': False,
-                        '6.4.7': False,
-                        '6.4.8': False,
-                        '6.4.9': False,
-                        '6.4.10': False,
-                        '6.4.11': False,
-                        '6.4.12': False,
-                        '6.4.13': False,
-                        '7.0.1': False,
-                        '7.0.2': False,
-                        '7.0.3': True,
-                        '7.0.4': True,
-                        '7.0.5': True,
-                        '7.0.6': True,
-                        '7.0.7': True,
-                        '7.0.8': True,
-                        '7.0.9': True,
-                        '7.0.10': True,
-                        '7.2.0': True,
-                        '7.2.1': True,
-                        '7.2.2': True,
-                        '7.2.3': True,
-                        '7.2.4': True,
-                        '7.4.0': True,
-                        '7.4.1': True
-                    },
-                    'type': 'raw'
-                },
-                'utm-status': {
-                    'required': False,
-                    'revision': {
-                        '6.2.0': False,
-                        '6.2.2': False,
-                        '6.2.6': False,
-                        '6.2.7': False,
-                        '6.2.8': False,
-                        '6.2.9': False,
-                        '6.2.10': False,
-                        '6.2.11': False,
-                        '6.2.12': False,
-                        '6.4.1': False,
-                        '6.4.3': False,
-                        '6.4.4': False,
-                        '6.4.6': False,
-                        '6.4.7': False,
-                        '6.4.8': False,
-                        '6.4.9': False,
-                        '6.4.10': False,
-                        '6.4.11': False,
-                        '6.4.12': False,
-                        '6.4.13': False,
-                        '7.0.1': False,
-                        '7.0.2': False,
-                        '7.0.3': True,
-                        '7.0.4': True,
-                        '7.0.5': True,
-                        '7.0.6': True,
-                        '7.0.7': True,
-                        '7.0.8': True,
-                        '7.0.9': True,
-                        '7.0.10': True,
-                        '7.2.0': True,
-                        '7.2.1': True,
-                        '7.2.2': True,
-                        '7.2.3': True,
-                        '7.2.4': True,
-                        '7.4.0': True,
-                        '7.4.1': True
-                    },
-                    'choices': [
-                        'disable',
-                        'enable'
-                    ],
-                    'type': 'str'
-                },
-                'uuid': {
-                    'required': False,
-                    'revision': {
-                        '6.2.0': False,
-                        '6.2.2': False,
-                        '6.2.6': False,
-                        '6.2.7': False,
-                        '6.2.8': False,
-                        '6.2.9': False,
-                        '6.2.10': False,
-                        '6.2.11': False,
-                        '6.2.12': False,
-                        '6.4.1': False,
-                        '6.4.3': False,
-                        '6.4.4': False,
-                        '6.4.6': False,
-                        '6.4.7': False,
-                        '6.4.8': False,
-                        '6.4.9': False,
-                        '6.4.10': False,
-                        '6.4.11': False,
-                        '6.4.12': False,
-                        '6.4.13': False,
-                        '7.0.1': False,
-                        '7.0.2': False,
-                        '7.0.3': True,
-                        '7.0.4': True,
-                        '7.0.5': True,
-                        '7.0.6': True,
-                        '7.0.7': True,
-                        '7.0.8': True,
-                        '7.0.9': True,
-                        '7.0.10': True,
-                        '7.2.0': True,
-                        '7.2.1': True,
-                        '7.2.2': True,
-                        '7.2.3': True,
-                        '7.2.4': True,
-                        '7.4.0': True,
-                        '7.4.1': True
-                    },
-                    'type': 'str'
-                },
-                'videofilter-profile': {
-                    'required': False,
-                    'revision': {
-                        '6.2.0': False,
-                        '6.2.2': False,
-                        '6.2.6': False,
-                        '6.2.7': False,
-                        '6.2.8': False,
-                        '6.2.9': False,
-                        '6.2.10': False,
-                        '6.2.11': False,
-                        '6.2.12': False,
-                        '6.4.1': False,
-                        '6.4.3': False,
-                        '6.4.4': False,
-                        '6.4.6': False,
-                        '6.4.7': False,
-                        '6.4.8': False,
-                        '6.4.9': False,
-                        '6.4.10': False,
-                        '6.4.11': False,
-                        '6.4.12': False,
-                        '6.4.13': False,
-                        '7.0.1': False,
-                        '7.0.2': False,
-                        '7.0.3': True,
-                        '7.0.4': True,
-                        '7.0.5': True,
-                        '7.0.6': True,
-                        '7.0.7': True,
-                        '7.0.8': True,
-                        '7.0.9': True,
-                        '7.0.10': True,
-                        '7.2.0': True,
-                        '7.2.1': True,
-                        '7.2.2': True,
-                        '7.2.3': False,
-                        '7.2.4': True,
-                        '7.4.0': False,
-                        '7.4.1': False
-                    },
-                    'type': 'str'
-                },
-                'voip-profile': {
-                    'required': False,
-                    'revision': {
-                        '6.2.0': False,
-                        '6.2.2': False,
-                        '6.2.6': False,
-                        '6.2.7': False,
-                        '6.2.8': False,
-                        '6.2.9': False,
-                        '6.2.10': False,
-                        '6.2.11': False,
-                        '6.2.12': False,
-                        '6.4.1': False,
-                        '6.4.3': False,
-                        '6.4.4': False,
-                        '6.4.6': False,
-                        '6.4.7': False,
-                        '6.4.8': False,
-                        '6.4.9': False,
-                        '6.4.10': False,
-                        '6.4.11': False,
-                        '6.4.12': False,
-                        '6.4.13': False,
-                        '7.0.1': False,
-                        '7.0.2': False,
-                        '7.0.3': True,
-                        '7.0.4': True,
-                        '7.0.5': True,
-                        '7.0.6': True,
-                        '7.0.7': True,
-                        '7.0.8': True,
-                        '7.0.9': True,
-                        '7.0.10': True,
-                        '7.2.0': True,
-                        '7.2.1': True,
-                        '7.2.2': True,
-                        '7.2.3': True,
-                        '7.2.4': True,
-                        '7.4.0': True,
-                        '7.4.1': True
-                    },
-                    'type': 'str'
-                },
-                'webfilter-profile': {
-                    'required': False,
-                    'revision': {
-                        '6.2.0': False,
-                        '6.2.2': False,
-                        '6.2.6': False,
-                        '6.2.7': False,
-                        '6.2.8': False,
-                        '6.2.9': False,
-                        '6.2.10': False,
-                        '6.2.11': False,
-                        '6.2.12': False,
-                        '6.4.1': False,
-                        '6.4.3': False,
-                        '6.4.4': False,
-                        '6.4.6': False,
-                        '6.4.7': False,
-                        '6.4.8': False,
-                        '6.4.9': False,
-                        '6.4.10': False,
-                        '6.4.11': False,
-                        '6.4.12': False,
-                        '6.4.13': False,
-                        '7.0.1': False,
-                        '7.0.2': False,
-                        '7.0.3': True,
-                        '7.0.4': True,
-                        '7.0.5': True,
-                        '7.0.6': True,
-                        '7.0.7': True,
-                        '7.0.8': True,
-                        '7.0.9': True,
-                        '7.0.10': True,
-                        '7.2.0': True,
-                        '7.2.1': True,
-                        '7.2.2': True,
-                        '7.2.3': True,
-                        '7.2.4': True,
-                        '7.4.0': True,
-                        '7.4.1': True
-                    },
-                    'type': 'str'
-                },
-                'dlp-sensor': {
-                    'required': False,
-                    'revision': {
-                        '6.2.0': False,
-                        '6.2.2': False,
-                        '6.2.6': False,
-                        '6.2.7': False,
-                        '6.2.8': False,
-                        '6.2.9': False,
-                        '6.2.10': False,
-                        '6.2.11': False,
-                        '6.2.12': False,
-                        '6.4.1': False,
-                        '6.4.3': False,
-                        '6.4.4': False,
-                        '6.4.6': False,
-                        '6.4.7': False,
-                        '6.4.8': False,
-                        '6.4.9': False,
-                        '6.4.10': False,
-                        '6.4.11': False,
-                        '6.4.12': False,
-                        '6.4.13': False,
-                        '7.0.1': False,
-                        '7.0.2': False,
-                        '7.0.3': True,
-                        '7.0.4': True,
-                        '7.0.5': True,
-                        '7.0.6': True,
-                        '7.0.7': True,
-                        '7.0.8': True,
-                        '7.0.9': True,
-                        '7.0.10': True,
-                        '7.2.0': True,
-                        '7.2.1': True,
-                        '7.2.2': True,
-                        '7.2.3': True,
-                        '7.2.4': True,
-                        '7.4.0': True,
-                        '7.4.1': True
-                    },
-                    'type': 'str'
-                },
-                'mms-profile': {
-                    'required': False,
-                    'revision': {
-                        '6.2.0': False,
-                        '6.2.2': False,
-                        '6.2.6': False,
-                        '6.2.7': False,
-                        '6.2.8': False,
-                        '6.2.9': False,
-                        '6.2.10': False,
-                        '6.2.11': False,
-                        '6.2.12': False,
-                        '6.4.1': False,
-                        '6.4.3': False,
-                        '6.4.4': False,
-                        '6.4.6': False,
-                        '6.4.7': False,
-                        '6.4.8': False,
-                        '6.4.9': False,
-                        '6.4.10': False,
-                        '6.4.11': False,
-                        '6.4.12': False,
-                        '6.4.13': False,
-                        '7.0.1': False,
-                        '7.0.2': False,
-                        '7.0.3': True,
-                        '7.0.4': True,
-                        '7.0.5': True,
-                        '7.0.6': True,
-                        '7.0.7': True,
-                        '7.0.8': True,
-                        '7.0.9': True,
-                        '7.0.10': True,
-                        '7.2.0': True,
-                        '7.2.1': False,
-                        '7.2.2': False,
-                        '7.2.3': False,
-                        '7.2.4': False,
-                        '7.4.0': False,
-                        '7.4.1': False
-                    },
-                    'type': 'str'
-                },
-                'internet-service-id': {
-                    'required': False,
-                    'revision': {
-                        '6.2.0': False,
-                        '6.2.2': False,
-                        '6.2.6': False,
-                        '6.2.7': False,
-                        '6.2.8': False,
-                        '6.2.9': False,
-                        '6.2.10': False,
-                        '6.2.11': False,
-                        '6.2.12': False,
-                        '6.4.1': False,
-                        '6.4.3': False,
-                        '6.4.4': False,
-                        '6.4.6': False,
-                        '6.4.7': False,
-                        '6.4.8': False,
-                        '6.4.9': False,
-                        '6.4.10': False,
-                        '6.4.11': False,
-                        '6.4.12': False,
-                        '6.4.13': False,
-                        '7.0.1': False,
-                        '7.0.2': False,
-                        '7.0.3': True,
-                        '7.0.4': True,
-                        '7.0.5': True,
-                        '7.0.6': True,
-                        '7.0.7': True,
-                        '7.0.8': True,
-                        '7.0.9': True,
-                        '7.0.10': True,
-                        '7.2.0': True,
-                        '7.2.1': True,
-                        '7.2.2': True,
-                        '7.2.3': True,
-                        '7.2.4': True,
-                        '7.4.0': True,
-                        '7.4.1': True
-                    },
-                    'type': 'raw'
-                },
-                'logtraffic-start': {
-                    'required': False,
-                    'revision': {
-                        '6.2.0': False,
-                        '6.2.2': False,
-                        '6.2.6': False,
-                        '6.2.7': False,
-                        '6.2.8': False,
-                        '6.2.9': False,
-                        '6.2.10': False,
-                        '6.2.11': False,
-                        '6.2.12': False,
-                        '6.4.1': False,
-                        '6.4.3': False,
-                        '6.4.4': False,
-                        '6.4.6': False,
-                        '6.4.7': False,
-                        '6.4.8': False,
-                        '6.4.9': False,
-                        '6.4.10': False,
-                        '6.4.11': False,
-                        '6.4.12': False,
-                        '6.4.13': False,
-                        '7.0.1': False,
-                        '7.0.2': False,
-                        '7.0.3': True,
-                        '7.0.4': True,
-                        '7.0.5': True,
-                        '7.0.6': True,
-                        '7.0.7': True,
-                        '7.0.8': True,
-                        '7.0.9': True,
-                        '7.0.10': True,
-                        '7.2.0': True,
-                        '7.2.1': True,
-                        '7.2.2': True,
-                        '7.2.3': True,
-                        '7.2.4': True,
-                        '7.4.0': True,
-                        '7.4.1': True
-                    },
-                    'choices': [
-                        'disable',
-                        'enable'
-                    ],
-                    'type': 'str'
-                },
-                'srcaddr4': {
-                    'required': False,
-                    'revision': {
-                        '6.2.0': False,
-                        '6.2.2': False,
-                        '6.2.6': False,
-                        '6.2.7': False,
-                        '6.2.8': False,
-                        '6.2.9': False,
-                        '6.2.10': False,
-                        '6.2.11': False,
-                        '6.2.12': False,
-                        '6.4.1': False,
-                        '6.4.3': False,
-                        '6.4.4': False,
-                        '6.4.6': False,
-                        '6.4.7': False,
-                        '6.4.8': False,
-                        '6.4.9': False,
-                        '6.4.10': False,
-                        '6.4.11': False,
-                        '6.4.12': False,
-                        '6.4.13': False,
-                        '7.0.1': False,
-                        '7.0.2': False,
-                        '7.0.3': True,
-                        '7.0.4': True,
-                        '7.0.5': True,
-                        '7.0.6': True,
-                        '7.0.7': True,
-                        '7.0.8': True,
-                        '7.0.9': True,
-                        '7.0.10': True,
-                        '7.2.0': True,
-                        '7.2.1': True,
-                        '7.2.2': True,
-                        '7.2.3': True,
-                        '7.2.4': True,
-                        '7.4.0': True,
-                        '7.4.1': True
-                    },
-                    'type': 'raw'
-                },
-                'dstaddr4': {
-                    'required': False,
-                    'revision': {
-                        '6.2.0': False,
-                        '6.2.2': False,
-                        '6.2.6': False,
-                        '6.2.7': False,
-                        '6.2.8': False,
-                        '6.2.9': False,
-                        '6.2.10': False,
-                        '6.2.11': False,
-                        '6.2.12': False,
-                        '6.4.1': False,
-                        '6.4.3': False,
-                        '6.4.4': False,
-                        '6.4.6': False,
-                        '6.4.7': False,
-                        '6.4.8': False,
-                        '6.4.9': False,
-                        '6.4.10': False,
-                        '6.4.11': False,
-                        '6.4.12': False,
-                        '6.4.13': False,
-                        '7.0.1': False,
-                        '7.0.2': False,
-                        '7.0.3': True,
-                        '7.0.4': True,
-                        '7.0.5': True,
-                        '7.0.6': True,
-                        '7.0.7': True,
-                        '7.0.8': True,
-                        '7.0.9': True,
-                        '7.0.10': True,
-                        '7.2.0': True,
-                        '7.2.1': True,
-                        '7.2.2': True,
-                        '7.2.3': True,
-                        '7.2.4': True,
-                        '7.4.0': True,
-                        '7.4.1': True
-                    },
-                    'type': 'raw'
-                },
-                'internet-service-src-id': {
-                    'required': False,
-                    'revision': {
-                        '6.2.0': False,
-                        '6.2.2': False,
-                        '6.2.6': False,
-                        '6.2.7': False,
-                        '6.2.8': False,
-                        '6.2.9': False,
-                        '6.2.10': False,
-                        '6.2.11': False,
-                        '6.2.12': False,
-                        '6.4.1': False,
-                        '6.4.3': False,
-                        '6.4.4': False,
-                        '6.4.6': False,
-                        '6.4.7': False,
-                        '6.4.8': False,
-                        '6.4.9': False,
-                        '6.4.10': False,
-                        '6.4.11': False,
-                        '6.4.12': False,
-                        '6.4.13': False,
-                        '7.0.1': False,
-                        '7.0.2': False,
-                        '7.0.3': True,
-                        '7.0.4': True,
-                        '7.0.5': True,
-                        '7.0.6': True,
-                        '7.0.7': True,
-                        '7.0.8': True,
-                        '7.0.9': True,
-                        '7.0.10': True,
-                        '7.2.0': True,
-                        '7.2.1': True,
-                        '7.2.2': True,
-                        '7.2.3': True,
-                        '7.2.4': True,
-                        '7.4.0': True,
-                        '7.4.1': True
-                    },
-                    'type': 'raw'
-                },
-                'internet-service6': {
-                    'required': False,
-                    'revision': {
-                        '7.2.1': True,
-                        '7.2.2': False,
-                        '7.2.3': False,
-                        '7.2.4': True,
-                        '7.4.0': False,
-                        '7.4.1': False
-                    },
-                    'choices': [
-                        'disable',
-                        'enable'
-                    ],
-                    'type': 'str'
-                },
-                'internet-service6-custom': {
-                    'required': False,
-                    'revision': {
-                        '7.2.1': True,
-                        '7.2.2': False,
-                        '7.2.3': False,
-                        '7.2.4': True,
-                        '7.4.0': False,
-                        '7.4.1': False
-                    },
-                    'type': 'raw'
-                },
-                'internet-service6-custom-group': {
-                    'required': False,
-                    'revision': {
-                        '7.2.1': True,
-                        '7.2.2': False,
-                        '7.2.3': False,
-                        '7.2.4': True,
-                        '7.4.0': False,
-                        '7.4.1': False
-                    },
-                    'type': 'raw'
-                },
-                'internet-service6-group': {
-                    'required': False,
-                    'revision': {
-                        '7.2.1': True,
-                        '7.2.2': False,
-                        '7.2.3': False,
-                        '7.2.4': True,
-                        '7.4.0': False,
-                        '7.4.1': False
-                    },
-                    'type': 'raw'
-                },
-                'internet-service6-name': {
-                    'required': False,
-                    'revision': {
-                        '7.2.1': True,
-                        '7.2.2': False,
-                        '7.2.3': False,
-                        '7.2.4': True,
-                        '7.4.0': False,
-                        '7.4.1': False
-                    },
-                    'type': 'raw'
-                },
+                '_policy_block': {'v_range': [['7.0.3', '']], 'type': 'int'},
+                'action': {'v_range': [['7.0.3', '']], 'choices': ['deny', 'accept'], 'type': 'str'},
+                'app-category': {'v_range': [['7.0.3', '']], 'type': 'raw'},
+                'app-group': {'v_range': [['7.0.3', '']], 'type': 'raw'},
+                'application': {'v_range': [['7.0.3', '']], 'type': 'raw'},
+                'application-list': {'v_range': [['7.0.3', '']], 'type': 'str'},
+                'av-profile': {'v_range': [['7.0.3', '']], 'type': 'str'},
+                'cifs-profile': {'v_range': [['7.0.3', '']], 'type': 'str'},
+                'comments': {'v_range': [['7.0.3', '']], 'type': 'str'},
+                'dlp-profile': {'v_range': [['7.2.0', '7.2.1'], ['7.2.4', '7.2.4'], ['7.4.2', '']], 'type': 'str'},
+                'dnsfilter-profile': {'v_range': [['7.0.3', '']], 'type': 'str'},
+                'dstaddr': {'v_range': [['7.0.3', '7.2.2'], ['7.2.4', '7.2.4'], ['7.4.2', '']], 'type': 'raw'},
+                'dstaddr-negate': {'v_range': [['7.0.3', '7.2.2'], ['7.2.4', '7.2.4'], ['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'dstaddr6': {'v_range': [['7.0.3', '']], 'type': 'raw'},
+                'dstintf': {'v_range': [['7.0.3', '']], 'type': 'raw'},
+                'emailfilter-profile': {'v_range': [['7.0.3', '']], 'type': 'str'},
+                'enforce-default-app-port': {'v_range': [['7.0.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'file-filter-profile': {'v_range': [['7.0.3', '7.2.2'], ['7.2.4', '7.2.4'], ['7.4.2', '']], 'type': 'str'},
+                'fsso-groups': {'v_range': [['7.0.3', '']], 'type': 'raw'},
+                'global-label': {'v_range': [['7.0.3', '']], 'type': 'str'},
+                'groups': {'v_range': [['7.0.3', '']], 'type': 'raw'},
+                'icap-profile': {'v_range': [['7.0.3', '']], 'type': 'str'},
+                'internet-service': {'v_range': [['7.0.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'internet-service-custom': {'v_range': [['7.0.3', '']], 'type': 'raw'},
+                'internet-service-custom-group': {'v_range': [['7.0.3', '']], 'type': 'raw'},
+                'internet-service-group': {'v_range': [['7.0.3', '']], 'type': 'raw'},
+                'internet-service-name': {'v_range': [['7.0.3', '7.2.2'], ['7.2.4', '7.2.4'], ['7.4.2', '']], 'type': 'raw'},
+                'internet-service-negate': {'v_range': [['7.0.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'internet-service-src': {'v_range': [['7.0.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'internet-service-src-custom': {'v_range': [['7.0.3', '']], 'type': 'raw'},
+                'internet-service-src-custom-group': {'v_range': [['7.0.3', '']], 'type': 'raw'},
+                'internet-service-src-group': {'v_range': [['7.0.3', '']], 'type': 'raw'},
+                'internet-service-src-name': {'v_range': [['7.0.3', '7.2.2'], ['7.2.4', '7.2.4'], ['7.4.2', '']], 'type': 'raw'},
+                'internet-service-src-negate': {'v_range': [['7.0.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'ips-sensor': {'v_range': [['7.0.3', '']], 'type': 'str'},
+                'learning-mode': {'v_range': [['7.0.3', '7.2.2'], ['7.2.4', '7.2.4'], ['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'logtraffic': {'v_range': [['7.0.3', '']], 'choices': ['disable', 'all', 'utm'], 'type': 'str'},
+                'name': {'v_range': [['7.0.3', '']], 'type': 'str'},
+                'nat46': {'v_range': [['7.0.3', '7.2.1'], ['7.2.4', '7.2.4'], ['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'nat64': {'v_range': [['7.0.3', '7.2.1'], ['7.2.4', '7.2.4'], ['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'policyid': {'v_range': [['7.0.3', '']], 'required': True, 'type': 'int'},
+                'profile-group': {'v_range': [['7.0.3', '']], 'type': 'str'},
+                'profile-protocol-options': {'v_range': [['7.0.3', '7.2.2'], ['7.2.4', '7.2.4'], ['7.4.2', '']], 'type': 'str'},
+                'profile-type': {'v_range': [['7.0.3', '']], 'choices': ['single', 'group'], 'type': 'str'},
+                'schedule': {'v_range': [['7.0.3', '']], 'type': 'str'},
+                'sctp-filter-profile': {'v_range': [['7.0.3', '7.2.2'], ['7.2.4', '7.2.4'], ['7.4.2', '']], 'type': 'str'},
+                'send-deny-packet': {'v_range': [['7.0.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'service': {'v_range': [['7.0.3', '']], 'type': 'raw'},
+                'service-negate': {'v_range': [['7.0.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'srcaddr': {'v_range': [['7.0.3', '7.2.2'], ['7.2.4', '7.2.4'], ['7.4.2', '']], 'type': 'raw'},
+                'srcaddr-negate': {'v_range': [['7.0.3', '7.2.2'], ['7.2.4', '7.2.4'], ['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'srcaddr6': {'v_range': [['7.0.3', '']], 'type': 'raw'},
+                'srcintf': {'v_range': [['7.0.3', '']], 'type': 'raw'},
+                'ssh-filter-profile': {'v_range': [['7.0.3', '']], 'type': 'str'},
+                'ssl-ssh-profile': {'v_range': [['7.0.3', '7.2.2'], ['7.2.4', '7.2.4'], ['7.4.2', '']], 'type': 'str'},
+                'status': {'v_range': [['7.0.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'url-category': {'v_range': [['7.0.3', '']], 'type': 'raw'},
+                'users': {'v_range': [['7.0.3', '']], 'type': 'raw'},
+                'utm-status': {'v_range': [['7.0.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'uuid': {'v_range': [['7.0.3', '']], 'type': 'str'},
+                'videofilter-profile': {'v_range': [['7.0.3', '7.2.2'], ['7.2.4', '7.2.4'], ['7.4.2', '']], 'type': 'str'},
+                'voip-profile': {'v_range': [['7.0.3', '']], 'type': 'str'},
+                'webfilter-profile': {'v_range': [['7.0.3', '']], 'type': 'str'},
+                'dlp-sensor': {'v_range': [['7.0.3', '']], 'type': 'str'},
+                'mms-profile': {'v_range': [['7.0.3', '7.2.0']], 'type': 'str'},
+                'internet-service-id': {'v_range': [['7.0.3', '']], 'type': 'raw'},
+                'logtraffic-start': {'v_range': [['7.0.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'srcaddr4': {'v_range': [['7.0.3', '']], 'type': 'raw'},
+                'dstaddr4': {'v_range': [['7.0.3', '']], 'type': 'raw'},
+                'internet-service-src-id': {'v_range': [['7.0.3', '']], 'type': 'raw'},
+                'internet-service6': {'v_range': [['7.2.1', '7.2.1'], ['7.2.4', '7.2.4'], ['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'internet-service6-custom': {'v_range': [['7.2.1', '7.2.1'], ['7.2.4', '7.2.4'], ['7.4.2', '']], 'type': 'raw'},
+                'internet-service6-custom-group': {'v_range': [['7.2.1', '7.2.1'], ['7.2.4', '7.2.4'], ['7.4.2', '']], 'type': 'raw'},
+                'internet-service6-group': {'v_range': [['7.2.1', '7.2.1'], ['7.2.4', '7.2.4'], ['7.4.2', '']], 'type': 'raw'},
+                'internet-service6-name': {'v_range': [['7.2.1', '7.2.1'], ['7.2.4', '7.2.4'], ['7.4.2', '']], 'type': 'raw'},
                 'internet-service6-negate': {
-                    'required': False,
-                    'revision': {
-                        '7.2.1': True,
-                        '7.2.2': False,
-                        '7.2.3': False,
-                        '7.2.4': True,
-                        '7.4.0': False,
-                        '7.4.1': False
-                    },
-                    'choices': [
-                        'disable',
-                        'enable'
-                    ],
+                    'v_range': [['7.2.1', '7.2.1'], ['7.2.4', '7.2.4'], ['7.4.2', '']],
+                    'choices': ['disable', 'enable'],
                     'type': 'str'
                 },
                 'internet-service6-src': {
-                    'required': False,
-                    'revision': {
-                        '7.2.1': True,
-                        '7.2.2': False,
-                        '7.2.3': False,
-                        '7.2.4': True,
-                        '7.4.0': False,
-                        '7.4.1': False
-                    },
-                    'choices': [
-                        'disable',
-                        'enable'
-                    ],
+                    'v_range': [['7.2.1', '7.2.1'], ['7.2.4', '7.2.4'], ['7.4.2', '']],
+                    'choices': ['disable', 'enable'],
                     'type': 'str'
                 },
-                'internet-service6-src-custom': {
-                    'required': False,
-                    'revision': {
-                        '7.2.1': True,
-                        '7.2.2': False,
-                        '7.2.3': False,
-                        '7.2.4': True,
-                        '7.4.0': False,
-                        '7.4.1': False
-                    },
-                    'type': 'raw'
-                },
-                'internet-service6-src-custom-group': {
-                    'required': False,
-                    'revision': {
-                        '7.2.1': True,
-                        '7.2.2': False,
-                        '7.2.3': False,
-                        '7.2.4': True,
-                        '7.4.0': False,
-                        '7.4.1': False
-                    },
-                    'type': 'raw'
-                },
-                'internet-service6-src-group': {
-                    'required': False,
-                    'revision': {
-                        '7.2.1': True,
-                        '7.2.2': False,
-                        '7.2.3': False,
-                        '7.2.4': True,
-                        '7.4.0': False,
-                        '7.4.1': False
-                    },
-                    'type': 'raw'
-                },
-                'internet-service6-src-name': {
-                    'required': False,
-                    'revision': {
-                        '7.2.1': True,
-                        '7.2.2': False,
-                        '7.2.3': False,
-                        '7.2.4': True,
-                        '7.4.0': False,
-                        '7.4.1': False
-                    },
-                    'type': 'raw'
-                },
+                'internet-service6-src-custom': {'v_range': [['7.2.1', '7.2.1'], ['7.2.4', '7.2.4'], ['7.4.2', '']], 'type': 'raw'},
+                'internet-service6-src-custom-group': {'v_range': [['7.2.1', '7.2.1'], ['7.2.4', '7.2.4'], ['7.4.2', '']], 'type': 'raw'},
+                'internet-service6-src-group': {'v_range': [['7.2.1', '7.2.1'], ['7.2.4', '7.2.4'], ['7.4.2', '']], 'type': 'raw'},
+                'internet-service6-src-name': {'v_range': [['7.2.1', '7.2.1'], ['7.2.4', '7.2.4'], ['7.4.2', '']], 'type': 'raw'},
                 'internet-service6-src-negate': {
-                    'required': False,
-                    'revision': {
-                        '7.2.1': True,
-                        '7.2.2': False,
-                        '7.2.3': False,
-                        '7.2.4': True,
-                        '7.4.0': False,
-                        '7.4.1': False
-                    },
-                    'choices': [
-                        'disable',
-                        'enable'
-                    ],
+                    'v_range': [['7.2.1', '7.2.1'], ['7.2.4', '7.2.4'], ['7.4.2', '']],
+                    'choices': ['disable', 'enable'],
                     'type': 'str'
-                }
+                },
+                'casb-profile': {'v_range': [['7.4.2', '']], 'type': 'str'},
+                'diameter-filter-profile': {'v_range': [['7.4.2', '']], 'type': 'str'},
+                'dstaddr6-negate': {'v_range': [['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'ips-voip-filter': {'v_range': [['7.4.2', '']], 'type': 'str'},
+                'srcaddr6-negate': {'v_range': [['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'virtual-patch-profile': {'v_range': [['7.4.2', '']], 'type': 'str'}
             }
 
         }
     }
 
+    module_option_spec = get_module_arg_spec('full crud')
+    module_arg_spec.update(module_option_spec)
     params_validation_blob = []
     check_galaxy_version(module_arg_spec)
     module = AnsibleModule(argument_spec=check_parameter_bypass(module_arg_spec, 'pm_config_pblock_firewall_securitypolicy'),
                            supports_check_mode=False)
 
-    fmgr = None
-    if module._socket_path:
-        connection = Connection(module._socket_path)
-        connection.set_option('access_token', module.params['access_token'] if 'access_token' in module.params else None)
-        connection.set_option('enable_log', module.params['enable_log'] if 'enable_log' in module.params else False)
-        connection.set_option('forticloud_access_token',
-                              module.params['forticloud_access_token'] if 'forticloud_access_token' in module.params else None)
-        fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
-        fmgr.validate_parameters(params_validation_blob)
-        fmgr.process_curd(argument_specs=module_arg_spec)
-    else:
+    if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
+    connection = Connection(module._socket_path)
+    connection.set_option('access_token', module.params.get('access_token', None))
+    connection.set_option('enable_log', module.params.get('enable_log', False))
+    connection.set_option('forticloud_access_token', module.params.get('forticloud_access_token', None))
+    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr.validate_parameters(params_validation_blob)
+    fmgr.process_curd(argument_specs=module_arg_spec)
+
     module.exit_json(meta=module.params)
 
 

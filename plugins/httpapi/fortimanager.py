@@ -189,11 +189,10 @@ class HttpApi(HttpApiBase):
             "log out, using workspace:%s user: %s sid: %s"
             % (self._uses_workspace, self._logged_in_user, self.sid)
         )
+        # IF WE WERE USING WORKSPACES, THEN CLEAN UP OUR LOCKS IF THEY STILL EXIST
+        if self._uses_workspace:
+            self.run_unlock()
         if self.sid:
-            # IF WE WERE USING WORKSPACES, THEN CLEAN UP OUR LOCKS IF THEY STILL EXIST
-            if self._uses_workspace:
-                # self.get_lock_info()
-                self.run_unlock()
             rc, response = self.send_request("exec", self._tools.format_request("exec", "sys/logout"))
             self.sid = None
             return rc, response
@@ -401,7 +400,7 @@ class HttpApi(HttpApiBase):
                 self.unlock_adom(adom_locked)
                 self.log("unlock adom: %s with session_id:%s" % (adom_locked, self.sid))
 
-    def lock_adom(self, adom=None, *args, **kwargs):
+    def lock_adom(self, adom=None):
         """
         Locks an ADOM for changes
         """
@@ -417,7 +416,7 @@ class HttpApi(HttpApiBase):
             self.add_adom_to_lock_list(adom)
         return code, respobj
 
-    def unlock_adom(self, adom=None, *args, **kwargs):
+    def unlock_adom(self, adom=None):
         """
         Unlocks an ADOM after changes
         """
@@ -433,7 +432,7 @@ class HttpApi(HttpApiBase):
             self.remove_adom_from_lock_list(adom)
         return code, respobj
 
-    def commit_changes(self, adom=None, aux=False, *args, **kwargs):
+    def commit_changes(self, adom=None, aux=False):
         """
         Commits changes to an ADOM
         """

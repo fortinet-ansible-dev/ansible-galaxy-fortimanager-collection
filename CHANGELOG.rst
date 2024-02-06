@@ -5,6 +5,56 @@ Fortinet.Fortimanager Release Notes
 .. contents:: Topics
 
 
+v2.4.0
+======
+
+Release Summary
+---------------
+
+release fortinet.fortimanager 2.4.0
+
+Minor Changes
+-------------
+
+- Added deprecated warning to invalid argument name, please change the invalid argument name such as "var-name", "var name" to "var_name".
+- Supported fortimanager 7.4.2, 21 new modules.
+
+Bugfixes
+--------
+
+- Changed revision to v_range to reduce the size of the code.
+- Fixed the behavior of module fmgr_firewall_internetservicecustom.
+- Fixed the behavior of some modules that contain the argument policyid.
+- Improved example ansible playbooks.
+- Improved the logic of fmgr_fact, fmgr_clone, fmgr_rename, fmgr_move. Usage remains unchanged.
+- Reduced the size of module_arg_spec in each module.
+- Removed most of the sanity test ignores.
+
+New Modules
+-----------
+
+- fortinet.fortimanager.fmgr_diameterfilter_profile - Configure Diameter filter profiles.
+- fortinet.fortimanager.fmgr_firewall_accessproxysshclientcert - Configure Access Proxy SSH client certificate.
+- fortinet.fortimanager.fmgr_firewall_accessproxysshclientcert_certextension - Configure certificate extension for user certificate.
+- fortinet.fortimanager.fmgr_firewall_vip6_quic - QUIC setting.
+- fortinet.fortimanager.fmgr_firewall_vip_gslbpublicips - Publicly accessible IP addresses for the FortiGSLB service.
+- fortinet.fortimanager.fmgr_sctpfilter_profile - Configure SCTP filter profiles.
+- fortinet.fortimanager.fmgr_sctpfilter_profile_ppidfilters - PPID filters list.
+- fortinet.fortimanager.fmgr_switchcontroller_managedswitch_vlan - Configure VLAN assignment priority.
+- fortinet.fortimanager.fmgr_system_admin_profile_writepasswdprofiles - Profile list.
+- fortinet.fortimanager.fmgr_system_admin_profile_writepasswduserlist - User list.
+- fortinet.fortimanager.fmgr_system_npu_nputcam - Configure NPU TCAM policies.
+- fortinet.fortimanager.fmgr_system_npu_nputcam_data - Data fields of TCAM.
+- fortinet.fortimanager.fmgr_system_npu_nputcam_mask - Mask fields of TCAM.
+- fortinet.fortimanager.fmgr_system_npu_nputcam_miract - Mirror action of TCAM.
+- fortinet.fortimanager.fmgr_system_npu_nputcam_priact - Priority action of TCAM.
+- fortinet.fortimanager.fmgr_system_npu_nputcam_sact - Source action of TCAM.
+- fortinet.fortimanager.fmgr_system_npu_nputcam_tact - Target action of TCAM.
+- fortinet.fortimanager.fmgr_videofilter_keyword - Configure video filter keywords.
+- fortinet.fortimanager.fmgr_videofilter_keyword_word - List of keywords.
+- fortinet.fortimanager.fmgr_videofilter_profile_filters - YouTube filter entries.
+- fortinet.fortimanager.fmgr_videofilter_youtubekey - Configure YouTube API keys.
+
 v2.3.1
 ======
 

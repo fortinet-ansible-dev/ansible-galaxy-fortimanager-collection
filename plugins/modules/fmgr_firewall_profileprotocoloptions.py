@@ -1,19 +1,7 @@
 #!/usr/bin/python
 from __future__ import absolute_import, division, print_function
-# Copyright 2019-2023 Fortinet, Inc.
-#
-# This program is free software: you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation, either version 3 of the License, or
-# (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program.  If not, see <https://www.gnu.org/licenses/>.
+# Copyright 2019-2024 Fortinet, Inc.
+# GNU General Public License v3.0+ (see COPYING or https://www.gnu.org/licenses/gpl-3.0.txt)
 
 __metaclass__ = type
 
@@ -38,35 +26,33 @@ author:
     - Frank Shen (@fshen01)
     - Hongbin Lu (@fgtdev-hblu)
 notes:
+    - Starting in version 2.4.0, all input arguments are named using the underscore naming convention (snake_case).
+      Please change the arguments such as "var-name" to "var_name".
+      Old argument names are still available yet you will receive deprecation warnings.
+      You can ignore this warning by setting deprecation_warnings=False in ansible.cfg.
     - Running in workspace locking mode is supported in this FortiManager module, the top
       level parameters workspace_locking_adom and workspace_locking_timeout help do the work.
     - To create or update an object, use state present directive.
     - To delete an object, use state absent directive.
     - Normally, running one module can fail when a non-zero rc is returned. you can also override
       the conditions to fail or succeed with parameters rc_failed and rc_succeeded
-
 options:
     access_token:
         description: The token to access FortiManager without using username and password.
-        required: false
         type: str
     bypass_validation:
         description: Only set to True when module schema diffs with FortiManager API structure, module continues to execute without validating parameters.
-        required: false
         type: bool
         default: false
     enable_log:
         description: Enable/Disable logging for task.
-        required: false
         type: bool
         default: false
     forticloud_access_token:
         description: Authenticate Ansible client with forticloud API access token.
-        required: false
         type: str
     proposed_method:
         description: The overridden method for the underlying Json RPC request.
-        required: false
         type: str
         choices:
           - update
@@ -75,12 +61,10 @@ options:
     rc_succeeded:
         description: The rc codes list with which the conditions to succeed will be overriden.
         type: list
-        required: false
         elements: int
     rc_failed:
         description: The rc codes list with which the conditions to fail will be overriden.
         type: list
-        required: false
         elements: int
     state:
         description: The directive to create, update or delete an object.
@@ -91,19 +75,17 @@ options:
           - absent
     workspace_locking_adom:
         description: The adom to lock for FortiManager running in workspace mode, the value can be global and others including root.
-        required: false
         type: str
     workspace_locking_timeout:
         description: The maximum time in seconds to wait for other user to release the workspace lock.
-        required: false
         type: int
         default: 300
     adom:
-        description: the parameter (adom) in requested url
+        description: The parameter (adom) in requested url.
         type: str
         required: true
     firewall_profileprotocoloptions:
-        description: the top level parameters set
+        description: The top level parameters set.
         required: false
         type: dict
         suboptions:
@@ -116,41 +98,41 @@ options:
                 required: true
             oversize-log:
                 type: str
-                description: Enable/disable logging for antivirus oversize file blocking.
+                description: Deprecated, please rename it to oversize_log. Enable/disable logging for antivirus oversize file blocking.
                 choices:
                     - 'disable'
                     - 'enable'
             replacemsg-group:
                 type: str
-                description: Name of the replacement message group to be used
+                description: Deprecated, please rename it to replacemsg_group. Name of the replacement message group to be used
             rpc-over-http:
                 type: str
-                description: Enable/disable inspection of RPC over HTTP.
+                description: Deprecated, please rename it to rpc_over_http. Enable/disable inspection of RPC over HTTP.
                 choices:
                     - 'disable'
                     - 'enable'
             switching-protocols-log:
                 type: str
-                description: Enable/disable logging for HTTP/HTTPS switching protocols.
+                description: Deprecated, please rename it to switching_protocols_log. Enable/disable logging for HTTP/HTTPS switching protocols.
                 choices:
                     - 'disable'
                     - 'enable'
             feature-set:
                 type: str
-                description: Flow/proxy feature set.
+                description: Deprecated, please rename it to feature_set. Flow/proxy feature set.
                 choices:
                     - 'proxy'
                     - 'flow'
             cifs:
                 type: dict
-                description: no description
+                description: No description.
                 suboptions:
                     domain-controller:
                         type: str
-                        description: Domain for which to decrypt CIFS traffic.
+                        description: Deprecated, please rename it to domain_controller. Domain for which to decrypt CIFS traffic.
                     file-filter:
                         type: dict
-                        description: no description
+                        description: Deprecated, please rename it to file_filter.
                         suboptions:
                             entries:
                                 type: list
@@ -175,7 +157,7 @@ options:
                                             - 'outgoing'
                                     file-type:
                                         type: raw
-                                        description: (list) Select file type.
+                                        description: (list) Deprecated, please rename it to file_type. Select file type.
                                     filter:
                                         type: str
                                         description: Add a file filter.
@@ -205,19 +187,19 @@ options:
                             - 'oversize'
                     oversize-limit:
                         type: int
-                        description: Maximum in-memory file size that can be scanned
+                        description: Deprecated, please rename it to oversize_limit. Maximum in-memory file size that can be scanned
                     ports:
                         type: raw
                         description: (list) Ports to scan for content
                     scan-bzip2:
                         type: str
-                        description: Enable/disable scanning of BZip2 compressed files.
+                        description: Deprecated, please rename it to scan_bzip2. Enable/disable scanning of BZip2 compressed files.
                         choices:
                             - 'disable'
                             - 'enable'
                     server-credential-type:
                         type: str
-                        description: CIFS server credential type.
+                        description: Deprecated, please rename it to server_credential_type. CIFS server credential type.
                         choices:
                             - 'none'
                             - 'credential-replication'
@@ -225,7 +207,7 @@ options:
                     server-keytab:
                         type: list
                         elements: dict
-                        description: Server-Keytab.
+                        description: Deprecated, please rename it to server_keytab. Server-Keytab.
                         suboptions:
                             keytab:
                                 type: str
@@ -244,16 +226,16 @@ options:
                             - 'enable'
                     tcp-window-maximum:
                         type: int
-                        description: Maximum dynamic TCP window size
+                        description: Deprecated, please rename it to tcp_window_maximum. Maximum dynamic TCP window size
                     tcp-window-minimum:
                         type: int
-                        description: Minimum dynamic TCP window size
+                        description: Deprecated, please rename it to tcp_window_minimum. Minimum dynamic TCP window size
                     tcp-window-size:
                         type: int
-                        description: Set TCP static window size
+                        description: Deprecated, please rename it to tcp_window_size. Set TCP static window size
                     tcp-window-type:
                         type: str
-                        description: Specify type of TCP window to use for this protocol.
+                        description: Deprecated, please rename it to tcp_window_type. Specify type of TCP window to use for this protocol.
                         choices:
                             - 'system'
                             - 'static'
@@ -261,13 +243,13 @@ options:
                             - 'auto-tuning'
                     uncompressed-nest-limit:
                         type: int
-                        description: Maximum nested levels of compression that can be uncompressed and scanned
+                        description: Deprecated, please rename it to uncompressed_nest_limit. Maximum nested levels of compression that can be uncompre...
                     uncompressed-oversize-limit:
                         type: int
-                        description: Maximum in-memory uncompressed file size that can be scanned
+                        description: Deprecated, please rename it to uncompressed_oversize_limit. Maximum in-memory uncompressed file size that can be ...
             dns:
                 type: dict
-                description: no description
+                description: No description.
                 suboptions:
                     ports:
                         type: raw
@@ -280,17 +262,17 @@ options:
                             - 'enable'
             ftp:
                 type: dict
-                description: no description
+                description: No description.
                 suboptions:
                     comfort-amount:
                         type: int
-                        description: Amount of data to send in a transmission for client comforting
+                        description: Deprecated, please rename it to comfort_amount. Amount of data to send in a transmission for client comforting
                     comfort-interval:
                         type: int
-                        description: Period of time between start, or last transmission, and the next client comfort transmission of data
+                        description: Deprecated, please rename it to comfort_interval. Period of time between start, or last transmission, and the next...
                     inspect-all:
                         type: str
-                        description: Enable/disable the inspection of all ports for the protocol.
+                        description: Deprecated, please rename it to inspect_all. Enable/disable the inspection of all ports for the protocol.
                         choices:
                             - 'disable'
                             - 'enable'
@@ -307,19 +289,19 @@ options:
                             - 'bypass-mode-command'
                     oversize-limit:
                         type: int
-                        description: Maximum in-memory file size that can be scanned
+                        description: Deprecated, please rename it to oversize_limit. Maximum in-memory file size that can be scanned
                     ports:
                         type: raw
                         description: (list) Ports to scan for content
                     scan-bzip2:
                         type: str
-                        description: Enable/disable scanning of BZip2 compressed files.
+                        description: Deprecated, please rename it to scan_bzip2. Enable/disable scanning of BZip2 compressed files.
                         choices:
                             - 'disable'
                             - 'enable'
                     ssl-offloaded:
                         type: str
-                        description: SSL decryption and encryption performed by an external device.
+                        description: Deprecated, please rename it to ssl_offloaded. SSL decryption and encryption performed by an external device.
                         choices:
                             - 'no'
                             - 'yes'
@@ -331,25 +313,25 @@ options:
                             - 'enable'
                     uncompressed-nest-limit:
                         type: int
-                        description: Maximum nested levels of compression that can be uncompressed and scanned
+                        description: Deprecated, please rename it to uncompressed_nest_limit. Maximum nested levels of compression that can be uncompre...
                     uncompressed-oversize-limit:
                         type: int
-                        description: Maximum in-memory uncompressed file size that can be scanned
+                        description: Deprecated, please rename it to uncompressed_oversize_limit. Maximum in-memory uncompressed file size that can be ...
                     stream-based-uncompressed-limit:
                         type: int
-                        description: Maximum stream-based uncompressed data size that will be scanned
+                        description: Deprecated, please rename it to stream_based_uncompressed_limit. Maximum stream-based uncompressed data size that ...
                     tcp-window-maximum:
                         type: int
-                        description: Maximum dynamic TCP window size.
+                        description: Deprecated, please rename it to tcp_window_maximum. Maximum dynamic TCP window size.
                     tcp-window-minimum:
                         type: int
-                        description: Minimum dynamic TCP window size.
+                        description: Deprecated, please rename it to tcp_window_minimum. Minimum dynamic TCP window size.
                     tcp-window-size:
                         type: int
-                        description: Set TCP static window size.
+                        description: Deprecated, please rename it to tcp_window_size. Set TCP static window size.
                     tcp-window-type:
                         type: str
-                        description: TCP window type to use for this protocol.
+                        description: Deprecated, please rename it to tcp_window_type. TCP window type to use for this protocol.
                         choices:
                             - 'system'
                             - 'static'
@@ -357,35 +339,35 @@ options:
                             - 'auto-tuning'
                     explicit-ftp-tls:
                         type: str
-                        description: Enable/disable FTP redirection for explicit FTPS.
+                        description: Deprecated, please rename it to explicit_ftp_tls. Enable/disable FTP redirection for explicit FTPS.
                         choices:
                             - 'disable'
                             - 'enable'
             http:
                 type: dict
-                description: no description
+                description: No description.
                 suboptions:
                     block-page-status-code:
                         type: int
-                        description: Code number returned for blocked HTTP pages
+                        description: Deprecated, please rename it to block_page_status_code. Code number returned for blocked HTTP pages
                     comfort-amount:
                         type: int
-                        description: Amount of data to send in a transmission for client comforting
+                        description: Deprecated, please rename it to comfort_amount. Amount of data to send in a transmission for client comforting
                     comfort-interval:
                         type: int
-                        description: Period of time between start, or last transmission, and the next client comfort transmission of data
+                        description: Deprecated, please rename it to comfort_interval. Period of time between start, or last transmission, and the next...
                     fortinet-bar:
                         type: str
-                        description: Enable/disable Fortinet bar on HTML content.
+                        description: Deprecated, please rename it to fortinet_bar. Enable/disable Fortinet bar on HTML content.
                         choices:
                             - 'disable'
                             - 'enable'
                     fortinet-bar-port:
                         type: int
-                        description: Port for use by Fortinet Bar
+                        description: Deprecated, please rename it to fortinet_bar_port. Port for use by Fortinet Bar
                     inspect-all:
                         type: str
-                        description: Enable/disable the inspection of all ports for the protocol.
+                        description: Deprecated, please rename it to inspect_all. Enable/disable the inspection of all ports for the protocol.
                         choices:
                             - 'disable'
                             - 'enable'
@@ -401,14 +383,14 @@ options:
                             - 'servercomfort'
                     oversize-limit:
                         type: int
-                        description: Maximum in-memory file size that can be scanned
+                        description: Deprecated, please rename it to oversize_limit. Maximum in-memory file size that can be scanned
                     ports:
                         type: raw
                         description: (list) Ports to scan for content
                     post-lang:
                         type: list
                         elements: str
-                        description: ID codes for character sets to be used to convert to UTF-8 for banned words and DLP on HTTP posts
+                        description: Deprecated, please rename it to post_lang. ID codes for character sets to be used to convert to UTF-8 for banned w...
                         choices:
                             - 'jisx0201'
                             - 'jisx0208'
@@ -433,28 +415,28 @@ options:
                             - 'cp1251'
                     proxy-after-tcp-handshake:
                         type: str
-                        description: Proxy traffic after the TCP 3-way handshake has been established
+                        description: Deprecated, please rename it to proxy_after_tcp_handshake. Proxy traffic after the TCP 3-way handshake has been es...
                         choices:
                             - 'disable'
                             - 'enable'
                     range-block:
                         type: str
-                        description: Enable/disable blocking of partial downloads.
+                        description: Deprecated, please rename it to range_block. Enable/disable blocking of partial downloads.
                         choices:
                             - 'disable'
                             - 'enable'
                     retry-count:
                         type: int
-                        description: Number of attempts to retry HTTP connection
+                        description: Deprecated, please rename it to retry_count. Number of attempts to retry HTTP connection
                     scan-bzip2:
                         type: str
-                        description: Enable/disable scanning of BZip2 compressed files.
+                        description: Deprecated, please rename it to scan_bzip2. Enable/disable scanning of BZip2 compressed files.
                         choices:
                             - 'disable'
                             - 'enable'
                     ssl-offloaded:
                         type: str
-                        description: SSL decryption and encryption performed by an external device.
+                        description: Deprecated, please rename it to ssl_offloaded. SSL decryption and encryption performed by an external device.
                         choices:
                             - 'no'
                             - 'yes'
@@ -466,37 +448,37 @@ options:
                             - 'enable'
                     stream-based-uncompressed-limit:
                         type: int
-                        description: Maximum stream-based uncompressed data size that will be scanned
+                        description: Deprecated, please rename it to stream_based_uncompressed_limit. Maximum stream-based uncompressed data size that ...
                     streaming-content-bypass:
                         type: str
-                        description: Enable/disable bypassing of streaming content from buffering.
+                        description: Deprecated, please rename it to streaming_content_bypass. Enable/disable bypassing of streaming content from buffe...
                         choices:
                             - 'disable'
                             - 'enable'
                     strip-x-forwarded-for:
                         type: str
-                        description: Enable/disable stripping of HTTP X-Forwarded-For header.
+                        description: Deprecated, please rename it to strip_x_forwarded_for. Enable/disable stripping of HTTP X-Forwarded-For header.
                         choices:
                             - 'disable'
                             - 'enable'
                     switching-protocols:
                         type: str
-                        description: Bypass from scanning, or block a connection that attempts to switch protocol.
+                        description: Deprecated, please rename it to switching_protocols. Bypass from scanning, or block a connection that attempts to ...
                         choices:
                             - 'bypass'
                             - 'block'
                     tcp-window-maximum:
                         type: int
-                        description: Maximum dynamic TCP window size
+                        description: Deprecated, please rename it to tcp_window_maximum. Maximum dynamic TCP window size
                     tcp-window-minimum:
                         type: int
-                        description: Minimum dynamic TCP window size
+                        description: Deprecated, please rename it to tcp_window_minimum. Minimum dynamic TCP window size
                     tcp-window-size:
                         type: int
-                        description: Set TCP static window size
+                        description: Deprecated, please rename it to tcp_window_size. Set TCP static window size
                     tcp-window-type:
                         type: str
-                        description: Specify type of TCP window to use for this protocol.
+                        description: Deprecated, please rename it to tcp_window_type. Specify type of TCP window to use for this protocol.
                         choices:
                             - 'system'
                             - 'static'
@@ -504,32 +486,32 @@ options:
                             - 'auto-tuning'
                     tunnel-non-http:
                         type: str
-                        description: Configure how to process non-HTTP traffic when a profile configured for HTTP traffic accepts a non-HTTP session.
+                        description: Deprecated, please rename it to tunnel_non_http. Configure how to process non-HTTP traffic when a profile configur...
                         choices:
                             - 'disable'
                             - 'enable'
                     uncompressed-nest-limit:
                         type: int
-                        description: Maximum nested levels of compression that can be uncompressed and scanned
+                        description: Deprecated, please rename it to uncompressed_nest_limit. Maximum nested levels of compression that can be uncompre...
                     uncompressed-oversize-limit:
                         type: int
-                        description: Maximum in-memory uncompressed file size that can be scanned
+                        description: Deprecated, please rename it to uncompressed_oversize_limit. Maximum in-memory uncompressed file size that can be ...
                     unknown-http-version:
                         type: str
-                        description: How to handle HTTP sessions that do not comply with HTTP 0.
+                        description: Deprecated, please rename it to unknown_http_version. How to handle HTTP sessions that do not comply with HTTP 0.
                         choices:
                             - 'best-effort'
                             - 'reject'
                             - 'tunnel'
                     http-policy:
                         type: str
-                        description: Enable/disable HTTP policy check.
+                        description: Deprecated, please rename it to http_policy. Enable/disable HTTP policy check.
                         choices:
                             - 'disable'
                             - 'enable'
                     address-ip-rating:
                         type: str
-                        description: Enable/disable IP based URL rating.
+                        description: Deprecated, please rename it to address_ip_rating. Enable/disable IP based URL rating.
                         choices:
                             - 'disable'
                             - 'enable'
@@ -541,24 +523,24 @@ options:
                             - 'enable'
                     verify-dns-for-policy-matching:
                         type: str
-                        description: Enable/disable verification of DNS for policy matching.
+                        description: Deprecated, please rename it to verify_dns_for_policy_matching. Enable/disable verification of DNS for policy matc...
                         choices:
                             - 'disable'
                             - 'enable'
                     unknown-content-encoding:
                         type: str
-                        description: Configure the action the FortiGate unit will take on unknown content-encoding.
+                        description: Deprecated, please rename it to unknown_content_encoding. Configure the action the FortiGate unit will take on unk...
                         choices:
                             - 'block'
                             - 'inspect'
                             - 'bypass'
             imap:
                 type: dict
-                description: no description
+                description: No description.
                 suboptions:
                     inspect-all:
                         type: str
-                        description: Enable/disable the inspection of all ports for the protocol.
+                        description: Deprecated, please rename it to inspect_all. Enable/disable the inspection of all ports for the protocol.
                         choices:
                             - 'disable'
                             - 'enable'
@@ -572,25 +554,25 @@ options:
                             - 'no-content-summary'
                     oversize-limit:
                         type: int
-                        description: Maximum in-memory file size that can be scanned
+                        description: Deprecated, please rename it to oversize_limit. Maximum in-memory file size that can be scanned
                     ports:
                         type: raw
                         description: (list) Ports to scan for content
                     proxy-after-tcp-handshake:
                         type: str
-                        description: Proxy traffic after the TCP 3-way handshake has been established
+                        description: Deprecated, please rename it to proxy_after_tcp_handshake. Proxy traffic after the TCP 3-way handshake has been es...
                         choices:
                             - 'disable'
                             - 'enable'
                     scan-bzip2:
                         type: str
-                        description: Enable/disable scanning of BZip2 compressed files.
+                        description: Deprecated, please rename it to scan_bzip2. Enable/disable scanning of BZip2 compressed files.
                         choices:
                             - 'disable'
                             - 'enable'
                     ssl-offloaded:
                         type: str
-                        description: SSL decryption and encryption performed by an external device.
+                        description: Deprecated, please rename it to ssl_offloaded. SSL decryption and encryption performed by an external device.
                         choices:
                             - 'no'
                             - 'yes'
@@ -602,13 +584,13 @@ options:
                             - 'enable'
                     uncompressed-nest-limit:
                         type: int
-                        description: Maximum nested levels of compression that can be uncompressed and scanned
+                        description: Deprecated, please rename it to uncompressed_nest_limit. Maximum nested levels of compression that can be uncompre...
                     uncompressed-oversize-limit:
                         type: int
-                        description: Maximum in-memory uncompressed file size that can be scanned
+                        description: Deprecated, please rename it to uncompressed_oversize_limit. Maximum in-memory uncompressed file size that can be ...
             mail-signature:
                 type: dict
-                description: no description
+                description: Deprecated, please rename it to mail_signature.
                 suboptions:
                     signature:
                         type: str
@@ -621,7 +603,7 @@ options:
                             - 'enable'
             mapi:
                 type: dict
-                description: no description
+                description: No description.
                 suboptions:
                     options:
                         type: list
@@ -633,13 +615,13 @@ options:
                             - 'no-content-summary'
                     oversize-limit:
                         type: int
-                        description: Maximum in-memory file size that can be scanned
+                        description: Deprecated, please rename it to oversize_limit. Maximum in-memory file size that can be scanned
                     ports:
                         type: raw
                         description: (list) Ports to scan for content
                     scan-bzip2:
                         type: str
-                        description: Enable/disable scanning of BZip2 compressed files.
+                        description: Deprecated, please rename it to scan_bzip2. Enable/disable scanning of BZip2 compressed files.
                         choices:
                             - 'disable'
                             - 'enable'
@@ -651,17 +633,17 @@ options:
                             - 'enable'
                     uncompressed-nest-limit:
                         type: int
-                        description: Maximum nested levels of compression that can be uncompressed and scanned
+                        description: Deprecated, please rename it to uncompressed_nest_limit. Maximum nested levels of compression that can be uncompre...
                     uncompressed-oversize-limit:
                         type: int
-                        description: Maximum in-memory uncompressed file size that can be scanned
+                        description: Deprecated, please rename it to uncompressed_oversize_limit. Maximum in-memory uncompressed file size that can be ...
             nntp:
                 type: dict
-                description: no description
+                description: No description.
                 suboptions:
                     inspect-all:
                         type: str
-                        description: Enable/disable the inspection of all ports for the protocol.
+                        description: Deprecated, please rename it to inspect_all. Enable/disable the inspection of all ports for the protocol.
                         choices:
                             - 'disable'
                             - 'enable'
@@ -675,19 +657,19 @@ options:
                             - 'splice'
                     oversize-limit:
                         type: int
-                        description: Maximum in-memory file size that can be scanned
+                        description: Deprecated, please rename it to oversize_limit. Maximum in-memory file size that can be scanned
                     ports:
                         type: raw
                         description: (list) Ports to scan for content
                     proxy-after-tcp-handshake:
                         type: str
-                        description: Proxy traffic after the TCP 3-way handshake has been established
+                        description: Deprecated, please rename it to proxy_after_tcp_handshake. Proxy traffic after the TCP 3-way handshake has been es...
                         choices:
                             - 'disable'
                             - 'enable'
                     scan-bzip2:
                         type: str
-                        description: Enable/disable scanning of BZip2 compressed files.
+                        description: Deprecated, please rename it to scan_bzip2. Enable/disable scanning of BZip2 compressed files.
                         choices:
                             - 'disable'
                             - 'enable'
@@ -699,17 +681,17 @@ options:
                             - 'enable'
                     uncompressed-nest-limit:
                         type: int
-                        description: Maximum nested levels of compression that can be uncompressed and scanned
+                        description: Deprecated, please rename it to uncompressed_nest_limit. Maximum nested levels of compression that can be uncompre...
                     uncompressed-oversize-limit:
                         type: int
-                        description: Maximum in-memory uncompressed file size that can be scanned
+                        description: Deprecated, please rename it to uncompressed_oversize_limit. Maximum in-memory uncompressed file size that can be ...
             pop3:
                 type: dict
-                description: no description
+                description: No description.
                 suboptions:
                     inspect-all:
                         type: str
-                        description: Enable/disable the inspection of all ports for the protocol.
+                        description: Deprecated, please rename it to inspect_all. Enable/disable the inspection of all ports for the protocol.
                         choices:
                             - 'disable'
                             - 'enable'
@@ -723,25 +705,25 @@ options:
                             - 'no-content-summary'
                     oversize-limit:
                         type: int
-                        description: Maximum in-memory file size that can be scanned
+                        description: Deprecated, please rename it to oversize_limit. Maximum in-memory file size that can be scanned
                     ports:
                         type: raw
                         description: (list) Ports to scan for content
                     proxy-after-tcp-handshake:
                         type: str
-                        description: Proxy traffic after the TCP 3-way handshake has been established
+                        description: Deprecated, please rename it to proxy_after_tcp_handshake. Proxy traffic after the TCP 3-way handshake has been es...
                         choices:
                             - 'disable'
                             - 'enable'
                     scan-bzip2:
                         type: str
-                        description: Enable/disable scanning of BZip2 compressed files.
+                        description: Deprecated, please rename it to scan_bzip2. Enable/disable scanning of BZip2 compressed files.
                         choices:
                             - 'disable'
                             - 'enable'
                     ssl-offloaded:
                         type: str
-                        description: SSL decryption and encryption performed by an external device.
+                        description: Deprecated, please rename it to ssl_offloaded. SSL decryption and encryption performed by an external device.
                         choices:
                             - 'no'
                             - 'yes'
@@ -753,17 +735,17 @@ options:
                             - 'enable'
                     uncompressed-nest-limit:
                         type: int
-                        description: Maximum nested levels of compression that can be uncompressed and scanned
+                        description: Deprecated, please rename it to uncompressed_nest_limit. Maximum nested levels of compression that can be uncompre...
                     uncompressed-oversize-limit:
                         type: int
-                        description: Maximum in-memory uncompressed file size that can be scanned
+                        description: Deprecated, please rename it to uncompressed_oversize_limit. Maximum in-memory uncompressed file size that can be ...
             smtp:
                 type: dict
-                description: no description
+                description: No description.
                 suboptions:
                     inspect-all:
                         type: str
-                        description: Enable/disable the inspection of all ports for the protocol.
+                        description: Deprecated, please rename it to inspect_all. Enable/disable the inspection of all ports for the protocol.
                         choices:
                             - 'disable'
                             - 'enable'
@@ -778,31 +760,31 @@ options:
                             - 'splice'
                     oversize-limit:
                         type: int
-                        description: Maximum in-memory file size that can be scanned
+                        description: Deprecated, please rename it to oversize_limit. Maximum in-memory file size that can be scanned
                     ports:
                         type: raw
                         description: (list) Ports to scan for content
                     proxy-after-tcp-handshake:
                         type: str
-                        description: Proxy traffic after the TCP 3-way handshake has been established
+                        description: Deprecated, please rename it to proxy_after_tcp_handshake. Proxy traffic after the TCP 3-way handshake has been es...
                         choices:
                             - 'disable'
                             - 'enable'
                     scan-bzip2:
                         type: str
-                        description: Enable/disable scanning of BZip2 compressed files.
+                        description: Deprecated, please rename it to scan_bzip2. Enable/disable scanning of BZip2 compressed files.
                         choices:
                             - 'disable'
                             - 'enable'
                     server-busy:
                         type: str
-                        description: Enable/disable SMTP server busy when server not available.
+                        description: Deprecated, please rename it to server_busy. Enable/disable SMTP server busy when server not available.
                         choices:
                             - 'disable'
                             - 'enable'
                     ssl-offloaded:
                         type: str
-                        description: SSL decryption and encryption performed by an external device.
+                        description: Deprecated, please rename it to ssl_offloaded. SSL decryption and encryption performed by an external device.
                         choices:
                             - 'no'
                             - 'yes'
@@ -814,20 +796,20 @@ options:
                             - 'enable'
                     uncompressed-nest-limit:
                         type: int
-                        description: Maximum nested levels of compression that can be uncompressed and scanned
+                        description: Deprecated, please rename it to uncompressed_nest_limit. Maximum nested levels of compression that can be uncompre...
                     uncompressed-oversize-limit:
                         type: int
-                        description: Maximum in-memory uncompressed file size that can be scanned
+                        description: Deprecated, please rename it to uncompressed_oversize_limit. Maximum in-memory uncompressed file size that can be ...
             ssh:
                 type: dict
-                description: no description
+                description: No description.
                 suboptions:
                     comfort-amount:
                         type: int
-                        description: Amount of data to send in a transmission for client comforting
+                        description: Deprecated, please rename it to comfort_amount. Amount of data to send in a transmission for client comforting
                     comfort-interval:
                         type: int
-                        description: Period of time between start, or last transmission, and the next client comfort transmission of data
+                        description: Deprecated, please rename it to comfort_interval. Period of time between start, or last transmission, and the next...
                     options:
                         type: list
                         elements: str
@@ -838,85 +820,81 @@ options:
                             - 'servercomfort'
                     oversize-limit:
                         type: int
-                        description: Maximum in-memory file size that can be scanned
+                        description: Deprecated, please rename it to oversize_limit. Maximum in-memory file size that can be scanned
                     scan-bzip2:
                         type: str
-                        description: Enable/disable scanning of BZip2 compressed files.
+                        description: Deprecated, please rename it to scan_bzip2. Enable/disable scanning of BZip2 compressed files.
                         choices:
                             - 'disable'
                             - 'enable'
                     uncompressed-nest-limit:
                         type: int
-                        description: Maximum nested levels of compression that can be uncompressed and scanned
+                        description: Deprecated, please rename it to uncompressed_nest_limit. Maximum nested levels of compression that can be uncompre...
                     uncompressed-oversize-limit:
                         type: int
-                        description: Maximum in-memory uncompressed file size that can be scanned
+                        description: Deprecated, please rename it to uncompressed_oversize_limit. Maximum in-memory uncompressed file size that can be ...
                     ssl-offloaded:
                         type: str
-                        description: SSL decryption and encryption performed by an external device.
+                        description: Deprecated, please rename it to ssl_offloaded. SSL decryption and encryption performed by an external device.
                         choices:
                             - 'no'
                             - 'yes'
                     stream-based-uncompressed-limit:
                         type: int
-                        description: Maximum stream-based uncompressed data size that will be scanned
+                        description: Deprecated, please rename it to stream_based_uncompressed_limit. Maximum stream-based uncompressed data size that ...
                     tcp-window-maximum:
                         type: int
-                        description: Maximum dynamic TCP window size.
+                        description: Deprecated, please rename it to tcp_window_maximum. Maximum dynamic TCP window size.
                     tcp-window-minimum:
                         type: int
-                        description: Minimum dynamic TCP window size.
+                        description: Deprecated, please rename it to tcp_window_minimum. Minimum dynamic TCP window size.
                     tcp-window-size:
                         type: int
-                        description: Set TCP static window size.
+                        description: Deprecated, please rename it to tcp_window_size. Set TCP static window size.
                     tcp-window-type:
                         type: str
-                        description: TCP window type to use for this protocol.
+                        description: Deprecated, please rename it to tcp_window_type. TCP window type to use for this protocol.
                         choices:
                             - 'system'
                             - 'static'
                             - 'dynamic'
                             - 'auto-tuning'
-
 '''
 
 EXAMPLES = '''
-- hosts: fortimanager00
-  collections:
-    - fortinet.fortimanager
+- name: Example playbook
+  hosts: fortimanagers
   connection: httpapi
   vars:
-     ansible_httpapi_use_ssl: True
-     ansible_httpapi_validate_certs: False
-     ansible_httpapi_port: 443
+    ansible_httpapi_use_ssl: true
+    ansible_httpapi_validate_certs: false
+    ansible_httpapi_port: 443
   tasks:
-   - name: Configure protocol options.
-     fmgr_firewall_profileprotocoloptions:
-        bypass_validation: False
+    - name: Configure protocol options.
+      fortinet.fortimanager.fmgr_firewall_profileprotocoloptions:
+        bypass_validation: false
         adom: ansible
         state: present
         firewall_profileprotocoloptions:
-           comment: 'ansible-comment'
-           name: 'ansible-test'
+          comment: "ansible-comment"
+          name: "ansible-test"
 
-- name: gathering fortimanager facts
-  hosts: fortimanager00
-  gather_facts: no
+- name: Gathering fortimanager facts
+  hosts: fortimanagers
+  gather_facts: false
   connection: httpapi
-  collections:
-    - fortinet.fortimanager
   vars:
-    ansible_httpapi_use_ssl: True
-    ansible_httpapi_validate_certs: False
+    ansible_httpapi_use_ssl: true
+    ansible_httpapi_validate_certs: false
     ansible_httpapi_port: 443
   tasks:
-   - name: retrieve all the profile protocol options
-     fmgr_fact:
-       facts:
-           selector: 'firewall_profileprotocoloptions'
-           params:
-               adom: 'ansible'
-               profile-protocol-options: 'your_value'
+    - name: Retrieve all the profile protocol options
+      fortinet.fortimanager.fmgr_fact:
+        facts:
+          selector: "firewall_profileprotocoloptions"
+          params:
+            adom: "ansible"
+            profile-protocol-options: "your_value"
 '''
 
 RETURN = '''
@@ -963,6 +941,7 @@ from ansible.module_utils.connection import Connection
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
@@ -979,7090 +958,286 @@ def main():
     url_params = ['adom']
     module_primary_key = 'name'
     module_arg_spec = {
-        'access_token': {
-            'type': 'str',
-            'required': False,
-            'no_log': True
-        },
-        'bypass_validation': {
-            'type': 'bool',
-            'required': False,
-            'default': False
-        },
-        'enable_log': {
-            'type': 'bool',
-            'required': False,
-            'default': False
-        },
-        'forticloud_access_token': {
-            'type': 'str',
-            'required': False,
-            'no_log': True
-        },
-        'proposed_method': {
-            'type': 'str',
-            'required': False,
-            'choices': [
-                'set',
-                'update',
-                'add'
-            ]
-        },
-        'rc_succeeded': {
-            'required': False,
-            'type': 'list',
-            'elements': 'int'
-        },
-        'rc_failed': {
-            'required': False,
-            'type': 'list',
-            'elements': 'int'
-        },
-        'state': {
-            'type': 'str',
-            'required': True,
-            'choices': [
-                'present',
-                'absent'
-            ]
-        },
-        'workspace_locking_adom': {
-            'type': 'str',
-            'required': False
-        },
-        'workspace_locking_timeout': {
-            'type': 'int',
-            'required': False,
-            'default': 300
-        },
-        'adom': {
-            'required': True,
-            'type': 'str'
-        },
+        'adom': {'required': True, 'type': 'str'},
         'firewall_profileprotocoloptions': {
-            'required': False,
             'type': 'dict',
-            'revision': {
-                '6.0.0': True,
-                '6.2.0': True,
-                '6.2.1': True,
-                '6.2.2': True,
-                '6.2.3': True,
-                '6.2.5': True,
-                '6.2.6': True,
-                '6.2.7': True,
-                '6.2.8': True,
-                '6.2.9': True,
-                '6.2.10': True,
-                '6.2.11': True,
-                '6.2.12': True,
-                '6.4.0': True,
-                '6.4.1': True,
-                '6.4.2': True,
-                '6.4.3': True,
-                '6.4.4': True,
-                '6.4.5': True,
-                '6.4.6': True,
-                '6.4.7': True,
-                '6.4.8': True,
-                '6.4.9': True,
-                '6.4.10': True,
-                '6.4.11': True,
-                '6.4.12': True,
-                '6.4.13': True,
-                '7.0.0': True,
-                '7.0.1': True,
-                '7.0.2': True,
-                '7.0.3': True,
-                '7.0.4': True,
-                '7.0.5': True,
-                '7.0.6': True,
-                '7.0.7': True,
-                '7.0.8': True,
-                '7.0.9': True,
-                '7.0.10': True,
-                '7.2.0': True,
-                '7.2.1': True,
-                '7.2.2': True,
-                '7.2.3': True,
-                '7.2.4': True,
-                '7.4.0': True,
-                '7.4.1': True
-            },
+            'v_range': [['6.0.0', '']],
             'options': {
-                'comment': {
-                    'required': False,
-                    'revision': {
-                        '6.0.0': True,
-                        '6.2.0': True,
-                        '6.2.1': True,
-                        '6.2.2': True,
-                        '6.2.3': True,
-                        '6.2.5': True,
-                        '6.2.6': True,
-                        '6.2.7': True,
-                        '6.2.8': True,
-                        '6.2.9': True,
-                        '6.2.10': True,
-                        '6.2.11': True,
-                        '6.2.12': True,
-                        '6.4.0': True,
-                        '6.4.1': True,
-                        '6.4.2': True,
-                        '6.4.3': True,
-                        '6.4.4': True,
-                        '6.4.5': True,
-                        '6.4.6': True,
-                        '6.4.7': True,
-                        '6.4.8': True,
-                        '6.4.9': True,
-                        '6.4.10': True,
-                        '6.4.11': True,
-                        '6.4.12': True,
-                        '6.4.13': True,
-                        '7.0.0': True,
-                        '7.0.1': True,
-                        '7.0.2': True,
-                        '7.0.3': True,
-                        '7.0.4': True,
-                        '7.0.5': True,
-                        '7.0.6': True,
-                        '7.0.7': True,
-                        '7.0.8': True,
-                        '7.0.9': True,
-                        '7.0.10': True,
-                        '7.2.0': True,
-                        '7.2.1': True,
-                        '7.2.2': True,
-                        '7.2.3': True,
-                        '7.2.4': True,
-                        '7.4.0': True,
-                        '7.4.1': True
-                    },
-                    'type': 'str'
-                },
-                'name': {
-                    'required': True,
-                    'revision': {
-                        '6.0.0': True,
-                        '6.2.0': True,
-                        '6.2.1': True,
-                        '6.2.2': True,
-                        '6.2.3': True,
-                        '6.2.5': True,
-                        '6.2.6': True,
-                        '6.2.7': True,
-                        '6.2.8': True,
-                        '6.2.9': True,
-                        '6.2.10': True,
-                        '6.2.11': True,
-                        '6.2.12': True,
-                        '6.4.0': True,
-                        '6.4.1': True,
-                        '6.4.2': True,
-                        '6.4.3': True,
-                        '6.4.4': True,
-                        '6.4.5': True,
-                        '6.4.6': True,
-                        '6.4.7': True,
-                        '6.4.8': True,
-                        '6.4.9': True,
-                        '6.4.10': True,
-                        '6.4.11': True,
-                        '6.4.12': True,
-                        '6.4.13': True,
-                        '7.0.0': True,
-                        '7.0.1': True,
-                        '7.0.2': True,
-                        '7.0.3': True,
-                        '7.0.4': True,
-                        '7.0.5': True,
-                        '7.0.6': True,
-                        '7.0.7': True,
-                        '7.0.8': True,
-                        '7.0.9': True,
-                        '7.0.10': True,
-                        '7.2.0': True,
-                        '7.2.1': True,
-                        '7.2.2': True,
-                        '7.2.3': True,
-                        '7.2.4': True,
-                        '7.4.0': True,
-                        '7.4.1': True
-                    },
-                    'type': 'str'
-                },
-                'oversize-log': {
-                    'required': False,
-                    'revision': {
-                        '6.0.0': True,
-                        '6.2.0': True,
-                        '6.2.1': True,
-                        '6.2.2': True,
-                        '6.2.3': True,
-                        '6.2.5': True,
-                        '6.2.6': True,
-                        '6.2.7': True,
-                        '6.2.8': True,
-                        '6.2.9': True,
-                        '6.2.10': True,
-                        '6.2.11': True,
-                        '6.2.12': True,
-                        '6.4.0': True,
-                        '6.4.1': True,
-                        '6.4.2': True,
-                        '6.4.3': True,
-                        '6.4.4': True,
-                        '6.4.5': True,
-                        '6.4.6': True,
-                        '6.4.7': True,
-                        '6.4.8': True,
-                        '6.4.9': True,
-                        '6.4.10': True,
-                        '6.4.11': True,
-                        '6.4.12': True,
-                        '6.4.13': True,
-                        '7.0.0': True,
-                        '7.0.1': True,
-                        '7.0.2': True,
-                        '7.0.3': True,
-                        '7.0.4': True,
-                        '7.0.5': True,
-                        '7.0.6': True,
-                        '7.0.7': True,
-                        '7.0.8': True,
-                        '7.0.9': True,
-                        '7.0.10': True,
-                        '7.2.0': True,
-                        '7.2.1': True,
-                        '7.2.2': True,
-                        '7.2.3': True,
-                        '7.2.4': True,
-                        '7.4.0': True,
-                        '7.4.1': True
-                    },
-                    'choices': [
-                        'disable',
-                        'enable'
-                    ],
-                    'type': 'str'
-                },
-                'replacemsg-group': {
-                    'required': False,
-                    'revision': {
-                        '6.0.0': True,
-                        '6.2.0': True,
-                        '6.2.1': True,
-                        '6.2.2': True,
-                        '6.2.3': True,
-                        '6.2.5': True,
-                        '6.2.6': True,
-                        '6.2.7': True,
-                        '6.2.8': True,
-                        '6.2.9': True,
-                        '6.2.10': True,
-                        '6.2.11': True,
-                        '6.2.12': True,
-                        '6.4.0': True,
-                        '6.4.1': True,
-                        '6.4.2': True,
-                        '6.4.3': True,
-                        '6.4.4': True,
-                        '6.4.5': True,
-                        '6.4.6': True,
-                        '6.4.7': True,
-                        '6.4.8': True,
-                        '6.4.9': True,
-                        '6.4.10': True,
-                        '6.4.11': True,
-                        '6.4.12': True,
-                        '6.4.13': True,
-                        '7.0.0': True,
-                        '7.0.1': True,
-                        '7.0.2': True,
-                        '7.0.3': True,
-                        '7.0.4': True,
-                        '7.0.5': True,
-                        '7.0.6': True,
-                        '7.0.7': True,
-                        '7.0.8': True,
-                        '7.0.9': True,
-                        '7.0.10': True,
-                        '7.2.0': True,
-                        '7.2.1': True,
-                        '7.2.2': True,
-                        '7.2.3': True,
-                        '7.2.4': True,
-                        '7.4.0': True,
-                        '7.4.1': True
-                    },
-                    'type': 'str'
-                },
-                'rpc-over-http': {
-                    'required': False,
-                    'revision': {
-                        '6.0.0': True,
-                        '6.2.0': True,
-                        '6.2.1': True,
-                        '6.2.2': True,
-                        '6.2.3': True,
-                        '6.2.5': True,
-                        '6.2.6': True,
-                        '6.2.7': True,
-                        '6.2.8': True,
-                        '6.2.9': True,
-                        '6.2.10': True,
-                        '6.2.11': True,
-                        '6.2.12': True,
-                        '6.4.0': True,
-                        '6.4.1': True,
-                        '6.4.2': True,
-                        '6.4.3': True,
-                        '6.4.4': True,
-                        '6.4.5': True,
-                        '6.4.6': True,
-                        '6.4.7': True,
-                        '6.4.8': True,
-                        '6.4.9': True,
-                        '6.4.10': True,
-                        '6.4.11': True,
-                        '6.4.12': True,
-                        '6.4.13': True,
-                        '7.0.0': True,
-                        '7.0.1': True,
-                        '7.0.2': True,
-                        '7.0.3': True,
-                        '7.0.4': True,
-                        '7.0.5': True,
-                        '7.0.6': True,
-                        '7.0.7': True,
-                        '7.0.8': True,
-                        '7.0.9': True,
-                        '7.0.10': True,
-                        '7.2.0': True,
-                        '7.2.1': True,
-                        '7.2.2': True,
-                        '7.2.3': True,
-                        '7.2.4': True,
-                        '7.4.0': True,
-                        '7.4.1': True
-                    },
-                    'choices': [
-                        'disable',
-                        'enable'
-                    ],
-                    'type': 'str'
-                },
-                'switching-protocols-log': {
-                    'required': False,
-                    'revision': {
-                        '6.0.0': True,
-                        '6.2.0': True,
-                        '6.2.1': True,
-                        '6.2.2': True,
-                        '6.2.3': True,
-                        '6.2.5': True,
-                        '6.2.6': True,
-                        '6.2.7': True,
-                        '6.2.8': True,
-                        '6.2.9': True,
-                        '6.2.10': True,
-                        '6.2.11': True,
-                        '6.2.12': True,
-                        '6.4.0': True,
-                        '6.4.1': True,
-                        '6.4.2': True,
-                        '6.4.3': True,
-                        '6.4.4': True,
-                        '6.4.5': True,
-                        '6.4.6': True,
-                        '6.4.7': True,
-                        '6.4.8': True,
-                        '6.4.9': True,
-                        '6.4.10': True,
-                        '6.4.11': True,
-                        '6.4.12': True,
-                        '6.4.13': True,
-                        '7.0.0': True,
-                        '7.0.1': True,
-                        '7.0.2': True,
-                        '7.0.3': True,
-                        '7.0.4': True,
-                        '7.0.5': True,
-                        '7.0.6': True,
-                        '7.0.7': True,
-                        '7.0.8': True,
-                        '7.0.9': True,
-                        '7.0.10': True,
-                        '7.2.0': True,
-                        '7.2.1': True,
-                        '7.2.2': True,
-                        '7.2.3': True,
-                        '7.2.4': True,
-                        '7.4.0': True,
-                        '7.4.1': True
-                    },
-                    'choices': [
-                        'disable',
-                        'enable'
-                    ],
-                    'type': 'str'
-                },
-                'feature-set': {
-                    'required': False,
-                    'revision': {
-                        '6.2.0': False,
-                        '6.2.2': False,
-                        '6.2.6': False,
-                        '6.2.7': False,
-                        '6.2.8': False,
-                        '6.2.9': False,
-                        '6.2.10': False,
-                        '6.2.11': False,
-                        '6.2.12': False,
-                        '6.4.0': True,
-                        '6.4.1': True,
-                        '6.4.2': True,
-                        '6.4.3': True,
-                        '6.4.4': True,
-                        '6.4.5': True,
-                        '6.4.6': True,
-                        '6.4.7': True,
-                        '6.4.8': True,
-                        '6.4.9': True,
-                        '6.4.10': True,
-                        '6.4.11': True,
-                        '6.4.12': True,
-                        '6.4.13': True,
-                        '7.0.0': True,
-                        '7.0.1': True,
-                        '7.0.2': True,
-                        '7.0.3': True,
-                        '7.0.4': True,
-                        '7.0.5': True,
-                        '7.0.6': True,
-                        '7.0.7': True,
-                        '7.0.8': True,
-                        '7.0.9': True,
-                        '7.0.10': True,
-                        '7.2.0': True,
-                        '7.2.1': True,
-                        '7.2.2': True,
-                        '7.2.3': True,
-                        '7.2.4': True,
-                        '7.4.0': True,
-                        '7.4.1': True
-                    },
-                    'choices': [
-                        'proxy',
-                        'flow'
-                    ],
-                    'type': 'str'
-                },
+                'comment': {'type': 'str'},
+                'name': {'required': True, 'type': 'str'},
+                'oversize-log': {'choices': ['disable', 'enable'], 'type': 'str'},
+                'replacemsg-group': {'type': 'str'},
+                'rpc-over-http': {'choices': ['disable', 'enable'], 'type': 'str'},
+                'switching-protocols-log': {'choices': ['disable', 'enable'], 'type': 'str'},
+                'feature-set': {'v_range': [['6.4.0', '']], 'choices': ['proxy', 'flow'], 'type': 'str'},
                 'cifs': {
-                    'required': False,
                     'type': 'dict',
                     'options': {
-                        'domain-controller': {
-                            'required': False,
-                            'revision': {
-                                '6.2.0': False,
-                                '6.2.2': False,
-                                '6.2.6': False,
-                                '6.2.7': False,
-                                '6.2.8': False,
-                                '6.2.9': False,
-                                '6.2.10': False,
-                                '6.2.11': False,
-                                '6.2.12': False,
-                                '6.4.1': False,
-                                '6.4.3': False,
-                                '6.4.4': False,
-                                '6.4.5': True,
-                                '6.4.6': True,
-                                '6.4.7': True,
-                                '6.4.8': True,
-                                '6.4.9': True,
-                                '6.4.10': True,
-                                '6.4.11': True,
-                                '6.4.12': True,
-                                '6.4.13': True,
-                                '7.0.0': True,
-                                '7.0.1': True,
-                                '7.0.2': True,
-                                '7.0.3': True,
-                                '7.0.4': True,
-                                '7.0.5': True,
-                                '7.0.6': True,
-                                '7.0.7': True,
-                                '7.0.8': True,
-                                '7.0.9': True,
-                                '7.0.10': True,
-                                '7.2.0': True,
-                                '7.2.1': True,
-                                '7.2.2': True,
-                                '7.2.3': True,
-                                '7.2.4': True,
-                                '7.4.0': True,
-                                '7.4.1': True
-                            },
-                            'type': 'str'
-                        },
+                        'domain-controller': {'v_range': [['6.4.5', '']], 'type': 'str'},
                         'file-filter': {
-                            'required': False,
                             'type': 'dict',
                             'options': {
                                 'entries': {
-                                    'required': False,
-                                    'revision': {
-                                        '6.2.0': False,
-                                        '6.2.2': False,
-                                        '6.2.6': False,
-                                        '6.2.7': False,
-                                        '6.2.8': False,
-                                        '6.2.9': False,
-                                        '6.2.10': False,
-                                        '6.2.11': False,
-                                        '6.2.12': False,
-                                        '6.4.1': False,
-                                        '6.4.3': False,
-                                        '6.4.4': False,
-                                        '6.4.5': True,
-                                        '6.4.6': True,
-                                        '6.4.7': True,
-                                        '6.4.8': True,
-                                        '6.4.9': True,
-                                        '6.4.10': True,
-                                        '6.4.11': True,
-                                        '6.4.12': True,
-                                        '6.4.13': True,
-                                        '7.0.0': True,
-                                        '7.0.1': True,
-                                        '7.0.2': True,
-                                        '7.0.3': True,
-                                        '7.0.4': True,
-                                        '7.0.5': True,
-                                        '7.0.6': True,
-                                        '7.0.7': True,
-                                        '7.0.8': True,
-                                        '7.0.9': True,
-                                        '7.0.10': True,
-                                        '7.2.0': True,
-                                        '7.2.1': True,
-                                        '7.2.2': True,
-                                        '7.2.3': True,
-                                        '7.2.4': True,
-                                        '7.4.0': True,
-                                        '7.4.1': True
-                                    },
+                                    'v_range': [['6.4.5', '']],
                                     'type': 'list',
                                     'options': {
-                                        'action': {
-                                            'required': False,
-                                            'revision': {
-                                                '6.2.0': False,
-                                                '6.2.2': False,
-                                                '6.2.6': False,
-                                                '6.2.7': False,
-                                                '6.2.8': False,
-                                                '6.2.9': False,
-                                                '6.2.10': False,
-                                                '6.2.11': False,
-                                                '6.2.12': False,
-                                                '6.4.1': False,
-                                                '6.4.3': False,
-                                                '6.4.4': False,
-                                                '6.4.5': True,
-                                                '6.4.6': True,
-                                                '6.4.7': True,
-                                                '6.4.8': True,
-                                                '6.4.9': True,
-                                                '6.4.10': True,
-                                                '6.4.11': True,
-                                                '6.4.12': True,
-                                                '6.4.13': True,
-                                                '7.0.0': True,
-                                                '7.0.1': True,
-                                                '7.0.2': True,
-                                                '7.0.3': True,
-                                                '7.0.4': True,
-                                                '7.0.5': True,
-                                                '7.0.6': True,
-                                                '7.0.7': True,
-                                                '7.0.8': True,
-                                                '7.0.9': True,
-                                                '7.0.10': True,
-                                                '7.2.0': True,
-                                                '7.2.1': True,
-                                                '7.2.2': True,
-                                                '7.2.3': True,
-                                                '7.2.4': True,
-                                                '7.4.0': True,
-                                                '7.4.1': True
-                                            },
-                                            'choices': [
-                                                'log',
-                                                'block'
-                                            ],
-                                            'type': 'str'
-                                        },
-                                        'comment': {
-                                            'required': False,
-                                            'revision': {
-                                                '6.2.0': False,
-                                                '6.2.2': False,
-                                                '6.2.6': False,
-                                                '6.2.7': False,
-                                                '6.2.8': False,
-                                                '6.2.9': False,
-                                                '6.2.10': False,
-                                                '6.2.11': False,
-                                                '6.2.12': False,
-                                                '6.4.1': False,
-                                                '6.4.3': False,
-                                                '6.4.4': False,
-                                                '6.4.5': True,
-                                                '6.4.6': True,
-                                                '6.4.7': True,
-                                                '6.4.8': True,
-                                                '6.4.9': True,
-                                                '6.4.10': True,
-                                                '6.4.11': True,
-                                                '6.4.12': True,
-                                                '6.4.13': True,
-                                                '7.0.0': True,
-                                                '7.0.1': True,
-                                                '7.0.2': True,
-                                                '7.0.3': True,
-                                                '7.0.4': True,
-                                                '7.0.5': True,
-                                                '7.0.6': True,
-                                                '7.0.7': True,
-                                                '7.0.8': True,
-                                                '7.0.9': True,
-                                                '7.0.10': True,
-                                                '7.2.0': True,
-                                                '7.2.1': True,
-                                                '7.2.2': True,
-                                                '7.2.3': True,
-                                                '7.2.4': True,
-                                                '7.4.0': True,
-                                                '7.4.1': True
-                                            },
-                                            'type': 'str'
-                                        },
-                                        'direction': {
-                                            'required': False,
-                                            'revision': {
-                                                '6.2.0': False,
-                                                '6.2.2': False,
-                                                '6.2.6': False,
-                                                '6.2.7': False,
-                                                '6.2.8': False,
-                                                '6.2.9': False,
-                                                '6.2.10': False,
-                                                '6.2.11': False,
-                                                '6.2.12': False,
-                                                '6.4.1': False,
-                                                '6.4.3': False,
-                                                '6.4.4': False,
-                                                '6.4.5': True,
-                                                '6.4.6': True,
-                                                '6.4.7': True,
-                                                '6.4.8': True,
-                                                '6.4.9': True,
-                                                '6.4.10': True,
-                                                '6.4.11': True,
-                                                '6.4.12': True,
-                                                '6.4.13': True,
-                                                '7.0.0': True,
-                                                '7.0.1': True,
-                                                '7.0.2': True,
-                                                '7.0.3': True,
-                                                '7.0.4': True,
-                                                '7.0.5': True,
-                                                '7.0.6': True,
-                                                '7.0.7': True,
-                                                '7.0.8': True,
-                                                '7.0.9': True,
-                                                '7.0.10': True,
-                                                '7.2.0': True,
-                                                '7.2.1': True,
-                                                '7.2.2': True,
-                                                '7.2.3': True,
-                                                '7.2.4': True,
-                                                '7.4.0': True,
-                                                '7.4.1': True
-                                            },
-                                            'choices': [
-                                                'any',
-                                                'incoming',
-                                                'outgoing'
-                                            ],
-                                            'type': 'str'
-                                        },
-                                        'file-type': {
-                                            'required': False,
-                                            'revision': {
-                                                '6.2.0': False,
-                                                '6.2.2': False,
-                                                '6.2.6': False,
-                                                '6.2.7': False,
-                                                '6.2.8': False,
-                                                '6.2.9': False,
-                                                '6.2.10': False,
-                                                '6.2.11': False,
-                                                '6.2.12': False,
-                                                '6.4.1': False,
-                                                '6.4.3': False,
-                                                '6.4.4': False,
-                                                '6.4.5': True,
-                                                '6.4.6': True,
-                                                '6.4.7': True,
-                                                '6.4.8': True,
-                                                '6.4.9': True,
-                                                '6.4.10': True,
-                                                '6.4.11': True,
-                                                '6.4.12': True,
-                                                '6.4.13': True,
-                                                '7.0.0': True,
-                                                '7.0.1': True,
-                                                '7.0.2': True,
-                                                '7.0.3': True,
-                                                '7.0.4': True,
-                                                '7.0.5': True,
-                                                '7.0.6': True,
-                                                '7.0.7': True,
-                                                '7.0.8': True,
-                                                '7.0.9': True,
-                                                '7.0.10': True,
-                                                '7.2.0': True,
-                                                '7.2.1': True,
-                                                '7.2.2': True,
-                                                '7.2.3': True,
-                                                '7.2.4': True,
-                                                '7.4.0': True,
-                                                '7.4.1': True
-                                            },
-                                            'type': 'raw'
-                                        },
-                                        'filter': {
-                                            'required': False,
-                                            'revision': {
-                                                '6.2.0': False,
-                                                '6.2.2': False,
-                                                '6.2.6': False,
-                                                '6.2.7': False,
-                                                '6.2.8': False,
-                                                '6.2.9': False,
-                                                '6.2.10': False,
-                                                '6.2.11': False,
-                                                '6.2.12': False,
-                                                '6.4.1': False,
-                                                '6.4.3': False,
-                                                '6.4.4': False,
-                                                '6.4.5': True,
-                                                '6.4.6': True,
-                                                '6.4.7': True,
-                                                '6.4.8': True,
-                                                '6.4.9': True,
-                                                '6.4.10': True,
-                                                '6.4.11': True,
-                                                '6.4.12': True,
-                                                '6.4.13': True,
-                                                '7.0.0': True,
-                                                '7.0.1': True,
-                                                '7.0.2': True,
-                                                '7.0.3': True,
-                                                '7.0.4': True,
-                                                '7.0.5': True,
-                                                '7.0.6': True,
-                                                '7.0.7': True,
-                                                '7.0.8': True,
-                                                '7.0.9': True,
-                                                '7.0.10': True,
-                                                '7.2.0': True,
-                                                '7.2.1': True,
-                                                '7.2.2': True,
-                                                '7.2.3': True,
-                                                '7.2.4': True,
-                                                '7.4.0': True,
-                                                '7.4.1': True
-                                            },
-                                            'type': 'str'
-                                        },
-                                        'protocol': {
-                                            'required': False,
-                                            'revision': {
-                                                '6.2.0': False,
-                                                '6.2.2': False,
-                                                '6.2.6': False,
-                                                '6.2.7': False,
-                                                '6.2.8': False,
-                                                '6.2.9': False,
-                                                '6.2.10': False,
-                                                '6.2.11': False,
-                                                '6.2.12': False,
-                                                '6.4.1': False,
-                                                '6.4.3': False,
-                                                '6.4.4': False,
-                                                '6.4.5': True,
-                                                '6.4.6': True,
-                                                '6.4.7': True,
-                                                '6.4.8': True,
-                                                '6.4.9': True,
-                                                '6.4.10': True,
-                                                '6.4.11': True,
-                                                '6.4.12': True,
-                                                '6.4.13': True,
-                                                '7.0.0': True,
-                                                '7.0.1': True,
-                                                '7.0.2': True,
-                                                '7.0.3': True,
-                                                '7.0.4': True,
-                                                '7.0.5': True,
-                                                '7.0.6': True,
-                                                '7.0.7': True,
-                                                '7.0.8': True,
-                                                '7.0.9': True,
-                                                '7.0.10': True,
-                                                '7.2.0': True,
-                                                '7.2.1': True,
-                                                '7.2.2': True,
-                                                '7.2.3': True,
-                                                '7.2.4': True,
-                                                '7.4.0': True,
-                                                '7.4.1': True
-                                            },
-                                            'type': 'list',
-                                            'choices': [
-                                                'cifs'
-                                            ],
-                                            'elements': 'str'
-                                        }
+                                        'action': {'v_range': [['6.4.5', '']], 'choices': ['log', 'block'], 'type': 'str'},
+                                        'comment': {'v_range': [['6.4.5', '']], 'type': 'str'},
+                                        'direction': {'v_range': [['6.4.5', '']], 'choices': ['any', 'incoming', 'outgoing'], 'type': 'str'},
+                                        'file-type': {'v_range': [['6.4.5', '']], 'type': 'raw'},
+                                        'filter': {'v_range': [['6.4.5', '']], 'type': 'str'},
+                                        'protocol': {'v_range': [['6.4.5', '']], 'type': 'list', 'choices': ['cifs'], 'elements': 'str'}
                                     },
                                     'elements': 'dict'
                                 },
-                                'log': {
-                                    'required': False,
-                                    'revision': {
-                                        '6.2.0': False,
-                                        '6.2.2': False,
-                                        '6.2.6': False,
-                                        '6.2.7': False,
-                                        '6.2.8': False,
-                                        '6.2.9': False,
-                                        '6.2.10': False,
-                                        '6.2.11': False,
-                                        '6.2.12': False,
-                                        '6.4.1': False,
-                                        '6.4.3': False,
-                                        '6.4.4': False,
-                                        '6.4.5': True,
-                                        '6.4.6': True,
-                                        '6.4.7': True,
-                                        '6.4.8': True,
-                                        '6.4.9': True,
-                                        '6.4.10': True,
-                                        '6.4.11': True,
-                                        '6.4.12': True,
-                                        '6.4.13': True,
-                                        '7.0.0': True,
-                                        '7.0.1': True,
-                                        '7.0.2': True,
-                                        '7.0.3': True,
-                                        '7.0.4': True,
-                                        '7.0.5': True,
-                                        '7.0.6': True,
-                                        '7.0.7': True,
-                                        '7.0.8': True,
-                                        '7.0.9': True,
-                                        '7.0.10': True,
-                                        '7.2.0': True,
-                                        '7.2.1': True,
-                                        '7.2.2': True,
-                                        '7.2.3': True,
-                                        '7.2.4': True,
-                                        '7.4.0': True,
-                                        '7.4.1': True
-                                    },
-                                    'choices': [
-                                        'disable',
-                                        'enable'
-                                    ],
-                                    'type': 'str'
-                                },
-                                'status': {
-                                    'required': False,
-                                    'revision': {
-                                        '6.2.0': False,
-                                        '6.2.2': False,
-                                        '6.2.6': False,
-                                        '6.2.7': False,
-                                        '6.2.8': False,
-                                        '6.2.9': False,
-                                        '6.2.10': False,
-                                        '6.2.11': False,
-                                        '6.2.12': False,
-                                        '6.4.1': False,
-                                        '6.4.3': False,
-                                        '6.4.4': False,
-                                        '6.4.5': True,
-                                        '6.4.6': True,
-                                        '6.4.7': True,
-                                        '6.4.8': True,
-                                        '6.4.9': True,
-                                        '6.4.10': True,
-                                        '6.4.11': True,
-                                        '6.4.12': True,
-                                        '6.4.13': True,
-                                        '7.0.0': True,
-                                        '7.0.1': True,
-                                        '7.0.2': True,
-                                        '7.0.3': True,
-                                        '7.0.4': True,
-                                        '7.0.5': True,
-                                        '7.0.6': True,
-                                        '7.0.7': True,
-                                        '7.0.8': True,
-                                        '7.0.9': True,
-                                        '7.0.10': True,
-                                        '7.2.0': True,
-                                        '7.2.1': True,
-                                        '7.2.2': True,
-                                        '7.2.3': True,
-                                        '7.2.4': True,
-                                        '7.4.0': True,
-                                        '7.4.1': True
-                                    },
-                                    'choices': [
-                                        'disable',
-                                        'enable'
-                                    ],
-                                    'type': 'str'
-                                }
+                                'log': {'v_range': [['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                                'status': {'v_range': [['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
                             }
                         },
-                        'options': {
-                            'required': False,
-                            'revision': {
-                                '6.2.0': False,
-                                '6.2.2': False,
-                                '6.2.6': False,
-                                '6.2.7': False,
-                                '6.2.8': False,
-                                '6.2.9': False,
-                                '6.2.10': False,
-                                '6.2.11': False,
-                                '6.2.12': False,
-                                '6.4.1': False,
-                                '6.4.3': False,
-                                '6.4.4': False,
-                                '6.4.5': True,
-                                '6.4.6': True,
-                                '6.4.7': True,
-                                '6.4.8': True,
-                                '6.4.9': True,
-                                '6.4.10': True,
-                                '6.4.11': True,
-                                '6.4.12': True,
-                                '6.4.13': True,
-                                '7.0.0': True,
-                                '7.0.1': True,
-                                '7.0.2': True,
-                                '7.0.3': True,
-                                '7.0.4': True,
-                                '7.0.5': True,
-                                '7.0.6': True,
-                                '7.0.7': True,
-                                '7.0.8': True,
-                                '7.0.9': True,
-                                '7.0.10': True,
-                                '7.2.0': True,
-                                '7.2.1': True,
-                                '7.2.2': True,
-                                '7.2.3': True,
-                                '7.2.4': True,
-                                '7.4.0': True,
-                                '7.4.1': True
-                            },
-                            'type': 'list',
-                            'choices': [
-                                'oversize'
-                            ],
-                            'elements': 'str'
-                        },
-                        'oversize-limit': {
-                            'required': False,
-                            'revision': {
-                                '6.2.0': False,
-                                '6.2.2': False,
-                                '6.2.6': False,
-                                '6.2.7': False,
-                                '6.2.8': False,
-                                '6.2.9': False,
-                                '6.2.10': False,
-                                '6.2.11': False,
-                                '6.2.12': False,
-                                '6.4.1': False,
-                                '6.4.3': False,
-                                '6.4.4': False,
-                                '6.4.5': True,
-                                '6.4.6': True,
-                                '6.4.7': True,
-                                '6.4.8': True,
-                                '6.4.9': True,
-                                '6.4.10': True,
-                                '6.4.11': True,
-                                '6.4.12': True,
-                                '6.4.13': True,
-                                '7.0.0': True,
-                                '7.0.1': True,
-                                '7.0.2': True,
-                                '7.0.3': True,
-                                '7.0.4': True,
-                                '7.0.5': True,
-                                '7.0.6': True,
-                                '7.0.7': True,
-                                '7.0.8': True,
-                                '7.0.9': True,
-                                '7.0.10': True,
-                                '7.2.0': True,
-                                '7.2.1': True,
-                                '7.2.2': True,
-                                '7.2.3': True,
-                                '7.2.4': True,
-                                '7.4.0': True,
-                                '7.4.1': True
-                            },
-                            'type': 'int'
-                        },
-                        'ports': {
-                            'required': False,
-                            'revision': {
-                                '6.2.0': False,
-                                '6.2.2': False,
-                                '6.2.6': False,
-                                '6.2.7': False,
-                                '6.2.8': True,
-                                '6.2.9': True,
-                                '6.2.10': True,
-                                '6.2.11': True,
-                                '6.2.12': True,
-                                '6.4.1': False,
-                                '6.4.3': False,
-                                '6.4.4': False,
-                                '6.4.5': True,
-                                '6.4.6': True,
-                                '6.4.7': True,
-                                '6.4.8': True,
-                                '6.4.9': True,
-                                '6.4.10': True,
-                                '6.4.11': True,
-                                '6.4.12': True,
-                                '6.4.13': True,
-                                '7.0.0': True,
-                                '7.0.1': True,
-                                '7.0.2': True,
-                                '7.0.3': True,
-                                '7.0.4': True,
-                                '7.0.5': True,
-                                '7.0.6': True,
-                                '7.0.7': True,
-                                '7.0.8': True,
-                                '7.0.9': True,
-                                '7.0.10': True,
-                                '7.2.0': True,
-                                '7.2.1': True,
-                                '7.2.2': True,
-                                '7.2.3': True,
-                                '7.2.4': True,
-                                '7.4.0': True,
-                                '7.4.1': True
-                            },
-                            'type': 'raw'
-                        },
-                        'scan-bzip2': {
-                            'required': False,
-                            'revision': {
-                                '6.2.0': False,
-                                '6.2.2': False,
-                                '6.2.6': False,
-                                '6.2.7': False,
-                                '6.2.8': False,
-                                '6.2.9': False,
-                                '6.2.10': False,
-                                '6.2.11': False,
-                                '6.2.12': False,
-                                '6.4.1': False,
-                                '6.4.3': False,
-                                '6.4.4': False,
-                                '6.4.5': True,
-                                '6.4.6': True,
-                                '6.4.7': True,
-                                '6.4.8': True,
-                                '6.4.9': True,
-                                '6.4.10': True,
-                                '6.4.11': True,
-                                '6.4.12': True,
-                                '6.4.13': True,
-                                '7.0.0': True,
-                                '7.0.1': True,
-                                '7.0.2': True,
-                                '7.0.3': True,
-                                '7.0.4': True,
-                                '7.0.5': True,
-                                '7.0.6': True,
-                                '7.0.7': True,
-                                '7.0.8': True,
-                                '7.0.9': True,
-                                '7.0.10': True,
-                                '7.2.0': True,
-                                '7.2.1': True,
-                                '7.2.2': True,
-                                '7.2.3': True,
-                                '7.2.4': True,
-                                '7.4.0': True,
-                                '7.4.1': True
-                            },
-                            'choices': [
-                                'disable',
-                                'enable'
-                            ],
-                            'type': 'str'
-                        },
+                        'options': {'v_range': [['6.4.5', '']], 'type': 'list', 'choices': ['oversize'], 'elements': 'str'},
+                        'oversize-limit': {'v_range': [['6.4.5', '']], 'type': 'int'},
+                        'ports': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'raw'},
+                        'scan-bzip2': {'v_range': [['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                         'server-credential-type': {
-                            'required': False,
-                            'revision': {
-                                '6.2.0': False,
-                                '6.2.2': False,
-                                '6.2.6': False,
-                                '6.2.7': False,
-                                '6.2.8': False,
-                                '6.2.9': False,
-                                '6.2.10': False,
-                                '6.2.11': False,
-                                '6.2.12': False,
-                                '6.4.1': False,
-                                '6.4.3': False,
-                                '6.4.4': False,
-                                '6.4.5': True,
-                                '6.4.6': True,
-                                '6.4.7': True,
-                                '6.4.8': True,
-                                '6.4.9': True,
-                                '6.4.10': True,
-                                '6.4.11': True,
-                                '6.4.12': True,
-                                '6.4.13': True,
-                                '7.0.0': True,
-                                '7.0.1': True,
-                                '7.0.2': True,
-                                '7.0.3': True,
-                                '7.0.4': True,
-                                '7.0.5': True,
-                                '7.0.6': True,
-                                '7.0.7': True,
-                                '7.0.8': True,
-                                '7.0.9': True,
-                                '7.0.10': True,
-                                '7.2.0': True,
-                                '7.2.1': True,
-                                '7.2.2': True,
-                                '7.2.3': True,
-                                '7.2.4': True,
-                                '7.4.0': True,
-                                '7.4.1': True
-                            },
-                            'choices': [
-                                'none',
-                                'credential-replication',
-                                'credential-keytab'
-                            ],
+                            'v_range': [['6.4.5', '']],
+                            'choices': ['none', 'credential-replication', 'credential-keytab'],
                             'type': 'str'
                         },
                         'server-keytab': {
-                            'required': False,
-                            'revision': {
-                                '6.2.0': False,
-                                '6.2.2': False,
-                                '6.2.6': False,
-                                '6.2.7': False,
-                                '6.2.8': False,
-                                '6.2.9': False,
-                                '6.2.10': False,
-                                '6.2.11': False,
-                                '6.2.12': False,
-                                '6.4.1': False,
-                                '6.4.3': False,
-                                '6.4.4': False,
-                                '6.4.5': True,
-                                '6.4.6': True,
-                                '6.4.7': True,
-                                '6.4.8': True,
-                                '6.4.9': True,
-                                '6.4.10': True,
-                                '6.4.11': True,
-                                '6.4.12': True,
-                                '6.4.13': True,
-                                '7.0.0': True,
-                                '7.0.1': True,
-                                '7.0.2': True,
-                                '7.0.3': True,
-                                '7.0.4': True,
-                                '7.0.5': True,
-                                '7.0.6': True,
-                                '7.0.7': True,
-                                '7.0.8': True,
-                                '7.0.9': True,
-                                '7.0.10': True,
-                                '7.2.0': True,
-                                '7.2.1': True,
-                                '7.2.2': True,
-                                '7.2.3': True,
-                                '7.2.4': True,
-                                '7.4.0': True,
-                                '7.4.1': True
-                            },
+                            'v_range': [['6.4.5', '']],
                             'no_log': True,
                             'type': 'list',
                             'options': {
-                                'keytab': {
-                                    'required': False,
-                                    'revision': {
-                                        '6.2.0': False,
-                                        '6.2.2': False,
-                                        '6.2.6': False,
-                                        '6.2.7': False,
-                                        '6.2.8': False,
-                                        '6.2.9': False,
-                                        '6.2.10': False,
-                                        '6.2.11': False,
-                                        '6.2.12': False,
-                                        '6.4.1': False,
-                                        '6.4.3': False,
-                                        '6.4.4': False,
-                                        '6.4.5': True,
-                                        '6.4.6': True,
-                                        '6.4.7': True,
-                                        '6.4.8': True,
-                                        '6.4.9': True,
-                                        '6.4.10': True,
-                                        '6.4.11': True,
-                                        '6.4.12': True,
-                                        '6.4.13': True,
-                                        '7.0.0': True,
-                                        '7.0.1': True,
-                                        '7.0.2': True,
-                                        '7.0.3': True,
-                                        '7.0.4': True,
-                                        '7.0.5': True,
-                                        '7.0.6': True,
-                                        '7.0.7': True,
-                                        '7.0.8': True,
-                                        '7.0.9': True,
-                                        '7.0.10': True,
-                                        '7.2.0': True,
-                                        '7.2.1': True,
-                                        '7.2.2': True,
-                                        '7.2.3': True,
-                                        '7.2.4': True,
-                                        '7.4.0': True,
-                                        '7.4.1': True
-                                    },
-                                    'no_log': True,
-                                    'type': 'str'
-                                },
-                                'password': {
-                                    'required': False,
-                                    'revision': {
-                                        '6.2.0': False,
-                                        '6.2.2': False,
-                                        '6.2.6': False,
-                                        '6.2.7': False,
-                                        '6.2.8': False,
-                                        '6.2.9': False,
-                                        '6.2.10': False,
-                                        '6.2.11': False,
-                                        '6.2.12': False,
-                                        '6.4.1': False,
-                                        '6.4.3': False,
-                                        '6.4.4': False,
-                                        '6.4.5': True,
-                                        '6.4.6': True,
-                                        '6.4.7': True,
-                                        '6.4.8': True,
-                                        '6.4.9': True,
-                                        '6.4.10': True,
-                                        '6.4.11': True,
-                                        '6.4.12': True,
-                                        '6.4.13': True,
-                                        '7.0.0': True,
-                                        '7.0.1': True,
-                                        '7.0.2': True,
-                                        '7.0.3': True,
-                                        '7.0.4': True,
-                                        '7.0.5': True,
-                                        '7.0.6': True,
-                                        '7.0.7': True,
-                                        '7.0.8': True,
-                                        '7.0.9': True,
-                                        '7.0.10': True,
-                                        '7.2.0': True,
-                                        '7.2.1': True,
-                                        '7.2.2': True,
-                                        '7.2.3': True,
-                                        '7.2.4': True,
-                                        '7.4.0': True,
-                                        '7.4.1': True
-                                    },
-                                    'no_log': True,
-                                    'type': 'raw'
-                                },
-                                'principal': {
-                                    'required': False,
-                                    'revision': {
-                                        '6.2.0': False,
-                                        '6.2.2': False,
-                                        '6.2.6': False,
-                                        '6.2.7': False,
-                                        '6.2.8': False,
-                                        '6.2.9': False,
-                                        '6.2.10': False,
-                                        '6.2.11': False,
-                                        '6.2.12': False,
-                                        '6.4.1': False,
-                                        '6.4.3': False,
-                                        '6.4.4': False,
-                                        '6.4.5': True,
-                                        '6.4.6': True,
-                                        '6.4.7': True,
-                                        '6.4.8': True,
-                                        '6.4.9': True,
-                                        '6.4.10': True,
-                                        '6.4.11': True,
-                                        '6.4.12': True,
-                                        '6.4.13': True,
-                                        '7.0.0': True,
-                                        '7.0.1': True,
-                                        '7.0.2': True,
-                                        '7.0.3': True,
-                                        '7.0.4': True,
-                                        '7.0.5': True,
-                                        '7.0.6': True,
-                                        '7.0.7': True,
-                                        '7.0.8': True,
-                                        '7.0.9': True,
-                                        '7.0.10': True,
-                                        '7.2.0': True,
-                                        '7.2.1': True,
-                                        '7.2.2': True,
-                                        '7.2.3': True,
-                                        '7.2.4': True,
-                                        '7.4.0': True,
-                                        '7.4.1': True
-                                    },
-                                    'type': 'str'
-                                }
+                                'keytab': {'v_range': [['6.4.5', '']], 'no_log': True, 'type': 'str'},
+                                'password': {'v_range': [['6.4.5', '']], 'no_log': True, 'type': 'raw'},
+                                'principal': {'v_range': [['6.4.5', '']], 'type': 'str'}
                             },
                             'elements': 'dict'
                         },
-                        'status': {
-                            'required': False,
-                            'revision': {
-                                '6.2.0': False,
-                                '6.2.2': False,
-                                '6.2.6': False,
-                                '6.2.7': False,
-                                '6.2.8': True,
-                                '6.2.9': True,
-                                '6.2.10': True,
-                                '6.2.11': True,
-                                '6.2.12': True,
-                                '6.4.1': False,
-                                '6.4.3': False,
-                                '6.4.4': False,
-                                '6.4.5': True,
-                                '6.4.6': True,
-                                '6.4.7': True,
-                                '6.4.8': True,
-                                '6.4.9': True,
-                                '6.4.10': True,
-                                '6.4.11': True,
-                                '6.4.12': True,
-                                '6.4.13': True,
-                                '7.0.0': True,
-                                '7.0.1': True,
-                                '7.0.2': True,
-                                '7.0.3': True,
-                                '7.0.4': True,
-                                '7.0.5': True,
-                                '7.0.6': True,
-                                '7.0.7': True,
-                                '7.0.8': True,
-                                '7.0.9': True,
-                                '7.0.10': True,
-                                '7.2.0': True,
-                                '7.2.1': True,
-                                '7.2.2': True,
-                                '7.2.3': True,
-                                '7.2.4': True,
-                                '7.4.0': True,
-                                '7.4.1': True
-                            },
-                            'choices': [
-                                'disable',
-                                'enable'
-                            ],
-                            'type': 'str'
-                        },
-                        'tcp-window-maximum': {
-                            'required': False,
-                            'revision': {
-                                '6.2.0': False,
-                                '6.2.2': False,
-                                '6.2.6': False,
-                                '6.2.7': False,
-                                '6.2.8': False,
-                                '6.2.9': False,
-                                '6.2.10': False,
-                                '6.2.11': False,
-                                '6.2.12': False,
-                                '6.4.1': False,
-                                '6.4.3': False,
-                                '6.4.4': False,
-                                '6.4.5': True,
-                                '6.4.6': True,
-                                '6.4.7': True,
-                                '6.4.8': True,
-                                '6.4.9': True,
-                                '6.4.10': True,
-                                '6.4.11': True,
-                                '6.4.12': True,
-                                '6.4.13': True,
-                                '7.0.0': True,
-                                '7.0.1': True,
-                                '7.0.2': True,
-                                '7.0.3': True,
-                                '7.0.4': True,
-                                '7.0.5': True,
-                                '7.0.6': True,
-                                '7.0.7': True,
-                                '7.0.8': True,
-                                '7.0.9': True,
-                                '7.0.10': True,
-                                '7.2.0': True,
-                                '7.2.1': True,
-                                '7.2.2': True,
-                                '7.2.3': True,
-                                '7.2.4': True,
-                                '7.4.0': True,
-                                '7.4.1': True
-                            },
-                            'type': 'int'
-                        },
-                        'tcp-window-minimum': {
-                            'required': False,
-                            'revision': {
-                                '6.2.0': False,
-                                '6.2.2': False,
-                                '6.2.6': False,
-                                '6.2.7': False,
-                                '6.2.8': False,
-                                '6.2.9': False,
-                                '6.2.10': False,
-                                '6.2.11': False,
-                                '6.2.12': False,
-                                '6.4.1': False,
-                                '6.4.3': False,
-                                '6.4.4': False,
-                                '6.4.5': True,
-                                '6.4.6': True,
-                                '6.4.7': True,
-                                '6.4.8': True,
-                                '6.4.9': True,
-                                '6.4.10': True,
-                                '6.4.11': True,
-                                '6.4.12': True,
-                                '6.4.13': True,
-                                '7.0.0': True,
-                                '7.0.1': True,
-                                '7.0.2': True,
-                                '7.0.3': True,
-                                '7.0.4': True,
-                                '7.0.5': True,
-                                '7.0.6': True,
-                                '7.0.7': True,
-                                '7.0.8': True,
-                                '7.0.9': True,
-                                '7.0.10': True,
-                                '7.2.0': True,
-                                '7.2.1': True,
-                                '7.2.2': True,
-                                '7.2.3': True,
-                                '7.2.4': True,
-                                '7.4.0': True,
-                                '7.4.1': True
-                            },
-                            'type': 'int'
-                        },
-                        'tcp-window-size': {
-                            'required': False,
-                            'revision': {
-                                '6.2.0': False,
-                                '6.2.2': False,
-                                '6.2.6': False,
-                                '6.2.7': False,
-                                '6.2.8': False,
-                                '6.2.9': False,
-                                '6.2.10': False,
-                                '6.2.11': False,
-                                '6.2.12': False,
-                                '6.4.1': False,
-                                '6.4.3': False,
-                                '6.4.4': False,
-                                '6.4.5': True,
-                                '6.4.6': True,
-                                '6.4.7': True,
-                                '6.4.8': True,
-                                '6.4.9': True,
-                                '6.4.10': True,
-                                '6.4.11': True,
-                                '6.4.12': True,
-                                '6.4.13': True,
-                                '7.0.0': True,
-                                '7.0.1': True,
-                                '7.0.2': True,
-                                '7.0.3': True,
-                                '7.0.4': True,
-                                '7.0.5': True,
-                                '7.0.6': True,
-                                '7.0.7': True,
-                                '7.0.8': True,
-                                '7.0.9': True,
-                                '7.0.10': True,
-                                '7.2.0': True,
-                                '7.2.1': True,
-                                '7.2.2': True,
-                                '7.2.3': True,
-                                '7.2.4': True,
-                                '7.4.0': True,
-                                '7.4.1': True
-                            },
-                            'type': 'int'
-                        },
-                        'tcp-window-type': {
-                            'required': False,
-                            'revision': {
-                                '6.2.0': False,
-                                '6.2.2': False,
-                                '6.2.6': False,
-                                '6.2.7': False,
-                                '6.2.8': False,
-                                '6.2.9': False,
-                                '6.2.10': False,
-                                '6.2.11': False,
-                                '6.2.12': False,
-                                '6.4.1': False,
-                                '6.4.3': False,
-                                '6.4.4': False,
-                                '6.4.5': True,
-                                '6.4.6': True,
-                                '6.4.7': True,
-                                '6.4.8': True,
-                                '6.4.9': True,
-                                '6.4.10': True,
-                                '6.4.11': True,
-                                '6.4.12': True,
-                                '6.4.13': True,
-                                '7.0.0': True,
-                                '7.0.1': True,
-                                '7.0.2': True,
-                                '7.0.3': True,
-                                '7.0.4': True,
-                                '7.0.5': True,
-                                '7.0.6': True,
-                                '7.0.7': True,
-                                '7.0.8': True,
-                                '7.0.9': True,
-                                '7.0.10': True,
-                                '7.2.0': True,
-                                '7.2.1': True,
-                                '7.2.2': True,
-                                '7.2.3': True,
-                                '7.2.4': True,
-                                '7.4.0': True,
-                                '7.4.1': True
-                            },
-                            'choices': [
-                                'system',
-                                'static',
-                                'dynamic',
-                                'auto-tuning'
-                            ],
-                            'type': 'str'
-                        },
-                        'uncompressed-nest-limit': {
-                            'required': False,
-                            'revision': {
-                                '6.2.0': False,
-                                '6.2.2': False,
-                                '6.2.6': False,
-                                '6.2.7': False,
-                                '6.2.8': False,
-                                '6.2.9': False,
-                                '6.2.10': False,
-                                '6.2.11': False,
-                                '6.2.12': False,
-                                '6.4.1': False,
-                                '6.4.3': False,
-                                '6.4.4': False,
-                                '6.4.5': True,
-                                '6.4.6': True,
-                                '6.4.7': True,
-                                '6.4.8': True,
-                                '6.4.9': True,
-                                '6.4.10': True,
-                                '6.4.11': True,
-                                '6.4.12': True,
-                                '6.4.13': True,
-                                '7.0.0': True,
-                                '7.0.1': True,
-                                '7.0.2': True,
-                                '7.0.3': True,
-                                '7.0.4': True,
-                                '7.0.5': True,
-                                '7.0.6': True,
-                                '7.0.7': True,
-                                '7.0.8': True,
-                                '7.0.9': True,
-                                '7.0.10': True,
-                                '7.2.0': True,
-                                '7.2.1': True,
-                                '7.2.2': True,
-                                '7.2.3': True,
-                                '7.2.4': True,
-                                '7.4.0': True,
-                                '7.4.1': True
-                            },
-                            'type': 'int'
-                        },
-                        'uncompressed-oversize-limit': {
-                            'required': False,
-                            'revision': {
-                                '6.2.0': False,
-                                '6.2.2': False,
-                                '6.2.6': False,
-                                '6.2.7': False,
-                                '6.2.8': False,
-                                '6.2.9': False,
-                                '6.2.10': False,
-                                '6.2.11': False,
-                                '6.2.12': False,
-                                '6.4.1': False,
-                                '6.4.3': False,
-                                '6.4.4': False,
-                                '6.4.5': True,
-                                '6.4.6': True,
-                                '6.4.7': True,
-                                '6.4.8': True,
-                                '6.4.9': True,
-                                '6.4.10': True,
-                                '6.4.11': True,
-                                '6.4.12': True,
-                                '6.4.13': True,
-                                '7.0.0': True,
-                                '7.0.1': True,
-                                '7.0.2': True,
-                                '7.0.3': True,
-                                '7.0.4': True,
-                                '7.0.5': True,
-                                '7.0.6': True,
-                                '7.0.7': True,
-                                '7.0.8': True,
-                                '7.0.9': True,
-                                '7.0.10': True,
-                                '7.2.0': True,
-                                '7.2.1': True,
-                                '7.2.2': True,
-                                '7.2.3': True,
-                                '7.2.4': True,
-                                '7.4.0': True,
-                                '7.4.1': True
-                            },
-                            'type': 'int'
-                        }
+                        'status': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'tcp-window-maximum': {'v_range': [['6.4.5', '']], 'type': 'int'},
+                        'tcp-window-minimum': {'v_range': [['6.4.5', '']], 'type': 'int'},
+                        'tcp-window-size': {'v_range': [['6.4.5', '']], 'type': 'int'},
+                        'tcp-window-type': {'v_range': [['6.4.5', '']], 'choices': ['system', 'static', 'dynamic', 'auto-tuning'], 'type': 'str'},
+                        'uncompressed-nest-limit': {'v_range': [['6.4.5', '']], 'type': 'int'},
+                        'uncompressed-oversize-limit': {'v_range': [['6.4.5', '']], 'type': 'int'}
                     }
                 },
                 'dns': {
-                    'required': False,
                     'type': 'dict',
                     'options': {
-                        'ports': {
-                            'required': False,
-                            'revision': {
-                                '6.2.0': False,
-                                '6.2.2': False,
-                                '6.2.6': False,
-                                '6.2.7': False,
-                                '6.2.8': True,
-                                '6.2.9': True,
-                                '6.2.10': True,
-                                '6.2.11': True,
-                                '6.2.12': True,
-                                '6.4.1': False,
-                                '6.4.3': False,
-                                '6.4.4': False,
-                                '6.4.5': True,
-                                '6.4.6': True,
-                                '6.4.7': True,
-                                '6.4.8': True,
-                                '6.4.9': True,
-                                '6.4.10': True,
-                                '6.4.11': True,
-                                '6.4.12': True,
-                                '6.4.13': True,
-                                '7.0.0': True,
-                                '7.0.1': True,
-                                '7.0.2': True,
-                                '7.0.3': True,
-                                '7.0.4': True,
-                                '7.0.5': True,
-                                '7.0.6': True,
-                                '7.0.7': True,
-                                '7.0.8': True,
-                                '7.0.9': True,
-                                '7.0.10': True,
-                                '7.2.0': True,
-                                '7.2.1': True,
-                                '7.2.2': True,
-                                '7.2.3': True,
-                                '7.2.4': True,
-                                '7.4.0': True,
-                                '7.4.1': True
-                            },
-                            'type': 'raw'
-                        },
-                        'status': {
-                            'required': False,
-                            'revision': {
-                                '6.2.0': False,
-                                '6.2.2': False,
-                                '6.2.6': False,
-                                '6.2.7': False,
-                                '6.2.8': True,
-                                '6.2.9': True,
-                                '6.2.10': True,
-                                '6.2.11': True,
-                                '6.2.12': True,
-                                '6.4.1': False,
-                                '6.4.3': False,
-                                '6.4.4': False,
-                                '6.4.5': True,
-                                '6.4.6': True,
-                                '6.4.7': True,
-                                '6.4.8': True,
-                                '6.4.9': True,
-                                '6.4.10': True,
-                                '6.4.11': True,
-                                '6.4.12': True,
-                                '6.4.13': True,
-                                '7.0.0': True,
-                                '7.0.1': True,
-                                '7.0.2': True,
-                                '7.0.3': True,
-                                '7.0.4': True,
-                                '7.0.5': True,
-                                '7.0.6': True,
-                                '7.0.7': True,
-                                '7.0.8': True,
-                                '7.0.9': True,
-                                '7.0.10': True,
-                                '7.2.0': True,
-                                '7.2.1': True,
-                                '7.2.2': True,
-                                '7.2.3': True,
-                                '7.2.4': True,
-                                '7.4.0': True,
-                                '7.4.1': True
-                            },
-                            'choices': [
-                                'disable',
-                                'enable'
-                            ],
-                            'type': 'str'
-                        }
+                        'ports': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'raw'},
+                        'status': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
                     }
                 },
                 'ftp': {
-                    'required': False,
                     'type': 'dict',
                     'options': {
-                        'comfort-amount': {
-                            'required': False,
-                            'revision': {
-                                '6.2.0': False,
-                                '6.2.2': False,
-                                '6.2.6': False,
-                                '6.2.7': False,
-                                '6.2.8': True,
-                                '6.2.9': True,
-                                '6.2.10': True,
-                                '6.2.11': True,
-                                '6.2.12': True,
-                                '6.4.1': False,
-                                '6.4.3': False,
-                                '6.4.4': False,
-                                '6.4.5': True,
-                                '6.4.6': True,
-                                '6.4.7': True,
-                                '6.4.8': True,
-                                '6.4.9': True,
-                                '6.4.10': True,
-                                '6.4.11': True,
-                                '6.4.12': True,
-                                '6.4.13': True,
-                                '7.0.0': True,
-                                '7.0.1': True,
-                                '7.0.2': True,
-                                '7.0.3': True,
-                                '7.0.4': True,
-                                '7.0.5': True,
-                                '7.0.6': True,
-                                '7.0.7': True,
-                                '7.0.8': True,
-                                '7.0.9': True,
-                                '7.0.10': True,
-                                '7.2.0': True,
-                                '7.2.1': True,
-                                '7.2.2': True,
-                                '7.2.3': True,
-                                '7.2.4': True,
-                                '7.4.0': True,
-                                '7.4.1': True
-                            },
-                            'type': 'int'
-                        },
-                        'comfort-interval': {
-                            'required': False,
-                            'revision': {
-                                '6.2.0': False,
-                                '6.2.2': False,
-                                '6.2.6': False,
-                                '6.2.7': False,
-                                '6.2.8': True,
-                                '6.2.9': True,
-                                '6.2.10': True,
-                                '6.2.11': True,
-                                '6.2.12': True,
-                                '6.4.1': False,
-                                '6.4.3': False,
-                                '6.4.4': False,
-                                '6.4.5': True,
-                                '6.4.6': True,
-                                '6.4.7': True,
-                                '6.4.8': True,
-                                '6.4.9': True,
-                                '6.4.10': True,
-                                '6.4.11': True,
-                                '6.4.12': True,
-                                '6.4.13': True,
-                                '7.0.0': True,
-                                '7.0.1': True,
-                                '7.0.2': True,
-                                '7.0.3': True,
-                                '7.0.4': True,
-                                '7.0.5': True,
-                                '7.0.6': True,
-                                '7.0.7': True,
-                                '7.0.8': True,
-                                '7.0.9': True,
-                                '7.0.10': True,
-                                '7.2.0': True,
-                                '7.2.1': True,
-                                '7.2.2': True,
-                                '7.2.3': True,
-                                '7.2.4': True,
-                                '7.4.0': True,
-                                '7.4.1': True
-                            },
-                            'type': 'int'
-                        },
-                        'inspect-all': {
-                            'required': False,
-                            'revision': {
-                                '6.2.0': False,
-                                '6.2.2': False,
-                                '6.2.6': False,
-                                '6.2.7': False,
-                                '6.2.8': True,
-                                '6.2.9': True,
-                                '6.2.10': True,
-                                '6.2.11': True,
-                                '6.2.12': True,
-                                '6.4.1': False,
-                                '6.4.3': False,
-                                '6.4.4': False,
-                                '6.4.5': True,
-                                '6.4.6': True,
-                                '6.4.7': True,
-                                '6.4.8': True,
-                                '6.4.9': True,
-                                '6.4.10': True,
-                                '6.4.11': True,
-                                '6.4.12': True,
-                                '6.4.13': True,
-                                '7.0.0': True,
-                                '7.0.1': True,
-                                '7.0.2': True,
-                                '7.0.3': True,
-                                '7.0.4': True,
-                                '7.0.5': True,
-                                '7.0.6': True,
-                                '7.0.7': True,
-                                '7.0.8': True,
-                                '7.0.9': True,
-                                '7.0.10': True,
-                                '7.2.0': True,
-                                '7.2.1': True,
-                                '7.2.2': True,
-                                '7.2.3': True,
-                                '7.2.4': True,
-                                '7.4.0': True,
-                                '7.4.1': True
-                            },
-                            'choices': [
-                                'disable',
-                                'enable'
-                            ],
-                            'type': 'str'
-                        },
+                        'comfort-amount': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
+                        'comfort-interval': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
+                        'inspect-all': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                         'options': {
-                            'required': False,
-                            'revision': {
-                                '6.2.0': False,
-                                '6.2.2': False,
-                                '6.2.6': False,
-                                '6.2.7': False,
-                                '6.2.8': True,
-                                '6.2.9': True,
-                                '6.2.10': True,
-                                '6.2.11': True,
-                                '6.2.12': True,
-                                '6.4.1': False,
-                                '6.4.3': False,
-                                '6.4.4': False,
-                                '6.4.5': True,
-                                '6.4.6': True,
-                                '6.4.7': True,
-                                '6.4.8': True,
-                                '6.4.9': True,
-                                '6.4.10': True,
-                                '6.4.11': True,
-                                '6.4.12': True,
-                                '6.4.13': True,
-                                '7.0.0': True,
-                                '7.0.1': True,
-                                '7.0.2': True,
-                                '7.0.3': True,
-                                '7.0.4': True,
-                                '7.0.5': True,
-                                '7.0.6': True,
-                                '7.0.7': True,
-                                '7.0.8': True,
-                                '7.0.9': True,
-                                '7.0.10': True,
-                                '7.2.0': True,
-                                '7.2.1': True,
-                                '7.2.2': True,
-                                '7.2.3': True,
-                                '7.2.4': True,
-                                '7.4.0': True,
-                                '7.4.1': True
-                            },
+                            'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
                             'type': 'list',
-                            'choices': [
-                                'clientcomfort',
-                                'no-content-summary',
-                                'oversize',
-                                'splice',
-                                'bypass-rest-command',
-                                'bypass-mode-command'
-                            ],
+                            'choices': ['clientcomfort', 'no-content-summary', 'oversize', 'splice', 'bypass-rest-command', 'bypass-mode-command'],
                             'elements': 'str'
                         },
-                        'oversize-limit': {
-                            'required': False,
-                            'revision': {
-                                '6.2.0': False,
-                                '6.2.2': False,
-                                '6.2.6': False,
-                                '6.2.7': False,
-                                '6.2.8': True,
-                                '6.2.9': True,
-                                '6.2.10': True,
-                                '6.2.11': True,
-                                '6.2.12': True,
-                                '6.4.1': False,
-                                '6.4.3': False,
-                                '6.4.4': False,
-                                '6.4.5': True,
-                                '6.4.6': True,
-                                '6.4.7': True,
-                                '6.4.8': True,
-                                '6.4.9': True,
-                                '6.4.10': True,
-                                '6.4.11': True,
-                                '6.4.12': True,
-                                '6.4.13': True,
-                                '7.0.0': True,
-                                '7.0.1': True,
-                                '7.0.2': True,
-                                '7.0.3': True,
-                                '7.0.4': True,
-                                '7.0.5': True,
-                                '7.0.6': True,
-                                '7.0.7': True,
-                                '7.0.8': True,
-                                '7.0.9': True,
-                                '7.0.10': True,
-                                '7.2.0': True,
-                                '7.2.1': True,
-                                '7.2.2': True,
-                                '7.2.3': True,
-                                '7.2.4': True,
-                                '7.4.0': True,
-                                '7.4.1': True
-                            },
-                            'type': 'int'
-                        },
-                        'ports': {
-                            'required': False,
-                            'revision': {
-                                '6.2.0': False,
-                                '6.2.2': False,
-                                '6.2.6': False,
-                                '6.2.7': False,
-                                '6.2.8': True,
-                                '6.2.9': True,
-                                '6.2.10': True,
-                                '6.2.11': True,
-                                '6.2.12': True,
-                                '6.4.1': False,
-                                '6.4.3': False,
-                                '6.4.4': False,
-                                '6.4.5': True,
-                                '6.4.6': True,
-                                '6.4.7': True,
-                                '6.4.8': True,
-                                '6.4.9': True,
-                                '6.4.10': True,
-                                '6.4.11': True,
-                                '6.4.12': True,
-                                '6.4.13': True,
-                                '7.0.0': True,
-                                '7.0.1': True,
-                                '7.0.2': True,
-                                '7.0.3': True,
-                                '7.0.4': True,
-                                '7.0.5': True,
-                                '7.0.6': True,
-                                '7.0.7': True,
-                                '7.0.8': True,
-                                '7.0.9': True,
-                                '7.0.10': True,
-                                '7.2.0': True,
-                                '7.2.1': True,
-                                '7.2.2': True,
-                                '7.2.3': True,
-                                '7.2.4': True,
-                                '7.4.0': True,
-                                '7.4.1': True
-                            },
-                            'type': 'raw'
-                        },
-                        'scan-bzip2': {
-                            'required': False,
-                            'revision': {
-                                '6.2.0': False,
-                                '6.2.2': False,
-                                '6.2.6': False,
-                                '6.2.7': False,
-                                '6.2.8': True,
-                                '6.2.9': True,
-                                '6.2.10': True,
-                                '6.2.11': True,
-                                '6.2.12': True,
-                                '6.4.1': False,
-                                '6.4.3': False,
-                                '6.4.4': False,
-                                '6.4.5': True,
-                                '6.4.6': True,
-                                '6.4.7': True,
-                                '6.4.8': True,
-                                '6.4.9': True,
-                                '6.4.10': True,
-                                '6.4.11': True,
-                                '6.4.12': True,
-                                '6.4.13': True,
-                                '7.0.0': True,
-                                '7.0.1': True,
-                                '7.0.2': True,
-                                '7.0.3': True,
-                                '7.0.4': True,
-                                '7.0.5': True,
-                                '7.0.6': True,
-                                '7.0.7': True,
-                                '7.0.8': True,
-                                '7.0.9': True,
-                                '7.0.10': True,
-                                '7.2.0': True,
-                                '7.2.1': True,
-                                '7.2.2': True,
-                                '7.2.3': True,
-                                '7.2.4': True,
-                                '7.4.0': True,
-                                '7.4.1': True
-                            },
-                            'choices': [
-                                'disable',
-                                'enable'
-                            ],
-                            'type': 'str'
-                        },
-                        'ssl-offloaded': {
-                            'required': False,
-                            'revision': {
-                                '6.2.0': False,
-                                '6.2.2': False,
-                                '6.2.6': False,
-                                '6.2.7': False,
-                                '6.2.8': True,
-                                '6.2.9': True,
-                                '6.2.10': True,
-                                '6.2.11': True,
-                                '6.2.12': True,
-                                '6.4.1': False,
-                                '6.4.3': False,
-                                '6.4.4': False,
-                                '6.4.5': True,
-                                '6.4.6': True,
-                                '6.4.7': True,
-                                '6.4.8': True,
-                                '6.4.9': True,
-                                '6.4.10': True,
-                                '6.4.11': True,
-                                '6.4.12': True,
-                                '6.4.13': True,
-                                '7.0.0': True,
-                                '7.0.1': True,
-                                '7.0.2': True,
-                                '7.0.3': True,
-                                '7.0.4': True,
-                                '7.0.5': True,
-                                '7.0.6': True,
-                                '7.0.7': True,
-                                '7.0.8': True,
-                                '7.0.9': True,
-                                '7.0.10': True,
-                                '7.2.0': True,
-                                '7.2.1': True,
-                                '7.2.2': True,
-                                '7.2.3': True,
-                                '7.2.4': True,
-                                '7.4.0': True,
-                                '7.4.1': True
-                            },
-                            'choices': [
-                                'no',
-                                'yes'
-                            ],
-                            'type': 'str'
-                        },
-                        'status': {
-                            'required': False,
-                            'revision': {
-                                '6.2.0': False,
-                                '6.2.2': False,
-                                '6.2.6': False,
-                                '6.2.7': False,
-                                '6.2.8': True,
-                                '6.2.9': True,
-                                '6.2.10': True,
-                                '6.2.11': True,
-                                '6.2.12': True,
-                                '6.4.1': False,
-                                '6.4.3': False,
-                                '6.4.4': False,
-                                '6.4.5': True,
-                                '6.4.6': True,
-                                '6.4.7': True,
-                                '6.4.8': True,
-                                '6.4.9': True,
-                                '6.4.10': True,
-                                '6.4.11': True,
-                                '6.4.12': True,
-                                '6.4.13': True,
-                                '7.0.0': True,
-                                '7.0.1': True,
-                                '7.0.2': True,
-                                '7.0.3': True,
-                                '7.0.4': True,
-                                '7.0.5': True,
-                                '7.0.6': True,
-                                '7.0.7': True,
-                                '7.0.8': True,
-                                '7.0.9': True,
-                                '7.0.10': True,
-                                '7.2.0': True,
-                                '7.2.1': True,
-                                '7.2.2': True,
-                                '7.2.3': True,
-                                '7.2.4': True,
-                                '7.4.0': True,
-                                '7.4.1': True
-                            },
-                            'choices': [
-                                'disable',
-                                'enable'
-                            ],
-                            'type': 'str'
-                        },
-                        'uncompressed-nest-limit': {
-                            'required': False,
-                            'revision': {
-                                '6.2.0': False,
-                                '6.2.2': False,
-                                '6.2.6': False,
-                                '6.2.7': False,
-                                '6.2.8': True,
-                                '6.2.9': True,
-                                '6.2.10': True,
-                                '6.2.11': True,
-                                '6.2.12': True,
-                                '6.4.1': False,
-                                '6.4.3': False,
-                                '6.4.4': False,
-                                '6.4.5': True,
-                                '6.4.6': True,
-                                '6.4.7': True,
-                                '6.4.8': True,
-                                '6.4.9': True,
-                                '6.4.10': True,
-                                '6.4.11': True,
-                                '6.4.12': True,
-                                '6.4.13': True,
-                                '7.0.0': True,
-                                '7.0.1': True,
-                                '7.0.2': True,
-                                '7.0.3': True,
-                                '7.0.4': True,
-                                '7.0.5': True,
-                                '7.0.6': True,
-                                '7.0.7': True,
-                                '7.0.8': True,
-                                '7.0.9': True,
-                                '7.0.10': True,
-                                '7.2.0': True,
-                                '7.2.1': True,
-                                '7.2.2': True,
-                                '7.2.3': True,
-                                '7.2.4': True,
-                                '7.4.0': True,
-                                '7.4.1': True
-                            },
-                            'type': 'int'
-                        },
-                        'uncompressed-oversize-limit': {
-                            'required': False,
-                            'revision': {
-                                '6.2.0': False,
-                                '6.2.2': False,
-                                '6.2.6': False,
-                                '6.2.7': False,
-                                '6.2.8': True,
-                                '6.2.9': True,
-                                '6.2.10': True,
-                                '6.2.11': True,
-                                '6.2.12': True,
-                                '6.4.1': False,
-                                '6.4.3': False,
-                                '6.4.4': False,
-                                '6.4.5': True,
-                                '6.4.6': True,
-                                '6.4.7': True,
-                                '6.4.8': True,
-                                '6.4.9': True,
-                                '6.4.10': True,
-                                '6.4.11': True,
-                                '6.4.12': True,
-                                '6.4.13': True,
-                                '7.0.0': True,
-                                '7.0.1': True,
-                                '7.0.2': True,
-                                '7.0.3': True,
-                                '7.0.4': True,
-                                '7.0.5': True,
-                                '7.0.6': True,
-                                '7.0.7': True,
-                                '7.0.8': True,
-                                '7.0.9': True,
-                                '7.0.10': True,
-                                '7.2.0': True,
-                                '7.2.1': True,
-                                '7.2.2': True,
-                                '7.2.3': True,
-                                '7.2.4': True,
-                                '7.4.0': True,
-                                '7.4.1': True
-                            },
-                            'type': 'int'
-                        },
-                        'stream-based-uncompressed-limit': {
-                            'required': False,
-                            'revision': {
-                                '6.2.0': False,
-                                '6.2.2': False,
-                                '6.2.6': False,
-                                '6.2.7': False,
-                                '6.2.8': False,
-                                '6.2.9': False,
-                                '6.2.10': False,
-                                '6.2.11': False,
-                                '6.2.12': False,
-                                '6.4.1': False,
-                                '6.4.3': False,
-                                '6.4.4': False,
-                                '6.4.6': False,
-                                '6.4.7': False,
-                                '6.4.8': False,
-                                '6.4.9': False,
-                                '6.4.10': False,
-                                '6.4.11': False,
-                                '6.4.12': False,
-                                '6.4.13': False,
-                                '7.0.0': True,
-                                '7.0.1': True,
-                                '7.0.2': True,
-                                '7.0.3': True,
-                                '7.0.4': True,
-                                '7.0.5': True,
-                                '7.0.6': True,
-                                '7.0.7': True,
-                                '7.0.8': True,
-                                '7.0.9': True,
-                                '7.0.10': True,
-                                '7.2.0': True,
-                                '7.2.1': True,
-                                '7.2.2': True,
-                                '7.2.3': True,
-                                '7.2.4': True,
-                                '7.4.0': True,
-                                '7.4.1': True
-                            },
-                            'type': 'int'
-                        },
-                        'tcp-window-maximum': {
-                            'required': False,
-                            'revision': {
-                                '6.2.0': False,
-                                '6.2.2': False,
-                                '6.2.6': False,
-                                '6.2.7': False,
-                                '6.2.8': False,
-                                '6.2.9': False,
-                                '6.2.10': False,
-                                '6.2.11': False,
-                                '6.2.12': False,
-                                '6.4.1': False,
-                                '6.4.3': False,
-                                '6.4.4': False,
-                                '6.4.6': False,
-                                '6.4.7': False,
-                                '6.4.8': False,
-                                '6.4.9': False,
-                                '6.4.10': False,
-                                '6.4.11': False,
-                                '6.4.12': False,
-                                '6.4.13': False,
-                                '7.0.0': True,
-                                '7.0.1': True,
-                                '7.0.2': True,
-                                '7.0.3': True,
-                                '7.0.4': True,
-                                '7.0.5': True,
-                                '7.0.6': True,
-                                '7.0.7': True,
-                                '7.0.8': True,
-                                '7.0.9': True,
-                                '7.0.10': True,
-                                '7.2.0': True,
-                                '7.2.1': True,
-                                '7.2.2': True,
-                                '7.2.3': True,
-                                '7.2.4': True,
-                                '7.4.0': True,
-                                '7.4.1': True
-                            },
-                            'type': 'int'
-                        },
-                        'tcp-window-minimum': {
-                            'required': False,
-                            'revision': {
-                                '6.2.0': False,
-                                '6.2.2': False,
-                                '6.2.6': False,
-                                '6.2.7': False,
-                                '6.2.8': False,
-                                '6.2.9': False,
-                                '6.2.10': False,
-                                '6.2.11': False,
-                                '6.2.12': False,
-                                '6.4.1': False,
-                                '6.4.3': False,
-                                '6.4.4': False,
-                                '6.4.6': False,
-                                '6.4.7': False,
-                                '6.4.8': False,
-                                '6.4.9': False,
-                                '6.4.10': False,
-                                '6.4.11': False,
-                                '6.4.12': False,
-                                '6.4.13': False,
-                                '7.0.0': True,
-                                '7.0.1': True,
-                                '7.0.2': True,
-                                '7.0.3': True,
-                                '7.0.4': True,
-                                '7.0.5': True,
-                                '7.0.6': True,
-                                '7.0.7': True,
-                                '7.0.8': True,
-                                '7.0.9': True,
-                                '7.0.10': True,
-                                '7.2.0': True,
-                                '7.2.1': True,
-                                '7.2.2': True,
-                                '7.2.3': True,
-                                '7.2.4': True,
-                                '7.4.0': True,
-                                '7.4.1': True
-                            },
-                            'type': 'int'
-                        },
-                        'tcp-window-size': {
-                            'required': False,
-                            'revision': {
-                                '6.2.0': False,
-                                '6.2.2': False,
-                                '6.2.6': False,
-                                '6.2.7': False,
-                                '6.2.8': False,
-                                '6.2.9': False,
-                                '6.2.10': False,
-                                '6.2.11': False,
-                                '6.2.12': False,
-                                '6.4.1': False,
-                                '6.4.3': False,
-                                '6.4.4': False,
-                                '6.4.6': False,
-                                '6.4.7': False,
-                                '6.4.8': False,
-                                '6.4.9': False,
-                                '6.4.10': False,
-                                '6.4.11': False,
-                                '6.4.12': False,
-                                '6.4.13': False,
-                                '7.0.0': True,
-                                '7.0.1': True,
-                                '7.0.2': True,
-                                '7.0.3': True,
-                                '7.0.4': True,
-                                '7.0.5': True,
-                                '7.0.6': True,
-                                '7.0.7': True,
-                                '7.0.8': True,
-                                '7.0.9': True,
-                                '7.0.10': True,
-                                '7.2.0': True,
-                                '7.2.1': True,
-                                '7.2.2': True,
-                                '7.2.3': True,
-                                '7.2.4': True,
-                                '7.4.0': True,
-                                '7.4.1': True
-                            },
-                            'type': 'int'
-                        },
-                        'tcp-window-type': {
-                            'required': False,
-                            'revision': {
-                                '6.2.0': False,
-                                '6.2.2': False,
-                                '6.2.6': False,
-                                '6.2.7': False,
-                                '6.2.8': False,
-                                '6.2.9': False,
-                                '6.2.10': False,
-                                '6.2.11': False,
-                                '6.2.12': False,
-                                '6.4.1': False,
-                                '6.4.3': False,
-                                '6.4.4': False,
-                                '6.4.6': False,
-                                '6.4.7': False,
-                                '6.4.8': False,
-                                '6.4.9': False,
-                                '6.4.10': False,
-                                '6.4.11': False,
-                                '6.4.12': False,
-                                '6.4.13': False,
-                                '7.0.0': True,
-                                '7.0.1': True,
-                                '7.0.2': True,
-                                '7.0.3': True,
-                                '7.0.4': True,
-                                '7.0.5': True,
-                                '7.0.6': True,
-                                '7.0.7': True,
-                                '7.0.8': True,
-                                '7.0.9': True,
-                                '7.0.10': True,
-                                '7.2.0': True,
-                                '7.2.1': True,
-                                '7.2.2': True,
-                                '7.2.3': True,
-                                '7.2.4': True,
-                                '7.4.0': True,
-                                '7.4.1': True
-                            },
-                            'choices': [
-                                'system',
-                                'static',
-                                'dynamic',
-                                'auto-tuning'
-                            ],
-                            'type': 'str'
-                        },
-                        'explicit-ftp-tls': {
-                            'required': False,
-                            'revision': {
-                                '7.0.5': True,
-                                '7.0.6': True,
-                                '7.0.7': True,
-                                '7.0.8': True,
-                                '7.0.9': True,
-                                '7.0.10': True,
-                                '7.2.1': True,
-                                '7.2.2': True,
-                                '7.2.3': True,
-                                '7.2.4': True,
-                                '7.4.0': True,
-                                '7.4.1': True
-                            },
-                            'choices': [
-                                'disable',
-                                'enable'
-                            ],
-                            'type': 'str'
-                        }
+                        'oversize-limit': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
+                        'ports': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'raw'},
+                        'scan-bzip2': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'ssl-offloaded': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['no', 'yes'], 'type': 'str'},
+                        'status': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'uncompressed-nest-limit': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
+                        'uncompressed-oversize-limit': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
+                        'stream-based-uncompressed-limit': {'v_range': [['7.0.0', '']], 'type': 'int'},
+                        'tcp-window-maximum': {'v_range': [['7.0.0', '']], 'type': 'int'},
+                        'tcp-window-minimum': {'v_range': [['7.0.0', '']], 'type': 'int'},
+                        'tcp-window-size': {'v_range': [['7.0.0', '']], 'type': 'int'},
+                        'tcp-window-type': {'v_range': [['7.0.0', '']], 'choices': ['system', 'static', 'dynamic', 'auto-tuning'], 'type': 'str'},
+                        'explicit-ftp-tls': {'v_range': [['7.0.5', '7.0.10'], ['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
                     }
                 },
                 'http': {
-                    'required': False,
                     'type': 'dict',
                     'options': {
-                        'block-page-status-code': {
-                            'required': False,
-                            'revision': {
-                                '6.2.0': False,
-                                '6.2.2': False,
-                                '6.2.6': False,
-                                '6.2.7': False,
-                                '6.2.8': True,
-                                '6.2.9': True,
-                                '6.2.10': True,
-                                '6.2.11': True,
-                                '6.2.12': True,
-                                '6.4.1': False,
-                                '6.4.3': False,
-                                '6.4.4': False,
-                                '6.4.5': True,
-                                '6.4.6': True,
-                                '6.4.7': True,
-                                '6.4.8': True,
-                                '6.4.9': True,
-                                '6.4.10': True,
-                                '6.4.11': True,
-                                '6.4.12': True,
-                                '6.4.13': True,
-                                '7.0.0': True,
-                                '7.0.1': True,
-                                '7.0.2': True,
-                                '7.0.3': True,
-                                '7.0.4': True,
-                                '7.0.5': True,
-                                '7.0.6': True,
-                                '7.0.7': True,
-                                '7.0.8': True,
-                                '7.0.9': True,
-                                '7.0.10': True,
-                                '7.2.0': True,
-                                '7.2.1': True,
-                                '7.2.2': True,
-                                '7.2.3': True,
-                                '7.2.4': True,
-                                '7.4.0': True,
-                                '7.4.1': True
-                            },
-                            'type': 'int'
-                        },
-                        'comfort-amount': {
-                            'required': False,
-                            'revision': {
-                                '6.2.0': False,
-                                '6.2.2': False,
-                                '6.2.6': False,
-                                '6.2.7': False,
-                                '6.2.8': True,
-                                '6.2.9': True,
-                                '6.2.10': True,
-                                '6.2.11': True,
-                                '6.2.12': True,
-                                '6.4.1': False,
-                                '6.4.3': False,
-                                '6.4.4': False,
-                                '6.4.5': True,
-                                '6.4.6': True,
-                                '6.4.7': True,
-                                '6.4.8': True,
-                                '6.4.9': True,
-                                '6.4.10': True,
-                                '6.4.11': True,
-                                '6.4.12': True,
-                                '6.4.13': True,
-                                '7.0.0': True,
-                                '7.0.1': True,
-                                '7.0.2': True,
-                                '7.0.3': True,
-                                '7.0.4': True,
-                                '7.0.5': True,
-                                '7.0.6': True,
-                                '7.0.7': True,
-                                '7.0.8': True,
-                                '7.0.9': True,
-                                '7.0.10': True,
-                                '7.2.0': True,
-                                '7.2.1': True,
-                                '7.2.2': True,
-                                '7.2.3': True,
-                                '7.2.4': True,
-                                '7.4.0': True,
-                                '7.4.1': True
-                            },
-                            'type': 'int'
-                        },
-                        'comfort-interval': {
-                            'required': False,
-                            'revision': {
-                                '6.2.0': False,
-                                '6.2.2': False,
-                                '6.2.6': False,
-                                '6.2.7': False,
-                                '6.2.8': True,
-                                '6.2.9': True,
-                                '6.2.10': True,
-                                '6.2.11': True,
-                                '6.2.12': True,
-                                '6.4.1': False,
-                                '6.4.3': False,
-                                '6.4.4': False,
-                                '6.4.5': True,
-                                '6.4.6': True,
-                                '6.4.7': True,
-                                '6.4.8': True,
-                                '6.4.9': True,
-                                '6.4.10': True,
-                                '6.4.11': True,
-                                '6.4.12': True,
-                                '6.4.13': True,
-                                '7.0.0': True,
-                                '7.0.1': True,
-                                '7.0.2': True,
-                                '7.0.3': True,
-                                '7.0.4': True,
-                                '7.0.5': True,
-                                '7.0.6': True,
-                                '7.0.7': True,
-                                '7.0.8': True,
-                                '7.0.9': True,
-                                '7.0.10': True,
-                                '7.2.0': True,
-                                '7.2.1': True,
-                                '7.2.2': True,
-                                '7.2.3': True,
-                                '7.2.4': True,
-                                '7.4.0': True,
-                                '7.4.1': True
-                            },
-                            'type': 'int'
-                        },
-                        'fortinet-bar': {
-                            'required': False,
-                            'revision': {
-                                '6.2.0': False,
-                                '6.2.2': False,
-                                '6.2.6': False,
-                                '6.2.7': False,
-                                '6.2.8': True,
-                                '6.2.9': True,
-                                '6.2.10': True,
-                                '6.2.11': True,
-                                '6.2.12': True,
-                                '6.4.1': False,
-                                '6.4.3': False,
-                                '6.4.4': False,
-                                '6.4.5': True,
-                                '6.4.6': True,
-                                '6.4.7': True,
-                                '6.4.8': True,
-                                '6.4.9': True,
-                                '6.4.10': True,
-                                '6.4.11': True,
-                                '6.4.12': True,
-                                '6.4.13': True,
-                                '7.0.0': True,
-                                '7.0.1': True,
-                                '7.0.2': True,
-                                '7.0.3': True,
-                                '7.0.4': True,
-                                '7.0.5': True,
-                                '7.0.6': True,
-                                '7.0.7': True,
-                                '7.0.8': True,
-                                '7.0.9': True,
-                                '7.0.10': True,
-                                '7.2.0': True,
-                                '7.2.1': True,
-                                '7.2.2': True,
-                                '7.2.3': True,
-                                '7.2.4': True,
-                                '7.4.0': True,
-                                '7.4.1': True
-                            },
-                            'choices': [
-                                'disable',
-                                'enable'
-                            ],
-                            'type': 'str'
-                        },
-                        'fortinet-bar-port': {
-                            'required': False,
-                            'revision': {
-                                '6.2.0': False,
-                                '6.2.2': False,
-                                '6.2.6': False,
-                                '6.2.7': False,
-                                '6.2.8': True,
-                                '6.2.9': True,
-                                '6.2.10': True,
-                                '6.2.11': True,
-                                '6.2.12': True,
-                                '6.4.1': False,
-                                '6.4.3': False,
-                                '6.4.4': False,
-                                '6.4.5': True,
-                                '6.4.6': True,
-                                '6.4.7': True,
-                                '6.4.8': True,
-                                '6.4.9': True,
-                                '6.4.10': True,
-                                '6.4.11': True,
-                                '6.4.12': True,
-                                '6.4.13': True,
-                                '7.0.0': True,
-                                '7.0.1': True,
-                                '7.0.2': True,
-                                '7.0.3': True,
-                                '7.0.4': True,
-                                '7.0.5': True,
-                                '7.0.6': True,
-                                '7.0.7': True,
-                                '7.0.8': True,
-                                '7.0.9': True,
-                                '7.0.10': True,
-                                '7.2.0': True,
-                                '7.2.1': True,
-                                '7.2.2': True,
-                                '7.2.3': True,
-                                '7.2.4': True,
-                                '7.4.0': True,
-                                '7.4.1': True
-                            },
-                            'type': 'int'
-                        },
-                        'inspect-all': {
-                            'required': False,
-                            'revision': {
-                                '6.2.0': False,
-                                '6.2.2': False,
-                                '6.2.6': False,
-                                '6.2.7': False,
-                                '6.2.8': True,
-                                '6.2.9': True,
-                                '6.2.10': True,
-                                '6.2.11': True,
-                                '6.2.12': True,
-                                '6.4.1': False,
-                                '6.4.3': False,
-                                '6.4.4': False,
-                                '6.4.5': True,
-                                '6.4.6': True,
-                                '6.4.7': True,
-                                '6.4.8': True,
-                                '6.4.9': True,
-                                '6.4.10': True,
-                                '6.4.11': True,
-                                '6.4.12': True,
-                                '6.4.13': True,
-                                '7.0.0': True,
-                                '7.0.1': True,
-                                '7.0.2': True,
-                                '7.0.3': True,
-                                '7.0.4': True,
-                                '7.0.5': True,
-                                '7.0.6': True,
-                                '7.0.7': True,
-                                '7.0.8': True,
-                                '7.0.9': True,
-                                '7.0.10': True,
-                                '7.2.0': True,
-                                '7.2.1': True,
-                                '7.2.2': True,
-                                '7.2.3': True,
-                                '7.2.4': True,
-                                '7.4.0': True,
-                                '7.4.1': True
-                            },
-                            'choices': [
-                                'disable',
-                                'enable'
-                            ],
-                            'type': 'str'
-                        },
+                        'block-page-status-code': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
+                        'comfort-amount': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
+                        'comfort-interval': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
+                        'fortinet-bar': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'fortinet-bar-port': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
+                        'inspect-all': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                         'options': {
-                            'required': False,
-                            'revision': {
-                                '6.2.0': False,
-                                '6.2.2': False,
-                                '6.2.6': False,
-                                '6.2.7': False,
-                                '6.2.8': True,
-                                '6.2.9': True,
-                                '6.2.10': True,
-                                '6.2.11': True,
-                                '6.2.12': True,
-                                '6.4.1': False,
-                                '6.4.3': False,
-                                '6.4.4': False,
-                                '6.4.5': True,
-                                '6.4.6': True,
-                                '6.4.7': True,
-                                '6.4.8': True,
-                                '6.4.9': True,
-                                '6.4.10': True,
-                                '6.4.11': True,
-                                '6.4.12': True,
-                                '6.4.13': True,
-                                '7.0.0': True,
-                                '7.0.1': True,
-                                '7.0.2': True,
-                                '7.0.3': True,
-                                '7.0.4': True,
-                                '7.0.5': True,
-                                '7.0.6': True,
-                                '7.0.7': True,
-                                '7.0.8': True,
-                                '7.0.9': True,
-                                '7.0.10': True,
-                                '7.2.0': True,
-                                '7.2.1': True,
-                                '7.2.2': True,
-                                '7.2.3': True,
-                                '7.2.4': True,
-                                '7.4.0': True,
-                                '7.4.1': True
-                            },
+                            'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
                             'type': 'list',
-                            'choices': [
-                                'oversize',
-                                'chunkedbypass',
-                                'clientcomfort',
-                                'no-content-summary',
-                                'servercomfort'
-                            ],
+                            'choices': ['oversize', 'chunkedbypass', 'clientcomfort', 'no-content-summary', 'servercomfort'],
                             'elements': 'str'
                         },
-                        'oversize-limit': {
-                            'required': False,
-                            'revision': {
-                                '6.2.0': False,
-                                '6.2.2': False,
-                                '6.2.6': False,
-                                '6.2.7': False,
-                                '6.2.8': True,
-                                '6.2.9': True,
-                                '6.2.10': True,
-                                '6.2.11': True,
-                                '6.2.12': True,
-                                '6.4.1': False,
-                                '6.4.3': False,
-                                '6.4.4': False,
-                                '6.4.5': True,
-                                '6.4.6': True,
-                                '6.4.7': True,
-                                '6.4.8': True,
-                                '6.4.9': True,
-                                '6.4.10': True,
-                                '6.4.11': True,
-                                '6.4.12': True,
-                                '6.4.13': True,
-                                '7.0.0': True,
-                                '7.0.1': True,
-                                '7.0.2': True,
-                                '7.0.3': True,
-                                '7.0.4': True,
-                                '7.0.5': True,
-                                '7.0.6': True,
-                                '7.0.7': True,
-                                '7.0.8': True,
-                                '7.0.9': True,
-                                '7.0.10': True,
-                                '7.2.0': True,
-                                '7.2.1': True,
-                                '7.2.2': True,
-                                '7.2.3': True,
-                                '7.2.4': True,
-                                '7.4.0': True,
-                                '7.4.1': True
-                            },
-                            'type': 'int'
-                        },
-                        'ports': {
-                            'required': False,
-                            'revision': {
-                                '6.2.0': False,
-                                '6.2.2': False,
-                                '6.2.6': False,
-                                '6.2.7': False,
-                                '6.2.8': True,
-                                '6.2.9': True,
-                                '6.2.10': True,
-                                '6.2.11': True,
-                                '6.2.12': True,
-                                '6.4.1': False,
-                                '6.4.3': False,
-                                '6.4.4': False,
-                                '6.4.5': True,
-                                '6.4.6': True,
-                                '6.4.7': True,
-                                '6.4.8': True,
-                                '6.4.9': True,
-                                '6.4.10': True,
-                                '6.4.11': True,
-                                '6.4.12': True,
-                                '6.4.13': True,
-                                '7.0.0': True,
-                                '7.0.1': True,
-                                '7.0.2': True,
-                                '7.0.3': True,
-                                '7.0.4': True,
-                                '7.0.5': True,
-                                '7.0.6': True,
-                                '7.0.7': True,
-                                '7.0.8': True,
-                                '7.0.9': True,
-                                '7.0.10': True,
-                                '7.2.0': True,
-                                '7.2.1': True,
-                                '7.2.2': True,
-                                '7.2.3': True,
-                                '7.2.4': True,
-                                '7.4.0': True,
-                                '7.4.1': True
-                            },
-                            'type': 'raw'
-                        },
+                        'oversize-limit': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
+                        'ports': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'raw'},
                         'post-lang': {
-                            'required': False,
-                            'revision': {
-                                '6.2.0': False,
-                                '6.2.2': False,
-                                '6.2.6': False,
-                                '6.2.7': False,
-                                '6.2.8': True,
-                                '6.2.9': True,
-                                '6.2.10': True,
-                                '6.2.11': True,
-                                '6.2.12': True,
-                                '6.4.1': False,
-                                '6.4.3': False,
-                                '6.4.4': False,
-                                '6.4.5': True,
-                                '6.4.6': True,
-                                '6.4.7': True,
-                                '6.4.8': True,
-                                '6.4.9': True,
-                                '6.4.10': True,
-                                '6.4.11': True,
-                                '6.4.12': True,
-                                '6.4.13': True,
-                                '7.0.0': True,
-                                '7.0.1': True,
-                                '7.0.2': True,
-                                '7.0.3': True,
-                                '7.0.4': True,
-                                '7.0.5': True,
-                                '7.0.6': True,
-                                '7.0.7': True,
-                                '7.0.8': True,
-                                '7.0.9': True,
-                                '7.0.10': True,
-                                '7.2.0': True,
-                                '7.2.1': True,
-                                '7.2.2': True,
-                                '7.2.3': True,
-                                '7.2.4': True,
-                                '7.4.0': True,
-                                '7.4.1': True
-                            },
+                            'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
                             'type': 'list',
                             'choices': [
-                                'jisx0201',
-                                'jisx0208',
-                                'jisx0212',
-                                'gb2312',
-                                'ksc5601-ex',
-                                'euc-jp',
-                                'sjis',
-                                'iso2022-jp',
-                                'iso2022-jp-1',
-                                'iso2022-jp-2',
-                                'euc-cn',
-                                'ces-gbk',
-                                'hz',
-                                'ces-big5',
-                                'euc-kr',
-                                'iso2022-jp-3',
-                                'iso8859-1',
-                                'tis620',
-                                'cp874',
-                                'cp1252',
-                                'cp1251'
+                                'jisx0201', 'jisx0208', 'jisx0212', 'gb2312', 'ksc5601-ex', 'euc-jp', 'sjis', 'iso2022-jp', 'iso2022-jp-1',
+                                'iso2022-jp-2', 'euc-cn', 'ces-gbk', 'hz', 'ces-big5', 'euc-kr', 'iso2022-jp-3', 'iso8859-1', 'tis620', 'cp874',
+                                'cp1252', 'cp1251'
                             ],
                             'elements': 'str'
                         },
-                        'proxy-after-tcp-handshake': {
-                            'required': False,
-                            'revision': {
-                                '6.2.0': False,
-                                '6.2.2': False,
-                                '6.2.6': False,
-                                '6.2.7': False,
-                                '6.2.8': False,
-                                '6.2.9': False,
-                                '6.2.10': False,
-                                '6.2.11': False,
-                                '6.2.12': False,
-                                '6.4.1': False,
-                                '6.4.3': False,
-                                '6.4.4': False,
-                                '6.4.5': True,
-                                '6.4.6': True,
-                                '6.4.7': True,
-                                '6.4.8': True,
-                                '6.4.9': True,
-                                '6.4.10': True,
-                                '6.4.11': True,
-                                '6.4.12': True,
-                                '6.4.13': True,
-                                '7.0.0': True,
-                                '7.0.1': True,
-                                '7.0.2': True,
-                                '7.0.3': True,
-                                '7.0.4': True,
-                                '7.0.5': True,
-                                '7.0.6': True,
-                                '7.0.7': True,
-                                '7.0.8': True,
-                                '7.0.9': True,
-                                '7.0.10': True,
-                                '7.2.0': True,
-                                '7.2.1': True,
-                                '7.2.2': True,
-                                '7.2.3': True,
-                                '7.2.4': True,
-                                '7.4.0': True,
-                                '7.4.1': True
-                            },
-                            'choices': [
-                                'disable',
-                                'enable'
-                            ],
-                            'type': 'str'
-                        },
-                        'range-block': {
-                            'required': False,
-                            'revision': {
-                                '6.2.0': False,
-                                '6.2.2': False,
-                                '6.2.6': False,
-                                '6.2.7': False,
-                                '6.2.8': True,
-                                '6.2.9': True,
-                                '6.2.10': True,
-                                '6.2.11': True,
-                                '6.2.12': True,
-                                '6.4.1': False,
-                                '6.4.3': False,
-                                '6.4.4': False,
-                                '6.4.5': True,
-                                '6.4.6': True,
-                                '6.4.7': True,
-                                '6.4.8': True,
-                                '6.4.9': True,
-                                '6.4.10': True,
-                                '6.4.11': True,
-                                '6.4.12': True,
-                                '6.4.13': True,
-                                '7.0.0': True,
-                                '7.0.1': True,
-                                '7.0.2': True,
-                                '7.0.3': True,
-                                '7.0.4': True,
-                                '7.0.5': True,
-                                '7.0.6': True,
-                                '7.0.7': True,
-                                '7.0.8': True,
-                                '7.0.9': True,
-                                '7.0.10': True,
-                                '7.2.0': True,
-                                '7.2.1': True,
-                                '7.2.2': True,
-                                '7.2.3': True,
-                                '7.2.4': True,
-                                '7.4.0': True,
-                                '7.4.1': True
-                            },
-                            'choices': [
-                                'disable',
-                                'enable'
-                            ],
-                            'type': 'str'
-                        },
-                        'retry-count': {
-                            'required': False,
-                            'revision': {
-                                '6.2.0': False,
-                                '6.2.2': False,
-                                '6.2.6': False,
-                                '6.2.7': False,
-                                '6.2.8': True,
-                                '6.2.9': True,
-                                '6.2.10': True,
-                                '6.2.11': True,
-                                '6.2.12': True,
-                                '6.4.1': False,
-                                '6.4.3': False,
-                                '6.4.4': False,
-                                '6.4.5': True,
-                                '6.4.6': True,
-                                '6.4.7': True,
-                                '6.4.8': True,
-                                '6.4.9': True,
-                                '6.4.10': True,
-                                '6.4.11': True,
-                                '6.4.12': True,
-                                '6.4.13': True,
-                                '7.0.0': True,
-                                '7.0.1': True,
-                                '7.0.2': True,
-                                '7.0.3': True,
-                                '7.0.4': True,
-                                '7.0.5': True,
-                                '7.0.6': True,
-                                '7.0.7': True,
-                                '7.0.8': True,
-                                '7.0.9': True,
-                                '7.0.10': True,
-                                '7.2.0': True,
-                                '7.2.1': True,
-                                '7.2.2': True,
-                                '7.2.3': True,
-                                '7.2.4': True,
-                                '7.4.0': True,
-                                '7.4.1': True
-                            },
-                            'type': 'int'
-                        },
-                        'scan-bzip2': {
-                            'required': False,
-                            'revision': {
-                                '6.2.0': False,
-                                '6.2.2': False,
-                                '6.2.6': False,
-                                '6.2.7': False,
-                                '6.2.8': True,
-                                '6.2.9': True,
-                                '6.2.10': True,
-                                '6.2.11': True,
-                                '6.2.12': True,
-                                '6.4.1': False,
-                                '6.4.3': False,
-                                '6.4.4': False,
-                                '6.4.5': True,
-                                '6.4.6': True,
-                                '6.4.7': True,
-                                '6.4.8': True,
-                                '6.4.9': True,
-                                '6.4.10': True,
-                                '6.4.11': True,
-                                '6.4.12': True,
-                                '6.4.13': True,
-                                '7.0.0': True,
-                                '7.0.1': True,
-                                '7.0.2': True,
-                                '7.0.3': True,
-                                '7.0.4': True,
-                                '7.0.5': True,
-                                '7.0.6': True,
-                                '7.0.7': True,
-                                '7.0.8': True,
-                                '7.0.9': True,
-                                '7.0.10': True,
-                                '7.2.0': True,
-                                '7.2.1': True,
-                                '7.2.2': True,
-                                '7.2.3': True,
-                                '7.2.4': True,
-                                '7.4.0': True,
-                                '7.4.1': True
-                            },
-                            'choices': [
-                                'disable',
-                                'enable'
-                            ],
-                            'type': 'str'
-                        },
-                        'ssl-offloaded': {
-                            'required': False,
-                            'revision': {
-                                '6.2.0': False,
-                                '6.2.2': False,
-                                '6.2.6': False,
-                                '6.2.7': False,
-                                '6.2.8': True,
-                                '6.2.9': True,
-                                '6.2.10': True,
-                                '6.2.11': True,
-                                '6.2.12': True,
-                                '6.4.1': False,
-                                '6.4.3': False,
-                                '6.4.4': False,
-                                '6.4.5': True,
-                                '6.4.6': True,
-                                '6.4.7': True,
-                                '6.4.8': True,
-                                '6.4.9': True,
-                                '6.4.10': True,
-                                '6.4.11': True,
-                                '6.4.12': True,
-                                '6.4.13': True,
-                                '7.0.0': True,
-                                '7.0.1': True,
-                                '7.0.2': True,
-                                '7.0.3': True,
-                                '7.0.4': True,
-                                '7.0.5': True,
-                                '7.0.6': True,
-                                '7.0.7': True,
-                                '7.0.8': True,
-                                '7.0.9': True,
-                                '7.0.10': True,
-                                '7.2.0': True,
-                                '7.2.1': True,
-                                '7.2.2': True,
-                                '7.2.3': True,
-                                '7.2.4': True,
-                                '7.4.0': True,
-                                '7.4.1': True
-                            },
-                            'choices': [
-                                'no',
-                                'yes'
-                            ],
-                            'type': 'str'
-                        },
-                        'status': {
-                            'required': False,
-                            'revision': {
-                                '6.2.0': False,
-                                '6.2.2': False,
-                                '6.2.6': False,
-                                '6.2.7': False,
-                                '6.2.8': True,
-                                '6.2.9': True,
-                                '6.2.10': True,
-                                '6.2.11': True,
-                                '6.2.12': True,
-                                '6.4.1': False,
-                                '6.4.3': False,
-                                '6.4.4': False,
-                                '6.4.5': True,
-                                '6.4.6': True,
-                                '6.4.7': True,
-                                '6.4.8': True,
-                                '6.4.9': True,
-                                '6.4.10': True,
-                                '6.4.11': True,
-                                '6.4.12': True,
-                                '6.4.13': True,
-                                '7.0.0': True,
-                                '7.0.1': True,
-                                '7.0.2': True,
-                                '7.0.3': True,
-                                '7.0.4': True,
-                                '7.0.5': True,
-                                '7.0.6': True,
-                                '7.0.7': True,
-                                '7.0.8': True,
-                                '7.0.9': True,
-                                '7.0.10': True,
-                                '7.2.0': True,
-                                '7.2.1': True,
-                                '7.2.2': True,
-                                '7.2.3': True,
-                                '7.2.4': True,
-                                '7.4.0': True,
-                                '7.4.1': True
-                            },
-                            'choices': [
-                                'disable',
-                                'enable'
-                            ],
-                            'type': 'str'
-                        },
-                        'stream-based-uncompressed-limit': {
-                            'required': False,
-                            'revision': {
-                                '6.2.0': False,
-                                '6.2.2': False,
-                                '6.2.6': False,
-                                '6.2.7': False,
-                                '6.2.8': True,
-                                '6.2.9': True,
-                                '6.2.10': True,
-                                '6.2.11': True,
-                                '6.2.12': True,
-                                '6.4.1': False,
-                                '6.4.3': False,
-                                '6.4.4': False,
-                                '6.4.5': True,
-                                '6.4.6': True,
-                                '6.4.7': True,
-                                '6.4.8': True,
-                                '6.4.9': True,
-                                '6.4.10': True,
-                                '6.4.11': True,
-                                '6.4.12': True,
-                                '6.4.13': True,
-                                '7.0.0': True,
-                                '7.0.1': True,
-                                '7.0.2': True,
-                                '7.0.3': True,
-                                '7.0.4': True,
-                                '7.0.5': True,
-                                '7.0.6': True,
-                                '7.0.7': True,
-                                '7.0.8': True,
-                                '7.0.9': True,
-                                '7.0.10': True,
-                                '7.2.0': True,
-                                '7.2.1': True,
-                                '7.2.2': True,
-                                '7.2.3': True,
-                                '7.2.4': True,
-                                '7.4.0': True,
-                                '7.4.1': True
-                            },
-                            'type': 'int'
-                        },
-                        'streaming-content-bypass': {
-                            'required': False,
-                            'revision': {
-                                '6.2.0': False,
-                                '6.2.2': False,
-                                '6.2.6': False,
-                                '6.2.7': False,
-                                '6.2.8': True,
-                                '6.2.9': True,
-                                '6.2.10': True,
-                                '6.2.11': True,
-                                '6.2.12': True,
-                                '6.4.1': False,
-                                '6.4.3': False,
-                                '6.4.4': False,
-                                '6.4.5': True,
-                                '6.4.6': True,
-                                '6.4.7': True,
-                                '6.4.8': True,
-                                '6.4.9': True,
-                                '6.4.10': True,
-                                '6.4.11': True,
-                                '6.4.12': True,
-                                '6.4.13': True,
-                                '7.0.0': True,
-                                '7.0.1': True,
-                                '7.0.2': True,
-                                '7.0.3': True,
-                                '7.0.4': True,
-                                '7.0.5': True,
-                                '7.0.6': True,
-                                '7.0.7': True,
-                                '7.0.8': True,
-                                '7.0.9': True,
-                                '7.0.10': True,
-                                '7.2.0': True,
-                                '7.2.1': True,
-                                '7.2.2': True,
-                                '7.2.3': True,
-                                '7.2.4': True,
-                                '7.4.0': True,
-                                '7.4.1': True
-                            },
-                            'choices': [
-                                'disable',
-                                'enable'
-                            ],
-                            'type': 'str'
-                        },
-                        'strip-x-forwarded-for': {
-                            'required': False,
-                            'revision': {
-                                '6.2.0': False,
-                                '6.2.2': False,
-                                '6.2.6': False,
-                                '6.2.7': False,
-                                '6.2.8': True,
-                                '6.2.9': True,
-                                '6.2.10': True,
-                                '6.2.11': True,
-                                '6.2.12': True,
-                                '6.4.1': False,
-                                '6.4.3': False,
-                                '6.4.4': False,
-                                '6.4.5': True,
-                                '6.4.6': True,
-                                '6.4.7': True,
-                                '6.4.8': True,
-                                '6.4.9': True,
-                                '6.4.10': True,
-                                '6.4.11': True,
-                                '6.4.12': True,
-                                '6.4.13': True,
-                                '7.0.0': True,
-                                '7.0.1': True,
-                                '7.0.2': True,
-                                '7.0.3': True,
-                                '7.0.4': True,
-                                '7.0.5': True,
-                                '7.0.6': True,
-                                '7.0.7': True,
-                                '7.0.8': True,
-                                '7.0.9': True,
-                                '7.0.10': True,
-                                '7.2.0': True,
-                                '7.2.1': True,
-                                '7.2.2': True,
-                                '7.2.3': True,
-                                '7.2.4': True,
-                                '7.4.0': True,
-                                '7.4.1': True
-                            },
-                            'choices': [
-                                'disable',
-                                'enable'
-                            ],
-                            'type': 'str'
-                        },
-                        'switching-protocols': {
-                            'required': False,
-                            'revision': {
-                                '6.2.0': False,
-                                '6.2.2': False,
-                                '6.2.6': False,
-                                '6.2.7': False,
-                                '6.2.8': True,
-                                '6.2.9': True,
-                                '6.2.10': True,
-                                '6.2.11': True,
-                                '6.2.12': True,
-                                '6.4.1': False,
-                                '6.4.3': False,
-                                '6.4.4': False,
-                                '6.4.5': True,
-                                '6.4.6': True,
-                                '6.4.7': True,
-                                '6.4.8': True,
-                                '6.4.9': True,
-                                '6.4.10': True,
-                                '6.4.11': True,
-                                '6.4.12': True,
-                                '6.4.13': True,
-                                '7.0.0': True,
-                                '7.0.1': True,
-                                '7.0.2': True,
-                                '7.0.3': True,
-                                '7.0.4': True,
-                                '7.0.5': True,
-                                '7.0.6': True,
-                                '7.0.7': True,
-                                '7.0.8': True,
-                                '7.0.9': True,
-                                '7.0.10': True,
-                                '7.2.0': True,
-                                '7.2.1': True,
-                                '7.2.2': True,
-                                '7.2.3': True,
-                                '7.2.4': True,
-                                '7.4.0': True,
-                                '7.4.1': True
-                            },
-                            'choices': [
-                                'bypass',
-                                'block'
-                            ],
-                            'type': 'str'
-                        },
-                        'tcp-window-maximum': {
-                            'required': False,
-                            'revision': {
-                                '6.2.0': False,
-                                '6.2.2': False,
-                                '6.2.6': False,
-                                '6.2.7': False,
-                                '6.2.8': True,
-                                '6.2.9': True,
-                                '6.2.10': True,
-                                '6.2.11': True,
-                                '6.2.12': True,
-                                '6.4.1': False,
-                                '6.4.3': False,
-                                '6.4.4': False,
-                                '6.4.5': True,
-                                '6.4.6': True,
-                                '6.4.7': True,
-                                '6.4.8': True,
-                                '6.4.9': True,
-                                '6.4.10': True,
-                                '6.4.11': True,
-                                '6.4.12': True,
-                                '6.4.13': True,
-                                '7.0.0': True,
-                                '7.0.1': True,
-                                '7.0.2': True,
-                                '7.0.3': True,
-                                '7.0.4': True,
-                                '7.0.5': True,
-                                '7.0.6': True,
-                                '7.0.7': True,
-                                '7.0.8': True,
-                                '7.0.9': True,
-                                '7.0.10': True,
-                                '7.2.0': True,
-                                '7.2.1': True,
-                                '7.2.2': True,
-                                '7.2.3': True,
-                                '7.2.4': True,
-                                '7.4.0': True,
-                                '7.4.1': True
-                            },
-                            'type': 'int'
-                        },
-                        'tcp-window-minimum': {
-                            'required': False,
-                            'revision': {
-                                '6.2.0': False,
-                                '6.2.2': False,
-                                '6.2.6': False,
-                                '6.2.7': False,
-                                '6.2.8': True,
-                                '6.2.9': True,
-                                '6.2.10': True,
-                                '6.2.11': True,
-                                '6.2.12': True,
-                                '6.4.1': False,
-                                '6.4.3': False,
-                                '6.4.4': False,
-                                '6.4.5': True,
-                                '6.4.6': True,
-                                '6.4.7': True,
-                                '6.4.8': True,
-                                '6.4.9': True,
-                                '6.4.10': True,
-                                '6.4.11': True,
-                                '6.4.12': True,
-                                '6.4.13': True,
-                                '7.0.0': True,
-                                '7.0.1': True,
-                                '7.0.2': True,
-                                '7.0.3': True,
-                                '7.0.4': True,
-                                '7.0.5': True,
-                                '7.0.6': True,
-                                '7.0.7': True,
-                                '7.0.8': True,
-                                '7.0.9': True,
-                                '7.0.10': True,
-                                '7.2.0': True,
-                                '7.2.1': True,
-                                '7.2.2': True,
-                                '7.2.3': True,
-                                '7.2.4': True,
-                                '7.4.0': True,
-                                '7.4.1': True
-                            },
-                            'type': 'int'
-                        },
-                        'tcp-window-size': {
-                            'required': False,
-                            'revision': {
-                                '6.2.0': False,
-                                '6.2.2': False,
-                                '6.2.6': False,
-                                '6.2.7': False,
-                                '6.2.8': True,
-                                '6.2.9': True,
-                                '6.2.10': True,
-                                '6.2.11': True,
-                                '6.2.12': True,
-                                '6.4.1': False,
-                                '6.4.3': False,
-                                '6.4.4': False,
-                                '6.4.5': True,
-                                '6.4.6': True,
-                                '6.4.7': True,
-                                '6.4.8': True,
-                                '6.4.9': True,
-                                '6.4.10': True,
-                                '6.4.11': True,
-                                '6.4.12': True,
-                                '6.4.13': True,
-                                '7.0.0': True,
-                                '7.0.1': True,
-                                '7.0.2': True,
-                                '7.0.3': True,
-                                '7.0.4': True,
-                                '7.0.5': True,
-                                '7.0.6': True,
-                                '7.0.7': True,
-                                '7.0.8': True,
-                                '7.0.9': True,
-                                '7.0.10': True,
-                                '7.2.0': True,
-                                '7.2.1': True,
-                                '7.2.2': True,
-                                '7.2.3': True,
-                                '7.2.4': True,
-                                '7.4.0': True,
-                                '7.4.1': True
-                            },
-                            'type': 'int'
-                        },
+                        'proxy-after-tcp-handshake': {'v_range': [['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'range-block': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'retry-count': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
+                        'scan-bzip2': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'ssl-offloaded': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['no', 'yes'], 'type': 'str'},
+                        'status': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'stream-based-uncompressed-limit': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
+                        'streaming-content-bypass': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'strip-x-forwarded-for': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'switching-protocols': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['bypass', 'block'], 'type': 'str'},
+                        'tcp-window-maximum': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
+                        'tcp-window-minimum': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
+                        'tcp-window-size': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
                         'tcp-window-type': {
-                            'required': False,
-                            'revision': {
-                                '6.2.0': False,
-                                '6.2.2': False,
-                                '6.2.6': False,
-                                '6.2.7': False,
-                                '6.2.8': True,
-                                '6.2.9': True,
-                                '6.2.10': True,
-                                '6.2.11': True,
-                                '6.2.12': True,
-                                '6.4.1': False,
-                                '6.4.3': False,
-                                '6.4.4': False,
-                                '6.4.5': True,
-                                '6.4.6': True,
-                                '6.4.7': True,
-                                '6.4.8': True,
-                                '6.4.9': True,
-                                '6.4.10': True,
-                                '6.4.11': True,
-                                '6.4.12': True,
-                                '6.4.13': True,
-                                '7.0.0': True,
-                                '7.0.1': True,
-                                '7.0.2': True,
-                                '7.0.3': True,
-                                '7.0.4': True,
-                                '7.0.5': True,
-                                '7.0.6': True,
-                                '7.0.7': True,
-                                '7.0.8': True,
-                                '7.0.9': True,
-                                '7.0.10': True,
-                                '7.2.0': True,
-                                '7.2.1': True,
-                                '7.2.2': True,
-                                '7.2.3': True,
-                                '7.2.4': True,
-                                '7.4.0': True,
-                                '7.4.1': True
-                            },
-                            'choices': [
-                                'system',
-                                'static',
-                                'dynamic',
-                                'auto-tuning'
-                            ],
+                            'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
+                            'choices': ['system', 'static', 'dynamic', 'auto-tuning'],
                             'type': 'str'
                         },
-                        'tunnel-non-http': {
-                            'required': False,
-                            'revision': {
-                                '6.2.0': False,
-                                '6.2.2': False,
-                                '6.2.6': False,
-                                '6.2.7': False,
-                                '6.2.8': False,
-                                '6.2.9': False,
-                                '6.2.10': False,
-                                '6.2.11': False,
-                                '6.2.12': False,
-                                '6.4.1': False,
-                                '6.4.3': False,
-                                '6.4.4': False,
-                                '6.4.5': True,
-                                '6.4.6': True,
-                                '6.4.7': True,
-                                '6.4.8': True,
-                                '6.4.9': True,
-                                '6.4.10': True,
-                                '6.4.11': True,
-                                '6.4.12': True,
-                                '6.4.13': True,
-                                '7.0.0': True,
-                                '7.0.1': True,
-                                '7.0.2': True,
-                                '7.0.3': True,
-                                '7.0.4': True,
-                                '7.0.5': True,
-                                '7.0.6': True,
-                                '7.0.7': True,
-                                '7.0.8': True,
-                                '7.0.9': True,
-                                '7.0.10': True,
-                                '7.2.0': True,
-                                '7.2.1': True,
-                                '7.2.2': True,
-                                '7.2.3': True,
-                                '7.2.4': True,
-                                '7.4.0': True,
-                                '7.4.1': True
-                            },
-                            'choices': [
-                                'disable',
-                                'enable'
-                            ],
-                            'type': 'str'
-                        },
-                        'uncompressed-nest-limit': {
-                            'required': False,
-                            'revision': {
-                                '6.2.0': False,
-                                '6.2.2': False,
-                                '6.2.6': False,
-                                '6.2.7': False,
-                                '6.2.8': True,
-                                '6.2.9': True,
-                                '6.2.10': True,
-                                '6.2.11': True,
-                                '6.2.12': True,
-                                '6.4.1': False,
-                                '6.4.3': False,
-                                '6.4.4': False,
-                                '6.4.5': True,
-                                '6.4.6': True,
-                                '6.4.7': True,
-                                '6.4.8': True,
-                                '6.4.9': True,
-                                '6.4.10': True,
-                                '6.4.11': True,
-                                '6.4.12': True,
-                                '6.4.13': True,
-                                '7.0.0': True,
-                                '7.0.1': True,
-                                '7.0.2': True,
-                                '7.0.3': True,
-                                '7.0.4': True,
-                                '7.0.5': True,
-                                '7.0.6': True,
-                                '7.0.7': True,
-                                '7.0.8': True,
-                                '7.0.9': True,
-                                '7.0.10': True,
-                                '7.2.0': True,
-                                '7.2.1': True,
-                                '7.2.2': True,
-                                '7.2.3': True,
-                                '7.2.4': True,
-                                '7.4.0': True,
-                                '7.4.1': True
-                            },
-                            'type': 'int'
-                        },
-                        'uncompressed-oversize-limit': {
-                            'required': False,
-                            'revision': {
-                                '6.2.0': False,
-                                '6.2.2': False,
-                                '6.2.6': False,
-                                '6.2.7': False,
-                                '6.2.8': True,
-                                '6.2.9': True,
-                                '6.2.10': True,
-                                '6.2.11': True,
-                                '6.2.12': True,
-                                '6.4.1': False,
-                                '6.4.3': False,
-                                '6.4.4': False,
-                                '6.4.5': True,
-                                '6.4.6': True,
-                                '6.4.7': True,
-                                '6.4.8': True,
-                                '6.4.9': True,
-                                '6.4.10': True,
-                                '6.4.11': True,
-                                '6.4.12': True,
-                                '6.4.13': True,
-                                '7.0.0': True,
-                                '7.0.1': True,
-                                '7.0.2': True,
-                                '7.0.3': True,
-                                '7.0.4': True,
-                                '7.0.5': True,
-                                '7.0.6': True,
-                                '7.0.7': True,
-                                '7.0.8': True,
-                                '7.0.9': True,
-                                '7.0.10': True,
-                                '7.2.0': True,
-                                '7.2.1': True,
-                                '7.2.2': True,
-                                '7.2.3': True,
-                                '7.2.4': True,
-                                '7.4.0': True,
-                                '7.4.1': True
-                            },
-                            'type': 'int'
-                        },
-                        'unknown-http-version': {
-                            'required': False,
-                            'revision': {
-                                '6.2.0': False,
-                                '6.2.2': False,
-                                '6.2.6': False,
-                                '6.2.7': False,
-                                '6.2.8': False,
-                                '6.2.9': False,
-                                '6.2.10': False,
-                                '6.2.11': False,
-                                '6.2.12': False,
-                                '6.4.1': False,
-                                '6.4.3': False,
-                                '6.4.4': False,
-                                '6.4.5': True,
-                                '6.4.6': True,
-                                '6.4.7': True,
-                                '6.4.8': True,
-                                '6.4.9': True,
-                                '6.4.10': True,
-                                '6.4.11': True,
-                                '6.4.12': True,
-                                '6.4.13': True,
-                                '7.0.0': True,
-                                '7.0.1': True,
-                                '7.0.2': True,
-                                '7.0.3': True,
-                                '7.0.4': True,
-                                '7.0.5': True,
-                                '7.0.6': True,
-                                '7.0.7': True,
-                                '7.0.8': True,
-                                '7.0.9': True,
-                                '7.0.10': True,
-                                '7.2.0': True,
-                                '7.2.1': True,
-                                '7.2.2': True,
-                                '7.2.3': True,
-                                '7.2.4': True,
-                                '7.4.0': True,
-                                '7.4.1': True
-                            },
-                            'choices': [
-                                'best-effort',
-                                'reject',
-                                'tunnel'
-                            ],
-                            'type': 'str'
-                        },
-                        'http-policy': {
-                            'required': False,
-                            'revision': {
-                                '6.2.0': False,
-                                '6.2.2': False,
-                                '6.2.6': False,
-                                '6.2.7': False,
-                                '6.2.8': True,
-                                '6.2.9': True,
-                                '6.2.10': True,
-                                '6.2.11': True,
-                                '6.2.12': True,
-                                '6.4.1': False,
-                                '6.4.3': False,
-                                '6.4.4': False,
-                                '6.4.5': True,
-                                '6.4.6': True,
-                                '6.4.7': True,
-                                '6.4.8': True,
-                                '6.4.9': True,
-                                '6.4.10': True,
-                                '6.4.11': True,
-                                '6.4.12': True,
-                                '6.4.13': True,
-                                '7.0.0': True,
-                                '7.0.1': True,
-                                '7.0.2': True,
-                                '7.0.3': True,
-                                '7.0.4': True,
-                                '7.0.5': True,
-                                '7.0.6': True,
-                                '7.0.7': True,
-                                '7.0.8': True,
-                                '7.0.9': True,
-                                '7.0.10': True,
-                                '7.2.0': True,
-                                '7.2.1': True,
-                                '7.2.2': False,
-                                '7.2.3': False,
-                                '7.2.4': False,
-                                '7.4.0': False,
-                                '7.4.1': False
-                            },
-                            'choices': [
-                                'disable',
-                                'enable'
-                            ],
-                            'type': 'str'
-                        },
-                        'address-ip-rating': {
-                            'required': False,
-                            'revision': {
-                                '6.2.0': False,
-                                '6.2.2': False,
-                                '6.2.6': False,
-                                '6.2.7': False,
-                                '6.2.8': False,
-                                '6.2.9': False,
-                                '6.2.10': False,
-                                '6.2.11': False,
-                                '6.2.12': False,
-                                '6.4.1': False,
-                                '6.4.3': False,
-                                '6.4.4': False,
-                                '6.4.6': False,
-                                '6.4.7': False,
-                                '6.4.8': False,
-                                '6.4.9': False,
-                                '6.4.10': False,
-                                '6.4.11': False,
-                                '6.4.12': False,
-                                '6.4.13': False,
-                                '7.0.1': False,
-                                '7.0.2': False,
-                                '7.0.3': False,
-                                '7.0.4': True,
-                                '7.0.5': True,
-                                '7.0.6': True,
-                                '7.0.7': True,
-                                '7.0.8': True,
-                                '7.0.9': True,
-                                '7.0.10': True,
-                                '7.2.0': True,
-                                '7.2.1': True,
-                                '7.2.2': True,
-                                '7.2.3': True,
-                                '7.2.4': True,
-                                '7.4.0': True,
-                                '7.4.1': True
-                            },
-                            'choices': [
-                                'disable',
-                                'enable'
-                            ],
-                            'type': 'str'
-                        },
-                        'h2c': {
-                            'required': False,
-                            'revision': {
-                                '6.2.0': False,
-                                '6.2.2': False,
-                                '6.2.6': False,
-                                '6.2.7': False,
-                                '6.2.8': False,
-                                '6.2.9': False,
-                                '6.2.10': False,
-                                '6.2.11': False,
-                                '6.2.12': False,
-                                '6.4.1': False,
-                                '6.4.3': False,
-                                '6.4.4': False,
-                                '6.4.6': False,
-                                '6.4.7': False,
-                                '6.4.8': False,
-                                '6.4.9': False,
-                                '6.4.10': False,
-                                '6.4.11': False,
-                                '6.4.12': False,
-                                '6.4.13': False,
-                                '7.0.1': False,
-                                '7.0.2': False,
-                                '7.0.3': False,
-                                '7.0.4': False,
-                                '7.0.5': False,
-                                '7.0.6': False,
-                                '7.0.7': False,
-                                '7.0.8': False,
-                                '7.0.9': False,
-                                '7.0.10': False,
-                                '7.2.0': True,
-                                '7.2.1': True,
-                                '7.2.2': True,
-                                '7.2.3': True,
-                                '7.2.4': True,
-                                '7.4.0': True,
-                                '7.4.1': True
-                            },
-                            'choices': [
-                                'disable',
-                                'enable'
-                            ],
-                            'type': 'str'
-                        },
-                        'verify-dns-for-policy-matching': {
-                            'required': False,
-                            'revision': {
-                                '7.2.1': True,
-                                '7.2.2': True,
-                                '7.2.3': True,
-                                '7.2.4': True,
-                                '7.4.0': True,
-                                '7.4.1': True
-                            },
-                            'choices': [
-                                'disable',
-                                'enable'
-                            ],
-                            'type': 'str'
-                        },
-                        'unknown-content-encoding': {
-                            'required': False,
-                            'revision': {
-                                '7.2.2': True,
-                                '7.2.3': True,
-                                '7.2.4': True,
-                                '7.4.0': True,
-                                '7.4.1': True
-                            },
-                            'choices': [
-                                'block',
-                                'inspect',
-                                'bypass'
-                            ],
-                            'type': 'str'
-                        }
+                        'tunnel-non-http': {'v_range': [['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'uncompressed-nest-limit': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
+                        'uncompressed-oversize-limit': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
+                        'unknown-http-version': {'v_range': [['6.4.5', '']], 'choices': ['best-effort', 'reject', 'tunnel'], 'type': 'str'},
+                        'http-policy': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '7.2.1']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'address-ip-rating': {'v_range': [['7.0.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'h2c': {'v_range': [['7.2.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'verify-dns-for-policy-matching': {'v_range': [['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'unknown-content-encoding': {'v_range': [['7.2.2', '']], 'choices': ['block', 'inspect', 'bypass'], 'type': 'str'}
                     }
                 },
                 'imap': {
-                    'required': False,
                     'type': 'dict',
                     'options': {
-                        'inspect-all': {
-                            'required': False,
-                            'revision': {
-                                '6.2.0': False,
-                                '6.2.2': False,
-                                '6.2.6': False,
-                                '6.2.7': False,
-                                '6.2.8': True,
-                                '6.2.9': True,
-                                '6.2.10': True,
-                                '6.2.11': True,
-                                '6.2.12': True,
-                                '6.4.1': False,
-                                '6.4.3': False,
-                                '6.4.4': False,
-                                '6.4.5': True,
-                                '6.4.6': True,
-                                '6.4.7': True,
-                                '6.4.8': True,
-                                '6.4.9': True,
-                                '6.4.10': True,
-                                '6.4.11': True,
-                                '6.4.12': True,
-                                '6.4.13': True,
-                                '7.0.0': True,
-                                '7.0.1': True,
-                                '7.0.2': True,
-                                '7.0.3': True,
-                                '7.0.4': True,
-                                '7.0.5': True,
-                                '7.0.6': True,
-                                '7.0.7': True,
-                                '7.0.8': True,
-                                '7.0.9': True,
-                                '7.0.10': True,
-                                '7.2.0': True,
-                                '7.2.1': True,
-                                '7.2.2': True,
-                                '7.2.3': True,
-                                '7.2.4': True,
-                                '7.4.0': True,
-                                '7.4.1': True
-                            },
-                            'choices': [
-                                'disable',
-                                'enable'
-                            ],
-                            'type': 'str'
-                        },
+                        'inspect-all': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                         'options': {
-                            'required': False,
-                            'revision': {
-                                '6.2.0': False,
-                                '6.2.2': False,
-                                '6.2.6': False,
-                                '6.2.7': False,
-                                '6.2.8': True,
-                                '6.2.9': True,
-                                '6.2.10': True,
-                                '6.2.11': True,
-                                '6.2.12': True,
-                                '6.4.1': False,
-                                '6.4.3': False,
-                                '6.4.4': False,
-                                '6.4.5': True,
-                                '6.4.6': True,
-                                '6.4.7': True,
-                                '6.4.8': True,
-                                '6.4.9': True,
-                                '6.4.10': True,
-                                '6.4.11': True,
-                                '6.4.12': True,
-                                '6.4.13': True,
-                                '7.0.0': True,
-                                '7.0.1': True,
-                                '7.0.2': True,
-                                '7.0.3': True,
-                                '7.0.4': True,
-                                '7.0.5': True,
-                                '7.0.6': True,
-                                '7.0.7': True,
-                                '7.0.8': True,
-                                '7.0.9': True,
-                                '7.0.10': True,
-                                '7.2.0': True,
-                                '7.2.1': True,
-                                '7.2.2': True,
-                                '7.2.3': True,
-                                '7.2.4': True,
-                                '7.4.0': True,
-                                '7.4.1': True
-                            },
+                            'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
                             'type': 'list',
-                            'choices': [
-                                'oversize',
-                                'fragmail',
-                                'no-content-summary'
-                            ],
+                            'choices': ['oversize', 'fragmail', 'no-content-summary'],
                             'elements': 'str'
                         },
-                        'oversize-limit': {
-                            'required': False,
-                            'revision': {
-                                '6.2.0': False,
-                                '6.2.2': False,
-                                '6.2.6': False,
-                                '6.2.7': False,
-                                '6.2.8': True,
-                                '6.2.9': True,
-                                '6.2.10': True,
-                                '6.2.11': True,
-                                '6.2.12': True,
-                                '6.4.1': False,
-                                '6.4.3': False,
-                                '6.4.4': False,
-                                '6.4.5': True,
-                                '6.4.6': True,
-                                '6.4.7': True,
-                                '6.4.8': True,
-                                '6.4.9': True,
-                                '6.4.10': True,
-                                '6.4.11': True,
-                                '6.4.12': True,
-                                '6.4.13': True,
-                                '7.0.0': True,
-                                '7.0.1': True,
-                                '7.0.2': True,
-                                '7.0.3': True,
-                                '7.0.4': True,
-                                '7.0.5': True,
-                                '7.0.6': True,
-                                '7.0.7': True,
-                                '7.0.8': True,
-                                '7.0.9': True,
-                                '7.0.10': True,
-                                '7.2.0': True,
-                                '7.2.1': True,
-                                '7.2.2': True,
-                                '7.2.3': True,
-                                '7.2.4': True,
-                                '7.4.0': True,
-                                '7.4.1': True
-                            },
-                            'type': 'int'
-                        },
-                        'ports': {
-                            'required': False,
-                            'revision': {
-                                '6.2.0': False,
-                                '6.2.2': False,
-                                '6.2.6': False,
-                                '6.2.7': False,
-                                '6.2.8': True,
-                                '6.2.9': True,
-                                '6.2.10': True,
-                                '6.2.11': True,
-                                '6.2.12': True,
-                                '6.4.1': False,
-                                '6.4.3': False,
-                                '6.4.4': False,
-                                '6.4.5': True,
-                                '6.4.6': True,
-                                '6.4.7': True,
-                                '6.4.8': True,
-                                '6.4.9': True,
-                                '6.4.10': True,
-                                '6.4.11': True,
-                                '6.4.12': True,
-                                '6.4.13': True,
-                                '7.0.0': True,
-                                '7.0.1': True,
-                                '7.0.2': True,
-                                '7.0.3': True,
-                                '7.0.4': True,
-                                '7.0.5': True,
-                                '7.0.6': True,
-                                '7.0.7': True,
-                                '7.0.8': True,
-                                '7.0.9': True,
-                                '7.0.10': True,
-                                '7.2.0': True,
-                                '7.2.1': True,
-                                '7.2.2': True,
-                                '7.2.3': True,
-                                '7.2.4': True,
-                                '7.4.0': True,
-                                '7.4.1': True
-                            },
-                            'type': 'raw'
-                        },
-                        'proxy-after-tcp-handshake': {
-                            'required': False,
-                            'revision': {
-                                '6.2.0': False,
-                                '6.2.2': False,
-                                '6.2.6': False,
-                                '6.2.7': False,
-                                '6.2.8': False,
-                                '6.2.9': False,
-                                '6.2.10': False,
-                                '6.2.11': False,
-                                '6.2.12': False,
-                                '6.4.1': False,
-                                '6.4.3': False,
-                                '6.4.4': False,
-                                '6.4.5': True,
-                                '6.4.6': True,
-                                '6.4.7': True,
-                                '6.4.8': True,
-                                '6.4.9': True,
-                                '6.4.10': True,
-                                '6.4.11': True,
-                                '6.4.12': True,
-                                '6.4.13': True,
-                                '7.0.0': True,
-                                '7.0.1': True,
-                                '7.0.2': True,
-                                '7.0.3': True,
-                                '7.0.4': True,
-                                '7.0.5': True,
-                                '7.0.6': True,
-                                '7.0.7': True,
-                                '7.0.8': True,
-                                '7.0.9': True,
-                                '7.0.10': True,
-                                '7.2.0': True,
-                                '7.2.1': True,
-                                '7.2.2': True,
-                                '7.2.3': True,
-                                '7.2.4': True,
-                                '7.4.0': True,
-                                '7.4.1': True
-                            },
-                            'choices': [
-                                'disable',
-                                'enable'
-                            ],
-                            'type': 'str'
-                        },
-                        'scan-bzip2': {
-                            'required': False,
-                            'revision': {
-                                '6.2.0': False,
-                                '6.2.2': False,
-                                '6.2.6': False,
-                                '6.2.7': False,
-                                '6.2.8': True,
-                                '6.2.9': True,
-                                '6.2.10': True,
-                                '6.2.11': True,
-                                '6.2.12': True,
-                                '6.4.1': False,
-                                '6.4.3': False,
-                                '6.4.4': False,
-                                '6.4.5': True,
-                                '6.4.6': True,
-                                '6.4.7': True,
-                                '6.4.8': True,
-                                '6.4.9': True,
-                                '6.4.10': True,
-                                '6.4.11': True,
-                                '6.4.12': True,
-                                '6.4.13': True,
-                                '7.0.0': True,
-                                '7.0.1': True,
-                                '7.0.2': True,
-                                '7.0.3': True,
-                                '7.0.4': True,
-                                '7.0.5': True,
-                                '7.0.6': True,
-                                '7.0.7': True,
-                                '7.0.8': True,
-                                '7.0.9': True,
-                                '7.0.10': True,
-                                '7.2.0': True,
-                                '7.2.1': True,
-                                '7.2.2': True,
-                                '7.2.3': True,
-                                '7.2.4': True,
-                                '7.4.0': True,
-                                '7.4.1': True
-                            },
-                            'choices': [
-                                'disable',
-                                'enable'
-                            ],
-                            'type': 'str'
-                        },
-                        'ssl-offloaded': {
-                            'required': False,
-                            'revision': {
-                                '6.2.0': False,
-                                '6.2.2': False,
-                                '6.2.6': False,
-                                '6.2.7': False,
-                                '6.2.8': True,
-                                '6.2.9': True,
-                                '6.2.10': True,
-                                '6.2.11': True,
-                                '6.2.12': True,
-                                '6.4.1': False,
-                                '6.4.3': False,
-                                '6.4.4': False,
-                                '6.4.5': True,
-                                '6.4.6': True,
-                                '6.4.7': True,
-                                '6.4.8': True,
-                                '6.4.9': True,
-                                '6.4.10': True,
-                                '6.4.11': True,
-                                '6.4.12': True,
-                                '6.4.13': True,
-                                '7.0.0': True,
-                                '7.0.1': True,
-                                '7.0.2': True,
-                                '7.0.3': True,
-                                '7.0.4': True,
-                                '7.0.5': True,
-                                '7.0.6': True,
-                                '7.0.7': True,
-                                '7.0.8': True,
-                                '7.0.9': True,
-                                '7.0.10': True,
-                                '7.2.0': True,
-                                '7.2.1': True,
-                                '7.2.2': True,
-                                '7.2.3': True,
-                                '7.2.4': True,
-                                '7.4.0': True,
-                                '7.4.1': True
-                            },
-                            'choices': [
-                                'no',
-                                'yes'
-                            ],
-                            'type': 'str'
-                        },
-                        'status': {
-                            'required': False,
-                            'revision': {
-                                '6.2.0': False,
-                                '6.2.2': False,
-                                '6.2.6': False,
-                                '6.2.7': False,
-                                '6.2.8': True,
-                                '6.2.9': True,
-                                '6.2.10': True,
-                                '6.2.11': True,
-                                '6.2.12': True,
-                                '6.4.1': False,
-                                '6.4.3': False,
-                                '6.4.4': False,
-                                '6.4.5': True,
-                                '6.4.6': True,
-                                '6.4.7': True,
-                                '6.4.8': True,
-                                '6.4.9': True,
-                                '6.4.10': True,
-                                '6.4.11': True,
-                                '6.4.12': True,
-                                '6.4.13': True,
-                                '7.0.0': True,
-                                '7.0.1': True,
-                                '7.0.2': True,
-                                '7.0.3': True,
-                                '7.0.4': True,
-                                '7.0.5': True,
-                                '7.0.6': True,
-                                '7.0.7': True,
-                                '7.0.8': True,
-                                '7.0.9': True,
-                                '7.0.10': True,
-                                '7.2.0': True,
-                                '7.2.1': True,
-                                '7.2.2': True,
-                                '7.2.3': True,
-                                '7.2.4': True,
-                                '7.4.0': True,
-                                '7.4.1': True
-                            },
-                            'choices': [
-                                'disable',
-                                'enable'
-                            ],
-                            'type': 'str'
-                        },
-                        'uncompressed-nest-limit': {
-                            'required': False,
-                            'revision': {
-                                '6.2.0': False,
-                                '6.2.2': False,
-                                '6.2.6': False,
-                                '6.2.7': False,
-                                '6.2.8': True,
-                                '6.2.9': True,
-                                '6.2.10': True,
-                                '6.2.11': True,
-                                '6.2.12': True,
-                                '6.4.1': False,
-                                '6.4.3': False,
-                                '6.4.4': False,
-                                '6.4.5': True,
-                                '6.4.6': True,
-                                '6.4.7': True,
-                                '6.4.8': True,
-                                '6.4.9': True,
-                                '6.4.10': True,
-                                '6.4.11': True,
-                                '6.4.12': True,
-                                '6.4.13': True,
-                                '7.0.0': True,
-                                '7.0.1': True,
-                                '7.0.2': True,
-                                '7.0.3': True,
-                                '7.0.4': True,
-                                '7.0.5': True,
-                                '7.0.6': True,
-                                '7.0.7': True,
-                                '7.0.8': True,
-                                '7.0.9': True,
-                                '7.0.10': True,
-                                '7.2.0': True,
-                                '7.2.1': True,
-                                '7.2.2': True,
-                                '7.2.3': True,
-                                '7.2.4': True,
-                                '7.4.0': True,
-                                '7.4.1': True
-                            },
-                            'type': 'int'
-                        },
-                        'uncompressed-oversize-limit': {
-                            'required': False,
-                            'revision': {
-                                '6.2.0': False,
-                                '6.2.2': False,
-                                '6.2.6': False,
-                                '6.2.7': False,
-                                '6.2.8': True,
-                                '6.2.9': True,
-                                '6.2.10': True,
-                                '6.2.11': True,
-                                '6.2.12': True,
-                                '6.4.1': False,
-                                '6.4.3': False,
-                                '6.4.4': False,
-                                '6.4.5': True,
-                                '6.4.6': True,
-                                '6.4.7': True,
-                                '6.4.8': True,
-                                '6.4.9': True,
-                                '6.4.10': True,
-                                '6.4.11': True,
-                                '6.4.12': True,
-                                '6.4.13': True,
-                                '7.0.0': True,
-                                '7.0.1': True,
-                                '7.0.2': True,
-                                '7.0.3': True,
-                                '7.0.4': True,
-                                '7.0.5': True,
-                                '7.0.6': True,
-                                '7.0.7': True,
-                                '7.0.8': True,
-                                '7.0.9': True,
-                                '7.0.10': True,
-                                '7.2.0': True,
-                                '7.2.1': True,
-                                '7.2.2': True,
-                                '7.2.3': True,
-                                '7.2.4': True,
-                                '7.4.0': True,
-                                '7.4.1': True
-                            },
-                            'type': 'int'
-                        }
+                        'oversize-limit': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
+                        'ports': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'raw'},
+                        'proxy-after-tcp-handshake': {'v_range': [['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'scan-bzip2': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'ssl-offloaded': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['no', 'yes'], 'type': 'str'},
+                        'status': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'uncompressed-nest-limit': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
+                        'uncompressed-oversize-limit': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'}
                     }
                 },
                 'mail-signature': {
-                    'required': False,
                     'type': 'dict',
                     'options': {
-                        'signature': {
-                            'required': False,
-                            'revision': {
-                                '6.2.0': False,
-                                '6.2.2': False,
-                                '6.2.6': False,
-                                '6.2.7': False,
-                                '6.2.8': True,
-                                '6.2.9': True,
-                                '6.2.10': True,
-                                '6.2.11': True,
-                                '6.2.12': True,
-                                '6.4.1': False,
-                                '6.4.3': False,
-                                '6.4.4': False,
-                                '6.4.5': True,
-                                '6.4.6': True,
-                                '6.4.7': True,
-                                '6.4.8': True,
-                                '6.4.9': True,
-                                '6.4.10': True,
-                                '6.4.11': True,
-                                '6.4.12': True,
-                                '6.4.13': True,
-                                '7.0.0': True,
-                                '7.0.1': True,
-                                '7.0.2': True,
-                                '7.0.3': True,
-                                '7.0.4': True,
-                                '7.0.5': True,
-                                '7.0.6': True,
-                                '7.0.7': True,
-                                '7.0.8': True,
-                                '7.0.9': True,
-                                '7.0.10': True,
-                                '7.2.0': True,
-                                '7.2.1': True,
-                                '7.2.2': True,
-                                '7.2.3': True,
-                                '7.2.4': True,
-                                '7.4.0': True,
-                                '7.4.1': True
-                            },
-                            'type': 'str'
-                        },
-                        'status': {
-                            'required': False,
-                            'revision': {
-                                '6.2.0': False,
-                                '6.2.2': False,
-                                '6.2.6': False,
-                                '6.2.7': False,
-                                '6.2.8': True,
-                                '6.2.9': True,
-                                '6.2.10': True,
-                                '6.2.11': True,
-                                '6.2.12': True,
-                                '6.4.1': False,
-                                '6.4.3': False,
-                                '6.4.4': False,
-                                '6.4.5': True,
-                                '6.4.6': True,
-                                '6.4.7': True,
-                                '6.4.8': True,
-                                '6.4.9': True,
-                                '6.4.10': True,
-                                '6.4.11': True,
-                                '6.4.12': True,
-                                '6.4.13': True,
-                                '7.0.0': True,
-                                '7.0.1': True,
-                                '7.0.2': True,
-                                '7.0.3': True,
-                                '7.0.4': True,
-                                '7.0.5': True,
-                                '7.0.6': True,
-                                '7.0.7': True,
-                                '7.0.8': True,
-                                '7.0.9': True,
-                                '7.0.10': True,
-                                '7.2.0': True,
-                                '7.2.1': True,
-                                '7.2.2': True,
-                                '7.2.3': True,
-                                '7.2.4': True,
-                                '7.4.0': True,
-                                '7.4.1': True
-                            },
-                            'choices': [
-                                'disable',
-                                'enable'
-                            ],
-                            'type': 'str'
-                        }
+                        'signature': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'str'},
+                        'status': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
                     }
                 },
                 'mapi': {
-                    'required': False,
                     'type': 'dict',
                     'options': {
                         'options': {
-                            'required': False,
-                            'revision': {
-                                '6.2.0': False,
-                                '6.2.2': False,
-                                '6.2.6': False,
-                                '6.2.7': False,
-                                '6.2.8': True,
-                                '6.2.9': True,
-                                '6.2.10': True,
-                                '6.2.11': True,
-                                '6.2.12': True,
-                                '6.4.1': False,
-                                '6.4.3': False,
-                                '6.4.4': False,
-                                '6.4.5': True,
-                                '6.4.6': True,
-                                '6.4.7': True,
-                                '6.4.8': True,
-                                '6.4.9': True,
-                                '6.4.10': True,
-                                '6.4.11': True,
-                                '6.4.12': True,
-                                '6.4.13': True,
-                                '7.0.0': True,
-                                '7.0.1': True,
-                                '7.0.2': True,
-                                '7.0.3': True,
-                                '7.0.4': True,
-                                '7.0.5': True,
-                                '7.0.6': True,
-                                '7.0.7': True,
-                                '7.0.8': True,
-                                '7.0.9': True,
-                                '7.0.10': True,
-                                '7.2.0': True,
-                                '7.2.1': True,
-                                '7.2.2': True,
-                                '7.2.3': True,
-                                '7.2.4': True,
-                                '7.4.0': True,
-                                '7.4.1': True
-                            },
+                            'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
                             'type': 'list',
-                            'choices': [
-                                'fragmail',
-                                'oversize',
-                                'no-content-summary'
-                            ],
+                            'choices': ['fragmail', 'oversize', 'no-content-summary'],
                             'elements': 'str'
                         },
-                        'oversize-limit': {
-                            'required': False,
-                            'revision': {
-                                '6.2.0': False,
-                                '6.2.2': False,
-                                '6.2.6': False,
-                                '6.2.7': False,
-                                '6.2.8': True,
-                                '6.2.9': True,
-                                '6.2.10': True,
-                                '6.2.11': True,
-                                '6.2.12': True,
-                                '6.4.1': False,
-                                '6.4.3': False,
-                                '6.4.4': False,
-                                '6.4.5': True,
-                                '6.4.6': True,
-                                '6.4.7': True,
-                                '6.4.8': True,
-                                '6.4.9': True,
-                                '6.4.10': True,
-                                '6.4.11': True,
-                                '6.4.12': True,
-                                '6.4.13': True,
-                                '7.0.0': True,
-                                '7.0.1': True,
-                                '7.0.2': True,
-                                '7.0.3': True,
-                                '7.0.4': True,
-                                '7.0.5': True,
-                                '7.0.6': True,
-                                '7.0.7': True,
-                                '7.0.8': True,
-                                '7.0.9': True,
-                                '7.0.10': True,
-                                '7.2.0': True,
-                                '7.2.1': True,
-                                '7.2.2': True,
-                                '7.2.3': True,
-                                '7.2.4': True,
-                                '7.4.0': True,
-                                '7.4.1': True
-                            },
-                            'type': 'int'
-                        },
-                        'ports': {
-                            'required': False,
-                            'revision': {
-                                '6.2.0': False,
-                                '6.2.2': False,
-                                '6.2.6': False,
-                                '6.2.7': False,
-                                '6.2.8': True,
-                                '6.2.9': True,
-                                '6.2.10': True,
-                                '6.2.11': True,
-                                '6.2.12': True,
-                                '6.4.1': False,
-                                '6.4.3': False,
-                                '6.4.4': False,
-                                '6.4.5': True,
-                                '6.4.6': True,
-                                '6.4.7': True,
-                                '6.4.8': True,
-                                '6.4.9': True,
-                                '6.4.10': True,
-                                '6.4.11': True,
-                                '6.4.12': True,
-                                '6.4.13': True,
-                                '7.0.0': True,
-                                '7.0.1': True,
-                                '7.0.2': True,
-                                '7.0.3': True,
-                                '7.0.4': True,
-                                '7.0.5': True,
-                                '7.0.6': True,
-                                '7.0.7': True,
-                                '7.0.8': True,
-                                '7.0.9': True,
-                                '7.0.10': True,
-                                '7.2.0': True,
-                                '7.2.1': True,
-                                '7.2.2': True,
-                                '7.2.3': True,
-                                '7.2.4': True,
-                                '7.4.0': True,
-                                '7.4.1': True
-                            },
-                            'type': 'raw'
-                        },
-                        'scan-bzip2': {
-                            'required': False,
-                            'revision': {
-                                '6.2.0': False,
-                                '6.2.2': False,
-                                '6.2.6': False,
-                                '6.2.7': False,
-                                '6.2.8': True,
-                                '6.2.9': True,
-                                '6.2.10': True,
-                                '6.2.11': True,
-                                '6.2.12': True,
-                                '6.4.1': False,
-                                '6.4.3': False,
-                                '6.4.4': False,
-                                '6.4.5': True,
-                                '6.4.6': True,
-                                '6.4.7': True,
-                                '6.4.8': True,
-                                '6.4.9': True,
-                                '6.4.10': True,
-                                '6.4.11': True,
-                                '6.4.12': True,
-                                '6.4.13': True,
-                                '7.0.0': True,
-                                '7.0.1': True,
-                                '7.0.2': True,
-                                '7.0.3': True,
-                                '7.0.4': True,
-                                '7.0.5': True,
-                                '7.0.6': True,
-                                '7.0.7': True,
-                                '7.0.8': True,
-                                '7.0.9': True,
-                                '7.0.10': True,
-                                '7.2.0': True,
-                                '7.2.1': True,
-                                '7.2.2': True,
-                                '7.2.3': True,
-                                '7.2.4': True,
-                                '7.4.0': True,
-                                '7.4.1': True
-                            },
-                            'choices': [
-                                'disable',
-                                'enable'
-                            ],
-                            'type': 'str'
-                        },
-                        'status': {
-                            'required': False,
-                            'revision': {
-                                '6.2.0': False,
-                                '6.2.2': False,
-                                '6.2.6': False,
-                                '6.2.7': False,
-                                '6.2.8': True,
-                                '6.2.9': True,
-                                '6.2.10': True,
-                                '6.2.11': True,
-                                '6.2.12': True,
-                                '6.4.1': False,
-                                '6.4.3': False,
-                                '6.4.4': False,
-                                '6.4.5': True,
-                                '6.4.6': True,
-                                '6.4.7': True,
-                                '6.4.8': True,
-                                '6.4.9': True,
-                                '6.4.10': True,
-                                '6.4.11': True,
-                                '6.4.12': True,
-                                '6.4.13': True,
-                                '7.0.0': True,
-                                '7.0.1': True,
-                                '7.0.2': True,
-                                '7.0.3': True,
-                                '7.0.4': True,
-                                '7.0.5': True,
-                                '7.0.6': True,
-                                '7.0.7': True,
-                                '7.0.8': True,
-                                '7.0.9': True,
-                                '7.0.10': True,
-                                '7.2.0': True,
-                                '7.2.1': True,
-                                '7.2.2': True,
-                                '7.2.3': True,
-                                '7.2.4': True,
-                                '7.4.0': True,
-                                '7.4.1': True
-                            },
-                            'choices': [
-                                'disable',
-                                'enable'
-                            ],
-                            'type': 'str'
-                        },
-                        'uncompressed-nest-limit': {
-                            'required': False,
-                            'revision': {
-                                '6.2.0': False,
-                                '6.2.2': False,
-                                '6.2.6': False,
-                                '6.2.7': False,
-                                '6.2.8': True,
-                                '6.2.9': True,
-                                '6.2.10': True,
-                                '6.2.11': True,
-                                '6.2.12': True,
-                                '6.4.1': False,
-                                '6.4.3': False,
-                                '6.4.4': False,
-                                '6.4.5': True,
-                                '6.4.6': True,
-                                '6.4.7': True,
-                                '6.4.8': True,
-                                '6.4.9': True,
-                                '6.4.10': True,
-                                '6.4.11': True,
-                                '6.4.12': True,
-                                '6.4.13': True,
-                                '7.0.0': True,
-                                '7.0.1': True,
-                                '7.0.2': True,
-                                '7.0.3': True,
-                                '7.0.4': True,
-                                '7.0.5': True,
-                                '7.0.6': True,
-                                '7.0.7': True,
-                                '7.0.8': True,
-                                '7.0.9': True,
-                                '7.0.10': True,
-                                '7.2.0': True,
-                                '7.2.1': True,
-                                '7.2.2': True,
-                                '7.2.3': True,
-                                '7.2.4': True,
-                                '7.4.0': True,
-                                '7.4.1': True
-                            },
-                            'type': 'int'
-                        },
-                        'uncompressed-oversize-limit': {
-                            'required': False,
-                            'revision': {
-                                '6.2.0': False,
-                                '6.2.2': False,
-                                '6.2.6': False,
-                                '6.2.7': False,
-                                '6.2.8': True,
-                                '6.2.9': True,
-                                '6.2.10': True,
-                                '6.2.11': True,
-                                '6.2.12': True,
-                                '6.4.1': False,
-                                '6.4.3': False,
-                                '6.4.4': False,
-                                '6.4.5': True,
-                                '6.4.6': True,
-                                '6.4.7': True,
-                                '6.4.8': True,
-                                '6.4.9': True,
-                                '6.4.10': True,
-                                '6.4.11': True,
-                                '6.4.12': True,
-                                '6.4.13': True,
-                                '7.0.0': True,
-                                '7.0.1': True,
-                                '7.0.2': True,
-                                '7.0.3': True,
-                                '7.0.4': True,
-                                '7.0.5': True,
-                                '7.0.6': True,
-                                '7.0.7': True,
-                                '7.0.8': True,
-                                '7.0.9': True,
-                                '7.0.10': True,
-                                '7.2.0': True,
-                                '7.2.1': True,
-                                '7.2.2': True,
-                                '7.2.3': True,
-                                '7.2.4': True,
-                                '7.4.0': True,
-                                '7.4.1': True
-                            },
-                            'type': 'int'
-                        }
+                        'oversize-limit': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
+                        'ports': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'raw'},
+                        'scan-bzip2': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'status': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'uncompressed-nest-limit': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
+                        'uncompressed-oversize-limit': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'}
                     }
                 },
                 'nntp': {
-                    'required': False,
                     'type': 'dict',
                     'options': {
-                        'inspect-all': {
-                            'required': False,
-                            'revision': {
-                                '6.2.0': False,
-                                '6.2.2': False,
-                                '6.2.6': False,
-                                '6.2.7': False,
-                                '6.2.8': True,
-                                '6.2.9': True,
-                                '6.2.10': True,
-                                '6.2.11': True,
-                                '6.2.12': True,
-                                '6.4.1': False,
-                                '6.4.3': False,
-                                '6.4.4': False,
-                                '6.4.5': True,
-                                '6.4.6': True,
-                                '6.4.7': True,
-                                '6.4.8': True,
-                                '6.4.9': True,
-                                '6.4.10': True,
-                                '6.4.11': True,
-                                '6.4.12': True,
-                                '6.4.13': True,
-                                '7.0.0': True,
-                                '7.0.1': True,
-                                '7.0.2': True,
-                                '7.0.3': True,
-                                '7.0.4': True,
-                                '7.0.5': True,
-                                '7.0.6': True,
-                                '7.0.7': True,
-                                '7.0.8': True,
-                                '7.0.9': True,
-                                '7.0.10': True,
-                                '7.2.0': True,
-                                '7.2.1': True,
-                                '7.2.2': True,
-                                '7.2.3': True,
-                                '7.2.4': True,
-                                '7.4.0': True,
-                                '7.4.1': True
-                            },
-                            'choices': [
-                                'disable',
-                                'enable'
-                            ],
-                            'type': 'str'
-                        },
+                        'inspect-all': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                         'options': {
-                            'required': False,
-                            'revision': {
-                                '6.2.0': False,
-                                '6.2.2': False,
-                                '6.2.6': False,
-                                '6.2.7': False,
-                                '6.2.8': True,
-                                '6.2.9': True,
-                                '6.2.10': True,
-                                '6.2.11': True,
-                                '6.2.12': True,
-                                '6.4.1': False,
-                                '6.4.3': False,
-                                '6.4.4': False,
-                                '6.4.5': True,
-                                '6.4.6': True,
-                                '6.4.7': True,
-                                '6.4.8': True,
-                                '6.4.9': True,
-                                '6.4.10': True,
-                                '6.4.11': True,
-                                '6.4.12': True,
-                                '6.4.13': True,
-                                '7.0.0': True,
-                                '7.0.1': True,
-                                '7.0.2': True,
-                                '7.0.3': True,
-                                '7.0.4': True,
-                                '7.0.5': True,
-                                '7.0.6': True,
-                                '7.0.7': True,
-                                '7.0.8': True,
-                                '7.0.9': True,
-                                '7.0.10': True,
-                                '7.2.0': True,
-                                '7.2.1': True,
-                                '7.2.2': True,
-                                '7.2.3': True,
-                                '7.2.4': True,
-                                '7.4.0': True,
-                                '7.4.1': True
-                            },
+                            'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
                             'type': 'list',
-                            'choices': [
-                                'oversize',
-                                'no-content-summary',
-                                'splice'
-                            ],
+                            'choices': ['oversize', 'no-content-summary', 'splice'],
                             'elements': 'str'
                         },
-                        'oversize-limit': {
-                            'required': False,
-                            'revision': {
-                                '6.2.0': False,
-                                '6.2.2': False,
-                                '6.2.6': False,
-                                '6.2.7': False,
-                                '6.2.8': True,
-                                '6.2.9': True,
-                                '6.2.10': True,
-                                '6.2.11': True,
-                                '6.2.12': True,
-                                '6.4.1': False,
-                                '6.4.3': False,
-                                '6.4.4': False,
-                                '6.4.5': True,
-                                '6.4.6': True,
-                                '6.4.7': True,
-                                '6.4.8': True,
-                                '6.4.9': True,
-                                '6.4.10': True,
-                                '6.4.11': True,
-                                '6.4.12': True,
-                                '6.4.13': True,
-                                '7.0.0': True,
-                                '7.0.1': True,
-                                '7.0.2': True,
-                                '7.0.3': True,
-                                '7.0.4': True,
-                                '7.0.5': True,
-                                '7.0.6': True,
-                                '7.0.7': True,
-                                '7.0.8': True,
-                                '7.0.9': True,
-                                '7.0.10': True,
-                                '7.2.0': True,
-                                '7.2.1': True,
-                                '7.2.2': True,
-                                '7.2.3': True,
-                                '7.2.4': True,
-                                '7.4.0': True,
-                                '7.4.1': True
-                            },
-                            'type': 'int'
-                        },
-                        'ports': {
-                            'required': False,
-                            'revision': {
-                                '6.2.0': False,
-                                '6.2.2': False,
-                                '6.2.6': False,
-                                '6.2.7': False,
-                                '6.2.8': True,
-                                '6.2.9': True,
-                                '6.2.10': True,
-                                '6.2.11': True,
-                                '6.2.12': True,
-                                '6.4.1': False,
-                                '6.4.3': False,
-                                '6.4.4': False,
-                                '6.4.5': True,
-                                '6.4.6': True,
-                                '6.4.7': True,
-                                '6.4.8': True,
-                                '6.4.9': True,
-                                '6.4.10': True,
-                                '6.4.11': True,
-                                '6.4.12': True,
-                                '6.4.13': True,
-                                '7.0.0': True,
-                                '7.0.1': True,
-                                '7.0.2': True,
-                                '7.0.3': True,
-                                '7.0.4': True,
-                                '7.0.5': True,
-                                '7.0.6': True,
-                                '7.0.7': True,
-                                '7.0.8': True,
-                                '7.0.9': True,
-                                '7.0.10': True,
-                                '7.2.0': True,
-                                '7.2.1': True,
-                                '7.2.2': True,
-                                '7.2.3': True,
-                                '7.2.4': True,
-                                '7.4.0': True,
-                                '7.4.1': True
-                            },
-                            'type': 'raw'
-                        },
-                        'proxy-after-tcp-handshake': {
-                            'required': False,
-                            'revision': {
-                                '6.2.0': False,
-                                '6.2.2': False,
-                                '6.2.6': False,
-                                '6.2.7': False,
-                                '6.2.8': False,
-                                '6.2.9': False,
-                                '6.2.10': False,
-                                '6.2.11': False,
-                                '6.2.12': False,
-                                '6.4.1': False,
-                                '6.4.3': False,
-                                '6.4.4': False,
-                                '6.4.5': True,
-                                '6.4.6': True,
-                                '6.4.7': True,
-                                '6.4.8': True,
-                                '6.4.9': True,
-                                '6.4.10': True,
-                                '6.4.11': True,
-                                '6.4.12': True,
-                                '6.4.13': True,
-                                '7.0.0': True,
-                                '7.0.1': True,
-                                '7.0.2': True,
-                                '7.0.3': True,
-                                '7.0.4': True,
-                                '7.0.5': True,
-                                '7.0.6': True,
-                                '7.0.7': True,
-                                '7.0.8': True,
-                                '7.0.9': True,
-                                '7.0.10': True,
-                                '7.2.0': True,
-                                '7.2.1': True,
-                                '7.2.2': True,
-                                '7.2.3': True,
-                                '7.2.4': True,
-                                '7.4.0': True,
-                                '7.4.1': True
-                            },
-                            'choices': [
-                                'disable',
-                                'enable'
-                            ],
-                            'type': 'str'
-                        },
-                        'scan-bzip2': {
-                            'required': False,
-                            'revision': {
-                                '6.2.0': False,
-                                '6.2.2': False,
-                                '6.2.6': False,
-                                '6.2.7': False,
-                                '6.2.8': True,
-                                '6.2.9': True,
-                                '6.2.10': True,
-                                '6.2.11': True,
-                                '6.2.12': True,
-                                '6.4.1': False,
-                                '6.4.3': False,
-                                '6.4.4': False,
-                                '6.4.5': True,
-                                '6.4.6': True,
-                                '6.4.7': True,
-                                '6.4.8': True,
-                                '6.4.9': True,
-                                '6.4.10': True,
-                                '6.4.11': True,
-                                '6.4.12': True,
-                                '6.4.13': True,
-                                '7.0.0': True,
-                                '7.0.1': True,
-                                '7.0.2': True,
-                                '7.0.3': True,
-                                '7.0.4': True,
-                                '7.0.5': True,
-                                '7.0.6': True,
-                                '7.0.7': True,
-                                '7.0.8': True,
-                                '7.0.9': True,
-                                '7.0.10': True,
-                                '7.2.0': True,
-                                '7.2.1': True,
-                                '7.2.2': True,
-                                '7.2.3': True,
-                                '7.2.4': True,
-                                '7.4.0': True,
-                                '7.4.1': True
-                            },
-                            'choices': [
-                                'disable',
-                                'enable'
-                            ],
-                            'type': 'str'
-                        },
-                        'status': {
-                            'required': False,
-                            'revision': {
-                                '6.2.0': False,
-                                '6.2.2': False,
-                                '6.2.6': False,
-                                '6.2.7': False,
-                                '6.2.8': True,
-                                '6.2.9': True,
-                                '6.2.10': True,
-                                '6.2.11': True,
-                                '6.2.12': True,
-                                '6.4.1': False,
-                                '6.4.3': False,
-                                '6.4.4': False,
-                                '6.4.5': True,
-                                '6.4.6': True,
-                                '6.4.7': True,
-                                '6.4.8': True,
-                                '6.4.9': True,
-                                '6.4.10': True,
-                                '6.4.11': True,
-                                '6.4.12': True,
-                                '6.4.13': True,
-                                '7.0.0': True,
-                                '7.0.1': True,
-                                '7.0.2': True,
-                                '7.0.3': True,
-                                '7.0.4': True,
-                                '7.0.5': True,
-                                '7.0.6': True,
-                                '7.0.7': True,
-                                '7.0.8': True,
-                                '7.0.9': True,
-                                '7.0.10': True,
-                                '7.2.0': True,
-                                '7.2.1': True,
-                                '7.2.2': True,
-                                '7.2.3': True,
-                                '7.2.4': True,
-                                '7.4.0': True,
-                                '7.4.1': True
-                            },
-                            'choices': [
-                                'disable',
-                                'enable'
-                            ],
-                            'type': 'str'
-                        },
-                        'uncompressed-nest-limit': {
-                            'required': False,
-                            'revision': {
-                                '6.2.0': False,
-                                '6.2.2': False,
-                                '6.2.6': False,
-                                '6.2.7': False,
-                                '6.2.8': True,
-                                '6.2.9': True,
-                                '6.2.10': True,
-                                '6.2.11': True,
-                                '6.2.12': True,
-                                '6.4.1': False,
-                                '6.4.3': False,
-                                '6.4.4': False,
-                                '6.4.5': True,
-                                '6.4.6': True,
-                                '6.4.7': True,
-                                '6.4.8': True,
-                                '6.4.9': True,
-                                '6.4.10': True,
-                                '6.4.11': True,
-                                '6.4.12': True,
-                                '6.4.13': True,
-                                '7.0.0': True,
-                                '7.0.1': True,
-                                '7.0.2': True,
-                                '7.0.3': True,
-                                '7.0.4': True,
-                                '7.0.5': True,
-                                '7.0.6': True,
-                                '7.0.7': True,
-                                '7.0.8': True,
-                                '7.0.9': True,
-                                '7.0.10': True,
-                                '7.2.0': True,
-                                '7.2.1': True,
-                                '7.2.2': True,
-                                '7.2.3': True,
-                                '7.2.4': True,
-                                '7.4.0': True,
-                                '7.4.1': True
-                            },
-                            'type': 'int'
-                        },
-                        'uncompressed-oversize-limit': {
-                            'required': False,
-                            'revision': {
-                                '6.2.0': False,
-                                '6.2.2': False,
-                                '6.2.6': False,
-                                '6.2.7': False,
-                                '6.2.8': True,
-                                '6.2.9': True,
-                                '6.2.10': True,
-                                '6.2.11': True,
-                                '6.2.12': True,
-                                '6.4.1': False,
-                                '6.4.3': False,
-                                '6.4.4': False,
-                                '6.4.5': True,
-                                '6.4.6': True,
-                                '6.4.7': True,
-                                '6.4.8': True,
-                                '6.4.9': True,
-                                '6.4.10': True,
-                                '6.4.11': True,
-                                '6.4.12': True,
-                                '6.4.13': True,
-                                '7.0.0': True,
-                                '7.0.1': True,
-                                '7.0.2': True,
-                                '7.0.3': True,
-                                '7.0.4': True,
-                                '7.0.5': True,
-                                '7.0.6': True,
-                                '7.0.7': True,
-                                '7.0.8': True,
-                                '7.0.9': True,
-                                '7.0.10': True,
-                                '7.2.0': True,
-                                '7.2.1': True,
-                                '7.2.2': True,
-                                '7.2.3': True,
-                                '7.2.4': True,
-                                '7.4.0': True,
-                                '7.4.1': True
-                            },
-                            'type': 'int'
-                        }
+                        'oversize-limit': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
+                        'ports': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'raw'},
+                        'proxy-after-tcp-handshake': {'v_range': [['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'scan-bzip2': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'status': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'uncompressed-nest-limit': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
+                        'uncompressed-oversize-limit': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'}
                     }
                 },
                 'pop3': {
-                    'required': False,
                     'type': 'dict',
                     'options': {
-                        'inspect-all': {
-                            'required': False,
-                            'revision': {
-                                '6.2.0': False,
-                                '6.2.2': False,
-                                '6.2.6': False,
-                                '6.2.7': False,
-                                '6.2.8': True,
-                                '6.2.9': True,
-                                '6.2.10': True,
-                                '6.2.11': True,
-                                '6.2.12': True,
-                                '6.4.1': False,
-                                '6.4.3': False,
-                                '6.4.4': False,
-                                '6.4.5': True,
-                                '6.4.6': True,
-                                '6.4.7': True,
-                                '6.4.8': True,
-                                '6.4.9': True,
-                                '6.4.10': True,
-                                '6.4.11': True,
-                                '6.4.12': True,
-                                '6.4.13': True,
-                                '7.0.0': True,
-                                '7.0.1': True,
-                                '7.0.2': True,
-                                '7.0.3': True,
-                                '7.0.4': True,
-                                '7.0.5': True,
-                                '7.0.6': True,
-                                '7.0.7': True,
-                                '7.0.8': True,
-                                '7.0.9': True,
-                                '7.0.10': True,
-                                '7.2.0': True,
-                                '7.2.1': True,
-                                '7.2.2': True,
-                                '7.2.3': True,
-                                '7.2.4': True,
-                                '7.4.0': True,
-                                '7.4.1': True
-                            },
-                            'choices': [
-                                'disable',
-                                'enable'
-                            ],
-                            'type': 'str'
-                        },
+                        'inspect-all': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                         'options': {
-                            'required': False,
-                            'revision': {
-                                '6.2.0': False,
-                                '6.2.2': False,
-                                '6.2.6': False,
-                                '6.2.7': False,
-                                '6.2.8': True,
-                                '6.2.9': True,
-                                '6.2.10': True,
-                                '6.2.11': True,
-                                '6.2.12': True,
-                                '6.4.1': False,
-                                '6.4.3': False,
-                                '6.4.4': False,
-                                '6.4.5': True,
-                                '6.4.6': True,
-                                '6.4.7': True,
-                                '6.4.8': True,
-                                '6.4.9': True,
-                                '6.4.10': True,
-                                '6.4.11': True,
-                                '6.4.12': True,
-                                '6.4.13': True,
-                                '7.0.0': True,
-                                '7.0.1': True,
-                                '7.0.2': True,
-                                '7.0.3': True,
-                                '7.0.4': True,
-                                '7.0.5': True,
-                                '7.0.6': True,
-                                '7.0.7': True,
-                                '7.0.8': True,
-                                '7.0.9': True,
-                                '7.0.10': True,
-                                '7.2.0': True,
-                                '7.2.1': True,
-                                '7.2.2': True,
-                                '7.2.3': True,
-                                '7.2.4': True,
-                                '7.4.0': True,
-                                '7.4.1': True
-                            },
+                            'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
                             'type': 'list',
-                            'choices': [
-                                'oversize',
-                                'fragmail',
-                                'no-content-summary'
-                            ],
+                            'choices': ['oversize', 'fragmail', 'no-content-summary'],
                             'elements': 'str'
                         },
-                        'oversize-limit': {
-                            'required': False,
-                            'revision': {
-                                '6.2.0': False,
-                                '6.2.2': False,
-                                '6.2.6': False,
-                                '6.2.7': False,
-                                '6.2.8': True,
-                                '6.2.9': True,
-                                '6.2.10': True,
-                                '6.2.11': True,
-                                '6.2.12': True,
-                                '6.4.1': False,
-                                '6.4.3': False,
-                                '6.4.4': False,
-                                '6.4.5': True,
-                                '6.4.6': True,
-                                '6.4.7': True,
-                                '6.4.8': True,
-                                '6.4.9': True,
-                                '6.4.10': True,
-                                '6.4.11': True,
-                                '6.4.12': True,
-                                '6.4.13': True,
-                                '7.0.0': True,
-                                '7.0.1': True,
-                                '7.0.2': True,
-                                '7.0.3': True,
-                                '7.0.4': True,
-                                '7.0.5': True,
-                                '7.0.6': True,
-                                '7.0.7': True,
-                                '7.0.8': True,
-                                '7.0.9': True,
-                                '7.0.10': True,
-                                '7.2.0': True,
-                                '7.2.1': True,
-                                '7.2.2': True,
-                                '7.2.3': True,
-                                '7.2.4': True,
-                                '7.4.0': True,
-                                '7.4.1': True
-                            },
-                            'type': 'int'
-                        },
-                        'ports': {
-                            'required': False,
-                            'revision': {
-                                '6.2.0': False,
-                                '6.2.2': False,
-                                '6.2.6': False,
-                                '6.2.7': False,
-                                '6.2.8': True,
-                                '6.2.9': True,
-                                '6.2.10': True,
-                                '6.2.11': True,
-                                '6.2.12': True,
-                                '6.4.1': False,
-                                '6.4.3': False,
-                                '6.4.4': False,
-                                '6.4.5': True,
-                                '6.4.6': True,
-                                '6.4.7': True,
-                                '6.4.8': True,
-                                '6.4.9': True,
-                                '6.4.10': True,
-                                '6.4.11': True,
-                                '6.4.12': True,
-                                '6.4.13': True,
-                                '7.0.0': True,
-                                '7.0.1': True,
-                                '7.0.2': True,
-                                '7.0.3': True,
-                                '7.0.4': True,
-                                '7.0.5': True,
-                                '7.0.6': True,
-                                '7.0.7': True,
-                                '7.0.8': True,
-                                '7.0.9': True,
-                                '7.0.10': True,
-                                '7.2.0': True,
-                                '7.2.1': True,
-                                '7.2.2': True,
-                                '7.2.3': True,
-                                '7.2.4': True,
-                                '7.4.0': True,
-                                '7.4.1': True
-                            },
-                            'type': 'raw'
-                        },
-                        'proxy-after-tcp-handshake': {
-                            'required': False,
-                            'revision': {
-                                '6.2.0': False,
-                                '6.2.2': False,
-                                '6.2.6': False,
-                                '6.2.7': False,
-                                '6.2.8': False,
-                                '6.2.9': False,
-                                '6.2.10': False,
-                                '6.2.11': False,
-                                '6.2.12': False,
-                                '6.4.1': False,
-                                '6.4.3': False,
-                                '6.4.4': False,
-                                '6.4.5': True,
-                                '6.4.6': True,
-                                '6.4.7': True,
-                                '6.4.8': True,
-                                '6.4.9': True,
-                                '6.4.10': True,
-                                '6.4.11': True,
-                                '6.4.12': True,
-                                '6.4.13': True,
-                                '7.0.0': True,
-                                '7.0.1': True,
-                                '7.0.2': True,
-                                '7.0.3': True,
-                                '7.0.4': True,
-                                '7.0.5': True,
-                                '7.0.6': True,
-                                '7.0.7': True,
-                                '7.0.8': True,
-                                '7.0.9': True,
-                                '7.0.10': True,
-                                '7.2.0': True,
-                                '7.2.1': True,
-                                '7.2.2': True,
-                                '7.2.3': True,
-                                '7.2.4': True,
-                                '7.4.0': True,
-                                '7.4.1': True
-                            },
-                            'choices': [
-                                'disable',
-                                'enable'
-                            ],
-                            'type': 'str'
-                        },
-                        'scan-bzip2': {
-                            'required': False,
-                            'revision': {
-                                '6.2.0': False,
-                                '6.2.2': False,
-                                '6.2.6': False,
-                                '6.2.7': False,
-                                '6.2.8': True,
-                                '6.2.9': True,
-                                '6.2.10': True,
-                                '6.2.11': True,
-                                '6.2.12': True,
-                                '6.4.1': False,
-                                '6.4.3': False,
-                                '6.4.4': False,
-                                '6.4.5': True,
-                                '6.4.6': True,
-                                '6.4.7': True,
-                                '6.4.8': True,
-                                '6.4.9': True,
-                                '6.4.10': True,
-                                '6.4.11': True,
-                                '6.4.12': True,
-                                '6.4.13': True,
-                                '7.0.0': True,
-                                '7.0.1': True,
-                                '7.0.2': True,
-                                '7.0.3': True,
-                                '7.0.4': True,
-                                '7.0.5': True,
-                                '7.0.6': True,
-                                '7.0.7': True,
-                                '7.0.8': True,
-                                '7.0.9': True,
-                                '7.0.10': True,
-                                '7.2.0': True,
-                                '7.2.1': True,
-                                '7.2.2': True,
-                                '7.2.3': True,
-                                '7.2.4': True,
-                                '7.4.0': True,
-                                '7.4.1': True
-                            },
-                            'choices': [
-                                'disable',
-                                'enable'
-                            ],
-                            'type': 'str'
-                        },
-                        'ssl-offloaded': {
-                            'required': False,
-                            'revision': {
-                                '6.2.0': False,
-                                '6.2.2': False,
-                                '6.2.6': False,
-                                '6.2.7': False,
-                                '6.2.8': True,
-                                '6.2.9': True,
-                                '6.2.10': True,
-                                '6.2.11': True,
-                                '6.2.12': True,
-                                '6.4.1': False,
-                                '6.4.3': False,
-                                '6.4.4': False,
-                                '6.4.5': True,
-                                '6.4.6': True,
-                                '6.4.7': True,
-                                '6.4.8': True,
-                                '6.4.9': True,
-                                '6.4.10': True,
-                                '6.4.11': True,
-                                '6.4.12': True,
-                                '6.4.13': True,
-                                '7.0.0': True,
-                                '7.0.1': True,
-                                '7.0.2': True,
-                                '7.0.3': True,
-                                '7.0.4': True,
-                                '7.0.5': True,
-                                '7.0.6': True,
-                                '7.0.7': True,
-                                '7.0.8': True,
-                                '7.0.9': True,
-                                '7.0.10': True,
-                                '7.2.0': True,
-                                '7.2.1': True,
-                                '7.2.2': True,
-                                '7.2.3': True,
-                                '7.2.4': True,
-                                '7.4.0': True,
-                                '7.4.1': True
-                            },
-                            'choices': [
-                                'no',
-                                'yes'
-                            ],
-                            'type': 'str'
-                        },
-                        'status': {
-                            'required': False,
-                            'revision': {
-                                '6.2.0': False,
-                                '6.2.2': False,
-                                '6.2.6': False,
-                                '6.2.7': False,
-                                '6.2.8': True,
-                                '6.2.9': True,
-                                '6.2.10': True,
-                                '6.2.11': True,
-                                '6.2.12': True,
-                                '6.4.1': False,
-                                '6.4.3': False,
-                                '6.4.4': False,
-                                '6.4.5': True,
-                                '6.4.6': True,
-                                '6.4.7': True,
-                                '6.4.8': True,
-                                '6.4.9': True,
-                                '6.4.10': True,
-                                '6.4.11': True,
-                                '6.4.12': True,
-                                '6.4.13': True,
-                                '7.0.0': True,
-                                '7.0.1': True,
-                                '7.0.2': True,
-                                '7.0.3': True,
-                                '7.0.4': True,
-                                '7.0.5': True,
-                                '7.0.6': True,
-                                '7.0.7': True,
-                                '7.0.8': True,
-                                '7.0.9': True,
-                                '7.0.10': True,
-                                '7.2.0': True,
-                                '7.2.1': True,
-                                '7.2.2': True,
-                                '7.2.3': True,
-                                '7.2.4': True,
-                                '7.4.0': True,
-                                '7.4.1': True
-                            },
-                            'choices': [
-                                'disable',
-                                'enable'
-                            ],
-                            'type': 'str'
-                        },
-                        'uncompressed-nest-limit': {
-                            'required': False,
-                            'revision': {
-                                '6.2.0': False,
-                                '6.2.2': False,
-                                '6.2.6': False,
-                                '6.2.7': False,
-                                '6.2.8': True,
-                                '6.2.9': True,
-                                '6.2.10': True,
-                                '6.2.11': True,
-                                '6.2.12': True,
-                                '6.4.1': False,
-                                '6.4.3': False,
-                                '6.4.4': False,
-                                '6.4.5': True,
-                                '6.4.6': True,
-                                '6.4.7': True,
-                                '6.4.8': True,
-                                '6.4.9': True,
-                                '6.4.10': True,
-                                '6.4.11': True,
-                                '6.4.12': True,
-                                '6.4.13': True,
-                                '7.0.0': True,
-                                '7.0.1': True,
-                                '7.0.2': True,
-                                '7.0.3': True,
-                                '7.0.4': True,
-                                '7.0.5': True,
-                                '7.0.6': True,
-                                '7.0.7': True,
-                                '7.0.8': True,
-                                '7.0.9': True,
-                                '7.0.10': True,
-                                '7.2.0': True,
-                                '7.2.1': True,
-                                '7.2.2': True,
-                                '7.2.3': True,
-                                '7.2.4': True,
-                                '7.4.0': True,
-                                '7.4.1': True
-                            },
-                            'type': 'int'
-                        },
-                        'uncompressed-oversize-limit': {
-                            'required': False,
-                            'revision': {
-                                '6.2.0': False,
-                                '6.2.2': False,
-                                '6.2.6': False,
-                                '6.2.7': False,
-                                '6.2.8': True,
-                                '6.2.9': True,
-                                '6.2.10': True,
-                                '6.2.11': True,
-                                '6.2.12': True,
-                                '6.4.1': False,
-                                '6.4.3': False,
-                                '6.4.4': False,
-                                '6.4.5': True,
-                                '6.4.6': True,
-                                '6.4.7': True,
-                                '6.4.8': True,
-                                '6.4.9': True,
-                                '6.4.10': True,
-                                '6.4.11': True,
-                                '6.4.12': True,
-                                '6.4.13': True,
-                                '7.0.0': True,
-                                '7.0.1': True,
-                                '7.0.2': True,
-                                '7.0.3': True,
-                                '7.0.4': True,
-                                '7.0.5': True,
-                                '7.0.6': True,
-                                '7.0.7': True,
-                                '7.0.8': True,
-                                '7.0.9': True,
-                                '7.0.10': True,
-                                '7.2.0': True,
-                                '7.2.1': True,
-                                '7.2.2': True,
-                                '7.2.3': True,
-                                '7.2.4': True,
-                                '7.4.0': True,
-                                '7.4.1': True
-                            },
-                            'type': 'int'
-                        }
+                        'oversize-limit': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
+                        'ports': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'raw'},
+                        'proxy-after-tcp-handshake': {'v_range': [['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'scan-bzip2': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'ssl-offloaded': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['no', 'yes'], 'type': 'str'},
+                        'status': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'uncompressed-nest-limit': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
+                        'uncompressed-oversize-limit': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'}
                     }
                 },
                 'smtp': {
-                    'required': False,
                     'type': 'dict',
                     'options': {
-                        'inspect-all': {
-                            'required': False,
-                            'revision': {
-                                '6.2.0': False,
-                                '6.2.2': False,
-                                '6.2.6': False,
-                                '6.2.7': False,
-                                '6.2.8': True,
-                                '6.2.9': True,
-                                '6.2.10': True,
-                                '6.2.11': True,
-                                '6.2.12': True,
-                                '6.4.1': False,
-                                '6.4.3': False,
-                                '6.4.4': False,
-                                '6.4.5': True,
-                                '6.4.6': True,
-                                '6.4.7': True,
-                                '6.4.8': True,
-                                '6.4.9': True,
-                                '6.4.10': True,
-                                '6.4.11': True,
-                                '6.4.12': True,
-                                '6.4.13': True,
-                                '7.0.0': True,
-                                '7.0.1': True,
-                                '7.0.2': True,
-                                '7.0.3': True,
-                                '7.0.4': True,
-                                '7.0.5': True,
-                                '7.0.6': True,
-                                '7.0.7': True,
-                                '7.0.8': True,
-                                '7.0.9': True,
-                                '7.0.10': True,
-                                '7.2.0': True,
-                                '7.2.1': True,
-                                '7.2.2': True,
-                                '7.2.3': True,
-                                '7.2.4': True,
-                                '7.4.0': True,
-                                '7.4.1': True
-                            },
-                            'choices': [
-                                'disable',
-                                'enable'
-                            ],
-                            'type': 'str'
-                        },
+                        'inspect-all': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                         'options': {
-                            'required': False,
-                            'revision': {
-                                '6.2.0': False,
-                                '6.2.2': False,
-                                '6.2.6': False,
-                                '6.2.7': False,
-                                '6.2.8': True,
-                                '6.2.9': True,
-                                '6.2.10': True,
-                                '6.2.11': True,
-                                '6.2.12': True,
-                                '6.4.1': False,
-                                '6.4.3': False,
-                                '6.4.4': False,
-                                '6.4.5': True,
-                                '6.4.6': True,
-                                '6.4.7': True,
-                                '6.4.8': True,
-                                '6.4.9': True,
-                                '6.4.10': True,
-                                '6.4.11': True,
-                                '6.4.12': True,
-                                '6.4.13': True,
-                                '7.0.0': True,
-                                '7.0.1': True,
-                                '7.0.2': True,
-                                '7.0.3': True,
-                                '7.0.4': True,
-                                '7.0.5': True,
-                                '7.0.6': True,
-                                '7.0.7': True,
-                                '7.0.8': True,
-                                '7.0.9': True,
-                                '7.0.10': True,
-                                '7.2.0': True,
-                                '7.2.1': True,
-                                '7.2.2': True,
-                                '7.2.3': True,
-                                '7.2.4': True,
-                                '7.4.0': True,
-                                '7.4.1': True
-                            },
+                            'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
                             'type': 'list',
-                            'choices': [
-                                'oversize',
-                                'fragmail',
-                                'no-content-summary',
-                                'splice'
-                            ],
+                            'choices': ['oversize', 'fragmail', 'no-content-summary', 'splice'],
                             'elements': 'str'
                         },
-                        'oversize-limit': {
-                            'required': False,
-                            'revision': {
-                                '6.2.0': False,
-                                '6.2.2': False,
-                                '6.2.6': False,
-                                '6.2.7': False,
-                                '6.2.8': True,
-                                '6.2.9': True,
-                                '6.2.10': True,
-                                '6.2.11': True,
-                                '6.2.12': True,
-                                '6.4.1': False,
-                                '6.4.3': False,
-                                '6.4.4': False,
-                                '6.4.5': True,
-                                '6.4.6': True,
-                                '6.4.7': True,
-                                '6.4.8': True,
-                                '6.4.9': True,
-                                '6.4.10': True,
-                                '6.4.11': True,
-                                '6.4.12': True,
-                                '6.4.13': True,
-                                '7.0.0': True,
-                                '7.0.1': True,
-                                '7.0.2': True,
-                                '7.0.3': True,
-                                '7.0.4': True,
-                                '7.0.5': True,
-                                '7.0.6': True,
-                                '7.0.7': True,
-                                '7.0.8': True,
-                                '7.0.9': True,
-                                '7.0.10': True,
-                                '7.2.0': True,
-                                '7.2.1': True,
-                                '7.2.2': True,
-                                '7.2.3': True,
-                                '7.2.4': True,
-                                '7.4.0': True,
-                                '7.4.1': True
-                            },
-                            'type': 'int'
-                        },
-                        'ports': {
-                            'required': False,
-                            'revision': {
-                                '6.2.0': False,
-                                '6.2.2': False,
-                                '6.2.6': False,
-                                '6.2.7': False,
-                                '6.2.8': True,
-                                '6.2.9': True,
-                                '6.2.10': True,
-                                '6.2.11': True,
-                                '6.2.12': True,
-                                '6.4.1': False,
-                                '6.4.3': False,
-                                '6.4.4': False,
-                                '6.4.5': True,
-                                '6.4.6': True,
-                                '6.4.7': True,
-                                '6.4.8': True,
-                                '6.4.9': True,
-                                '6.4.10': True,
-                                '6.4.11': True,
-                                '6.4.12': True,
-                                '6.4.13': True,
-                                '7.0.0': True,
-                                '7.0.1': True,
-                                '7.0.2': True,
-                                '7.0.3': True,
-                                '7.0.4': True,
-                                '7.0.5': True,
-                                '7.0.6': True,
-                                '7.0.7': True,
-                                '7.0.8': True,
-                                '7.0.9': True,
-                                '7.0.10': True,
-                                '7.2.0': True,
-                                '7.2.1': True,
-                                '7.2.2': True,
-                                '7.2.3': True,
-                                '7.2.4': True,
-                                '7.4.0': True,
-                                '7.4.1': True
-                            },
-                            'type': 'raw'
-                        },
-                        'proxy-after-tcp-handshake': {
-                            'required': False,
-                            'revision': {
-                                '6.2.0': False,
-                                '6.2.2': False,
-                                '6.2.6': False,
-                                '6.2.7': False,
-                                '6.2.8': False,
-                                '6.2.9': False,
-                                '6.2.10': False,
-                                '6.2.11': False,
-                                '6.2.12': False,
-                                '6.4.1': False,
-                                '6.4.3': False,
-                                '6.4.4': False,
-                                '6.4.5': True,
-                                '6.4.6': True,
-                                '6.4.7': True,
-                                '6.4.8': True,
-                                '6.4.9': True,
-                                '6.4.10': True,
-                                '6.4.11': True,
-                                '6.4.12': True,
-                                '6.4.13': True,
-                                '7.0.0': True,
-                                '7.0.1': True,
-                                '7.0.2': True,
-                                '7.0.3': True,
-                                '7.0.4': True,
-                                '7.0.5': True,
-                                '7.0.6': True,
-                                '7.0.7': True,
-                                '7.0.8': True,
-                                '7.0.9': True,
-                                '7.0.10': True,
-                                '7.2.0': True,
-                                '7.2.1': True,
-                                '7.2.2': True,
-                                '7.2.3': True,
-                                '7.2.4': True,
-                                '7.4.0': True,
-                                '7.4.1': True
-                            },
-                            'choices': [
-                                'disable',
-                                'enable'
-                            ],
-                            'type': 'str'
-                        },
-                        'scan-bzip2': {
-                            'required': False,
-                            'revision': {
-                                '6.2.0': False,
-                                '6.2.2': False,
-                                '6.2.6': False,
-                                '6.2.7': False,
-                                '6.2.8': True,
-                                '6.2.9': True,
-                                '6.2.10': True,
-                                '6.2.11': True,
-                                '6.2.12': True,
-                                '6.4.1': False,
-                                '6.4.3': False,
-                                '6.4.4': False,
-                                '6.4.5': True,
-                                '6.4.6': True,
-                                '6.4.7': True,
-                                '6.4.8': True,
-                                '6.4.9': True,
-                                '6.4.10': True,
-                                '6.4.11': True,
-                                '6.4.12': True,
-                                '6.4.13': True,
-                                '7.0.0': True,
-                                '7.0.1': True,
-                                '7.0.2': True,
-                                '7.0.3': True,
-                                '7.0.4': True,
-                                '7.0.5': True,
-                                '7.0.6': True,
-                                '7.0.7': True,
-                                '7.0.8': True,
-                                '7.0.9': True,
-                                '7.0.10': True,
-                                '7.2.0': True,
-                                '7.2.1': True,
-                                '7.2.2': True,
-                                '7.2.3': True,
-                                '7.2.4': True,
-                                '7.4.0': True,
-                                '7.4.1': True
-                            },
-                            'choices': [
-                                'disable',
-                                'enable'
-                            ],
-                            'type': 'str'
-                        },
-                        'server-busy': {
-                            'required': False,
-                            'revision': {
-                                '6.2.0': False,
-                                '6.2.2': False,
-                                '6.2.6': False,
-                                '6.2.7': False,
-                                '6.2.8': True,
-                                '6.2.9': True,
-                                '6.2.10': True,
-                                '6.2.11': True,
-                                '6.2.12': True,
-                                '6.4.1': False,
-                                '6.4.3': False,
-                                '6.4.4': False,
-                                '6.4.5': True,
-                                '6.4.6': True,
-                                '6.4.7': True,
-                                '6.4.8': True,
-                                '6.4.9': True,
-                                '6.4.10': True,
-                                '6.4.11': True,
-                                '6.4.12': True,
-                                '6.4.13': True,
-                                '7.0.0': True,
-                                '7.0.1': True,
-                                '7.0.2': True,
-                                '7.0.3': True,
-                                '7.0.4': True,
-                                '7.0.5': True,
-                                '7.0.6': True,
-                                '7.0.7': True,
-                                '7.0.8': True,
-                                '7.0.9': True,
-                                '7.0.10': True,
-                                '7.2.0': True,
-                                '7.2.1': True,
-                                '7.2.2': True,
-                                '7.2.3': True,
-                                '7.2.4': True,
-                                '7.4.0': True,
-                                '7.4.1': True
-                            },
-                            'choices': [
-                                'disable',
-                                'enable'
-                            ],
-                            'type': 'str'
-                        },
-                        'ssl-offloaded': {
-                            'required': False,
-                            'revision': {
-                                '6.2.0': False,
-                                '6.2.2': False,
-                                '6.2.6': False,
-                                '6.2.7': False,
-                                '6.2.8': True,
-                                '6.2.9': True,
-                                '6.2.10': True,
-                                '6.2.11': True,
-                                '6.2.12': True,
-                                '6.4.1': False,
-                                '6.4.3': False,
-                                '6.4.4': False,
-                                '6.4.5': True,
-                                '6.4.6': True,
-                                '6.4.7': True,
-                                '6.4.8': True,
-                                '6.4.9': True,
-                                '6.4.10': True,
-                                '6.4.11': True,
-                                '6.4.12': True,
-                                '6.4.13': True,
-                                '7.0.0': True,
-                                '7.0.1': True,
-                                '7.0.2': True,
-                                '7.0.3': True,
-                                '7.0.4': True,
-                                '7.0.5': True,
-                                '7.0.6': True,
-                                '7.0.7': True,
-                                '7.0.8': True,
-                                '7.0.9': True,
-                                '7.0.10': True,
-                                '7.2.0': True,
-                                '7.2.1': True,
-                                '7.2.2': True,
-                                '7.2.3': True,
-                                '7.2.4': True,
-                                '7.4.0': True,
-                                '7.4.1': True
-                            },
-                            'choices': [
-                                'no',
-                                'yes'
-                            ],
-                            'type': 'str'
-                        },
-                        'status': {
-                            'required': False,
-                            'revision': {
-                                '6.2.0': False,
-                                '6.2.2': False,
-                                '6.2.6': False,
-                                '6.2.7': False,
-                                '6.2.8': True,
-                                '6.2.9': True,
-                                '6.2.10': True,
-                                '6.2.11': True,
-                                '6.2.12': True,
-                                '6.4.1': False,
-                                '6.4.3': False,
-                                '6.4.4': False,
-                                '6.4.5': True,
-                                '6.4.6': True,
-                                '6.4.7': True,
-                                '6.4.8': True,
-                                '6.4.9': True,
-                                '6.4.10': True,
-                                '6.4.11': True,
-                                '6.4.12': True,
-                                '6.4.13': True,
-                                '7.0.0': True,
-                                '7.0.1': True,
-                                '7.0.2': True,
-                                '7.0.3': True,
-                                '7.0.4': True,
-                                '7.0.5': True,
-                                '7.0.6': True,
-                                '7.0.7': True,
-                                '7.0.8': True,
-                                '7.0.9': True,
-                                '7.0.10': True,
-                                '7.2.0': True,
-                                '7.2.1': True,
-                                '7.2.2': True,
-                                '7.2.3': True,
-                                '7.2.4': True,
-                                '7.4.0': True,
-                                '7.4.1': True
-                            },
-                            'choices': [
-                                'disable',
-                                'enable'
-                            ],
-                            'type': 'str'
-                        },
-                        'uncompressed-nest-limit': {
-                            'required': False,
-                            'revision': {
-                                '6.2.0': False,
-                                '6.2.2': False,
-                                '6.2.6': False,
-                                '6.2.7': False,
-                                '6.2.8': True,
-                                '6.2.9': True,
-                                '6.2.10': True,
-                                '6.2.11': True,
-                                '6.2.12': True,
-                                '6.4.1': False,
-                                '6.4.3': False,
-                                '6.4.4': False,
-                                '6.4.5': True,
-                                '6.4.6': True,
-                                '6.4.7': True,
-                                '6.4.8': True,
-                                '6.4.9': True,
-                                '6.4.10': True,
-                                '6.4.11': True,
-                                '6.4.12': True,
-                                '6.4.13': True,
-                                '7.0.0': True,
-                                '7.0.1': True,
-                                '7.0.2': True,
-                                '7.0.3': True,
-                                '7.0.4': True,
-                                '7.0.5': True,
-                                '7.0.6': True,
-                                '7.0.7': True,
-                                '7.0.8': True,
-                                '7.0.9': True,
-                                '7.0.10': True,
-                                '7.2.0': True,
-                                '7.2.1': True,
-                                '7.2.2': True,
-                                '7.2.3': True,
-                                '7.2.4': True,
-                                '7.4.0': True,
-                                '7.4.1': True
-                            },
-                            'type': 'int'
-                        },
-                        'uncompressed-oversize-limit': {
-                            'required': False,
-                            'revision': {
-                                '6.2.0': False,
-                                '6.2.2': False,
-                                '6.2.6': False,
-                                '6.2.7': False,
-                                '6.2.8': True,
-                                '6.2.9': True,
-                                '6.2.10': True,
-                                '6.2.11': True,
-                                '6.2.12': True,
-                                '6.4.1': False,
-                                '6.4.3': False,
-                                '6.4.4': False,
-                                '6.4.5': True,
-                                '6.4.6': True,
-                                '6.4.7': True,
-                                '6.4.8': True,
-                                '6.4.9': True,
-                                '6.4.10': True,
-                                '6.4.11': True,
-                                '6.4.12': True,
-                                '6.4.13': True,
-                                '7.0.0': True,
-                                '7.0.1': True,
-                                '7.0.2': True,
-                                '7.0.3': True,
-                                '7.0.4': True,
-                                '7.0.5': True,
-                                '7.0.6': True,
-                                '7.0.7': True,
-                                '7.0.8': True,
-                                '7.0.9': True,
-                                '7.0.10': True,
-                                '7.2.0': True,
-                                '7.2.1': True,
-                                '7.2.2': True,
-                                '7.2.3': True,
-                                '7.2.4': True,
-                                '7.4.0': True,
-                                '7.4.1': True
-                            },
-                            'type': 'int'
-                        }
+                        'oversize-limit': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
+                        'ports': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'raw'},
+                        'proxy-after-tcp-handshake': {'v_range': [['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'scan-bzip2': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'server-busy': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'ssl-offloaded': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['no', 'yes'], 'type': 'str'},
+                        'status': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'uncompressed-nest-limit': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
+                        'uncompressed-oversize-limit': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'}
                     }
                 },
                 'ssh': {
-                    'required': False,
                     'type': 'dict',
                     'options': {
-                        'comfort-amount': {
-                            'required': False,
-                            'revision': {
-                                '6.2.0': False,
-                                '6.2.2': False,
-                                '6.2.6': False,
-                                '6.2.7': False,
-                                '6.2.8': True,
-                                '6.2.9': True,
-                                '6.2.10': True,
-                                '6.2.11': True,
-                                '6.2.12': True,
-                                '6.4.1': False,
-                                '6.4.3': False,
-                                '6.4.4': False,
-                                '6.4.5': True,
-                                '6.4.6': True,
-                                '6.4.7': True,
-                                '6.4.8': True,
-                                '6.4.9': True,
-                                '6.4.10': True,
-                                '6.4.11': True,
-                                '6.4.12': True,
-                                '6.4.13': True,
-                                '7.0.0': True,
-                                '7.0.1': True,
-                                '7.0.2': True,
-                                '7.0.3': True,
-                                '7.0.4': True,
-                                '7.0.5': True,
-                                '7.0.6': True,
-                                '7.0.7': True,
-                                '7.0.8': True,
-                                '7.0.9': True,
-                                '7.0.10': True,
-                                '7.2.0': True,
-                                '7.2.1': True,
-                                '7.2.2': True,
-                                '7.2.3': True,
-                                '7.2.4': True,
-                                '7.4.0': True,
-                                '7.4.1': True
-                            },
-                            'type': 'int'
-                        },
-                        'comfort-interval': {
-                            'required': False,
-                            'revision': {
-                                '6.2.0': False,
-                                '6.2.2': False,
-                                '6.2.6': False,
-                                '6.2.7': False,
-                                '6.2.8': True,
-                                '6.2.9': True,
-                                '6.2.10': True,
-                                '6.2.11': True,
-                                '6.2.12': True,
-                                '6.4.1': False,
-                                '6.4.3': False,
-                                '6.4.4': False,
-                                '6.4.5': True,
-                                '6.4.6': True,
-                                '6.4.7': True,
-                                '6.4.8': True,
-                                '6.4.9': True,
-                                '6.4.10': True,
-                                '6.4.11': True,
-                                '6.4.12': True,
-                                '6.4.13': True,
-                                '7.0.0': True,
-                                '7.0.1': True,
-                                '7.0.2': True,
-                                '7.0.3': True,
-                                '7.0.4': True,
-                                '7.0.5': True,
-                                '7.0.6': True,
-                                '7.0.7': True,
-                                '7.0.8': True,
-                                '7.0.9': True,
-                                '7.0.10': True,
-                                '7.2.0': True,
-                                '7.2.1': True,
-                                '7.2.2': True,
-                                '7.2.3': True,
-                                '7.2.4': True,
-                                '7.4.0': True,
-                                '7.4.1': True
-                            },
-                            'type': 'int'
-                        },
+                        'comfort-amount': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
+                        'comfort-interval': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
                         'options': {
-                            'required': False,
-                            'revision': {
-                                '6.2.0': False,
-                                '6.2.2': False,
-                                '6.2.6': False,
-                                '6.2.7': False,
-                                '6.2.8': True,
-                                '6.2.9': True,
-                                '6.2.10': True,
-                                '6.2.11': True,
-                                '6.2.12': True,
-                                '6.4.1': False,
-                                '6.4.3': False,
-                                '6.4.4': False,
-                                '6.4.5': True,
-                                '6.4.6': True,
-                                '6.4.7': True,
-                                '6.4.8': True,
-                                '6.4.9': True,
-                                '6.4.10': True,
-                                '6.4.11': True,
-                                '6.4.12': True,
-                                '6.4.13': True,
-                                '7.0.0': True,
-                                '7.0.1': True,
-                                '7.0.2': True,
-                                '7.0.3': True,
-                                '7.0.4': True,
-                                '7.0.5': True,
-                                '7.0.6': True,
-                                '7.0.7': True,
-                                '7.0.8': True,
-                                '7.0.9': True,
-                                '7.0.10': True,
-                                '7.2.0': True,
-                                '7.2.1': True,
-                                '7.2.2': True,
-                                '7.2.3': True,
-                                '7.2.4': True,
-                                '7.4.0': True,
-                                '7.4.1': True
-                            },
+                            'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
                             'type': 'list',
-                            'choices': [
-                                'oversize',
-                                'clientcomfort',
-                                'servercomfort'
-                            ],
+                            'choices': ['oversize', 'clientcomfort', 'servercomfort'],
                             'elements': 'str'
                         },
-                        'oversize-limit': {
-                            'required': False,
-                            'revision': {
-                                '6.2.0': False,
-                                '6.2.2': False,
-                                '6.2.6': False,
-                                '6.2.7': False,
-                                '6.2.8': True,
-                                '6.2.9': True,
-                                '6.2.10': True,
-                                '6.2.11': True,
-                                '6.2.12': True,
-                                '6.4.1': False,
-                                '6.4.3': False,
-                                '6.4.4': False,
-                                '6.4.5': True,
-                                '6.4.6': True,
-                                '6.4.7': True,
-                                '6.4.8': True,
-                                '6.4.9': True,
-                                '6.4.10': True,
-                                '6.4.11': True,
-                                '6.4.12': True,
-                                '6.4.13': True,
-                                '7.0.0': True,
-                                '7.0.1': True,
-                                '7.0.2': True,
-                                '7.0.3': True,
-                                '7.0.4': True,
-                                '7.0.5': True,
-                                '7.0.6': True,
-                                '7.0.7': True,
-                                '7.0.8': True,
-                                '7.0.9': True,
-                                '7.0.10': True,
-                                '7.2.0': True,
-                                '7.2.1': True,
-                                '7.2.2': True,
-                                '7.2.3': True,
-                                '7.2.4': True,
-                                '7.4.0': True,
-                                '7.4.1': True
-                            },
-                            'type': 'int'
-                        },
-                        'scan-bzip2': {
-                            'required': False,
-                            'revision': {
-                                '6.2.0': False,
-                                '6.2.2': False,
-                                '6.2.6': False,
-                                '6.2.7': False,
-                                '6.2.8': True,
-                                '6.2.9': True,
-                                '6.2.10': True,
-                                '6.2.11': True,
-                                '6.2.12': True,
-                                '6.4.1': False,
-                                '6.4.3': False,
-                                '6.4.4': False,
-                                '6.4.5': True,
-                                '6.4.6': True,
-                                '6.4.7': True,
-                                '6.4.8': True,
-                                '6.4.9': True,
-                                '6.4.10': True,
-                                '6.4.11': True,
-                                '6.4.12': True,
-                                '6.4.13': True,
-                                '7.0.0': True,
-                                '7.0.1': True,
-                                '7.0.2': True,
-                                '7.0.3': True,
-                                '7.0.4': True,
-                                '7.0.5': True,
-                                '7.0.6': True,
-                                '7.0.7': True,
-                                '7.0.8': True,
-                                '7.0.9': True,
-                                '7.0.10': True,
-                                '7.2.0': True,
-                                '7.2.1': True,
-                                '7.2.2': True,
-                                '7.2.3': True,
-                                '7.2.4': True,
-                                '7.4.0': True,
-                                '7.4.1': True
-                            },
-                            'choices': [
-                                'disable',
-                                'enable'
-                            ],
-                            'type': 'str'
-                        },
-                        'uncompressed-nest-limit': {
-                            'required': False,
-                            'revision': {
-                                '6.2.0': False,
-                                '6.2.2': False,
-                                '6.2.6': False,
-                                '6.2.7': False,
-                                '6.2.8': True,
-                                '6.2.9': True,
-                                '6.2.10': True,
-                                '6.2.11': True,
-                                '6.2.12': True,
-                                '6.4.1': False,
-                                '6.4.3': False,
-                                '6.4.4': False,
-                                '6.4.5': True,
-                                '6.4.6': True,
-                                '6.4.7': True,
-                                '6.4.8': True,
-                                '6.4.9': True,
-                                '6.4.10': True,
-                                '6.4.11': True,
-                                '6.4.12': True,
-                                '6.4.13': True,
-                                '7.0.0': True,
-                                '7.0.1': True,
-                                '7.0.2': True,
-                                '7.0.3': True,
-                                '7.0.4': True,
-                                '7.0.5': True,
-                                '7.0.6': True,
-                                '7.0.7': True,
-                                '7.0.8': True,
-                                '7.0.9': True,
-                                '7.0.10': True,
-                                '7.2.0': True,
-                                '7.2.1': True,
-                                '7.2.2': True,
-                                '7.2.3': True,
-                                '7.2.4': True,
-                                '7.4.0': True,
-                                '7.4.1': True
-                            },
-                            'type': 'int'
-                        },
-                        'uncompressed-oversize-limit': {
-                            'required': False,
-                            'revision': {
-                                '6.2.0': False,
-                                '6.2.2': False,
-                                '6.2.6': False,
-                                '6.2.7': False,
-                                '6.2.8': True,
-                                '6.2.9': True,
-                                '6.2.10': True,
-                                '6.2.11': True,
-                                '6.2.12': True,
-                                '6.4.1': False,
-                                '6.4.3': False,
-                                '6.4.4': False,
-                                '6.4.5': True,
-                                '6.4.6': True,
-                                '6.4.7': True,
-                                '6.4.8': True,
-                                '6.4.9': True,
-                                '6.4.10': True,
-                                '6.4.11': True,
-                                '6.4.12': True,
-                                '6.4.13': True,
-                                '7.0.0': True,
-                                '7.0.1': True,
-                                '7.0.2': True,
-                                '7.0.3': True,
-                                '7.0.4': True,
-                                '7.0.5': True,
-                                '7.0.6': True,
-                                '7.0.7': True,
-                                '7.0.8': True,
-                                '7.0.9': True,
-                                '7.0.10': True,
-                                '7.2.0': True,
-                                '7.2.1': True,
-                                '7.2.2': True,
-                                '7.2.3': True,
-                                '7.2.4': True,
-                                '7.4.0': True,
-                                '7.4.1': True
-                            },
-                            'type': 'int'
-                        },
-                        'ssl-offloaded': {
-                            'required': False,
-                            'revision': {
-                                '6.2.0': False,
-                                '6.2.2': False,
-                                '6.2.6': False,
-                                '6.2.7': False,
-                                '6.2.8': False,
-                                '6.2.9': False,
-                                '6.2.10': False,
-                                '6.2.11': False,
-                                '6.2.12': False,
-                                '6.4.1': False,
-                                '6.4.3': False,
-                                '6.4.4': False,
-                                '6.4.6': False,
-                                '6.4.7': False,
-                                '6.4.8': False,
-                                '6.4.9': False,
-                                '6.4.10': False,
-                                '6.4.11': False,
-                                '6.4.12': False,
-                                '6.4.13': False,
-                                '7.0.0': True,
-                                '7.0.1': True,
-                                '7.0.2': True,
-                                '7.0.3': True,
-                                '7.0.4': True,
-                                '7.0.5': True,
-                                '7.0.6': True,
-                                '7.0.7': True,
-                                '7.0.8': True,
-                                '7.0.9': True,
-                                '7.0.10': True,
-                                '7.2.0': True,
-                                '7.2.1': True,
-                                '7.2.2': True,
-                                '7.2.3': True,
-                                '7.2.4': True,
-                                '7.4.0': True,
-                                '7.4.1': True
-                            },
-                            'choices': [
-                                'no',
-                                'yes'
-                            ],
-                            'type': 'str'
-                        },
-                        'stream-based-uncompressed-limit': {
-                            'required': False,
-                            'revision': {
-                                '6.2.0': False,
-                                '6.2.2': False,
-                                '6.2.6': False,
-                                '6.2.7': False,
-                                '6.2.8': False,
-                                '6.2.9': False,
-                                '6.2.10': False,
-                                '6.2.11': False,
-                                '6.2.12': False,
-                                '6.4.1': False,
-                                '6.4.3': False,
-                                '6.4.4': False,
-                                '6.4.6': False,
-                                '6.4.7': False,
-                                '6.4.8': False,
-                                '6.4.9': False,
-                                '6.4.10': False,
-                                '6.4.11': False,
-                                '6.4.12': False,
-                                '6.4.13': False,
-                                '7.0.0': True,
-                                '7.0.1': True,
-                                '7.0.2': True,
-                                '7.0.3': True,
-                                '7.0.4': True,
-                                '7.0.5': True,
-                                '7.0.6': True,
-                                '7.0.7': True,
-                                '7.0.8': True,
-                                '7.0.9': True,
-                                '7.0.10': True,
-                                '7.2.0': True,
-                                '7.2.1': True,
-                                '7.2.2': True,
-                                '7.2.3': True,
-                                '7.2.4': True,
-                                '7.4.0': True,
-                                '7.4.1': True
-                            },
-                            'type': 'int'
-                        },
-                        'tcp-window-maximum': {
-                            'required': False,
-                            'revision': {
-                                '6.2.0': False,
-                                '6.2.2': False,
-                                '6.2.6': False,
-                                '6.2.7': False,
-                                '6.2.8': False,
-                                '6.2.9': False,
-                                '6.2.10': False,
-                                '6.2.11': False,
-                                '6.2.12': False,
-                                '6.4.1': False,
-                                '6.4.3': False,
-                                '6.4.4': False,
-                                '6.4.6': False,
-                                '6.4.7': False,
-                                '6.4.8': False,
-                                '6.4.9': False,
-                                '6.4.10': False,
-                                '6.4.11': False,
-                                '6.4.12': False,
-                                '6.4.13': False,
-                                '7.0.0': True,
-                                '7.0.1': True,
-                                '7.0.2': True,
-                                '7.0.3': True,
-                                '7.0.4': True,
-                                '7.0.5': True,
-                                '7.0.6': True,
-                                '7.0.7': True,
-                                '7.0.8': True,
-                                '7.0.9': True,
-                                '7.0.10': True,
-                                '7.2.0': True,
-                                '7.2.1': True,
-                                '7.2.2': True,
-                                '7.2.3': True,
-                                '7.2.4': True,
-                                '7.4.0': True,
-                                '7.4.1': True
-                            },
-                            'type': 'int'
-                        },
-                        'tcp-window-minimum': {
-                            'required': False,
-                            'revision': {
-                                '6.2.0': False,
-                                '6.2.2': False,
-                                '6.2.6': False,
-                                '6.2.7': False,
-                                '6.2.8': False,
-                                '6.2.9': False,
-                                '6.2.10': False,
-                                '6.2.11': False,
-                                '6.2.12': False,
-                                '6.4.1': False,
-                                '6.4.3': False,
-                                '6.4.4': False,
-                                '6.4.6': False,
-                                '6.4.7': False,
-                                '6.4.8': False,
-                                '6.4.9': False,
-                                '6.4.10': False,
-                                '6.4.11': False,
-                                '6.4.12': False,
-                                '6.4.13': False,
-                                '7.0.0': True,
-                                '7.0.1': True,
-                                '7.0.2': True,
-                                '7.0.3': True,
-                                '7.0.4': True,
-                                '7.0.5': True,
-                                '7.0.6': True,
-                                '7.0.7': True,
-                                '7.0.8': True,
-                                '7.0.9': True,
-                                '7.0.10': True,
-                                '7.2.0': True,
-                                '7.2.1': True,
-                                '7.2.2': True,
-                                '7.2.3': True,
-                                '7.2.4': True,
-                                '7.4.0': True,
-                                '7.4.1': True
-                            },
-                            'type': 'int'
-                        },
-                        'tcp-window-size': {
-                            'required': False,
-                            'revision': {
-                                '6.2.0': False,
-                                '6.2.2': False,
-                                '6.2.6': False,
-                                '6.2.7': False,
-                                '6.2.8': False,
-                                '6.2.9': False,
-                                '6.2.10': False,
-                                '6.2.11': False,
-                                '6.2.12': False,
-                                '6.4.1': False,
-                                '6.4.3': False,
-                                '6.4.4': False,
-                                '6.4.6': False,
-                                '6.4.7': False,
-                                '6.4.8': False,
-                                '6.4.9': False,
-                                '6.4.10': False,
-                                '6.4.11': False,
-                                '6.4.12': False,
-                                '6.4.13': False,
-                                '7.0.0': True,
-                                '7.0.1': True,
-                                '7.0.2': True,
-                                '7.0.3': True,
-                                '7.0.4': True,
-                                '7.0.5': True,
-                                '7.0.6': True,
-                                '7.0.7': True,
-                                '7.0.8': True,
-                                '7.0.9': True,
-                                '7.0.10': True,
-                                '7.2.0': True,
-                                '7.2.1': True,
-                                '7.2.2': True,
-                                '7.2.3': True,
-                                '7.2.4': True,
-                                '7.4.0': True,
-                                '7.4.1': True
-                            },
-                            'type': 'int'
-                        },
-                        'tcp-window-type': {
-                            'required': False,
-                            'revision': {
-                                '6.2.0': False,
-                                '6.2.2': False,
-                                '6.2.6': False,
-                                '6.2.7': False,
-                                '6.2.8': False,
-                                '6.2.9': False,
-                                '6.2.10': False,
-                                '6.2.11': False,
-                                '6.2.12': False,
-                                '6.4.1': False,
-                                '6.4.3': False,
-                                '6.4.4': False,
-                                '6.4.6': False,
-                                '6.4.7': False,
-                                '6.4.8': False,
-                                '6.4.9': False,
-                                '6.4.10': False,
-                                '6.4.11': False,
-                                '6.4.12': False,
-                                '6.4.13': False,
-                                '7.0.0': True,
-                                '7.0.1': True,
-                                '7.0.2': True,
-                                '7.0.3': True,
-                                '7.0.4': True,
-                                '7.0.5': True,
-                                '7.0.6': True,
-                                '7.0.7': True,
-                                '7.0.8': True,
-                                '7.0.9': True,
-                                '7.0.10': True,
-                                '7.2.0': True,
-                                '7.2.1': True,
-                                '7.2.2': True,
-                                '7.2.3': True,
-                                '7.2.4': True,
-                                '7.4.0': True,
-                                '7.4.1': True
-                            },
-                            'choices': [
-                                'system',
-                                'static',
-                                'dynamic',
-                                'auto-tuning'
-                            ],
-                            'type': 'str'
-                        }
+                        'oversize-limit': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
+                        'scan-bzip2': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'uncompressed-nest-limit': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
+                        'uncompressed-oversize-limit': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
+                        'ssl-offloaded': {'v_range': [['7.0.0', '']], 'choices': ['no', 'yes'], 'type': 'str'},
+                        'stream-based-uncompressed-limit': {'v_range': [['7.0.0', '']], 'type': 'int'},
+                        'tcp-window-maximum': {'v_range': [['7.0.0', '']], 'type': 'int'},
+                        'tcp-window-minimum': {'v_range': [['7.0.0', '']], 'type': 'int'},
+                        'tcp-window-size': {'v_range': [['7.0.0', '']], 'type': 'int'},
+                        'tcp-window-type': {'v_range': [['7.0.0', '']], 'choices': ['system', 'static', 'dynamic', 'auto-tuning'], 'type': 'str'}
                     }
                 }
             }
@@ -8070,23 +1245,23 @@ def main():
         }
     }
 
+    module_option_spec = get_module_arg_spec('full crud')
+    module_arg_spec.update(module_option_spec)
     params_validation_blob = []
     check_galaxy_version(module_arg_spec)
     module = AnsibleModule(argument_spec=check_parameter_bypass(module_arg_spec, 'firewall_profileprotocoloptions'),
                            supports_check_mode=False)
 
-    fmgr = None
-    if module._socket_path:
-        connection = Connection(module._socket_path)
-        connection.set_option('access_token', module.params['access_token'] if 'access_token' in module.params else None)
-        connection.set_option('enable_log', module.params['enable_log'] if 'enable_log' in module.params else False)
-        connection.set_option('forticloud_access_token',
-                              module.params['forticloud_access_token'] if 'forticloud_access_token' in module.params else None)
-        fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
-        fmgr.validate_parameters(params_validation_blob)
-        fmgr.process_curd(argument_specs=module_arg_spec)
-    else:
+    if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
+    connection = Connection(module._socket_path)
+    connection.set_option('access_token', module.params.get('access_token', None))
+    connection.set_option('enable_log', module.params.get('enable_log', False))
+    connection.set_option('forticloud_access_token', module.params.get('forticloud_access_token', None))
+    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr.validate_parameters(params_validation_blob)
+    fmgr.process_curd(argument_specs=module_arg_spec)
+
     module.exit_json(meta=module.params)
 
 

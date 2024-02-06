@@ -104,39 +104,40 @@ options:
 """
 
 EXAMPLES = """
-- hosts: fortimanager01
+- name: Generic module
+  hosts: fortimanagers
   connection: httpapi
   vars:
     adom: "root"
-    ansible_httpapi_use_ssl: True
-    ansible_httpapi_validate_certs: False
+    ansible_httpapi_use_ssl: true
+    ansible_httpapi_validate_certs: false
     ansible_httpapi_port: 443
   tasks:
-    -   name: 'login a user'
-        fmgr_generic:
-             method: 'exec'
-             params:
-                - url: 'sys/login/user'
-                  data:
-                   - user: 'APIUser'
-                     passwd: 'Fortinet1!e'
-    -   name: 'login another user'
-        fmgr_generic:
-             json: |
-                  {
-                   "method":"exec",
-                   "params":[
+    - name: Login a user
+      fortinet.fortimanager.fmgr_generic:
+        method: "exec"
+        params:
+          - url: "sys/login/user"
+            data:
+              - user: "APIUser"
+                passwd: "Fortinet1!e"
+    - name: Login another user
+      fortinet.fortimanager.fmgr_generic:
+        json: |
+          {
+           "method":"exec",
+           "params":[
+            {
+                 "url":"sys/login/user",
+                 "data":[
                     {
-                         "url":"sys/login/user",
-                         "data":[
-                            {
-                               "user":"APIUser",
-                               "passwd":"Fortinet1!"
-                            }
-                          ]
-                     }
-                    ]
-                  }
+                       "user":"APIUser",
+                       "passwd":"Fortinet1!"
+                    }
+                  ]
+             }
+            ]
+          }
 """
 
 RETURN = """
@@ -148,9 +149,7 @@ api_result:
 
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import (
-    NAPIManager,
-)
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
 import json
 
 
@@ -173,10 +172,9 @@ def main():
     if not module._socket_path:
         module.fail_json(msg="Only Httpapi plugin is supported in this module.")
     connection = Connection(module._socket_path)
-    connection.set_option('access_token', module.params['access_token'] if 'access_token' in module.params else None)
-    connection.set_option("enable_log", module.params["enable_log"] if "enable_log" in module.params else False)
-    connection.set_option("forticloud_access_token",
-                          module.params["forticloud_access_token"] if "forticloud_access_token" in module.params else None)
+    connection.set_option('access_token', module.params.get('access_token', None))
+    connection.set_option('enable_log', module.params.get('enable_log', False))
+    connection.set_option('forticloud_access_token', module.params.get('forticloud_access_token', None))
     fmgr = NAPIManager(None, None, None, None, module, connection)
     method = None
     params = None

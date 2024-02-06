@@ -1,6 +1,6 @@
 ![Fortinet logo|](https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Fortinet_logo.svg/320px-Fortinet_logo.svg.png)
 
-# Ansible Collection - fortinet.fortimanager:2.3.1
+# Ansible Collection - fortinet.fortimanager:2.4.0
 
 FortiManager Ansible Collection includes the modules that are able to configure FortiManager.
 
@@ -130,6 +130,7 @@ The collection provides the following modules:
 * `fmgr_devprof_system_snmp_community_hosts6`  Configure IPv6 SNMP managers.
 * `fmgr_devprof_system_snmp_sysinfo`  SNMP system info configuration.
 * `fmgr_devprof_system_snmp_user`  SNMP user configuration.
+* `fmgr_diameterfilter_profile`  Configure Diameter filter profiles.
 * `fmgr_dlp_datatype`  Configure predefined data type used by DLP blocking.
 * `fmgr_dlp_dictionary`  Configure dictionaries used by DLP blocking.
 * `fmgr_dlp_dictionary_entries`  DLP dictionary entries.
@@ -301,6 +302,8 @@ The collection provides the following modules:
 * `fmgr_firewall_accessproxy_realservers`  Select the SSL real servers that this Access Proxy will distribute traffic to.
 * `fmgr_firewall_accessproxy_serverpubkeyauthsettings`  Server SSH public key authentication settings.
 * `fmgr_firewall_accessproxy_serverpubkeyauthsettings_certextension`  Configure certificate extension for user certificate.
+* `fmgr_firewall_accessproxysshclientcert`  Configure Access Proxy SSH client certificate.
+* `fmgr_firewall_accessproxysshclientcert_certextension`  Configure certificate extension for user certificate.
 * `fmgr_firewall_accessproxyvirtualhost`  Configure Access Proxy virtual hosts.
 * `fmgr_firewall_address`  Configure IPv4 addresses.
 * `fmgr_firewall_address6`  Configure IPv6 firewall addresses.
@@ -437,12 +440,14 @@ The collection provides the following modules:
 * `fmgr_firewall_vip6_dynamicmapping`  Configure virtual IP for IPv6.
 * `fmgr_firewall_vip6_dynamicmapping_realservers`  Select the real servers that this server load balancing VIP will distribute traffic to.
 * `fmgr_firewall_vip6_dynamicmapping_sslciphersuites`  SSL/TLS cipher suites acceptable from a client, ordered by priority.
+* `fmgr_firewall_vip6_quic`  QUIC setting.
 * `fmgr_firewall_vip6_realservers`  Select the real servers that this server load balancing VIP will distribute traffic to.
 * `fmgr_firewall_vip6_sslciphersuites`  SSL/TLS cipher suites acceptable from a client, ordered by priority.
 * `fmgr_firewall_vip6_sslserverciphersuites`  SSL/TLS cipher suites to offer to a server, ordered by priority.
 * `fmgr_firewall_vip_dynamicmapping`  Configure virtual IP for IPv4.
 * `fmgr_firewall_vip_dynamicmapping_realservers`  Select the real servers that this server load balancing VIP will distribute traffic to.
 * `fmgr_firewall_vip_dynamicmapping_sslciphersuites`  SSL/TLS cipher suites acceptable from a client, ordered by priority.
+* `fmgr_firewall_vip_gslbpublicips`  Publicly accessible IP addresses for the FortiGSLB service.
 * `fmgr_firewall_vip_quic`  QUIC setting.
 * `fmgr_firewall_vip_realservers`  Select the real servers that this server load balancing VIP will distribute traffic to.
 * `fmgr_firewall_vip_sslciphersuites`  SSL/TLS cipher suites acceptable from a client, ordered by priority.
@@ -466,8 +471,8 @@ The collection provides the following modules:
 * `fmgr_fmupdate_diskquota`  Configure disk space available for use by the Upgrade Manager.
 * `fmgr_fmupdate_fctservices`  Configure FortiGuard to provide services to FortiClient installations.
 * `fmgr_fmupdate_fdssetting`  Configure FortiGuard settings.
-* `fmgr_fmupdate_fdssetting_pushoverride`  Enable/disable push updates, and override the default IP address and port used by FortiGuard to send antivirus and IPS push messages for ...
-* `fmgr_fmupdate_fdssetting_pushoverridetoclient`  Enable/disable push updates, and override the default IP address and port used by FortiGuard to send antivirus and IPS push messages for ...
+* `fmgr_fmupdate_fdssetting_pushoverride`  Enable/disable push updates, and override the default IP address and port used by FortiGuard to send antivirus and IPS push messages...
+* `fmgr_fmupdate_fdssetting_pushoverridetoclient`  Enable/disable push updates, and override the default IP address and port used by FortiGuard to send antivirus and IPS push messages...
 * `fmgr_fmupdate_fdssetting_pushoverridetoclient_announceip`  Announce IP addresses for the device.
 * `fmgr_fmupdate_fdssetting_serveroverride`  Server override configure.
 * `fmgr_fmupdate_fdssetting_serveroverride_servlist`  Override server.
@@ -674,6 +679,8 @@ The collection provides the following modules:
 * `fmgr_router_prefixlist_rule`  IPv4 prefix list rule.
 * `fmgr_router_routemap`  Configure route maps.
 * `fmgr_router_routemap_rule`  Rule.
+* `fmgr_sctpfilter_profile`  Configure SCTP filter profiles.
+* `fmgr_sctpfilter_profile_ppidfilters`  PPID filters list.
 * `fmgr_securityconsole_abort`  Abort and cancel a security console task.
 * `fmgr_securityconsole_assign_package`  Assign or unassign global policy package to ADOM packages.
 * `fmgr_securityconsole_cliprof_check`  no description.
@@ -730,7 +737,7 @@ The collection provides the following modules:
 * `fmgr_switchcontroller_macpolicy`  Configure MAC policy to be applied on the managed FortiSwitch devices through NAC device.
 * `fmgr_switchcontroller_managedswitch`  Configure FortiSwitch devices that are managed by this FortiGate.
 * `fmgr_switchcontroller_managedswitch_8021xsettings`  Configuration method to edit FortiSwitch 802.
-* `fmgr_switchcontroller_managedswitch_customcommand`  Configuration method to edit FortiSwitch commands to be pushed to this FortiSwitch device upon rebooting the FortiGate switch controller ...
+* `fmgr_switchcontroller_managedswitch_customcommand`  Configuration method to edit FortiSwitch commands to be pushed to this FortiSwitch device upon rebooting the FortiGate switch contro...
 * `fmgr_switchcontroller_managedswitch_dhcpsnoopingstaticclient`  Configure FortiSwitch DHCP snooping static clients.
 * `fmgr_switchcontroller_managedswitch_igmpsnooping`  Configure FortiSwitch IGMP snooping global settings.
 * `fmgr_switchcontroller_managedswitch_ipsourceguard`  IP source guard.
@@ -751,6 +758,7 @@ The collection provides the following modules:
 * `fmgr_switchcontroller_managedswitch_stpsettings`  Configuration method to edit Spanning Tree Protocol.
 * `fmgr_switchcontroller_managedswitch_switchlog`  Configuration method to edit FortiSwitch logging settings.
 * `fmgr_switchcontroller_managedswitch_switchstpsettings`  Configure spanning tree protocol.
+* `fmgr_switchcontroller_managedswitch_vlan`  Configure VLAN assignment priority.
 * `fmgr_switchcontroller_ptp_profile`  Global PTP profile.
 * `fmgr_switchcontroller_qos_dot1pmap`  Configure FortiSwitch QoS 802.
 * `fmgr_switchcontroller_qos_ipdscpmap`  Configure FortiSwitch QoS IP precedence/DSCP.
@@ -779,6 +787,8 @@ The collection provides the following modules:
 * `fmgr_system_admin_ldap_adom`  Admin domain.
 * `fmgr_system_admin_profile`  Admin profile.
 * `fmgr_system_admin_profile_datamaskcustomfields`  Customized datamask fields.
+* `fmgr_system_admin_profile_writepasswdprofiles`  Profile list.
+* `fmgr_system_admin_profile_writepasswduserlist`  User list.
 * `fmgr_system_admin_radius`  Configure radius.
 * `fmgr_system_admin_setting`  Admin setting.
 * `fmgr_system_admin_tacacs`  TACACS+ server entry configuration.
@@ -898,6 +908,13 @@ The collection provides the following modules:
 * `fmgr_system_npu_npqueues_ipservice`  Configure a NP7 QoS IP Service.
 * `fmgr_system_npu_npqueues_profile`  Configure a NP7 class profile.
 * `fmgr_system_npu_npqueues_scheduler`  Configure a NP7 QoS Scheduler.
+* `fmgr_system_npu_nputcam`  Configure NPU TCAM policies.
+* `fmgr_system_npu_nputcam_data`  Data fields of TCAM.
+* `fmgr_system_npu_nputcam_mask`  Mask fields of TCAM.
+* `fmgr_system_npu_nputcam_miract`  Mirror action of TCAM.
+* `fmgr_system_npu_nputcam_priact`  Priority action of TCAM.
+* `fmgr_system_npu_nputcam_sact`  Source action of TCAM.
+* `fmgr_system_npu_nputcam_tact`  Target action of TCAM.
 * `fmgr_system_npu_portcpumap`  Configure NPU interface to CPU core mapping.
 * `fmgr_system_npu_portnpumap`  Configure port to NPU group mapping.
 * `fmgr_system_npu_portpathoption`  Configure port using NPU or Intel-NIC.
@@ -1046,11 +1063,15 @@ The collection provides the following modules:
 * `fmgr_vap_vlanname`  Table for mapping VLAN name to VLAN ID.
 * `fmgr_vap_vlanpool`  VLAN pool.
 * `fmgr_vapgroup`  Configure virtual Access Point.
+* `fmgr_videofilter_keyword`  Configure video filter keywords.
+* `fmgr_videofilter_keyword_word`  List of keywords.
 * `fmgr_videofilter_profile`  Configure VideoFilter profile.
+* `fmgr_videofilter_profile_filters`  YouTube filter entries.
 * `fmgr_videofilter_profile_fortiguardcategory`  Configure FortiGuard categories.
 * `fmgr_videofilter_profile_fortiguardcategory_filters`  Configure VideoFilter FortiGuard category.
 * `fmgr_videofilter_youtubechannelfilter`  Configure YouTube channel filter.
 * `fmgr_videofilter_youtubechannelfilter_entries`  YouTube filter entries.
+* `fmgr_videofilter_youtubekey`  Configure YouTube API keys.
 * `fmgr_virtualpatch_profile`  Configure virtual-patch profile.
 * `fmgr_virtualpatch_profile_exemption`  Exempt devices or rules.
 * `fmgr_voip_profile`  Configure VoIP profiles.

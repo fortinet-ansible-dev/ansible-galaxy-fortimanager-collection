@@ -617,3 +617,86 @@ releases:
     fragments:
       - 2.3.1.yml
     release_date: "2023-12-20"
+  2.4.0:
+    changes:
+      bugfixes:
+        - Changed revision to v_range to reduce the size of the code.
+        - Fixed the behavior of module fmgr_firewall_internetservicecustom.
+        - Fixed the behavior of some modules that contain the argument policyid.
+        - Improved example ansible playbooks.
+        - Improved the logic of fmgr_fact, fmgr_clone, fmgr_rename, fmgr_move. Usage
+          remains unchanged.
+        - Reduced the size of module_arg_spec in each module.
+        - Removed most of the sanity test ignores.
+      minor_changes:
+        - Added deprecated warning to invalid argument name, please change the invalid
+          argument name such as "var-name", "var name" to "var_name".
+        - Supported fortimanager 7.4.2, 21 new modules.
+      release_summary: release fortinet.fortimanager 2.4.0
+    fragments:
+      - 2.4.0.yml
+    modules:
+      - description: Configure Diameter filter profiles.
+        name: fmgr_diameterfilter_profile
+        namespace: ""
+      - description: Configure Access Proxy SSH client certificate.
+        name: fmgr_firewall_accessproxysshclientcert
+        namespace: ""
+      - description: Configure certificate extension for user certificate.
+        name: fmgr_firewall_accessproxysshclientcert_certextension
+        namespace: ""
+      - description: QUIC setting.
+        name: fmgr_firewall_vip6_quic
+        namespace: ""
+      - description: Publicly accessible IP addresses for the FortiGSLB service.
+        name: fmgr_firewall_vip_gslbpublicips
+        namespace: ""
+      - description: Configure SCTP filter profiles.
+        name: fmgr_sctpfilter_profile
+        namespace: ""
+      - description: PPID filters list.
+        name: fmgr_sctpfilter_profile_ppidfilters
+        namespace: ""
+      - description: Configure VLAN assignment priority.
+        name: fmgr_switchcontroller_managedswitch_vlan
+        namespace: ""
+      - description: Profile list.
+        name: fmgr_system_admin_profile_writepasswdprofiles
+        namespace: ""
+      - description: User list.
+        name: fmgr_system_admin_profile_writepasswduserlist
+        namespace: ""
+      - description: Configure NPU TCAM policies.
+        name: fmgr_system_npu_nputcam
+        namespace: ""
+      - description: Data fields of TCAM.
+        name: fmgr_system_npu_nputcam_data
+        namespace: ""
+      - description: Mask fields of TCAM.
+        name: fmgr_system_npu_nputcam_mask
+        namespace: ""
+      - description: Mirror action of TCAM.
+        name: fmgr_system_npu_nputcam_miract
+        namespace: ""
+      - description: Priority action of TCAM.
+        name: fmgr_system_npu_nputcam_priact
+        namespace: ""
+      - description: Source action of TCAM.
+        name: fmgr_system_npu_nputcam_sact
+        namespace: ""
+      - description: Target action of TCAM.
+        name: fmgr_system_npu_nputcam_tact
+        namespace: ""
+      - description: Configure video filter keywords.
+        name: fmgr_videofilter_keyword
+        namespace: ""
+      - description: List of keywords.
+        name: fmgr_videofilter_keyword_word
+        namespace: ""
+      - description: YouTube filter entries.
+        name: fmgr_videofilter_profile_filters
+        namespace: ""
+      - description: Configure YouTube API keys.
+        name: fmgr_videofilter_youtubekey
+        namespace: ""
+    release_date: "2024-02-06"

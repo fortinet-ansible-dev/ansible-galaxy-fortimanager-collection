@@ -47,6 +47,36 @@ class FMGRMethods:
 BASE_HEADERS = {"Content-Type": "application/json",
                 "Accept": "application/json"}
 
+COMMON_SCHEMA = {
+    'access_token': {'type': 'str', 'no_log': True},
+    'bypass_validation': {'type': 'bool', 'default': False},
+    'enable_log': {'type': 'bool', 'default': False},
+    'forticloud_access_token': {'type': 'str', 'no_log': True},
+    'rc_succeeded': {'type': 'list', 'elements': 'int'},
+    'rc_failed': {'type': 'list', 'elements': 'int'},
+    'workspace_locking_adom': {'type': 'str'},
+    'workspace_locking_timeout': {'type': 'int', 'default': 300}
+}
+
+
+def get_module_arg_spec(task_type):
+    arg_spec = {}
+    for key in COMMON_SCHEMA:
+        arg_spec[key] = COMMON_SCHEMA[key]
+    if task_type != 'exec':
+        arg_spec['proposed_method'] = {
+            'type': 'str',
+            'required': False,
+            'choices': ['set', 'update', 'add']
+        }
+    if task_type in ['full crud', 'object member']:
+        arg_spec['state'] = {
+            'type': 'str',
+            'required': True,
+            'choices': ['present', 'absent']
+        }
+    return arg_spec
+
 
 # BEGIN ERROR EXCEPTIONS
 class FMGBaseException(Exception):
