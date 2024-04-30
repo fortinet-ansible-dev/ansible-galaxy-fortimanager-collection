@@ -343,7 +343,7 @@ def main():
                 'srcaddr': {'type': 'raw'},
                 'srcintf': {'type': 'str'},
                 'status': {'choices': ['disable', 'enable'], 'type': 'str'},
-                'tags': {'v_range': [['6.0.0', '6.4.13']], 'type': 'str'},
+                'tags': {'v_range': [['6.0.0', '6.4.14']], 'type': 'str'},
                 'tcp-mss-receiver': {'type': 'int'},
                 'tcp-mss-sender': {'type': 'int'},
                 'traffic-shaper': {'type': 'str'},

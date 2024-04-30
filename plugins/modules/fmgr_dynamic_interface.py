@@ -12,7 +12,7 @@ ANSIBLE_METADATA = {'status': ['preview'],
 DOCUMENTATION = '''
 ---
 module: fmgr_dynamic_interface
-short_description: no description
+short_description: Dynamic interface
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
@@ -209,7 +209,7 @@ EXAMPLES = '''
     ansible_httpapi_validate_certs: false
     ansible_httpapi_port: 443
   tasks:
-    - name: No description
+    - name: Dynamic interface
       fortinet.fortimanager.fmgr_dynamic_interface:
         # bypass_validation: false
         workspace_locking_adom: <value in [global, custom adom including root]>
@@ -352,7 +352,7 @@ def main():
                 },
                 'wildcard': {'v_range': [['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'wildcard-intf': {'v_range': [['7.0.1', '']], 'type': 'str'},
-                'zone-only': {'v_range': [['6.4.7', '6.4.13'], ['7.0.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'zone-only': {'v_range': [['6.4.7', '6.4.14'], ['7.0.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
 
         }

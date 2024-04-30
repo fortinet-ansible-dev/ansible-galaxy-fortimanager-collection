@@ -382,7 +382,7 @@ def main():
                 'sub-category': {'type': 'raw'},
                 'technology': {'type': 'raw'},
                 'vendor': {'type': 'raw'},
-                'tags': {'v_range': [['6.2.0', '6.4.13']], 'type': 'str'},
+                'tags': {'v_range': [['6.2.0', '6.4.14']], 'type': 'str'},
                 'exclusion': {'v_range': [['6.2.7', '6.2.12'], ['6.4.3', '']], 'type': 'raw'}
             }
 

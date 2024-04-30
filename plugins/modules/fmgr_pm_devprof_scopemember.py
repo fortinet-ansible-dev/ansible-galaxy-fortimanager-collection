@@ -12,7 +12,7 @@ ANSIBLE_METADATA = {'status': ['preview'],
 DOCUMENTATION = '''
 ---
 module: fmgr_pm_devprof_scopemember
-short_description: no description
+short_description: System template scope member
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
@@ -110,7 +110,7 @@ EXAMPLES = '''
     ansible_httpapi_validate_certs: false
     ansible_httpapi_port: 443
   tasks:
-    - name: No description
+    - name: System template scope member
       fortinet.fortimanager.fmgr_pm_devprof_scopemember:
         # bypass_validation: false
         workspace_locking_adom: <value in [global, custom adom including root]>
@@ -209,7 +209,7 @@ def main():
     connection.set_option('forticloud_access_token', module.params.get('forticloud_access_token', None))
     fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_object_member(argument_specs=module_arg_spec)
 
     module.exit_json(meta=module.params)
 

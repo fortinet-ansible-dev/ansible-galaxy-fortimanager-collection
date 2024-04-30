@@ -1136,7 +1136,7 @@ def main():
                 'trusthost9': {'v_range': [['7.0.3', '']], 'type': 'str'},
                 'ips-baseline-cfg': {'v_range': [['7.0.1', '7.0.2']], 'choices': ['none', 'read', 'read-write'], 'type': 'str'},
                 'ips-baseline-ovrd': {'v_range': [['7.0.1', '7.0.2']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'device-fortiextender': {'v_range': [['7.0.4', '7.0.10'], ['7.2.1', '']], 'choices': ['none', 'read', 'read-write'], 'type': 'str'},
+                'device-fortiextender': {'v_range': [['7.0.4', '7.0.12'], ['7.2.1', '']], 'choices': ['none', 'read', 'read-write'], 'type': 'str'},
                 'ips-lock': {'v_range': [['7.2.2', '']], 'choices': ['none', 'read', 'read-write'], 'type': 'str'},
                 'fgt-gui-proxy': {'v_range': [['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'policy-ips-attrs': {'v_range': [['7.4.2', '']], 'choices': ['none', 'read', 'read-write'], 'type': 'str'},

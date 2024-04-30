@@ -166,10 +166,10 @@ def main():
     module_arg_spec = {
         'system_log_topology': {
             'type': 'dict',
-            'v_range': [['6.4.7', '6.4.13'], ['7.0.2', '']],
+            'v_range': [['6.4.7', '6.4.14'], ['7.0.2', '']],
             'options': {
-                'max-depth': {'v_range': [['6.4.7', '6.4.13'], ['7.0.2', '']], 'type': 'int'},
-                'max-depth-share': {'v_range': [['6.4.7', '6.4.13'], ['7.0.2', '']], 'type': 'int'}
+                'max-depth': {'v_range': [['6.4.7', '6.4.14'], ['7.0.2', '']], 'type': 'int'},
+                'max-depth-share': {'v_range': [['6.4.7', '6.4.14'], ['7.0.2', '']], 'type': 'int'}
             }
 
         }

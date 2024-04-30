@@ -481,7 +481,7 @@ def main():
                             'choices': ['auto', 'sdwan', 'specify'],
                             'type': 'str'
                         },
-                        'logon-timeout': {'v_range': [['6.4.7', '6.4.13'], ['7.0.1', '']], 'type': 'int'},
+                        'logon-timeout': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'type': 'int'},
                         'sni': {'v_range': [['7.2.0', '']], 'type': 'str'},
                         'ssl-server-host-ip-check': {'v_range': [['7.0.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
                     },
@@ -516,7 +516,7 @@ def main():
                 'group-poll-interval': {'v_range': [['6.2.2', '']], 'type': 'int'},
                 'interface': {'v_range': [['6.2.6', '6.2.12'], ['6.4.2', '']], 'type': 'str'},
                 'interface-select-method': {'v_range': [['6.2.6', '6.2.12'], ['6.4.2', '']], 'choices': ['auto', 'sdwan', 'specify'], 'type': 'str'},
-                'logon-timeout': {'v_range': [['6.4.7', '6.4.13'], ['7.0.1', '']], 'type': 'int'},
+                'logon-timeout': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'type': 'int'},
                 'sni': {'v_range': [['7.2.0', '']], 'type': 'str'},
                 'ssl-server-host-ip-check': {'v_range': [['7.0.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }

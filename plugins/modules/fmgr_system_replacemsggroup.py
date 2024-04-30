@@ -443,9 +443,9 @@ options:
                     image:
                         type: str
                         description: Message string.
-                    message:
+                    fmgr_message:
                         type: str
-                        description: Deprecated, please rename it to fmgr_message. Message text
+                        description: Message text
                     msg-type:
                         type: str
                         description: Deprecated, please rename it to msg_type. Message type.
@@ -533,9 +533,9 @@ options:
                     image:
                         type: str
                         description: Message string.
-                    message:
+                    fmgr_message:
                         type: str
-                        description: Deprecated, please rename it to fmgr_message. Message text
+                        description: Message text
                     msg-type:
                         type: str
                         description: Deprecated, please rename it to msg_type. Message type.
@@ -606,9 +606,9 @@ options:
                     image:
                         type: str
                         description: Message string.
-                    message:
+                    fmgr_message:
                         type: str
-                        description: Deprecated, please rename it to fmgr_message. Message text
+                        description: Message text
                     msg-type:
                         type: str
                         description: Deprecated, please rename it to msg_type. Message type.
@@ -704,9 +704,9 @@ options:
                     image:
                         type: str
                         description: Message string.
-                    message:
+                    fmgr_message:
                         type: str
-                        description: Deprecated, please rename it to fmgr_message. Message text
+                        description: Message text
                     msg-type:
                         type: str
                         description: Deprecated, please rename it to msg_type. Message type.
@@ -1124,7 +1124,7 @@ def main():
                         'format': {'choices': ['none', 'text', 'html', 'wml'], 'type': 'str'},
                         'header': {'choices': ['none', 'http', '8bit'], 'type': 'str'},
                         'msg-type': {'type': 'str'},
-                        'id': {'v_range': [['6.4.11', '6.4.13'], ['7.0.6', '7.0.10'], ['7.2.3', '']], 'type': 'int'}
+                        'id': {'v_range': [['6.4.11', '6.4.14'], ['7.0.6', '7.0.12'], ['7.2.3', '']], 'type': 'int'}
                     },
                     'elements': 'dict'
                 },
@@ -1232,7 +1232,7 @@ def main():
                         'from-sender': {'choices': ['disable', 'enable'], 'type': 'str'},
                         'header': {'choices': ['none', 'http', '8bit'], 'type': 'str'},
                         'image': {'type': 'str'},
-                        'message': {'type': 'str'},
+                        'fmgr_message': {'type': 'str'},
                         'msg-type': {'type': 'str'},
                         'priority': {'choices': ['low', 'normal', 'high', 'not-included'], 'type': 'str'},
                         'rsp-status': {
@@ -1260,7 +1260,7 @@ def main():
                         'header': {'choices': ['none', 'http', '8bit'], 'type': 'str'},
                         'html-part': {'type': 'str'},
                         'image': {'type': 'str'},
-                        'message': {'type': 'str'},
+                        'fmgr_message': {'type': 'str'},
                         'msg-type': {'type': 'str'},
                         'priority': {'choices': ['low', 'normal', 'high', 'not-included'], 'type': 'str'},
                         'subject': {'type': 'str'}
@@ -1279,7 +1279,7 @@ def main():
                         'from-sender': {'choices': ['disable', 'enable'], 'type': 'str'},
                         'header': {'choices': ['none', 'http', '8bit'], 'type': 'str'},
                         'image': {'type': 'str'},
-                        'message': {'type': 'str'},
+                        'fmgr_message': {'type': 'str'},
                         'msg-type': {'type': 'str'},
                         'priority': {'choices': ['low', 'normal', 'high', 'not-included'], 'type': 'str'},
                         'rsp-status': {
@@ -1307,7 +1307,7 @@ def main():
                         'from-sender': {'choices': ['disable', 'enable'], 'type': 'str'},
                         'header': {'choices': ['none', 'http', '8bit'], 'type': 'str'},
                         'image': {'type': 'str'},
-                        'message': {'type': 'str'},
+                        'fmgr_message': {'type': 'str'},
                         'msg-type': {'type': 'str'},
                         'priority': {'choices': ['low', 'normal', 'high', 'not-included'], 'type': 'str'},
                         'rsp-status': {
@@ -1343,7 +1343,7 @@ def main():
                         'format': {'choices': ['none', 'text', 'html', 'wml'], 'type': 'str'},
                         'header': {'choices': ['none', 'http', '8bit'], 'type': 'str'},
                         'msg-type': {'type': 'str'},
-                        'id': {'v_range': [['6.4.11', '6.4.13'], ['7.0.6', '7.0.10'], ['7.2.3', '']], 'type': 'int'}
+                        'id': {'v_range': [['6.4.11', '6.4.14'], ['7.0.6', '7.0.12'], ['7.2.3', '']], 'type': 'int'}
                     },
                     'elements': 'dict'
                 },

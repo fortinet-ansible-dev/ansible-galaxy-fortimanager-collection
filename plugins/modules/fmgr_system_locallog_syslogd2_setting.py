@@ -296,9 +296,9 @@ def main():
                 'severity': {'choices': ['emergency', 'alert', 'critical', 'error', 'warning', 'notification', 'information', 'debug'], 'type': 'str'},
                 'status': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'syslog-name': {'type': 'str'},
-                'cert': {'v_range': [['6.4.6', '6.4.13'], ['7.0.1', '']], 'type': 'str'},
-                'reliable': {'v_range': [['6.4.6', '6.4.13'], ['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'secure-connection': {'v_range': [['6.4.6', '6.4.13'], ['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'cert': {'v_range': [['6.4.6', '6.4.14'], ['7.0.1', '']], 'type': 'str'},
+                'reliable': {'v_range': [['6.4.6', '6.4.14'], ['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'secure-connection': {'v_range': [['6.4.6', '6.4.14'], ['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
 
         }

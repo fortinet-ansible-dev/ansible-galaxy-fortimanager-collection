@@ -203,7 +203,7 @@ def main():
                 'aggressive-schedule': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'order': {'choices': ['oldest-first'], 'type': 'str'},
                 'status': {'choices': ['disable', 'enable'], 'type': 'str'},
-                'sche-rpt-only': {'v_range': [['7.0.8', '7.0.10'], ['7.2.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'sche-rpt-only': {'v_range': [['7.0.8', '7.0.12'], ['7.2.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
 
         }

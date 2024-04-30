@@ -510,10 +510,10 @@ def main():
                 'sso-username': {'type': 'str'},
                 'url': {'type': 'str'},
                 'domain': {'v_range': [['6.4.2', '']], 'type': 'str'},
-                'color-depth': {'v_range': [['6.4.7', '6.4.13'], ['7.0.1', '']], 'choices': ['8', '16', '32'], 'type': 'str'},
+                'color-depth': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['8', '16', '32'], 'type': 'str'},
                 'height': {'v_range': [['7.0.3', '']], 'type': 'int'},
                 'keyboard-layout': {
-                    'v_range': [['6.4.7', '6.4.13'], ['7.0.1', '']],
+                    'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']],
                     'choices': [
                         'ar', 'da', 'de', 'de-ch', 'en-gb', 'en-uk', 'en-us', 'es', 'fi', 'fr', 'fr-be', 'fr-ca', 'fr-ch', 'hr', 'hu', 'it', 'ja', 'lt',
                         'lv', 'mk', 'no', 'pl', 'pt', 'pt-br', 'ru', 'sl', 'sv', 'tk', 'tr', 'fr-ca-m', 'wg', 'ar-101', 'ar-102', 'ar-102-azerty',
@@ -524,8 +524,8 @@ def main():
                     ],
                     'type': 'str'
                 },
-                'restricted-admin': {'v_range': [['6.4.7', '6.4.13'], ['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'send-preconnection-id': {'v_range': [['6.4.7', '6.4.13'], ['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'restricted-admin': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'send-preconnection-id': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'width': {'v_range': [['7.0.3', '']], 'type': 'int'},
                 'vnc-keyboard-layout': {
                     'v_range': [['7.2.2', '']],

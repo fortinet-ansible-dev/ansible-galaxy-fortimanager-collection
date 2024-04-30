@@ -12,7 +12,7 @@ ANSIBLE_METADATA = {'status': ['preview'],
 DOCUMENTATION = '''
 ---
 module: fmgr_dynamic_virtualwanlink_neighbor
-short_description: no description
+short_description: Dynamic virtual wan link neighbor
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
@@ -146,7 +146,7 @@ EXAMPLES = '''
     ansible_httpapi_validate_certs: false
     ansible_httpapi_port: 443
   tasks:
-    - name: No description
+    - name: Dynamic virtual wan link neighbor
       fortinet.fortimanager.fmgr_dynamic_virtualwanlink_neighbor:
         # bypass_validation: false
         workspace_locking_adom: <value in [global, custom adom including root]>
@@ -235,31 +235,31 @@ def main():
         'adom': {'required': True, 'type': 'str'},
         'dynamic_virtualwanlink_neighbor': {
             'type': 'dict',
-            'v_range': [['6.2.2', '6.4.13']],
+            'v_range': [['6.2.2', '6.4.14']],
             'options': {
-                'description': {'v_range': [['6.2.2', '6.4.13']], 'type': 'str'},
+                'description': {'v_range': [['6.2.2', '6.4.14']], 'type': 'str'},
                 'dynamic_mapping': {
-                    'v_range': [['6.2.2', '6.4.13']],
+                    'v_range': [['6.2.2', '6.4.14']],
                     'type': 'list',
                     'options': {
                         '_scope': {
-                            'v_range': [['6.2.2', '6.4.13']],
+                            'v_range': [['6.2.2', '6.4.14']],
                             'type': 'list',
                             'options': {
-                                'name': {'v_range': [['6.2.2', '6.4.13']], 'type': 'str'},
-                                'vdom': {'v_range': [['6.2.2', '6.4.13']], 'type': 'str'}
+                                'name': {'v_range': [['6.2.2', '6.4.14']], 'type': 'str'},
+                                'vdom': {'v_range': [['6.2.2', '6.4.14']], 'type': 'str'}
                             },
                             'elements': 'dict'
                         },
-                        'description': {'v_range': [['6.2.2', '6.4.13']], 'type': 'str'},
-                        'ip': {'v_range': [['6.2.2', '6.4.13']], 'type': 'str'},
-                        'role': {'v_range': [['6.2.2', '6.4.13']], 'choices': ['primary', 'secondary', 'standalone'], 'type': 'str'}
+                        'description': {'v_range': [['6.2.2', '6.4.14']], 'type': 'str'},
+                        'ip': {'v_range': [['6.2.2', '6.4.14']], 'type': 'str'},
+                        'role': {'v_range': [['6.2.2', '6.4.14']], 'choices': ['primary', 'secondary', 'standalone'], 'type': 'str'}
                     },
                     'elements': 'dict'
                 },
-                'ip': {'v_range': [['6.2.2', '6.4.13']], 'type': 'str'},
-                'name': {'v_range': [['6.2.2', '6.4.13']], 'required': True, 'type': 'str'},
-                'role': {'v_range': [['6.2.2', '6.4.13']], 'choices': ['primary', 'secondary', 'standalone'], 'type': 'str'}
+                'ip': {'v_range': [['6.2.2', '6.4.14']], 'type': 'str'},
+                'name': {'v_range': [['6.2.2', '6.4.14']], 'required': True, 'type': 'str'},
+                'role': {'v_range': [['6.2.2', '6.4.14']], 'choices': ['primary', 'secondary', 'standalone'], 'type': 'str'}
             }
 
         }

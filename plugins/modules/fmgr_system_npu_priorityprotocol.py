@@ -187,11 +187,11 @@ def main():
         'adom': {'required': True, 'type': 'str'},
         'system_npu_priorityprotocol': {
             'type': 'dict',
-            'v_range': [['6.4.7', '6.4.13'], ['7.0.1', '']],
+            'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']],
             'options': {
-                'bfd': {'v_range': [['6.4.7', '6.4.13'], ['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'bgp': {'v_range': [['6.4.7', '6.4.13'], ['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'slbc': {'v_range': [['6.4.7', '6.4.13'], ['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'bfd': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'bgp': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'slbc': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
 
         }

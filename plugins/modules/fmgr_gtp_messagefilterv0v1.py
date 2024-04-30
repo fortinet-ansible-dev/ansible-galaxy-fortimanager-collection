@@ -483,7 +483,7 @@ def main():
                 'update-pdp': {'choices': ['allow', 'deny'], 'type': 'str'},
                 'v0-create-aa-pdp--v1-init-pdp-ctx': {'choices': ['deny', 'allow'], 'type': 'str'},
                 'version-not-support': {'choices': ['allow', 'deny'], 'type': 'str'},
-                'create-aa-pdp|init-pdp-ctx': {'v_range': [['6.2.0', '6.4.13']], 'choices': ['allow', 'deny'], 'type': 'str'},
+                'create-aa-pdp|init-pdp-ctx': {'v_range': [['6.2.0', '6.4.14']], 'choices': ['allow', 'deny'], 'type': 'str'},
                 'ue-registration-query': {'v_range': [['7.2.1', '']], 'choices': ['allow', 'deny'], 'type': 'str'}
             }
 

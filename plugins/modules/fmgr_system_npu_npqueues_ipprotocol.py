@@ -193,12 +193,12 @@ def main():
         'adom': {'required': True, 'type': 'str'},
         'system_npu_npqueues_ipprotocol': {
             'type': 'dict',
-            'v_range': [['6.4.7', '6.4.13'], ['7.0.1', '']],
+            'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']],
             'options': {
-                'name': {'v_range': [['6.4.7', '6.4.13'], ['7.0.1', '']], 'required': True, 'type': 'str'},
-                'protocol': {'v_range': [['6.4.7', '6.4.13'], ['7.0.1', '']], 'type': 'int'},
-                'queue': {'v_range': [['6.4.7', '6.4.13'], ['7.0.1', '']], 'type': 'int'},
-                'weight': {'v_range': [['6.4.7', '6.4.13'], ['7.0.1', '']], 'type': 'int'}
+                'name': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'required': True, 'type': 'str'},
+                'protocol': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'type': 'int'},
+                'queue': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'type': 'int'},
+                'weight': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'type': 'int'}
             }
 
         }

@@ -323,24 +323,24 @@ def main():
         'saml': {'required': True, 'type': 'str'},
         'user_saml_dynamicmapping': {
             'type': 'dict',
-            'v_range': [['7.0.5', '7.0.10'], ['7.2.1', '']],
+            'v_range': [['7.0.5', '7.0.12'], ['7.2.1', '']],
             'options': {
                 '_scope': {
-                    'v_range': [['7.0.5', '7.0.10'], ['7.2.1', '']],
+                    'v_range': [['7.0.5', '7.0.12'], ['7.2.1', '']],
                     'type': 'list',
                     'options': {
-                        'name': {'v_range': [['7.0.5', '7.0.10'], ['7.2.1', '']], 'type': 'str'},
-                        'vdom': {'v_range': [['7.0.5', '7.0.10'], ['7.2.1', '']], 'type': 'str'}
+                        'name': {'v_range': [['7.0.5', '7.0.12'], ['7.2.1', '']], 'type': 'str'},
+                        'vdom': {'v_range': [['7.0.5', '7.0.12'], ['7.2.1', '']], 'type': 'str'}
                     },
                     'elements': 'dict'
                 },
-                'adfs-claim': {'v_range': [['7.0.5', '7.0.10'], ['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'cert': {'v_range': [['7.0.5', '7.0.10'], ['7.2.1', '']], 'type': 'str'},
-                'clock-tolerance': {'v_range': [['7.0.5', '7.0.10'], ['7.2.1', '']], 'type': 'int'},
-                'digest-method': {'v_range': [['7.0.5', '7.0.10'], ['7.2.1', '']], 'choices': ['sha1', 'sha256'], 'type': 'str'},
-                'entity-id': {'v_range': [['7.0.5', '7.0.10'], ['7.2.1', '']], 'type': 'str'},
+                'adfs-claim': {'v_range': [['7.0.5', '7.0.12'], ['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'cert': {'v_range': [['7.0.5', '7.0.12'], ['7.2.1', '']], 'type': 'str'},
+                'clock-tolerance': {'v_range': [['7.0.5', '7.0.12'], ['7.2.1', '']], 'type': 'int'},
+                'digest-method': {'v_range': [['7.0.5', '7.0.12'], ['7.2.1', '']], 'choices': ['sha1', 'sha256'], 'type': 'str'},
+                'entity-id': {'v_range': [['7.0.5', '7.0.12'], ['7.2.1', '']], 'type': 'str'},
                 'group-claim-type': {
-                    'v_range': [['7.0.5', '7.0.10'], ['7.2.1', '']],
+                    'v_range': [['7.0.5', '7.0.12'], ['7.2.1', '']],
                     'choices': [
                         'email', 'given-name', 'name', 'upn', 'common-name', 'email-adfs-1x', 'group', 'upn-adfs-1x', 'role', 'sur-name', 'ppid',
                         'name-identifier', 'authentication-method', 'deny-only-group-sid', 'deny-only-primary-sid', 'deny-only-primary-group-sid',
@@ -348,16 +348,16 @@ def main():
                     ],
                     'type': 'str'
                 },
-                'group-name': {'v_range': [['7.0.5', '7.0.10'], ['7.2.1', '']], 'type': 'str'},
-                'idp-cert': {'v_range': [['7.0.5', '7.0.10'], ['7.2.1', '']], 'type': 'str'},
-                'idp-entity-id': {'v_range': [['7.0.5', '7.0.10'], ['7.2.1', '']], 'type': 'str'},
-                'idp-single-logout-url': {'v_range': [['7.0.5', '7.0.10'], ['7.2.1', '']], 'type': 'str'},
-                'idp-single-sign-on-url': {'v_range': [['7.0.5', '7.0.10'], ['7.2.1', '']], 'type': 'str'},
-                'limit-relaystate': {'v_range': [['7.0.5', '7.0.10'], ['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'single-logout-url': {'v_range': [['7.0.5', '7.0.10'], ['7.2.1', '']], 'type': 'str'},
-                'single-sign-on-url': {'v_range': [['7.0.5', '7.0.10'], ['7.2.1', '']], 'type': 'str'},
+                'group-name': {'v_range': [['7.0.5', '7.0.12'], ['7.2.1', '']], 'type': 'str'},
+                'idp-cert': {'v_range': [['7.0.5', '7.0.12'], ['7.2.1', '']], 'type': 'str'},
+                'idp-entity-id': {'v_range': [['7.0.5', '7.0.12'], ['7.2.1', '']], 'type': 'str'},
+                'idp-single-logout-url': {'v_range': [['7.0.5', '7.0.12'], ['7.2.1', '']], 'type': 'str'},
+                'idp-single-sign-on-url': {'v_range': [['7.0.5', '7.0.12'], ['7.2.1', '']], 'type': 'str'},
+                'limit-relaystate': {'v_range': [['7.0.5', '7.0.12'], ['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'single-logout-url': {'v_range': [['7.0.5', '7.0.12'], ['7.2.1', '']], 'type': 'str'},
+                'single-sign-on-url': {'v_range': [['7.0.5', '7.0.12'], ['7.2.1', '']], 'type': 'str'},
                 'user-claim-type': {
-                    'v_range': [['7.0.5', '7.0.10'], ['7.2.1', '']],
+                    'v_range': [['7.0.5', '7.0.12'], ['7.2.1', '']],
                     'choices': [
                         'email', 'given-name', 'name', 'upn', 'common-name', 'email-adfs-1x', 'group', 'upn-adfs-1x', 'role', 'sur-name', 'ppid',
                         'name-identifier', 'authentication-method', 'deny-only-group-sid', 'deny-only-primary-sid', 'deny-only-primary-group-sid',
@@ -365,7 +365,7 @@ def main():
                     ],
                     'type': 'str'
                 },
-                'user-name': {'v_range': [['7.0.5', '7.0.10'], ['7.2.1', '']], 'type': 'str'},
+                'user-name': {'v_range': [['7.0.5', '7.0.12'], ['7.2.1', '']], 'type': 'str'},
                 'auth-url': {'v_range': [['7.2.1', '']], 'type': 'str'},
                 'reauth': {'v_range': [['7.4.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }

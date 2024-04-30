@@ -207,14 +207,14 @@ def main():
         'adom': {'required': True, 'type': 'str'},
         'user_certificate': {
             'type': 'dict',
-            'v_range': [['7.0.8', '7.0.10'], ['7.2.3', '']],
+            'v_range': [['7.0.8', '7.0.12'], ['7.2.3', '']],
             'options': {
-                'common-name': {'v_range': [['7.0.8', '7.0.10'], ['7.2.3', '']], 'type': 'str'},
-                'id': {'v_range': [['7.0.8', '7.0.10'], ['7.2.3', '']], 'required': True, 'type': 'int'},
-                'issuer': {'v_range': [['7.0.8', '7.0.10'], ['7.2.3', '']], 'type': 'str'},
-                'name': {'v_range': [['7.0.8', '7.0.10'], ['7.2.3', '']], 'type': 'str'},
-                'status': {'v_range': [['7.0.8', '7.0.10'], ['7.2.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'type': {'v_range': [['7.0.8', '7.0.10'], ['7.2.3', '']], 'choices': ['single-certificate', 'trusted-issuer'], 'type': 'str'}
+                'common-name': {'v_range': [['7.0.8', '7.0.12'], ['7.2.3', '']], 'type': 'str'},
+                'id': {'v_range': [['7.0.8', '7.0.12'], ['7.2.3', '']], 'required': True, 'type': 'int'},
+                'issuer': {'v_range': [['7.0.8', '7.0.12'], ['7.2.3', '']], 'type': 'str'},
+                'name': {'v_range': [['7.0.8', '7.0.12'], ['7.2.3', '']], 'type': 'str'},
+                'status': {'v_range': [['7.0.8', '7.0.12'], ['7.2.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'type': {'v_range': [['7.0.8', '7.0.12'], ['7.2.3', '']], 'choices': ['single-certificate', 'trusted-issuer'], 'type': 'str'}
             }
 
         }

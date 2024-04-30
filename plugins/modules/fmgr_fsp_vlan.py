@@ -12,7 +12,7 @@ ANSIBLE_METADATA = {'status': ['preview'],
 DOCUMENTATION = '''
 ---
 module: fmgr_fsp_vlan
-short_description: no description
+short_description: Fsp vlan
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
@@ -3568,6 +3568,7 @@ options:
                             - 'cbr'
                             - 'rt-vbr'
                             - 'nrt-vbr'
+                            - 'ubr'
                     pvc-chan:
                         type: int
                         description: Deprecated, please rename it to pvc_chan. SFP-DSL ADSL Fallback PVC Channel.
@@ -3690,6 +3691,7 @@ options:
                             - 'al'
                             - 'm'
                             - 'aijlm'
+                            - 'bj'
                     aggregate-type:
                         type: str
                         description: Deprecated, please rename it to aggregate_type. Type of aggregation.
@@ -3811,7 +3813,7 @@ EXAMPLES = '''
     ansible_httpapi_validate_certs: false
     ansible_httpapi_port: 443
   tasks:
-    - name: No description
+    - name: Fsp vlan
       fortinet.fortimanager.fmgr_fsp_vlan:
         # bypass_validation: false
         workspace_locking_adom: <value in [global, custom adom including root]>
@@ -4665,7 +4667,7 @@ EXAMPLES = '''
             eap_user_cert: <string>
             ike_saml_server: <string>
             lacp_ha_secondary: <value in [disable, enable]>
-            pvc_atm_qos: <value in [cbr, rt-vbr, nrt-vbr]>
+            pvc_atm_qos: <value in [cbr, rt-vbr, nrt-vbr, ...]>
             pvc_chan: <integer>
             pvc_crc: <integer>
             pvc_pcr: <integer>
@@ -5173,7 +5175,7 @@ def main():
                                 },
                                 'vlanid': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
                                 'dhcp-relay-interface-select-method': {
-                                    'v_range': [['6.4.8', '6.4.13'], ['7.0.4', '']],
+                                    'v_range': [['6.4.8', '6.4.14'], ['7.0.4', '']],
                                     'choices': ['auto', 'sdwan', 'specify'],
                                     'type': 'str'
                                 },
@@ -6021,53 +6023,53 @@ def main():
                         'eap-user-cert': {'v_range': [['7.2.0', '']], 'type': 'str'},
                         'ike-saml-server': {'v_range': [['7.2.0', '']], 'type': 'str'},
                         'lacp-ha-secondary': {'v_range': [['7.0.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'pvc-atm-qos': {'v_range': [['6.4.8', '6.4.13'], ['7.0.2', '']], 'choices': ['cbr', 'rt-vbr', 'nrt-vbr'], 'type': 'str'},
-                        'pvc-chan': {'v_range': [['6.4.8', '6.4.13'], ['7.0.2', '']], 'type': 'int'},
-                        'pvc-crc': {'v_range': [['6.4.8', '6.4.13'], ['7.0.2', '']], 'type': 'int'},
-                        'pvc-pcr': {'v_range': [['6.4.8', '6.4.13'], ['7.0.2', '']], 'type': 'int'},
-                        'pvc-scr': {'v_range': [['6.4.8', '6.4.13'], ['7.0.2', '']], 'type': 'int'},
-                        'pvc-vlan-id': {'v_range': [['6.4.8', '6.4.13'], ['7.0.2', '']], 'type': 'int'},
-                        'pvc-vlan-rx-id': {'v_range': [['6.4.8', '6.4.13'], ['7.0.2', '']], 'type': 'int'},
+                        'pvc-atm-qos': {'v_range': [['6.4.8', '6.4.14'], ['7.0.2', '']], 'choices': ['cbr', 'rt-vbr', 'nrt-vbr', 'ubr'], 'type': 'str'},
+                        'pvc-chan': {'v_range': [['6.4.8', '6.4.14'], ['7.0.2', '']], 'type': 'int'},
+                        'pvc-crc': {'v_range': [['6.4.8', '6.4.14'], ['7.0.2', '']], 'type': 'int'},
+                        'pvc-pcr': {'v_range': [['6.4.8', '6.4.14'], ['7.0.2', '']], 'type': 'int'},
+                        'pvc-scr': {'v_range': [['6.4.8', '6.4.14'], ['7.0.2', '']], 'type': 'int'},
+                        'pvc-vlan-id': {'v_range': [['6.4.8', '6.4.14'], ['7.0.2', '']], 'type': 'int'},
+                        'pvc-vlan-rx-id': {'v_range': [['6.4.8', '6.4.14'], ['7.0.2', '']], 'type': 'int'},
                         'pvc-vlan-rx-op': {
-                            'v_range': [['6.4.8', '6.4.13'], ['7.0.2', '']],
+                            'v_range': [['6.4.8', '6.4.14'], ['7.0.2', '']],
                             'choices': ['pass-through', 'replace', 'remove'],
                             'type': 'str'
                         },
-                        'pvc-vlan-tx-id': {'v_range': [['6.4.8', '6.4.13'], ['7.0.2', '']], 'type': 'int'},
+                        'pvc-vlan-tx-id': {'v_range': [['6.4.8', '6.4.14'], ['7.0.2', '']], 'type': 'int'},
                         'pvc-vlan-tx-op': {
-                            'v_range': [['6.4.8', '6.4.13'], ['7.0.2', '']],
+                            'v_range': [['6.4.8', '6.4.14'], ['7.0.2', '']],
                             'choices': ['pass-through', 'replace', 'remove'],
                             'type': 'str'
                         },
                         'reachable-time': {'v_range': [['7.0.3', '']], 'type': 'int'},
                         'select-profile-30a-35b': {
-                            'v_range': [['6.2.9', '6.2.12'], ['6.4.8', '6.4.13'], ['7.0.3', '']],
+                            'v_range': [['6.2.9', '6.2.12'], ['6.4.8', '6.4.14'], ['7.0.3', '']],
                             'choices': ['30A', '35B'],
                             'type': 'str'
                         },
-                        'sfp-dsl': {'v_range': [['6.4.8', '6.4.13'], ['7.0.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'sfp-dsl-adsl-fallback': {'v_range': [['6.4.8', '6.4.13'], ['7.0.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'sfp-dsl-autodetect': {'v_range': [['6.4.8', '6.4.13'], ['7.0.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'sfp-dsl-mac': {'v_range': [['6.4.8', '6.4.13'], ['7.0.2', '']], 'type': 'str'},
+                        'sfp-dsl': {'v_range': [['6.4.8', '6.4.14'], ['7.0.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'sfp-dsl-adsl-fallback': {'v_range': [['6.4.8', '6.4.14'], ['7.0.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'sfp-dsl-autodetect': {'v_range': [['6.4.8', '6.4.14'], ['7.0.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'sfp-dsl-mac': {'v_range': [['6.4.8', '6.4.14'], ['7.0.2', '']], 'type': 'str'},
                         'sw-algorithm': {'v_range': [['7.0.1', '']], 'choices': ['l2', 'l3', 'eh'], 'type': 'str'},
-                        'system-id': {'v_range': [['6.4.7', '6.4.13'], ['7.0.2', '']], 'type': 'str'},
-                        'system-id-type': {'v_range': [['6.4.7', '6.4.13'], ['7.0.2', '']], 'choices': ['auto', 'user'], 'type': 'str'},
-                        'vlan-id': {'v_range': [['6.2.9', '6.2.12'], ['6.4.8', '6.4.13'], ['7.0.3', '']], 'type': 'int'},
+                        'system-id': {'v_range': [['6.4.7', '6.4.14'], ['7.0.2', '']], 'type': 'str'},
+                        'system-id-type': {'v_range': [['6.4.7', '6.4.14'], ['7.0.2', '']], 'choices': ['auto', 'user'], 'type': 'str'},
+                        'vlan-id': {'v_range': [['6.2.9', '6.2.12'], ['6.4.8', '6.4.14'], ['7.0.3', '']], 'type': 'int'},
                         'vlan-op-mode': {
-                            'v_range': [['6.2.9', '6.2.12'], ['6.4.8', '6.4.13'], ['7.0.3', '']],
+                            'v_range': [['6.2.9', '6.2.12'], ['6.4.8', '6.4.14'], ['7.0.3', '']],
                             'choices': ['tag', 'untag', 'passthrough'],
                             'type': 'str'
                         },
-                        'generic-receive-offload': {'v_range': [['7.0.5', '7.0.10'], ['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'generic-receive-offload': {'v_range': [['7.0.5', '7.0.12'], ['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                         'interconnect-profile': {
-                            'v_range': [['7.0.5', '7.0.10'], ['7.2.1', '']],
+                            'v_range': [['7.0.5', '7.0.12'], ['7.2.1', '']],
                             'choices': ['default', 'profile1', 'profile2'],
                             'type': 'str'
                         },
-                        'large-receive-offload': {'v_range': [['7.0.5', '7.0.10'], ['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'large-receive-offload': {'v_range': [['7.0.5', '7.0.12'], ['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                         'annex': {
-                            'v_range': [['7.0.10', '7.0.10'], ['7.4.2', '']],
-                            'choices': ['a', 'b', 'j', 'bjm', 'i', 'al', 'm', 'aijlm'],
+                            'v_range': [['7.0.10', '7.0.12'], ['7.2.5', '7.2.5'], ['7.4.2', '']],
+                            'choices': ['a', 'b', 'j', 'bjm', 'i', 'al', 'm', 'aijlm', 'bj'],
                             'type': 'str'
                         },
                         'aggregate-type': {'v_range': [['7.2.1', '']], 'choices': ['physical', 'vxlan'], 'type': 'str'},

@@ -326,10 +326,10 @@ def main():
         'adom': {'required': True, 'type': 'str'},
         'system_npu_dswqueuedtsprofile': {
             'type': 'dict',
-            'v_range': [['6.4.7', '6.4.13'], ['7.0.1', '']],
+            'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']],
             'options': {
                 'iport': {
-                    'v_range': [['6.4.7', '6.4.13'], ['7.0.1', '']],
+                    'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']],
                     'choices': [
                         'EIF0', 'eif0', 'EIF1', 'eif1', 'EIF2', 'eif2', 'EIF3', 'eif3', 'EIF4', 'eif4', 'EIF5', 'eif5', 'EIF6', 'eif6', 'EIF7', 'eif7',
                         'HTX0', 'htx0', 'HTX1', 'htx1', 'SSE0', 'sse0', 'SSE1', 'sse1', 'SSE2', 'sse2', 'SSE3', 'sse3', 'RLT', 'rlt', 'DFR', 'dfr',
@@ -338,9 +338,9 @@ def main():
                     ],
                     'type': 'str'
                 },
-                'name': {'v_range': [['6.4.7', '6.4.13'], ['7.0.1', '']], 'required': True, 'type': 'str'},
+                'name': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'required': True, 'type': 'str'},
                 'oport': {
-                    'v_range': [['6.4.7', '6.4.13'], ['7.0.1', '']],
+                    'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']],
                     'choices': [
                         'EIF0', 'eif0', 'EIF1', 'eif1', 'EIF2', 'eif2', 'EIF3', 'eif3', 'EIF4', 'eif4', 'EIF5', 'eif5', 'EIF6', 'eif6', 'EIF7', 'eif7',
                         'HRX', 'hrx', 'SSE0', 'sse0', 'SSE1', 'sse1', 'SSE2', 'sse2', 'SSE3', 'sse3', 'RLT', 'rlt', 'DFR', 'dfr', 'IPSECI', 'ipseci',
@@ -350,8 +350,8 @@ def main():
                     ],
                     'type': 'str'
                 },
-                'profile-id': {'v_range': [['6.4.7', '6.4.13'], ['7.0.1', '']], 'type': 'int'},
-                'queue-select': {'v_range': [['6.4.7', '6.4.13'], ['7.0.1', '']], 'type': 'int'}
+                'profile-id': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'type': 'int'},
+                'queue-select': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'type': 'int'}
             }
 
         }

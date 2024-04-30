@@ -194,14 +194,14 @@ def main():
     module_arg_spec = {
         'system_webproxy': {
             'type': 'dict',
-            'v_range': [['6.4.8', '6.4.13'], ['7.0.3', '']],
+            'v_range': [['6.4.8', '6.4.14'], ['7.0.3', '']],
             'options': {
-                'address': {'v_range': [['6.4.8', '6.4.13'], ['7.0.3', '']], 'type': 'str'},
-                'mode': {'v_range': [['6.4.8', '6.4.13'], ['7.0.3', '']], 'choices': ['proxy', 'tunnel'], 'type': 'str'},
-                'password': {'v_range': [['6.4.8', '6.4.13'], ['7.0.3', '']], 'no_log': True, 'type': 'raw'},
-                'port': {'v_range': [['6.4.8', '6.4.13'], ['7.0.3', '']], 'type': 'int'},
-                'status': {'v_range': [['6.4.8', '6.4.13'], ['7.0.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'username': {'v_range': [['6.4.8', '6.4.13'], ['7.0.3', '']], 'type': 'str'}
+                'address': {'v_range': [['6.4.8', '6.4.14'], ['7.0.3', '']], 'type': 'str'},
+                'mode': {'v_range': [['6.4.8', '6.4.14'], ['7.0.3', '']], 'choices': ['proxy', 'tunnel'], 'type': 'str'},
+                'password': {'v_range': [['6.4.8', '6.4.14'], ['7.0.3', '']], 'no_log': True, 'type': 'raw'},
+                'port': {'v_range': [['6.4.8', '6.4.14'], ['7.0.3', '']], 'type': 'int'},
+                'status': {'v_range': [['6.4.8', '6.4.14'], ['7.0.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'username': {'v_range': [['6.4.8', '6.4.14'], ['7.0.3', '']], 'type': 'str'}
             }
 
         }

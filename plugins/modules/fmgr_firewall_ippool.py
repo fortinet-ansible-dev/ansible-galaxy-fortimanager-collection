@@ -501,9 +501,9 @@ def main():
                         'port-per-user': {'v_range': [['7.0.0', '']], 'type': 'int'},
                         'startport': {'v_range': [['7.0.0', '']], 'type': 'int'},
                         'add-nat64-route': {'v_range': [['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'cgn-client-ipv6shift': {'v_range': [['6.2.9', '6.2.12'], ['6.4.7', '6.4.13'], ['7.0.2', '']], 'type': 'int'},
+                        'cgn-client-ipv6shift': {'v_range': [['6.2.9', '6.2.12'], ['6.4.7', '6.4.14'], ['7.0.2', '']], 'type': 'int'},
                         'nat64': {'v_range': [['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'subnet-broadcast-in-ippool': {'v_range': [['7.0.5', '7.0.10'], ['7.2.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'subnet-broadcast-in-ippool': {'v_range': [['7.0.5', '7.0.12'], ['7.2.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                         'exclude-ip': {'v_range': [['7.2.2', '']], 'type': 'raw'}
                     },
                     'elements': 'dict'
@@ -532,8 +532,8 @@ def main():
                 'startport': {'v_range': [['7.0.0', '']], 'type': 'int'},
                 'add-nat64-route': {'v_range': [['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'nat64': {'v_range': [['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'cgn-client-ipv6shift': {'v_range': [['6.2.9', '6.2.12'], ['6.4.7', '6.4.13'], ['7.0.2', '']], 'type': 'int'},
-                'subnet-broadcast-in-ippool': {'v_range': [['7.0.5', '7.0.10'], ['7.2.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'cgn-client-ipv6shift': {'v_range': [['6.2.9', '6.2.12'], ['6.4.7', '6.4.14'], ['7.0.2', '']], 'type': 'int'},
+                'subnet-broadcast-in-ippool': {'v_range': [['7.0.5', '7.0.12'], ['7.2.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'exclude-ip': {'v_range': [['7.2.2', '']], 'type': 'raw'}
             }
 

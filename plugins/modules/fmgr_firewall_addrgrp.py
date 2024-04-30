@@ -391,7 +391,7 @@ def main():
                 'visibility': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'exclude': {'v_range': [['6.2.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'exclude-member': {'v_range': [['6.2.0', '']], 'type': 'raw'},
-                'tags': {'v_range': [['6.2.0', '6.4.13']], 'type': 'str'},
+                'tags': {'v_range': [['6.2.0', '6.4.14']], 'type': 'str'},
                 '_image-base64': {'v_range': [['6.2.2', '']], 'type': 'str'},
                 'global-object': {'v_range': [['6.4.0', '']], 'type': 'int'},
                 'type': {'v_range': [['6.4.0', '']], 'choices': ['default', 'array', 'folder'], 'type': 'str'},

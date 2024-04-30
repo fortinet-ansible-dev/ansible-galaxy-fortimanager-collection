@@ -194,10 +194,10 @@ def main():
         'sdn_connector': {'type': 'str'},
         'system_sdnconnector_gcpprojectlist': {
             'type': 'dict',
-            'v_range': [['6.4.7', '6.4.13'], ['7.0.2', '']],
+            'v_range': [['6.4.7', '6.4.14'], ['7.0.2', '']],
             'options': {
-                'gcp-zone-list': {'v_range': [['6.4.7', '6.4.13'], ['7.0.2', '']], 'type': 'raw'},
-                'id': {'v_range': [['6.4.7', '6.4.13'], ['7.0.2', '']], 'required': True, 'type': 'str'}
+                'gcp-zone-list': {'v_range': [['6.4.7', '6.4.14'], ['7.0.2', '']], 'type': 'raw'},
+                'id': {'v_range': [['6.4.7', '6.4.14'], ['7.0.2', '']], 'required': True, 'type': 'str'}
             }
 
         }

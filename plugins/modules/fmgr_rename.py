@@ -742,6 +742,7 @@ options:
                     - 'wanprof_system_sdwan_duplication'
                     - 'wanprof_system_sdwan_healthcheck'
                     - 'wanprof_system_sdwan_healthcheck_sla'
+                    - 'wanprof_system_sdwan_members'
                     - 'wanprof_system_sdwan_service'
                     - 'wanprof_system_sdwan_service_sla'
                     - 'wanprof_system_sdwan_zone'
@@ -1236,21 +1237,21 @@ def main():
             'urls': [
                 '/pm/config/adom/{adom}/devprof/{devprof}/log/syslogd/filter/exclude-list/{exclude-list}'
             ],
-            'mkey': 'id', 'v_range': [['7.0.4', '7.0.10']]
+            'mkey': 'id', 'v_range': [['7.0.4', '7.0.12']]
         },
         'devprof_log_syslogd_filter_freestyle': {
             'params': ['adom', 'devprof', 'free-style'],
             'urls': [
                 '/pm/config/adom/{adom}/devprof/{devprof}/log/syslogd/filter/free-style/{free-style}'
             ],
-            'mkey': 'id', 'v_range': [['7.0.4', '7.0.10'], ['7.2.1', '']]
+            'mkey': 'id', 'v_range': [['7.0.4', '7.0.12'], ['7.2.1', '']]
         },
         'devprof_log_syslogd_setting_customfieldname': {
             'params': ['adom', 'devprof', 'custom-field-name'],
             'urls': [
                 '/pm/config/adom/{adom}/devprof/{devprof}/log/syslogd/setting/custom-field-name/{custom-field-name}'
             ],
-            'mkey': 'id', 'v_range': [['7.0.4', '7.0.10'], ['7.2.1', '']]
+            'mkey': 'id', 'v_range': [['7.0.4', '7.0.12'], ['7.2.1', '']]
         },
         'devprof_system_centralmanagement_serverlist': {
             'params': ['adom', 'devprof', 'server-list'],
@@ -1606,7 +1607,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/dynamic/virtual-wan-link/members/{members}',
                 '/pm/config/global/obj/dynamic/virtual-wan-link/members/{members}'
             ],
-            'mkey': 'name', 'v_range': [['6.0.0', '6.4.13']]
+            'mkey': 'name', 'v_range': [['6.0.0', '6.4.14']]
         },
         'dynamic_virtualwanlink_members_dynamicmapping': {
             'params': ['adom', 'members', 'dynamic_mapping'],
@@ -1614,7 +1615,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/dynamic/virtual-wan-link/members/{members}/dynamic_mapping/{dynamic_mapping}',
                 '/pm/config/global/obj/dynamic/virtual-wan-link/members/{members}/dynamic_mapping/{dynamic_mapping}'
             ],
-            'mkey': 'complex:{{module}}["_scope"][0]["name"]+"/"+{{module}}["_scope"][0]["vdom"]', 'v_range': [['6.0.0', '6.4.13']]
+            'mkey': 'complex:{{module}}["_scope"][0]["name"]+"/"+{{module}}["_scope"][0]["vdom"]', 'v_range': [['6.0.0', '6.4.14']]
         },
         'dynamic_virtualwanlink_neighbor': {
             'params': ['adom', 'neighbor'],
@@ -1622,7 +1623,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/dynamic/virtual-wan-link/neighbor/{neighbor}',
                 '/pm/config/global/obj/dynamic/virtual-wan-link/neighbor/{neighbor}'
             ],
-            'mkey': 'name', 'v_range': [['6.2.2', '6.4.13']]
+            'mkey': 'name', 'v_range': [['6.2.2', '6.4.14']]
         },
         'dynamic_virtualwanlink_server': {
             'params': ['adom', 'server'],
@@ -1630,7 +1631,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/dynamic/virtual-wan-link/server/{server}',
                 '/pm/config/global/obj/dynamic/virtual-wan-link/server/{server}'
             ],
-            'mkey': 'name', 'v_range': [['6.0.0', '6.4.13']]
+            'mkey': 'name', 'v_range': [['6.0.0', '6.4.14']]
         },
         'dynamic_virtualwanlink_server_dynamicmapping': {
             'params': ['adom', 'server', 'dynamic_mapping'],
@@ -1638,7 +1639,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/dynamic/virtual-wan-link/server/{server}/dynamic_mapping/{dynamic_mapping}',
                 '/pm/config/global/obj/dynamic/virtual-wan-link/server/{server}/dynamic_mapping/{dynamic_mapping}'
             ],
-            'mkey': 'complex:{{module}}["_scope"][0]["name"]+"/"+{{module}}["_scope"][0]["vdom"]', 'v_range': [['6.0.0', '6.4.13']]
+            'mkey': 'complex:{{module}}["_scope"][0]["name"]+"/"+{{module}}["_scope"][0]["vdom"]', 'v_range': [['6.0.0', '6.4.14']]
         },
         'dynamic_vpntunnel': {
             'params': ['adom', 'vpntunnel'],
@@ -2448,7 +2449,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/firewall/ippool_grp/{ippool_grp}',
                 '/pm/config/global/obj/firewall/ippool_grp/{ippool_grp}'
             ],
-            'mkey': 'name', 'v_range': [['6.4.7', '6.4.13'], ['7.0.1', '']]
+            'mkey': 'name', 'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']]
         },
         'firewall_ldbmonitor': {
             'params': ['adom', 'ldb-monitor'],
@@ -3501,7 +3502,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/log/npu-server/server-info/{server-info}',
                 '/pm/config/global/obj/log/npu-server/server-info/{server-info}'
             ],
-            'mkey': 'id', 'v_range': [['6.4.7', '6.4.13'], ['7.0.1', '']]
+            'mkey': 'id', 'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']]
         },
         'mpskprofile': {
             'params': ['adom', 'mpsk-profile'],
@@ -3631,28 +3632,28 @@ def main():
             'urls': [
                 '/pm/config/adom/{adom}/pkg/{pkg}/firewall/hyperscale-policy/{hyperscale-policy}'
             ],
-            'mkey': 'policyid', 'v_range': [['6.4.7', '6.4.13'], ['7.0.1', '7.2.0']]
+            'mkey': 'policyid', 'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '7.2.0']]
         },
         'pkg_firewall_hyperscalepolicy46': {
             'params': ['adom', 'pkg', 'hyperscale-policy46'],
             'urls': [
                 '/pm/config/adom/{adom}/pkg/{pkg}/firewall/hyperscale-policy46/{hyperscale-policy46}'
             ],
-            'mkey': 'policyid', 'v_range': [['6.4.7', '6.4.13'], ['7.0.1', '7.2.0']]
+            'mkey': 'policyid', 'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '7.2.0']]
         },
         'pkg_firewall_hyperscalepolicy6': {
             'params': ['adom', 'pkg', 'hyperscale-policy6'],
             'urls': [
                 '/pm/config/adom/{adom}/pkg/{pkg}/firewall/hyperscale-policy6/{hyperscale-policy6}'
             ],
-            'mkey': 'policyid', 'v_range': [['6.4.7', '6.4.13'], ['7.0.1', '7.2.0']]
+            'mkey': 'policyid', 'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '7.2.0']]
         },
         'pkg_firewall_hyperscalepolicy64': {
             'params': ['adom', 'pkg', 'hyperscale-policy64'],
             'urls': [
                 '/pm/config/adom/{adom}/pkg/{pkg}/firewall/hyperscale-policy64/{hyperscale-policy64}'
             ],
-            'mkey': 'policyid', 'v_range': [['6.4.7', '6.4.13'], ['7.0.1', '7.2.0']]
+            'mkey': 'policyid', 'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '7.2.0']]
         },
         'pkg_firewall_interfacepolicy': {
             'params': ['adom', 'pkg', 'interface-policy'],
@@ -3999,7 +4000,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/sctp-filter/profile/{profile}',
                 '/pm/config/global/obj/sctp-filter/profile/{profile}'
             ],
-            'mkey': 'name', 'v_range': [['7.4.2', '']]
+            'mkey': 'name', 'v_range': [['7.2.5', '7.2.5'], ['7.4.2', '']]
         },
         'sctpfilter_profile_ppidfilters': {
             'params': ['adom', 'profile', 'ppid-filters'],
@@ -4007,7 +4008,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/sctp-filter/profile/{profile}/ppid-filters/{ppid-filters}',
                 '/pm/config/global/obj/sctp-filter/profile/{profile}/ppid-filters/{ppid-filters}'
             ],
-            'mkey': 'id', 'v_range': [['7.4.2', '']]
+            'mkey': 'id', 'v_range': [['7.2.5', '7.2.5'], ['7.4.2', '']]
         },
         'spamfilter_bwl': {
             'params': ['adom', 'bwl'],
@@ -4207,7 +4208,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/switch-controller/managed-switch/{managed-switch}',
                 '/pm/config/global/obj/switch-controller/managed-switch/{managed-switch}'
             ],
-            'mkey': 'name'
+            'mkey': 'switch-id'
         },
         'switchcontroller_managedswitch_dhcpsnoopingstaticclient': {
             'params': ['adom', 'managed-switch', 'dhcp-snooping-static-client'],
@@ -4743,7 +4744,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/system/npu/dsw-queue-dts-profile/{dsw-queue-dts-profile}',
                 '/pm/config/global/obj/system/npu/dsw-queue-dts-profile/{dsw-queue-dts-profile}'
             ],
-            'mkey': 'name', 'v_range': [['6.4.7', '6.4.13'], ['7.0.1', '']]
+            'mkey': 'name', 'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']]
         },
         'system_npu_npqueues_ethernettype': {
             'params': ['adom', 'ethernet-type'],
@@ -4751,7 +4752,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/system/npu/np-queues/ethernet-type/{ethernet-type}',
                 '/pm/config/global/obj/system/npu/np-queues/ethernet-type/{ethernet-type}'
             ],
-            'mkey': 'name', 'v_range': [['6.4.7', '6.4.13'], ['7.0.1', '']]
+            'mkey': 'name', 'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']]
         },
         'system_npu_npqueues_ipprotocol': {
             'params': ['adom', 'ip-protocol'],
@@ -4759,7 +4760,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/system/npu/np-queues/ip-protocol/{ip-protocol}',
                 '/pm/config/global/obj/system/npu/np-queues/ip-protocol/{ip-protocol}'
             ],
-            'mkey': 'name', 'v_range': [['6.4.7', '6.4.13'], ['7.0.1', '']]
+            'mkey': 'name', 'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']]
         },
         'system_npu_npqueues_ipservice': {
             'params': ['adom', 'ip-service'],
@@ -4767,7 +4768,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/system/npu/np-queues/ip-service/{ip-service}',
                 '/pm/config/global/obj/system/npu/np-queues/ip-service/{ip-service}'
             ],
-            'mkey': 'name', 'v_range': [['6.4.7', '6.4.13'], ['7.0.1', '']]
+            'mkey': 'name', 'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']]
         },
         'system_npu_npqueues_profile': {
             'params': ['adom', 'profile'],
@@ -4775,7 +4776,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/system/npu/np-queues/profile/{profile}',
                 '/pm/config/global/obj/system/npu/np-queues/profile/{profile}'
             ],
-            'mkey': 'id', 'v_range': [['6.4.7', '6.4.13'], ['7.0.1', '']]
+            'mkey': 'id', 'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']]
         },
         'system_npu_npqueues_scheduler': {
             'params': ['adom', 'scheduler'],
@@ -4783,7 +4784,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/system/npu/np-queues/scheduler/{scheduler}',
                 '/pm/config/global/obj/system/npu/np-queues/scheduler/{scheduler}'
             ],
-            'mkey': 'name', 'v_range': [['6.4.7', '6.4.13'], ['7.0.1', '']]
+            'mkey': 'name', 'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']]
         },
         'system_npu_nputcam': {
             'params': ['adom', 'npu-tcam'],
@@ -4799,7 +4800,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/system/npu/tcp-timeout-profile/{tcp-timeout-profile}',
                 '/pm/config/global/obj/system/npu/tcp-timeout-profile/{tcp-timeout-profile}'
             ],
-            'mkey': 'id', 'v_range': [['6.4.7', '6.4.13'], ['7.0.1', '']]
+            'mkey': 'id', 'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']]
         },
         'system_npu_udptimeoutprofile': {
             'params': ['adom', 'udp-timeout-profile'],
@@ -4807,7 +4808,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/system/npu/udp-timeout-profile/{udp-timeout-profile}',
                 '/pm/config/global/obj/system/npu/udp-timeout-profile/{udp-timeout-profile}'
             ],
-            'mkey': 'id', 'v_range': [['6.4.7', '6.4.13'], ['7.0.1', '']]
+            'mkey': 'id', 'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']]
         },
         'system_ntp_ntpserver': {
             'params': ['ntpserver'],
@@ -4822,7 +4823,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/system/object-tag/{object-tag}',
                 '/pm/config/global/obj/system/object-tag/{object-tag}'
             ],
-            'mkey': 'name', 'v_range': [['6.2.0', '6.4.13']]
+            'mkey': 'name', 'v_range': [['6.2.0', '6.4.14']]
         },
         'system_objecttagging': {
             'params': ['adom', 'object-tagging'],
@@ -5089,7 +5090,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/system/sdn-connector/{sdn-connector}/gcp-project-list/{gcp-project-list}',
                 '/pm/config/global/obj/system/sdn-connector/{sdn-connector}/gcp-project-list/{gcp-project-list}'
             ],
-            'mkey': 'id', 'v_range': [['6.4.7', '6.4.13'], ['7.0.2', '']]
+            'mkey': 'id', 'v_range': [['6.4.7', '6.4.14'], ['7.0.2', '']]
         },
         'system_sdnconnector_nic': {
             'params': ['adom', 'sdn-connector', 'nic'],
@@ -5262,7 +5263,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/user/certificate/{certificate}',
                 '/pm/config/global/obj/user/certificate/{certificate}'
             ],
-            'mkey': 'id', 'v_range': [['7.0.8', '7.0.10'], ['7.2.3', '']]
+            'mkey': 'id', 'v_range': [['7.0.8', '7.0.12'], ['7.2.3', '']]
         },
         'user_clearpass': {
             'params': ['adom', 'clearpass'],
@@ -6107,6 +6108,13 @@ def main():
                 '/pm/config/adom/{adom}/wanprof/{wanprof}/system/sdwan/health-check/{health-check}/sla/{sla}'
             ],
             'mkey': 'id', 'v_range': [['6.4.1', '']]
+        },
+        'wanprof_system_sdwan_members': {
+            'params': ['adom', 'wanprof', 'members'],
+            'urls': [
+                '/pm/config/adom/{adom}/wanprof/{wanprof}/system/sdwan/members/{members}'
+            ],
+            'mkey': 'seq-num', 'v_range': [['6.4.1', '']]
         },
         'wanprof_system_sdwan_service': {
             'params': ['adom', 'wanprof', 'service'],

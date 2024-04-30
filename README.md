@@ -1,19 +1,19 @@
 ![Fortinet logo|](https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Fortinet_logo.svg/320px-Fortinet_logo.svg.png)
 
-# Ansible Collection - fortinet.fortimanager:2.4.0
+# Ansible Collection - fortinet.fortimanager:2.5.0
 
 FortiManager Ansible Collection includes the modules that are able to configure FortiManager.
 
 [Documentation](https://ansible-galaxy-fortimanager-docs.readthedocs.io/en/latest) for the collection.
 
 ## Requirements
-- Ansible 2.14.0+
+- Ansible 2.15.0+
 - Python 3
 
 ## Installation
 This collection is distributed via [ansible-galaxy](https://galaxy.ansible.com/fortinet/fortimanager), the installation steps are as follows:
 
-1. Install or upgrade to Ansible 2.14.0+
+1. Install or upgrade to Ansible 2.15.0+
 2. Download this collection from galaxy: `ansible-galaxy collection install fortinet.fortimanager`
 
 ## Example Usage
@@ -23,7 +23,7 @@ See [example here](https://ansible-galaxy-fortimanager-docs.readthedocs.io/en/la
 ## Modules
 The collection provides the following modules:
 
-* `fmgr_adom_options`  no description.
+* `fmgr_adom_options`  Options.
 * `fmgr_antivirus_mmschecksum`  Configure MMS content checksum list.
 * `fmgr_antivirus_mmschecksum_entries`  modify this MMS content checksum list.
 * `fmgr_antivirus_notification`  Configure AntiVirus notification lists.
@@ -46,7 +46,7 @@ The collection provides the following modules:
 * `fmgr_apcfgprofile_commandlist`  AP local configuration command list.
 * `fmgr_application_casi_profile`  Cloud Access Security Inspection.
 * `fmgr_application_casi_profile_entries`  Application entries.
-* `fmgr_application_categories`  no description.
+* `fmgr_application_categories`  Application categories.
 * `fmgr_application_custom`  Configure custom application signatures.
 * `fmgr_application_group`  Configure firewall application groups.
 * `fmgr_application_internetservice`  Show Internet service application.
@@ -77,27 +77,27 @@ The collection provides the following modules:
 * `fmgr_casb_useractivity_controloptions_operations`  CASB control option operations.
 * `fmgr_casb_useractivity_match`  CASB user activity match rules.
 * `fmgr_casb_useractivity_match_rules`  CASB user activity rules.
-* `fmgr_certificate_template`  no description.
+* `fmgr_certificate_template`  Certificate template.
 * `fmgr_cifs_domaincontroller`  Define known domain controller servers.
 * `fmgr_cifs_profile`  Configure CIFS profile.
 * `fmgr_cifs_profile_filefilter`  File filter.
 * `fmgr_cifs_profile_filefilter_entries`  File filter entries.
 * `fmgr_cifs_profile_serverkeytab`  Server keytab.
-* `fmgr_cloud_orchestaws`  no description.
-* `fmgr_cloud_orchestawsconnector`  no description.
-* `fmgr_cloud_orchestawstemplate_autoscaleexistingvpc`  no description.
-* `fmgr_cloud_orchestawstemplate_autoscalenewvpc`  no description.
-* `fmgr_cloud_orchestawstemplate_autoscaletgwnewvpc`  no description.
-* `fmgr_cloud_orchestration`  no description.
+* `fmgr_cloud_orchestaws`  Cloud orchest aws.
+* `fmgr_cloud_orchestawsconnector`  Cloud orchest awsconnector.
+* `fmgr_cloud_orchestawstemplate_autoscaleexistingvpc`  Cloud orchest awstemplate autoscale existing vpc.
+* `fmgr_cloud_orchestawstemplate_autoscalenewvpc`  Cloud orchest awstemplate autoscale new vpc.
+* `fmgr_cloud_orchestawstemplate_autoscaletgwnewvpc`  Cloud orchest awstemplate autoscale tgw new vpc.
+* `fmgr_cloud_orchestration`  Cloud orchestration.
 * `fmgr_credentialstore_domaincontroller`  Define known domain controller servers.
-* `fmgr_devprof_device_profile_fortianalyzer`  no description.
-* `fmgr_devprof_device_profile_fortiguard`  no description.
-* `fmgr_devprof_import`  no description.
+* `fmgr_devprof_device_profile_fortianalyzer`  System template device profile fortianalyzer.
+* `fmgr_devprof_device_profile_fortiguard`  System template device profile fortiguard.
+* `fmgr_devprof_import`  Devprof import.
 * `fmgr_devprof_log_fortianalyzer_setting`  Global FortiAnalyzer settings.
 * `fmgr_devprof_log_fortianalyzercloud_setting`  Global FortiAnalyzer Cloud settings.
 * `fmgr_devprof_log_syslogd_filter`  Filters for remote system server.
-* `fmgr_devprof_log_syslogd_filter_excludelist`  no description.
-* `fmgr_devprof_log_syslogd_filter_excludelist_fields`  no description.
+* `fmgr_devprof_log_syslogd_filter_excludelist`  System template log syslogd filter exclude list.
+* `fmgr_devprof_log_syslogd_filter_excludelist_fields`  System template log syslogd filter exclude list fields.
 * `fmgr_devprof_log_syslogd_filter_freestyle`  Free style filters.
 * `fmgr_devprof_log_syslogd_setting`  Global settings for remote syslog server.
 * `fmgr_devprof_log_syslogd_setting_customfieldname`  Custom field name for CEF format logging.
@@ -168,28 +168,28 @@ The collection provides the following modules:
 * `fmgr_dvmdb_device`  Device table, most attributes are read-only and can only be changed internally.
 * `fmgr_dvmdb_device_replace_sn`  Replace devices serial number with new value.
 * `fmgr_dvmdb_device_vdom`  Device VDOM table.
-* `fmgr_dvmdb_folder`  no description.
+* `fmgr_dvmdb_folder`  Device manager database folder.
 * `fmgr_dvmdb_group`  Device group table.
 * `fmgr_dvmdb_group_objectmember`  Device group table.
-* `fmgr_dvmdb_metafields_adom`  no description.
-* `fmgr_dvmdb_metafields_device`  no description.
-* `fmgr_dvmdb_metafields_group`  no description.
+* `fmgr_dvmdb_metafields_adom`  Device manager database meta fields adom.
+* `fmgr_dvmdb_metafields_device`  Device manager database meta fields device.
+* `fmgr_dvmdb_metafields_group`  Device manager database meta fields group.
 * `fmgr_dvmdb_revision`  ADOM revision table.
 * `fmgr_dvmdb_script`  Script table.
 * `fmgr_dvmdb_script_execute`  Run script.
 * `fmgr_dvmdb_script_objectmember`  Script table.
 * `fmgr_dvmdb_script_scriptschedule`  Script schedule table.
-* `fmgr_dvmdb_upgrade`  no description.
-* `fmgr_dvmdb_workflow_approve`  no description.
-* `fmgr_dvmdb_workflow_discard`  no description.
-* `fmgr_dvmdb_workflow_drop`  no description.
-* `fmgr_dvmdb_workflow_reject`  no description.
-* `fmgr_dvmdb_workflow_repair`  no description.
-* `fmgr_dvmdb_workflow_revert`  no description.
-* `fmgr_dvmdb_workflow_review`  no description.
-* `fmgr_dvmdb_workflow_save`  no description.
+* `fmgr_dvmdb_upgrade`  Device manager database upgrade.
+* `fmgr_dvmdb_workflow_approve`  Device manager database workflow approve.
+* `fmgr_dvmdb_workflow_discard`  Device manager database workflow discard.
+* `fmgr_dvmdb_workflow_drop`  Device manager database workflow drop.
+* `fmgr_dvmdb_workflow_reject`  Device manager database workflow reject.
+* `fmgr_dvmdb_workflow_repair`  Device manager database workflow repair.
+* `fmgr_dvmdb_workflow_revert`  Device manager database workflow revert.
+* `fmgr_dvmdb_workflow_review`  Device manager database workflow review.
+* `fmgr_dvmdb_workflow_save`  Device manager database workflow save.
 * `fmgr_dvmdb_workflow_start`  Continue a workflow session.
-* `fmgr_dvmdb_workflow_submit`  no description.
+* `fmgr_dvmdb_workflow_submit`  Device manager database workflow submit.
 * `fmgr_dvmdb_workspace_commit`  Commit change.
 * `fmgr_dvmdb_workspace_commit_dev`  Commit change.
 * `fmgr_dvmdb_workspace_commit_obj`  Commit change.
@@ -202,27 +202,27 @@ The collection provides the following modules:
 * `fmgr_dvmdb_workspace_unlock_dev`  Unlock a device.
 * `fmgr_dvmdb_workspace_unlock_obj`  Unlock a specific object, where the url contains the full path to the object.
 * `fmgr_dvmdb_workspace_unlock_pkg`  Unlock a specific package, where the url includes both the folder.
-* `fmgr_dynamic_address`  no description.
-* `fmgr_dynamic_address_dynamicaddrmapping`  no description.
-* `fmgr_dynamic_certificate_local`  no description.
-* `fmgr_dynamic_certificate_local_dynamicmapping`  no description.
-* `fmgr_dynamic_input_interface`  no description.
-* `fmgr_dynamic_input_interface_dynamicmapping`  no description.
-* `fmgr_dynamic_interface`  no description.
-* `fmgr_dynamic_interface_dynamicmapping`  no description.
-* `fmgr_dynamic_interface_platformmapping`  no description.
-* `fmgr_dynamic_ippool`  no description.
-* `fmgr_dynamic_multicast_interface`  no description.
-* `fmgr_dynamic_multicast_interface_dynamicmapping`  no description.
-* `fmgr_dynamic_vip`  no description.
+* `fmgr_dynamic_address`  Dynamic address.
+* `fmgr_dynamic_address_dynamicaddrmapping`  Dynamic address dynamic addr mapping.
+* `fmgr_dynamic_certificate_local`  Dynamic certificate local.
+* `fmgr_dynamic_certificate_local_dynamicmapping`  Dynamic certificate local dynamic mapping.
+* `fmgr_dynamic_input_interface`  Dynamic input interface.
+* `fmgr_dynamic_input_interface_dynamicmapping`  Dynamic input interface dynamic mapping.
+* `fmgr_dynamic_interface`  Dynamic interface.
+* `fmgr_dynamic_interface_dynamicmapping`  Dynamic interface dynamic mapping.
+* `fmgr_dynamic_interface_platformmapping`  Dynamic interface platform mapping.
+* `fmgr_dynamic_ippool`  Dynamic ippool.
+* `fmgr_dynamic_multicast_interface`  Dynamic multicast interface.
+* `fmgr_dynamic_multicast_interface_dynamicmapping`  Dynamic multicast interface dynamic mapping.
+* `fmgr_dynamic_vip`  Dynamic vip.
 * `fmgr_dynamic_virtualwanlink_members`  FortiGate interfaces added to the virtual-wan-link.
 * `fmgr_dynamic_virtualwanlink_members_dynamicmapping`  FortiGate interfaces added to the virtual-wan-link.
-* `fmgr_dynamic_virtualwanlink_neighbor`  no description.
-* `fmgr_dynamic_virtualwanlink_neighbor_dynamicmapping`  no description.
-* `fmgr_dynamic_virtualwanlink_server`  no description.
-* `fmgr_dynamic_virtualwanlink_server_dynamicmapping`  no description.
-* `fmgr_dynamic_vpntunnel`  no description.
-* `fmgr_dynamic_vpntunnel_dynamicmapping`  no description.
+* `fmgr_dynamic_virtualwanlink_neighbor`  Dynamic virtual wan link neighbor.
+* `fmgr_dynamic_virtualwanlink_neighbor_dynamicmapping`  Dynamic virtual wan link neighbor dynamic mapping.
+* `fmgr_dynamic_virtualwanlink_server`  Dynamic virtual wan link server.
+* `fmgr_dynamic_virtualwanlink_server_dynamicmapping`  Dynamic virtual wan link server dynamic mapping.
+* `fmgr_dynamic_vpntunnel`  Dynamic vpntunnel.
+* `fmgr_dynamic_vpntunnel_dynamicmapping`  Dynamic vpntunnel dynamic mapping.
 * `fmgr_emailfilter_blockallowlist`  Configure anti-spam block/allow list.
 * `fmgr_emailfilter_blockallowlist_entries`  Anti-spam block/allow entries.
 * `fmgr_emailfilter_bwl`  Configure anti-spam black/white list.
@@ -263,9 +263,9 @@ The collection provides the following modules:
 * `fmgr_extendercontroller_extenderprofile_cellular_smsnotification_receiver`  SMS notification receiver list.
 * `fmgr_extendercontroller_extenderprofile_lanextension`  FortiExtender lan extension configuration.
 * `fmgr_extendercontroller_extenderprofile_lanextension_backhaul`  LAN extension backhaul tunnel configuration.
-* `fmgr_extendercontroller_simprofile`  no description.
-* `fmgr_extendercontroller_simprofile_autoswitchprofile`  no description.
-* `fmgr_extendercontroller_template`  no description.
+* `fmgr_extendercontroller_simprofile`  Extender controller sim profile.
+* `fmgr_extendercontroller_simprofile_autoswitchprofile`  Extender controller sim profile auto switch profile.
+* `fmgr_extendercontroller_template`  Extender controller template.
 * `fmgr_extensioncontroller_dataplan`  FortiExtender dataplan configuration.
 * `fmgr_extensioncontroller_extenderprofile`  FortiExtender extender profile configuration.
 * `fmgr_extensioncontroller_extenderprofile_cellular`  FortiExtender cellular configuration.
@@ -328,11 +328,11 @@ The collection provides the following modules:
 * `fmgr_firewall_addrgrp_tagging`  Config object tagging.
 * `fmgr_firewall_carrierendpointbwl`  Carrier end point black/white list tables.
 * `fmgr_firewall_carrierendpointbwl_entries`  Carrier end point black/white list.
-* `fmgr_firewall_casbprofile`  no description.
-* `fmgr_firewall_casbprofile_saasapplication`  no description.
-* `fmgr_firewall_casbprofile_saasapplication_accessrule`  no description.
-* `fmgr_firewall_casbprofile_saasapplication_customcontrol`  no description.
-* `fmgr_firewall_casbprofile_saasapplication_customcontrol_option`  no description.
+* `fmgr_firewall_casbprofile`  Firewall casb profile.
+* `fmgr_firewall_casbprofile_saasapplication`  Firewall casb profile saas application.
+* `fmgr_firewall_casbprofile_saasapplication_accessrule`  Firewall casb profile saas application access rule.
+* `fmgr_firewall_casbprofile_saasapplication_customcontrol`  Firewall casb profile saas application custom control.
+* `fmgr_firewall_casbprofile_saasapplication_customcontrol_option`  Firewall casb profile saas application custom control option.
 * `fmgr_firewall_decryptedtrafficmirror`  Configure decrypted traffic mirror.
 * `fmgr_firewall_explicitproxyaddress`  Explicit web proxy address configuration.
 * `fmgr_firewall_explicitproxyaddress_headergroup`  HTTP header group.
@@ -459,11 +459,11 @@ The collection provides the following modules:
 * `fmgr_firewall_vipgrp_dynamicmapping`  Configure IPv4 virtual IP groups.
 * `fmgr_firewall_wildcardfqdn_custom`  Config global/VDOM Wildcard FQDN address.
 * `fmgr_firewall_wildcardfqdn_group`  Config global Wildcard FQDN address groups.
-* `fmgr_fmg_device_blueprint`  no description.
-* `fmgr_fmg_fabric_authorization_template`  no description.
-* `fmgr_fmg_fabric_authorization_template_platforms`  no description.
-* `fmgr_fmg_variable`  no description.
-* `fmgr_fmg_variable_dynamicmapping`  no description.
+* `fmgr_fmg_device_blueprint`  Fmg device blueprint.
+* `fmgr_fmg_fabric_authorization_template`  Fmg fabric authorization template.
+* `fmgr_fmg_fabric_authorization_template_platforms`  Fmg fabric authorization template platforms.
+* `fmgr_fmg_variable`  Fmg variable.
+* `fmgr_fmg_variable_dynamicmapping`  Fmg variable dynamic mapping.
 * `fmgr_fmupdate_analyzer_virusreport`  Send virus detection notification to FortiGuard.
 * `fmgr_fmupdate_avips_advancedlog`  Enable/disable logging of FortiGuard antivirus and IPS update packages received by FortiManagers built-in FortiGuard.
 * `fmgr_fmupdate_avips_webproxy`  Configure the web proxy for use with FortiGuard antivirus and IPS updates.
@@ -489,19 +489,19 @@ The collection provides the following modules:
 * `fmgr_fmupdate_webspam_fgdsetting_serveroverride`  Server override configure.
 * `fmgr_fmupdate_webspam_fgdsetting_serveroverride_servlist`  Override server.
 * `fmgr_fmupdate_webspam_webproxy`  Configure the web proxy for use with FortiGuard antivirus and IPS updates.
-* `fmgr_fsp_vlan`  no description.
+* `fmgr_fsp_vlan`  Fsp vlan.
 * `fmgr_fsp_vlan_dhcpserver`  Configure DHCP servers.
 * `fmgr_fsp_vlan_dhcpserver_excluderange`  Exclude one or more ranges of IP addresses from being assigned to clients.
 * `fmgr_fsp_vlan_dhcpserver_iprange`  DHCP IP range configuration.
 * `fmgr_fsp_vlan_dhcpserver_options`  DHCP options.
 * `fmgr_fsp_vlan_dhcpserver_reservedaddress`  Options for the DHCP server to assign IP settings to specific MAC addresses.
-* `fmgr_fsp_vlan_dynamicmapping`  no description.
+* `fmgr_fsp_vlan_dynamicmapping`  Fsp vlan dynamic mapping.
 * `fmgr_fsp_vlan_dynamicmapping_dhcpserver`  Configure DHCP servers.
 * `fmgr_fsp_vlan_dynamicmapping_dhcpserver_excluderange`  Exclude one or more ranges of IP addresses from being assigned to clients.
 * `fmgr_fsp_vlan_dynamicmapping_dhcpserver_iprange`  DHCP IP range configuration.
 * `fmgr_fsp_vlan_dynamicmapping_dhcpserver_options`  DHCP options.
 * `fmgr_fsp_vlan_dynamicmapping_dhcpserver_reservedaddress`  Options for the DHCP server to assign IP settings to specific MAC addresses.
-* `fmgr_fsp_vlan_dynamicmapping_interface`  no description.
+* `fmgr_fsp_vlan_dynamicmapping_interface`  Fsp vlan dynamic mapping interface.
 * `fmgr_fsp_vlan_dynamicmapping_interface_ipv6`  IPv6 of interface.
 * `fmgr_fsp_vlan_dynamicmapping_interface_ipv6_ip6delegatedprefixlist`  Advertised IPv6 delegated prefix list.
 * `fmgr_fsp_vlan_dynamicmapping_interface_ipv6_ip6extraaddr`  Extra IPv6 address prefixes of interface.
@@ -567,9 +567,9 @@ The collection provides the following modules:
 * `fmgr_ips_baseline_sensor`  Configure IPS sensor.
 * `fmgr_ips_baseline_sensor_entries`  IPS sensor filter.
 * `fmgr_ips_baseline_sensor_entries_exemptip`  Traffic from selected source or destination IP addresses is exempt from this signature.
-* `fmgr_ips_baseline_sensor_filter`  no description.
-* `fmgr_ips_baseline_sensor_override`  no description.
-* `fmgr_ips_baseline_sensor_override_exemptip`  no description.
+* `fmgr_ips_baseline_sensor_filter`  Ips baseline sensor filter.
+* `fmgr_ips_baseline_sensor_override`  Ips baseline sensor override.
+* `fmgr_ips_baseline_sensor_override_exemptip`  Ips baseline sensor override exempt ip.
 * `fmgr_ips_custom`  Configure IPS custom signature.
 * `fmgr_ips_sensor`  Configure IPS sensor.
 * `fmgr_ips_sensor_entries`  IPS sensor filter.
@@ -578,15 +578,15 @@ The collection provides the following modules:
 * `fmgr_log_npuserver`  Configure all the log servers and create the server groups.
 * `fmgr_log_npuserver_servergroup`  create server group.
 * `fmgr_log_npuserver_serverinfo`  configure server info.
-* `fmgr_metafields_system_admin_user`  no description.
+* `fmgr_metafields_system_admin_user`  Cli meta fields system admin user.
 * `fmgr_mpskprofile`  Configure MPSK profile.
 * `fmgr_mpskprofile_mpskgroup`  List of multiple PSK groups.
 * `fmgr_mpskprofile_mpskgroup_mpskkey`  List of multiple PSK entries.
 * `fmgr_nacprofile`  Configure WiFi network access control.
 * `fmgr_pkg_authentication_rule`  Configure Authentication Rules.
 * `fmgr_pkg_authentication_setting`  Configure authentication setting.
-* `fmgr_pkg_central_dnat`  no description.
-* `fmgr_pkg_central_dnat6`  no description.
+* `fmgr_pkg_central_dnat`  Policy package central dnat.
+* `fmgr_pkg_central_dnat6`  Policy package central dnat6.
 * `fmgr_pkg_firewall_acl`  Configure IPv4 access control list.
 * `fmgr_pkg_firewall_acl6`  Configure IPv6 access control list.
 * `fmgr_pkg_firewall_centralsnatmap`  Configure central SNAT policies.
@@ -617,8 +617,8 @@ The collection provides the following modules:
 * `fmgr_pkg_firewall_policy64`  Configure IPv6 to IPv4 policies.
 * `fmgr_pkg_firewall_policy6_sectionvalue`  Configure IPv6 policies.
 * `fmgr_pkg_firewall_policy_sectionvalue`  Configure IPv4 policies.
-* `fmgr_pkg_firewall_policy_vpndstnode`  no description.
-* `fmgr_pkg_firewall_policy_vpnsrcnode`  no description.
+* `fmgr_pkg_firewall_policy_vpndstnode`  Policy package firewall policy vpn dst node.
+* `fmgr_pkg_firewall_policy_vpnsrcnode`  Policy package firewall policy vpn src node.
 * `fmgr_pkg_firewall_proxypolicy`  Configure proxy policies.
 * `fmgr_pkg_firewall_proxypolicy_sectionvalue`  Configure proxy policies.
 * `fmgr_pkg_firewall_securitypolicy`  Configure NGFW IPv4/IPv6 application policies.
@@ -631,13 +631,13 @@ The collection provides the following modules:
 * `fmgr_pkg_header_policy6`  Configure IPv6 policies.
 * `fmgr_pkg_header_shapingpolicy`  Configure shaping policies.
 * `fmgr_pkg_user_nacpolicy`  Configure NAC policy matching pattern to identify matching NAC devices.
-* `fmgr_pm_config_meta_reference`  no description.
-* `fmgr_pm_config_metafields_firewall_address`  no description.
-* `fmgr_pm_config_metafields_firewall_addrgrp`  no description.
-* `fmgr_pm_config_metafields_firewall_centralsnatmap`  no description.
-* `fmgr_pm_config_metafields_firewall_policy`  no description.
-* `fmgr_pm_config_metafields_firewall_service_custom`  no description.
-* `fmgr_pm_config_metafields_firewall_service_group`  no description.
+* `fmgr_pm_config_meta_reference`  Meta reference.
+* `fmgr_pm_config_metafields_firewall_address`  Meta fields firewall address.
+* `fmgr_pm_config_metafields_firewall_addrgrp`  Meta fields firewall addrgrp.
+* `fmgr_pm_config_metafields_firewall_centralsnatmap`  Meta fields firewall central snat map.
+* `fmgr_pm_config_metafields_firewall_policy`  Meta fields firewall policy.
+* `fmgr_pm_config_metafields_firewall_service_custom`  Meta fields firewall service custom.
+* `fmgr_pm_config_metafields_firewall_service_group`  Meta fields firewall service group.
 * `fmgr_pm_config_pblock_firewall_consolidated_policy`  Configure consolidated IPv4/IPv6 policies.
 * `fmgr_pm_config_pblock_firewall_consolidated_policy_sectionvalue`  Configure consolidated IPv4/IPv6 policies.
 * `fmgr_pm_config_pblock_firewall_policy`  Configure IPv4/IPv6 policies.
@@ -651,18 +651,18 @@ The collection provides the following modules:
 * `fmgr_pm_config_workspace_commit`  Commit changes to an ADOM.
 * `fmgr_pm_config_workspace_lock`  Lock an ADOM in workspace mode.
 * `fmgr_pm_config_workspace_unlock`  Unlock an ADOM.
-* `fmgr_pm_devprof_adom`  no description.
-* `fmgr_pm_devprof_pkg`  no description.
-* `fmgr_pm_devprof_scopemember`  no description.
-* `fmgr_pm_pblock_adom`  no description.
-* `fmgr_pm_pblock_obj`  no description.
+* `fmgr_pm_devprof_adom`  System template adom.
+* `fmgr_pm_devprof_pkg`  System template adom.
+* `fmgr_pm_devprof_scopemember`  System template scope member.
+* `fmgr_pm_pblock_adom`  Policy block adom.
+* `fmgr_pm_pblock_obj`  Policy block adom.
 * `fmgr_pm_pkg`  Policy package or folder.
 * `fmgr_pm_pkg_adom`  Policy package or folder.
 * `fmgr_pm_pkg_global`  Policy package or folder.
 * `fmgr_pm_pkg_scopemember`  Policy package or folder.
-* `fmgr_pm_wanprof_adom`  no description.
-* `fmgr_pm_wanprof_pkg`  no description.
-* `fmgr_pm_wanprof_scopemember`  no description.
+* `fmgr_pm_wanprof_adom`  Sd wan template adom.
+* `fmgr_pm_wanprof_pkg`  Sd wan template adom.
+* `fmgr_pm_wanprof_scopemember`  Sd wan template scope member.
 * `fmgr_qosprofile`  Configure WiFi quality of service.
 * `fmgr_region`  Configure FortiAP regions.
 * `fmgr_router_accesslist`  Configure access lists.
@@ -683,21 +683,21 @@ The collection provides the following modules:
 * `fmgr_sctpfilter_profile_ppidfilters`  PPID filters list.
 * `fmgr_securityconsole_abort`  Abort and cancel a security console task.
 * `fmgr_securityconsole_assign_package`  Assign or unassign global policy package to ADOM packages.
-* `fmgr_securityconsole_cliprof_check`  no description.
+* `fmgr_securityconsole_cliprof_check`  Securityconsole cliprof check.
 * `fmgr_securityconsole_import_dev_objs`  Import objects from device to ADOM, or from ADOM to Global.
-* `fmgr_securityconsole_install_device`  no description.
-* `fmgr_securityconsole_install_objects_v2`  no description.
+* `fmgr_securityconsole_install_device`  Securityconsole install device.
+* `fmgr_securityconsole_install_objects_v2`  Securityconsole install objects v2.
 * `fmgr_securityconsole_install_package`  Copy and install a policy package to devices.
 * `fmgr_securityconsole_install_preview`  Generate install preview for a device.
 * `fmgr_securityconsole_package_cancel_install`  Cancel policy install and clear preview cache.
 * `fmgr_securityconsole_package_clone`  Clone a policy package within the same ADOM.
 * `fmgr_securityconsole_package_commit`  Install policies to device from preview cache.
 * `fmgr_securityconsole_package_move`  Move and/or rename a policy package within the same ADOM.
-* `fmgr_securityconsole_pblock_clone`  no description.
+* `fmgr_securityconsole_pblock_clone`  Securityconsole policy block clone.
 * `fmgr_securityconsole_preview_result`  Retrieve the result of previous install/preview command.
 * `fmgr_securityconsole_reinstall_package`  Re-install a policy package that had been previously installed.
 * `fmgr_securityconsole_sign_certificate_template`  Generate and sign certificate on the target device.
-* `fmgr_securityconsole_template_cli_preview`  no description.
+* `fmgr_securityconsole_template_cli_preview`  Securityconsole template cli preview.
 * `fmgr_spamfilter_bwl`  Configure anti-spam black/white list.
 * `fmgr_spamfilter_bwl_entries`  Anti-spam black/white list entries.
 * `fmgr_spamfilter_bword`  Configure AntiSpam banned word list.
@@ -772,15 +772,15 @@ The collection provides the following modules:
 * `fmgr_switchcontroller_trafficpolicy`  Configure FortiSwitch traffic policy.
 * `fmgr_switchcontroller_vlanpolicy`  Configure VLAN policy to be applied on the managed FortiSwitch ports through dynamic-port-policy.
 * `fmgr_sys_api_sdnconnector`  Query SDN connector data.
-* `fmgr_sys_cloud_orchest`  no description.
+* `fmgr_sys_cloud_orchest`  Sys cloud orchest.
 * `fmgr_sys_generate_wsdl`  Generate WSDL for specific module and objects.
-* `fmgr_sys_hitcount`  no description.
+* `fmgr_sys_hitcount`  Sys hitcount.
 * `fmgr_sys_login_challenge`  Answer a log in challenge question, used following a login/user or login/challenge command.
 * `fmgr_sys_login_user`  Log into the device with user name and password.
 * `fmgr_sys_logout`  Log out a session.
 * `fmgr_sys_proxy_json`  Send and receive JSON request to/from managed devices.
 * `fmgr_sys_reboot`  Restart FortiManager.
-* `fmgr_sys_task_result`  no description.
+* `fmgr_sys_task_result`  Sys task result.
 * `fmgr_system_admin_group`  User group.
 * `fmgr_system_admin_group_member`  Group members.
 * `fmgr_system_admin_ldap`  LDAP server entry configuration.
@@ -837,7 +837,7 @@ The collection provides the following modules:
 * `fmgr_system_fortiguard`  Configure FortiGuard services.
 * `fmgr_system_fortiview_autocache`  FortiView auto-cache settings.
 * `fmgr_system_fortiview_setting`  FortiView settings.
-* `fmgr_system_geoipcountry`  no description.
+* `fmgr_system_geoipcountry`  System geoip country.
 * `fmgr_system_geoipoverride`  Configure geographical location mapping for IP address.
 * `fmgr_system_geoipoverride_ip6range`  Table of IPv6 ranges assigned to country.
 * `fmgr_system_geoipoverride_iprange`  Table of IP ranges assigned to country.
@@ -890,8 +890,8 @@ The collection provides the following modules:
 * `fmgr_system_logfetch_serversettings`  Log-fetch server settings.
 * `fmgr_system_mail`  Alert emails.
 * `fmgr_system_mcpolicydisabledadoms`  Multicast policy disabled adoms.
-* `fmgr_system_meta`  no description.
-* `fmgr_system_meta_sysmetafields`  no description.
+* `fmgr_system_meta`  System meta.
+* `fmgr_system_meta_sysmetafields`  System meta sys meta fields.
 * `fmgr_system_metadata_admins`  Configure admins.
 * `fmgr_system_npu`  Configure NPU attributes.
 * `fmgr_system_npu_backgroundssescan`  Configure driver background scan for SSE.
@@ -997,14 +997,14 @@ The collection provides the following modules:
 * `fmgr_system_webproxy`  Configure system web proxy.
 * `fmgr_system_workflow_approvalmatrix`  workflow approval matrix.
 * `fmgr_system_workflow_approvalmatrix_approver`  Approver.
-* `fmgr_template`  no description.
-* `fmgr_templategroup`  no description.
+* `fmgr_template`  Cli template.
+* `fmgr_templategroup`  Cli template group.
 * `fmgr_um_image_upgrade`  The older API for updating the firmware of specific device.
 * `fmgr_um_image_upgrade_ext`  Update the firmware of specific device.
 * `fmgr_user_adgrp`  Configure FSSO groups.
 * `fmgr_user_certificate`  Configure certificate users.
-* `fmgr_user_clearpass`  no description.
-* `fmgr_user_connector`  no description.
+* `fmgr_user_clearpass`  User clearpass.
+* `fmgr_user_connector`  User connector.
 * `fmgr_user_device`  Configure devices.
 * `fmgr_user_device_dynamicmapping`  Configure devices.
 * `fmgr_user_device_tagging`  Config object tagging.
@@ -1017,7 +1017,7 @@ The collection provides the following modules:
 * `fmgr_user_domaincontroller`  Configure domain controller entries.
 * `fmgr_user_domaincontroller_extraserver`  extra servers.
 * `fmgr_user_exchange`  Configure MS Exchange server entries.
-* `fmgr_user_flexvm`  no description.
+* `fmgr_user_flexvm`  User flexvm.
 * `fmgr_user_fortitoken`  Configure FortiToken.
 * `fmgr_user_fsso`  Configure Fortinet Single Sign On.
 * `fmgr_user_fsso_dynamicmapping`  Configure Fortinet Single Sign On.
@@ -1027,21 +1027,21 @@ The collection provides the following modules:
 * `fmgr_user_group_dynamicmapping`  Configure user groups.
 * `fmgr_user_group_dynamicmapping_guest`  Guest User.
 * `fmgr_user_group_dynamicmapping_match`  Group matches.
-* `fmgr_user_group_dynamicmapping_sslvpnoschecklist`  no description.
+* `fmgr_user_group_dynamicmapping_sslvpnoschecklist`  User group dynamic mapping sslvpn os check list.
 * `fmgr_user_group_guest`  Guest User.
 * `fmgr_user_group_match`  Group matches.
-* `fmgr_user_json`  no description.
+* `fmgr_user_json`  User json.
 * `fmgr_user_krbkeytab`  Configure Kerberos keytab entries.
 * `fmgr_user_ldap`  Configure LDAP server entries.
 * `fmgr_user_ldap_dynamicmapping`  Configure LDAP server entries.
 * `fmgr_user_local`  Configure local users.
-* `fmgr_user_nsx`  no description.
-* `fmgr_user_nsx_service`  no description.
+* `fmgr_user_nsx`  User nsx.
+* `fmgr_user_nsx_service`  User nsx service.
 * `fmgr_user_passwordpolicy`  Configure user password policy.
 * `fmgr_user_peer`  Configure peer users.
 * `fmgr_user_peergrp`  Configure peer groups.
 * `fmgr_user_pop3`  POP3 server entry configuration.
-* `fmgr_user_pxgrid`  no description.
+* `fmgr_user_pxgrid`  User pxgrid.
 * `fmgr_user_radius`  Configure RADIUS server entries.
 * `fmgr_user_radius_accountingserver`  Additional accounting servers.
 * `fmgr_user_radius_dynamicmapping`  Configure RADIUS server entries.
@@ -1052,8 +1052,8 @@ The collection provides the following modules:
 * `fmgr_user_securityexemptlist_rule`  Configure rules for exempting users from captive portal authentication.
 * `fmgr_user_tacacs`  Configure TACACS+ server entries.
 * `fmgr_user_tacacs_dynamicmapping`  Configure TACACS+ server entries.
-* `fmgr_user_vcenter`  no description.
-* `fmgr_user_vcenter_rule`  no description.
+* `fmgr_user_vcenter`  User vcenter.
+* `fmgr_user_vcenter_rule`  User vcenter rule.
 * `fmgr_utmprofile`  Configure UTM.
 * `fmgr_vap`  Configure Virtual Access Points.
 * `fmgr_vap_dynamicmapping`  Configure Virtual Access Points.
@@ -1086,11 +1086,11 @@ The collection provides the following modules:
 * `fmgr_vpn_ssl_settings`  Configure SSL VPN.
 * `fmgr_vpn_ssl_settings_authenticationrule`  Authentication rule for SSL VPN.
 * `fmgr_vpnmgr_node`  VPN node for VPN Manager.
-* `fmgr_vpnmgr_node_iprange`  no description.
-* `fmgr_vpnmgr_node_ipv4excluderange`  no description.
-* `fmgr_vpnmgr_node_protectedsubnet`  no description.
-* `fmgr_vpnmgr_node_summaryaddr`  no description.
-* `fmgr_vpnmgr_vpntable`  no description.
+* `fmgr_vpnmgr_node_iprange`  Vpnmgr node ip range.
+* `fmgr_vpnmgr_node_ipv4excluderange`  Vpnmgr node ipv4 exclude range.
+* `fmgr_vpnmgr_node_protectedsubnet`  Vpnmgr node protected subnet.
+* `fmgr_vpnmgr_node_summaryaddr`  Vpnmgr node summary addr.
+* `fmgr_vpnmgr_vpntable`  Vpnmgr vpntable.
 * `fmgr_vpnsslweb_hostchecksoftware`  SSL-VPN host check software.
 * `fmgr_vpnsslweb_hostchecksoftware_checkitemlist`  Check item list.
 * `fmgr_vpnsslweb_portal`  Portal.
@@ -1157,7 +1157,7 @@ The collection provides the following modules:
 * `fmgr_wanprof_system_virtualwanlink_neighbor`  SD-WAN neighbor table.
 * `fmgr_wanprof_system_virtualwanlink_service`  Create SD-WAN rules or priority rules.
 * `fmgr_wanprof_system_virtualwanlink_service_sla`  Service level agreement.
-* `fmgr_webfilter_categories`  no description.
+* `fmgr_webfilter_categories`  Webfilter categories.
 * `fmgr_webfilter_content`  Configure Web filter banned word table.
 * `fmgr_webfilter_content_entries`  Configure banned word entries.
 * `fmgr_webfilter_contentheader`  Configure content types used by Web filter.

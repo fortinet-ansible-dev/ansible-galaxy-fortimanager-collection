@@ -102,9 +102,9 @@ options:
             ie:
                 type: int
                 description: IE ID
-            message:
+            fmgr_message:
                 type: int
-                description: Deprecated, please rename it to fmgr_message. Message ID
+                description: Message ID
 '''
 
 EXAMPLES = '''
@@ -199,7 +199,7 @@ def main():
         'gtp_iewhitelist_entries': {
             'type': 'dict',
             'v_range': [['6.0.0', '']],
-            'options': {'id': {'required': True, 'type': 'int'}, 'ie': {'type': 'int'}, 'message': {'type': 'int'}}
+            'options': {'id': {'required': True, 'type': 'int'}, 'ie': {'type': 'int'}, 'fmgr_message': {'type': 'int'}}
 
         }
     }

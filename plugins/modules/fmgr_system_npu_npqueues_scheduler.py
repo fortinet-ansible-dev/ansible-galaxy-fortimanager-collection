@@ -189,10 +189,10 @@ def main():
         'adom': {'required': True, 'type': 'str'},
         'system_npu_npqueues_scheduler': {
             'type': 'dict',
-            'v_range': [['6.4.7', '6.4.13'], ['7.0.1', '']],
+            'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']],
             'options': {
-                'mode': {'v_range': [['6.4.7', '6.4.13'], ['7.0.1', '']], 'choices': ['none', 'priority', 'round-robin'], 'type': 'str'},
-                'name': {'v_range': [['6.4.7', '6.4.13'], ['7.0.1', '']], 'required': True, 'type': 'str'}
+                'mode': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['none', 'priority', 'round-robin'], 'type': 'str'},
+                'name': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'required': True, 'type': 'str'}
             }
 
         }

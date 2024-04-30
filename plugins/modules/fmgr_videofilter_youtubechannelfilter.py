@@ -257,7 +257,7 @@ def main():
                 'name': {'v_range': [['7.0.0', '']], 'type': 'str'},
                 'default-action': {'v_range': [['7.0.1', '']], 'choices': ['monitor', 'block', 'allow'], 'type': 'str'},
                 'log': {'v_range': [['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'override-category': {'v_range': [['7.0.4', '7.0.10'], ['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'override-category': {'v_range': [['7.0.4', '7.0.12'], ['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
 
         }

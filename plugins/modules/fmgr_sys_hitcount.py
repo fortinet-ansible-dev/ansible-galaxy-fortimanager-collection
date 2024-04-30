@@ -12,7 +12,7 @@ ANSIBLE_METADATA = {'status': ['preview'],
 DOCUMENTATION = '''
 ---
 module: fmgr_sys_hitcount
-short_description: no description
+short_description: Sys hitcount
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
@@ -92,7 +92,7 @@ EXAMPLES = '''
     ansible_httpapi_validate_certs: false
     ansible_httpapi_port: 443
   tasks:
-    - name: No description
+    - name: Sys hitcount
       fortinet.fortimanager.fmgr_sys_hitcount:
         # bypass_validation: false
         workspace_locking_adom: <value in [global, custom adom including root]>
@@ -167,12 +167,12 @@ def main():
     module_arg_spec = {
         'sys_hitcount': {
             'type': 'dict',
-            'v_range': [['6.4.8', '6.4.13'], ['7.0.3', '']],
+            'v_range': [['6.4.8', '6.4.14'], ['7.0.3', '']],
             'options': {
-                'adom': {'v_range': [['6.4.8', '6.4.13'], ['7.0.3', '']], 'type': 'str'},
-                'adom_oid': {'v_range': [['6.4.8', '6.4.13'], ['7.0.3', '']], 'type': 'int'},
-                'pkg': {'v_range': [['6.4.8', '6.4.13'], ['7.0.3', '']], 'type': 'str'},
-                'pkg_oid': {'v_range': [['6.4.8', '6.4.13'], ['7.0.3', '']], 'type': 'int'}
+                'adom': {'v_range': [['6.4.8', '6.4.14'], ['7.0.3', '']], 'type': 'str'},
+                'adom_oid': {'v_range': [['6.4.8', '6.4.14'], ['7.0.3', '']], 'type': 'int'},
+                'pkg': {'v_range': [['6.4.8', '6.4.14'], ['7.0.3', '']], 'type': 'str'},
+                'pkg_oid': {'v_range': [['6.4.8', '6.4.14'], ['7.0.3', '']], 'type': 'int'}
             }
 
         }

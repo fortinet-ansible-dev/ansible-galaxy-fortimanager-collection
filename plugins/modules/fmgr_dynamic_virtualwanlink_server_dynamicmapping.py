@@ -12,7 +12,7 @@ ANSIBLE_METADATA = {'status': ['preview'],
 DOCUMENTATION = '''
 ---
 module: fmgr_dynamic_virtualwanlink_server_dynamicmapping
-short_description: no description
+short_description: Dynamic virtual wan link server dynamic mapping
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
@@ -118,7 +118,7 @@ EXAMPLES = '''
     ansible_httpapi_validate_certs: false
     ansible_httpapi_port: 443
   tasks:
-    - name: No description
+    - name: Dynamic virtual wan link server dynamic mapping
       fortinet.fortimanager.fmgr_dynamic_virtualwanlink_server_dynamicmapping:
         # bypass_validation: false
         workspace_locking_adom: <value in [global, custom adom including root]>
@@ -201,15 +201,15 @@ def main():
         'server': {'required': True, 'type': 'str'},
         'dynamic_virtualwanlink_server_dynamicmapping': {
             'type': 'dict',
-            'v_range': [['6.0.0', '6.4.13']],
+            'v_range': [['6.0.0', '6.4.14']],
             'options': {
                 '_scope': {
-                    'v_range': [['6.0.0', '6.4.13']],
+                    'v_range': [['6.0.0', '6.4.14']],
                     'type': 'list',
-                    'options': {'name': {'v_range': [['6.0.0', '6.4.13']], 'type': 'str'}, 'vdom': {'v_range': [['6.0.0', '6.4.13']], 'type': 'str'}},
+                    'options': {'name': {'v_range': [['6.0.0', '6.4.14']], 'type': 'str'}, 'vdom': {'v_range': [['6.0.0', '6.4.14']], 'type': 'str'}},
                     'elements': 'dict'
                 },
-                'server': {'v_range': [['6.0.0', '6.4.13']], 'type': 'raw'}
+                'server': {'v_range': [['6.0.0', '6.4.14']], 'type': 'raw'}
             }
 
         }

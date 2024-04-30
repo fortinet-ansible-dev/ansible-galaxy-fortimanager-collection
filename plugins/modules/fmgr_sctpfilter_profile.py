@@ -212,18 +212,18 @@ def main():
         'adom': {'required': True, 'type': 'str'},
         'sctpfilter_profile': {
             'type': 'dict',
-            'v_range': [['7.4.2', '']],
+            'v_range': [['7.2.5', '7.2.5'], ['7.4.2', '']],
             'options': {
-                'comment': {'v_range': [['7.4.2', '']], 'type': 'str'},
-                'name': {'v_range': [['7.4.2', '']], 'required': True, 'type': 'str'},
+                'comment': {'v_range': [['7.2.5', '7.2.5'], ['7.4.2', '']], 'type': 'str'},
+                'name': {'v_range': [['7.2.5', '7.2.5'], ['7.4.2', '']], 'required': True, 'type': 'str'},
                 'ppid-filters': {
-                    'v_range': [['7.4.2', '']],
+                    'v_range': [['7.2.5', '7.2.5'], ['7.4.2', '']],
                     'type': 'list',
                     'options': {
-                        'action': {'v_range': [['7.4.2', '']], 'choices': ['pass', 'reset', 'replace'], 'type': 'str'},
-                        'comment': {'v_range': [['7.4.2', '']], 'type': 'str'},
-                        'id': {'v_range': [['7.4.2', '']], 'type': 'int'},
-                        'ppid': {'v_range': [['7.4.2', '']], 'type': 'int'}
+                        'action': {'v_range': [['7.2.5', '7.2.5'], ['7.4.2', '']], 'choices': ['pass', 'reset', 'replace'], 'type': 'str'},
+                        'comment': {'v_range': [['7.2.5', '7.2.5'], ['7.4.2', '']], 'type': 'str'},
+                        'id': {'v_range': [['7.2.5', '7.2.5'], ['7.4.2', '']], 'type': 'int'},
+                        'ppid': {'v_range': [['7.2.5', '7.2.5'], ['7.4.2', '']], 'type': 'int'}
                     },
                     'elements': 'dict'
                 }

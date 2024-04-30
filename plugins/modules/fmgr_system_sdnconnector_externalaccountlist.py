@@ -201,7 +201,7 @@ def main():
             'options': {
                 'region-list': {'v_range': [['7.0.3', '']], 'type': 'raw'},
                 'role-arn': {'v_range': [['7.0.3', '']], 'type': 'str'},
-                'external-id': {'v_range': [['7.0.5', '7.0.10'], ['7.2.1', '']], 'type': 'str'}
+                'external-id': {'v_range': [['7.0.5', '7.0.12'], ['7.2.1', '']], 'type': 'str'}
             }
 
         }

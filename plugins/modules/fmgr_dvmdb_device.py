@@ -695,7 +695,7 @@ def main():
                         'role': {'choices': ['slave', 'master'], 'type': 'str'},
                         'sn': {'type': 'str'},
                         'status': {'type': 'int'},
-                        'conf_status': {'v_range': [['7.0.10', '7.0.10'], ['7.2.1', '']], 'type': 'int'}
+                        'conf_status': {'v_range': [['7.0.10', '7.0.12'], ['7.2.1', '']], 'type': 'int'}
                     },
                     'elements': 'dict'
                 },
@@ -763,11 +763,11 @@ def main():
                 'nsxt_service_name': {'v_range': [['6.4.4', '']], 'type': 'str'},
                 'private_key': {'v_range': [['6.2.7', '6.2.12'], ['6.4.4', '']], 'no_log': True, 'type': 'str'},
                 'private_key_status': {'v_range': [['6.2.7', '6.2.12'], ['6.4.4', '']], 'no_log': True, 'type': 'int'},
-                'vm_lic_overdue_since': {'v_range': [['6.4.12', '6.4.13'], ['7.0.8', '7.0.10'], ['7.2.3', '']], 'type': 'int'},
-                'first_tunnel_up': {'v_range': [['7.0.4', '7.0.10'], ['7.2.1', '']], 'type': 'int'},
+                'vm_lic_overdue_since': {'v_range': [['6.4.12', '6.4.14'], ['7.0.8', '7.0.12'], ['7.2.3', '']], 'type': 'int'},
+                'first_tunnel_up': {'v_range': [['7.0.4', '7.0.12'], ['7.2.1', '']], 'type': 'int'},
                 'eip': {'v_range': [['7.2.1', '']], 'type': 'str'},
                 'mgmt_uuid': {'v_range': [['7.2.1', '']], 'type': 'str'},
-                'hw_generation': {'v_range': [['7.2.4', '7.2.4'], ['7.4.1', '']], 'type': 'int'}
+                'hw_generation': {'v_range': [['7.2.4', '7.2.5'], ['7.4.1', '']], 'type': 'int'}
             }
 
         }

@@ -12,7 +12,7 @@ ANSIBLE_METADATA = {'status': ['preview'],
 DOCUMENTATION = '''
 ---
 module: fmgr_sys_task_result
-short_description: no description
+short_description: Sys task result
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
@@ -83,7 +83,7 @@ EXAMPLES = '''
     ansible_httpapi_validate_certs: false
     ansible_httpapi_port: 443
   tasks:
-    - name: No description
+    - name: Sys task result
       fortinet.fortimanager.fmgr_sys_task_result:
         # bypass_validation: false
         workspace_locking_adom: <value in [global, custom adom including root]>
@@ -155,8 +155,8 @@ def main():
     module_arg_spec = {
         'sys_task_result': {
             'type': 'dict',
-            'v_range': [['6.4.8', '6.4.13'], ['7.0.3', '']],
-            'options': {'taskid': {'v_range': [['6.4.8', '6.4.13'], ['7.0.3', '']], 'type': 'int'}}
+            'v_range': [['6.4.8', '6.4.14'], ['7.0.3', '']],
+            'options': {'taskid': {'v_range': [['6.4.8', '6.4.14'], ['7.0.3', '']], 'type': 'int'}}
 
         }
     }

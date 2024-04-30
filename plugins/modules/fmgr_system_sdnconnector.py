@@ -662,7 +662,7 @@ def main():
                 'oci-region-type': {'v_range': [['6.2.1', '']], 'choices': ['commercial', 'government'], 'type': 'str'},
                 'secret-token': {'v_range': [['6.2.0', '']], 'no_log': True, 'type': 'str'},
                 'updating': {'v_range': [['6.2.1', '7.2.0']], 'type': 'int'},
-                'server-ip': {'v_range': [['6.2.0', '6.4.13']], 'type': 'str'},
+                'server-ip': {'v_range': [['6.2.0', '6.4.14']], 'type': 'str'},
                 'group-name': {'v_range': [['6.2.2', '']], 'type': 'str'},
                 'api-key': {'v_range': [['6.4.1', '']], 'no_log': True, 'type': 'raw'},
                 'compute-generation': {'v_range': [['6.4.1', '']], 'type': 'int'},
@@ -691,7 +691,7 @@ def main():
                     'options': {
                         'region-list': {'v_range': [['7.0.3', '']], 'type': 'raw'},
                         'role-arn': {'v_range': [['7.0.3', '']], 'type': 'str'},
-                        'external-id': {'v_range': [['7.0.5', '7.0.10'], ['7.2.1', '']], 'type': 'str'}
+                        'external-id': {'v_range': [['7.0.5', '7.0.12'], ['7.2.1', '']], 'type': 'str'}
                     },
                     'elements': 'dict'
                 },
@@ -702,15 +702,15 @@ def main():
                     'elements': 'dict'
                 },
                 'gcp-project-list': {
-                    'v_range': [['6.4.7', '6.4.13'], ['7.0.2', '']],
+                    'v_range': [['6.4.7', '6.4.14'], ['7.0.2', '']],
                     'type': 'list',
                     'options': {
-                        'gcp-zone-list': {'v_range': [['6.4.7', '6.4.13'], ['7.0.2', '']], 'type': 'raw'},
-                        'id': {'v_range': [['6.4.7', '6.4.13'], ['7.0.2', '']], 'type': 'str'}
+                        'gcp-zone-list': {'v_range': [['6.4.7', '6.4.14'], ['7.0.2', '']], 'type': 'raw'},
+                        'id': {'v_range': [['6.4.7', '6.4.14'], ['7.0.2', '']], 'type': 'str'}
                     },
                     'elements': 'dict'
                 },
-                'verify-certificate': {'v_range': [['6.4.8', '6.4.13'], ['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'verify-certificate': {'v_range': [['6.4.8', '6.4.14'], ['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'alt-resource-ip': {'v_range': [['7.2.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'server-ca-cert': {'v_range': [['7.2.2', '']], 'type': 'str'},
                 'server-cert': {'v_range': [['7.2.2', '']], 'type': 'str'},

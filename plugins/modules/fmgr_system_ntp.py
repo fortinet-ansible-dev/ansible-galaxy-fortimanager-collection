@@ -234,8 +234,8 @@ def main():
                         'key-id': {'no_log': True, 'type': 'int'},
                         'ntpv3': {'choices': ['disable', 'enable'], 'type': 'str'},
                         'server': {'type': 'str'},
-                        'maxpoll': {'v_range': [['6.4.8', '6.4.13'], ['7.0.3', '']], 'type': 'int'},
-                        'minpoll': {'v_range': [['6.4.8', '6.4.13'], ['7.0.3', '']], 'type': 'int'}
+                        'maxpoll': {'v_range': [['6.4.8', '6.4.14'], ['7.0.3', '']], 'type': 'int'},
+                        'minpoll': {'v_range': [['6.4.8', '6.4.14'], ['7.0.3', '']], 'type': 'int'}
                     },
                     'elements': 'dict'
                 },

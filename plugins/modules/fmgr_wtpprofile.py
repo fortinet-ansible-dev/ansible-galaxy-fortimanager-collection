@@ -4152,7 +4152,7 @@ def main():
                         'sam-private-key-password': {'v_range': [['7.4.2', '']], 'no_log': True, 'type': 'raw'}
                     }
                 },
-                'console-login': {'v_range': [['6.2.9', '6.2.12'], ['6.4.8', '6.4.13'], ['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'console-login': {'v_range': [['6.2.9', '6.2.12'], ['6.4.8', '6.4.14'], ['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'esl-ses-dongle': {
                     'type': 'dict',
                     'options': {

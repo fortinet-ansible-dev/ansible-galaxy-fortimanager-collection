@@ -205,15 +205,15 @@ def main():
         'adom': {'required': True, 'type': 'str'},
         'system_npu_tcptimeoutprofile': {
             'type': 'dict',
-            'v_range': [['6.4.7', '6.4.13'], ['7.0.1', '']],
+            'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']],
             'options': {
-                'close-wait': {'v_range': [['6.4.7', '6.4.13'], ['7.0.1', '']], 'type': 'int'},
-                'fin-wait': {'v_range': [['6.4.7', '6.4.13'], ['7.0.1', '']], 'type': 'int'},
-                'id': {'v_range': [['6.4.7', '6.4.13'], ['7.0.1', '']], 'required': True, 'type': 'int'},
-                'syn-sent': {'v_range': [['6.4.7', '6.4.13'], ['7.0.1', '']], 'type': 'int'},
-                'syn-wait': {'v_range': [['6.4.7', '6.4.13'], ['7.0.1', '']], 'type': 'int'},
-                'tcp-idle': {'v_range': [['6.4.7', '6.4.13'], ['7.0.1', '']], 'type': 'int'},
-                'time-wait': {'v_range': [['6.4.7', '6.4.13'], ['7.0.1', '']], 'type': 'int'}
+                'close-wait': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'type': 'int'},
+                'fin-wait': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'type': 'int'},
+                'id': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'required': True, 'type': 'int'},
+                'syn-sent': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'type': 'int'},
+                'syn-wait': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'type': 'int'},
+                'tcp-idle': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'type': 'int'},
+                'time-wait': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'type': 'int'}
             }
 
         }

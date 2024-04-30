@@ -182,12 +182,12 @@ def main():
         'adom': {'required': True, 'type': 'str'},
         'firewall_vendormac': {
             'type': 'dict',
-            'v_range': [['7.2.4', '7.2.4'], ['7.4.1', '']],
+            'v_range': [['7.2.4', '7.2.5'], ['7.4.1', '']],
             'options': {
-                'id': {'v_range': [['7.2.4', '7.2.4'], ['7.4.1', '']], 'type': 'int'},
-                'mac-number': {'v_range': [['7.2.4', '7.2.4'], ['7.4.1', '']], 'type': 'int'},
-                'name': {'v_range': [['7.2.4', '7.2.4'], ['7.4.1', '']], 'type': 'str'},
-                'obsolete': {'v_range': [['7.2.4', '7.2.4'], ['7.4.1', '']], 'type': 'int'}
+                'id': {'v_range': [['7.2.4', '7.2.5'], ['7.4.1', '']], 'type': 'int'},
+                'mac-number': {'v_range': [['7.2.4', '7.2.5'], ['7.4.1', '']], 'type': 'int'},
+                'name': {'v_range': [['7.2.4', '7.2.5'], ['7.4.1', '']], 'type': 'str'},
+                'obsolete': {'v_range': [['7.2.4', '7.2.5'], ['7.4.1', '']], 'type': 'int'}
             }
 
         }

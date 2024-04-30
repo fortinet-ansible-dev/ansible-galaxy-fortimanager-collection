@@ -215,10 +215,10 @@ def main():
                 'ip': {'type': 'str'},
                 'name': {'required': True, 'type': 'str'},
                 'port': {'type': 'int'},
-                'local-cert': {'v_range': [['6.4.8', '6.4.13'], ['7.0.4', '']], 'type': 'str'},
-                'peer-cert-cn': {'v_range': [['6.4.8', '6.4.13'], ['7.0.4', '']], 'type': 'str'},
-                'reliable': {'v_range': [['6.4.8', '6.4.13'], ['7.0.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'secure-connection': {'v_range': [['6.4.8', '6.4.13'], ['7.0.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'local-cert': {'v_range': [['6.4.8', '6.4.14'], ['7.0.4', '']], 'type': 'str'},
+                'peer-cert-cn': {'v_range': [['6.4.8', '6.4.14'], ['7.0.4', '']], 'type': 'str'},
+                'reliable': {'v_range': [['6.4.8', '6.4.14'], ['7.0.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'secure-connection': {'v_range': [['6.4.8', '6.4.14'], ['7.0.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
 
         }

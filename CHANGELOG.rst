@@ -5,6 +5,28 @@ Fortinet.Fortimanager Release Notes
 .. contents:: Topics
 
 
+v2.5.0
+======
+
+Release Summary
+---------------
+
+release fortinet.fortimanager 2.5.0
+
+Minor Changes
+-------------
+
+- Renamed the input argument "message" to "fmgr_message" to comply with Ansible requirements.
+
+Bugfixes
+--------
+
+- Improved bypass_validation. If you now set bypass_validation to true, it will allow you to send parameters that are not defined in the schema.
+- Improved documentation.
+- Supported "state:absent" for all modules end with "_objectmember", "_scopemember", and "_scetionvalue".
+- Supported FortiManager 6.4.14, 7.0.11, 7.0.12, 7.2.5.
+- Improved documentation, added description for all "no description" modules.
+
 v2.4.0
 ======
 

@@ -1146,7 +1146,7 @@ def main():
                     'v_range': [['6.4.1', '']],
                     'type': 'list',
                     'options': {
-                        '_dynamic-server': {'v_range': [['6.4.1', '6.4.13']], 'type': 'str'},
+                        '_dynamic-server': {'v_range': [['6.4.1', '6.4.14']], 'type': 'str'},
                         'addr-mode': {'v_range': [['6.4.1', '']], 'choices': ['ipv4', 'ipv6'], 'type': 'str'},
                         'diffservcode': {'v_range': [['6.4.1', '']], 'type': 'str'},
                         'dns-match-ip': {'v_range': [['6.4.2', '']], 'type': 'str'},
@@ -1232,7 +1232,7 @@ def main():
                     'v_range': [['6.4.1', '']],
                     'type': 'list',
                     'options': {
-                        '_dynamic-member': {'v_range': [['6.4.1', '6.4.13']], 'type': 'str'},
+                        '_dynamic-member': {'v_range': [['6.4.1', '6.4.14']], 'type': 'str'},
                         'comment': {'v_range': [['6.4.1', '']], 'type': 'str'},
                         'cost': {'v_range': [['6.4.1', '']], 'type': 'int'},
                         'gateway': {'v_range': [['6.4.1', '']], 'type': 'str'},

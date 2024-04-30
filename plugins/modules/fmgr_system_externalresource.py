@@ -283,7 +283,7 @@ def main():
                 'interface-select-method': {'v_range': [['6.4.2', '']], 'choices': ['auto', 'sdwan', 'specify'], 'type': 'str'},
                 'user-agent': {'v_range': [['6.4.2', '']], 'type': 'str'},
                 'uuid': {'v_range': [['7.0.0', '']], 'type': 'str'},
-                'server-identity-check': {'v_range': [['7.0.5', '7.0.10'], ['7.2.2', '']], 'choices': ['none', 'basic', 'full'], 'type': 'str'},
+                'server-identity-check': {'v_range': [['7.0.5', '7.0.12'], ['7.2.2', '']], 'choices': ['none', 'basic', 'full'], 'type': 'str'},
                 'update-method': {'v_range': [['7.2.1', '']], 'choices': ['feed', 'push'], 'type': 'str'}
             }
 

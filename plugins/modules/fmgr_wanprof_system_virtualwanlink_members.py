@@ -246,7 +246,7 @@ def main():
             'type': 'dict',
             'v_range': [['6.0.0', '']],
             'options': {
-                '_dynamic-member': {'v_range': [['6.0.0', '6.4.13']], 'type': 'str'},
+                '_dynamic-member': {'v_range': [['6.0.0', '6.4.14']], 'type': 'str'},
                 'comment': {'type': 'str'},
                 'gateway': {'type': 'str'},
                 'gateway6': {'type': 'str'},

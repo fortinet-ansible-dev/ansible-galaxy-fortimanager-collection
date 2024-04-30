@@ -864,7 +864,7 @@ def main():
                 'interface': {'v_range': [['6.2.0', '']], 'type': 'str'},
                 'sdn-addr-type': {'v_range': [['6.2.0', '']], 'choices': ['private', 'public', 'all'], 'type': 'str'},
                 'start-mac': {'v_range': [['6.2.0', '']], 'type': 'str'},
-                'tags': {'v_range': [['6.2.0', '6.4.13']], 'type': 'str'},
+                'tags': {'v_range': [['6.2.0', '6.4.14']], 'type': 'str'},
                 'profile-list': {
                     'v_range': [['6.2.0', '6.2.12']],
                     'type': 'list',

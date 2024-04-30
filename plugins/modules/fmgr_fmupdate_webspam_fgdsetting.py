@@ -591,12 +591,12 @@ def main():
                 'wf-dn-cache-max-number': {'type': 'int'},
                 'wf-log': {'choices': ['disable', 'nourl', 'all'], 'type': 'str'},
                 'wf-preload': {'choices': ['disable', 'enable'], 'type': 'str'},
-                'iot-cache': {'v_range': [['6.4.6', '6.4.13'], ['7.0.1', '']], 'type': 'int'},
-                'iot-log': {'v_range': [['6.4.6', '6.4.13'], ['7.0.1', '']], 'choices': ['disable', 'nofilequery', 'all'], 'type': 'str'},
-                'iot-preload': {'v_range': [['6.4.6', '6.4.13'], ['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'restrict-iots-dbver': {'v_range': [['6.4.6', '6.4.13'], ['7.0.1', '']], 'type': 'str'},
+                'iot-cache': {'v_range': [['6.4.6', '6.4.14'], ['7.0.1', '']], 'type': 'int'},
+                'iot-log': {'v_range': [['6.4.6', '6.4.14'], ['7.0.1', '']], 'choices': ['disable', 'nofilequery', 'all'], 'type': 'str'},
+                'iot-preload': {'v_range': [['6.4.6', '6.4.14'], ['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'restrict-iots-dbver': {'v_range': [['6.4.6', '6.4.14'], ['7.0.1', '']], 'type': 'str'},
                 'stat-log': {
-                    'v_range': [['7.0.10', '7.0.10'], ['7.4.2', '']],
+                    'v_range': [['7.0.10', '7.0.12'], ['7.2.5', '7.2.5'], ['7.4.2', '']],
                     'choices': ['emergency', 'alert', 'critical', 'error', 'warn', 'notice', 'info', 'debug', 'disable'],
                     'type': 'str'
                 },

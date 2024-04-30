@@ -98,7 +98,6 @@ options:
             name:
                 type: str
                 description: Managed-switch name.
-                required: true
             ports:
                 type: list
                 elements: dict
@@ -540,6 +539,7 @@ options:
             switch-id:
                 type: str
                 description: Deprecated, please rename it to switch_id. Managed-switch id.
+                required: true
             override-snmp-community:
                 type: str
                 description: Deprecated, please rename it to override_snmp_community. Enable/disable overriding the global SNMP communities.
@@ -1206,7 +1206,7 @@ def main():
     ]
 
     url_params = ['adom']
-    module_primary_key = 'name'
+    module_primary_key = 'switch-id'
     module_arg_spec = {
         'adom': {'required': True, 'type': 'str'},
         'switchcontroller_managedswitch': {
@@ -1215,7 +1215,7 @@ def main():
             'options': {
                 '_platform': {'type': 'str'},
                 'description': {'type': 'str'},
-                'name': {'required': True, 'type': 'str'},
+                'name': {'type': 'str'},
                 'ports': {
                     'type': 'list',
                     'options': {
@@ -1325,7 +1325,7 @@ def main():
                     },
                     'elements': 'dict'
                 },
-                'switch-id': {'type': 'str'},
+                'switch-id': {'required': True, 'type': 'str'},
                 'override-snmp-community': {'v_range': [['6.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'override-snmp-sysinfo': {'v_range': [['6.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'override-snmp-trap-threshold': {'v_range': [['6.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},

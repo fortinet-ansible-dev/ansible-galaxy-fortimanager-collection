@@ -589,7 +589,7 @@ def main():
                 'srcintf': {'type': 'raw'},
                 'ssl-ssh-profile': {'v_range': [['6.0.0', '7.2.2'], ['7.2.4', '7.2.4'], ['7.4.2', '']], 'type': 'str'},
                 'status': {'choices': ['disable', 'enable'], 'type': 'str'},
-                'tags': {'v_range': [['6.0.0', '6.4.13']], 'type': 'str'},
+                'tags': {'v_range': [['6.0.0', '6.4.14']], 'type': 'str'},
                 'transparent': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'users': {'type': 'raw'},
                 'utm-status': {'choices': ['disable', 'enable'], 'type': 'str'},

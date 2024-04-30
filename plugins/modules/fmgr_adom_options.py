@@ -12,7 +12,7 @@ ANSIBLE_METADATA = {'status': ['preview'],
 DOCUMENTATION = '''
 ---
 module: fmgr_adom_options
-short_description: no description
+short_description: Options
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
@@ -106,7 +106,7 @@ EXAMPLES = '''
     ansible_httpapi_validate_certs: false
     ansible_httpapi_port: 443
   tasks:
-    - name: No description
+    - name: Options
       fortinet.fortimanager.fmgr_adom_options:
         # bypass_validation: false
         workspace_locking_adom: <value in [global, custom adom including root]>
@@ -188,7 +188,7 @@ def main():
             'options': {
                 'assign_excluded': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'specify_assign_pkg_list': {'choices': ['disable', 'enable'], 'type': 'str'},
-                'assign_name': {'v_range': [['7.0.5', '7.0.10'], ['7.2.2', '']], 'type': 'str'}
+                'assign_name': {'v_range': [['7.0.5', '7.0.12'], ['7.2.2', '']], 'type': 'str'}
             }
 
         }

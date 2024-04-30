@@ -285,6 +285,9 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
+            max-connections:
+                type: int
+                description: Deprecated, please rename it to max_connections.
             two-factor-filter:
                 type: str
                 description: Deprecated, please rename it to two_factor_filter. Filter used to synchronize users to FortiToken Cloud.
@@ -302,9 +305,6 @@ options:
                     - 'othername'
                     - 'rfc822name'
                     - 'dnsname'
-            max-connections:
-                type: int
-                description: Deprecated, please rename it to max_connections.
 '''
 
 EXAMPLES = '''
@@ -460,10 +460,10 @@ def main():
                 'source-port': {'v_range': [['7.0.0', '']], 'type': 'int'},
                 'client-cert': {'v_range': [['7.2.0', '']], 'type': 'str'},
                 'client-cert-auth': {'v_range': [['7.2.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'max-connections': {'v_range': [['7.0.11', '7.0.12'], ['7.2.5', '7.2.5'], ['7.4.1', '']], 'type': 'int'},
                 'two-factor-filter': {'v_range': [['7.2.1', '']], 'type': 'str'},
                 'account-key-upn-san': {'v_range': [['7.2.2', '']], 'choices': ['othername', 'rfc822name', 'dnsname'], 'type': 'str'},
-                'account-key-cert-field': {'v_range': [['7.4.1', '']], 'choices': ['othername', 'rfc822name', 'dnsname'], 'type': 'str'},
-                'max-connections': {'v_range': [['7.4.1', '']], 'type': 'int'}
+                'account-key-cert-field': {'v_range': [['7.4.1', '']], 'choices': ['othername', 'rfc822name', 'dnsname'], 'type': 'str'}
             }
 
         }

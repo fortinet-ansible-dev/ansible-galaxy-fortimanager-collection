@@ -373,7 +373,7 @@ def main():
                 'uploaduser': {'type': 'str'},
                 'uploadzip': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'log-disk-quota': {'v_range': [['7.0.3', '']], 'type': 'int'},
-                'max-log-file-num': {'v_range': [['6.4.8', '6.4.13'], ['7.0.2', '']], 'type': 'int'}
+                'max-log-file-num': {'v_range': [['6.4.8', '6.4.14'], ['7.0.2', '']], 'type': 'int'}
             }
 
         }

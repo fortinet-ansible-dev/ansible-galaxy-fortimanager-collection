@@ -170,8 +170,8 @@ def main():
         'adom': {'required': True, 'type': 'str'},
         'system_npu_portpathoption': {
             'type': 'dict',
-            'v_range': [['6.4.7', '6.4.13'], ['7.0.1', '']],
-            'options': {'ports-using-npu': {'v_range': [['6.4.7', '6.4.13'], ['7.0.1', '']], 'type': 'raw'}}
+            'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']],
+            'options': {'ports-using-npu': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'type': 'raw'}}
 
         }
     }

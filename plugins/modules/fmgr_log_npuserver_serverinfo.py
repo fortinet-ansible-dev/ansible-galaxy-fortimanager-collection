@@ -219,16 +219,16 @@ def main():
         'adom': {'required': True, 'type': 'str'},
         'log_npuserver_serverinfo': {
             'type': 'dict',
-            'v_range': [['6.4.7', '6.4.13'], ['7.0.1', '']],
+            'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']],
             'options': {
-                'dest-port': {'v_range': [['6.4.7', '6.4.13'], ['7.0.1', '']], 'type': 'int'},
-                'id': {'v_range': [['6.4.7', '6.4.13'], ['7.0.1', '']], 'required': True, 'type': 'int'},
-                'ip-family': {'v_range': [['6.4.7', '6.4.13'], ['7.0.1', '']], 'choices': ['v4', 'v6'], 'type': 'str'},
-                'ipv4-server': {'v_range': [['6.4.7', '6.4.13'], ['7.0.1', '']], 'type': 'str'},
-                'ipv6-server': {'v_range': [['6.4.7', '6.4.13'], ['7.0.1', '']], 'type': 'str'},
-                'source-port': {'v_range': [['6.4.7', '6.4.13'], ['7.0.1', '']], 'type': 'int'},
-                'template-tx-timeout': {'v_range': [['6.4.7', '6.4.13'], ['7.0.1', '']], 'type': 'int'},
-                'vdom': {'v_range': [['6.4.7', '6.4.13'], ['7.0.1', '']], 'type': 'str'},
+                'dest-port': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'type': 'int'},
+                'id': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'required': True, 'type': 'int'},
+                'ip-family': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['v4', 'v6'], 'type': 'str'},
+                'ipv4-server': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'type': 'str'},
+                'ipv6-server': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'type': 'str'},
+                'source-port': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'type': 'int'},
+                'template-tx-timeout': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'type': 'int'},
+                'vdom': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'type': 'str'},
                 'log-transport': {'v_range': [['7.4.2', '']], 'choices': ['udp', 'tcp'], 'type': 'str'}
             }
 

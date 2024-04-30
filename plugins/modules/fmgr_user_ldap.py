@@ -304,6 +304,9 @@ options:
                         choices:
                             - 'disable'
                             - 'enable'
+                    max-connections:
+                        type: int
+                        description: Deprecated, please rename it to max_connections.
                     two-factor-filter:
                         type: str
                         description: Deprecated, please rename it to two_factor_filter. Filter used to synchronize users to FortiToken Cloud.
@@ -321,9 +324,6 @@ options:
                             - 'othername'
                             - 'rfc822name'
                             - 'dnsname'
-                    max-connections:
-                        type: int
-                        description: Deprecated, please rename it to max_connections.
             group-filter:
                 type: str
                 description: Deprecated, please rename it to group_filter. Filter used for group matching.
@@ -660,10 +660,10 @@ def main():
                         'source-port': {'v_range': [['7.0.0', '']], 'type': 'int'},
                         'client-cert': {'v_range': [['7.2.0', '']], 'type': 'str'},
                         'client-cert-auth': {'v_range': [['7.2.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'max-connections': {'v_range': [['7.0.11', '7.0.12'], ['7.2.5', '7.2.5'], ['7.4.1', '']], 'type': 'int'},
                         'two-factor-filter': {'v_range': [['7.2.1', '']], 'type': 'str'},
                         'account-key-upn-san': {'v_range': [['7.2.2', '']], 'choices': ['othername', 'rfc822name', 'dnsname'], 'type': 'str'},
-                        'account-key-cert-field': {'v_range': [['7.4.1', '']], 'choices': ['othername', 'rfc822name', 'dnsname'], 'type': 'str'},
-                        'max-connections': {'v_range': [['7.4.1', '']], 'type': 'int'}
+                        'account-key-cert-field': {'v_range': [['7.4.1', '']], 'choices': ['othername', 'rfc822name', 'dnsname'], 'type': 'str'}
                     },
                     'elements': 'dict'
                 },
@@ -689,7 +689,7 @@ def main():
                 'obtain-user-info': {'v_range': [['6.2.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'search-type': {'v_range': [['6.2.0', '']], 'type': 'list', 'choices': ['nested', 'recursive'], 'elements': 'str'},
                 'user-info-exchange-server': {'v_range': [['6.2.0', '']], 'type': 'str'},
-                'account-key-name': {'v_range': [['6.2.0', '6.4.13']], 'no_log': True, 'type': 'str'},
+                'account-key-name': {'v_range': [['6.2.0', '6.4.14']], 'no_log': True, 'type': 'str'},
                 'group-object-search-base': {'v_range': [['6.2.0', '6.2.12']], 'type': 'str'},
                 'two-factor': {'v_range': [['6.2.2', '']], 'choices': ['disable', 'fortitoken-cloud'], 'type': 'str'},
                 'interface': {'v_range': [['6.2.5', '6.2.12'], ['6.4.1', '']], 'type': 'str'},

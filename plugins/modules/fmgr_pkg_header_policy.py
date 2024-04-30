@@ -1409,6 +1409,12 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
+            extended-log:
+                type: str
+                description: Deprecated, please rename it to extended_log.
+                choices:
+                    - 'disable'
+                    - 'enable'
             diffserv-copy:
                 type: str
                 description: Deprecated, please rename it to diffserv_copy. Enable to copy packets DiffServ values from sessions original direction to ...
@@ -1541,12 +1547,6 @@ options:
             casb-profile:
                 type: str
                 description: Deprecated, please rename it to casb_profile. Name of an existing CASB profile.
-            extended-log:
-                type: str
-                description: Deprecated, please rename it to extended_log.
-                choices:
-                    - 'disable'
-                    - 'enable'
             implicit-proxy-detection:
                 type: str
                 description: Deprecated, please rename it to implicit_proxy_detection.
@@ -1924,7 +1924,7 @@ def main():
                 'wsso': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'fsso-groups': {'v_range': [['6.2.1', '']], 'type': 'raw'},
                 'match-vip-only': {'v_range': [['6.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'np-accelation': {'v_range': [['6.2.1', '6.4.13']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'np-accelation': {'v_range': [['6.2.1', '6.4.14']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'best-route': {'v_range': [['6.2.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'decrypted-traffic-mirror': {'v_range': [['6.4.0', '']], 'type': 'str'},
                 'geoip-match': {'v_range': [['6.4.0', '']], 'choices': ['physical-location', 'registered-location'], 'type': 'str'},
@@ -1976,8 +1976,9 @@ def main():
                 'udp-timeout-pid': {'v_range': [['7.0.3', '']], 'type': 'raw'},
                 'ztna-tags-match-logic': {'v_range': [['7.0.3', '']], 'choices': ['or', 'and'], 'type': 'str'},
                 'uuid-idx': {'v_range': [['7.0.1', '']], 'type': 'int'},
-                'device-ownership': {'v_range': [['7.0.5', '7.0.10'], ['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'ssh-policy-check': {'v_range': [['7.0.5', '7.0.10'], ['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'device-ownership': {'v_range': [['7.0.5', '7.0.12'], ['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'ssh-policy-check': {'v_range': [['7.0.5', '7.0.12'], ['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'extended-log': {'v_range': [['7.0.11', '7.0.12'], ['7.2.5', '7.2.5'], ['7.4.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'diffserv-copy': {'v_range': [['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'dstaddr6-negate': {'v_range': [['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'internet-service6': {'v_range': [['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
@@ -2010,7 +2011,6 @@ def main():
                 'pcp-poolname': {'v_range': [['7.4.0', '']], 'type': 'raw'},
                 'ztna-ems-tag-secondary': {'v_range': [['7.4.0', '']], 'type': 'raw'},
                 'casb-profile': {'v_range': [['7.4.1', '']], 'type': 'str'},
-                'extended-log': {'v_range': [['7.4.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'implicit-proxy-detection': {'v_range': [['7.4.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'virtual-patch-profile': {'v_range': [['7.4.1', '']], 'type': 'str'},
                 'detect-https-in-http-request': {'v_range': [['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},

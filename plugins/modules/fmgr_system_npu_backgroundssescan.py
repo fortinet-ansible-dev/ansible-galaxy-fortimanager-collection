@@ -205,17 +205,17 @@ def main():
         'adom': {'required': True, 'type': 'str'},
         'system_npu_backgroundssescan': {
             'type': 'dict',
-            'v_range': [['6.4.8', '6.4.13'], ['7.0.3', '']],
+            'v_range': [['6.4.8', '6.4.14'], ['7.0.3', '']],
             'options': {
-                'scan': {'v_range': [['6.4.8', '6.4.13'], ['7.0.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'stats-update-interval': {'v_range': [['6.4.8', '6.4.13'], ['7.0.3', '']], 'type': 'int'},
-                'udp-keepalive-interval': {'v_range': [['6.4.8', '6.4.13'], ['7.0.3', '']], 'type': 'int'},
-                'scan-stale': {'v_range': [['7.4.1', '']], 'type': 'int'},
-                'scan-vt': {'v_range': [['7.4.1', '']], 'type': 'int'},
-                'stats-qual-access': {'v_range': [['7.4.1', '']], 'type': 'int'},
-                'stats-qual-duration': {'v_range': [['7.4.1', '']], 'type': 'int'},
-                'udp-qual-access': {'v_range': [['7.4.1', '']], 'type': 'int'},
-                'udp-qual-duration': {'v_range': [['7.4.1', '']], 'type': 'int'}
+                'scan': {'v_range': [['6.4.8', '6.4.14'], ['7.0.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'stats-update-interval': {'v_range': [['6.4.8', '6.4.14'], ['7.0.3', '']], 'type': 'int'},
+                'udp-keepalive-interval': {'v_range': [['6.4.8', '6.4.14'], ['7.0.3', '']], 'type': 'int'},
+                'scan-stale': {'v_range': [['7.0.12', '7.0.12'], ['7.4.1', '']], 'type': 'int'},
+                'scan-vt': {'v_range': [['7.0.12', '7.0.12'], ['7.4.1', '']], 'type': 'int'},
+                'stats-qual-access': {'v_range': [['7.0.12', '7.0.12'], ['7.4.1', '']], 'type': 'int'},
+                'stats-qual-duration': {'v_range': [['7.0.12', '7.0.12'], ['7.4.1', '']], 'type': 'int'},
+                'udp-qual-access': {'v_range': [['7.0.12', '7.0.12'], ['7.4.1', '']], 'type': 'int'},
+                'udp-qual-duration': {'v_range': [['7.0.12', '7.0.12'], ['7.4.1', '']], 'type': 'int'}
             }
 
         }

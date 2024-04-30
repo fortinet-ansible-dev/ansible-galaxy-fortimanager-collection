@@ -345,7 +345,7 @@ def main():
                 'username-case-sensitivity': {'v_range': [['6.2.5', '6.2.12'], ['6.4.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'username-case-insensitivity': {'v_range': [['6.4.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'username-sensitivity': {
-                    'v_range': [['6.2.9', '6.2.12'], ['6.4.7', '6.4.13'], ['7.0.1', '']],
+                    'v_range': [['6.2.9', '6.2.12'], ['6.4.7', '6.4.14'], ['7.0.1', '']],
                     'choices': ['disable', 'enable'],
                     'type': 'str'
                 },

@@ -266,13 +266,13 @@ def main():
                 'status': {'choices': ['disable', 'deep-inspection'], 'type': 'str'},
                 'unsupported-version': {'choices': ['block', 'bypass'], 'type': 'str'},
                 'block': {
-                    'v_range': [['6.2.0', '6.4.13']],
+                    'v_range': [['6.2.0', '6.4.14']],
                     'type': 'list',
                     'choices': ['x11-filter', 'ssh-shell', 'exec', 'port-forward'],
                     'elements': 'str'
                 },
                 'log': {
-                    'v_range': [['6.2.0', '6.4.13']],
+                    'v_range': [['6.2.0', '6.4.14']],
                     'type': 'list',
                     'choices': ['x11-filter', 'ssh-shell', 'exec', 'port-forward'],
                     'elements': 'str'

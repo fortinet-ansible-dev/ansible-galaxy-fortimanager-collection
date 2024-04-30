@@ -671,23 +671,23 @@ def main():
                 'hub-public-ip': {'v_range': [['6.2.2', '']], 'type': 'str'},
                 'ipv4-split-exclude': {'v_range': [['6.4.6', '']], 'type': 'str'},
                 'scope member': {
-                    'v_range': [['6.4.7', '6.4.13'], ['7.0.1', '']],
+                    'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']],
                     'type': 'list',
                     'options': {
-                        'name': {'v_range': [['6.4.7', '6.4.13'], ['7.0.1', '']], 'type': 'str'},
-                        'vdom': {'v_range': [['6.4.7', '6.4.13'], ['7.0.1', '']], 'type': 'str'}
+                        'name': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'type': 'str'},
+                        'vdom': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'type': 'str'}
                     },
                     'elements': 'dict'
                 },
-                'dhcp-ra-giaddr': {'v_range': [['6.4.8', '6.4.13'], ['7.0.4', '']], 'type': 'str'},
+                'dhcp-ra-giaddr': {'v_range': [['6.4.8', '6.4.14'], ['7.0.4', '']], 'type': 'str'},
                 'encapsulation': {'v_range': [['7.0.2', '']], 'choices': ['tunnel-mode', 'transport-mode'], 'type': 'str'},
-                'ipv4-name': {'v_range': [['6.4.8', '6.4.13'], ['7.0.4', '']], 'type': 'str'},
+                'ipv4-name': {'v_range': [['6.4.8', '6.4.14'], ['7.0.4', '']], 'type': 'str'},
                 'l2tp': {'v_range': [['7.0.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'auto-discovery-receiver': {'v_range': [['7.0.8', '7.0.10'], ['7.2.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'auto-discovery-sender': {'v_range': [['7.0.8', '7.0.10'], ['7.2.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'network-id': {'v_range': [['7.0.8', '7.0.10'], ['7.2.3', '']], 'type': 'int'},
-                'network-overlay': {'v_range': [['7.0.8', '7.0.10'], ['7.2.3', '']], 'choices': ['enable', 'disable'], 'type': 'str'},
-                'protocol': {'v_range': [['7.4.1', '']], 'type': 'int'}
+                'auto-discovery-receiver': {'v_range': [['7.0.8', '7.0.12'], ['7.2.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'auto-discovery-sender': {'v_range': [['7.0.8', '7.0.12'], ['7.2.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'network-id': {'v_range': [['7.0.8', '7.0.12'], ['7.2.3', '']], 'type': 'int'},
+                'network-overlay': {'v_range': [['7.0.8', '7.0.12'], ['7.2.3', '']], 'choices': ['enable', 'disable'], 'type': 'str'},
+                'protocol': {'v_range': [['7.2.5', '7.2.5'], ['7.4.1', '']], 'type': 'int'}
             }
 
         }

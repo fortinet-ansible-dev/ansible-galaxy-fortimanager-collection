@@ -1650,13 +1650,13 @@ def main():
                         'unsupported-version': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['block', 'bypass'], 'type': 'str'},
                         'ssh-policy-check': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '7.2.1']], 'choices': ['disable', 'enable'], 'type': 'str'},
                         'block': {
-                            'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '6.4.13']],
+                            'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '6.4.14']],
                             'type': 'list',
                             'choices': ['x11-filter', 'ssh-shell', 'exec', 'port-forward'],
                             'elements': 'str'
                         },
                         'log': {
-                            'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '6.4.13']],
+                            'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '6.4.14']],
                             'type': 'list',
                             'choices': ['x11-filter', 'ssh-shell', 'exec', 'port-forward'],
                             'elements': 'str'

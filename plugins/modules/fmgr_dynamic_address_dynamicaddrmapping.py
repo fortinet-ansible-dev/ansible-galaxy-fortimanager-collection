@@ -12,7 +12,7 @@ ANSIBLE_METADATA = {'status': ['preview'],
 DOCUMENTATION = '''
 ---
 module: fmgr_dynamic_address_dynamicaddrmapping
-short_description: no description
+short_description: Dynamic address dynamic addr mapping
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
@@ -111,7 +111,7 @@ EXAMPLES = '''
     ansible_httpapi_validate_certs: false
     ansible_httpapi_port: 443
   tasks:
-    - name: No description
+    - name: Dynamic address dynamic addr mapping
       fortinet.fortimanager.fmgr_dynamic_address_dynamicaddrmapping:
         # bypass_validation: false
         workspace_locking_adom: <value in [global, custom adom including root]>

@@ -137,9 +137,9 @@ options:
             image:
                 type: str
                 description: Message string.
-            message:
+            fmgr_message:
                 type: str
-                description: Deprecated, please rename it to fmgr_message. Message text
+                description: Message text
             msg-type:
                 type: str
                 description: Deprecated, please rename it to msg_type. Message type.
@@ -267,7 +267,7 @@ def main():
                 'header': {'choices': ['none', 'http', '8bit'], 'type': 'str'},
                 'html-part': {'type': 'str'},
                 'image': {'type': 'str'},
-                'message': {'type': 'str'},
+                'fmgr_message': {'type': 'str'},
                 'msg-type': {'required': True, 'type': 'str'},
                 'priority': {'choices': ['low', 'normal', 'high', 'not-included'], 'type': 'str'},
                 'subject': {'type': 'str'}

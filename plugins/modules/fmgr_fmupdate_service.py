@@ -288,7 +288,7 @@ def main():
                 'query-outbreak-prevention': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'query-webfilter': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'webfilter-https-traversal': {'choices': ['disable', 'enable'], 'type': 'str'},
-                'query-iot': {'v_range': [['6.4.6', '6.4.13'], ['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'query-iot': {'v_range': [['6.4.6', '6.4.14'], ['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'query-iot-collection': {'v_range': [['7.4.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'query-iot-vulnerability': {'v_range': [['7.4.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }

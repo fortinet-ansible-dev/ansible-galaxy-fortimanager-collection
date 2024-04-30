@@ -12,7 +12,7 @@ ANSIBLE_METADATA = {'status': ['preview'],
 DOCUMENTATION = '''
 ---
 module: fmgr_firewall_casbprofile_saasapplication_accessrule
-short_description: no description
+short_description: Firewall casb profile saas application access rule
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
@@ -133,7 +133,7 @@ EXAMPLES = '''
     ansible_httpapi_validate_certs: false
     ansible_httpapi_port: 443
   tasks:
-    - name: No description
+    - name: Firewall casb profile saas application access rule
       fortinet.fortimanager.fmgr_firewall_casbprofile_saasapplication_accessrule:
         # bypass_validation: false
         workspace_locking_adom: <value in [global, custom adom including root]>

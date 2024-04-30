@@ -1616,7 +1616,7 @@ def main():
                             },
                             'elements': 'dict'
                         },
-                        'ndp-reply': {'v_range': [['7.0.5', '7.0.10'], ['7.2.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'ndp-reply': {'v_range': [['7.0.5', '7.0.12'], ['7.2.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                         'ssl-server-renegotiation': {'v_range': [['7.2.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                         'h2-support': {'v_range': [['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                         'h3-support': {'v_range': [['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
@@ -1788,7 +1788,7 @@ def main():
                 'nat64': {'v_range': [['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'nat66': {'v_range': [['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'ssl-accept-ffdhe-groups': {'v_range': [['7.0.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'ndp-reply': {'v_range': [['7.0.5', '7.0.10'], ['7.2.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'ndp-reply': {'v_range': [['7.0.5', '7.0.12'], ['7.2.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'ssl-server-renegotiation': {'v_range': [['7.2.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'h2-support': {'v_range': [['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'h3-support': {'v_range': [['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},

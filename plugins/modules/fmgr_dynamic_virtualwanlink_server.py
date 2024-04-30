@@ -12,7 +12,7 @@ ANSIBLE_METADATA = {'status': ['preview'],
 DOCUMENTATION = '''
 ---
 module: fmgr_dynamic_virtualwanlink_server
-short_description: no description
+short_description: Dynamic virtual wan link server
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
@@ -129,7 +129,7 @@ EXAMPLES = '''
     ansible_httpapi_validate_certs: false
     ansible_httpapi_port: 443
   tasks:
-    - name: No description
+    - name: Dynamic virtual wan link server
       fortinet.fortimanager.fmgr_dynamic_virtualwanlink_server:
         # bypass_validation: false
         workspace_locking_adom: <value in [global, custom adom including root]>
@@ -215,28 +215,28 @@ def main():
         'adom': {'required': True, 'type': 'str'},
         'dynamic_virtualwanlink_server': {
             'type': 'dict',
-            'v_range': [['6.0.0', '6.4.13']],
+            'v_range': [['6.0.0', '6.4.14']],
             'options': {
-                'description': {'v_range': [['6.0.0', '6.4.13']], 'type': 'str'},
+                'description': {'v_range': [['6.0.0', '6.4.14']], 'type': 'str'},
                 'dynamic_mapping': {
-                    'v_range': [['6.0.0', '6.4.13']],
+                    'v_range': [['6.0.0', '6.4.14']],
                     'type': 'list',
                     'options': {
                         '_scope': {
-                            'v_range': [['6.0.0', '6.4.13']],
+                            'v_range': [['6.0.0', '6.4.14']],
                             'type': 'list',
                             'options': {
-                                'name': {'v_range': [['6.0.0', '6.4.13']], 'type': 'str'},
-                                'vdom': {'v_range': [['6.0.0', '6.4.13']], 'type': 'str'}
+                                'name': {'v_range': [['6.0.0', '6.4.14']], 'type': 'str'},
+                                'vdom': {'v_range': [['6.0.0', '6.4.14']], 'type': 'str'}
                             },
                             'elements': 'dict'
                         },
-                        'server': {'v_range': [['6.0.0', '6.4.13']], 'type': 'raw'}
+                        'server': {'v_range': [['6.0.0', '6.4.14']], 'type': 'raw'}
                     },
                     'elements': 'dict'
                 },
-                'name': {'v_range': [['6.0.0', '6.4.13']], 'required': True, 'type': 'str'},
-                'server': {'v_range': [['6.0.0', '6.4.13']], 'type': 'raw'}
+                'name': {'v_range': [['6.0.0', '6.4.14']], 'required': True, 'type': 'str'},
+                'server': {'v_range': [['6.0.0', '6.4.14']], 'type': 'raw'}
             }
 
         }

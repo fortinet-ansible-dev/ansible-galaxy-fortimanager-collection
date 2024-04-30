@@ -294,9 +294,9 @@ def main():
             'type': 'dict',
             'v_range': [['6.4.0', '']],
             'options': {
-                'fortiportal': {'v_range': [['6.4.0', '7.4.0']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'fortiportal': {'v_range': [['6.4.0', '7.2.4'], ['7.4.0', '7.4.0']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'fortiwlm': {'v_range': [['6.4.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'sdwancontroller': {'v_range': [['6.4.0', '7.0.10']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'sdwancontroller': {'v_range': [['6.4.0', '7.0.12']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'status': {'v_range': [['6.4.0', '']], 'choices': ['disable', 'enable', 'qa', 'dev'], 'type': 'str'},
                 'cpu': {'v_range': [['6.4.5', '']], 'type': 'int'},
                 'default-address-pool_base': {'v_range': [['6.4.3', '']], 'type': 'str'},

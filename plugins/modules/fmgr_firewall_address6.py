@@ -568,7 +568,7 @@ def main():
                 'type': {'choices': ['ipprefix', 'iprange', 'nsx', 'dynamic', 'fqdn', 'template', 'mac', 'geography', 'route-tag'], 'type': 'str'},
                 'uuid': {'type': 'str'},
                 'visibility': {'choices': ['disable', 'enable'], 'type': 'str'},
-                'tags': {'v_range': [['6.2.0', '6.4.13']], 'type': 'str'},
+                'tags': {'v_range': [['6.2.0', '6.4.14']], 'type': 'str'},
                 'profile-list': {
                     'v_range': [['6.2.0', '6.2.12']],
                     'type': 'list',

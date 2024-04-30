@@ -258,25 +258,25 @@ def main():
         'pkg': {'required': True, 'type': 'str'},
         'pkg_firewall_hyperscalepolicy46': {
             'type': 'dict',
-            'v_range': [['6.4.7', '6.4.13'], ['7.0.1', '7.2.0']],
+            'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '7.2.0']],
             'options': {
-                'action': {'v_range': [['6.4.7', '6.4.13'], ['7.0.1', '7.2.0']], 'choices': ['deny', 'accept'], 'type': 'str'},
-                'cgn-log-server-grp': {'v_range': [['6.4.7', '6.4.13'], ['7.0.1', '7.2.0']], 'type': 'str'},
-                'comments': {'v_range': [['6.4.7', '6.4.13'], ['7.0.1', '7.2.0']], 'type': 'str'},
-                'dstaddr': {'v_range': [['6.4.7', '6.4.13'], ['7.0.1', '7.2.0']], 'type': 'raw'},
-                'dstintf': {'v_range': [['6.4.7', '6.4.13'], ['7.0.1', '7.2.0']], 'type': 'str'},
-                'name': {'v_range': [['6.4.8', '6.4.13'], ['7.0.3', '7.2.0']], 'type': 'str'},
-                'policy-offload': {'v_range': [['6.4.7', '6.4.13'], ['7.0.1', '7.2.0']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'policyid': {'v_range': [['6.4.7', '6.4.13'], ['7.0.1', '7.2.0']], 'required': True, 'type': 'int'},
-                'service': {'v_range': [['6.4.7', '6.4.13'], ['7.0.1', '7.2.0']], 'type': 'raw'},
-                'srcaddr': {'v_range': [['6.4.7', '6.4.13'], ['7.0.1', '7.2.0']], 'type': 'raw'},
-                'srcintf': {'v_range': [['6.4.7', '6.4.13'], ['7.0.1', '7.2.0']], 'type': 'str'},
-                'status': {'v_range': [['6.4.7', '6.4.13'], ['7.0.1', '7.2.0']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'tcp-timeout-pid': {'v_range': [['6.4.7', '6.4.13'], ['7.0.1', '7.2.0']], 'type': 'str'},
-                'traffic-shaper': {'v_range': [['6.4.7', '6.4.13'], ['7.0.1', '7.2.0']], 'type': 'str'},
-                'traffic-shaper-reverse': {'v_range': [['6.4.7', '6.4.13'], ['7.0.1', '7.2.0']], 'type': 'str'},
-                'udp-timeout-pid': {'v_range': [['6.4.7', '6.4.13'], ['7.0.1', '7.2.0']], 'type': 'str'},
-                'uuid': {'v_range': [['6.4.7', '6.4.13'], ['7.0.1', '7.2.0']], 'type': 'str'}
+                'action': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '7.2.0']], 'choices': ['deny', 'accept'], 'type': 'str'},
+                'cgn-log-server-grp': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '7.2.0']], 'type': 'str'},
+                'comments': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '7.2.0']], 'type': 'str'},
+                'dstaddr': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '7.2.0']], 'type': 'raw'},
+                'dstintf': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '7.2.0']], 'type': 'str'},
+                'name': {'v_range': [['6.4.8', '6.4.14'], ['7.0.3', '7.2.0']], 'type': 'str'},
+                'policy-offload': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '7.2.0']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'policyid': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '7.2.0']], 'required': True, 'type': 'int'},
+                'service': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '7.2.0']], 'type': 'raw'},
+                'srcaddr': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '7.2.0']], 'type': 'raw'},
+                'srcintf': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '7.2.0']], 'type': 'str'},
+                'status': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '7.2.0']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'tcp-timeout-pid': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '7.2.0']], 'type': 'str'},
+                'traffic-shaper': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '7.2.0']], 'type': 'str'},
+                'traffic-shaper-reverse': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '7.2.0']], 'type': 'str'},
+                'udp-timeout-pid': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '7.2.0']], 'type': 'str'},
+                'uuid': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '7.2.0']], 'type': 'str'}
             }
 
         }

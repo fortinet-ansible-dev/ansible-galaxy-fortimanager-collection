@@ -200,16 +200,16 @@ def main():
         'adom': {'required': True, 'type': 'str'},
         'system_npu_dswdtsprofile': {
             'type': 'dict',
-            'v_range': [['6.4.7', '6.4.13'], ['7.0.1', '']],
+            'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']],
             'options': {
                 'action': {
-                    'v_range': [['6.4.7', '6.4.13'], ['7.0.1', '']],
+                    'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']],
                     'choices': ['wait', 'drop', 'drop_tmr_0', 'drop_tmr_1', 'enque', 'enque_0', 'enque_1'],
                     'type': 'str'
                 },
-                'min-limit': {'v_range': [['6.4.7', '6.4.13'], ['7.0.1', '']], 'type': 'int'},
-                'profile-id': {'v_range': [['6.4.7', '6.4.13'], ['7.0.1', '']], 'type': 'int'},
-                'step': {'v_range': [['6.4.7', '6.4.13'], ['7.0.1', '']], 'type': 'int'}
+                'min-limit': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'type': 'int'},
+                'profile-id': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'type': 'int'},
+                'step': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'type': 'int'}
             }
 
         }

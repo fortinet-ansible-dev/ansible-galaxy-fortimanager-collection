@@ -333,18 +333,18 @@ def main():
                 'package settings': {
                     'type': 'dict',
                     'options': {
-                        'central-nat': {'v_range': [['6.4.7', '6.4.13'], ['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'consolidated-firewall-mode': {'v_range': [['6.4.7', '6.4.13'], ['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'fwpolicy-implicit-log': {'v_range': [['6.4.7', '6.4.13'], ['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'fwpolicy6-implicit-log': {'v_range': [['6.4.7', '6.4.13'], ['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'inspection-mode': {'v_range': [['6.4.7', '6.4.13'], ['7.0.1', '']], 'choices': ['proxy', 'flow'], 'type': 'str'},
-                        'ngfw-mode': {'v_range': [['6.4.7', '6.4.13'], ['7.0.1', '']], 'choices': ['profile-based', 'policy-based'], 'type': 'str'},
+                        'central-nat': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'consolidated-firewall-mode': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'fwpolicy-implicit-log': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'fwpolicy6-implicit-log': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'inspection-mode': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['proxy', 'flow'], 'type': 'str'},
+                        'ngfw-mode': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['profile-based', 'policy-based'], 'type': 'str'},
                         'policy-offload-level': {
-                            'v_range': [['6.4.7', '6.4.13'], ['7.0.1', '']],
+                            'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']],
                             'choices': ['disable', 'default', 'dos-offload', 'full-offload'],
                             'type': 'str'
                         },
-                        'ssl-ssh-profile': {'v_range': [['6.4.7', '6.4.13'], ['7.0.1', '']], 'type': 'str'}
+                        'ssl-ssh-profile': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'type': 'str'}
                     }
                 }
             }

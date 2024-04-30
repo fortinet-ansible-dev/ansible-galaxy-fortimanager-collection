@@ -808,7 +808,7 @@ def main():
                 'health-check': {
                     'type': 'list',
                     'options': {
-                        '_dynamic-server': {'v_range': [['6.0.0', '6.4.13']], 'type': 'str'},
+                        '_dynamic-server': {'v_range': [['6.0.0', '6.4.14']], 'type': 'str'},
                         'addr-mode': {'choices': ['ipv4', 'ipv6'], 'type': 'str'},
                         'failtime': {'type': 'int'},
                         'http-agent': {'type': 'str'},
@@ -847,7 +847,7 @@ def main():
                         'probe-packets': {'v_range': [['6.2.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                         'sla-fail-log-period': {'v_range': [['6.2.0', '']], 'type': 'int'},
                         'sla-pass-log-period': {'v_range': [['6.2.0', '']], 'no_log': True, 'type': 'int'},
-                        'timeout': {'v_range': [['6.2.0', '6.4.13']], 'type': 'int'},
+                        'timeout': {'v_range': [['6.2.0', '6.4.14']], 'type': 'int'},
                         'ha-priority': {'v_range': [['6.2.2', '']], 'type': 'int'},
                         'diffservcode': {'v_range': [['6.2.5', '']], 'type': 'str'},
                         'probe-timeout': {'v_range': [['6.2.5', '']], 'type': 'int'},
@@ -864,7 +864,7 @@ def main():
                 'members': {
                     'type': 'list',
                     'options': {
-                        '_dynamic-member': {'v_range': [['6.0.0', '6.4.13']], 'type': 'str'},
+                        '_dynamic-member': {'v_range': [['6.0.0', '6.4.14']], 'type': 'str'},
                         'comment': {'type': 'str'},
                         'gateway': {'type': 'str'},
                         'gateway6': {'type': 'str'},

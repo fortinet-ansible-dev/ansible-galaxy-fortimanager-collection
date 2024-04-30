@@ -187,11 +187,11 @@ def main():
         'adom': {'required': True, 'type': 'str'},
         'system_npu_dosoptions': {
             'type': 'dict',
-            'v_range': [['6.4.7', '6.4.13'], ['7.0.1', '']],
+            'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']],
             'options': {
-                'npu-dos-meter-mode': {'v_range': [['6.4.7', '6.4.13'], ['7.0.1', '']], 'choices': ['local', 'global'], 'type': 'str'},
-                'npu-dos-synproxy-mode': {'v_range': [['6.4.7', '6.4.13'], ['7.0.1', '']], 'choices': ['synack2ack', 'pass-synack'], 'type': 'str'},
-                'npu-dos-tpe-mode': {'v_range': [['6.4.7', '6.4.13'], ['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'npu-dos-meter-mode': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['local', 'global'], 'type': 'str'},
+                'npu-dos-synproxy-mode': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['synack2ack', 'pass-synack'], 'type': 'str'},
+                'npu-dos-tpe-mode': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
 
         }

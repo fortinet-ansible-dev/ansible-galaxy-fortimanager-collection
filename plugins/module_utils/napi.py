@@ -52,31 +52,35 @@ def check_galaxy_version(schema):
         raise Exception(error_message)
 
 
+def get_bypass(params):
+    bypass = params.get("bypass_validation", False)
+    if isinstance(bypass, bool):
+        return bypass
+    elif isinstance(bypass, str):
+        return bypass.lower() in ["true", "y", "yes", "t", "1", "on"]
+    elif isinstance(bypass, int):
+        return bypass != 0
+    return True
+
+
 def check_parameter_bypass(schema, module_level2_name):
     schema = modify_argument_spec(schema)
     params = _load_params()
     if not params:
         return schema
-    if "bypass_validation" in params and params["bypass_validation"] is True:
+    is_bypass = get_bypass(params)  # This params are raw data, need to decide bypass manually.
+    if is_bypass:
         top_level_schema = dict()
         for key in schema:
             if key != module_level2_name:
                 top_level_schema[key] = schema[key]
             elif (
                 not params[module_level2_name]
-                or type(params[module_level2_name]) is dict
+                or isinstance(params[module_level2_name], dict)
             ):
-                top_level_schema[module_level2_name] = dict()
-                top_level_schema[module_level2_name]["required"] = False
-                top_level_schema[module_level2_name]["type"] = "dict"
-            elif type(params[module_level2_name]) is list:
-                top_level_schema[module_level2_name] = dict()
-                top_level_schema[module_level2_name]["required"] = False
-                top_level_schema[module_level2_name]["type"] = "list"
-            else:
-                raise Exception(
-                    "Value of %s must be a dict or list" % (module_level2_name)
-                )
+                top_level_schema[module_level2_name] = {"type": "dict"}
+            elif isinstance(params[module_level2_name], list):
+                top_level_schema[module_level2_name] = {"type": "list"}
         return top_level_schema
     return schema
 
@@ -114,7 +118,7 @@ def _get_modified_name(variable_name):
     return modified_name
 
 
-def remove_aliases(user_params, metadata):
+def remove_aliases(user_params, metadata, bypass_valid=False):
     if not user_params:
         return user_params
     if isinstance(user_params, str) or isinstance(user_params, int):
@@ -122,7 +126,7 @@ def remove_aliases(user_params, metadata):
     if isinstance(user_params, list):
         new_params = []
         for item in user_params:
-            new_params.append(remove_aliases(item, metadata))
+            new_params.append(remove_aliases(item, metadata, bypass_valid))
         return new_params
     replace_key = {"fmgr_message": "message",
                    "fmgr_syslog_facility": "syslog-facility",
@@ -130,14 +134,25 @@ def remove_aliases(user_params, metadata):
                    "d80211k": "80211k",
                    "d80211v": "80211v"}
     new_params = {}
+    considered_keys = set()
     for param_name, param_data in metadata.items():
-        if user_params.get(param_name, None) is None:
+        ansible_format_param_name = _get_modified_name(param_name)
+        considered_keys.add(param_name)
+        considered_keys.add(ansible_format_param_name)
+        user_data = user_params.get(param_name, None)
+        if user_data is None:
+            user_data = user_params.get(ansible_format_param_name, None)
+        if user_data is None:
             continue
-        real_param_name = replace_key.get(param_name, param_name)
+        fmg_api_param_name = replace_key.get(param_name, param_name)
         if "options" in param_data:
-            new_params[real_param_name] = remove_aliases(user_params[param_name], param_data["options"])
+            new_params[fmg_api_param_name] = remove_aliases(user_data, param_data["options"], bypass_valid)
         else:
-            new_params[real_param_name] = user_params[param_name]
+            new_params[fmg_api_param_name] = user_data
+    if bypass_valid:
+        for param_name, param_data in user_params.items():
+            if param_name not in considered_keys:
+                new_params[param_name] = param_data
     return new_params
 
 
@@ -290,7 +305,7 @@ class NAPIManager(object):
     def _get_base_perobject_url(self, mvalue):
         url_getting = self._get_basic_url(True)
         if not url_getting.endswith("}"):
-            # in case of non-regular per-object url.
+            # in case of non-regular per-object url, such as scope member.
             return url_getting
         last_token = url_getting.split("/")[-1]
         return url_getting.replace(last_token, str(mvalue))
@@ -303,7 +318,8 @@ class NAPIManager(object):
 
     def update_object(self, mvalue):
         url_updating = self._get_base_perobject_url(mvalue)
-        raw_attributes = remove_aliases(self.module.params, self.metadata)
+        bypass_valid = self.module.params.get("bypass_validation", False) is True
+        raw_attributes = remove_aliases(self.module.params, self.metadata, bypass_valid)
         raw_attributes = raw_attributes.get(self.module_level2_name, {})
         params = {
             "url": url_updating,
@@ -314,7 +330,8 @@ class NAPIManager(object):
 
     def create_object(self):
         url_creating = self._get_basic_url(False)
-        raw_attributes = remove_aliases(self.module.params, self.metadata)
+        bypass_valid = self.module.params.get("bypass_validation", False) is True
+        raw_attributes = remove_aliases(self.module.params, self.metadata, bypass_valid)
         raw_attributes = raw_attributes.get(self.module_level2_name, {})
         params = {
             "url": url_creating,
@@ -392,7 +409,8 @@ class NAPIManager(object):
 
     def _update_required(self, robject):
         object_remote = robject["data"] if "data" in robject else {}
-        object_present = remove_aliases(self.module.params, self.metadata)
+        bypass_valid = self.module.params.get("bypass_validation", False)
+        object_present = remove_aliases(self.module.params, self.metadata, bypass_valid)
         object_present = object_present.get(self.module_level2_name, {})
         return self.is_object_difference(object_remote, object_present)
 
@@ -403,7 +421,7 @@ class NAPIManager(object):
                 if self._method_proposed() or self._update_required(robject):
                     return self.update_object(mvalue)
                 else:
-                    self.module.exit_json(message="Your FortiManager is up to date, no need to update. "
+                    self.module.exit_json(message="Your FortiManager is already up to date and does not need to be updated. "
                                           "To force update, please add argument proposed_method:update")
             else:
                 return self.create_object()
@@ -425,14 +443,15 @@ class NAPIManager(object):
         params = self.module.params
         module_name = self.module_level2_name
         track = [module_name]
-        if not params.get("bypass_validation", False):
+        bypass_valid = params.get("bypass_validation", False)
+        if not bypass_valid:
             self.check_versioning_mismatch(track, argument_specs.get(module_name, None), params.get(module_name, None))
         adom_value = params.get("adom", None)
         target_url = self._get_target_url(adom_value, self.jrpc_urls)
         target_url = self._get_replaced_url(target_url)
         api_params = {"url": target_url}
         if module_name in params:
-            params = remove_aliases(params, argument_specs)
+            params = remove_aliases(params, argument_specs, bypass_valid)
             api_params[self.top_level_schema_name] = params[module_name]
         response = self.conn.send_request("exec", [api_params])
         self.do_exit(response)
@@ -495,7 +514,7 @@ class NAPIManager(object):
         self.do_exit(response, changed=(task_type != "facts"))
 
     def __fix_remote_object_internal(self, robject, module_schema, log):
-        if type(robject) is not dict:
+        if not isinstance(robject, dict):
             return True
         need_bypass = False
         keys_to_delete = list()
@@ -510,19 +529,19 @@ class NAPIManager(object):
             attr_type = attr_schema["type"]
             if attr_type in ["str", "int"]:
                 # Do immediate fix.
-                if type(value) is list:
+                if isinstance(value, list):
                     if len(value) == 1:
                         robject[key] = value[0]
                         log.write("\tfix list-to-atomic key:%s\n" % (key))
                     else:
                         need_bypass = True
-                elif type(value) is dict:
+                elif isinstance(value, dict):
                     need_bypass = True
                 if not value or value == "null":
                     log.write("\tdelete empty key:%s\n" % (key))
                     keys_to_delete.append(key)
             elif attr_type == "dict":
-                if "options" in attr_schema and type(value) is dict:
+                if "options" in attr_schema and isinstance(value, dict):
                     need_bypass |= self.__fix_remote_object_internal(
                         value, attr_schema["options"], log
                     )
@@ -532,7 +551,7 @@ class NAPIManager(object):
                     log.write("\tdelete empty key:%s\n" % (key))
                     keys_to_delete.append(key)
             elif attr_type == "list":
-                if "options" in attr_schema and type(value) is list:
+                if "options" in attr_schema and isinstance(value, list):
                     for sub_value in value:
                         need_bypass |= self.__fix_remote_object_internal(
                             sub_value, attr_schema["options"], log
@@ -540,7 +559,7 @@ class NAPIManager(object):
                 else:
                     need_bypass = True
                 if (
-                    type(value) is list
+                    isinstance(value, list)
                     and not len(value)
                     or value == "null"
                     or not value
@@ -606,13 +625,13 @@ class NAPIManager(object):
         module_schema = schema_invt[selector]["options"]
         remote_objects = response_data["data"]
         counter = 0
-        if type(remote_objects) is list:
+        if isinstance(remote_objects, list):
             for remote_object in remote_objects:
                 need_bypass = self.__fix_remote_object_internal(remote_object, module_schema, log)
                 self._generate_playbook(counter, export_path, selector, remote_object,
                                         state_present, need_bypass, url_params, params_schema, log)
                 counter += 1
-        elif type(remote_objects) is dict:
+        elif isinstance(remote_objects, dict):
             need_bypass = self.__fix_remote_object_internal(remote_objects, module_schema, log)
             self._generate_playbook(counter, export_path, selector, remote_objects, state_present,
                                     need_bypass, url_params, params_schema, log)
@@ -791,6 +810,56 @@ class NAPIManager(object):
             self.module.fail_json(msg="can not find url in following sets:%s! please check params: adom" % (target_url))
         return target_url
 
+    def process_object_member(self, argument_specs=None):
+        self.metadata = argument_specs
+        module_name = self.module_level2_name
+        params = self.module.params
+        track = [module_name]
+        bypass_valid = self.module.params.get("bypass_validation", False)
+        if not bypass_valid:
+            self.check_versioning_mismatch(track, argument_specs.get(module_name, None), params.get(module_name, None))
+        member_url = self._get_basic_url(True)
+        parent_url, separator, task_type = member_url.rpartition("/")
+        response = (-1, {})
+        object_present = remove_aliases(self.module.params, self.metadata, bypass_valid)
+        object_present = object_present.get(self.module_level2_name, {})
+        if self.module.params["state"] == "present":
+            params = [{"url": parent_url}]
+            rc, object_remote = self.conn.send_request("get", params)
+            if rc == 0:
+                object_remote = object_remote.get("data", {})
+                object_remote = object_remote.get(task_type, {})
+                require_update = True
+                if not bypass_valid:
+                    if isinstance(object_remote, list):
+                        if len(object_remote) > 1:
+                            require_update = True
+                        else:
+                            object_remote = object_remote[0]
+                    try:
+                        require_update = self.is_object_difference(object_remote, object_present)
+                    except Exception as e:
+                        pass
+                if self._method_proposed() or require_update:
+                    response = self.update_object("")
+                else:
+                    self.module.exit_json(message="Your FortiManager is already up to date and does not need to be updated. "
+                                          "To force update, please add argument proposed_method:update")
+            else:
+                resource_name = parent_url.split("/")[-1]
+                parent_module, separator, task_name = module_name.rpartition("_")
+                parent_module = "fmgr_" + parent_module
+                rename_parent_module = {"fmgr_pm_devprof": "fmgr_pm_devprof_pkg",
+                                        "fmgr_pm_wanprof": "fmgr_pm_wanprof_pkg"}
+                if parent_module in rename_parent_module:
+                    parent_module = rename_parent_module[parent_module]
+                self.module.fail_json(msg="The resource %s does not exist. Please try to use the module %s first." %
+                                      (resource_name, parent_module))
+        elif self.module.params["state"] == "absent":
+            params = [{"url": member_url, self.top_level_schema_name: object_present}]
+            response = self.conn.send_request("delete", params)
+        self.do_exit(response)
+
     def process_curd(self, argument_specs=None):
         self.metadata = argument_specs
         module_name = self.module_level2_name
@@ -805,7 +874,11 @@ class NAPIManager(object):
                 mvalue_exec_string = mvalue_exec_string.replace("{{module}}", "self.module.params[self.module_level2_name]")
                 mvalue = eval(mvalue_exec_string)
             else:
-                mvalue = params[module_name][self.module_primary_key]
+                modified_main_key = _get_modified_name(self.module_primary_key)
+                if modified_main_key in params[module_name]:
+                    mvalue = params[module_name][modified_main_key]
+                elif self.module_primary_key in params[module_name]:
+                    mvalue = params[module_name][self.module_primary_key]
             self.do_exit(self._process_with_mkey(mvalue))
         else:
             self.do_exit(self._process_without_mkey())
@@ -815,7 +888,8 @@ class NAPIManager(object):
         module_name = self.module_level2_name
         params = self.module.params
         track = [module_name]
-        if not params.get("bypass_validation", False):
+        bypass_valid = params.get("bypass_validation", False)
+        if not bypass_valid:
             self.check_versioning_mismatch(track, argument_specs.get(module_name, None), params.get(module_name, None))
         adom_value = params.get("adom", None)
         target_url = self._get_target_url(adom_value, self.jrpc_urls)
@@ -823,7 +897,7 @@ class NAPIManager(object):
         target_url = target_url.rstrip("/")
         api_params = {"url": target_url}
         if module_name in params:
-            params = remove_aliases(params, argument_specs)
+            params = remove_aliases(params, argument_specs, bypass_valid)
             api_params[self.top_level_schema_name] = params[module_name]
         response = self.conn.send_request(self._propose_method("set"), [api_params])
         self.do_exit(response)

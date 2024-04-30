@@ -193,12 +193,12 @@ def main():
         'adom': {'required': True, 'type': 'str'},
         'firewall_ippoolgrp': {
             'type': 'dict',
-            'v_range': [['6.4.7', '6.4.13'], ['7.0.1', '']],
+            'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']],
             'options': {
-                'comments': {'v_range': [['6.4.7', '6.4.13'], ['7.0.1', '']], 'type': 'str'},
-                'member': {'v_range': [['6.4.7', '6.4.13'], ['7.0.1', '']], 'type': 'raw'},
-                'name': {'v_range': [['6.4.7', '6.4.13'], ['7.0.1', '']], 'required': True, 'type': 'str'},
-                'uuid': {'v_range': [['6.4.7', '6.4.13'], ['7.0.1', '']], 'type': 'str'}
+                'comments': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'type': 'str'},
+                'member': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'type': 'raw'},
+                'name': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'required': True, 'type': 'str'},
+                'uuid': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'type': 'str'}
             }
 
         }

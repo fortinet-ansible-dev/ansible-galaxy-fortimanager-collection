@@ -184,10 +184,10 @@ def main():
         'adom': {'required': True, 'type': 'str'},
         'system_npu_portcpumap': {
             'type': 'dict',
-            'v_range': [['6.4.7', '6.4.13'], ['7.0.1', '']],
+            'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']],
             'options': {
-                'cpu-core': {'v_range': [['6.4.7', '6.4.13'], ['7.0.1', '']], 'type': 'str'},
-                'interface': {'v_range': [['6.4.7', '6.4.13'], ['7.0.1', '']], 'type': 'str'}
+                'cpu-core': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'type': 'str'},
+                'interface': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'type': 'str'}
             }
 
         }

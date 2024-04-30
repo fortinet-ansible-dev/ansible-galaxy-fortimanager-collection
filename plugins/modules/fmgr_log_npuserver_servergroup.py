@@ -228,21 +228,21 @@ def main():
         'adom': {'required': True, 'type': 'str'},
         'log_npuserver_servergroup': {
             'type': 'dict',
-            'v_range': [['6.4.7', '6.4.13'], ['7.0.1', '']],
+            'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']],
             'options': {
-                'group-name': {'v_range': [['6.4.7', '6.4.13'], ['7.0.1', '']], 'type': 'str'},
-                'log-format': {'v_range': [['6.4.7', '6.4.13'], ['7.0.1', '']], 'choices': ['syslog', 'netflow'], 'type': 'str'},
+                'group-name': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'type': 'str'},
+                'log-format': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['syslog', 'netflow'], 'type': 'str'},
                 'log-mode': {
-                    'v_range': [['6.4.7', '6.4.13'], ['7.0.1', '']],
+                    'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']],
                     'choices': ['per-session', 'per-nat-mapping', 'per-session-ending'],
                     'type': 'str'
                 },
-                'log-tx-mode': {'v_range': [['6.4.7', '6.4.13'], ['7.0.2', '']], 'choices': ['multicast', 'roundrobin'], 'type': 'str'},
-                'server-number': {'v_range': [['6.4.7', '6.4.13'], ['7.0.1', '']], 'type': 'int'},
-                'server-start-id': {'v_range': [['6.4.7', '6.4.13'], ['7.0.1', '']], 'type': 'int'},
-                'sw-log-flags': {'v_range': [['6.4.8', '6.4.13'], ['7.0.3', '']], 'type': 'raw'},
-                'log-gen-event': {'v_range': [['7.0.4', '7.0.10'], ['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'log-user-info': {'v_range': [['7.0.4', '7.0.10'], ['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'log-tx-mode': {'v_range': [['6.4.7', '6.4.14'], ['7.0.2', '']], 'choices': ['multicast', 'roundrobin'], 'type': 'str'},
+                'server-number': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'type': 'int'},
+                'server-start-id': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'type': 'int'},
+                'sw-log-flags': {'v_range': [['6.4.8', '6.4.14'], ['7.0.3', '']], 'type': 'raw'},
+                'log-gen-event': {'v_range': [['7.0.4', '7.0.12'], ['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'log-user-info': {'v_range': [['7.0.4', '7.0.12'], ['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
 
         }

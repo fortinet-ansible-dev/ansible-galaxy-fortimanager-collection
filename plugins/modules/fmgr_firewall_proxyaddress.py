@@ -370,7 +370,7 @@ def main():
                 'ua': {'type': 'list', 'choices': ['chrome', 'ms', 'firefox', 'safari', 'other', 'ie', 'edge'], 'elements': 'str'},
                 'uuid': {'type': 'str'},
                 'visibility': {'choices': ['disable', 'enable'], 'type': 'str'},
-                'tags': {'v_range': [['6.2.0', '6.4.13']], 'type': 'str'},
+                'tags': {'v_range': [['6.2.0', '6.4.14']], 'type': 'str'},
                 '_image-base64': {'v_range': [['6.2.2', '']], 'type': 'str'},
                 'application': {'v_range': [['7.2.1', '']], 'type': 'raw'},
                 'ua-max-ver': {'v_range': [['7.2.2', '']], 'type': 'str'},

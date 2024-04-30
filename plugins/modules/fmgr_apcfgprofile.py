@@ -263,7 +263,7 @@ def main():
                 },
                 'comment': {'v_range': [['6.4.6', '']], 'type': 'str'},
                 'name': {'v_range': [['6.4.6', '']], 'required': True, 'type': 'str'},
-                'ap-family': {'v_range': [['6.4.8', '6.4.13'], ['7.0.2', '']], 'choices': ['fap', 'fap-u', 'fap-c'], 'type': 'str'}
+                'ap-family': {'v_range': [['6.4.8', '6.4.14'], ['7.0.2', '']], 'choices': ['fap', 'fap-u', 'fap-c'], 'type': 'str'}
             }
 
         }

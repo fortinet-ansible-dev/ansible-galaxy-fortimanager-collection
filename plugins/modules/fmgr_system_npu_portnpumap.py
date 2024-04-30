@@ -184,10 +184,10 @@ def main():
         'adom': {'required': True, 'type': 'str'},
         'system_npu_portnpumap': {
             'type': 'dict',
-            'v_range': [['6.4.7', '6.4.13'], ['7.0.1', '']],
+            'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']],
             'options': {
-                'interface': {'v_range': [['6.4.7', '6.4.13'], ['7.0.1', '']], 'type': 'str'},
-                'npu-group-index': {'v_range': [['6.4.7', '6.4.13'], ['7.0.1', '']], 'type': 'int'}
+                'interface': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'type': 'str'},
+                'npu-group-index': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'type': 'int'}
             }
 
         }

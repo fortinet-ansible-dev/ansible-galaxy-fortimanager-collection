@@ -12,7 +12,7 @@ ANSIBLE_METADATA = {'status': ['preview'],
 DOCUMENTATION = '''
 ---
 module: fmgr_pm_config_meta_reference
-short_description: no description
+short_description: Meta reference
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
@@ -95,7 +95,7 @@ EXAMPLES = '''
     ansible_httpapi_validate_certs: false
     ansible_httpapi_port: 443
   tasks:
-    - name: No description
+    - name: Meta reference
       fortinet.fortimanager.fmgr_pm_config_meta_reference:
         # bypass_validation: false
         workspace_locking_adom: <value in [global, custom adom including root]>
@@ -174,14 +174,14 @@ def main():
         'adom': {'required': True, 'type': 'str'},
         'pm_config_meta_reference': {
             'type': 'dict',
-            'v_range': [['7.2.4', '7.2.4'], ['7.4.1', '']],
+            'v_range': [['7.2.4', '7.2.5'], ['7.4.1', '']],
             'options': {
                 'package list': {
-                    'v_range': [['7.2.4', '7.2.4'], ['7.4.1', '']],
+                    'v_range': [['7.2.4', '7.2.5'], ['7.4.1', '']],
                     'type': 'list',
                     'options': {
-                        'name': {'v_range': [['7.2.4', '7.2.4'], ['7.4.1', '']], 'type': 'str'},
-                        'vdom': {'v_range': [['7.2.4', '7.2.4'], ['7.4.1', '']], 'type': 'str'}
+                        'name': {'v_range': [['7.2.4', '7.2.5'], ['7.4.1', '']], 'type': 'str'},
+                        'vdom': {'v_range': [['7.2.4', '7.2.5'], ['7.4.1', '']], 'type': 'str'}
                     },
                     'elements': 'dict'
                 }

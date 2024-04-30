@@ -170,7 +170,7 @@ def main():
         'dvmdb_device_replace_sn': {
             'type': 'dict',
             'v_range': [['6.0.0', '']],
-            'options': {'sn': {'v_range': [['6.4.7', '6.4.13'], ['7.0.1', '']], 'type': 'str'}}
+            'options': {'sn': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'type': 'str'}}
 
         }
     }

@@ -917,7 +917,7 @@ def main():
                     'type': 'str'
                 },
                 'adom-access': {'v_range': [['7.0.3', '']], 'choices': ['all', 'specify', 'exclude', 'per-adom-profile'], 'type': 'str'},
-                'fingerprint': {'v_range': [['6.4.8', '6.4.13'], ['7.0.4', '']], 'type': 'str'},
+                'fingerprint': {'v_range': [['6.4.8', '6.4.14'], ['7.0.4', '']], 'type': 'str'},
                 'th-from-profile': {'v_range': [['7.0.3', '']], 'type': 'int'},
                 'th6-from-profile': {'v_range': [['7.0.3', '']], 'type': 'int'},
                 'cors-allow-origin': {'v_range': [['7.2.2', '']], 'type': 'str'}

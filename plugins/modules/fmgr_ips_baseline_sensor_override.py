@@ -12,7 +12,7 @@ ANSIBLE_METADATA = {'status': ['preview'],
 DOCUMENTATION = '''
 ---
 module: fmgr_ips_baseline_sensor_override
-short_description: no description
+short_description: Ips baseline sensor override
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
@@ -163,7 +163,7 @@ EXAMPLES = '''
     ansible_httpapi_validate_certs: false
     ansible_httpapi_port: 443
   tasks:
-    - name: No description
+    - name: Ips baseline sensor override
       fortinet.fortimanager.fmgr_ips_baseline_sensor_override:
         # bypass_validation: false
         workspace_locking_adom: <value in [global, custom adom including root]>

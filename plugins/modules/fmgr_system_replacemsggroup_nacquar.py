@@ -234,7 +234,7 @@ def main():
                 'format': {'choices': ['none', 'text', 'html', 'wml'], 'type': 'str'},
                 'header': {'choices': ['none', 'http', '8bit'], 'type': 'str'},
                 'msg-type': {'required': True, 'type': 'str'},
-                'id': {'v_range': [['6.4.11', '6.4.13'], ['7.0.6', '7.0.10'], ['7.2.3', '']], 'type': 'int'}
+                'id': {'v_range': [['6.4.11', '6.4.14'], ['7.0.6', '7.0.12'], ['7.2.3', '']], 'type': 'int'}
             }
 
         }

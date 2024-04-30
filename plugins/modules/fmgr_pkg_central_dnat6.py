@@ -12,7 +12,7 @@ ANSIBLE_METADATA = {'status': ['preview'],
 DOCUMENTATION = '''
 ---
 module: fmgr_pkg_central_dnat6
-short_description: no description
+short_description: Policy package central dnat6
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
@@ -108,7 +108,7 @@ EXAMPLES = '''
     ansible_httpapi_validate_certs: false
     ansible_httpapi_port: 443
   tasks:
-    - name: No description
+    - name: Policy package central dnat6
       fortinet.fortimanager.fmgr_pkg_central_dnat6:
         # bypass_validation: false
         workspace_locking_adom: <value in [global, custom adom including root]>

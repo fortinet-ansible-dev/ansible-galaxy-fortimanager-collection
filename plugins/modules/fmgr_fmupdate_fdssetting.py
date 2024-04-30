@@ -767,14 +767,14 @@ def main():
                 'wanip-query-mode': {'choices': ['disable', 'ipify'], 'type': 'str'},
                 'fortiguard-anycast': {'v_range': [['6.4.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'fortiguard-anycast-source': {'v_range': [['6.4.0', '']], 'choices': ['fortinet', 'aws'], 'type': 'str'},
-                'system-support-fdc': {'v_range': [['6.4.6', '6.4.13'], ['7.0.1', '']], 'type': 'list', 'choices': ['3.x', '4.x'], 'elements': 'str'},
+                'system-support-fdc': {'v_range': [['6.4.6', '6.4.14'], ['7.0.1', '']], 'type': 'list', 'choices': ['3.x', '4.x'], 'elements': 'str'},
                 'system-support-fts': {
-                    'v_range': [['6.4.6', '6.4.13'], ['7.0.1', '']],
+                    'v_range': [['6.4.6', '6.4.14'], ['7.0.1', '']],
                     'type': 'list',
                     'choices': ['3.x', '4.x', '7.x'],
                     'elements': 'str'
                 },
-                'system-support-faz': {'v_range': [['7.0.7', '7.0.10'], ['7.2.2', '']], 'type': 'list', 'choices': ['6.x', '7.x'], 'elements': 'str'},
+                'system-support-faz': {'v_range': [['7.0.7', '7.0.12'], ['7.2.2', '']], 'type': 'list', 'choices': ['6.x', '7.x'], 'elements': 'str'},
                 'system-support-fis': {'v_range': [['7.4.0', '']], 'type': 'list', 'choices': ['1.x', '2.x'], 'elements': 'str'}
             }
 

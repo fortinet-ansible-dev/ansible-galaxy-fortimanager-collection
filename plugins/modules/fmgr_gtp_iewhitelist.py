@@ -100,9 +100,9 @@ options:
                     ie:
                         type: int
                         description: IE ID
-                    message:
+                    fmgr_message:
                         type: int
-                        description: Deprecated, please rename it to fmgr_message. Message ID
+                        description: Message ID
             name:
                 type: str
                 description: IE white list name.
@@ -202,7 +202,11 @@ def main():
             'type': 'dict',
             'v_range': [['6.0.0', '']],
             'options': {
-                'entries': {'type': 'list', 'options': {'id': {'type': 'int'}, 'ie': {'type': 'int'}, 'message': {'type': 'int'}}, 'elements': 'dict'},
+                'entries': {
+                    'type': 'list',
+                    'options': {'id': {'type': 'int'}, 'ie': {'type': 'int'}, 'fmgr_message': {'type': 'int'}},
+                    'elements': 'dict'
+                },
                 'name': {'required': True, 'type': 'str'}
             }
 

@@ -12,7 +12,7 @@ ANSIBLE_METADATA = {'status': ['preview'],
 DOCUMENTATION = '''
 ---
 module: fmgr_devprof_log_syslogd_filter_excludelist
-short_description: no description
+short_description: System template log syslogd filter exclude list
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
@@ -141,7 +141,7 @@ EXAMPLES = '''
     ansible_httpapi_validate_certs: false
     ansible_httpapi_port: 443
   tasks:
-    - name: No description
+    - name: System template log syslogd filter exclude list
       fortinet.fortimanager.fmgr_devprof_log_syslogd_filter_excludelist:
         # bypass_validation: false
         workspace_locking_adom: <value in [global, custom adom including root]>
@@ -224,24 +224,24 @@ def main():
         'devprof': {'required': True, 'type': 'str'},
         'devprof_log_syslogd_filter_excludelist': {
             'type': 'dict',
-            'v_range': [['7.0.4', '7.0.10']],
+            'v_range': [['7.0.4', '7.0.12']],
             'options': {
                 'category': {
-                    'v_range': [['7.0.4', '7.0.10']],
+                    'v_range': [['7.0.4', '7.0.12']],
                     'choices': ['app-ctrl', 'attack', 'dlp', 'event', 'traffic', 'virus', 'voip', 'webfilter', 'netscan', 'spam', 'anomaly', 'waf'],
                     'type': 'str'
                 },
                 'fields': {
-                    'v_range': [['7.0.4', '7.0.10']],
+                    'v_range': [['7.0.4', '7.0.12']],
                     'type': 'list',
                     'options': {
-                        'args': {'v_range': [['7.0.4', '7.0.10']], 'type': 'raw'},
-                        'field': {'v_range': [['7.0.4', '7.0.10']], 'type': 'str'},
-                        'negate': {'v_range': [['7.0.4', '7.0.10']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                        'args': {'v_range': [['7.0.4', '7.0.12']], 'type': 'raw'},
+                        'field': {'v_range': [['7.0.4', '7.0.12']], 'type': 'str'},
+                        'negate': {'v_range': [['7.0.4', '7.0.12']], 'choices': ['disable', 'enable'], 'type': 'str'}
                     },
                     'elements': 'dict'
                 },
-                'id': {'v_range': [['7.0.4', '7.0.10']], 'required': True, 'type': 'int'}
+                'id': {'v_range': [['7.0.4', '7.0.12']], 'required': True, 'type': 'int'}
             }
 
         }

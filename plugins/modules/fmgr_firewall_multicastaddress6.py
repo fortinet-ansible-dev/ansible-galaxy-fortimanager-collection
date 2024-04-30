@@ -242,7 +242,7 @@ def main():
                     'elements': 'dict'
                 },
                 'visibility': {'choices': ['disable', 'enable'], 'type': 'str'},
-                'tags': {'v_range': [['6.2.0', '6.4.13']], 'type': 'str'}
+                'tags': {'v_range': [['6.2.0', '6.4.14']], 'type': 'str'}
             }
 
         }

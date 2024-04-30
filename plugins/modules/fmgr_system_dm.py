@@ -350,11 +350,11 @@ def main():
                 'fgfm-install-refresh-count': {'v_range': [['6.2.5', '']], 'type': 'int'},
                 'conf-merge-after-script': {'v_range': [['6.2.7', '6.2.12'], ['6.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'log-autoupdate': {
-                    'v_range': [['6.4.12', '6.4.13'], ['7.0.9', '7.0.10'], ['7.2.4', '7.2.4'], ['7.4.1', '']],
+                    'v_range': [['6.4.12', '6.4.14'], ['7.0.9', '7.0.12'], ['7.2.4', '7.2.5'], ['7.4.1', '']],
                     'choices': ['disable', 'enable'],
                     'type': 'str'
                 },
-                'fgfm-auto-retrieve-timeout': {'v_range': [['6.4.13', '6.4.13'], ['7.0.9', '7.0.10'], ['7.2.4', '7.2.4'], ['7.4.1', '']], 'type': 'int'},
+                'fgfm-auto-retrieve-timeout': {'v_range': [['6.4.13', '6.4.14'], ['7.0.9', '7.0.12'], ['7.2.4', '7.2.5'], ['7.4.1', '']], 'type': 'int'},
                 'install-fds-timeout': {'v_range': [['7.4.1', '']], 'type': 'int'}
             }
 

@@ -922,95 +922,6 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
-            admin-lockout-method:
-                type: str
-                description:
-                    - Deprecated, please rename it to admin_lockout_method.
-                    - Lockout method for administration.
-                    - ip - Lockout by IP
-                    - user - Lockout by user
-                choices:
-                    - 'ip'
-                    - 'user'
-            fgfm-cert-exclusive:
-                type: str
-                description:
-                    - Deprecated, please rename it to fgfm_cert_exclusive.
-                    - set if the local or CA certificates should be used exclusively.
-                    - disable - Used certificate best-effort.
-                    - enable - Used certificate exclusive.
-                choices:
-                    - 'disable'
-                    - 'enable'
-            workspace-unlock-after-install:
-                type: str
-                description:
-                    - Deprecated, please rename it to workspace_unlock_after_install.
-                    - Enable/disable ADOM auto-unlock after device installation.
-                    - disable - Disable automatically unlock adom after device installation.
-                    - enable - Enable automatically unlock adom after device installation.
-                choices:
-                    - 'disable'
-                    - 'enable'
-            log-checksum-upload:
-                type: str
-                description:
-                    - Deprecated, please rename it to log_checksum_upload.
-                    - Enable/disable upload log checksum with log files.
-                    - disable - Disable attribute function.
-                    - enable - Enable attribute function.
-                choices:
-                    - 'disable'
-                    - 'enable'
-            apache-mode:
-                type: str
-                description:
-                    - Deprecated, please rename it to apache_mode.
-                    - Set apache mode.
-                    - event - Apache event mode.
-                    - prefork - Apache prefork mode.
-                choices:
-                    - 'event'
-                    - 'prefork'
-            no-vip-value-check:
-                type: str
-                description:
-                    - Deprecated, please rename it to no_vip_value_check.
-                    - Enable/disable skipping policy instead of throwing error when vip has no default or dynamic mapping during policy copy
-                    - disable - Disable setting.
-                    - enable - Enable setting.
-                choices:
-                    - 'disable'
-                    - 'enable'
-            fortiservice-port:
-                type: int
-                description: Deprecated, please rename it to fortiservice_port. FortiService port
-            management-ip:
-                type: str
-                description: Deprecated, please rename it to management_ip. Management IP address of this FortiGate.
-            management-port:
-                type: int
-                description: Deprecated, please rename it to management_port. Overriding port for management connection
-            save-last-hit-in-adomdb:
-                type: str
-                description:
-                    - Deprecated, please rename it to save_last_hit_in_adomdb.
-                    - Enable/Disable save last-hit value in adomdb.
-                    - disable - Disable save last-hit value in adomdb.
-                    - enable - Enable save last-hit value in adomdb.
-                choices:
-                    - 'disable'
-                    - 'enable'
-            api-ip-binding:
-                type: str
-                description:
-                    - Deprecated, please rename it to api_ip_binding.
-                    - Enable/disable source IP check for JSON API request.
-                    - disable - Disable setting.
-                    - enable - Enable setting.
-                choices:
-                    - 'disable'
-                    - 'enable'
             ssh-enc-algo:
                 type: list
                 elements: str
@@ -1087,6 +998,115 @@ options:
                     - Only allow strong ciphers for SSH when enabled.
                     - disable - Disable strong crypto for SSH.
                     - enable - Enable strong crypto for SSH.
+                choices:
+                    - 'disable'
+                    - 'enable'
+            fgfm-cert-exclusive:
+                type: str
+                description:
+                    - Deprecated, please rename it to fgfm_cert_exclusive.
+                    - set if the local or CA certificates should be used exclusively.
+                    - disable - Used certificate best-effort.
+                    - enable - Used certificate exclusive.
+                choices:
+                    - 'disable'
+                    - 'enable'
+            fgfm-deny-unknown:
+                type: str
+                description:
+                    - Deprecated, please rename it to fgfm_deny_unknown.
+                    - set if allow devices with unknown SN actively register as an unauthorized device.
+                    - disable - Allow devices with unknown SN to actively register as an unauthorized device.
+                    - enable - Deny devices with unknown SN to actively register as an unauthorized device.
+                choices:
+                    - 'disable'
+                    - 'enable'
+            fgfm-peercert-withoutsn:
+                type: str
+                description:
+                    - Deprecated, please rename it to fgfm_peercert_withoutsn.
+                    - set if the subject CN or SAN of peer&apos;s SSL certificate sent in FGFM should include the serial number of the device.
+                    - disable - Peer&apos;s certificate must include serial number in subject CN or SAN.
+                    - enable - Peer&apos;s certificate might not include serial number in subject CN or SAN.
+                choices:
+                    - 'disable'
+                    - 'enable'
+            admin-lockout-method:
+                type: str
+                description:
+                    - Deprecated, please rename it to admin_lockout_method.
+                    - Lockout method for administration.
+                    - ip - Lockout by IP
+                    - user - Lockout by user
+                choices:
+                    - 'ip'
+                    - 'user'
+            workspace-unlock-after-install:
+                type: str
+                description:
+                    - Deprecated, please rename it to workspace_unlock_after_install.
+                    - Enable/disable ADOM auto-unlock after device installation.
+                    - disable - Disable automatically unlock adom after device installation.
+                    - enable - Enable automatically unlock adom after device installation.
+                choices:
+                    - 'disable'
+                    - 'enable'
+            log-checksum-upload:
+                type: str
+                description:
+                    - Deprecated, please rename it to log_checksum_upload.
+                    - Enable/disable upload log checksum with log files.
+                    - disable - Disable attribute function.
+                    - enable - Enable attribute function.
+                choices:
+                    - 'disable'
+                    - 'enable'
+            apache-mode:
+                type: str
+                description:
+                    - Deprecated, please rename it to apache_mode.
+                    - Set apache mode.
+                    - event - Apache event mode.
+                    - prefork - Apache prefork mode.
+                choices:
+                    - 'event'
+                    - 'prefork'
+            no-vip-value-check:
+                type: str
+                description:
+                    - Deprecated, please rename it to no_vip_value_check.
+                    - Enable/disable skipping policy instead of throwing error when vip has no default or dynamic mapping during policy copy
+                    - disable - Disable setting.
+                    - enable - Enable setting.
+                choices:
+                    - 'disable'
+                    - 'enable'
+            fortiservice-port:
+                type: int
+                description: Deprecated, please rename it to fortiservice_port. FortiService port
+            management-ip:
+                type: str
+                description: Deprecated, please rename it to management_ip. Management IP address of this FortiGate.
+            management-port:
+                type: int
+                description: Deprecated, please rename it to management_port. Overriding port for management connection
+            save-last-hit-in-adomdb:
+                type: str
+                description:
+                    - Deprecated, please rename it to save_last_hit_in_adomdb.
+                    - Enable/Disable save last-hit value in adomdb.
+                    - disable - Disable save last-hit value in adomdb.
+                    - enable - Enable save last-hit value in adomdb.
+                choices:
+                    - 'disable'
+                    - 'enable'
+            api-ip-binding:
+                type: str
+                description:
+                    - Deprecated, please rename it to api_ip_binding.
+                    - Enable/disable source IP check for JSON API request.
+                    - disable - Disable setting.
+                    - enable - Enable setting.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -1285,35 +1305,24 @@ def main():
                 'object-revision-mandatory-note': {'v_range': [['7.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'object-revision-object-max': {'v_range': [['7.0.0', '']], 'type': 'int'},
                 'object-revision-status': {'v_range': [['7.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'normalized-intf-zone-only': {'v_range': [['6.4.7', '6.4.13'], ['7.0.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'normalized-intf-zone-only': {'v_range': [['6.4.7', '6.4.14'], ['7.0.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'ssl-cipher-suites': {
-                    'v_range': [['6.4.8', '6.4.13'], ['7.0.2', '']],
+                    'v_range': [['6.4.8', '6.4.14'], ['7.0.2', '']],
                     'type': 'list',
                     'options': {
-                        'cipher': {'v_range': [['6.4.8', '6.4.13'], ['7.0.2', '']], 'type': 'str'},
-                        'priority': {'v_range': [['6.4.8', '6.4.13'], ['7.0.2', '']], 'type': 'int'},
-                        'version': {'v_range': [['6.4.8', '6.4.13'], ['7.0.2', '']], 'choices': ['tls1.2-or-below', 'tls1.3'], 'type': 'str'}
+                        'cipher': {'v_range': [['6.4.8', '6.4.14'], ['7.0.2', '']], 'type': 'str'},
+                        'priority': {'v_range': [['6.4.8', '6.4.14'], ['7.0.2', '']], 'type': 'int'},
+                        'version': {'v_range': [['6.4.8', '6.4.14'], ['7.0.2', '']], 'choices': ['tls1.2-or-below', 'tls1.3'], 'type': 'str'}
                     },
                     'elements': 'dict'
                 },
-                'gui-curl-timeout': {'v_range': [['6.4.11', '6.4.13'], ['7.0.7', '7.0.10'], ['7.2.2', '']], 'type': 'int'},
-                'table-entry-blink': {'v_range': [['7.0.4', '7.0.10'], ['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'contentpack-fgt-install': {'v_range': [['7.0.5', '7.0.10'], ['7.2.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'gui-polling-interval': {'v_range': [['7.0.5', '7.0.10'], ['7.2.1', '']], 'type': 'int'},
-                'no-copy-permission-check': {'v_range': [['7.0.8', '7.0.10'], ['7.2.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'admin-lockout-method': {'v_range': [['7.2.2', '']], 'choices': ['ip', 'user'], 'type': 'str'},
-                'fgfm-cert-exclusive': {'v_range': [['7.2.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'workspace-unlock-after-install': {'v_range': [['7.2.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'log-checksum-upload': {'v_range': [['7.2.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'apache-mode': {'v_range': [['7.2.4', '7.2.4'], ['7.4.1', '']], 'choices': ['event', 'prefork'], 'type': 'str'},
-                'no-vip-value-check': {'v_range': [['7.2.4', '7.2.4'], ['7.4.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'fortiservice-port': {'v_range': [['7.4.1', '']], 'type': 'int'},
-                'management-ip': {'v_range': [['7.4.1', '']], 'type': 'str'},
-                'management-port': {'v_range': [['7.4.1', '']], 'type': 'int'},
-                'save-last-hit-in-adomdb': {'v_range': [['7.4.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'api-ip-binding': {'v_range': [['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'gui-curl-timeout': {'v_range': [['6.4.11', '6.4.14'], ['7.0.7', '7.0.12'], ['7.2.2', '']], 'type': 'int'},
+                'table-entry-blink': {'v_range': [['7.0.4', '7.0.12'], ['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'contentpack-fgt-install': {'v_range': [['7.0.5', '7.0.12'], ['7.2.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'gui-polling-interval': {'v_range': [['7.0.5', '7.0.12'], ['7.2.1', '']], 'type': 'int'},
+                'no-copy-permission-check': {'v_range': [['7.0.8', '7.0.12'], ['7.2.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'ssh-enc-algo': {
-                    'v_range': [['7.4.2', '']],
+                    'v_range': [['7.0.11', '7.0.12'], ['7.2.5', '7.2.5'], ['7.4.2', '']],
                     'type': 'list',
                     'choices': [
                         'chacha20-poly1305@openssh.com', 'aes128-ctr', 'aes192-ctr', 'aes256-ctr', 'arcfour256', 'arcfour128', 'aes128-cbc', '3des-cbc',
@@ -1323,13 +1332,13 @@ def main():
                     'elements': 'str'
                 },
                 'ssh-hostkey-algo': {
-                    'v_range': [['7.4.2', '']],
+                    'v_range': [['7.0.11', '7.0.12'], ['7.2.5', '7.2.5'], ['7.4.2', '']],
                     'type': 'list',
                     'choices': ['ssh-rsa', 'ecdsa-sha2-nistp521', 'rsa-sha2-256', 'rsa-sha2-512', 'ssh-ed25519'],
                     'elements': 'str'
                 },
                 'ssh-kex-algo': {
-                    'v_range': [['7.4.2', '']],
+                    'v_range': [['7.0.11', '7.0.12'], ['7.2.5', '7.2.5'], ['7.4.2', '']],
                     'type': 'list',
                     'choices': [
                         'diffie-hellman-group1-sha1', 'diffie-hellman-group14-sha1', 'diffie-hellman-group14-sha256', 'diffie-hellman-group16-sha512',
@@ -1339,7 +1348,7 @@ def main():
                     'elements': 'str'
                 },
                 'ssh-mac-algo': {
-                    'v_range': [['7.4.2', '']],
+                    'v_range': [['7.0.11', '7.0.12'], ['7.2.5', '7.2.5'], ['7.4.2', '']],
                     'type': 'list',
                     'choices': [
                         'hmac-md5', 'hmac-md5-etm@openssh.com', 'hmac-md5-96', 'hmac-md5-96-etm@openssh.com', 'hmac-sha1', 'hmac-sha1-etm@openssh.com',
@@ -1349,7 +1358,24 @@ def main():
                     ],
                     'elements': 'str'
                 },
-                'ssh-strong-crypto': {'v_range': [['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'ssh-strong-crypto': {
+                    'v_range': [['7.0.11', '7.0.12'], ['7.2.5', '7.2.5'], ['7.4.2', '']],
+                    'choices': ['disable', 'enable'],
+                    'type': 'str'
+                },
+                'fgfm-cert-exclusive': {'v_range': [['7.0.12', '7.0.12'], ['7.2.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'fgfm-deny-unknown': {'v_range': [['7.0.12', '7.0.12'], ['7.2.5', '7.2.5']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'fgfm-peercert-withoutsn': {'v_range': [['7.0.12', '7.0.12'], ['7.2.5', '7.2.5']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'admin-lockout-method': {'v_range': [['7.2.2', '']], 'choices': ['ip', 'user'], 'type': 'str'},
+                'workspace-unlock-after-install': {'v_range': [['7.2.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'log-checksum-upload': {'v_range': [['7.2.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'apache-mode': {'v_range': [['7.2.4', '7.2.5'], ['7.4.1', '']], 'choices': ['event', 'prefork'], 'type': 'str'},
+                'no-vip-value-check': {'v_range': [['7.2.4', '7.2.5'], ['7.4.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'fortiservice-port': {'v_range': [['7.4.1', '']], 'type': 'int'},
+                'management-ip': {'v_range': [['7.4.1', '']], 'type': 'str'},
+                'management-port': {'v_range': [['7.4.1', '']], 'type': 'int'},
+                'save-last-hit-in-adomdb': {'v_range': [['7.4.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'api-ip-binding': {'v_range': [['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
 
         }

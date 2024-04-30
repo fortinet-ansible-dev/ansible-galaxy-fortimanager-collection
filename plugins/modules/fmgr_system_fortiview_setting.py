@@ -197,7 +197,7 @@ def main():
             'options': {
                 'not-scanned-apps': {'choices': ['exclude', 'include'], 'type': 'str'},
                 'resolve-ip': {'choices': ['disable', 'enable'], 'type': 'str'},
-                'data-source': {'v_range': [['6.4.8', '6.4.13'], ['7.0.3', '']], 'choices': ['auto', 'cache-only', 'log-and-cache'], 'type': 'str'}
+                'data-source': {'v_range': [['6.4.8', '6.4.14'], ['7.0.3', '']], 'choices': ['auto', 'cache-only', 'log-and-cache'], 'type': 'str'}
             }
 
         }

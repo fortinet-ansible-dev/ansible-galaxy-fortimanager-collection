@@ -692,28 +692,28 @@ def main():
             'urls': [
                 '/pm/config/adom/{adom}/pkg/{pkg}/firewall/hyperscale-policy/{hyperscale-policy}'
             ],
-            'v_range': [['6.4.7', '6.4.13'], ['7.0.1', '7.2.0']]
+            'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '7.2.0']]
         },
         'pkg_firewall_hyperscalepolicy46': {
             'params': ['adom', 'pkg', 'hyperscale-policy46'],
             'urls': [
                 '/pm/config/adom/{adom}/pkg/{pkg}/firewall/hyperscale-policy46/{hyperscale-policy46}'
             ],
-            'v_range': [['6.4.7', '6.4.13'], ['7.0.1', '7.2.0']]
+            'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '7.2.0']]
         },
         'pkg_firewall_hyperscalepolicy6': {
             'params': ['adom', 'pkg', 'hyperscale-policy6'],
             'urls': [
                 '/pm/config/adom/{adom}/pkg/{pkg}/firewall/hyperscale-policy6/{hyperscale-policy6}'
             ],
-            'v_range': [['6.4.7', '6.4.13'], ['7.0.1', '7.2.0']]
+            'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '7.2.0']]
         },
         'pkg_firewall_hyperscalepolicy64': {
             'params': ['adom', 'pkg', 'hyperscale-policy64'],
             'urls': [
                 '/pm/config/adom/{adom}/pkg/{pkg}/firewall/hyperscale-policy64/{hyperscale-policy64}'
             ],
-            'v_range': [['6.4.7', '6.4.13'], ['7.0.1', '7.2.0']]
+            'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '7.2.0']]
         },
         'pkg_firewall_interfacepolicy': {
             'params': ['adom', 'pkg', 'interface-policy'],
@@ -914,7 +914,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/system/sdn-connector/{sdn-connector}/gcp-project-list/{gcp-project-list}',
                 '/pm/config/global/obj/system/sdn-connector/{sdn-connector}/gcp-project-list/{gcp-project-list}'
             ],
-            'v_range': [['6.4.7', '6.4.13'], ['7.0.2', '']]
+            'v_range': [['6.4.7', '6.4.14'], ['7.0.2', '']]
         },
         'system_sdnconnector_nic': {
             'params': ['adom', 'sdn-connector', 'nic'],

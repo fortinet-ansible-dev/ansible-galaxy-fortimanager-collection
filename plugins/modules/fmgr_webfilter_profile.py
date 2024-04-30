@@ -1216,7 +1216,7 @@ def main():
                         'rate-css-urls': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                         'rate-image-urls': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                         'rate-javascript-urls': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'category-override': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '6.4.13']], 'type': 'str'}
+                        'category-override': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '6.4.14']], 'type': 'str'}
                     }
                 },
                 'override': {

@@ -1200,10 +1200,10 @@ def main():
                                 'sso-username': {'type': 'str'},
                                 'url': {'type': 'str'},
                                 'domain': {'v_range': [['6.4.2', '']], 'type': 'str'},
-                                'color-depth': {'v_range': [['6.4.7', '6.4.13'], ['7.0.1', '']], 'choices': ['8', '16', '32'], 'type': 'str'},
+                                'color-depth': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['8', '16', '32'], 'type': 'str'},
                                 'height': {'v_range': [['7.0.3', '']], 'type': 'int'},
                                 'keyboard-layout': {
-                                    'v_range': [['6.4.7', '6.4.13'], ['7.0.1', '']],
+                                    'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']],
                                     'choices': [
                                         'ar', 'da', 'de', 'de-ch', 'en-gb', 'en-uk', 'en-us', 'es', 'fi', 'fr', 'fr-be', 'fr-ca', 'fr-ch', 'hr', 'hu',
                                         'it', 'ja', 'lt', 'lv', 'mk', 'no', 'pl', 'pt', 'pt-br', 'ru', 'sl', 'sv', 'tk', 'tr', 'fr-ca-m', 'wg', 'ar-101',
@@ -1214,9 +1214,9 @@ def main():
                                     ],
                                     'type': 'str'
                                 },
-                                'restricted-admin': {'v_range': [['6.4.7', '6.4.13'], ['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                                'restricted-admin': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                                 'send-preconnection-id': {
-                                    'v_range': [['6.4.7', '6.4.13'], ['7.0.1', '']],
+                                    'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']],
                                     'choices': ['disable', 'enable'],
                                     'type': 'str'
                                 },
@@ -1338,10 +1338,10 @@ def main():
                 'use-sdwan': {'v_range': [['6.2.7', '6.2.12'], ['6.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'prefer-ipv6-dns': {'v_range': [['7.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'rewrite-ip-uri-ui': {'v_range': [['7.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'clipboard': {'v_range': [['6.4.7', '6.4.13'], ['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'clipboard': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'default-window-height': {'v_range': [['7.0.4', '']], 'type': 'int'},
                 'default-window-width': {'v_range': [['7.0.4', '']], 'type': 'int'},
-                'dhcp-ip-overlap': {'v_range': [['7.0.4', '7.0.10'], ['7.2.1', '']], 'choices': ['use-old', 'use-new'], 'type': 'str'},
+                'dhcp-ip-overlap': {'v_range': [['7.0.4', '7.0.12'], ['7.2.1', '']], 'choices': ['use-old', 'use-new'], 'type': 'str'},
                 'client-src-range': {'v_range': [['7.2.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'dhcp-ra-giaddr': {'v_range': [['7.2.2', '']], 'type': 'str'},
                 'dhcp6-ra-linkaddr': {'v_range': [['7.2.2', '']], 'type': 'str'},

@@ -186,11 +186,11 @@ def main():
     module_arg_spec = {
         'system_sslciphersuites': {
             'type': 'dict',
-            'v_range': [['6.4.8', '6.4.13'], ['7.0.2', '']],
+            'v_range': [['6.4.8', '6.4.14'], ['7.0.2', '']],
             'options': {
-                'cipher': {'v_range': [['6.4.8', '6.4.13'], ['7.0.2', '']], 'type': 'str'},
-                'priority': {'v_range': [['6.4.8', '6.4.13'], ['7.0.2', '']], 'type': 'int'},
-                'version': {'v_range': [['6.4.8', '6.4.13'], ['7.0.2', '']], 'choices': ['tls1.2-or-below', 'tls1.3'], 'type': 'str'}
+                'cipher': {'v_range': [['6.4.8', '6.4.14'], ['7.0.2', '']], 'type': 'str'},
+                'priority': {'v_range': [['6.4.8', '6.4.14'], ['7.0.2', '']], 'type': 'int'},
+                'version': {'v_range': [['6.4.8', '6.4.14'], ['7.0.2', '']], 'choices': ['tls1.2-or-below', 'tls1.3'], 'type': 'str'}
             }
 
         }

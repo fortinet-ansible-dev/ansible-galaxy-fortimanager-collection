@@ -666,6 +666,7 @@ options:
                     - 'pm_config_adom_options'
                     - 'pm_config_application_list'
                     - 'pm_config_category_list'
+                    - 'pm_config_data_defaultsslvpnoschecklist'
                     - 'pm_config_data_tablesize'
                     - 'pm_config_data_tablesize_faz'
                     - 'pm_config_data_tablesize_fmg'
@@ -1870,21 +1871,21 @@ def main():
             'urls': [
                 '/pm/config/adom/{adom}/devprof/{devprof}/log/syslogd/filter/exclude-list/{exclude-list}'
             ],
-            'v_range': [['7.0.4', '7.0.10']]
+            'v_range': [['7.0.4', '7.0.12']]
         },
         'devprof_log_syslogd_filter_excludelist_fields': {
             'params': ['devprof', 'exclude-list', 'fields', 'adom'],
             'urls': [
                 '/pm/config/adom/{adom}/devprof/{devprof}/log/syslogd/filter/exclude-list/{exclude-list}/fields/{fields}'
             ],
-            'v_range': [['7.0.4', '7.0.10']]
+            'v_range': [['7.0.4', '7.0.12']]
         },
         'devprof_log_syslogd_filter_freestyle': {
             'params': ['devprof', 'free-style', 'adom'],
             'urls': [
                 '/pm/config/adom/{adom}/devprof/{devprof}/log/syslogd/filter/free-style/{free-style}'
             ],
-            'v_range': [['7.0.4', '7.0.10'], ['7.2.1', '']]
+            'v_range': [['7.0.4', '7.0.12'], ['7.2.1', '']]
         },
         'devprof_log_syslogd_setting': {
             'params': ['devprof', 'adom'],
@@ -1898,7 +1899,7 @@ def main():
             'urls': [
                 '/pm/config/adom/{adom}/devprof/{devprof}/log/syslogd/setting/custom-field-name/{custom-field-name}'
             ],
-            'v_range': [['7.0.4', '7.0.10'], ['7.2.1', '']]
+            'v_range': [['7.0.4', '7.0.12'], ['7.2.1', '']]
         },
         'devprof_system_centralmanagement': {
             'params': ['devprof', 'adom'],
@@ -2620,7 +2621,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/dynamic/virtual-wan-link/members/{members}',
                 '/pm/config/global/obj/dynamic/virtual-wan-link/members/{members}'
             ],
-            'v_range': [['6.0.0', '6.4.13']]
+            'v_range': [['6.0.0', '6.4.14']]
         },
         'dynamic_virtualwanlink_members_dynamicmapping': {
             'params': ['members', 'dynamic_mapping', 'adom'],
@@ -2628,7 +2629,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/dynamic/virtual-wan-link/members/{members}/dynamic_mapping/{dynamic_mapping}',
                 '/pm/config/global/obj/dynamic/virtual-wan-link/members/{members}/dynamic_mapping/{dynamic_mapping}'
             ],
-            'v_range': [['6.0.0', '6.4.13']]
+            'v_range': [['6.0.0', '6.4.14']]
         },
         'dynamic_virtualwanlink_neighbor': {
             'params': ['neighbor', 'adom'],
@@ -2636,7 +2637,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/dynamic/virtual-wan-link/neighbor/{neighbor}',
                 '/pm/config/global/obj/dynamic/virtual-wan-link/neighbor/{neighbor}'
             ],
-            'v_range': [['6.2.2', '6.4.13']]
+            'v_range': [['6.2.2', '6.4.14']]
         },
         'dynamic_virtualwanlink_neighbor_dynamicmapping': {
             'params': ['neighbor', 'dynamic_mapping', 'adom'],
@@ -2644,7 +2645,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/dynamic/virtual-wan-link/neighbor/{neighbor}/dynamic_mapping/{dynamic_mapping}',
                 '/pm/config/global/obj/dynamic/virtual-wan-link/neighbor/{neighbor}/dynamic_mapping/{dynamic_mapping}'
             ],
-            'v_range': [['6.2.2', '6.4.13']]
+            'v_range': [['6.2.2', '6.4.14']]
         },
         'dynamic_virtualwanlink_server': {
             'params': ['server', 'adom'],
@@ -2652,7 +2653,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/dynamic/virtual-wan-link/server/{server}',
                 '/pm/config/global/obj/dynamic/virtual-wan-link/server/{server}'
             ],
-            'v_range': [['6.0.0', '6.4.13']]
+            'v_range': [['6.0.0', '6.4.14']]
         },
         'dynamic_virtualwanlink_server_dynamicmapping': {
             'params': ['server', 'dynamic_mapping', 'adom'],
@@ -2660,7 +2661,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/dynamic/virtual-wan-link/server/{server}/dynamic_mapping/{dynamic_mapping}',
                 '/pm/config/global/obj/dynamic/virtual-wan-link/server/{server}/dynamic_mapping/{dynamic_mapping}'
             ],
-            'v_range': [['6.0.0', '6.4.13']]
+            'v_range': [['6.0.0', '6.4.14']]
         },
         'dynamic_vpntunnel': {
             'params': ['vpntunnel', 'adom'],
@@ -3862,7 +3863,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/firewall/ippool_grp/{ippool_grp}',
                 '/pm/config/global/obj/firewall/ippool_grp/{ippool_grp}'
             ],
-            'v_range': [['6.4.7', '6.4.13'], ['7.0.1', '']]
+            'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']]
         },
         'firewall_ldbmonitor': {
             'params': ['ldb-monitor', 'adom'],
@@ -4318,7 +4319,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/firewall/vendor-mac',
                 '/pm/config/global/obj/firewall/vendor-mac'
             ],
-            'v_range': [['7.2.4', '7.2.4'], ['7.4.1', '']]
+            'v_range': [['7.2.4', '7.2.5'], ['7.4.1', '']]
         },
         'firewall_vip': {
             'params': ['vip', 'adom'],
@@ -4703,7 +4704,7 @@ def main():
             'urls': [
                 '/cli/global/fmupdate/fwm-setting/upgrade-timeout'
             ],
-            'v_range': [['7.0.5', '7.0.10'], ['7.2.2', '']]
+            'v_range': [['7.0.5', '7.0.12'], ['7.2.2', '']]
         },
         'fmupdate_multilayer': {
             'params': [],
@@ -5593,7 +5594,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/log/npu-server',
                 '/pm/config/global/obj/log/npu-server'
             ],
-            'v_range': [['6.4.7', '6.4.13'], ['7.0.1', '']]
+            'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']]
         },
         'log_npuserver_servergroup': {
             'params': ['server-group', 'adom'],
@@ -5601,7 +5602,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/log/npu-server/server-group/{server-group}',
                 '/pm/config/global/obj/log/npu-server/server-group/{server-group}'
             ],
-            'v_range': [['6.4.7', '6.4.13'], ['7.0.1', '']]
+            'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']]
         },
         'log_npuserver_serverinfo': {
             'params': ['server-info', 'adom'],
@@ -5609,7 +5610,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/log/npu-server/server-info/{server-info}',
                 '/pm/config/global/obj/log/npu-server/server-info/{server-info}'
             ],
-            'v_range': [['6.4.7', '6.4.13'], ['7.0.1', '']]
+            'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']]
         },
         'metafields_system_admin_user': {
             'params': [],
@@ -5753,28 +5754,28 @@ def main():
             'urls': [
                 '/pm/config/adom/{adom}/pkg/{pkg}/firewall/hyperscale-policy/{hyperscale-policy}'
             ],
-            'v_range': [['6.4.7', '6.4.13'], ['7.0.1', '7.2.0']]
+            'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '7.2.0']]
         },
         'pkg_firewall_hyperscalepolicy46': {
             'params': ['pkg', 'hyperscale-policy46', 'adom'],
             'urls': [
                 '/pm/config/adom/{adom}/pkg/{pkg}/firewall/hyperscale-policy46/{hyperscale-policy46}'
             ],
-            'v_range': [['6.4.7', '6.4.13'], ['7.0.1', '7.2.0']]
+            'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '7.2.0']]
         },
         'pkg_firewall_hyperscalepolicy6': {
             'params': ['pkg', 'hyperscale-policy6', 'adom'],
             'urls': [
                 '/pm/config/adom/{adom}/pkg/{pkg}/firewall/hyperscale-policy6/{hyperscale-policy6}'
             ],
-            'v_range': [['6.4.7', '6.4.13'], ['7.0.1', '7.2.0']]
+            'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '7.2.0']]
         },
         'pkg_firewall_hyperscalepolicy64': {
             'params': ['pkg', 'hyperscale-policy64', 'adom'],
             'urls': [
                 '/pm/config/adom/{adom}/pkg/{pkg}/firewall/hyperscale-policy64/{hyperscale-policy64}'
             ],
-            'v_range': [['6.4.7', '6.4.13'], ['7.0.1', '7.2.0']]
+            'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '7.2.0']]
         },
         'pkg_firewall_interfacepolicy': {
             'params': ['pkg', 'interface-policy', 'adom'],
@@ -6003,6 +6004,14 @@ def main():
             ],
             'v_range': [['6.2.0', '']]
         },
+        'pm_config_data_defaultsslvpnoschecklist': {
+            'params': ['adom'],
+            'urls': [
+                '/pm/config/adom/{adom}/_data/default_sslvpn_os_check_list',
+                '/pm/config/global/_data/default_sslvpn_os_check_list'
+            ],
+            'v_range': [['7.2.5', '7.2.5']]
+        },
         'pm_config_data_tablesize': {
             'params': ['tablesize', 'adom'],
             'urls': [
@@ -6097,7 +6106,7 @@ def main():
             'urls': [
                 '/pm/config/adom/{adom}/_package/status/{device_name}/{vdom_name}'
             ],
-            'v_range': [['7.0.7', '7.0.10'], ['7.2.2', '']]
+            'v_range': [['7.0.7', '7.0.12'], ['7.2.2', '']]
         },
         'pm_config_pblock_firewall_consolidated_policy': {
             'params': ['pblock', 'policy', 'adom'],
@@ -6341,7 +6350,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/sctp-filter/profile/{profile}',
                 '/pm/config/global/obj/sctp-filter/profile/{profile}'
             ],
-            'v_range': [['7.4.2', '']]
+            'v_range': [['7.2.5', '7.2.5'], ['7.4.2', '']]
         },
         'sctpfilter_profile_ppidfilters': {
             'params': ['profile', 'ppid-filters', 'adom'],
@@ -6349,7 +6358,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/sctp-filter/profile/{profile}/ppid-filters/{ppid-filters}',
                 '/pm/config/global/obj/sctp-filter/profile/{profile}/ppid-filters/{ppid-filters}'
             ],
-            'v_range': [['7.4.2', '']]
+            'v_range': [['7.2.5', '7.2.5'], ['7.4.2', '']]
         },
         'spamfilter_bwl': {
             'params': ['bwl', 'adom'],
@@ -7386,7 +7395,7 @@ def main():
             'urls': [
                 '/cli/global/system/guiact'
             ],
-            'v_range': [['6.0.0', '7.4.0']]
+            'v_range': [['6.0.0', '7.0.11'], ['7.2.0', '7.2.4'], ['7.4.0', '7.4.0']]
         },
         'system_ha': {
             'params': [],
@@ -7673,7 +7682,7 @@ def main():
             'urls': [
                 '/cli/global/system/log/topology'
             ],
-            'v_range': [['6.4.7', '6.4.13'], ['7.0.2', '']]
+            'v_range': [['6.4.7', '6.4.14'], ['7.0.2', '']]
         },
         'system_logfetch_clientprofile': {
             'params': ['client-profile'],
@@ -7746,7 +7755,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/system/npu',
                 '/pm/config/global/obj/system/npu'
             ],
-            'v_range': [['6.4.7', '6.4.13'], ['7.0.1', '']]
+            'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']]
         },
         'system_npu_backgroundssescan': {
             'params': ['adom'],
@@ -7754,7 +7763,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/system/npu/background-sse-scan',
                 '/pm/config/global/obj/system/npu/background-sse-scan'
             ],
-            'v_range': [['6.4.8', '6.4.13'], ['7.0.3', '']]
+            'v_range': [['6.4.8', '6.4.14'], ['7.0.3', '']]
         },
         'system_npu_dosoptions': {
             'params': ['adom'],
@@ -7762,7 +7771,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/system/npu/dos-options',
                 '/pm/config/global/obj/system/npu/dos-options'
             ],
-            'v_range': [['6.4.7', '6.4.13'], ['7.0.1', '']]
+            'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']]
         },
         'system_npu_dswdtsprofile': {
             'params': ['dsw-dts-profile', 'adom'],
@@ -7770,7 +7779,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/system/npu/dsw-dts-profile/{dsw-dts-profile}',
                 '/pm/config/global/obj/system/npu/dsw-dts-profile/{dsw-dts-profile}'
             ],
-            'v_range': [['6.4.7', '6.4.13'], ['7.0.1', '']]
+            'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']]
         },
         'system_npu_dswqueuedtsprofile': {
             'params': ['dsw-queue-dts-profile', 'adom'],
@@ -7778,7 +7787,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/system/npu/dsw-queue-dts-profile/{dsw-queue-dts-profile}',
                 '/pm/config/global/obj/system/npu/dsw-queue-dts-profile/{dsw-queue-dts-profile}'
             ],
-            'v_range': [['6.4.7', '6.4.13'], ['7.0.1', '']]
+            'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']]
         },
         'system_npu_fpanomaly': {
             'params': ['adom'],
@@ -7786,7 +7795,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/system/npu/fp-anomaly',
                 '/pm/config/global/obj/system/npu/fp-anomaly'
             ],
-            'v_range': [['6.4.7', '6.4.13'], ['7.0.1', '']]
+            'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']]
         },
         'system_npu_hpe': {
             'params': ['adom'],
@@ -7794,7 +7803,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/system/npu/hpe',
                 '/pm/config/global/obj/system/npu/hpe'
             ],
-            'v_range': [['6.4.7', '6.4.13'], ['7.0.1', '']]
+            'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']]
         },
         'system_npu_ipreassembly': {
             'params': ['adom'],
@@ -7802,7 +7811,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/system/npu/ip-reassembly',
                 '/pm/config/global/obj/system/npu/ip-reassembly'
             ],
-            'v_range': [['6.4.7', '6.4.13'], ['7.0.1', '']]
+            'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']]
         },
         'system_npu_isfnpqueues': {
             'params': ['adom'],
@@ -7810,7 +7819,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/system/npu/isf-np-queues',
                 '/pm/config/global/obj/system/npu/isf-np-queues'
             ],
-            'v_range': [['6.4.7', '6.4.13'], ['7.0.1', '']]
+            'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']]
         },
         'system_npu_npqueues': {
             'params': ['adom'],
@@ -7818,7 +7827,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/system/npu/np-queues',
                 '/pm/config/global/obj/system/npu/np-queues'
             ],
-            'v_range': [['6.4.7', '6.4.13'], ['7.0.1', '']]
+            'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']]
         },
         'system_npu_npqueues_ethernettype': {
             'params': ['ethernet-type', 'adom'],
@@ -7826,7 +7835,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/system/npu/np-queues/ethernet-type/{ethernet-type}',
                 '/pm/config/global/obj/system/npu/np-queues/ethernet-type/{ethernet-type}'
             ],
-            'v_range': [['6.4.7', '6.4.13'], ['7.0.1', '']]
+            'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']]
         },
         'system_npu_npqueues_ipprotocol': {
             'params': ['ip-protocol', 'adom'],
@@ -7834,7 +7843,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/system/npu/np-queues/ip-protocol/{ip-protocol}',
                 '/pm/config/global/obj/system/npu/np-queues/ip-protocol/{ip-protocol}'
             ],
-            'v_range': [['6.4.7', '6.4.13'], ['7.0.1', '']]
+            'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']]
         },
         'system_npu_npqueues_ipservice': {
             'params': ['ip-service', 'adom'],
@@ -7842,7 +7851,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/system/npu/np-queues/ip-service/{ip-service}',
                 '/pm/config/global/obj/system/npu/np-queues/ip-service/{ip-service}'
             ],
-            'v_range': [['6.4.7', '6.4.13'], ['7.0.1', '']]
+            'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']]
         },
         'system_npu_npqueues_profile': {
             'params': ['profile', 'adom'],
@@ -7850,7 +7859,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/system/npu/np-queues/profile/{profile}',
                 '/pm/config/global/obj/system/npu/np-queues/profile/{profile}'
             ],
-            'v_range': [['6.4.7', '6.4.13'], ['7.0.1', '']]
+            'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']]
         },
         'system_npu_npqueues_scheduler': {
             'params': ['scheduler', 'adom'],
@@ -7858,7 +7867,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/system/npu/np-queues/scheduler/{scheduler}',
                 '/pm/config/global/obj/system/npu/np-queues/scheduler/{scheduler}'
             ],
-            'v_range': [['6.4.7', '6.4.13'], ['7.0.1', '']]
+            'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']]
         },
         'system_npu_nputcam': {
             'params': ['npu-tcam', 'adom'],
@@ -7922,7 +7931,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/system/npu/port-cpu-map/{port-cpu-map}',
                 '/pm/config/global/obj/system/npu/port-cpu-map/{port-cpu-map}'
             ],
-            'v_range': [['6.4.7', '6.4.13'], ['7.0.1', '']]
+            'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']]
         },
         'system_npu_portnpumap': {
             'params': ['port-npu-map', 'adom'],
@@ -7930,7 +7939,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/system/npu/port-npu-map/{port-npu-map}',
                 '/pm/config/global/obj/system/npu/port-npu-map/{port-npu-map}'
             ],
-            'v_range': [['6.4.7', '6.4.13'], ['7.0.1', '']]
+            'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']]
         },
         'system_npu_portpathoption': {
             'params': ['adom'],
@@ -7938,7 +7947,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/system/npu/port-path-option',
                 '/pm/config/global/obj/system/npu/port-path-option'
             ],
-            'v_range': [['6.4.7', '6.4.13'], ['7.0.1', '']]
+            'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']]
         },
         'system_npu_priorityprotocol': {
             'params': ['adom'],
@@ -7946,7 +7955,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/system/npu/priority-protocol',
                 '/pm/config/global/obj/system/npu/priority-protocol'
             ],
-            'v_range': [['6.4.7', '6.4.13'], ['7.0.1', '']]
+            'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']]
         },
         'system_npu_ssehascan': {
             'params': ['adom'],
@@ -7954,7 +7963,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/system/npu/sse-ha-scan',
                 '/pm/config/global/obj/system/npu/sse-ha-scan'
             ],
-            'v_range': [['6.4.10', '6.4.13'], ['7.0.4', '7.0.10'], ['7.2.1', '']]
+            'v_range': [['6.4.10', '6.4.14'], ['7.0.4', '7.0.12'], ['7.2.1', '']]
         },
         'system_npu_swehhash': {
             'params': ['adom'],
@@ -7978,7 +7987,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/system/npu/tcp-timeout-profile/{tcp-timeout-profile}',
                 '/pm/config/global/obj/system/npu/tcp-timeout-profile/{tcp-timeout-profile}'
             ],
-            'v_range': [['6.4.7', '6.4.13'], ['7.0.1', '']]
+            'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']]
         },
         'system_npu_udptimeoutprofile': {
             'params': ['udp-timeout-profile', 'adom'],
@@ -7986,7 +7995,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/system/npu/udp-timeout-profile/{udp-timeout-profile}',
                 '/pm/config/global/obj/system/npu/udp-timeout-profile/{udp-timeout-profile}'
             ],
-            'v_range': [['6.4.7', '6.4.13'], ['7.0.1', '']]
+            'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']]
         },
         'system_ntp': {
             'params': [],
@@ -8008,7 +8017,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/system/object-tag/{object-tag}',
                 '/pm/config/global/obj/system/object-tag/{object-tag}'
             ],
-            'v_range': [['6.2.0', '6.4.13']]
+            'v_range': [['6.2.0', '6.4.14']]
         },
         'system_objecttagging': {
             'params': ['object-tagging', 'adom'],
@@ -8363,7 +8372,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/system/sdn-connector/{sdn-connector}/gcp-project-list/{gcp-project-list}',
                 '/pm/config/global/obj/system/sdn-connector/{sdn-connector}/gcp-project-list/{gcp-project-list}'
             ],
-            'v_range': [['6.4.7', '6.4.13'], ['7.0.2', '']]
+            'v_range': [['6.4.7', '6.4.14'], ['7.0.2', '']]
         },
         'system_sdnconnector_nic': {
             'params': ['sdn-connector', 'nic', 'adom'],
@@ -8518,7 +8527,7 @@ def main():
             'urls': [
                 '/cli/global/system/global/ssl-cipher-suites/{ssl-cipher-suites}'
             ],
-            'v_range': [['6.4.8', '6.4.13'], ['7.0.2', '']]
+            'v_range': [['6.4.8', '6.4.14'], ['7.0.2', '']]
         },
         'system_status': {
             'params': [],
@@ -8547,7 +8556,7 @@ def main():
             'urls': [
                 '/cli/global/system/web-proxy'
             ],
-            'v_range': [['6.4.8', '6.4.13'], ['7.0.3', '']]
+            'v_range': [['6.4.8', '6.4.14'], ['7.0.3', '']]
         },
         'system_workflow_approvalmatrix': {
             'params': ['approval-matrix'],
@@ -8621,7 +8630,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/user/certificate/{certificate}',
                 '/pm/config/global/obj/user/certificate/{certificate}'
             ],
-            'v_range': [['7.0.8', '7.0.10'], ['7.2.3', '']]
+            'v_range': [['7.0.8', '7.0.12'], ['7.2.3', '']]
         },
         'user_clearpass': {
             'params': ['clearpass', 'adom'],
@@ -8981,7 +8990,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/user/saml/{saml}/dynamic_mapping/{dynamic_mapping}',
                 '/pm/config/global/obj/user/saml/{saml}/dynamic_mapping/{dynamic_mapping}'
             ],
-            'v_range': [['7.0.5', '7.0.10'], ['7.2.1', '7.4.0']]
+            'v_range': [['7.0.5', '7.0.12'], ['7.2.1', '7.4.0']]
         },
         'user_securityexemptlist': {
             'params': ['security-exempt-list', 'adom'],
@@ -10832,6 +10841,7 @@ def main():
                         'pm_config_adom_options',
                         'pm_config_application_list',
                         'pm_config_category_list',
+                        'pm_config_data_defaultsslvpnoschecklist',
                         'pm_config_data_tablesize',
                         'pm_config_data_tablesize_faz',
                         'pm_config_data_tablesize_fmg',

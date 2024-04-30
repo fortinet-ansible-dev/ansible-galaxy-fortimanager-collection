@@ -345,21 +345,21 @@ def main():
                     'type': 'str'
                 },
                 'status': {'v_range': [['6.0.0', '6.2.5'], ['6.2.7', '6.4.1'], ['6.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'reliable': {'v_range': [['6.2.0', '6.2.5'], ['6.2.7', '6.4.1'], ['6.4.3', '6.4.13']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'reliable': {'v_range': [['6.2.0', '6.2.5'], ['6.2.7', '6.4.1'], ['6.4.3', '6.4.14']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'csv': {'v_range': [['6.2.0', '6.2.5'], ['6.2.7', '6.2.12']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'max-log-rate': {'v_range': [['6.2.2', '6.2.5'], ['6.2.7', '6.4.1'], ['6.4.3', '']], 'type': 'int'},
                 'priority': {'v_range': [['6.2.2', '6.2.5'], ['6.2.7', '6.4.1'], ['6.4.3', '']], 'choices': ['low', 'default'], 'type': 'str'},
                 'interface': {'v_range': [['6.2.7', '6.2.12'], ['6.4.3', '']], 'type': 'str'},
                 'interface-select-method': {'v_range': [['6.2.7', '6.2.12'], ['6.4.3', '']], 'choices': ['auto', 'sdwan', 'specify'], 'type': 'str'},
-                'format': {'v_range': [['6.4.6', '6.4.13'], ['7.0.1', '']], 'choices': ['default', 'csv', 'cef', 'rfc5424', 'json'], 'type': 'str'},
+                'format': {'v_range': [['6.4.6', '6.4.14'], ['7.0.1', '']], 'choices': ['default', 'csv', 'cef', 'rfc5424', 'json'], 'type': 'str'},
                 'syslog-type': {'v_range': [['6.2.0', '6.2.0']], 'type': 'int'},
                 'custom-field-name': {
-                    'v_range': [['7.0.4', '7.0.10'], ['7.2.1', '']],
+                    'v_range': [['7.0.4', '7.0.12'], ['7.2.1', '']],
                     'type': 'list',
                     'options': {
-                        'custom': {'v_range': [['7.0.4', '7.0.10'], ['7.2.1', '']], 'type': 'str'},
-                        'id': {'v_range': [['7.0.4', '7.0.10'], ['7.2.1', '']], 'type': 'int'},
-                        'name': {'v_range': [['7.0.4', '7.0.10'], ['7.2.1', '']], 'type': 'str'}
+                        'custom': {'v_range': [['7.0.4', '7.0.12'], ['7.2.1', '']], 'type': 'str'},
+                        'id': {'v_range': [['7.0.4', '7.0.12'], ['7.2.1', '']], 'type': 'int'},
+                        'name': {'v_range': [['7.0.4', '7.0.12'], ['7.2.1', '']], 'type': 'str'}
                     },
                     'elements': 'dict'
                 }

@@ -69,9 +69,9 @@ options:
         required: false
         type: dict
         suboptions:
-            message:
+            fmgr_message:
                 type: str
-                description: Deprecated, please rename it to fmgr_message. Optional message to be stored in event log.
+                description: Optional message to be stored in event log.
 '''
 
 EXAMPLES = '''
@@ -156,7 +156,7 @@ def main():
         'sys_reboot': {
             'type': 'dict',
             'v_range': [['6.2.5', '']],
-            'options': {'message': {'v_range': [['6.2.5', '']], 'type': 'str'}}
+            'options': {'fmgr_message': {'v_range': [['6.2.5', '']], 'type': 'str'}}
 
         }
     }

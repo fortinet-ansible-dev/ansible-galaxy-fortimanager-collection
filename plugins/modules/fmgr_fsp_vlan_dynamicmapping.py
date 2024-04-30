@@ -12,7 +12,7 @@ ANSIBLE_METADATA = {'status': ['preview'],
 DOCUMENTATION = '''
 ---
 module: fmgr_fsp_vlan_dynamicmapping
-short_description: no description
+short_description: Fsp vlan dynamic mapping
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
@@ -1103,7 +1103,7 @@ EXAMPLES = '''
     ansible_httpapi_validate_certs: false
     ansible_httpapi_port: 443
   tasks:
-    - name: No description
+    - name: Fsp vlan dynamic mapping
       fortinet.fortimanager.fmgr_fsp_vlan_dynamicmapping:
         # bypass_validation: false
         workspace_locking_adom: <value in [global, custom adom including root]>
@@ -1753,7 +1753,7 @@ def main():
                         },
                         'vlanid': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
                         'dhcp-relay-interface-select-method': {
-                            'v_range': [['6.4.8', '6.4.13'], ['7.0.4', '']],
+                            'v_range': [['6.4.8', '6.4.14'], ['7.0.4', '']],
                             'choices': ['auto', 'sdwan', 'specify'],
                             'type': 'str'
                         },

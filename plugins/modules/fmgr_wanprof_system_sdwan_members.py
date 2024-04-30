@@ -120,6 +120,7 @@ options:
             seq-num:
                 type: int
                 description: Deprecated, please rename it to seq_num. Sequence number
+                required: true
             source:
                 type: str
                 description: Source IP address used in the health-check packet to the server.
@@ -253,7 +254,7 @@ def main():
     ]
 
     url_params = ['adom', 'wanprof']
-    module_primary_key = None
+    module_primary_key = 'seq-num'
     module_arg_spec = {
         'adom': {'required': True, 'type': 'str'},
         'wanprof': {'required': True, 'type': 'str'},
@@ -261,7 +262,7 @@ def main():
             'type': 'dict',
             'v_range': [['6.4.1', '']],
             'options': {
-                '_dynamic-member': {'v_range': [['6.4.1', '6.4.13']], 'type': 'str'},
+                '_dynamic-member': {'v_range': [['6.4.1', '6.4.14']], 'type': 'str'},
                 'comment': {'v_range': [['6.4.1', '']], 'type': 'str'},
                 'cost': {'v_range': [['6.4.1', '']], 'type': 'int'},
                 'gateway': {'v_range': [['6.4.1', '']], 'type': 'str'},
@@ -269,7 +270,7 @@ def main():
                 'ingress-spillover-threshold': {'v_range': [['6.4.1', '']], 'type': 'int'},
                 'interface': {'v_range': [['6.4.1', '']], 'type': 'str'},
                 'priority': {'v_range': [['6.4.1', '']], 'type': 'int'},
-                'seq-num': {'v_range': [['6.4.1', '']], 'type': 'int'},
+                'seq-num': {'v_range': [['6.4.1', '']], 'required': True, 'type': 'int'},
                 'source': {'v_range': [['6.4.1', '']], 'type': 'str'},
                 'source6': {'v_range': [['6.4.1', '']], 'type': 'str'},
                 'spillover-threshold': {'v_range': [['6.4.1', '']], 'type': 'int'},

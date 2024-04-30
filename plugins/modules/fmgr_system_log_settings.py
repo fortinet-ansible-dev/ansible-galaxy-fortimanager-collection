@@ -947,9 +947,9 @@ def main():
                         'file-size': {'type': 'int'},
                         'gzip-format': {'choices': ['disable', 'enable'], 'type': 'str'},
                         'hour': {'type': 'int'},
-                        'ip': {'v_range': [['6.0.0', '7.0.10']], 'type': 'str'},
-                        'ip2': {'v_range': [['6.0.0', '7.0.10']], 'type': 'str'},
-                        'ip3': {'v_range': [['6.0.0', '7.0.10']], 'type': 'str'},
+                        'ip': {'v_range': [['6.0.0', '7.0.12']], 'type': 'str'},
+                        'ip2': {'v_range': [['6.0.0', '7.0.12']], 'type': 'str'},
+                        'ip3': {'v_range': [['6.0.0', '7.0.12']], 'type': 'str'},
                         'log-format': {'choices': ['native', 'text', 'csv'], 'type': 'str'},
                         'min': {'type': 'int'},
                         'password': {'no_log': True, 'type': 'raw'},
@@ -982,9 +982,9 @@ def main():
                         'file-size': {'type': 'int'},
                         'gzip-format': {'choices': ['disable', 'enable'], 'type': 'str'},
                         'hour': {'type': 'int'},
-                        'ip': {'v_range': [['6.0.0', '7.0.10']], 'type': 'str'},
-                        'ip2': {'v_range': [['6.0.0', '7.0.10']], 'type': 'str'},
-                        'ip3': {'v_range': [['6.0.0', '7.0.10']], 'type': 'str'},
+                        'ip': {'v_range': [['6.0.0', '7.0.12']], 'type': 'str'},
+                        'ip2': {'v_range': [['6.0.0', '7.0.12']], 'type': 'str'},
+                        'ip3': {'v_range': [['6.0.0', '7.0.12']], 'type': 'str'},
                         'log-format': {'choices': ['native', 'text', 'csv'], 'type': 'str'},
                         'min': {'type': 'int'},
                         'password': {'no_log': True, 'type': 'raw'},
@@ -1017,9 +1017,9 @@ def main():
                         'file-size': {'type': 'int'},
                         'gzip-format': {'choices': ['disable', 'enable'], 'type': 'str'},
                         'hour': {'type': 'int'},
-                        'ip': {'v_range': [['6.0.0', '7.0.10']], 'type': 'str'},
-                        'ip2': {'v_range': [['6.0.0', '7.0.10']], 'type': 'str'},
-                        'ip3': {'v_range': [['6.0.0', '7.0.10']], 'type': 'str'},
+                        'ip': {'v_range': [['6.0.0', '7.0.12']], 'type': 'str'},
+                        'ip2': {'v_range': [['6.0.0', '7.0.12']], 'type': 'str'},
+                        'ip3': {'v_range': [['6.0.0', '7.0.12']], 'type': 'str'},
                         'log-format': {'choices': ['native', 'text', 'csv'], 'type': 'str'},
                         'min': {'type': 'int'},
                         'password': {'no_log': True, 'type': 'raw'},
@@ -1044,19 +1044,19 @@ def main():
                     }
                 },
                 'sync-search-timeout': {'type': 'int'},
-                'keep-dev-logs': {'v_range': [['6.4.7', '6.4.13'], ['7.0.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'keep-dev-logs': {'v_range': [['6.4.7', '6.4.14'], ['7.0.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'device-auto-detect': {
-                    'v_range': [['7.0.10', '7.0.10'], ['7.2.4', '7.2.4'], ['7.4.1', '']],
+                    'v_range': [['7.0.10', '7.0.12'], ['7.2.4', '7.2.5'], ['7.4.1', '']],
                     'choices': ['disable', 'enable'],
                     'type': 'str'
                 },
                 'unencrypted-logging': {
-                    'v_range': [['7.0.10', '7.0.10'], ['7.2.4', '7.2.4'], ['7.4.1', '']],
+                    'v_range': [['7.0.10', '7.0.12'], ['7.2.4', '7.2.5'], ['7.4.1', '']],
                     'choices': ['disable', 'enable'],
                     'type': 'str'
                 },
-                'log-interval-dev-no-logging': {'v_range': [['7.4.2', '']], 'type': 'int'},
-                'log-upload-interval-dev-no-logging': {'v_range': [['7.4.2', '']], 'type': 'int'}
+                'log-interval-dev-no-logging': {'v_range': [['7.2.5', '7.2.5'], ['7.4.2', '']], 'type': 'int'},
+                'log-upload-interval-dev-no-logging': {'v_range': [['7.2.5', '7.2.5'], ['7.4.2', '']], 'type': 'int'}
             }
 
         }

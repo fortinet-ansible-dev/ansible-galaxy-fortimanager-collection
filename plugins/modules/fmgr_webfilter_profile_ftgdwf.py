@@ -385,7 +385,7 @@ def main():
                 'rate-css-urls': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'rate-image-urls': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'rate-javascript-urls': {'choices': ['disable', 'enable'], 'type': 'str'},
-                'category-override': {'v_range': [['6.2.0', '6.4.13']], 'type': 'str'}
+                'category-override': {'v_range': [['6.2.0', '6.4.14']], 'type': 'str'}
             }
 
         }

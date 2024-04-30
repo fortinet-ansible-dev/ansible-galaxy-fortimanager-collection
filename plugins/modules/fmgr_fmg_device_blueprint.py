@@ -12,7 +12,7 @@ ANSIBLE_METADATA = {'status': ['preview'],
 DOCUMENTATION = '''
 ---
 module: fmgr_fmg_device_blueprint
-short_description: no description
+short_description: Fmg device blueprint
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
@@ -130,6 +130,12 @@ options:
             templates:
                 type: raw
                 description: (list) No description.
+            enforce-device-config:
+                type: str
+                description: Deprecated, please rename it to enforce_device_config.
+                choices:
+                    - 'disable'
+                    - 'enable'
             auth-template:
                 type: raw
                 description: (list) Deprecated, please rename it to auth_template.
@@ -154,12 +160,6 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
-            enforce-device-config:
-                type: str
-                description: Deprecated, please rename it to enforce_device_config.
-                choices:
-                    - 'disable'
-                    - 'enable'
 '''
 
 EXAMPLES = '''
@@ -171,7 +171,7 @@ EXAMPLES = '''
     ansible_httpapi_validate_certs: false
     ansible_httpapi_port: 443
   tasks:
-    - name: No description
+    - name: Fmg device blueprint
       fortinet.fortimanager.fmgr_fmg_device_blueprint:
         # bypass_validation: false
         workspace_locking_adom: <value in [global, custom adom including root]>
@@ -193,13 +193,13 @@ EXAMPLES = '''
           prov_type: <value in [none, templates, template-group]>
           template_group: <string>
           templates: <list or string>
+          enforce_device_config: <value in [disable, enable]>
           auth_template: <list or string>
           ha_config: <value in [disable, enable]>
           ha_hbdev: <string>
           ha_monitor: <list or string>
           ha_password: <list or string>
           linked_to_model: <value in [disable, enable]>
-          enforce_device_config: <value in [disable, enable]>
 '''
 
 RETURN = '''
@@ -280,13 +280,13 @@ def main():
                 'prov-type': {'v_range': [['7.2.0', '']], 'choices': ['none', 'templates', 'template-group'], 'type': 'str'},
                 'template-group': {'v_range': [['7.2.0', '']], 'type': 'str'},
                 'templates': {'v_range': [['7.2.0', '']], 'type': 'raw'},
+                'enforce-device-config': {'v_range': [['7.2.5', '7.2.5'], ['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'auth-template': {'v_range': [['7.4.1', '']], 'type': 'raw'},
                 'ha-config': {'v_range': [['7.4.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'ha-hbdev': {'v_range': [['7.4.1', '']], 'type': 'str'},
                 'ha-monitor': {'v_range': [['7.4.1', '']], 'type': 'raw'},
                 'ha-password': {'v_range': [['7.4.1', '']], 'no_log': True, 'type': 'raw'},
-                'linked-to-model': {'v_range': [['7.4.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'enforce-device-config': {'v_range': [['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'linked-to-model': {'v_range': [['7.4.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
 
         }
